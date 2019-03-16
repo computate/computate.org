@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.File;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.buffer.Buffer;
 import org.computate.frFR.site.couverture.Couverture;
 import java.lang.Boolean;
@@ -275,8 +276,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 		this.videCouverture.dejaInitialise = true;
 	}
 	public ToutEcrivain setVide(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.vide = Boolean.parseBoolean(o);
+		this.vide = Boolean.parseBoolean(o);
 		this.videCouverture.dejaInitialise = true;
 		return (ToutEcrivain)this;
 	}

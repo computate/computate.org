@@ -3,6 +3,7 @@ package org.computate.frFR.site.page.parti;
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.page.parti.PagePart;
 import org.computate.frFR.site.chaine.Chaine;
@@ -181,6 +182,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	}
 
 	public void initLoinIcone() {
+		super.initLoinPagePart(requeteSite_);
 		initIcone();
 	}
 
@@ -189,7 +191,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 		nomInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
 		initLoinIcone(requeteSite_);
 	}
 
@@ -198,6 +200,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	/////////////////
 
 	public void requeteSiteIcone(RequeteSite requeteSite_) {
+			super.requeteSitePagePart(requeteSite_);
 		type.setRequeteSite_(requeteSite_);
 		nom.setRequeteSite_(requeteSite_);
 	}
@@ -210,7 +213,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) throws Exception {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -233,7 +236,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 			case "page_":
 				return oIcone.page_;
 			default:
-				return null;
+				return super.obtenirPagePart(var);
 		}
 	}
 
@@ -241,7 +244,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	// attribuer //
 	///////////////
 
-	public boolean attribuerPourClasse(String var, Object val) {
+	@Override public boolean attribuerPourClasse(String var, Object val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -258,7 +261,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 		Icone oIcone = (Icone)this;
 		switch(var) {
 			default:
-				return null;
+				return super.attribuerPagePart(var, val);
 		}
 	}
 
@@ -266,7 +269,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	// definir //
 	/////////////
 
-	public boolean definirPourClasse(String var, String val) {
+	@Override public boolean definirPourClasse(String var, String val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		if(val != null) {
@@ -284,7 +287,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	public Object definirIcone(String var, String val) {
 		switch(var) {
 			default:
-				return null;
+				return super.definirPagePart(var, val);
 		}
 	}
 
@@ -292,8 +295,9 @@ public abstract class IconeGen<DEV> extends PagePart {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyIcone();
+		super.htmlBodyPagePart();
 	}
 
 	public void htmlBodyIcone() {
@@ -303,8 +307,9 @@ public abstract class IconeGen<DEV> extends PagePart {
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtIcone();
+		super.htmlBodyCourtPagePart();
 	}
 
 	public void htmlBodyCourtIcone() {
@@ -315,7 +320,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(type, nom);
+		return Objects.hash(super.hashCode(), type, nom);
 	}
 
 	////////////
@@ -328,7 +333,8 @@ public abstract class IconeGen<DEV> extends PagePart {
 		if(!(o instanceof Icone))
 			return false;
 		Icone that = (Icone)o;
-		return Objects.equals( type, that.type )
+		return super.equals(o)
+				&& Objects.equals( type, that.type )
 				&& Objects.equals( nom, that.nom );
 	}
 
@@ -338,6 +344,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString() + "\n");
 		sb.append("Icone {");
 		sb.append( "type: " ).append(type);
 		sb.append( ", nom: " ).append(nom);

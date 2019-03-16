@@ -3,6 +3,7 @@ package org.computate.frFR.site.page.parti;
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.page.parti.PagePart;
 import org.computate.frFR.site.chaine.Chaine;
@@ -273,6 +274,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	}
 
 	public void initLoinQuestionReponse() {
+		super.initLoinPagePart(requeteSite_);
 		initQuestionReponse();
 	}
 
@@ -283,7 +285,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		reponseCourtInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
 		initLoinQuestionReponse(requeteSite_);
 	}
 
@@ -292,6 +294,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	/////////////////
 
 	public void requeteSiteQuestionReponse(RequeteSite requeteSite_) {
+			super.requeteSitePagePart(requeteSite_);
 		question.setRequeteSite_(requeteSite_);
 		questionCourt.setRequeteSite_(requeteSite_);
 		reponse.setRequeteSite_(requeteSite_);
@@ -306,7 +309,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) throws Exception {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -331,7 +334,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 			case "reponseCourt":
 				return oQuestionReponse.reponseCourt;
 			default:
-				return null;
+				return super.obtenirPagePart(var);
 		}
 	}
 
@@ -339,7 +342,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	// attribuer //
 	///////////////
 
-	public boolean attribuerPourClasse(String var, Object val) {
+	@Override public boolean attribuerPourClasse(String var, Object val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -356,7 +359,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		QuestionReponse oQuestionReponse = (QuestionReponse)this;
 		switch(var) {
 			default:
-				return null;
+				return super.attribuerPagePart(var, val);
 		}
 	}
 
@@ -364,7 +367,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	// definir //
 	/////////////
 
-	public boolean definirPourClasse(String var, String val) {
+	@Override public boolean definirPourClasse(String var, String val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		if(val != null) {
@@ -382,7 +385,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	public Object definirQuestionReponse(String var, String val) {
 		switch(var) {
 			default:
-				return null;
+				return super.definirPagePart(var, val);
 		}
 	}
 
@@ -390,8 +393,9 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyQuestionReponse();
+		super.htmlBodyPagePart();
 	}
 
 	public void htmlBodyQuestionReponse() {
@@ -401,8 +405,9 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtQuestionReponse();
+		super.htmlBodyCourtPagePart();
 	}
 
 	public void htmlBodyCourtQuestionReponse() {
@@ -413,7 +418,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(question, questionCourt, reponse, reponseCourt);
+		return Objects.hash(super.hashCode(), question, questionCourt, reponse, reponseCourt);
 	}
 
 	////////////
@@ -426,7 +431,8 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		if(!(o instanceof QuestionReponse))
 			return false;
 		QuestionReponse that = (QuestionReponse)o;
-		return Objects.equals( question, that.question )
+		return super.equals(o)
+				&& Objects.equals( question, that.question )
 				&& Objects.equals( questionCourt, that.questionCourt )
 				&& Objects.equals( reponse, that.reponse )
 				&& Objects.equals( reponseCourt, that.reponseCourt );
@@ -438,6 +444,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString() + "\n");
 		sb.append("QuestionReponse {");
 		sb.append( "question: " ).append(question);
 		sb.append( ", questionCourt: " ).append(questionCourt);

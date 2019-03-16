@@ -24,6 +24,7 @@ import io.vertx.core.http.CaseInsensitiveHeaders;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.sql.Timestamp;
+import org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomaineFrFRPage;
 import java.util.Set;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import java.util.stream.Collectors;
@@ -47,9 +48,11 @@ import java.time.LocalDateTime;
 import io.vertx.core.logging.LoggerFactory;
 import java.util.ArrayList;
 import io.vertx.core.CompositeFuture;
+import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import java.nio.charset.Charset;
 import io.vertx.ext.web.api.validation.HTTPRequestValidationHandler;
 import io.vertx.core.AsyncResult;
+import org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomaineEnUSPage;
 import io.vertx.ext.web.api.validation.ValidationException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import io.vertx.core.Vertx;
@@ -59,7 +62,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.solr.common.SolrDocument;
 import io.vertx.core.json.JsonArray;
 import io.vertx.ext.web.api.OperationRequest;
-import org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomainePage;
 import java.time.format.DateTimeFormatter;
 import io.vertx.ext.sql.SQLConnection;
 import org.computate.frFR.site.requete.RequeteSite;
@@ -81,39 +83,540 @@ public class C001L001ChoisirNomDomaineGenApiServiceImpl implements C001L001Chois
 		C001L001ChoisirNomDomaineGenApiService service = C001L001ChoisirNomDomaineGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
-	// RecherchePage //
+	// RechercheFrFRPage //
 
 	@Override
-	public void recherchepageC001L001ChoisirNomDomaine(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		RequeteSite requeteSite = genererRequeteSitePourC001L001ChoisirNomDomaine(siteContexte, operationRequete);
-		recherchepageC001L001ChoisirNomDomaine(requeteSite, a -> {
-			if(a.succeeded()) {
-				ListeRecherche<C001L001ChoisirNomDomaine> listeC001L001ChoisirNomDomaine = a.result();
-				reponse200RecherchePageC001L001ChoisirNomDomaine(listeC001L001ChoisirNomDomaine, b -> {
-					if(b.succeeded()) {
-						gestionnaireEvenements.handle(Future.succeededFuture(b.result()));
+	public void (OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSite requeteSite = genererRequeteSitePourC001L001ChoisirNomDomaine(siteContexte, operationRequete);
+			rechercheC001L001ChoisirNomDomaine(requeteSite, false, true, null, a -> {
+				if(a.succeeded()) {
+					ListeRecherche<C001L001ChoisirNomDomaine> listeC001L001ChoisirNomDomaine = a.result();
+					reponse200RechercheFrFRPageC001L001ChoisirNomDomaine(listeC001L001ChoisirNomDomaine, b -> {
+						if(b.succeeded()) {
+							gestionnaireEvenements.handle(Future.succeededFuture(b.result()));
+						} else {
+							erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001L001ChoisirNomDomaine(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200RechercheFrFRPageC001L001ChoisirNomDomaine(ListeRecherche<C001L001ChoisirNomDomaine> listeC001L001ChoisirNomDomaine, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSite requeteSite = listeC001L001ChoisirNomDomaine.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001L001ChoisirNomDomaine.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			QueryResponse reponseRecherche = listeC001L001ChoisirNomDomaine.getQueryResponse();
+			SolrDocumentList documentsSolr = listeC001L001ChoisirNomDomaine.getSolrDocumentList();
+			Long millisRecherche = Long.valueOf(reponseRecherche.getQTime());
+			Long millisTransmission = reponseRecherche.getElapsedTime();
+			Long numCommence = reponseRecherche.getResults().getStart();
+			Long numTrouve = reponseRecherche.getResults().getNumFound();
+			Integer numRetourne = reponseRecherche.getResults().size();
+			String tempsRecherche = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisRecherche), TimeUnit.MILLISECONDS.toMillis(millisRecherche) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(millisRecherche)));
+			String tempsTransmission = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisTransmission), TimeUnit.MILLISECONDS.toMillis(millisTransmission) - TimeUnit.SECONDS.toSeconds(TimeUnit.MILLISECONDS.toSeconds(millisTransmission)));
+			Exception exceptionRecherche = reponseRecherche.getException();
+
+			w.l("{");
+			w.tl(1, "\"numCommence\": ", numCommence);
+			w.tl(1, ", \"numTrouve\": ", numTrouve);
+			w.tl(1, ", \"numRetourne\": ", numRetourne);
+			w.tl(1, ", \"tempsRecherche\": ", w.q(tempsRecherche));
+			w.tl(1, ", \"tempsTransmission\": ", w.q(tempsTransmission));
+			w.tl(1, ", \"liste\": [");
+			for(int i = 0; i < listeC001L001ChoisirNomDomaine.size(); i++) {
+				C001L001ChoisirNomDomaine o = listeC001L001ChoisirNomDomaine.getList().get(i);
+				Object entiteValeur;
+				Integer entiteNumero = 0;
+
+				w.t(2);
+				if(i > 0)
+					w.s(", ");
+				w.l("{");
+
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getUtilisateurId();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClusterNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClusterNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomSimple\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getEstCours();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estCours\": ", entiteValeur);
+
+				entiteValeur = o.getCoursNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursNumero\": ", entiteValeur);
+
+				entiteValeur = o.getCoursCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getCoursDescription();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursDescription\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH1();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH1\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH2();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH2\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH3();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH3\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageTitre();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageTitre\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getEstLecon();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estLecon\": ", entiteValeur);
+
+				entiteValeur = o.getLeconCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"leconCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getLeconNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"leconNumero\": ", entiteValeur);
+
+				w.tl(2, "}");
+			}
+			w.tl(1, "]");
+			if(exceptionRecherche != null) {
+				w.tl(1, ", \"exceptionRecherche\": ", w.q(exceptionRecherche.getMessage()));
+			}
+			w.l("}");
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// RechercheEnUSPage //
+
+	@Override
+	public void (OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSite requeteSite = genererRequeteSitePourC001L001ChoisirNomDomaine(siteContexte, operationRequete);
+			rechercheC001L001ChoisirNomDomaine(requeteSite, false, true, null, a -> {
+				if(a.succeeded()) {
+					ListeRecherche<C001L001ChoisirNomDomaine> listeC001L001ChoisirNomDomaine = a.result();
+					reponse200RechercheEnUSPageC001L001ChoisirNomDomaine(listeC001L001ChoisirNomDomaine, b -> {
+						if(b.succeeded()) {
+							gestionnaireEvenements.handle(Future.succeededFuture(b.result()));
+						} else {
+							erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001L001ChoisirNomDomaine(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200RechercheEnUSPageC001L001ChoisirNomDomaine(ListeRecherche<C001L001ChoisirNomDomaine> listeC001L001ChoisirNomDomaine, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSite requeteSite = listeC001L001ChoisirNomDomaine.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001L001ChoisirNomDomaine.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			QueryResponse reponseRecherche = listeC001L001ChoisirNomDomaine.getQueryResponse();
+			SolrDocumentList documentsSolr = listeC001L001ChoisirNomDomaine.getSolrDocumentList();
+			Long millisRecherche = Long.valueOf(reponseRecherche.getQTime());
+			Long millisTransmission = reponseRecherche.getElapsedTime();
+			Long numCommence = reponseRecherche.getResults().getStart();
+			Long numTrouve = reponseRecherche.getResults().getNumFound();
+			Integer numRetourne = reponseRecherche.getResults().size();
+			String tempsRecherche = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisRecherche), TimeUnit.MILLISECONDS.toMillis(millisRecherche) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(millisRecherche)));
+			String tempsTransmission = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisTransmission), TimeUnit.MILLISECONDS.toMillis(millisTransmission) - TimeUnit.SECONDS.toSeconds(TimeUnit.MILLISECONDS.toSeconds(millisTransmission)));
+			Exception exceptionRecherche = reponseRecherche.getException();
+
+			w.l("{");
+			w.tl(1, "\"numCommence\": ", numCommence);
+			w.tl(1, ", \"numTrouve\": ", numTrouve);
+			w.tl(1, ", \"numRetourne\": ", numRetourne);
+			w.tl(1, ", \"tempsRecherche\": ", w.q(tempsRecherche));
+			w.tl(1, ", \"tempsTransmission\": ", w.q(tempsTransmission));
+			w.tl(1, ", \"liste\": [");
+			for(int i = 0; i < listeC001L001ChoisirNomDomaine.size(); i++) {
+				C001L001ChoisirNomDomaine o = listeC001L001ChoisirNomDomaine.getList().get(i);
+				Object entiteValeur;
+				Integer entiteNumero = 0;
+
+				w.t(2);
+				if(i > 0)
+					w.s(", ");
+				w.l("{");
+
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getUtilisateurId();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClusterNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClusterNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomSimple\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getEstCours();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estCours\": ", entiteValeur);
+
+				entiteValeur = o.getCoursNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursNumero\": ", entiteValeur);
+
+				entiteValeur = o.getCoursCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getCoursDescription();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursDescription\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH1();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH1\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH2();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH2\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH3();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH3\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageTitre();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageTitre\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getEstLecon();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estLecon\": ", entiteValeur);
+
+				entiteValeur = o.getLeconCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"leconCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getLeconNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"leconNumero\": ", entiteValeur);
+
+				w.tl(2, "}");
+			}
+			w.tl(1, "]");
+			if(exceptionRecherche != null) {
+				w.tl(1, ", \"exceptionRecherche\": ", w.q(exceptionRecherche.getMessage()));
+			}
+			w.l("}");
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public String varIndexeC001L001ChoisirNomDomaine(String entiteVar) {
+		switch(entiteVar) {
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "clusterNomCanonique":
+				return "clusterNomCanonique_indexed_string";
+			case "clusterNomSimple":
+				return "clusterNomSimple_indexed_string";
+			case "estCours":
+				return "estCours_indexed_boolean";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
+			case "coursCree":
+				return "coursCree_indexed_date";
+			case "coursDescription":
+				return "coursDescription_indexed_string";
+			case "pageCree":
+				return "pageCree_indexed_date";
+			case "pageH1":
+				return "pageH1_indexed_string";
+			case "pageH2":
+				return "pageH2_indexed_string";
+			case "pageH3":
+				return "pageH3_indexed_string";
+			case "pageTitre":
+				return "pageTitre_indexed_string";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
+			case "leconCree":
+				return "leconCree_indexed_date";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	// Partagé //
+
+	public void erreurC001L001ChoisirNomDomaine(RequeteSite requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
+		Throwable e = resultatAsync.cause();
+		ExceptionUtils.printRootCauseStackTrace(e);
+		OperationResponse reponseOperation = new OperationResponse(400, "BAD REQUEST", 
+			Buffer.buffer().appendString(
+				new JsonObject() {{
+					put("erreur", new JsonObject() {{
+					put("message", e.getMessage());
+					}});
+				}}.encodePrettily()
+			)
+			, new CaseInsensitiveHeaders()
+		);
+		if(requeteSite != null) {
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			if(connexionSql != null) {
+				connexionSql.rollback(a -> {
+					if(a.succeeded()) {
+						connexionSql.close(b -> {
+							if(a.succeeded()) {
+								gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
+							} else {
+								gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
+							}
+						});
 					} else {
-						erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, b);
+						gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
 					}
 				});
 			} else {
-				erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, a);
+				gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
 			}
-		});
+		} else {
+			gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
+		}
 	}
 
-	public void recherchepageC001L001ChoisirNomDomaine(RequeteSite requeteSite, Handler<AsyncResult<ListeRecherche<C001L001ChoisirNomDomaine>>> gestionnaireEvenements) {
+	public void sqlC001L001ChoisirNomDomaine(RequeteSite requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
+
+			clientSql.getConnection(sqlAsync -> {
+				if(sqlAsync.succeeded()) {
+					SQLConnection connexionSql = sqlAsync.result();
+					connexionSql.setAutoCommit(false, a -> {
+						if(a.succeeded()) {
+							requeteSite.setConnexionSql(connexionSql);
+							gestionnaireEvenements.handle(Future.succeededFuture());
+						} else {
+							gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
+						}
+					});
+				} else {
+					gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
+				}
+			});
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public RequeteSite genererRequeteSitePourC001L001ChoisirNomDomaine(SiteContexte siteContexte, OperationRequest operationRequete) {
+		return genererRequeteSitePourC001L001ChoisirNomDomaine(siteContexte, operationRequete, null);
+	}
+
+	public RequeteSite genererRequeteSitePourC001L001ChoisirNomDomaine(SiteContexte siteContexte, OperationRequest operationRequete, JsonObject body) {
+		Vertx vertx = siteContexte.getVertx();
+		RequeteSite requeteSite = new RequeteSite();
+		requeteSite.setObjetJson(body);
+		requeteSite.setVertx(vertx);
+		requeteSite.setSiteContexte_(siteContexte);
+		requeteSite.setConfigSite_(siteContexte.getConfigSite());
+		requeteSite.setOperationRequete(operationRequete);
+		requeteSite.initLoinRequeteSite(requeteSite);
+
+		return requeteSite;
+	}
+
+	public void utilisateurC001L001ChoisirNomDomaine(RequeteSite requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			String utilisateurId = requeteSite.getUtilisateurId();
+			if(utilisateurId == null) {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			} else {
+				connexionSql.queryWithParams(
+						SiteContexte.SQL_selectC
+						, new JsonArray(Arrays.asList("org.computate.frFR.site.utilisateur.UtilisateurSite", utilisateurId))
+						, selectCAsync
+				-> {
+					if(selectCAsync.succeeded()) {
+						JsonArray utilisateurValeurs = selectCAsync.result().getResults().stream().findFirst().orElse(null);
+						if(utilisateurValeurs == null) {
+							connexionSql.queryWithParams(
+									SiteContexte.SQL_creer
+									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, creerAsync
+							-> {
+								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
+								Long pkUtilisateur = creerLigne.getLong(0);
+								UtilisateurSite utilisateurSite = new UtilisateurSite();
+								utilisateurSite.setPk(pkUtilisateur);
+
+								connexionSql.queryWithParams(
+										SiteContexte.SQL_definir
+										, new JsonArray(Arrays.asList(pkUtilisateur, pkUtilisateur, pkUtilisateur))
+										, definirAsync
+								-> {
+									if(definirAsync.succeeded()) {
+										try {
+											for(JsonArray definition : definirAsync.result().getResults()) {
+												utilisateurSite.definirPourClasse(definition.getString(0), definition.getString(1));
+											}
+											JsonObject utilisateurVertx = requeteSite.getOperationRequete().getUser();
+											JsonObject principalJson = KeycloakHelper.parseToken(utilisateurVertx.getString("access_token"));
+											utilisateurSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											utilisateurSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											utilisateurSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											utilisateurSite.setUtilisateurId(principalJson.getString("sub"));
+											utilisateurSite.initLoinPourClasse(requeteSite);
+											utilisateurSite.indexerPourClasse();
+											requeteSite.setUtilisateurSite(utilisateurSite);
+											gestionnaireEvenements.handle(Future.succeededFuture());
+										} catch(Exception e) {
+											gestionnaireEvenements.handle(Future.failedFuture(e));
+										}
+									} else {
+										gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));
+									}
+								});
+							});
+						} else {
+							Long pkUtilisateur = utilisateurValeurs.getLong(0);
+							UtilisateurSite utilisateurSite = new UtilisateurSite();
+							utilisateurSite.setPk(pkUtilisateur);
+
+							connexionSql.queryWithParams(
+									SiteContexte.SQL_definir
+									, new JsonArray(Arrays.asList(pkUtilisateur, pkUtilisateur, pkUtilisateur))
+									, definirAsync
+							-> {
+								if(definirAsync.succeeded()) {
+									for(JsonArray definition : definirAsync.result().getResults()) {
+										utilisateurSite.definirPourClasse(definition.getString(0), definition.getString(1));
+									}
+									JsonObject utilisateurVertx = requeteSite.getOperationRequete().getUser();
+									JsonObject principalJson = KeycloakHelper.parseToken(utilisateurVertx.getString("access_token"));
+									utilisateurSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									utilisateurSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									utilisateurSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									utilisateurSite.setUtilisateurId(principalJson.getString("sub"));
+									utilisateurSite.initLoinPourClasse(requeteSite);
+									requeteSite.setUtilisateurSite(utilisateurSite);
+									gestionnaireEvenements.handle(Future.succeededFuture());
+								} else {
+									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));
+								}
+							});
+						}
+					} else {
+						gestionnaireEvenements.handle(Future.failedFuture(selectCAsync.cause()));
+					}
+				});
+			}
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public void rechercheC001L001ChoisirNomDomaine(RequeteSite requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L001ChoisirNomDomaine>>> gestionnaireEvenements) {
 		try {
 			OperationRequest operationRequete = requeteSite.getOperationRequete();
 			String entiteListeStr = requeteSite.getOperationRequete().getParams().getJsonObject("query").getString("fl");
 			String[] entiteListe = entiteListeStr == null ? null : entiteListeStr.split(",\\s*");
 			ListeRecherche<C001L001ChoisirNomDomaine> listeRecherche = new ListeRecherche<C001L001ChoisirNomDomaine>();
+			listeRecherche.setPeupler(peupler);
+			listeRecherche.setStocker(stocker);
 			listeRecherche.setQuery("*:*");
 			listeRecherche.setC(C001L001ChoisirNomDomaine.class);
-			listeRecherche.setRows(1000000);
 			if(entiteListe != null)
 			listeRecherche.setFields(entiteListe);
-			listeRecherche.addSort("partNumero_indexed_int", ORDER.asc);
+			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
+			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
+			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomaine"));
+			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
+			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
+				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
+			if(utilisateurSite != null && !utilisateurSite.getVoirArchive())
+				listeRecherche.addFilterQuery("archive_indexed_boolean:false");
+
+			String pageUri = null;
+			String id = operationRequete.getParams().getJsonObject("path").getString("id");
+			if(id != null) {
+				pageUri = classeApiUriMethode + "/" + id;
+				listeRecherche.addFilterQuery("pageUri_indexed_string:" + ClientUtils.escapeQueryChars(pageUri));
+			}
+
 			operationRequete.getParams().getJsonObject("query").forEach(paramRequete -> {
 				String entiteVar = null;
 				String valeurIndexe = null;
@@ -168,115 +671,6 @@ public class C001L001ChoisirNomDomaineGenApiServiceImpl implements C001L001Chois
 		}
 	}
 
-	public void reponse200RecherchePageC001L001ChoisirNomDomaine(ListeRecherche<C001L001ChoisirNomDomaine> listeC001L001ChoisirNomDomaine, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			Buffer buffer = Buffer.buffer();
-			RequeteSite requeteSite = listeC001L001ChoisirNomDomaine.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeC001L001ChoisirNomDomaine.getRequeteSite_(), buffer);
-			requeteSite.setW(w);
-			C001L001ChoisirNomDomainePage page = new C001L001ChoisirNomDomainePage();
-			page.setPageUrl("");
-			SolrDocument pageDocumentSolr = new SolrDocument();
-
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours/001/001-choisir-nom-domaine");
-			page.setPageDocumentSolr(pageDocumentSolr);
-			page.setW(w);
-			page.setListeC001L001ChoisirNomDomaine(listeC001L001ChoisirNomDomaine);
-			page.initLoinC001L001ChoisirNomDomainePage(requeteSite);
-			page.html();
-			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public String varIndexeC001L001ChoisirNomDomaine(String entiteVar) {
-		switch(entiteVar) {
-			default:
-				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
-		}
-	}
-
-	// Partagé //
-
-	public void erreurC001L001ChoisirNomDomaine(RequeteSite requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
-		Throwable e = resultatAsync.cause();
-		ExceptionUtils.printRootCauseStackTrace(e);
-		OperationResponse reponseOperation = new OperationResponse(400, "BAD REQUEST", 
-			Buffer.buffer().appendString(
-				new JsonObject() {{
-					put("erreur", new JsonObject() {{
-					put("message", e.getMessage());
-					}});
-				}}.encodePrettily()
-			)
-			, new CaseInsensitiveHeaders()
-		);
-		SQLConnection connexionSql = requeteSite.getConnexionSql();
-		if(connexionSql != null) {
-			connexionSql.rollback(a -> {
-				if(a.succeeded()) {
-					connexionSql.close(b -> {
-						if(a.succeeded()) {
-							gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
-						} else {
-							gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
-						}
-					});
-				} else {
-					gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
-				}
-			});
-		} else {
-			gestionnaireEvenements.handle(Future.succeededFuture(reponseOperation));
-		}
-	}
-
-	public void sqlC001L001ChoisirNomDomaine(RequeteSite requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
-
-			clientSql.getConnection(sqlAsync -> {
-				if(sqlAsync.succeeded()) {
-					SQLConnection connexionSql = sqlAsync.result();
-					connexionSql.setAutoCommit(false, a -> {
-						if(a.succeeded()) {
-							requeteSite.setConnexionSql(connexionSql);
-							gestionnaireEvenements.handle(Future.succeededFuture());
-						} else {
-							gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
-						}
-					});
-				} else {
-					gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
-				}
-			});
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public RequeteSite genererRequeteSitePourC001L001ChoisirNomDomaine(SiteContexte siteContexte, OperationRequest operationRequete) {
-		return genererRequeteSitePourC001L001ChoisirNomDomaine(siteContexte, operationRequete, null);
-	}
-
-	public RequeteSite genererRequeteSitePourC001L001ChoisirNomDomaine(SiteContexte siteContexte, OperationRequest operationRequete, JsonObject body) {
-		Vertx vertx = siteContexte.getVertx();
-		RequeteSite requeteSite = new RequeteSite();
-		requeteSite.setObjetJson(body);
-		requeteSite.setVertx(vertx);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		requeteSite.setOperationRequete(operationRequete);
-		requeteSite.initLoinRequeteSite(requeteSite);
-
-		UtilisateurSite utilisateurSite = new UtilisateurSite();
-		utilisateurSite.initLoinUtilisateurSite(requeteSite);
-		requeteSite.setUtilisateurSite(utilisateurSite);
-		utilisateurSite.setRequeteSite_(requeteSite);
-		return requeteSite;
-	}
-
 	public void definirC001L001ChoisirNomDomaine(C001L001ChoisirNomDomaine o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSite requeteSite = o.getRequeteSite_();
@@ -284,7 +678,7 @@ public class C001L001ChoisirNomDomaineGenApiServiceImpl implements C001L001Chois
 			Long pk = o.getPk();
 			connexionSql.queryWithParams(
 					SiteContexte.SQL_definir
-					, new JsonArray(Arrays.asList(pk))
+					, new JsonArray(Arrays.asList(pk, pk, pk))
 					, definirAsync
 			-> {
 				if(definirAsync.succeeded()) {

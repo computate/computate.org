@@ -1,17 +1,18 @@
 package org.computate.frFR.site.openshift;
 
 import org.computate.frFR.site.cluster.Cluster;
+import org.computate.frFR.site.contexte.SiteContexte;
+import org.apache.commons.text.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
+import java.io.File;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.contexte.SiteContexte;
 import org.computate.frFR.site.requete.RequeteSite;
-import org.apache.commons.text.StringEscapeUtils;
 import java.lang.Object;
 import org.computate.frFR.site.config.ConfigSite;
 import java.lang.String;
-import org.apache.commons.lang3.StringUtils;
-import java.io.File;
 
 /**	
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.frFR.site.openshift.OpenshiftTemplate&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>

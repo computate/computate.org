@@ -12,6 +12,7 @@ import java.lang.Integer;
 import java.time.ZoneId;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;
@@ -20,6 +21,7 @@ import java.lang.Boolean;
 import org.computate.frFR.site.requete.RequeteSite;
 import java.lang.Object;
 import java.lang.String;
+import java.time.ZoneOffset;
 
 /**	
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.frFR.site.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
@@ -64,6 +66,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 			this.pageParts.add(o);
 		return (MiseEnPage)this;
 	}
+	public abstract void avantPagePart(PagePart o, String entiteVar);
 	protected MiseEnPage pagePartsInit() {
 		if(!pagePartsCouverture.dejaInitialise) {
 			_pageParts(pageParts);
@@ -368,8 +371,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		this.pageVisibleAuxBotsCouverture.dejaInitialise = true;
 	}
 	public MiseEnPage setPageVisibleAuxBots(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.pageVisibleAuxBots = Boolean.parseBoolean(o);
+		this.pageVisibleAuxBots = Boolean.parseBoolean(o);
 		this.pageVisibleAuxBotsCouverture.dejaInitialise = true;
 		return (MiseEnPage)this;
 	}
@@ -886,6 +888,14 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	public MiseEnPage addPageUris(String o) {
 		if(o != null && !pageUris.contains(o))
 			this.pageUris.add(o);
+		return (MiseEnPage)this;
+	}
+	public MiseEnPage setPageUris(JsonArray objets) {
+		pageUris.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addPageUris(o);
+		}
 		return (MiseEnPage)this;
 	}
 	protected MiseEnPage pageUrisInit() {
@@ -1800,62 +1810,6 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		return pageAccueilUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageAccueilUri());
 	}
 
-	///////////////////
-	// pageCalculInr //
-	///////////////////
-
-	/**	L'entité « pageCalculInr »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageCalculInr;
-	public Couverture<String> pageCalculInrCouverture = new Couverture<String>().p(this).c(String.class).var("pageCalculInr").o(pageCalculInr);
-
-	/**	<br/>L'entité « pageCalculInr »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.frFR.site.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageCalculInr">Trouver l'entité pageCalculInr dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageCalculInr(Couverture<String> c);
-
-	public String getPageCalculInr() {
-		return pageCalculInr;
-	}
-
-	public void setPageCalculInr(String pageCalculInr) {
-		this.pageCalculInr = pageCalculInr;
-		this.pageCalculInrCouverture.dejaInitialise = true;
-	}
-	protected MiseEnPage pageCalculInrInit() {
-		if(!pageCalculInrCouverture.dejaInitialise) {
-			_pageCalculInr(pageCalculInrCouverture);
-			if(pageCalculInr == null)
-				setPageCalculInr(pageCalculInrCouverture.o);
-		}
-		pageCalculInrCouverture.dejaInitialise(true);
-		return (MiseEnPage)this;
-	}
-
-	public String solrPageCalculInr() {
-		return pageCalculInr;
-	}
-
-	public String strPageCalculInr() {
-		return pageCalculInr == null ? "" : pageCalculInr;
-	}
-
-	public String nomAffichagePageCalculInr() {
-		return null;
-	}
-
-	public String htmTooltipPageCalculInr() {
-		return null;
-	}
-
-	public String htmPageCalculInr() {
-		return pageCalculInr == null ? "" : StringEscapeUtils.escapeHtml4(strPageCalculInr());
-	}
-
 	////////////////////
 	// pageAProposUri //
 	////////////////////
@@ -2131,7 +2085,6 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		pageMotsClesInit();
 		pageDescriptionInit();
 		pageAccueilUriInit();
-		pageCalculInrInit();
 		pageAProposUriInit();
 		pageFaqUriInit();
 		pageUtilisateurUriInit();
@@ -2238,8 +2191,6 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				return oMiseEnPage.pageDescription;
 			case "pageAccueilUri":
 				return oMiseEnPage.pageAccueilUri;
-			case "pageCalculInr":
-				return oMiseEnPage.pageCalculInr;
 			case "pageAProposUri":
 				return oMiseEnPage.pageAProposUri;
 			case "pageFaqUri":
@@ -2386,7 +2337,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageCalculInr, pageAProposUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri);
+		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri);
 	}
 
 	////////////
@@ -2427,7 +2378,6 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				&& Objects.equals( pageMotsCles, that.pageMotsCles )
 				&& Objects.equals( pageDescription, that.pageDescription )
 				&& Objects.equals( pageAccueilUri, that.pageAccueilUri )
-				&& Objects.equals( pageCalculInr, that.pageCalculInr )
 				&& Objects.equals( pageAProposUri, that.pageAProposUri )
 				&& Objects.equals( pageFaqUri, that.pageFaqUri )
 				&& Objects.equals( pageUtilisateurUri, that.pageUtilisateurUri )
@@ -2469,7 +2419,6 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		sb.append( ", pageMotsCles: \"" ).append(pageMotsCles).append( "\"" );
 		sb.append( ", pageDescription: \"" ).append(pageDescription).append( "\"" );
 		sb.append( ", pageAccueilUri: \"" ).append(pageAccueilUri).append( "\"" );
-		sb.append( ", pageCalculInr: \"" ).append(pageCalculInr).append( "\"" );
 		sb.append( ", pageAProposUri: \"" ).append(pageAProposUri).append( "\"" );
 		sb.append( ", pageFaqUri: \"" ).append(pageFaqUri).append( "\"" );
 		sb.append( ", pageUtilisateurUri: \"" ).append(pageUtilisateurUri).append( "\"" );

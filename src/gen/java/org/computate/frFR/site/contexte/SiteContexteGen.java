@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.computate.frFR.site.requete.RequeteSite;

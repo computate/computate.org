@@ -1,20 +1,23 @@
-package org.computate.frFR.site.cours.c001.l001;  
+package org.computate.frFR.site.cours.c001.l001;       
 
 import org.computate.frFR.site.cours.c001.C001Lecon;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.page.parti.PageParagraphe;
+import org.computate.frFR.site.page.parti.QuestionReponse;
 
 
 /**   
  * Api: true
- * NomCanonique.enUS: org.computate.enUS.site.course.c001.C001L001ChooseDomainName
- * ApiMethode: RecherchePage
- * ApiUriRecherchePage.frFR: /frFR/cours/001/001-choisir-nom-domaine
- * ApiUriRecherchePage.enUS: /enUS/course/001/001-choose-domain-name
- * ApiTypeMedia200GETPage: text/html
- * PageRecherchePage: C001L001ChoisirNomDomainePage
- * PageSuperRecherchePage: C001LeconPage
+ * ApiMethode: RechercheFrFRPage
+ * ApiMethode: RechercheEnUSPage
+ * ApiUriRechercheFrFRPage: /frFR/cours/001/001-choisir-nom-domaine
+ * ApiUriRechercheEnUSPage: /enUS/course/001/001-choose-domain-name
+ * PageRechercheFrFRPage: C001L001ChoisirNomDomaineFrFRPage
+ * PageRechercheEnUSPage: C001L001ChoisirNomDomaineEnUSPage
+ * PageSuperRechercheFrFRPage: C001LeconFrFRPage
+ * PageSuperRechercheEnUSPage: C001LeconEnUSPage
  * UnNomMinuscule.frFR: le leçon
+ * UnNomMinuscule.enUS: a lesson
  * 
  * H1.frFR: Quel est l'étape première pour créer mon propre site Web ? 
  * H1.enUS: What is the first step to creating my own website? 
@@ -27,8 +30,39 @@ import org.computate.frFR.site.page.parti.PageParagraphe;
  * IconeGroupe: regular
  * IconeNom: book
  * Indexe: true
-*/       
-public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> { 
+ * 
+ * Val.IntroParagraphe.frFR:Envisagez-vous de créer votre propre site Web ? 
+ * Val.IntroParagraphe.frFR:Peut-être vous demandez-vous quelle est la première étape de la création de votre propre site Web ? 
+ * Val.IntroParagraphe.enUS:Are you thinking about launching your own website? 
+ * Val.IntroParagraphe.enUS:Are you wondering what the very first step is to creating your own website? 
+ * 
+ * Val.MoiParagraphe.frFR:Bonjour, je m'appelle Christophe Tate. Je suis un consultant pour Red Hat et j'adore les logiciels open source. 
+ * Val.MoiParagraphe.frFR:Je vous aiderai à créer votre propre site Web avec succès, sur votre propre ordinateur, avec des logiciels open-source. 
+ * Val.MoiParagraphe.frFR:La première chose à faire est de choisir votre nom de domaine, afin que vous puissiez commencer dans la bonne direction. 
+ * Val.MoiParagraphe.enUS:Hello, my name is Christopher Tate. I am a Red Hat consultant and I love open source software. 
+ * Val.MoiParagraphe.enUS:I will help you create your own successful website, on your own computer, using open-source software. 
+ * Val.MoiParagraphe.enUS:The first thing you should do is choose your domain name so you can get started in the right direction. 
+ * 
+ * Val.ALAvanceQuestion.frFR:Est-t-il important d'acheter un nom de domaine à l'avance ? 
+ * Val.ALAvanceQuestion.enUS:Is it important to purchase a domain name ahead of time? 
+ * Val.ALAvanceQuestionCourt.frFR:Devrais je l'acheter à l'avance ? 
+ * Val.ALAvanceQuestionCourt.enUS:Should I buy it ahead of time? 
+ * Val.ALAvanceReponse.frFR:Vous devez savoir maintenant comment vous appelez votre site, afin que vous ne seriez pas perdu. 
+ * Val.ALAvanceReponse.enUS:You need to know now what your site will be called so you don't get lost. 
+ * Val.ALAvanceReponseCourt.frFR:Savoir maintenant comment vous appelez votre site
+ * Val.ALAvanceReponseCourt.enUS:Know what your site will be called
+ * Val.ALAvanceParagraphe.frFR:Vous pouvez commencer aujourd'hui avec votre propre ordinateur à construire votre propre site Web, mais vous devez comprendre ce que le site s'appele. 
+ * Val.ALAvanceParagraphe.frFR:Le destin du nom de votre ordinateur en dépend. 
+ * Val.ALAvanceParagraphe.frFR:Les répertoires où vous mettez votre site Web l'attendent. 
+ * Val.ALAvanceParagraphe.frFR:Toutes les applications qui font partie du site Web devront le connaître. 
+ * Val.ALAvanceParagraphe.frFR:Alors, passez du temps et pensez au .com, .fr ou .nimporte qui représentera votre vision, puis revenez ici et je vais vous aider à partir de là. 
+ * Val.ALAvanceParagraphe.enUS:You can start today with your very own computer building your own website, but you must figure out what it will be called. 
+ * Val.ALAvanceParagraphe.enUS:The fate of the name of your computer depends on it. 
+ * Val.ALAvanceParagraphe.enUS:The directories where you will be putting your website are waiting for it. 
+ * Val.ALAvanceParagraphe.enUS:All the applications that are part of the website will need to know it. 
+ * Val.ALAvanceParagraphe.enUS:So go take some time and think of the perfect .com, .org or .whatever that will represent your vision, and then come back here and I'll help you from there. 
+*/     
+public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {  
 
 	public static void main(String[] args) {  
 		indexer(); 
@@ -42,77 +76,37 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		c.o("ZJTDpIpan8M");
 	} 
 
-	/**
-	 * String.enUS: Are you thinking about launching your own website? 
-	 */
-	public static final String ParagrapheIntro1 = "Envisagez-vous de créer votre propre site Web ? ";
-	/**
-	 * String.enUS: Are you wondering what the very first step is to creating your own website? 
-	 */    
-	public static final String ParagrapheIntro2 = "Peut-être vous demandez-vous quelle est la première étape de la création de votre propre site Web ? ";
 	protected void _paragrapheIntro(PageParagraphe o) {
-		o.getTexte().s(ParagrapheIntro1, ParagrapheIntro2);
+		o.getTexte().s(IntroParagraphe);
 	}
 
 	public void htmlBody() {
 		super.htmlBody();
 	}
 
-	/**
-	 * String.enUS: Hello, my name is Christopher Tate. I am a Red Hat consultant and I love open source software. 
-	 */    
-	public static final String ParagrapheMoi1 = "Bonjour, je m'appelle Christophe Tate. Je suis un consultant pour Red Hat et j'adore les logiciels open source. ";
-	/**
-	 * String.enUS: I will help you create your own successful website, on your own computer, using open-source software. 
-	 */    
-	public static final String ParagrapheMoi2 = "Je vous aiderai à créer votre propre site Web avec succès, sur votre propre ordinateur, avec des logiciels open-source. ";
 	protected void _paragrapheMoi(PageParagraphe o) {
-		o.getTexte().s(ParagrapheMoi1, ParagrapheMoi2);
+		o.getTexte().s(MoiParagraphe);
 	}
-//
-//	protected void _paragrapheMoi(PageParagraphe o) {
-//	}
-//	@Override protected void _paragrapheMoiHtml() {
-//		enUSXml("Hello, my name is Christopher Tate. ");
-//		enUSXml("By day I write code, by night I am Computate. ");
-//		enUSXml("Helping you to create your own successful website, on your own computer, using open-source software. ");
-//		enUSXml("The first thing you should do is choose your domain name so you can get started in the right direction. ");
-//
-//		frFRXml("Bonjour, je m'appelle Christopher Tate. ");
-//		frFRXml("Le jour, je fais de programmation, la nuit je m'appelle Computate. ");
-//		frFRXml("Pour vous aider à créer votre propre site Web avec succès, sur votre propre ordinateur, avec des logiciels open-source. ");
-//		frFRXml("La première chose à faire est de choisir votre nom de domaine, afin que vous puissiez commencer dans la bonne direction. ");
-//	}
-//
-//	protected void _acheterNomDomaineALAvance(QuestionReponse o) {      
-//
-//		o.questionIconeAvant("solid", "history");
-//		o.question.enUS("Is it important to purchase a domain name ahead of time? ").frFR("Est-t-il important d'acheter un nom de domaine à l'avance ? ");
-//		o.questionCourt.enUS("Should I buy it ahead of time? ").frFR("Devrais je l'acheter à l'avance ? ");
-//
-//		o.reponseIconeAvant("solid", "map-pin");
-//		o.reponse.enUS("You need to know now what your site will be called so you don't get lost. ").frFR("Vous devez savoir maintenant comment vous appelez votre site, afin que vous ne seriez pas perdu. ");
-//		o.reponseCourt.enUS("Know what your site will be called").frFR("Savoir maintenant comment vous appelez votre site");
-//	}
-//	protected void _acheterNomDomaineALAvance2(PageParagraphe o) {      
-//	}
-//	@Override protected void _acheterNomDomaineALAvance2Html() { 
-//		e("p").f();
-//			e("div").f();
-//				enUSXml("You can start today with your very own computer building your own website, but you must figure out what it will be called. ");
-//				enUSXml("The fate of the name of your computer depends on it. ");
-//				enUSXml("The directories where you will be putting your website are waiting for it. ");
-//				enUSXml("All the applications that are part of the website will need to know it. ");
-//				enUSXml("So go take some time and think of the perfect .com, .org or .whatever that will represent your vision, and then come back here and I'll help you from there. ");
-//	
-//				frFRXml("Vous pouvez commencer aujourd'hui avec votre propre ordinateur à construire votre propre site Web, mais vous devez comprendre ce que le site s'appele. ");
-//				frFRXml("Le destin du nom de votre ordinateur en dépend. ");
-//				frFRXml("Les répertoires où vous mettez votre site Web l'attendent. ");
-//				frFRXml("Toutes les applications qui font partie du site Web devront le connaître. ");
-//				frFRXml("Alors, passez du temps et pensez au .com, .fr ou .nimporte qui représentera votre vision, puis revenez ici et je vais vous aider à partir de là. ");
-//			g("div");
-//		g("p");
-//	}
+/**
+ */   
+
+	protected void _acheterNomDomaineALAvance(QuestionReponse o) {      
+
+		o.questionIconeAvant("solid", "history");
+		o.setQuestion(ALAvanceQuestion);
+		o.setQuestionCourt(ALAvanceQuestionCourt);
+
+		o.reponseIconeAvant("solid", "map-pin");
+		o.setReponse(ALAvanceReponse);
+		o.setReponseCourt(ALAvanceReponseCourt);
+	}
+	public void htmlBodyAcheterNomDomaineALAvance() {
+		e("p").f();
+			e("div").f();
+				sx(ALAvanceParagraphe);
+			g("div");
+		g("p");
+	}
 //
 //	protected void _ouPuisJeAcheterUnNomDomaine(QuestionReponse o) {      
 //

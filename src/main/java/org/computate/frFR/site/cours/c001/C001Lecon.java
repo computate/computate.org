@@ -1,4 +1,4 @@
-package org.computate.frFR.site.cours.c001;
+package org.computate.frFR.site.cours.c001; 
 
 import java.io.IOException;
 import java.text.Normalizer;
@@ -20,7 +20,6 @@ import org.computate.frFR.site.couverture.Couverture;
 
 /**    
  * Api: true
- * NomCanonique.enUS: org.computate.enUS.site.cours.c001.C001Lesson
  * ApiMethode: RecherchePage
  * ApiUriRecherchePage.frFR: /frFR/cours/001
  * ApiUriRecherchePage.enUS: /enUS/course/001
@@ -32,8 +31,8 @@ import org.computate.frFR.site.couverture.Couverture;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: book
-*/  
-public class C001Lecon extends C001LeconGen<C001> { 
+*/   
+public class C001Lecon extends C001LeconGen<C001> {  
 
 	@Override protected void _estCours(Couverture<Boolean> c) {
 		c.o(false);
@@ -41,7 +40,6 @@ public class C001Lecon extends C001LeconGen<C001> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: isLesson
 	 * Indexe: true
 	 * Stocke: true
 	 * NomAffichage.frFR: est leçon
@@ -52,7 +50,6 @@ public class C001Lecon extends C001LeconGen<C001> {
 	}
 
 	/**
-	 * Var.enUS: _courseCreated
 	 * Indexe: true
 	 * Stocke: true
 	 */

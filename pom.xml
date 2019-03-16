@@ -250,6 +250,7 @@
 							<sources>
 								<source>src/gen/java</source>
 								<source>src/impl/java</source>
+								<source>target/generated-sources/annotations</source>
 							</sources>
 						</configuration>
 					</execution>

@@ -1,6 +1,7 @@
 package org.computate.frFR.site.cours.c001.l001;
 
 import org.computate.frFR.site.cluster.Cluster;
+import org.computate.frFR.site.page.parti.QuestionReponse;
 import org.computate.frFR.site.contexte.SiteContexte;
 import org.computate.frFR.site.page.parti.PagePart;
 import org.apache.commons.text.StringEscapeUtils;
@@ -10,6 +11,7 @@ import org.apache.solr.client.solrj.SolrClient;
 import java.util.ArrayList;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;
@@ -24,6 +26,27 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  * <br/>
  **/
 public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
+	public static final String IntroParagraphe1 = "Envisagez-vous de créer votre propre site Web ? ";
+	public static final String IntroParagraphe2 = "Peut-être vous demandez-vous quelle est la première étape de la création de votre propre site Web ? ";
+	public static final String IntroParagraphe = IntroParagraphe1 + IntroParagraphe2;
+	public static final String MoiParagraphe1 = "Bonjour, je m'appelle Christophe Tate. Je suis un consultant pour Red Hat et j'adore les logiciels open source. ";
+	public static final String MoiParagraphe2 = "Je vous aiderai à créer votre propre site Web avec succès, sur votre propre ordinateur, avec des logiciels open-source. ";
+	public static final String MoiParagraphe3 = "La première chose à faire est de choisir votre nom de domaine, afin que vous puissiez commencer dans la bonne direction. ";
+	public static final String MoiParagraphe = MoiParagraphe1 + MoiParagraphe2 + MoiParagraphe3;
+	public static final String ALAvanceQuestion1 = "Est-t-il important d'acheter un nom de domaine à l'avance ? ";
+	public static final String ALAvanceQuestion = ALAvanceQuestion1;
+	public static final String ALAvanceQuestionCourt1 = "Devrais je l'acheter à l'avance ? ";
+	public static final String ALAvanceQuestionCourt = ALAvanceQuestionCourt1;
+	public static final String ALAvanceReponse1 = "Vous devez savoir maintenant comment vous appelez votre site, afin que vous ne seriez pas perdu. ";
+	public static final String ALAvanceReponse = ALAvanceReponse1;
+	public static final String ALAvanceReponseCourt1 = "Savoir maintenant comment vous appelez votre site";
+	public static final String ALAvanceReponseCourt = ALAvanceReponseCourt1;
+	public static final String ALAvanceParagraphe1 = "Vous pouvez commencer aujourd'hui avec votre propre ordinateur à construire votre propre site Web, mais vous devez comprendre ce que le site s'appele. ";
+	public static final String ALAvanceParagraphe2 = "Le destin du nom de votre ordinateur en dépend. ";
+	public static final String ALAvanceParagraphe3 = "Les répertoires où vous mettez votre site Web l'attendent. ";
+	public static final String ALAvanceParagraphe4 = "Toutes les applications qui font partie du site Web devront le connaître. ";
+	public static final String ALAvanceParagraphe5 = "Alors, passez du temps et pensez au .com, .fr ou .nimporte qui représentera votre vision, puis revenez ici et je vais vous aider à partir de là. ";
+	public static final String ALAvanceParagraphe = ALAvanceParagraphe1 + ALAvanceParagraphe2 + ALAvanceParagraphe3 + ALAvanceParagraphe4 + ALAvanceParagraphe5;
 
 	public static final String C001L001ChoisirNomDomaine_UnNom = "le leçon";
 	public static final String C001L001ChoisirNomDomaine_NomSingulier = "leçon";
@@ -168,6 +191,44 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		return (C001L001ChoisirNomDomaine)this;
 	}
 
+	///////////////////////////////
+	// acheterNomDomaineALAvance //
+	///////////////////////////////
+
+	/**	L'entité « acheterNomDomaineALAvance »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 */
+	protected QuestionReponse acheterNomDomaineALAvance = new QuestionReponse();
+	public Couverture<QuestionReponse> acheterNomDomaineALAvanceCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("acheterNomDomaineALAvance").o(acheterNomDomaineALAvance);
+
+	/**	<br/>L'entité « acheterNomDomaineALAvance »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:acheterNomDomaineALAvance">Trouver l'entité acheterNomDomaineALAvance dans Solr</a>
+	 * <br/>
+	 * @param acheterNomDomaineALAvance est l'entité déjà construit. 
+	 **/
+	protected abstract void _acheterNomDomaineALAvance(QuestionReponse o);
+
+	public QuestionReponse getAcheterNomDomaineALAvance() {
+		return acheterNomDomaineALAvance;
+	}
+
+	public void setAcheterNomDomaineALAvance(QuestionReponse acheterNomDomaineALAvance) {
+		this.acheterNomDomaineALAvance = acheterNomDomaineALAvance;
+		this.acheterNomDomaineALAvanceCouverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine acheterNomDomaineALAvanceInit() {
+		if(acheterNomDomaineALAvance != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(acheterNomDomaineALAvance, "acheterNomDomaineALAvance");
+		}
+		if(!acheterNomDomaineALAvanceCouverture.dejaInitialise) {
+			_acheterNomDomaineALAvance(acheterNomDomaineALAvance);
+		}
+		acheterNomDomaineALAvance.initLoinPourClasse(requeteSite_);
+		acheterNomDomaineALAvanceCouverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -192,6 +253,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		pageVideoIdInit();
 		paragrapheIntroInit();
 		paragrapheMoiInit();
+		acheterNomDomaineALAvanceInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
@@ -206,6 +268,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 			super.requeteSiteC001Lecon(requeteSite_);
 		paragrapheIntro.setRequeteSite_(requeteSite_);
 		paragrapheMoi.setRequeteSite_(requeteSite_);
+		acheterNomDomaineALAvance.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSite requeteSite_) {
@@ -303,6 +366,8 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 				return oC001L001ChoisirNomDomaine.paragrapheIntro;
 			case "paragrapheMoi":
 				return oC001L001ChoisirNomDomaine.paragrapheMoi;
+			case "acheterNomDomaineALAvance":
+				return oC001L001ChoisirNomDomaine.acheterNomDomaineALAvance;
 			default:
 				return super.obtenirC001Lecon(var);
 		}
@@ -371,6 +436,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	public void htmlBodyC001L001ChoisirNomDomaine() {
 		paragrapheIntro.htmlBody();
 		paragrapheMoi.htmlBody();
+		((C001L001ChoisirNomDomaine)this).htmlBodyAcheterNomDomaineALAvance();
 	}
 
 	//////////////

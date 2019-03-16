@@ -67,7 +67,6 @@ public class RequeteSite extends RequeteSiteGen<Object> implements Serializable 
 	}
 
 	/**
-	 * Var.enUS: operationRequest
 	 */
 	protected void _operationRequete(Couverture<OperationRequest> c) {
 	}
@@ -92,10 +91,6 @@ public class RequeteSite extends RequeteSiteGen<Object> implements Serializable 
 
 	/**
 	 * frFR: L'écrivain pour écrirer le résultat du réponse. 
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: ecrivain
-	 * writer
 	 */  
 	protected void _w(Couverture<ToutEcrivain> c) {
 	}
@@ -242,7 +237,6 @@ public class RequeteSite extends RequeteSiteGen<Object> implements Serializable 
 //	protected void _xmlElement(Couverture<String> c) {}
 
 	/**
-	 * Var.enUS: solrDocument
 	 */
 	protected void _documentSolr(Couverture<SolrDocument> c) {  
 	}

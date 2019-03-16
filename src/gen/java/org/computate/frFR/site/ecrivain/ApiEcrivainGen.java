@@ -1,13 +1,14 @@
 package org.computate.frFR.site.ecrivain;
 
 import org.computate.frFR.site.cluster.Cluster;
+import org.computate.frFR.site.vertx.AppliSwagger2;
 import org.computate.frFR.site.contexte.SiteContexte;
-import org.computate.frFR.site.vertx.AppSwagger2;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;
@@ -206,8 +207,8 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	/**	L'entité « appSwagger2 »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected AppSwagger2 appSwagger2;
-	public Couverture<AppSwagger2> appSwagger2Couverture = new Couverture<AppSwagger2>().p(this).c(AppSwagger2.class).var("appSwagger2").o(appSwagger2);
+	protected AppliSwagger2 appSwagger2;
+	public Couverture<AppliSwagger2> appSwagger2Couverture = new Couverture<AppliSwagger2>().p(this).c(AppliSwagger2.class).var("appSwagger2").o(appSwagger2);
 
 	/**	<br/>L'entité « appSwagger2 »
 	 *  est défini comme null avant d'être initialisé. 
@@ -215,13 +216,13 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _appSwagger2(Couverture<AppSwagger2> c);
+	protected abstract void _appSwagger2(Couverture<AppliSwagger2> c);
 
-	public AppSwagger2 getAppSwagger2() {
+	public AppliSwagger2 getAppSwagger2() {
 		return appSwagger2;
 	}
 
-	public void setAppSwagger2(AppSwagger2 appSwagger2) {
+	public void setAppSwagger2(AppliSwagger2 appSwagger2) {
 		this.appSwagger2 = appSwagger2;
 		this.appSwagger2Couverture.dejaInitialise = true;
 	}
@@ -272,6 +273,14 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	public ApiEcrivain addClasseUris(String o) {
 		if(o != null && !classeUris.contains(o))
 			this.classeUris.add(o);
+		return (ApiEcrivain)this;
+	}
+	public ApiEcrivain setClasseUris(JsonArray objets) {
+		classeUris.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addClasseUris(o);
+		}
 		return (ApiEcrivain)this;
 	}
 	protected ApiEcrivain classeUrisInit() {
@@ -1123,8 +1132,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		this.classeEtendBaseCouverture.dejaInitialise = true;
 	}
 	public ApiEcrivain setClasseEtendBase(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.classeEtendBase = Boolean.parseBoolean(o);
+		this.classeEtendBase = Boolean.parseBoolean(o);
 		this.classeEtendBaseCouverture.dejaInitialise = true;
 		return (ApiEcrivain)this;
 	}
@@ -1185,8 +1193,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		this.classeEstBaseCouverture.dejaInitialise = true;
 	}
 	public ApiEcrivain setClasseEstBase(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.classeEstBase = Boolean.parseBoolean(o);
+		this.classeEstBase = Boolean.parseBoolean(o);
 		this.classeEstBaseCouverture.dejaInitialise = true;
 		return (ApiEcrivain)this;
 	}
@@ -1807,8 +1814,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		this.classeMotsClesTrouvesCouverture.dejaInitialise = true;
 	}
 	public ApiEcrivain setClasseMotsClesTrouves(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.classeMotsClesTrouves = Boolean.parseBoolean(o);
+		this.classeMotsClesTrouves = Boolean.parseBoolean(o);
 		this.classeMotsClesTrouvesCouverture.dejaInitialise = true;
 		return (ApiEcrivain)this;
 	}
@@ -1879,6 +1885,14 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 			this.classeMotsCles.add(o);
 		return (ApiEcrivain)this;
 	}
+	public ApiEcrivain setClasseMotsCles(JsonArray objets) {
+		classeMotsCles.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addClasseMotsCles(o);
+		}
+		return (ApiEcrivain)this;
+	}
 	protected ApiEcrivain classeMotsClesInit() {
 		if(!classeMotsClesCouverture.dejaInitialise) {
 			_classeMotsCles(classeMotsClesCouverture);
@@ -1936,8 +1950,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		this.classeRolesTrouvesCouverture.dejaInitialise = true;
 	}
 	public ApiEcrivain setClasseRolesTrouves(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.classeRolesTrouves = Boolean.parseBoolean(o);
+		this.classeRolesTrouves = Boolean.parseBoolean(o);
 		this.classeRolesTrouvesCouverture.dejaInitialise = true;
 		return (ApiEcrivain)this;
 	}
@@ -2006,6 +2019,14 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	public ApiEcrivain addClasseRoles(String o) {
 		if(o != null && !classeRoles.contains(o))
 			this.classeRoles.add(o);
+		return (ApiEcrivain)this;
+	}
+	public ApiEcrivain setClasseRoles(JsonArray objets) {
+		classeRoles.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addClasseRoles(o);
+		}
 		return (ApiEcrivain)this;
 	}
 	protected ApiEcrivain classeRolesInit() {

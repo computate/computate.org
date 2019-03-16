@@ -3,6 +3,7 @@ package org.computate.frFR.site.page.parti;
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.page.parti.PagePart;
 import org.computate.frFR.site.requete.RequeteSite;
@@ -34,13 +35,14 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	}
 
 	public void initLoinPageHtml() {
+		super.initLoinPagePart(requeteSite_);
 		initPageHtml();
 	}
 
 	public void initPageHtml() {
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
 		initLoinPageHtml(requeteSite_);
 	}
 
@@ -49,6 +51,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	/////////////////
 
 	public void requeteSitePageHtml(RequeteSite requeteSite_) {
+			super.requeteSitePagePart(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSite requeteSite_) {
@@ -59,7 +62,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) throws Exception {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -76,7 +79,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 		PageHtml oPageHtml = (PageHtml)this;
 		switch(var) {
 			default:
-				return null;
+				return super.obtenirPagePart(var);
 		}
 	}
 
@@ -84,7 +87,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	// attribuer //
 	///////////////
 
-	public boolean attribuerPourClasse(String var, Object val) {
+	@Override public boolean attribuerPourClasse(String var, Object val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -101,7 +104,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 		PageHtml oPageHtml = (PageHtml)this;
 		switch(var) {
 			default:
-				return null;
+				return super.attribuerPagePart(var, val);
 		}
 	}
 
@@ -109,7 +112,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	// definir //
 	/////////////
 
-	public boolean definirPourClasse(String var, String val) {
+	@Override public boolean definirPourClasse(String var, String val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		if(val != null) {
@@ -127,7 +130,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	public Object definirPageHtml(String var, String val) {
 		switch(var) {
 			default:
-				return null;
+				return super.definirPagePart(var, val);
 		}
 	}
 
@@ -135,8 +138,9 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyPageHtml();
+		super.htmlBodyPagePart();
 	}
 
 	public void htmlBodyPageHtml() {
@@ -146,8 +150,9 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtPageHtml();
+		super.htmlBodyCourtPagePart();
 	}
 
 	public void htmlBodyCourtPageHtml() {
@@ -158,7 +163,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash();
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -171,7 +176,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 		if(!(o instanceof PageHtml))
 			return false;
 		PageHtml that = (PageHtml)o;
-		return true;
+		return super.equals(o);
 	}
 
 	//////////////
@@ -180,6 +185,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString() + "\n");
 		sb.append("PageHtml {");
 		sb.append(" }");
 		return sb.toString();

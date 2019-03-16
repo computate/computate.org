@@ -1,27 +1,29 @@
 package org.computate.frFR.site.cours;
 
-import org.computate.frFR.site.cluster.Cluster;
 import java.util.Date;
 import org.computate.frFR.site.contexte.SiteContexte;
 import java.time.ZonedDateTime;
 import java.time.LocalDateTime;
 import org.computate.frFR.site.page.parti.PagePart;
-import org.apache.commons.text.StringEscapeUtils;
-import java.time.Instant;
 import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
+import java.util.ArrayList;
+import java.lang.Boolean;
+import java.lang.String;
+import java.time.ZoneOffset;
+import org.computate.frFR.site.cluster.Cluster;
+import org.apache.commons.text.StringEscapeUtils;
+import java.time.Instant;
 import java.time.ZoneId;
 import org.apache.solr.client.solrj.SolrClient;
-import java.util.ArrayList;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;
 import java.time.format.DateTimeFormatter;
-import java.lang.Boolean;
 import org.computate.frFR.site.requete.RequeteSite;
-import java.lang.String;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -156,7 +158,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageNomDomaine() {
-		return null;
+		return "Nom de domaine du site";
 	}
 
 	public String htmTooltipNomDomaine() {
@@ -212,7 +214,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageNomSite() {
-		return null;
+		return "Nom d'affichage du site";
 	}
 
 	public String htmTooltipNomSite() {
@@ -268,7 +270,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageNomHoteSite() {
-		return null;
+		return "Nom d'hôte du site";
 	}
 
 	public String htmTooltipNomHoteSite() {
@@ -324,7 +326,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageNomEnsembleSite() {
-		return null;
+		return "nom d'ensemble du site";
 	}
 
 	public String htmTooltipNomEnsembleSite() {
@@ -380,7 +382,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageNomHoteOrdinateur() {
-		return null;
+		return "Nom d'hôte de l'ordinateur";
 	}
 
 	public String htmTooltipNomHoteOrdinateur() {
@@ -436,7 +438,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageCheminServeur() {
-		return null;
+		return "Chemin du serveur";
 	}
 
 	public String htmTooltipCheminServeur() {
@@ -492,7 +494,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageCheminProjet() {
-		return null;
+		return "Chemin du projet";
 	}
 
 	public String htmTooltipCheminProjet() {
@@ -548,7 +550,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageUtilisateurNom() {
-		return null;
+		return "Nom d'utilisateur";
 	}
 
 	public String htmTooltipUtilisateurNom() {
@@ -604,7 +606,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageGroupeNom() {
-		return null;
+		return "Nom de groupe";
 	}
 
 	public String htmTooltipGroupeNom() {
@@ -642,8 +644,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 		this.estCoursCouverture.dejaInitialise = true;
 	}
 	public Cours setEstCours(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.estCours = Boolean.parseBoolean(o);
+		this.estCours = Boolean.parseBoolean(o);
 		this.estCoursCouverture.dejaInitialise = true;
 		return (Cours)this;
 	}
@@ -728,7 +729,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageCoursNumero() {
-		return "cours num\u00E9ro";
+		return "cours numéro";
 	}
 
 	public String htmTooltipCoursNumero() {
@@ -1495,16 +1496,16 @@ public abstract class CoursGen<DEV> extends Cluster {
 			document.addField("coursNumero_stored_int", coursNumero);
 		}
 		if(coursCree != null) {
-			document.addField("coursCree_indexed_date", DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(coursCree));
-			document.addField("coursCree_stored_date", DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(coursCree));
+			document.addField("coursCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(coursCree.atOffset(ZoneOffset.UTC)));
+			document.addField("coursCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(coursCree.atOffset(ZoneOffset.UTC)));
 		}
 		if(coursDescription != null) {
 			document.addField("coursDescription_indexed_string", coursDescription);
 			document.addField("coursDescription_stored_string", coursDescription);
 		}
 		if(pageCree != null) {
-			document.addField("pageCree_indexed_date", DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(pageCree));
-			document.addField("pageCree_stored_date", DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(pageCree));
+			document.addField("pageCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
+			document.addField("pageCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
 		}
 		if(pageH1 != null) {
 			document.addField("pageH1_indexed_string", pageH1);
@@ -1524,6 +1525,20 @@ public abstract class CoursGen<DEV> extends Cluster {
 		}
 		super.indexerCluster(document);
 
+	}
+
+	public void desindexerCours() throws Exception {
+		RequeteSite requeteSite = new RequeteSite();
+		requeteSite.initLoinRequeteSite();
+		SiteContexte siteContexte = new SiteContexte();
+		siteContexte.initLoinSiteContexte();
+		siteContexte.setRequeteSite_(requeteSite);
+		requeteSite.setSiteContexte_(siteContexte);
+		requeteSite.setConfigSite_(siteContexte.getConfigSite());
+		initLoinCours(siteContexte.getRequeteSite_());
+		SolrClient clientSolr = siteContexte.getClientSolr();
+		clientSolr.deleteById(id.toString());
+		clientSolr.commit();
 	}
 
 	/////////////

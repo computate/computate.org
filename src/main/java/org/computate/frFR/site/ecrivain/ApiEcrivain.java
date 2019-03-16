@@ -16,12 +16,11 @@ import org.computate.frFR.site.config.ConfigSite;
 import org.computate.frFR.site.contexte.SiteContexte;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.requete.RequeteSite;
-import org.computate.frFR.site.vertx.AppSwagger2;
+import org.computate.frFR.site.vertx.AppliSwagger2;
 
 /**
- * NomCanonique.enUS: org.computate.enUS.school.writer.ApiWriter
  */ 
-public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<ApiEcrivain> {
+public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<ApiEcrivain> {       
 
 	/**
 	 * 
@@ -35,7 +34,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiMethod
 	 **/
 	protected void _classeApiMethode(Couverture<String> c) {
 	}
@@ -49,7 +47,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	/**
 	 * {@inheritDoc}
 	 **/
-	protected void _appSwagger2(Couverture<AppSwagger2> c) {
+	protected void _appSwagger2(Couverture<AppliSwagger2> c) {
 	}
 
 	/**
@@ -60,7 +58,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: openApiVersionNumber
 	 **/
 	protected void _openApiVersionNumero(Couverture<Integer> c) {
 		c.o((int)Double.parseDouble(StringUtils.substringBefore(openApiVersion, ".")));
@@ -78,7 +75,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: tabsResponses
 	 **/
 	protected void _tabsReponses(Couverture<Integer> c) {
 		if(StringUtils.equals(openApiVersion, "2.0"))
@@ -89,47 +85,24 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wPaths
-	 * r: creer
-	 * r.enUS: create
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wChemins(Couverture<ToutEcrivain> c) {
 	}
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wRequestBodies
-	 * r: creer
-	 * r.enUS: create
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wCorpsRequetes(Couverture<ToutEcrivain> c) {
 	}
 
 	/**
 	 * {@inheritDoc}
-	 * r: creer
-	 * r.enUS: create
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wSchemas(Couverture<ToutEcrivain> c) {
 	}
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: siteContext
-	 * r: SiteContexte
-	 * r.enUS: SiteContext
 	 **/
 	protected void _siteContexte(Couverture<SiteContexte> c) {
 		c.o(requeteSite_.getSiteContexte_());
@@ -137,9 +110,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: siteConfig
-	 * r: ConfigSite
-	 * r.enUS: SiteConfig
 	 **/
 	protected void _configSite(Couverture<ConfigSite> c) {
 		c.o(requeteSite_.getConfigSite_());
@@ -147,13 +117,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wRequestHeaders
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wRequeteEnTete(Couverture<ToutEcrivain> c) {
 		c.o(ToutEcrivain.creer(requeteSite_, "  "));
@@ -161,13 +124,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wRequestDescription
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wRequeteDescription(Couverture<ToutEcrivain> c) {
 		c.o(ToutEcrivain.creer(requeteSite_, "  "));
@@ -175,13 +131,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wResponseDescription
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wReponseDescription(Couverture<ToutEcrivain> c) {
 		c.o(ToutEcrivain.creer(requeteSite_, "  "));
@@ -189,13 +138,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wRequestBody
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wRequeteCorps(Couverture<ToutEcrivain> c) {
 		c.o(ToutEcrivain.creer(requeteSite_, "  "));
@@ -203,13 +145,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wResponseBody
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wReponseCorps(Couverture<ToutEcrivain> c) {
 		c.o(ToutEcrivain.creer(requeteSite_, "  "));
@@ -217,13 +152,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wRequestSchema
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wRequeteSchema(Couverture<ToutEcrivain> c) {
 		c.o(ToutEcrivain.creer(requeteSite_, "  "));
@@ -231,13 +159,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: wResponseSchema
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _wReponseSchema(Couverture<ToutEcrivain> c) {
 		c.o(ToutEcrivain.creer(requeteSite_, "  "));
@@ -245,13 +166,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: ecrivains
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
-	 * r: creer
-	 * r.enUS: create
-	 * r: requeteSite
-	 * r.enUS: siteRequest
 	 **/
 	protected void _ecrivains(Couverture<TousEcrivains> c) {
 		c.o(TousEcrivains.creer(requeteSite_));
@@ -259,13 +173,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiTag
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeApiTag
-	 * r.enUS: classApiTag
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeApiTag(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeApiTag_frFR_stored_string"));
@@ -273,17 +180,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: vertxServiceAddress
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: VertxServiceAddresse
-	 * r.enUS: VertxServiceAddress
-	 * r: vertxServiceAddresse
-	 * r.enUS: vertxServiceAddress
-	 * r: classeNomSimple
-	 * r.enUS: classSimpleName
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _vertxServiceAddresse(Couverture<String> c) {
 		String o = (String)classeDocumentSolr.get("vertxServiceAddresse_frFR_stored_string");
@@ -294,11 +190,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classExtendsBase
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeEtendBase
-	 * r.enUS: classExtendsBase
 	 **/
 	protected void _classeEtendBase(Couverture<Boolean> c) {
 		c.o((Boolean)classeDocumentSolr.get("classeEtendBase_stored_boolean"));
@@ -306,11 +197,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classIsBase
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeEstBase
-	 * r.enUS: classIsBase
 	 **/
 	protected void _classeEstBase(Couverture<Boolean> c) {
 		c.o((Boolean)classeDocumentSolr.get("classeEstBase_stored_boolean"));
@@ -318,13 +204,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classSimpleName
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeNomSimple
-	 * r.enUS: classSimpleName
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeNomSimple(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeNomSimple_frFR_stored_string"));
@@ -332,13 +211,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classAbsolutePath
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeCheminAbsolu
-	 * r.enUS: classCheminAbsolu
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeCheminAbsolu(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeCheminAbsolu_frFR_stored_string"));
@@ -346,15 +218,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiUriMethod
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeApiUriMethode(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeApiUri" + classeApiMethode + "_frFR_stored_string"));
@@ -362,15 +225,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiUriMethodMethod
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeApiMethodeMethode(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeApiMethode" + classeApiMethode + "_stored_string"));
@@ -378,17 +232,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiMediaType200Method
-	 * r: classeApiTypeMedia
-	 * r.enUS: classApiMediaType
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeApiTypeMedia200Methode(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeApiTypeMedia200" + classeApiMethode + "_stored_string"));
@@ -396,15 +239,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiOperationIdMethod
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeApiOperationIdMethode(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "_frFR_stored_string"));
@@ -412,17 +246,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiOperationIdMethodRequest
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: Requete
-	 * r.enUS: Request
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeApiOperationIdMethodeRequete(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "Requete_frFR_stored_string"));
@@ -430,17 +253,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classApiOperationIdMethodResponse
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: Reponse
-	 * r.enUS: Response
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeApiOperationIdMethodeReponse(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "Reponse_frFR_stored_string"));
@@ -448,17 +260,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classSuperApiOperationIdMethodRequest
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: Requete
-	 * r.enUS: Request
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeSuperApiOperationIdMethodeRequete(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeSuperApiOperationId" + classeApiMethode + "Requete_frFR_stored_string"));
@@ -466,17 +267,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classSuperApiOperationIdMethodResponse
-	 * r: Methode
-	 * r.enUS: Method
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classe
-	 * r.enUS: class
-	 * r: Reponse
-	 * r.enUS: Response
-	 * r: frFR
-	 * r.enUS: enUS
 	 **/
 	protected void _classeSuperApiOperationIdMethodeReponse(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classeSuperApiOperationId" + classeApiMethode + "Reponse_frFR_stored_string"));
@@ -484,11 +274,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classKeywordsFound
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeMotsClesTrouves
-	 * r.enUS: classKeywordsFound
 	 **/
 	protected void _classeMotsClesTrouves(Couverture<Boolean> c) {
 		c.o((Boolean)classeDocumentSolr.get("classeMotsClesTrouves_stored_boolean"));
@@ -496,11 +281,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classKeywords
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeMotsClesTrouves
-	 * r.enUS: classKeywordsFound
 	 **/
 	protected void _classeMotsCles(Couverture<List<String>> c) {
 		List<String> o = (List<String>)classeDocumentSolr.get("classeMotsCles_stored_strings");
@@ -511,11 +291,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classRolesFound
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeRolesTrouves
-	 * r.enUS: classRolesFound
 	 **/
 	protected void _classeRolesTrouves(Couverture<Boolean> c) {
 		c.o((Boolean)classeDocumentSolr.get("classeRolesTrouves_stored_boolean"));
@@ -523,14 +298,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: classRoles
-	 * r: classeDocumentSolr
-	 * r.enUS: classSolrDocument
-	 * r: classeRolesTrouves
-	 * r.enUS: classRolesFound
-	 * r: frFR
-	 * r.enUS: enUS
-	 **/
+	 **/ 
 	protected void _classeRoles(Couverture<List<String>> c) {
 		List<String> o = (List<String>)classeDocumentSolr.get("classeRoles_frFR_stored_strings");
 		if(o == null)
@@ -540,124 +308,99 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: entitySolrDocument
 	 **/
 	protected void _entiteDocumentSolr(Couverture<SolrDocument> c) {
 	}
 
 	/**
-	 * Var.enUS: entityVar
 	 */
 	String entiteVar;
 
 	/**
-	 * Var.enUS: entityCanonicalName
 	 */
 	String entiteNomCanonique;
 
 	/**
-	 * Var.enUS: entityCanonicalNameGeneric
 	 */
 	String entiteNomCanoniqueGenerique;
 
 	/**
-	 * Var.enUS: entityVarApi
 	 */
 	String entiteVarApi;
 
 	/**
-	 * Var.enUS: entityDescription
 	 */
 	String entiteDescription;
 
 	/**
-	 * Var.enUS: entityDisplayName
 	 */
 	String entiteNomAffichage;
 
 	/**
-	 * Var.enUS: entityMinLength
 	 */
 	Integer entiteLongeurMin;
 
 	/**
-	 * Var.enUS: entityMaxLength
 	 */
 	Integer entiteLongeurMax;
 
 	/**
-	 * Var.enUS: entityMin
 	 */
 	Double entiteMin;
 
 	/**
-	 * Var.enUS: entityMax
 	 */
 	Double entiteMax;
 
 	/**
-	 * Var.enUS: entityOptional
 	 */
 	Boolean entiteOptionnel;
 
 	/**
-	 * Var.enUS: entityVarCapitalized
 	 */
 	String entiteVarCapitalise;
 
 	/**
-	 * Var.enUS: entityJsonType
 	 */
 	String entiteTypeJson;
 
 	/**
-	 * Var.enUS: entityListJsonType
 	 */
 	String entiteListeTypeJson;
 
 	/**
-	 * Var.enUS: entityJsonFormat
 	 */
 	String entiteFormatJson;
 
 	/**
-	 * Var.enUS: entityPrimaryKey
 	 */
 	Boolean entiteClePrimaire;
 
 	/**
-	 * Var.enUS: entityStored
 	 */
 	Boolean entiteStocke;
 
 	/**
-	 * Var.enUS: entityIndexed
 	 */
 	Boolean entiteIndexe;
 
 	/**
-	 * Var.enUS: entityKeywordsFound
 	 */
 	Boolean entiteMotsClesTrouves;
 
 	/**
-	 * Var.enUS: entityKeywords
 	 */
 	List<String> entiteMotsCles;
 
 	/**
-	 * Var.enUS: entityOptionsVar
 	 */
 	List<String> entiteOptionsVar;
 
 	/**
-	 * Var.enUS: entityOptionsDescription
 	 */
 	List<String> entiteOptionsDescription;
 
 	/**
-	 * Var.enUS: initEntity
-	 * Param1.var.enUS: entitySolrDocument
 	 */
 	public void initEntite(SolrDocument entiteDocumentSolr) {
 		setEntiteDocumentSolr(entiteDocumentSolr);
@@ -678,7 +421,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	}
 
 	/**
-	 * Var.enUS: writeEntityHeaders
 	 */
 	public void ecrireEntiteEnTete() throws Exception {
 
@@ -813,25 +555,12 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 //
 //	/**
 //	 * {@inheritDoc}
-//	 * Var.enUS: classPageCanonicalNameMethod
-//	 * r: classeDocumentSolr
-//	 * r.enUS: classSolrDocument
-//	 * r: classePageNomCanoniqueMethode
-//	 * r.enUS: classPageCanonicalNameMethod
-//	 * r: classePageNomCanoniqueMethode
-//	 * r.enUS: classPageCanonicalNameMethod
-//	 * r: frFR
-//	 * r.enUS: enUS
 //	 **/
 //	protected void _classePageNomCanoniqueMethode(Couverture<String> c) {
 //		c.o((String)classeDocumentSolr.get("classePageNomCanonique" + classeApiMethode + "_frFR_stored_string"));
 //	}
 
 	/**
-	 * r: classePageNomCanoniqueMethode
-	 * r.enUS: classPageCanonicalNameMethod
-	 * r: classePageNomSimpleMethode
-	 * r.enUS: classPageSimpleNameMethod
 	 */
 	public void ecrireEntiteSchema(Integer nombreTabulations, ToutEcrivain w, String apiRequeteOuReponse) throws Exception {
 		nombreTabulations = nombreTabulations == null ? (classeApiMethode.contains("Recherche") && "reponse".equals(apiRequeteOuReponse) ? 1 : 0) : nombreTabulations;
@@ -988,12 +717,12 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 			wChemins.tl(3, "parameters:");
 			wChemins.s(wRequeteEnTete);
 			if("GET".equals(classeApiMethode) || "DELETE".equals(classeApiMethodeMethode) || "PUT".equals(classeApiMethodeMethode)) {
-				wChemins.tl(4, "- name: pk");
+				wChemins.tl(4, "- name: id");
 				wChemins.tl(5, "in: path");
 				wChemins.t(5, "description: ").yamlStr(6, "");
 				wChemins.tl(5, "required: true");
 				wChemins.tl(5, "schema:");
-				wChemins.tl(6, "type: number");
+				wChemins.tl(6, "type: string");
 			}
 			else if(classeApiMethode.contains("Recherche")) {
 				wChemins.tl(4, "- in: query");
@@ -1196,7 +925,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	/**
 	 * {@inheritDoc}
 	 * 
-	 **/
+	 **/ 
 	@Override public int compareTo(ApiEcrivain o) {
 		return ObjectUtils.compare(classeApiUriMethode, o.getClasseApiUriMethode());
 	}

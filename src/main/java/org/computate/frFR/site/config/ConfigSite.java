@@ -16,7 +16,6 @@ import org.computate.frFR.site.requete.RequeteSite;
 
 
 /**
- * NomCanonique.enUS: org.computate.enUS.java.SiteConfig
  * enUS: Loads the properties in the application config file into specific fields. 
  * frFR: Charge les propriétés dans le fichier de config de l'application dans des champs spécifiques. 
  */    
@@ -38,8 +37,6 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 
 	/**
 	/**	
-	 * r: fichierConfig
-	 * r.enUS: configFile
 	 * enUS: The INI Configuration Object for the config file. 
 	 **/ 
 	protected void _config(Couverture<INIConfiguration> c) {
@@ -222,7 +219,6 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 	}
 
 	/**
-	 * Var.enUS: siteBaseUrl
 	 * 	L'URL du domaine de base pour les URLs du site. **/
 	protected void _siteUrlBase(Couverture<String> c) {
 		String o;
@@ -575,10 +571,7 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 	}
 
 	/**
-	 * Var.enUS: vertxServiceAddress
-	 * r: addresse
-	 * r.enUS: address
-	 */
+	 */ 
 	protected void _vertxServiceAddresse(Couverture<String> c) {
 		String o;
 		if(config == null)

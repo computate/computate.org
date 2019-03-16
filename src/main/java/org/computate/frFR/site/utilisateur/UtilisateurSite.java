@@ -1,4 +1,4 @@
-package org.computate.frFR.site.utilisateur;   
+package org.computate.frFR.site.utilisateur;    
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -9,26 +9,24 @@ import org.computate.frFR.site.requete.RequeteSite;
 
 /**
  * Modele: true
- * ApiUri.enUS: /api/v1/site/user
- * ApiUri.frFR: /api/v1/site/utilisateur
- */                
+ * ApiUri.enUS: /api/site/user
+ * ApiUri.frFR: /api/site/utilisateur
+ */               
 public class UtilisateurSite extends UtilisateurSiteGen<Cluster> { 
 
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * attribuer: CalculInr.utilisateurPk
+	 * Attribuer: CalculInr.utilisateurPk
 	 */ 
 	protected void _calculInrPks(List<Long> l) {
 	}
 
 	/**
-	 * Var.enUS: _siteRequest
 	 */
 	protected void _requeteSite_(Couverture<RequeteSite> c) {}
 
 	/**	
-	 * Var.enUS: _userName
 	 * description.frFR: Le nom d'utilisateur pour se connecter au site. 
 	 * Indexe: true
 	 * Stocke: true
@@ -39,7 +37,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	}
 
 	/**	
-	 * Var.enUS: _userEmail
 	 * description.frFR: Le mail pour recevoir des courriels. 
 	 * Indexe: true
 	 * Stocke: true
@@ -48,18 +45,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	}
 
 	/**	
-	 * Var.enUS: _userId
-	 * description.frFR: L'identifiant Keycloak pour cet utilisateur. 
-	 * Indexe: true
-	 * Stocke: true
-	 */
-	protected void _utilisateurId(Couverture<String> c) {
-		String o = requeteSite_.getUtilisateurId();
-		c.o(o);
-	}
-
-	/**	
-	 * Var.enUS: _userFirstName
 	 * description.frFR: Le prénom pour cet utilisateur. 
 	 * Indexe: true
 	 * Stocke: true
@@ -70,7 +55,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	}
 
 	/**	
-	 * Var.enUS: _userLastName
 	 * description.frFR: Le nom de famille pour cet utilisateur. 
 	 * Indexe: true
 	 * Stocke: true
@@ -81,14 +65,9 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	}
 
 	/**	
-	 * Var.enUS: _userFullName
 	 * description.frFR: Le prénom et nom de famille pour cet utilisateur. 
 	 * Indexe: true
 	 * Stocke: true
-	 * r: utilisateurPrenom
-	 * r.enUS: userFirstName
-	 * r: utilisateurNomFamille
-	 * r.enUS: userLastName
 	 */
 	protected void _utilisateurNomComplet(Couverture<String> c) {
 		String o = requeteSite_.getUtilisateurNomComplet();
@@ -96,7 +75,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	}
 
 	/**	
-	 * Var.enUS: _userSite
 	 * description.frFR: L'URL du site Web pour cet utilisateur. 
 	 * Indexe: true
 	 * Stocke: true
@@ -105,7 +83,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	}
 
 	/**	
-	 * Var.enUS: _userReceiveEmails
 	 * description.frFR: Le nom de famille pour cet utilisateur. 
 	 * Indexe: true
 	 * Stocke: true
@@ -114,88 +91,35 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 		c.o(false);
 	}
 
-	/**	
-	 * Var.enUS: _modelDeleted
-	 * description.frFR: Marquer le modèle comme supprimé. 
-	 * On ne devrait jamais actuellement supprimer de la base de données. 
+	/**
+	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 */
-	protected void _modeleSupprime(Couverture<Boolean> c) {
+	 * HtmlLigne: 2
+	 * NomAffichage.frFR: voir archivé
+	 * NomAffichage.enUS: see archived
+	 * Description.frFR: Filter the search results in the application to show archived records. 
+	 * Description.enUS: Filtrer les résultats de recherche dans l'application à voir les données archivées. 
+	**/ 
+	protected void _voirArchive(Couverture<Boolean> c) {
 		c.o(false);
 	}
 
-	/**	
-	 * Var.enUS: _modelCreated
-	 * description.frFR: La date créée pour le modèle. 
+	/**
+	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 */         
-	protected void _modeleCree(Couverture<ZonedDateTime> c) {
-		ZonedDateTime o = ZonedDateTime.now();
-		c.o(o);
+	 * HtmlLigne: 2
+	 * NomAffichage.frFR: voir supprimé
+	 * NomAffichage.enUS: see deleted
+	 * Description.frFR: Filter the search results in the application to show deleted records. 
+	 * Description.enUS: Filtrer les résultats de recherche dans l'application à voir les données supprimées. 
+	 **/
+	protected void _voirSupprime(Couverture<Boolean> c) {
+		c.o(false);
 	}
 
-	/**	
-	 * Var.enUS: _modelModified
-	 * description.frFR: La date modifiée pour le modele. 
-	 * Indexe: true
-	 * Stocke: true
-	 */
-	protected void _modeleModifie(Couverture<ZonedDateTime> c) {
-		ZonedDateTime o = ZonedDateTime.now();
-		c.o(o);
-	}
-
-	/**	
-	 * Var.enUS: _modelClassCanonicalName
-	 * description.frFR: Le nom canonique de cette classe Java pour le modèle. 
-	 * Indexe: true
-	 * Stocke: true
-	 */
-	protected void _modeleClasseNomCanonique(Couverture<String> c) {
-		c.o(getClass().getCanonicalName());
-	}
-
-	/**	
-	 * Var.enUS: _modelKey
-	 * description.frFR: Le clé primaire pour ce modèle dans la base de données. 
-	 * Indexe: true
-	 * Stocke: true
-	 */
-	protected void _modeleCle(Couverture<Long> c) {
-	}
-
-	/**	
-	 * Var.enUS: _modelSuggestionStored
-	 * description.frFR: Le texte de suggérée qui est affichée mais pas indexée dans le moteur de recherche. 
-	 * Indexe: true
-	 * Stocke: true
-	 * r: utilisateurPrenom
-	 * r.enUS: userFirstName
-	 * r: utilisateurNomFamille
-	 * r.enUS: userLastName
-	 * r: utilisateurNom
-	 * r.enUS: userName
-	 */
-	protected void _modeleSuggestionStocke(Couverture<String> c) {
-		c.o(utilisateurPrenom + " " + utilisateurNomFamille + " " + utilisateurNom);
-	}
-
-	/**	
-	 * Var.enUS: _modelSuggestionIndexed
-	 * description.frFR: Le texte de suggérée qui est indexée dans le moteur de recherche. 
-	 * Ça peut contenir plus qui est affiché dans le suggestion. 
-	 * Indexe: true
-	 * Stocke: true
-	 * r: utilisateurPrenom
-	 * r.enUS: userFirstName
-	 * r: utilisateurNomFamille
-	 * r.enUS: userLastName
-	 * r: utilisateurNom
-	 * r.enUS: userName
-	 */
-	protected void _modeleSuggestionIndexe(Couverture<String> c) {
-		c.o(utilisateurPrenom + " " + utilisateurNomFamille + " " + utilisateurNom);
-	}
+	public void htmlBody() {
+		super.htmlBody();
+	}  
 }

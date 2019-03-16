@@ -22,7 +22,6 @@ import io.vertx.core.buffer.Buffer;
 
 
 /**  
- * NomCanonique.enUS: org.computate.enUS.school.writer.AllWriter
  **/
 public class ToutEcrivain extends ToutEcrivainGen<Object> {    
 
@@ -49,14 +48,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: create
-	 * Param1.var.enUS: siteRequest
-	 * r: initLoinPourClasse
-	 * r.enUS: initDeepForClass
-	 * r: requeteSite
-	 * r.enUS: siteRequest
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
 	 */
 	public static ToutEcrivain creer(RequeteSite requeteSite_) {
 		ToutEcrivain o = new ToutEcrivain();
@@ -66,14 +57,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: create
-	 * Param1.var.enUS: siteRequest
-	 * r: initLoinPourClasse
-	 * r.enUS: initDeepForClass
-	 * r: requeteSite
-	 * r.enUS: siteRequest
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
 	 */
 	public static ToutEcrivain creer(RequeteSite requeteSite_, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
@@ -84,19 +67,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: create
-	 * Param1.var.enUS: siteRequest
-	 * Param2.var.enUS: fichier
-	 * r: Fichier
-	 * r.enUS: File
-	 * r: fichier
-	 * r.enUS: file
-	 * r: initLoinPourClasse
-	 * r.enUS: initDeepForClass
-	 * r: requeteSite
-	 * r.enUS: siteRequest
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
 	 */
 	public static ToutEcrivain creer(RequeteSite requeteSite_, File fichier) {
 		ToutEcrivain o = new ToutEcrivain();
@@ -107,19 +77,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: create
-	 * Param1.var.enUS: siteRequest
-	 * Param2.var.enUS: fichier
-	 * r: Fichier
-	 * r.enUS: File
-	 * r: fichier
-	 * r.enUS: file
-	 * r: initLoinPourClasse
-	 * r.enUS: initDeepForClass
-	 * r: requeteSite
-	 * r.enUS: siteRequest
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
 	 */
 	public static ToutEcrivain creer(RequeteSite requeteSite_, File fichier, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
@@ -131,19 +88,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: create
-	 * Param1.var.enUS: siteRequest
-	 * Param2.var.enUS: fichier
-	 * r: Fichier
-	 * r.enUS: File
-	 * r: fichier
-	 * r.enUS: file
-	 * r: initLoinPourClasse
-	 * r.enUS: initDeepForClass
-	 * r: requeteSite
-	 * r.enUS: siteRequest
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
 	 */
 	public static ToutEcrivain creer(RequeteSite requeteSite_, Buffer buffer) {
 		ToutEcrivain o = new ToutEcrivain();
@@ -154,19 +98,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: create
-	 * Param1.var.enUS: siteRequest
-	 * Param2.var.enUS: fichier
-	 * r: Fichier
-	 * r.enUS: File
-	 * r: fichier
-	 * r.enUS: file
-	 * r: initLoinPourClasse
-	 * r.enUS: initDeepForClass
-	 * r: requeteSite
-	 * r.enUS: siteRequest
-	 * r: ToutEcrivain
-	 * r.enUS: AllWriter
 	 */
 	public static ToutEcrivain creer(RequeteSite requeteSite_, Buffer buffer, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
@@ -178,17 +109,11 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: fichier
 	 **/
 	protected void _fichier(Couverture<File> c) {
 	}
 
 	/**
-	 * Var.enUS: stringWriter
-	 * r: fichier
-	 * r.enUS: file
-	 * r: ecrivainString
-	 * r.enUS: stringWriter
 	 */
 	protected void _ecrivainString(Couverture<StringWriter> c) {
 //		if(fichier == null && reponseServeurHttp == null)
@@ -204,19 +129,11 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 //
 //	/**
 //	 * {@inheritDoc}
-//	 * Var.enUS: httpServerResponse
 //	 **/
 //	protected void _reponseServeurHttp(Couverture<HttpServerResponse> c) {
 //	}
 
 	/**
-	 * Var.enUS: printWriter
-	 * r: ecrivainString
-	 * r.enUS: stringWriter
-	 * r: fichier
-	 * r.enUS: file
-	 * r: reponseServeurHttp
-	 * r.enUS: httpServerResponse
 	 */
 	protected void _ecrivainImpression(Couverture<PrintWriter> c) {
 //		if(reponseServeurHttp == null && buffer == null) {
@@ -235,19 +152,12 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: empty
 	 **/
 	protected void _vide(Couverture<Boolean> c) {
 		c.o(true);
 	}
 
 	/**
-	 * Param1.var.enUS: tabNumber
-	 * Param2.var.enUS: objects
-	 * r: objets
-	 * r.enUS: objects
-	 * r: nombreTabulations
-	 * r.enUS: tabNumber
 	 */
 	public ToutEcrivain t(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -257,12 +167,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * Param1.var.enUS: tabNumber
-	 * Param2.var.enUS: objects
-	 * r: objets
-	 * r.enUS: objects
-	 * r: nombreTabulations
-	 * r.enUS: tabNumber
 	 */
 	public ToutEcrivain tl(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -273,9 +177,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * Param1.var.enUS: objects
-	 * r: objets
-	 * r.enUS: objects
 	 */
 	public ToutEcrivain l(Object...objets) {
 		s(objets);
@@ -284,18 +185,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * r: objets
-	 * r.enUS: objects
-	 * r: objet
-	 * r.enUS: object
-	 * r: chaine
-	 * r.enUS: chain
-	 * r: ecrivainImpression
-	 * r.enUS: printWriter
-	 * r: reponseServeurHttp
-	 * r.enUS: httpServerResponse
-	 * r: vide
-	 * r.enUS: empty
 	 */
 	public ToutEcrivain s(Object...objets) { 
 		for(Object objet : objets) {
@@ -350,11 +239,22 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 		return o.toString();
 	}
 
-	public ToutEcrivain js(Object...objets) {
+	public String qjs(Object...objets) {
+		StringBuilder o = new StringBuilder();
+		o.append("\"");
 		for(Object objet : objets)
 			if(objet != null)
-				s(StringEscapeUtils.escapeJava(objet.toString()));
-		return this;
+				o.append(StringUtils.replace(StringUtils.replace(StringUtils.replace(objet.toString(), "\\", "\\\\"), "\"", "\\\""), "\n", "\\n"));
+		o.append("\"");
+		return o.toString();
+	}
+
+	public String js(Object...objets) {
+		StringBuilder o = new StringBuilder();
+		for(Object objet : objets)
+			if(objet != null)
+				o.append(StringUtils.replace(StringUtils.replace(StringUtils.replace(objet.toString(), "\\", "\\\\"), "\"", "\\\""), "\n", "\\n"));
+		return o.toString();
 	}
 
 	public ToutEcrivain yamlStr(int tabNumber, Object...objets) {
@@ -420,19 +320,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * Param1.var.enUS: localName
-	 * r.enUS: nomLocal
-	 * localName
-	 * r.enUS: xmlPile
-	 * xmlStack
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: tabulation
-	 * tab
-	 * r.enUS: Echappes
-	 * Escaped
-	 * r.enUS: ecrivain
-	 * writer
 	 */
 	public ToutEcrivain e(String nomLocal) {
 		String nomLocalParent = requeteSite_.getXmlPile().isEmpty() ? null : requeteSite_.getXmlPile().peek();
@@ -469,18 +356,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**  
-	 * Param1.var.enUS: attributeName
-	 * Param2.var.enUS: objects
-	 * r.enUS: nomAttribut
-	 * attributeName
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: ecrivain
-	 * writer
-	 * r.enUS: echapperXmlDansCitations
-	 * escapeXmlInQuotes
-	 * r.enUS: OutilEchapper
-	 * EscapeTool
 	 */
 	public ToutEcrivain a(String nomAttribut, Object...objets) {
 		s(" ");
@@ -504,8 +379,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/** 
-	 * r.enUS: ecrivain
-	 * writer
 	 */
 	public ToutEcrivain f() {
 		s(">");
@@ -520,16 +393,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/** 
-	 * Var.enUS: allXml
-	 * Param1.var.enUS: objects
-	 * r.enUS: objet
-	 * object
-	 * r.enUS: ecrivain
-	 * writer
-	 * r.enUS: OutilEchapper
-	 * EscapeTool
-	 * r.enUS: echapperXml
-	 * escapeXml
 	 */
 	public ToutEcrivain sx(Object...objets) {
 		for(Object objet : objets) {
@@ -550,15 +413,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: allXml
-	 * Param1.var.enUS: numberTabs
-	 * Param2.var.enUS: objects
-	 * r.enUS: nombreTabulations
-	 * numberTabs
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: tout
-	 * all
 	 */
 	public ToutEcrivain tx(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -568,15 +422,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: tabLineXml
-	 * Param1.var.enUS: numberTabs
-	 * Param2.var.enUS: objects
-	 * r.enUS: nombreTabulations
-	 * numberTabs
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: tout
-	 * all
 	 */
 	public ToutEcrivain tlx(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -587,12 +432,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * r.enUS: ecrivain
-	 * writer
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: xmlPile
-	 * xmlStack
 	 */
 	public ToutEcrivain fg() {
 		s("/>");
@@ -602,21 +441,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**    
-	 * Param1.var.enUS: localName
-	 * r.enUS: nomLocal
-	 * localName
-	 * r.enUS: nomLocalParent
-	 * parentLocalName
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: xmlPile
-	 * xmlStack
-	 * r.enUS: tabulations
-	 * tabs
-	 * r.enUS: Echappes
-	 * Escaped
-	 * r.enUS: ecrivain
-	 * writer
 	 */
 	public ToutEcrivain g(String nomLocal) {
 		String nomLocalParent = requeteSite_.getXmlPile().peek();
@@ -638,12 +462,6 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * r: ecrivainString
-	 * r.enUS: stringWriter
-	 * r: ecrivainImpression
-	 * r.enUS: printWriter
-	 * r: reponseServeurHttp
-	 * r.enUS: httpServerResponse
 	 */
 	public void flushClose() {
 
@@ -667,13 +485,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	}
 
 	/**
-	 * r: ecrivainString
-	 * r.enUS: stringWriter
-	 * r: ecrivainImpression
-	 * r.enUS: printWriter
-	 * r: reponseServeurHttp
-	 * r.enUS: httpServerResponse
-	 */
+	 */ 
 	@Override public String toString() {
 //		if(reponseServeurHttp != null)
 //			return ecrivainString.toString();

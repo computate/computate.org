@@ -1,26 +1,28 @@
 package org.computate.frFR.site.cours.c001;
 
-import org.computate.frFR.site.cluster.Cluster;
 import java.util.Date;
 import org.computate.frFR.site.contexte.SiteContexte;
 import java.time.ZonedDateTime;
 import java.time.LocalDateTime;
-import org.apache.commons.text.StringEscapeUtils;
-import java.time.Instant;
 import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
-import java.time.ZoneId;
 import java.util.ArrayList;
+import java.lang.Boolean;
+import java.time.ZoneOffset;
+import org.computate.frFR.site.cours.c001.C001;
+import org.computate.frFR.site.cluster.Cluster;
+import org.apache.commons.text.StringEscapeUtils;
+import java.time.Instant;
+import java.time.ZoneId;
 import org.apache.solr.client.solrj.SolrClient;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;
 import java.time.format.DateTimeFormatter;
-import java.lang.Boolean;
 import org.computate.frFR.site.requete.RequeteSite;
-import org.computate.frFR.site.cours.c001.C001;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -74,8 +76,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		this.estLeconCouverture.dejaInitialise = true;
 	}
 	public C001Lecon setEstLecon(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.estLecon = Boolean.parseBoolean(o);
+		this.estLecon = Boolean.parseBoolean(o);
 		this.estLeconCouverture.dejaInitialise = true;
 		return (C001Lecon)this;
 	}
@@ -98,7 +99,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	}
 
 	public String nomAffichageEstLecon() {
-		return "est le\u00E7on";
+		return "est leçon";
 	}
 
 	public String htmTooltipEstLecon() {
@@ -232,7 +233,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	}
 
 	public String nomAffichageLeconNumero() {
-		return "le\u00E7on num\u00E9ro";
+		return "leçon numéro";
 	}
 
 	public String htmTooltipLeconNumero() {
@@ -270,8 +271,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		this.estArticleCouverture.dejaInitialise = true;
 	}
 	public C001Lecon setEstArticle(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.estArticle = Boolean.parseBoolean(o);
+		this.estArticle = Boolean.parseBoolean(o);
 		this.estArticleCouverture.dejaInitialise = true;
 		return (C001Lecon)this;
 	}
@@ -446,8 +446,8 @@ public abstract class C001LeconGen<DEV> extends C001 {
 			document.addField("estLecon_stored_boolean", estLecon);
 		}
 		if(leconCree != null) {
-			document.addField("leconCree_indexed_date", DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(leconCree));
-			document.addField("leconCree_stored_date", DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(leconCree));
+			document.addField("leconCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(leconCree.atOffset(ZoneOffset.UTC)));
+			document.addField("leconCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(leconCree.atOffset(ZoneOffset.UTC)));
 		}
 		if(leconNumero != null) {
 			document.addField("leconNumero_indexed_int", leconNumero);

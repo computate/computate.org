@@ -8,6 +8,7 @@ import org.apache.solr.client.solrj.SolrClient;
 import java.util.ArrayList;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;

@@ -20,13 +20,14 @@ import io.vertx.core.Vertx;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import io.vertx.ext.web.api.OperationRequest;
 import org.computate.frFR.site.couverture.Couverture;
 import org.apache.solr.client.solrj.SolrQuery;
 import io.vertx.ext.sql.SQLConnection;
-import org.computate.frFR.site.requete.RequeteSite;
 import java.lang.Object;
+import org.computate.frFR.site.requete.RequeteSite;
 
 /**	
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.frFR.site.requete.RequeteSite&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
@@ -968,8 +969,7 @@ public abstract class RequeteSiteGen<DEV> extends Object {
 		this.pageAcheteCouverture.dejaInitialise = true;
 	}
 	public RequeteSite setPageAchete(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.pageAchete = Boolean.parseBoolean(o);
+		this.pageAchete = Boolean.parseBoolean(o);
 		this.pageAcheteCouverture.dejaInitialise = true;
 		return (RequeteSite)this;
 	}
@@ -1030,8 +1030,7 @@ public abstract class RequeteSiteGen<DEV> extends Object {
 		this.pageAdminCouverture.dejaInitialise = true;
 	}
 	public RequeteSite setPageAdmin(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.pageAdmin = Boolean.parseBoolean(o);
+		this.pageAdmin = Boolean.parseBoolean(o);
 		this.pageAdminCouverture.dejaInitialise = true;
 		return (RequeteSite)this;
 	}

@@ -5,7 +5,7 @@
  */
 function rechercheEcoleScolaire() {
 	$.ajax({
-		url: '/api/v1/ecole' + (!params || params.length == 0 ? '' : '?' + params.join('&'))
+		url: '/api/ecole' + (!params || params.length == 0 ? '' : '?' + params.join('&'))
 		, dataType: 'json'
 		, type: 'GET'
 		, contentType: 'application/json; charset=utf-8'
@@ -96,7 +96,7 @@ function postEcoleScolaire($formulaireValeurs) {
 		valeurs['ecoleNomCourt'] = valeurEcoleNomCourt;
 
 	$.ajax({
-		url: '/api/v1/ecole'
+		url: '/api/ecole'
 		, dataType: 'json'
 		, type: 'POST'
 		, contentType: 'application/json; charset=utf-8'
@@ -378,7 +378,7 @@ function patchEcoleScolaire($formulaireFiltres, $formulaireValeurs) {
 		patchs['removeEcoleNomCourt'] = removeEcoleNomCourt;
 
 	$.ajax({
-		url: '/api/v1/ecole' + (!params || params.length == 0 ? '' : '?' + params.join('&'))
+		url: '/api/ecole' + (!params || params.length == 0 ? '' : '?' + params.join('&'))
 		, dataType: 'json'
 		, type: 'PATCH'
 		, contentType: 'application/json; charset=utf-8'
@@ -396,7 +396,7 @@ function patchEcoleScolaire($formulaireFiltres, $formulaireValeurs) {
  */
 function getEcoleScolaire(pk) {
 	$.ajax({
-		url: '/api/v1/ecole/' + pk
+		url: '/api/ecole/' + pk
 		, dataType: 'json'
 		, type: 'GET'
 		, contentType: 'application/json; charset=utf-8'
@@ -487,7 +487,7 @@ function putEcoleScolaire(pk, $formulaireValeurs) {
 		valeurs['ecoleNomCourt'] = valeurEcoleNomCourt;
 
 	$.ajax({
-		url: '/api/v1/ecole/' + pk
+		url: '/api/ecole/' + pk
 		, dataType: 'json'
 		, type: 'PUT'
 		, contentType: 'application/json; charset=utf-8'
@@ -505,7 +505,7 @@ function putEcoleScolaire(pk, $formulaireValeurs) {
  */
 function deleteEcoleScolaire(pk) {
 	$.ajax({
-		url: '/api/v1/ecole/' + pk
+		url: '/api/ecole/' + pk
 		, dataType: 'json'
 		, type: 'DELETE'
 		, contentType: 'application/json; charset=utf-8'

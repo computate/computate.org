@@ -3,7 +3,7 @@ package org.computate.frFR.site.page.accueil;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.page.MiseEnPage;
 
-public class PageAccueil extends PageAccueilGen<MiseEnPage> { 
+public class PageAccueil extends PageAccueilGen<MiseEnPage> {  
 //	
 //	public PageAccueil() {
 //		pageClasseNomCanoniqueCouverture.valeurIndexéStocké(true);

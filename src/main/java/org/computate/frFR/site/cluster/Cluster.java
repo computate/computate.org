@@ -1,20 +1,24 @@
-package org.computate.frFR.site.cluster;   
+package org.computate.frFR.site.cluster;    
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.Locale;
 
+import org.apache.commons.lang3.StringUtils;
+import org.computate.frFR.site.chaine.Chaine;
 import org.computate.frFR.site.couverture.Couverture;
+import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import org.computate.frFR.site.page.MiseEnPage;
 import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.xml.OutilXml;
 
 
 
 /**
- * NomCanonique.enUS: org.computate.site.course.c000.cluster.Cluster
  * Modele: true
- * ApiUri.enUS: /api/v1/warfarin/cluster
- * ApiUri.frFR: /api/v1/warfarin/cluster
+ * ApiUri.enUS: /api/warfarin/cluster
+ * ApiUri.frFR: /api/warfarin/cluster
  * ApiMethode: Recherche
  * ApiMethode: POST
  * ApiMethode: PATCH
@@ -24,16 +28,12 @@ import org.computate.frFR.site.requete.RequeteSite;
  * ApiTag.enUS: Cluster
  * ApiTag.frFR: Cluster
  */ 
-public class Cluster extends ClusterGen<Object> {  
+public class Cluster extends ClusterGen<Object> {   
 
 	public static DateTimeFormatter FORMAT_dateMedicalCourt = DateTimeFormatter.ofPattern("M/d/yyyy", Locale.FRANCE);
 
 //	/**
 //	 * Ignorer: true
-//	 * Var.enUS: siteRequestCluster
-//	 * Param1.var.enUS: siteRequest
-//	 * remplacer.enUS: requeteSite
-//	 * siteRequest
 //	 */
 //	@Override public void requeteSiteCluster(RequeteSite requeteSite) {  
 //		super.requeteSiteCluster(requeteSite);
@@ -42,7 +42,6 @@ public class Cluster extends ClusterGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: _siteRequest
 	 */       
 	protected void _requeteSite_(Couverture<RequeteSite> c) {}
 	protected void _page_(Couverture<MiseEnPage> c) {}
@@ -69,7 +68,6 @@ public class Cluster extends ClusterGen<Object> {
 	}
 
 	/**        
-	 * Var.enUS: _deleted
 	 * HtmlLigne: 1
 	 * Description.frFR: Supprimé. 
 	 * Description.enUS: Deleted. 
@@ -84,14 +82,12 @@ public class Cluster extends ClusterGen<Object> {
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _userId
 	 */
 	protected void _utilisateurId(Couverture<String> c) {}
 
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _created
 	 * HtmlLigne: 2
 	 * Description.frFR: La date et l'heure créées. 
 	 * Description.enUS: The date and time created. 
@@ -103,7 +99,6 @@ public class Cluster extends ClusterGen<Object> {
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _modified
 	 * HtmlLigne: 2
 	 * Description.frFR: La date et l'heure modifiéés. 
 	 * Description.enUS: The date and time modified. 
@@ -115,7 +110,6 @@ public class Cluster extends ClusterGen<Object> {
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _clusterCanonicalName
 	 */      
 	protected void _clusterNomCanonique(Couverture<String> c) {
 		String o = getClass().getCanonicalName();
@@ -125,7 +119,6 @@ public class Cluster extends ClusterGen<Object> {
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _clusterSimpleName
 	 */          
 	protected void _clusterNomSimple(Couverture<String> c) {
 		String o = getClass().getSimpleName();
@@ -135,7 +128,7 @@ public class Cluster extends ClusterGen<Object> {
 //	/**
 //	 * genInclure: true
 //	 */
-//	public MiseEnPage e(String nomLocal) {
+//	public Cluster e(String nomLocal) {
 //		if(page_ != null)
 //			page_.e(nomLocal);
 //		return page_;
@@ -143,156 +136,208 @@ public class Cluster extends ClusterGen<Object> {
 //
 //	/**
 //	 * genInclure: true
-//	 * Param1.var.enUS: attributeName
-//	 * Param2.var.enUS: objects
-//	 * remplacer.enUS: nomAttribut
-//	 * attributeName
-//	 * remplacer.enUS: objets
-//	 * objects
 //	 */
-//	public MiseEnPage a(String nomAttribut, Object...objets) {
+//	public Cluster a(String nomAttribut, Object...objets) {
 //		if(page_ != null)
 //			page_.a(nomAttribut, objets);
 //		return page_;
 //	}
-//
-//	/**
-//	 * genInclure: true
-//	 */
-//	public MiseEnPage f() {
-//		if(page_ != null)
-//			page_.f();
-//		return page_;
-//	}
-//
-//	public MiseEnPage toutShApos(Object...objets) {
-//		if(page_ != null)
-//			page_.toutShApos(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage toutLigne(Object...objets) {
-//		if(page_ != null)
-//			page_.toutLigne(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage tout(Object...objets) {
-//		if(page_ != null)
-//			page_.tout(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage enUS(Object...objets) {
-//		if(page_ != null)
-//			page_.enUS(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage frFR(Object...objets) {
-//		if(page_ != null)
-//			page_.frFR(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage enUSLigne(Object...objets) {
-//		if(page_ != null)
-//			page_.enUSLigne(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage frFRLigne(Object...objets) {
-//		if(page_ != null)
-//			page_.frFRLigne(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage toutShAposXml(Object...objets) {
-//		if(page_ != null)
-//			page_.toutShAposXml(objets);
-//		return page_;
-//	}
-//
-//	/**
-//	 * genInclure: true
-//	 * Param1.var.enUS: objects
-//	 * remplacer.enUS: objets
-//	 * objects
-//	 * remplacer.enUS: toutXml
-//	 * allXml
-//	 */
-//	public MiseEnPage toutXml(Object...objets) {
-//		if(page_ != null)
-//			page_.toutXml(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage enUSXml(Object...objets) {
-//		if(page_ != null)
-//			page_.enUSXml(objets);
-//		return page_;
-//	}
-//
-//	public MiseEnPage frFRXml(Object...objets) {
-//		if(page_ != null)
-//			page_.frFRXml(objets);
-//		return page_;
-//	}
-//
-//	/**
-//	 * genInclure: true
-//	 */
-//	public MiseEnPage fg() {
-//		if(page_ != null)
-//			page_.fg();
-//		return page_;
-//	}
-//
-//	/**
-//	 * genInclure: true
-//	 * Param1.var.enUS: localName
-//	 * remplacer.enUS: nomLocal
-//	 * localName
-//	 */
-//	public MiseEnPage g(String nomLocal) {
-//		if(page_ != null)
-//			page_.g(nomLocal);
-//		return page_;
-//	}
-//
-//	public MiseEnPage icone(String href) {
-//		if(page_ != null)
-//			page_.g(href);
-//		return page_;
-//	}
-//
-//	public MiseEnPage iconeLight(String nom) {
-//		if(page_ != null)
-//			page_.g(nom);
-//		return page_;
-//	}
-//
-//	public MiseEnPage iconeRegular(String nom) {
-//		if(page_ != null)
-//			page_.g(nom);
-//		return page_;
-//	}
-//
-//	public MiseEnPage iconeSolid(String nom) {
-//		if(page_ != null)
-//			page_.g(nom);
-//		return page_;
-//	}
-//
-//	public MiseEnPage iconeBrands(String nom) {
-//		if(page_ != null)
-//			page_.g(nom);
-//		return page_;
-//	}
-//
-//	public MiseEnPage iconeComputate(String nom) {
-//		if(page_ != null)
-//			page_.g(nom);
-//		return page_;
-//	}
+
+	/**
+	 */
+	public Cluster e(String nomLocal) {
+		ToutEcrivain w = requeteSite_.getW();
+		String nomLocalParent = requeteSite_.getXmlPile().isEmpty() ? null : requeteSite_.getXmlPile().peek();
+
+		boolean eNoWrapParent = nomLocalParent == null || MiseEnPage.HTML_ELEMENTS_NO_WRAP.contains(nomLocalParent);
+		String tabulations = String.join("", Collections.nCopies(requeteSite_.getXmlPile().size(), "\t"));
+		String tabulationsEchappes = String.join("", Collections.nCopies(requeteSite_.getXmlPile().size(), "\\t"));
+
+		requeteSite_.getXmlPile().push(nomLocal);
+		if(StringUtils.equals(nomLocal, "html"))
+			w.s("<!DOCTYPE html>\n");
+		if(!eNoWrapParent && !tabulationsEchappes.isEmpty()) {
+			w.l();
+			w.s(tabulations);
+		}
+		w.s("<");
+		w.s(nomLocal);
+		
+		return this;
+	}
+
+	public Cluster a1(String nomAttribut, Object...objets) {
+		ToutEcrivain w = requeteSite_.getW();
+		w.s(" ");
+		w.s(nomAttribut);
+		w.s("=\"");
+		for(Object objet : objets) {
+			if(objet != null) {
+				String s = objet.toString();
+				w.s(OutilXml.echapperDansCitatations(s));
+			}
+		}
+		
+		return this;
+	}
+
+	/**  
+	 */
+	public Cluster a(String nomAttribut, Object...objets) {
+		ToutEcrivain w = requeteSite_.getW();
+		w.s(" ");
+		w.s(nomAttribut);
+		w.s("=\"");
+		for(Object objet : objets) {
+			if(objet != null) {
+				String s = objet.toString();
+				w.s(OutilXml.echapperDansCitatations(s));
+			}
+		}
+		w.s("\"");
+		
+		return this;
+	}
+
+	public Cluster a2() {
+		ToutEcrivain w = requeteSite_.getW();
+		w.s("\"");
+		
+		return this;
+	}
+
+	/** 
+	 */
+	public Cluster f() {
+		ToutEcrivain w = requeteSite_.getW();
+		w.s(">");
+		
+		return this;
+	}
+
+	/**
+	 */
+	public Cluster s(Object...objets) {
+		ToutEcrivain w = requeteSite_.getW();
+		for(Object objet : objets) {
+			if(objet != null) {
+				if(objet instanceof Chaine) {
+					Chaine chaine = (Chaine)objet;
+					String s = chaine.s();
+					w.s(s);
+				}
+				else {
+					String s = objet.toString();
+					w.s(s);
+				}
+			}
+		}
+		
+		return this;
+	}
+
+	/**
+	 */
+	public Cluster t(int nombreTabulations, Object...objets) {
+		for(int i = 0; i < nombreTabulations; i++)
+			s("\t");
+		s(objets);
+		return this;
+	}
+
+	/**
+	 */
+	public Cluster tl(int nombreTabulations, Object...objets) {
+		for(int i = 0; i < nombreTabulations; i++)
+			s("\t");
+		s(objets);
+		s("\n");
+		return this;
+	}
+
+	/** 
+	 */
+	public Cluster l(Object...objets) {
+		s(objets);
+		s("\n");
+		return this;
+	}
+
+	public Cluster lx(Object...objets) {
+		s(objets);
+		sx("\n");
+		return this;
+	}
+
+	/** 
+	 */
+	public Cluster sx(Object...objets) {
+		ToutEcrivain w = requeteSite_.getW();
+		for(Object objet : objets) {
+			if(objet != null) {
+				if(objet instanceof Chaine) {
+					Chaine chaine = (Chaine)objet;
+					String s = chaine.toString();
+					w.s(OutilXml.echapper(s));
+				}
+				else {
+					String s = objet.toString();
+					w.s(OutilXml.echapper(s));
+				}
+			}
+		}
+		
+		return this;
+	}
+
+	/**
+	 */
+	public Cluster tx(int nombreTabulations, Object...objets) {
+		for(int i = 0; i < nombreTabulations; i++)
+			sx("\t");
+		sx(objets);
+		return this;
+	}
+
+	/**
+	 */
+	public Cluster tlx(int nombreTabulations, Object...objets) {
+		for(int i = 0; i < nombreTabulations; i++)
+			sx("\t");
+		sx(objets);
+		sx("\n");
+		return this;
+	}
+
+	/**
+	 */
+	public Cluster fg() {
+		ToutEcrivain w = requeteSite_.getW();
+		w.s("/>");
+		requeteSite_.getXmlPile().pop();
+		
+		return this;
+	}
+
+	/**    
+	 */
+	public Cluster g(String nomLocal) {
+		ToutEcrivain w = requeteSite_.getW();
+		String nomLocalParent = requeteSite_.getXmlPile().peek();
+		boolean eNoWrap = nomLocalParent == null || MiseEnPage.HTML_ELEMENTS_NO_WRAP.contains(nomLocal);
+
+		requeteSite_.getXmlPile().pop();
+		String tabulations = String.join("", Collections.nCopies(requeteSite_.getXmlPile().size(), "\t"));
+		String tabulationsEchappes = String.join("", Collections.nCopies(requeteSite_.getXmlPile().size(), "\\t"));
+
+		if(!eNoWrap && !tabulationsEchappes.isEmpty()) {
+			w.l();
+			w.s(tabulations);
+		}
+		w.s("</");
+		w.s(nomLocal);
+		w.s(">");
+		
+		return this;
+	}
 }

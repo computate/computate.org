@@ -1,4 +1,4 @@
-package org.computate.frFR.site.page.parti; 
+package org.computate.frFR.site.page.parti;  
 
 import org.computate.frFR.site.chaine.Chaine;
 
@@ -52,20 +52,6 @@ public class PageHtml extends PageHtmlGen<PagePart> {
 
 	public void htmlBodyCourt() {
 	}
-
-		@Override public Chaine partiH3() {
-			return null;
-		}
-		@Override public Chaine partiH3Court() {
-			return null;
-		}
-
-		@Override public Chaine partiH4() {
-			return null;
-		}
-		@Override public Chaine partiH4Court() {
-			return null;
-		}
 
 	//////////
 	// code //

@@ -1,4 +1,4 @@
-package org.computate.frFR.site.page;  
+package org.computate.frFR.site.page;   
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -20,12 +20,10 @@ import org.computate.frFR.site.requete.RequeteSite;
 import org.computate.frFR.site.xml.OutilXml;
 
 /**
- * NomCanonique.enUS: org.computate.enUS.school.page.PageLayout
  */  
 public class MiseEnPage extends MiseEnPageGen<Object> {  
 
 	/**
-	 * Var.enUS: HTML_CLOSED_ELEMENTS
 	 */
 	public static List<String> HTML_ELEMENTS_FERMES = Arrays.asList("area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr");
 	public static List<String> HTML_ELEMENTS_NO_WRAP = Arrays.asList("script", "span", "a", "b", "i", "u", "title", "use", "h1", "h2", "h3", "h4", "h5", "h6", "pre", "p");
@@ -70,26 +68,19 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: pageDocumentSolr
 	 **/
 	protected void _pageDocumentSolr(Couverture<SolrDocument> c) {
 		
 	}
 
 	/**
-	 * Var.enUS: _writer
 	 * frFR: L'écrivain pour écrirer le résultat du réponse. 
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: ecrivain
-	 * writer
 	 */ 
 	protected void _w(Couverture<ToutEcrivain> c) {
 		c.o(requeteSite_.getW());
 	}
 //
 //	/**
-//	 * Var.enUS: _pageCanonicalName
 //	 * frFR: Le nom canonique de cette classe Java pour la page. 
 //	 * frFR: Le servlet va rechercher l'URL et construire une nouvelle page de ce type. 
 //	 * Indexe: true
@@ -100,7 +91,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 //
 //	/**
-//	 * Var.enUS: _pageSimpleName
 //	 * frFR: Le nom simple de cette classe Java pour la page. 
 //	 * frFR: Le servlet va rechercher l'URL et construire une nouvelle page de ce type. 
 //	 * Indexe: true
@@ -111,19 +101,16 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 
 	/**
-	 * var.enUS: contextIconGroup
 	 */
 	protected void _contexteIconeGroupe(Couverture<String> c) {
 	}
 
 	/**
-	 * var.enUS: contextIconName
 	 */
 	protected void _contexteIconeNom(Couverture<String> c) {
 	}
 
 	/**
-	 * var.enUS: contextIconCssClasses
 	 */
 	protected void _contexteIconeClassesCss(Couverture<String> c) {
 		if(contexteIconeGroupe != null && contexteIconeNom != null)
@@ -131,7 +118,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: pageVisibleToBots
 	 * frFR: Choisir si cette page est trouvée dans le /sitemap.xml.
 	 * frFR: Si true, les bots de Google, Bing, Yahoo peuvent trouver la page. 
 	 * Indexe: true
@@ -166,28 +152,24 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _pageH1Short
 	 */
 	protected void _pageH1Court(Couverture<String> c)  {
 		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), pageH1));
 	}
 
 	/**
-	 * Var.enUS: _pageH2Short
 	 */
 	protected void _pageH2Court(Couverture<String> c)  {
 		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), pageH2));
 	}
 
 	/**
-	 * Var.enUS: _pageH2Short
 	 */
 	protected void _pageH3Court(Couverture<String> c)  {
 		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), pageH2));
 	}
 
 	/**
-	 * Var.enUS: pageTitle
 	 * Indexe: true
 	 * Stocke: true
 	 * r: frFR
@@ -208,10 +190,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 //
 //	/**
-//	 * Var.enUS: _key
 //	 * frFR: la version plus courte de l'URL en français qui commence avec « / » 
 //	 * ClePrimaire: true
-//	 * r.enUS: pageNomCanonique
 //	 * PageCanonicalName
 //	 */
 //	protected void _cle(Couverture<String> c)  {
@@ -231,16 +211,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * frFR: l'URL complet. 
 	 * Indexe: true
 	 * Stocke: true
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: configSite
-	 * siteConfig
-	 * r.enUS: nomHoteSite
-	 * siteHostName
-	 * r.enUS: requete
-	 * request
-	 * r: requeteServeur
-	 * r.enUS: serverRequest
 	 */ 
 	protected void _pageUrl(Couverture<String> c)  {
 	}
@@ -258,12 +228,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * frFR: l'URL complet vers l'image. 
 	 * Indexe: true
 	 * Stocke: true
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: configSite
-	 * siteConfig
-	 * r.enUS: nomHoteSite
-	 * siteHostName
 	 */
 	protected void _pageImageUrl(Couverture<String> c)  {
 		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), "https://" + requeteSite_.getConfigSite_().getSiteNomHote() + pageImageUri));
@@ -273,12 +237,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * frFR: l'ID Youtube du video. 
 	 * Indexe: true
 	 * Stocke: true
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: configSite
-	 * siteConfig
-	 * r.enUS: nomHoteSite
-	 * siteHostName
 	 */
 	protected void _pageVideoId(Couverture<String> c)  {
 		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), null));
@@ -288,12 +246,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * frFR: l'URL complet vers le video. 
 	 * Indexe: true
 	 * Stocke: true
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: configSite
-	 * siteConfig
-	 * r.enUS: nomHoteSite
-	 * siteHostName
 	 */
 	protected void _pageVideoUrl(Couverture<String> c)  {
 		if(pageVideoId != null) {
@@ -305,12 +257,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * frFR: l'URL embed vers le video. 
 	 * Indexe: true
 	 * Stocke: true
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: configSite
-	 * siteConfig
-	 * r.enUS: nomHoteSite
-	 * siteHostName
 	 */
 	protected void _pageVideoUrlEmbed(Couverture<String> c)  {
 		if(pageVideoId != null) {
@@ -319,7 +265,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _pageImageWidth
 	 * frFR: Le longeur de l'image. 
 	 * Indexe: true
 	 * Stocke: true
@@ -329,7 +274,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _pageImageHeight
 	 * frFR: Le hauteur de l'image. 
 	 * Indexe: true
 	 * Stocke: true
@@ -339,7 +283,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _pageImageContentType
 	 * frFR: Le type de contenu de l'image. 
 	 * Indexe: true
 	 * Stocke: true
@@ -349,10 +292,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 //
 //	/**
-//	 * r.enUS: requeteSite_
-//	 * siteRequest
-//	 * r.enUS: utilisateurRolesContient
-//	 * userRolesContain
 //	 */
 //	protected void _pageAdmin(Couverture<Boolean> c)  {  
 //		requeteSite_.getUtilisateurVertx().isAuthorized(requeteSite_.getConfigSite_().getRoleAdmin(), res -> {
@@ -368,14 +307,9 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 
 	/**
-	 * Var.enUS: _pageContentType
 	 * frFR: Le type de contenu de la page. 
 	 * Indexe: true
 	 * Stocke: true
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: requete
-	 * request
 	 */
 	protected void _pageTypeContenu(Couverture<String> c)  {
 //		if(requeteSite_.requete != null && requeteSite_.requete.getRequestURI().endsWith(".svg"))
@@ -401,7 +335,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 
 	/**
-	 * Var.enUS: _pageCreated
 	 * Indexe: true
 	 * Stocke: true
 	 */
@@ -412,7 +345,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _pageModified
 	 * r.enUS: pageCree
 	 * PageCreated
 	 */
@@ -441,7 +373,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 
 	/**
-	 * Var.enUS: _pageKeywords
 	 * Indexe: true
 	 * Stocke: true
 	 */
@@ -456,19 +387,9 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _homePageUri
 	 */
 	protected void _pageAccueilUri(Couverture<String> c)  {
 		c.o("");
-	}
-
-	/**
-	 * Var.enUS: _pageInrEntry
-	 * r: /calcul-inr
-	 * r.enUS: /inr-entry
-	 */
-	protected void _pageCalculInr(Couverture<String> c)  {
-		c.o("/calcul-inr");
 	}
 //
 //	protected void _pageBlogUri(Couverture<String> c)  {
@@ -476,7 +397,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 
 	/**
-	 * Var.enUS: _aboutPageUri
 	 * r.enUS: apropos
 	 * about
 	 */
@@ -489,7 +409,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _userPageUri
 	 * r.enUS: utilisateur
 	 * user
 	 */
@@ -498,7 +417,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: _logoutPageUri
 	 * r.enUS: deconnexion
 	 * logout
 	 */
@@ -511,35 +429,18 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 //
 //	/** 
-//	 * r.enUS: requeteSite_
-//	 * siteRequest
-//	 * r.enUS: configSite
-//	 * siteConfig
-//	 * r.enUS: identifiantCanalYoutube
-//	 * youtubeChannelIdentifier
 //	 */
 //	protected void _pageYoutubeUrl(Couverture<String> c)  {
 //		c.o("https://www.youtube.com/channel/UC3ryOB2snhO7fItkx6dGx2Q");
 //	}
 //
 //	/** 
-//	 * r.enUS: requeteSite_
-//	 * siteRequest
-//	 * r.enUS: configSite
-//	 * siteConfig
-//	 * r.enUS: comptePinterest
-//	 * pinterestAccount
 //	 */
 //	protected void _pagePinterestUrl(Couverture<String> c)  {
 //		c.o("https://www.pinterest.com/computateorg/site-en-fran%C3%A7ais/");
 //	}
 //
 //	/**
-//	 * Var.enUS: _requestKey
-//	 * r.enUS: requeteSite_
-//	 * siteRequest
-//	 * r.enUS: requete
-//	 * request
 //	 */
 //	protected void _cleRequete(Couverture<Long> c) {
 //		if(requeteSite_.requete != null) {
@@ -550,11 +451,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //	}
 
 	/**
-	 * Var.enUS: _requestKey
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: requete
-	 * request
 	 */
 //	public void pagePartsHtml()  {
 //		e("h1").f().sx(pageH1).g("h1");
@@ -678,6 +574,12 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	@Override public void htmlBodyMiseEnPage() {
 	}
 
+	/**
+	 * r: Ce site est open-source.
+	 * r.enUS: This site is open source. 
+	 * r: Voir le code source ici. 
+	 * r.enUS: View the source code here. 
+	 */
 	@Override public void htmlMiseEnPage() {
 		e("html").a("xmlns:xlink", "http://www.w3.org/1999/xlink").a("xmlns", "http://www.w3.org/1999/xhtml").a("xmlns:fb", "http://ogp.me/ns/fb#").f();
 			e("head").f();
@@ -694,7 +596,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				s("/*]]>*/").g("style");
 	
 			g("head");
-			e("body").f(); 
+			e("body").a("class", "w3-light-grey ").f(); 
 				e("a").a("name", "top").f().g("a");
 	//			e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
 	//			e("div").a("id", "fb-root").f().g("div");
@@ -746,11 +648,12 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 
 								e("footer").a("class", "w3-center w3-black w3-padding-48 ").f();
 									e("div").a("class", "w3-xxlarge ").f();
-										sx("This site is open-source. ");
+										sx("Ce site est open source. ");
 									g("div");
 									e("div").a("class", "w3-large ").f();
-										e("a").a("href", "https://github.com/computate/computate-cardiac").a("target", "_new").f();
-											sx("View the source code here. ");
+										String urlSource = "https://github.com/computate/computate.org/blob/master/src/main/java/" + StringUtils.replace(getClass().getCanonicalName(), ".", "/") + ".java";
+										e("a").a("href", urlSource).a("target", "_new").f();
+											sx("Voir le code source ici. ");
 										g("a");
 									g("div");
 								g("footer");
@@ -788,18 +691,16 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	/** 
 	 * r.enUS: Home 
 	 * Accueil 
-	 * r.enUS: toutXml
-	 * allXml
-	 * r: Langue
-	 * r.enUS: Language
-	 * r: Accueil
-	 * r.enUS: Home
-	 * r: À propos
-	 * r.enUS: About
-	 * r: Se connecter
-	 * r.enUS: Login
-	 * r: Se déconnecter
-	 * r.enUS: Logout
+	 * r: "Langue"
+	 * r.enUS: "Language"
+	 * r: "Accueil"
+	 * r.enUS: "Home"
+	 * r: "À propos"
+	 * r.enUS: "About"
+	 * r: "Se connecter"
+	 * r.enUS: "Login"
+	 * r: "Se déconnecter"
+	 * r.enUS: "Logout"
 	 */
 	public void menu()  {
 		e("div").a("class", "w3-black w3-bar w3-text-white w3-card-2 w3-padding-bottom-8 w3-padding-top-8 ").a("style", "padding-left: 16px; padding-right: 16px; ").f();
@@ -818,17 +719,9 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //					g("span");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
-					e("i").a("class", "fas fa-clinic-medical site-menu-icon ").f().g("i");
+					e("i").a("class", "fas site-menu-icon ").f().g("i");
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("Home");
-					g("span");
-				g("a");
-			g("div");
-			e("div").a("class", "w3-bar-item ").f();
-				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCalculInr).f();
-					e("i").a("class", "fas fa-clipboard-prescription site-menu-icon ").f().g("i");
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
-						sx("Inr Entries");
 					g("span");
 				g("a");
 			g("div");
@@ -891,9 +784,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**  
-	 * var.enUS: sharePage
-	 * remplacer.enUS: toutXml
-	 * allXml
 	 */
 	public void partagerPage() {
 		{ e("div").a("class", "w3-content w3-center w3-padding-top-32 ").f();
@@ -973,19 +863,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Param1.var.enUS: localName
-	 * r.enUS: nomLocal
-	 * localName
-	 * r.enUS: xmlPile
-	 * xmlStack
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: tabulation
-	 * tab
-	 * r.enUS: Echappes
-	 * Escaped
-	 * r.enUS: ecrivain
-	 * writer
 	 */
 	public MiseEnPage e(String nomLocal) {
 		String nomLocalParent = requeteSite_.getXmlPile().isEmpty() ? null : requeteSite_.getXmlPile().peek();
@@ -1022,18 +899,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**  
-	 * Param1.var.enUS: attributeName
-	 * Param2.var.enUS: objects
-	 * r.enUS: nomAttribut
-	 * attributeName
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: ecrivain
-	 * writer
-	 * r.enUS: echapperXmlDansCitations
-	 * escapeXmlInQuotes
-	 * r.enUS: OutilEchapper
-	 * EscapeTool
 	 */
 	public MiseEnPage a(String nomAttribut, Object...objets) {
 		w.s(" ");
@@ -1057,8 +922,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/** 
-	 * r.enUS: ecrivain
-	 * writer
 	 */
 	public MiseEnPage f() {
 		w.s(">");
@@ -1067,12 +930,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: all
-	 * Param1.var.enUS: objects
-	 * r.enUS: objet
-	 * object
-	 * r.enUS: ecrivain
-	 * writer
 	 */
 	public MiseEnPage s(Object...objets) {
 		for(Object objet : objets) {
@@ -1093,14 +950,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Param1.var.enUS: numberTabs
-	 * Param2.var.enUS: objects
-	 * r.enUS: nombreTabulations
-	 * numberTabs
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: tout
-	 * all
 	 */
 	public MiseEnPage t(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -1110,15 +959,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: tabLine
-	 * Param1.var.enUS: numberTabs
-	 * Param2.var.enUS: objects
-	 * r.enUS: nombreTabulations
-	 * numberTabs
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: tout
-	 * all
 	 */
 	public MiseEnPage tl(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -1129,12 +969,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/** 
-	 * Var.enUS: allLine
-	 * Param1.var.enUS: objects
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: tout
-	 * all
 	 */
 	public MiseEnPage l(Object...objets) {
 		s(objets);
@@ -1149,16 +983,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/** 
-	 * Var.enUS: allXml
-	 * Param1.var.enUS: objects
-	 * r.enUS: objet
-	 * object
-	 * r.enUS: ecrivain
-	 * writer
-	 * r.enUS: OutilEchapper
-	 * EscapeTool
-	 * r.enUS: echapperXml
-	 * escapeXml
 	 */
 	public MiseEnPage sx(Object...objets) {
 		for(Object objet : objets) {
@@ -1179,15 +1003,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: allXml
-	 * Param1.var.enUS: numberTabs
-	 * Param2.var.enUS: objects
-	 * r.enUS: nombreTabulations
-	 * numberTabs
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: tout
-	 * all
 	 */
 	public MiseEnPage tx(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -1197,15 +1012,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * Var.enUS: tabLineXml
-	 * Param1.var.enUS: numberTabs
-	 * Param2.var.enUS: objects
-	 * r.enUS: nombreTabulations
-	 * numberTabs
-	 * r.enUS: objets
-	 * objects
-	 * r.enUS: tout
-	 * all
 	 */
 	public MiseEnPage tlx(int nombreTabulations, Object...objets) {
 		for(int i = 0; i < nombreTabulations; i++)
@@ -1216,12 +1022,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * r.enUS: ecrivain
-	 * writer
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: xmlPile
-	 * xmlStack
 	 */
 	public MiseEnPage fg() {
 		w.s("/>");
@@ -1231,21 +1031,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**    
-	 * Param1.var.enUS: localName
-	 * r.enUS: nomLocal
-	 * localName
-	 * r.enUS: nomLocalParent
-	 * parentLocalName
-	 * r.enUS: requeteSite_
-	 * siteRequest
-	 * r.enUS: xmlPile
-	 * xmlStack
-	 * r.enUS: tabulations
-	 * tabs
-	 * r.enUS: Echappes
-	 * Escaped
-	 * r.enUS: ecrivain
-	 * writer
 	 */
 	public MiseEnPage g(String nomLocal) {
 		String nomLocalParent = requeteSite_.getXmlPile().peek();

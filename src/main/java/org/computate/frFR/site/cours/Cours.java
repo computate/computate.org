@@ -1,4 +1,4 @@
-package org.computate.frFR.site.cours; 
+package org.computate.frFR.site.cours;  
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,9 +17,8 @@ import org.computate.frFR.site.requete.RequeteSite;
 
 /**  
  * Api: true
- * NomCanonique.enUS: org.computate.enUS.site.cours.Course
- * ApiUri.enUS: /api/v1/enUS/course
- * ApiUri.frFR: /api/v1/frFR/cours
+ * ApiUri.enUS: /api/enUS/course
+ * ApiUri.frFR: /api/frFR/cours
  * ApiMethode: RecherchePage
  * ApiUriRecherchePage.frFR: /frFR/cours
  * ApiUriRecherchePage.enUS: /enUS/course
@@ -30,7 +29,7 @@ import org.computate.frFR.site.requete.RequeteSite;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/        
+*/       
 public class Cours extends CoursGen<Cluster> {   
 
 	/**
@@ -48,8 +47,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: Site domain name
-	 * nomAffichage.frFR: Nom de domaine du site
+	 * NomAffichage.enUS: Site domain name
+	 * NomAffichage.frFR: Nom de domaine du site
 	 * Le nom de domaine du site. 
 	 * **/
 	protected void _nomDomaine(Couverture<String> c) {
@@ -60,8 +59,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: Display name of the site
-	 * nomAffichage.frFR: Nom d'affichage du site
+	 * NomAffichage.enUS: Display name of the site
+	 * NomAffichage.frFR: Nom d'affichage du site
 	 * Le nom d'hôte du site. **/
 	protected void _nomSite(Couverture<String> c) {
 		c.o(nomDomaine);
@@ -71,8 +70,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: Site host name
-	 * nomAffichage.frFR: Nom d'hôte du site
+	 * NomAffichage.enUS: Site host name
+	 * NomAffichage.frFR: Nom d'hôte du site
 	 * Le nom d'hôte du site. **/
 	protected void _nomHoteSite(Couverture<String> c) {
 		c.o(nomDomaine);
@@ -82,8 +81,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: site package name
-	 * nomAffichage.frFR: nom d'ensemble du site
+	 * NomAffichage.enUS: site package name
+	 * NomAffichage.frFR: nom d'ensemble du site
 	 * 
 	 */    
 	protected void _nomEnsembleSite(Couverture<String> c) { 
@@ -97,8 +96,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: Computer host name
-	 * nomAffichage.frFR: Nom d'hôte de l'ordinateur
+	 * NomAffichage.enUS: Computer host name
+	 * NomAffichage.frFR: Nom d'hôte de l'ordinateur
 	 * Le nom d'hôte du site. 
 	 * r: tour
 	 * r.enUS: tower
@@ -111,8 +110,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: Server path
-	 * nomAffichage.frFR: Chemin du serveur
+	 * NomAffichage.enUS: Server path
+	 * NomAffichage.frFR: Chemin du serveur
 	 * Le chemin vers le serveur. **/
 	protected void _cheminServeur(Couverture<String> c) {
 		String o = new StringBuilder("/srv/").append(nomHoteOrdinateur).toString();
@@ -123,8 +122,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: Project path
-	 * nomAffichage.frFR: Chemin du projet
+	 * NomAffichage.enUS: Project path
+	 * NomAffichage.frFR: Chemin du projet
 	 * Le chemin vers le projet du site. **/
 	protected void _cheminProjet(Couverture<String> c) {
 		String o = new StringBuilder(cheminServeur).append("/").append(nomDomaine).toString();
@@ -135,8 +134,8 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * sauvegarde: true
 	 * crypte: true
-	 * nomAffichage.enUS: User name
-	 * nomAffichage.frFR: Nom d'utilisateur
+	 * NomAffichage.enUS: User name
+	 * NomAffichage.frFR: Nom d'utilisateur
 	 * r: monutlisateur
 	 * r.enUS: myuser
 	 */
@@ -154,8 +153,8 @@ public class Cours extends CoursGen<Cluster> {
 	/**
 	 * {@inheritDoc}
 	 * sauvegarde: true
-	 * nomAffichage.enUS: Group name
-	 * nomAffichage.frFR: Nom de groupe
+	 * NomAffichage.enUS: Group name
+	 * NomAffichage.frFR: Nom de groupe
 	 * 
 	 */ 
 	protected void _groupeNom(Couverture<String> c) {
@@ -164,7 +163,6 @@ public class Cours extends CoursGen<Cluster> {
 
 	/**
 	 * {@inheritDoc}
-	 * Var.enUS: isCourse
 	 * Indexe: true
 	 * Stocke: true
 	 * NomAffichage.frFR: est cours
@@ -202,7 +200,6 @@ public class Cours extends CoursGen<Cluster> {
 	}
 
 	/**  
-	 * Var.enUS: _courseCreated
 	 * Indexe: true
 	 * Stocke: true
 	 */
@@ -224,7 +221,6 @@ public class Cours extends CoursGen<Cluster> {
 	protected void _coursIdentifiantUri(Couverture<String> o) {}
 
 	/**
-	 * Var.enUS: _pageCreated
 	 * Indexe: true
 	 * Stocke: true
 	 */
@@ -284,7 +280,6 @@ public class Cours extends CoursGen<Cluster> {
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: pageTitle
 	 * r: Titre
 	 * r.enUS: Title
 	 */

@@ -1,17 +1,18 @@
 package org.computate.frFR.site.config;
 
 import org.computate.frFR.site.cluster.Cluster;
-import org.computate.frFR.site.ecrivain.ToutEcrivain;
-import java.util.Objects;
 import org.apache.commons.configuration2.INIConfiguration;
-import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.contexte.SiteContexte;
-import org.computate.frFR.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
-import java.lang.Object;
-import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
+import org.computate.frFR.site.ecrivain.ToutEcrivain;
+import java.util.Objects;
+import io.vertx.core.json.JsonArray;
+import org.computate.frFR.site.couverture.Couverture;
+import org.computate.frFR.site.requete.RequeteSite;
+import java.lang.Object;
+import java.lang.String;
 
 /**	
  *	Charge les propriétés dans le fichier de config de l'application dans des champs spécifiques. 

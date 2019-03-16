@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
 import java.lang.Boolean;
 import org.computate.frFR.site.requete.RequeteSite;
@@ -130,8 +131,7 @@ public abstract class ChaineGen<DEV> extends Object {
 		this.alignerCentreCouverture.dejaInitialise = true;
 	}
 	public Chaine setAlignerCentre(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.alignerCentre = Boolean.parseBoolean(o);
+		this.alignerCentre = Boolean.parseBoolean(o);
 		this.alignerCentreCouverture.dejaInitialise = true;
 		return (Chaine)this;
 	}
@@ -192,8 +192,7 @@ public abstract class ChaineGen<DEV> extends Object {
 		this.alignerGaucheCouverture.dejaInitialise = true;
 	}
 	public Chaine setAlignerGauche(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.alignerGauche = Boolean.parseBoolean(o);
+		this.alignerGauche = Boolean.parseBoolean(o);
 		this.alignerGaucheCouverture.dejaInitialise = true;
 		return (Chaine)this;
 	}
@@ -254,8 +253,7 @@ public abstract class ChaineGen<DEV> extends Object {
 		this.alignerDroitCouverture.dejaInitialise = true;
 	}
 	public Chaine setAlignerDroit(String o) {
-		if(org.apache.commons.lang3.BooleanUtils.isTrue(org.apache.commons.lang3.BooleanUtils.toBoolean(o)))
-			this.alignerDroit = Boolean.parseBoolean(o);
+		this.alignerDroit = Boolean.parseBoolean(o);
 		this.alignerDroitCouverture.dejaInitialise = true;
 		return (Chaine)this;
 	}

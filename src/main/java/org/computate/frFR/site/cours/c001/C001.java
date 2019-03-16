@@ -1,10 +1,9 @@
-package org.computate.frFR.site.cours.c001;
+package org.computate.frFR.site.cours.c001; 
 
 import org.computate.frFR.site.cours.Cours;
 
 /**    
  * Api: true
- * NomCanonique.enUS: org.computate.enUS.site.cours.c001.C001
  * ApiMethode: RecherchePage
  * ApiUriRecherchePage.frFR: /frFR/cours/c001
  * ApiUriRecherchePage.enUS: /enUS/course/c001
@@ -18,8 +17,8 @@ import org.computate.frFR.site.cours.Cours;
  * IconeGroupe: regular
  * IconeNom: university
  * Page: true
-*/  
-public class C001 extends C001Gen<Cours> {    
+*/   
+public class C001 extends C001Gen<Cours> {   
 
 	public void htmlBody() {
 		super.htmlBody();

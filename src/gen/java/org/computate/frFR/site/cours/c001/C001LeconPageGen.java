@@ -3,6 +3,7 @@ package org.computate.frFR.site.cours.c001;
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;

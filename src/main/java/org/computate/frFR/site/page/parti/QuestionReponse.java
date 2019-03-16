@@ -2,13 +2,13 @@ package org.computate.frFR.site.page.parti;
 
 import org.computate.frFR.site.chaine.Chaine;
 
-public class QuestionReponse extends QuestionReponseGen<PagePart> { 
+public class QuestionReponse extends QuestionReponseGen<PagePart> {  
 
 	/**	Le texte de la question. 
 	 * indexe: true
 	 * stocke: true
 	 **/
-	protected void _question(Chaine o) {
+	protected void _question(Chaine o) { 
 	}
 	protected void _questionCourt(Chaine o) {
 	}
@@ -135,20 +135,6 @@ public class QuestionReponse extends QuestionReponseGen<PagePart> {
 				page_.g("h4");
 			page_.g("fieldset");
 		page_.g("div");
-	}
-
-	@Override public Chaine partiH3() {
-		return question;
-	}
-	@Override public Chaine partiH3Court() {
-		return questionCourt;
-	}
-
-	@Override public Chaine partiH4() {
-		return reponse;
-	}
-	@Override public Chaine partiH4Court() {
-		return reponseCourt;
 	}
 
 	//////////

@@ -3,7 +3,7 @@ package org.computate.frFR.site.page.parti;
 import org.computate.frFR.site.chaine.Chaine;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 
-public class PageParagraphe extends PageParagrapheGen<PagePart> { 
+public class PageParagraphe extends PageParagrapheGen<PagePart> {  
 
 	/**	
 	 * indexe: true
@@ -101,20 +101,6 @@ public class PageParagraphe extends PageParagrapheGen<PagePart> {
 			w.g("fieldset");
 		w.g("div");
 	}
-
-		@Override public Chaine partiH3() {
-			return null;
-		}
-		@Override public Chaine partiH3Court() {
-			return null;
-		}
-
-		@Override public Chaine partiH4() {
-			return null;
-		}
-		@Override public Chaine partiH4Court() {
-			return null;
-		}
 
 	//////////
 	// code //

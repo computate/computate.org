@@ -11,9 +11,8 @@ import org.computate.frFR.site.page.parti.Icone;
 import org.computate.frFR.site.requete.RequeteSite;
 
 /**
- * NomCanonique.enUS: org.computate.enUS.school.chain.Chain
  */
-public class Chaine extends ChaineGen<Object> {  
+public class Chaine extends ChaineGen<Object> { 
 
 	protected void _requeteSite_(Couverture<RequeteSite> c) {}
 
