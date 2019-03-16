@@ -1,6 +1,5 @@
 package org.computate.frFR.site.cours;
 
-import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Arrays;
 import io.vertx.ext.web.api.validation.ParameterTypeValidator;
 import org.computate.frFR.site.contexte.SiteContexte;
@@ -30,6 +29,7 @@ import java.util.stream.Collectors;
 import io.vertx.core.Future;
 import java.time.ZoneId;
 import org.computate.frFR.site.recherche.ListeRecherche;
+import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.List;
 import java.security.Principal;
 import java.util.stream.Stream;
@@ -47,11 +47,11 @@ import java.time.LocalDateTime;
 import io.vertx.core.logging.LoggerFactory;
 import java.util.ArrayList;
 import io.vertx.core.CompositeFuture;
-import org.computate.frFR.site.cours.CoursPage;
 import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import java.nio.charset.Charset;
 import io.vertx.ext.web.api.validation.HTTPRequestValidationHandler;
 import io.vertx.core.AsyncResult;
+import org.computate.frFR.site.cours.CoursFrFRPage;
 import io.vertx.ext.web.api.validation.ValidationException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import io.vertx.core.Vertx;
@@ -61,6 +61,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.solr.common.SolrDocument;
 import io.vertx.core.json.JsonArray;
 import io.vertx.ext.web.api.OperationRequest;
+import org.computate.frFR.site.cours.CoursEnUSPage;
 import java.time.format.DateTimeFormatter;
 import io.vertx.ext.sql.SQLConnection;
 import org.computate.frFR.site.requete.RequeteSite;
@@ -82,15 +83,15 @@ public class CoursGenApiServiceImpl implements CoursGenApiService {
 		CoursGenApiService service = CoursGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
-	// RecherchePage //
+	// RechercheFrFRPage //
 
 	@Override
-	public void recherchepageCoursId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		recherchepageCours(operationRequete, gestionnaireEvenements);
+	public void recherchefrfrpageCoursId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		recherchefrfrpageCours(operationRequete, gestionnaireEvenements);
 	}
 
 	@Override
-	public void recherchepageCours(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void recherchefrfrpageCours(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSite requeteSite = genererRequeteSitePourCours(siteContexte, operationRequete);
 			sqlCours(requeteSite, a -> {
@@ -100,7 +101,7 @@ public class CoursGenApiServiceImpl implements CoursGenApiService {
 							rechercheCours(requeteSite, false, true, "/frFR/cours", c -> {
 								if(c.succeeded()) {
 									ListeRecherche<Cours> listeCours = c.result();
-									reponse200RecherchePageCours(listeCours, d -> {
+									reponse200RechercheFrFRPageCours(listeCours, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
 											connexionSql.commit(e -> {
@@ -137,21 +138,98 @@ public class CoursGenApiServiceImpl implements CoursGenApiService {
 		}
 	}
 
-	public void reponse200RecherchePageCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void reponse200RechercheFrFRPageCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			Buffer buffer = Buffer.buffer();
 			RequeteSite requeteSite = listeCours.getRequeteSite_();
 			ToutEcrivain w = ToutEcrivain.creer(listeCours.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
-			CoursPage page = new CoursPage();
-			page.setPageUrl("/api/frFR/cours");
+			CoursFrFRPage page = new CoursFrFRPage();
+			page.setPageUrl("");
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
 			page.setListeCours(listeCours);
-			page.initLoinCoursPage(requeteSite);
+			page.initLoinCoursFrFRPage(requeteSite);
+			page.html();
+			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// RechercheEnUSPage //
+
+	@Override
+	public void rechercheenuspageCoursId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		rechercheenuspageCours(operationRequete, gestionnaireEvenements);
+	}
+
+	@Override
+	public void rechercheenuspageCours(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSite requeteSite = genererRequeteSitePourCours(siteContexte, operationRequete);
+			sqlCours(requeteSite, a -> {
+				if(a.succeeded()) {
+					utilisateurCours(requeteSite, b -> {
+						if(b.succeeded()) {
+							rechercheCours(requeteSite, false, true, "/enUS/course", c -> {
+								if(c.succeeded()) {
+									ListeRecherche<Cours> listeCours = c.result();
+									reponse200RechercheEnUSPageCours(listeCours, d -> {
+										if(d.succeeded()) {
+											SQLConnection connexionSql = requeteSite.getConnexionSql();
+											connexionSql.commit(e -> {
+												if(e.succeeded()) {
+													connexionSql.close(f -> {
+														if(f.succeeded()) {
+															gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+														} else {
+															erreurCours(requeteSite, gestionnaireEvenements, f);
+														}
+													});
+												} else {
+													erreurCours(requeteSite, gestionnaireEvenements, e);
+												}
+											});
+										} else {
+											erreurCours(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurCours(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurCours(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurCours(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200RechercheEnUSPageCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSite requeteSite = listeCours.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeCours.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			CoursEnUSPage page = new CoursEnUSPage();
+			page.setPageUrl("");
+			SolrDocument pageDocumentSolr = new SolrDocument();
+
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course");
+			page.setPageDocumentSolr(pageDocumentSolr);
+			page.setW(w);
+			page.setListeCours(listeCours);
+			page.initLoinCoursEnUSPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
 		} catch(Exception e) {

@@ -1,4 +1,4 @@
-package org.computate.frFR.site.cours.c001.l001;       
+package org.computate.frFR.site.cours.c001.l001;    
 
 import org.computate.frFR.site.cours.c001.C001Lecon;
 import org.computate.frFR.site.couverture.Couverture;

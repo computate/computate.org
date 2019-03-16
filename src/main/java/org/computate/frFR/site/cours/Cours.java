@@ -15,21 +15,20 @@ import org.computate.frFR.site.page.MiseEnPage;
 import org.computate.frFR.site.page.parti.PagePart;
 import org.computate.frFR.site.requete.RequeteSite;
 
-/**  
+/**
  * Api: true
- * ApiUri.enUS: /api/enUS/course
- * ApiUri.frFR: /api/frFR/cours
- * ApiMethode: RecherchePage
- * ApiUriRecherchePage.frFR: /frFR/cours
- * ApiUriRecherchePage.enUS: /enUS/course
- * ApiTypeMedia200GETPage: text/html
- * PageRecherchePage: CoursPage
+ * ApiMethode: RechercheFrFRPage
+ * ApiMethode: RechercheEnUSPage
+ * ApiUriRechercheFrFRPage: /frFR/cours
+ * ApiUriRechercheEnUSPage: /enUS/course
+ * PageRechercheFrFRPage: CoursFrFRPage
+ * PageRechercheEnUSPage: CoursEnUSPage
  * UnNomMinuscule.frFR: un cours
  * NomPluriel.frFR: cours
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/       
+*/     
 public class Cours extends CoursGen<Cluster> {   
 
 	/**

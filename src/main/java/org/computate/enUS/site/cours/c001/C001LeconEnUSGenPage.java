@@ -1,46 +1,48 @@
-package org.computate.enUS.site.cours.c001.l001;
+package org.computate.enUS.site.cours.c001;
 
 import io.vertx.core.http.HttpServerRequest;
-import org.computate.enUS.site.page.parti.QuestionReponse;
 import org.computate.enUS.site.contexte.SiteContexte;
+import org.computate.frFR.site.cours.c001.C001FrFRPage;
 import java.time.ZonedDateTime;
 import java.time.LocalDateTime;
 import java.io.IOException;
 import org.computate.enUS.site.utilisateur.UtilisateurSite;
-import org.computate.enUS.site.page.parti.PageParagraphe;
+import java.lang.Integer;
 import org.computate.enUS.site.page.MiseEnPage;
+import java.util.ArrayList;
 import org.computate.enUS.site.recherche.ListeRecherche;
+import org.apache.solr.common.SolrDocument;
 import org.computate.enUS.site.couverture.Couverture;
-import io.vertx.core.http.HttpServerResponse;
 import java.util.Locale;
-import java.time.LocalDate;
+import io.vertx.core.http.HttpServerResponse;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.lang.Boolean;
 import org.computate.enUS.site.requete.RequeteSite;
-import java.lang.String;
 import org.computate.enUS.site.config.ConfigSite;
 
 
 /**
  * Traduire: false
  **/
-public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDomaineEnUSGenPageGen<MiseEnPage> {
+public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<MiseEnPage> {
 
 	/**
 	 * {@inheritDoc}
 	 * 
 	 **/
-	protected void _listeC001L001ChoisirNomDomaine(Couverture<ListeRecherche<C001L001ChoisirNomDomaine>> c) {
+	protected void _listeC001Lecon(Couverture<ListeRecherche<C001Lecon>> c) {
 	}
 
-	protected void _c001L001ChoisirNomDomaine(Couverture<C001L001ChoisirNomDomaine> c) {
-		if(listeC001L001ChoisirNomDomaine.size() == 1)
-			c.o(listeC001L001ChoisirNomDomaine.get(0));
+	protected void _c001Lecon(Couverture<C001Lecon> c) {
+		if(listeC001Lecon.size() == 1)
+			c.o(listeC001Lecon.get(0));
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L001ChoisirNomDomaine != null)
+		if(c001Lecon != null)
 			c.o("");
-		else if(listeC001L001ChoisirNomDomaine.size() == 0)
+		else if(listeC001Lecon.size() == 0)
 			c.o("");
 	}
 
@@ -53,9 +55,9 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L001ChoisirNomDomaine != null)
+		if(c001Lecon != null)
 			c.o("");
-		else if(listeC001L001ChoisirNomDomaine.size() == 0)
+		else if(listeC001Lecon.size() == 0)
 			c.o("");
 	}
 
@@ -67,33 +69,33 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 			c.o("book");
 	}
 
-	@Override public void initLoinC001L001ChoisirNomDomaineEnUSGenPage() {
-		initC001L001ChoisirNomDomaineEnUSGenPage();
+	@Override public void initLoinC001LeconEnUSGenPage() {
+		initC001LeconEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L001ChoisirNomDomaineEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L001ChoisirNomDomaineEnUSGenPage.js").f().g("script");
+	@Override public void htmlScriptsC001LeconEnUSGenPage() {
+		e("script").a("src", "/static/js/C001LeconEnUSGenPage.js").f().g("script");
 	}
 
-	@Override public void htmlScriptC001L001ChoisirNomDomaineEnUSGenPage() {
+	@Override public void htmlScriptC001LeconEnUSGenPage() {
 	}
 
-	public void htmlFormPageC001L001ChoisirNomDomaine(C001L001ChoisirNomDomaine o) {
+	public void htmlFormPageC001Lecon(C001Lecon o) {
 	}
 
-	public void htmlFormPOSTC001L001ChoisirNomDomaine(C001L001ChoisirNomDomaine o) {
+	public void htmlFormPOSTC001Lecon(C001Lecon o) {
 	}
 
-	public void htmlFormPATCHC001L001ChoisirNomDomaine(C001L001ChoisirNomDomaine o) {
+	public void htmlFormPATCHC001Lecon(C001Lecon o) {
 	}
 
-	public void htmlFormRechercheC001L001ChoisirNomDomaine(C001L001ChoisirNomDomaine o) {
+	public void htmlFormRechercheC001Lecon(C001Lecon o) {
 	}
 
-	@Override public void htmlBodyC001L001ChoisirNomDomaineEnUSGenPage() {
+	@Override public void htmlBodyC001LeconEnUSGenPage() {
 
-		if(listeC001L001ChoisirNomDomaine.size() == 0) {
+		if(listeC001Lecon.size() == 0) {
 			//
 
 			{ e("h1").f();
@@ -101,9 +103,9 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 					e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
 				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
-		} else if(listeC001L001ChoisirNomDomaine.size() == 1) {
+		} else if(listeC001Lecon.size() == 1) {
 			// 
-			C001L001ChoisirNomDomaine o = listeC001L001ChoisirNomDomaine.first();
+			C001Lecon o = listeC001Lecon.first();
 
 			if(pageH1 != null) {
 				{ e("h1").f();
@@ -115,7 +117,7 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show ").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("id", "C001L001ChoisirNomDomaineForm").a("style", "display: inline-block; ").f();
+					{ e("form").a("id", "C001LeconForm").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")
@@ -123,7 +125,7 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 						.a("value", o.getPk())
 						.fg();
 					} g("form");
-					htmlFormPageC001L001ChoisirNomDomaine(o);
+					htmlFormPageC001Lecon(o);
 				}
 
 			} g("div");
@@ -141,9 +143,9 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 					} g("tr");
 				} g("thead");
 				{ e("tbody").f();
-					for(int i = 0; i < listeC001L001ChoisirNomDomaine.size(); i++) {
-						C001L001ChoisirNomDomaine o = listeC001L001ChoisirNomDomaine.getList().get(i);
-						String uri = "/enUS/course/001/001-choose-domain-name/" + o.getPk();
+					for(int i = 0; i < listeC001Lecon.size(); i++) {
+						C001Lecon o = listeC001Lecon.getList().get(i);
+						String uri = "/enUS/course/001/lessons/" + o.getPk();
 						{ e("tr").f();
 						} g("tr");
 					}

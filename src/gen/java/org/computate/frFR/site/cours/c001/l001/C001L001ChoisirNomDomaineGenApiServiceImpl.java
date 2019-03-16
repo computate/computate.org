@@ -1,6 +1,5 @@
 package org.computate.frFR.site.cours.c001.l001;
 
-import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Arrays;
 import io.vertx.ext.web.api.validation.ParameterTypeValidator;
 import org.computate.frFR.site.contexte.SiteContexte;

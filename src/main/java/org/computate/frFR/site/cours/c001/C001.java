@@ -2,14 +2,16 @@ package org.computate.frFR.site.cours.c001;
 
 import org.computate.frFR.site.cours.Cours;
 
-/**    
+/**   
  * Api: true
- * ApiMethode: RecherchePage
- * ApiUriRecherchePage.frFR: /frFR/cours/c001
- * ApiUriRecherchePage.enUS: /enUS/course/c001
- * ApiTypeMedia200GETPage: text/html
- * PageRecherchePage: C001Page
- * PageSuperRecherchePage: CoursPage
+ * ApiMethode: RechercheFrFRPage
+ * ApiMethode: RechercheEnUSPage
+ * ApiUriRechercheFrFRPage: /frFR/cours/001
+ * ApiUriRechercheEnUSPage: /enUS/course/001
+ * PageRechercheFrFRPage: C001FrFRPage
+ * PageRechercheEnUSPage: C001EnUSPage
+ * PageSuperRechercheFrFRPage: C001LeconFrFRPage
+ * PageSuperRechercheEnUSPage: C001LeconEnUSPage
  * UnNomMinuscule.frFR: un cours n ° 1
  * UnNomMinuscule.enUS: a course #1
  * NomPluriel.frFR: courses

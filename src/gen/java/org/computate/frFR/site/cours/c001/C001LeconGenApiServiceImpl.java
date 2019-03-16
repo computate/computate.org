@@ -1,6 +1,5 @@
 package org.computate.frFR.site.cours.c001;
 
-import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Arrays;
 import io.vertx.ext.web.api.validation.ParameterTypeValidator;
 import org.computate.frFR.site.contexte.SiteContexte;
@@ -13,6 +12,7 @@ import org.computate.frFR.site.utilisateur.UtilisateurSite;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.api.OperationResponse;
 import org.apache.commons.lang3.StringUtils;
+import org.computate.frFR.site.cours.c001.C001LeconEnUSPage;
 import java.math.BigDecimal;
 import org.computate.frFR.site.recherche.ResultatRecherche;
 import java.util.Map;
@@ -30,6 +30,7 @@ import java.util.stream.Collectors;
 import io.vertx.core.Future;
 import java.time.ZoneId;
 import org.computate.frFR.site.recherche.ListeRecherche;
+import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.List;
 import java.security.Principal;
 import java.util.stream.Stream;
@@ -43,8 +44,8 @@ import io.vertx.ext.sql.SQLClient;
 import org.apache.http.NameValuePair;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import io.vertx.core.json.Json;
-import org.computate.frFR.site.cours.c001.C001LeconPage;
 import java.time.LocalDateTime;
+import org.computate.frFR.site.cours.c001.C001LeconFrFRPage;
 import io.vertx.core.logging.LoggerFactory;
 import java.util.ArrayList;
 import io.vertx.core.CompositeFuture;
@@ -82,25 +83,25 @@ public class C001LeconGenApiServiceImpl implements C001LeconGenApiService {
 		C001LeconGenApiService service = C001LeconGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
-	// RecherchePage //
+	// RechercheFrFRPage //
 
 	@Override
-	public void recherchepageC001LeconId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		recherchepageC001Lecon(operationRequete, gestionnaireEvenements);
+	public void recherchefrfrpageC001LeconId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		recherchefrfrpageC001Lecon(operationRequete, gestionnaireEvenements);
 	}
 
 	@Override
-	public void recherchepageC001Lecon(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void recherchefrfrpageC001Lecon(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSite requeteSite = genererRequeteSitePourC001Lecon(siteContexte, operationRequete);
 			sqlC001Lecon(requeteSite, a -> {
 				if(a.succeeded()) {
 					utilisateurC001Lecon(requeteSite, b -> {
 						if(b.succeeded()) {
-							rechercheC001Lecon(requeteSite, false, true, "/frFR/cours/001", c -> {
+							rechercheC001Lecon(requeteSite, false, true, "/frFR/cours/001/lecons", c -> {
 								if(c.succeeded()) {
 									ListeRecherche<C001Lecon> listeC001Lecon = c.result();
-									reponse200RecherchePageC001Lecon(listeC001Lecon, d -> {
+									reponse200RechercheFrFRPageC001Lecon(listeC001Lecon, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
 											connexionSql.commit(e -> {
@@ -137,21 +138,98 @@ public class C001LeconGenApiServiceImpl implements C001LeconGenApiService {
 		}
 	}
 
-	public void reponse200RecherchePageC001Lecon(ListeRecherche<C001Lecon> listeC001Lecon, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void reponse200RechercheFrFRPageC001Lecon(ListeRecherche<C001Lecon> listeC001Lecon, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			Buffer buffer = Buffer.buffer();
 			RequeteSite requeteSite = listeC001Lecon.getRequeteSite_();
 			ToutEcrivain w = ToutEcrivain.creer(listeC001Lecon.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
-			C001LeconPage page = new C001LeconPage();
+			C001LeconFrFRPage page = new C001LeconFrFRPage();
 			page.setPageUrl("");
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours/001");
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours/001/lecons");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
 			page.setListeC001Lecon(listeC001Lecon);
-			page.initLoinC001LeconPage(requeteSite);
+			page.initLoinC001LeconFrFRPage(requeteSite);
+			page.html();
+			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// RechercheEnUSPage //
+
+	@Override
+	public void rechercheenuspageC001LeconId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		rechercheenuspageC001Lecon(operationRequete, gestionnaireEvenements);
+	}
+
+	@Override
+	public void rechercheenuspageC001Lecon(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSite requeteSite = genererRequeteSitePourC001Lecon(siteContexte, operationRequete);
+			sqlC001Lecon(requeteSite, a -> {
+				if(a.succeeded()) {
+					utilisateurC001Lecon(requeteSite, b -> {
+						if(b.succeeded()) {
+							rechercheC001Lecon(requeteSite, false, true, "/enUS/course/001/lessons", c -> {
+								if(c.succeeded()) {
+									ListeRecherche<C001Lecon> listeC001Lecon = c.result();
+									reponse200RechercheEnUSPageC001Lecon(listeC001Lecon, d -> {
+										if(d.succeeded()) {
+											SQLConnection connexionSql = requeteSite.getConnexionSql();
+											connexionSql.commit(e -> {
+												if(e.succeeded()) {
+													connexionSql.close(f -> {
+														if(f.succeeded()) {
+															gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+														} else {
+															erreurC001Lecon(requeteSite, gestionnaireEvenements, f);
+														}
+													});
+												} else {
+													erreurC001Lecon(requeteSite, gestionnaireEvenements, e);
+												}
+											});
+										} else {
+											erreurC001Lecon(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurC001Lecon(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurC001Lecon(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001Lecon(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001Lecon(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200RechercheEnUSPageC001Lecon(ListeRecherche<C001Lecon> listeC001Lecon, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSite requeteSite = listeC001Lecon.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001Lecon.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			C001LeconEnUSPage page = new C001LeconEnUSPage();
+			page.setPageUrl("");
+			SolrDocument pageDocumentSolr = new SolrDocument();
+
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/lessons");
+			page.setPageDocumentSolr(pageDocumentSolr);
+			page.setW(w);
+			page.setListeC001Lecon(listeC001Lecon);
+			page.initLoinC001LeconEnUSPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
 		} catch(Exception e) {

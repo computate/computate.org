@@ -20,18 +20,20 @@ import org.computate.frFR.site.couverture.Couverture;
 
 /**    
  * Api: true
- * ApiMethode: RecherchePage
- * ApiUriRecherchePage.frFR: /frFR/cours/001
- * ApiUriRecherchePage.enUS: /enUS/course/001
- * ApiTypeMedia200GETPage: text/html
- * PageRecherchePage: C001LeconPage
- * PageSuperRecherchePage: C001Page
+ * ApiMethode: RechercheFrFRPage
+ * ApiMethode: RechercheEnUSPage
+ * ApiUriRechercheFrFRPage: /frFR/cours/001/lecons
+ * ApiUriRechercheEnUSPage: /enUS/course/001/lessons
+ * PageRechercheFrFRPage: C001LeconFrFRPage
+ * PageRechercheEnUSPage: C001LeconEnUSPage
+ * PageSuperRechercheFrFRPage: C001FrFRPage
+ * PageSuperRechercheEnUSPage: C001EnUSPage
  * UnNomMinuscule.frFR: un leçon
- * NomPluriel.frFR: lessons
+ * UnNomMinuscule.enUS: a lesson
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: book
-*/   
+*/     
 public class C001Lecon extends C001LeconGen<C001> {  
 
 	@Override protected void _estCours(Couverture<Boolean> c) {

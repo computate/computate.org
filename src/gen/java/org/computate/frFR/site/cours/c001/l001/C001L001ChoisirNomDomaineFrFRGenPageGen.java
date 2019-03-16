@@ -5,10 +5,10 @@ import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
 import org.computate.frFR.site.recherche.ListeRecherche;
 import io.vertx.core.json.JsonArray;
-import org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomaine;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
+import org.computate.enUS.site.cours.c001.l001.C001L001ChoisirNomDomaine;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.frFR.site.page.MiseEnPage;
 
@@ -88,8 +88,6 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends MiseE
 			if(c001L001ChoisirNomDomaine == null)
 				setC001L001ChoisirNomDomaine(c001L001ChoisirNomDomaineCouverture.o);
 		}
-		if(c001L001ChoisirNomDomaine != null)
-			c001L001ChoisirNomDomaine.initLoinPourClasse(requeteSite_);
 		c001L001ChoisirNomDomaineCouverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaineFrFRGenPage)this;
 	}
@@ -130,7 +128,6 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends MiseE
 	public void requeteSiteC001L001ChoisirNomDomaineFrFRGenPage(RequeteSite requeteSite_) {
 			super.requeteSiteMiseEnPage(requeteSite_);
 		listeC001L001ChoisirNomDomaine.setRequeteSite_(requeteSite_);
-		c001L001ChoisirNomDomaine.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSite requeteSite_) {
@@ -215,6 +212,43 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends MiseE
 			default:
 				return super.definirMiseEnPage(var, val);
 		}
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlScriptsMiseEnPage();
+	}
+
+	public void htmlScriptsC001L001ChoisirNomDomaineFrFRGenPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlScriptMiseEnPage();
+	}
+
+	public void htmlScriptC001L001ChoisirNomDomaineFrFRGenPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlBodyMiseEnPage();
+	}
+
+	public void htmlBodyC001L001ChoisirNomDomaineFrFRGenPage() {
+		c001L001ChoisirNomDomaine.htmlBody();
 	}
 
 	//////////////

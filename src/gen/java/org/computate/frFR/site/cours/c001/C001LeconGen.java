@@ -38,10 +38,10 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	public static final String C001Lecon_Un = "un ";
 	public static final String C001Lecon_LeNom = "le leçon";
 	public static final String C001Lecon_NomSingulier = "leçon";
-	public static final String C001Lecon_NomPluriel = "lessons";
+	public static final String C001Lecon_NomPluriel = "leçons";
 	public static final String C001Lecon_NomActuel = "leçon actuel";
-	public static final String C001Lecon_TousNom = "tous les lessons";
-	public static final String C001Lecon_LesNoms = "les lessons";
+	public static final String C001Lecon_TousNom = "tous les leçons";
+	public static final String C001Lecon_LesNoms = "les leçons";
 	public static final String C001Lecon_AucunNomTrouve = "aucun leçon trouvé";
 	public static final String C001Lecon_NomVar = "leçon";
 	public static final String C001Lecon_DeNom = "de leçon";
