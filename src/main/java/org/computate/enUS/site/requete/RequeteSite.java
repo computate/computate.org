@@ -34,7 +34,7 @@ import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import io.vertx.ext.sql.SQLConnection;
 import io.vertx.ext.web.api.OperationRequest;
 
-public class RequeteSite extends RequeteSiteGen<Object> {
+public class RequeteSite extends RequeteSiteGen<Object> implements Serializable {
 
 	private static final long serialVersionUID = -6737494107881513257L;
 

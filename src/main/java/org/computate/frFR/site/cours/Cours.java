@@ -28,7 +28,7 @@ import org.computate.frFR.site.requete.RequeteSite;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/     
+*/               
 public class Cours extends CoursGen<Cluster> {   
 
 	/**

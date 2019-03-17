@@ -1,23 +1,23 @@
-package org.computate.frFR.site.utilisateur;
+package org.computate.enUS.site.utilisateur;
 
 import java.util.Arrays;
 import io.vertx.ext.web.api.validation.ParameterTypeValidator;
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.enUS.site.contexte.SiteContexte;
 import org.apache.solr.common.SolrDocumentList;
 import java.util.Date;
 import io.vertx.core.MultiMap;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.reactivestreams.ReactiveReadStream;
-import org.computate.frFR.site.utilisateur.UtilisateurSite;
+import org.computate.enUS.site.utilisateur.UtilisateurSite;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.api.OperationResponse;
 import org.apache.commons.lang3.StringUtils;
 import java.math.BigDecimal;
-import org.computate.frFR.site.recherche.ResultatRecherche;
+import org.computate.enUS.site.recherche.ResultatRecherche;
 import java.util.Map;
 import io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory;
 import io.vertx.core.json.JsonObject;
-import org.computate.frFR.site.config.ConfigSite;
+import org.computate.enUS.site.config.ConfigSite;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.http.CaseInsensitiveHeaders;
 import java.io.PrintWriter;
@@ -28,8 +28,8 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import java.util.stream.Collectors;
 import io.vertx.core.Future;
 import java.time.ZoneId;
-import org.computate.frFR.site.recherche.ListeRecherche;
-import org.computate.frFR.site.ecrivain.ToutEcrivain;
+import org.computate.enUS.site.recherche.ListeRecherche;
+import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.List;
 import java.security.Principal;
 import java.util.stream.Stream;
@@ -62,7 +62,7 @@ import io.vertx.core.json.JsonArray;
 import io.vertx.ext.web.api.OperationRequest;
 import java.time.format.DateTimeFormatter;
 import io.vertx.ext.sql.SQLConnection;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import io.vertx.core.Handler;
 import java.util.Collections;
@@ -83,40 +83,6 @@ public class UtilisateurSiteGenApiServiceImpl implements UtilisateurSiteGenApiSe
 
 	public String varIndexeUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "clusterNomCanonique":
-				return "clusterNomCanonique_indexed_string";
-			case "clusterNomSimple":
-				return "clusterNomSimple_indexed_string";
-			case "calculInrPks":
-				return "calculInrPks_indexed_longs";
-			case "utilisateurNom":
-				return "utilisateurNom_indexed_string";
-			case "utilisateurMail":
-				return "utilisateurMail_indexed_string";
-			case "utilisateurPrenom":
-				return "utilisateurPrenom_indexed_string";
-			case "utilisateurNomFamille":
-				return "utilisateurNomFamille_indexed_string";
-			case "utilisateurNomComplet":
-				return "utilisateurNomComplet_indexed_string";
-			case "utilisateurSite":
-				return "utilisateurSite_indexed_string";
-			case "utilisateurRecevoirCourriels":
-				return "utilisateurRecevoirCourriels_indexed_boolean";
-			case "voirArchive":
-				return "voirArchive_indexed_boolean";
-			case "voirSupprime":
-				return "voirSupprime_indexed_boolean";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -307,7 +273,7 @@ public class UtilisateurSiteGenApiServiceImpl implements UtilisateurSiteGenApiSe
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.frFR.site.utilisateur.UtilisateurSite"));
+			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.enUS.site.utilisateur.UtilisateurSite"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");

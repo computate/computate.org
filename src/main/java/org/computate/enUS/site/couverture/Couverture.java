@@ -3,7 +3,7 @@ package org.computate.enUS.site.couverture;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Couverture<DEV> {
+public class Couverture<DEV> implements Serializable {
 
 	private static final long serialVersionUID = 4171725370071929571L;
 

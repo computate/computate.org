@@ -15,7 +15,7 @@ import org.computate.enUS.site.requete.RequeteSite;
 /**	
  *	Loads the properties in the application config file into specific fields. 
  **/
-public class ConfigSite extends ConfigSiteGen<Object> {
+public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 
 	protected void _requeteSite_(RequeteSite o) {
 	}

@@ -1,6 +1,6 @@
 package org.computate.enUS.site.cours;
 
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.enUS.site.contexte.SiteContexte;
 
 public class CoursApiServiceImpl extends CoursGenApiServiceImpl {
 

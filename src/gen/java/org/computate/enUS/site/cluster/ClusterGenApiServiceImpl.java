@@ -1,23 +1,23 @@
-package org.computate.frFR.site.cluster;
+package org.computate.enUS.site.cluster;
 
 import java.util.Arrays;
 import io.vertx.ext.web.api.validation.ParameterTypeValidator;
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.enUS.site.contexte.SiteContexte;
 import org.apache.solr.common.SolrDocumentList;
 import java.util.Date;
 import io.vertx.core.MultiMap;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.reactivestreams.ReactiveReadStream;
-import org.computate.frFR.site.utilisateur.UtilisateurSite;
+import org.computate.enUS.site.utilisateur.UtilisateurSite;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.api.OperationResponse;
 import org.apache.commons.lang3.StringUtils;
 import java.math.BigDecimal;
-import org.computate.frFR.site.recherche.ResultatRecherche;
+import org.computate.enUS.site.recherche.ResultatRecherche;
 import java.util.Map;
 import io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory;
 import io.vertx.core.json.JsonObject;
-import org.computate.frFR.site.config.ConfigSite;
+import org.computate.enUS.site.config.ConfigSite;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.http.CaseInsensitiveHeaders;
 import java.io.PrintWriter;
@@ -28,8 +28,8 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import java.util.stream.Collectors;
 import io.vertx.core.Future;
 import java.time.ZoneId;
-import org.computate.frFR.site.recherche.ListeRecherche;
-import org.computate.frFR.site.ecrivain.ToutEcrivain;
+import org.computate.enUS.site.recherche.ListeRecherche;
+import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.List;
 import java.security.Principal;
 import java.util.stream.Stream;
@@ -62,7 +62,7 @@ import io.vertx.core.json.JsonArray;
 import io.vertx.ext.web.api.OperationRequest;
 import java.time.format.DateTimeFormatter;
 import io.vertx.ext.sql.SQLConnection;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import io.vertx.core.Handler;
 import java.util.Collections;
@@ -139,30 +139,6 @@ public class ClusterGenApiServiceImpl implements ClusterGenApiService {
 				if(i > 0)
 					w.s(", ");
 				w.l("{");
-
-				entiteValeur = o.getPk();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
-
-				entiteValeur = o.getUtilisateurId();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClusterNomCanonique();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomCanonique\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClusterNomSimple();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomSimple\": ", w.qjs(entiteValeur));
 
 				w.tl(2, "}");
 			}
@@ -422,49 +398,9 @@ public class ClusterGenApiServiceImpl implements ClusterGenApiService {
 			Cluster o2 = new Cluster();
 
 			patchSql.append(SiteContexte.SQL_modifier);
-			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.frFR.site.cluster.Cluster"));
+			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.enUS.site.cluster.Cluster"));
 			for(String methodeNom : methodeNoms) {
 				switch(methodeNom) {
-					case "setPk":
-						o2.setPk(requeteJson.getLong(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("pk", o2.getPk(), pk));
-						break;
-					case "setId":
-						o2.setId(requeteJson.getString(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("id", o2.getId(), pk));
-						break;
-					case "setSupprime":
-						o2.setSupprime(requeteJson.getBoolean(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
-						break;
-					case "setUtilisateurId":
-						o2.setUtilisateurId(requeteJson.getString(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("utilisateurId", o2.getUtilisateurId(), pk));
-						break;
-					case "setCree":
-						o2.setCree(requeteJson.getInstant(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("cree", o2.getCree(), pk));
-						break;
-					case "setModifie":
-						o2.setModifie(requeteJson.getInstant(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("modifie", o2.getModifie(), pk));
-						break;
-					case "setClusterNomCanonique":
-						o2.setClusterNomCanonique(requeteJson.getString(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("clusterNomCanonique", o2.getClusterNomCanonique(), pk));
-						break;
-					case "setClusterNomSimple":
-						o2.setClusterNomSimple(requeteJson.getString(methodeNom));
-						patchSql.append(SiteContexte.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("clusterNomSimple", o2.getClusterNomSimple(), pk));
-						break;
 				}
 			}
 			connexionSql.queryWithParams(
@@ -572,30 +508,6 @@ public class ClusterGenApiServiceImpl implements ClusterGenApiService {
 				Integer entiteNumero = 0;
 
 				w.l("{");
-
-				entiteValeur = o.getPk();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
-
-				entiteValeur = o.getUtilisateurId();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClusterNomCanonique();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomCanonique\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClusterNomSimple();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"clusterNomSimple\": ", w.qjs(entiteValeur));
 
 				w.l("}");
 			}
@@ -846,20 +758,6 @@ public class ClusterGenApiServiceImpl implements ClusterGenApiService {
 
 	public String varIndexeCluster(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "clusterNomCanonique":
-				return "clusterNomCanonique_indexed_string";
-			case "clusterNomSimple":
-				return "clusterNomSimple_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -1050,7 +948,7 @@ public class ClusterGenApiServiceImpl implements ClusterGenApiService {
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.frFR.site.cluster.Cluster"));
+			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.enUS.site.cluster.Cluster"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
