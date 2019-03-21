@@ -16,7 +16,7 @@ import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.params.FacetParams;
 import org.apache.solr.common.params.ModifiableSolrParams;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 public class ListeRecherche<DEV> extends ListeRechercheGen<DEV> {
 
@@ -24,7 +24,7 @@ public class ListeRecherche<DEV> extends ListeRechercheGen<DEV> {
 		
 	}
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {
 	}
 
 	protected void _stocker(Couverture<Boolean> c) {

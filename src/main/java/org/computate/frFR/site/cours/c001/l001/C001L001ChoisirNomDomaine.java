@@ -1,4 +1,4 @@
-package org.computate.frFR.site.cours.c001.l001;    
+package org.computate.frFR.site.cours.c001.l001;          
 
 import org.computate.frFR.site.cours.c001.C001Lecon;
 import org.computate.frFR.site.couverture.Couverture;
@@ -6,7 +6,7 @@ import org.computate.frFR.site.page.parti.PageParagraphe;
 import org.computate.frFR.site.page.parti.QuestionReponse;
 
 
-/**   
+/**  
  * Api: true
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
@@ -61,7 +61,7 @@ import org.computate.frFR.site.page.parti.QuestionReponse;
  * Val.ALAvanceParagraphe.enUS:The directories where you will be putting your website are waiting for it. 
  * Val.ALAvanceParagraphe.enUS:All the applications that are part of the website will need to know it. 
  * Val.ALAvanceParagraphe.enUS:So go take some time and think of the perfect .com, .org or .whatever that will represent your vision, and then come back here and I'll help you from there. 
-*/     
+*/    
 public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {  
 
 	public static void main(String[] args) {  

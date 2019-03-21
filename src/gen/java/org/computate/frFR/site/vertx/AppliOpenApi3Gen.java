@@ -4,9 +4,9 @@ import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
 import org.computate.frFR.site.vertx.AppliSwagger2;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -22,7 +22,7 @@ public abstract class AppliOpenApi3Gen<DEV> extends AppliSwagger2 {
 
 	protected boolean dejaInitialiseAppliOpenApi3 = false;
 
-	public AppliOpenApi3 initLoinAppliOpenApi3(RequeteSite requeteSite_) {
+	public AppliOpenApi3 initLoinAppliOpenApi3(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseAppliOpenApi3) {
 			dejaInitialiseAppliOpenApi3 = true;
@@ -39,7 +39,7 @@ public abstract class AppliOpenApi3Gen<DEV> extends AppliSwagger2 {
 	public void initAppliOpenApi3() {
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
 		initLoinAppliOpenApi3(requeteSite_);
 	}
 
@@ -47,11 +47,11 @@ public abstract class AppliOpenApi3Gen<DEV> extends AppliSwagger2 {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteAppliOpenApi3(RequeteSite requeteSite_) {
+	public void requeteSiteAppliOpenApi3(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteAppliSwagger2(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteAppliOpenApi3(requeteSite_);
 	}
 

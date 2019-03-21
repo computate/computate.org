@@ -7,11 +7,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.page.MiseEnPage;
 import org.computate.enUS.site.page.parti.Icone;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 public class Chaine extends ChaineGen<Object> {
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {}
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {}
 
 	protected void _police(Couverture<String> c) {}
 

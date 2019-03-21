@@ -15,12 +15,15 @@ import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.computate.frFR.site.config.ConfigSite;
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.ecrivain.ApiEcrivain;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
+/**
+ * Traduire: false
+ */
 public class AppliSwagger2 extends AppliSwagger2Gen<Object> {
 
 	/**
@@ -33,12 +36,12 @@ public class AppliSwagger2 extends AppliSwagger2Gen<Object> {
 
 	/**
 	 */
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	/**
 	 */
-	protected void _siteContexte(SiteContexte o) {
+	protected void _siteContexte(SiteContexteFrFR o) {
 	}
 
 	/**

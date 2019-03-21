@@ -1,4 +1,4 @@
-package org.computate.frFR.site.cluster;    
+package org.computate.frFR.site.cluster;   
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,25 +10,16 @@ import org.computate.frFR.site.chaine.Chaine;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import org.computate.frFR.site.page.MiseEnPage;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import org.computate.frFR.site.xml.OutilXml;
 
 
 
-/**
+/**       
+ * MotCle: classeNomSimpleCluster
  * Modele: true
- * ApiUri.enUS: /api/warfarin/cluster
- * ApiUri.frFR: /api/warfarin/cluster
- * ApiMethode: Recherche
- * ApiMethode: POST
- * ApiMethode: PATCH
- * ApiMethode: GET
- * ApiMethode: PUT
- * ApiMethode: DELETE
- * ApiTag.enUS: Cluster
- * ApiTag.frFR: Cluster
- */ 
-public class Cluster extends ClusterGen<Object> {   
+ */  
+public class Cluster extends ClusterGen<Object> {    
 
 	public static DateTimeFormatter FORMAT_dateMedicalCourt = DateTimeFormatter.ofPattern("M/d/yyyy", Locale.FRANCE);
 
@@ -43,7 +34,7 @@ public class Cluster extends ClusterGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 */       
-	protected void _requeteSite_(Couverture<RequeteSite> c) {}
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {}
 	protected void _page_(Couverture<MiseEnPage> c) {}
 
 	/**

@@ -3,10 +3,10 @@ package org.computate.enUS.site.page.parti;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.page.parti.PagePart;
-import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -25,7 +25,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 
 	protected boolean dejaInitialisePageHtml = false;
 
-	public PageHtml initLoinPageHtml(RequeteSite requeteSite_) {
+	public PageHtml initLoinPageHtml(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialisePageHtml) {
 			dejaInitialisePageHtml = true;
@@ -42,7 +42,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	public void initPageHtml() {
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinPageHtml(requeteSite_);
 	}
 
@@ -50,11 +50,11 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSitePageHtml(RequeteSite requeteSite_) {
+	public void requeteSitePageHtml(RequeteSiteEnUS requeteSite_) {
 			super.requeteSitePagePart(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSitePageHtml(requeteSite_);
 	}
 

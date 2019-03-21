@@ -3,10 +3,10 @@ package org.computate.enUS.site.ecrivain;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import io.vertx.core.json.JsonArray;
 import java.util.List;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.Object;
 import org.apache.commons.lang3.StringUtils;
@@ -24,8 +24,8 @@ public abstract class TousEcrivainsGen<DEV> extends Object {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteEnUS requeteSite_;
+	public Couverture<RequeteSiteEnUS> requeteSite_Couverture = new Couverture<RequeteSiteEnUS>().p(this).c(RequeteSiteEnUS.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -33,13 +33,13 @@ public abstract class TousEcrivainsGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c);
+	protected abstract void _requeteSite_(Couverture<RequeteSiteEnUS> c);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteEnUS getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteEnUS requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -95,7 +95,7 @@ public abstract class TousEcrivainsGen<DEV> extends Object {
 
 	protected boolean dejaInitialiseTousEcrivains = false;
 
-	public TousEcrivains initLoinTousEcrivains(RequeteSite requeteSite_) {
+	public TousEcrivains initLoinTousEcrivains(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseTousEcrivains) {
 			dejaInitialiseTousEcrivains = true;
@@ -112,7 +112,7 @@ public abstract class TousEcrivainsGen<DEV> extends Object {
 		ecrivainsInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinTousEcrivains(requeteSite_);
 	}
 
@@ -120,10 +120,10 @@ public abstract class TousEcrivainsGen<DEV> extends Object {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteTousEcrivains(RequeteSite requeteSite_) {
+	public void requeteSiteTousEcrivains(RequeteSiteEnUS requeteSite_) {
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteTousEcrivains(requeteSite_);
 	}
 

@@ -9,24 +9,25 @@ import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
 
 
 /**
+ * MotCle: classeNomSimpleConfigSite
  * enUS: Loads the properties in the application config file into specific fields. 
  * frFR: Charge les propriétés dans le fichier de config de l'application dans des champs spécifiques. 
  */    
-public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {   
+public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {  
 
 	/**	Tous les infos importants à propos de la requête actuelle. **/
-	protected void _requeteSite_(RequeteSite o) {
+	protected void _requeteSite_(RequeteSiteFrFR o) {
 	}
 
 	/**	L'écouteur de contexte du site pour obtenir des objets globals du contexte. **/
-	protected void _siteContexte_(Couverture<SiteContexte> c) {
+	protected void _siteContexte_(Couverture<SiteContexteFrFR> c) {
 	}
 
 	/**	Le chemin vers le fichier de config du site. **/

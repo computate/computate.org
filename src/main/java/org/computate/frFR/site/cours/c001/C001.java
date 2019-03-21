@@ -1,4 +1,4 @@
-package org.computate.frFR.site.cours.c001; 
+package org.computate.frFR.site.cours.c001;    
 
 import org.computate.frFR.site.cours.Cours;
 
@@ -10,8 +10,8 @@ import org.computate.frFR.site.cours.Cours;
  * ApiUriRechercheEnUSPage: /enUS/course/001
  * PageRechercheFrFRPage: C001FrFRPage
  * PageRechercheEnUSPage: C001EnUSPage
- * PageSuperRechercheFrFRPage: C001LeconFrFRPage
- * PageSuperRechercheEnUSPage: C001LeconEnUSPage
+ * PageSuperRechercheFrFRPage: CoursFrFRPage
+ * PageSuperRechercheEnUSPage: CoursEnUSPage
  * UnNomMinuscule.frFR: un cours n ° 1
  * UnNomMinuscule.enUS: a course #1
  * NomPluriel.frFR: courses
@@ -19,7 +19,7 @@ import org.computate.frFR.site.cours.Cours;
  * IconeGroupe: regular
  * IconeNom: university
  * Page: true
-*/   
+*/    
 public class C001 extends C001Gen<Cours> {   
 
 	public void htmlBody() {

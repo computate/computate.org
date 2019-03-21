@@ -1,6 +1,7 @@
 package org.computate.frFR.site.chaine;
 
 import org.computate.frFR.site.cluster.Cluster;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import org.computate.frFR.site.page.parti.Icone;
 import java.lang.Double;
 import org.apache.commons.text.StringEscapeUtils;
@@ -11,7 +12,6 @@ import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
 import java.lang.Boolean;
-import org.computate.frFR.site.requete.RequeteSite;
 import java.lang.Object;
 import java.lang.String;
 
@@ -28,8 +28,8 @@ public abstract class ChaineGen<DEV> extends Object {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteFrFR requeteSite_;
+	public Couverture<RequeteSiteFrFR> requeteSite_Couverture = new Couverture<RequeteSiteFrFR>().p(this).c(RequeteSiteFrFR.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -37,13 +37,13 @@ public abstract class ChaineGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c);
+	protected abstract void _requeteSite_(Couverture<RequeteSiteFrFR> c);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteFrFR getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteFrFR requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -676,7 +676,7 @@ public abstract class ChaineGen<DEV> extends Object {
 
 	protected boolean dejaInitialiseChaine = false;
 
-	public Chaine initLoinChaine(RequeteSite requeteSite_) {
+	public Chaine initLoinChaine(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseChaine) {
 			dejaInitialiseChaine = true;
@@ -703,7 +703,7 @@ public abstract class ChaineGen<DEV> extends Object {
 		toutInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
 		initLoinChaine(requeteSite_);
 	}
 
@@ -711,10 +711,10 @@ public abstract class ChaineGen<DEV> extends Object {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteChaine(RequeteSite requeteSite_) {
+	public void requeteSiteChaine(RequeteSiteFrFR requeteSite_) {
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteChaine(requeteSite_);
 	}
 

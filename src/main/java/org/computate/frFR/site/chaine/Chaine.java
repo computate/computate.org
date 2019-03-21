@@ -8,13 +8,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.page.MiseEnPage;
 import org.computate.frFR.site.page.parti.Icone;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
 /**
+ * MotCle: classeNomSimpleChaine
  */
 public class Chaine extends ChaineGen<Object> { 
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {}
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {}
 
 	protected void _police(Couverture<String> c) {}
 

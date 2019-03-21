@@ -4,14 +4,14 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 
 	protected void _calculInrPks(List<Long> l) {
 	}
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {}
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {}
 
 	protected void _utilisateurNom(Couverture<String> c) {
 		String o = requeteSite_.getUtilisateurNom();

@@ -3,9 +3,9 @@ package org.computate.frFR.site.page.parti;
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
@@ -24,8 +24,8 @@ public abstract class PagePartGen<DEV> extends Cluster {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteFrFR requeteSite_;
+	public Couverture<RequeteSiteFrFR> requeteSite_Couverture = new Couverture<RequeteSiteFrFR>().p(this).c(RequeteSiteFrFR.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -33,13 +33,13 @@ public abstract class PagePartGen<DEV> extends Cluster {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c);
+	protected abstract void _requeteSite_(Couverture<RequeteSiteFrFR> c);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteFrFR getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteFrFR requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -133,7 +133,7 @@ public abstract class PagePartGen<DEV> extends Cluster {
 
 	protected boolean dejaInitialisePagePart = false;
 
-	public PagePart initLoinPagePart(RequeteSite requeteSite_) {
+	public PagePart initLoinPagePart(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialisePagePart) {
 			dejaInitialisePagePart = true;
@@ -151,7 +151,7 @@ public abstract class PagePartGen<DEV> extends Cluster {
 		partiVarInit();
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
 		initLoinPagePart(requeteSite_);
 	}
 
@@ -159,11 +159,11 @@ public abstract class PagePartGen<DEV> extends Cluster {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSitePagePart(RequeteSite requeteSite_) {
+	public void requeteSitePagePart(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteCluster(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSitePagePart(requeteSite_);
 	}
 

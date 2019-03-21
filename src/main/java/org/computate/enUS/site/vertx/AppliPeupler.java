@@ -1,16 +1,16 @@
 package org.computate.enUS.site.vertx;
 
 import org.computate.enUS.site.config.ConfigSite;
-import org.computate.enUS.site.contexte.SiteContexte;
+import org.computate.enUS.site.contexte.SiteContexteEnUS;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 public class AppliPeupler extends AppliPeuplerGen<Object> {
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {
 	}
 
-	protected void _siteContexte(SiteContexte o) {
+	protected void _siteContexte(SiteContexteEnUS o) {
 	}
 
 	protected void _configSite(Couverture<ConfigSite> c) {

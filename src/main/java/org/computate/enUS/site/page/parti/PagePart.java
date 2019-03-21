@@ -3,11 +3,11 @@ package org.computate.enUS.site.page.parti;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.page.MiseEnPage;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 public abstract class PagePart extends PagePartGen<Cluster> {
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {}
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {}
 
 	protected void _page_(Couverture<MiseEnPage> c) {}
 

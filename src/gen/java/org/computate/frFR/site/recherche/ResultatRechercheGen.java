@@ -3,11 +3,11 @@ package org.computate.frFR.site.recherche;
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import org.computate.frFR.site.couverture.Couverture;
 import java.lang.Long;
-import org.computate.frFR.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.Object;
 import org.apache.commons.lang3.StringUtils;
@@ -26,8 +26,8 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteFrFR requeteSite_;
+	public Couverture<RequeteSiteFrFR> requeteSite_Couverture = new Couverture<RequeteSiteFrFR>().p(this).c(RequeteSiteFrFR.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -35,13 +35,13 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c) throws Exception, Exception;
+	protected abstract void _requeteSite_(Couverture<RequeteSiteFrFR> c) throws Exception, Exception;
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteFrFR getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteFrFR requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -150,7 +150,7 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 
 	protected boolean dejaInitialiseResultatRecherche = false;
 
-	public ResultatRecherche initLoinResultatRecherche(RequeteSite requeteSite_) throws Exception {
+	public ResultatRecherche initLoinResultatRecherche(RequeteSiteFrFR requeteSite_) throws Exception {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseResultatRecherche) {
 			dejaInitialiseResultatRecherche = true;
@@ -168,7 +168,7 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 		resultatIndiceInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) throws Exception {
+	public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) throws Exception {
 		initLoinResultatRecherche(requeteSite_);
 	}
 
@@ -176,10 +176,10 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteResultatRecherche(RequeteSite requeteSite_) {
+	public void requeteSiteResultatRecherche(RequeteSiteFrFR requeteSite_) {
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteResultatRecherche(requeteSite_);
 	}
 

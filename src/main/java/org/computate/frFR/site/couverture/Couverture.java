@@ -1,10 +1,10 @@
-package org.computate.frFR.site.couverture;    
+package org.computate.frFR.site.couverture;     
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * 
+/** 
+ * MotCle: classeNomSimpleCouverture
  */ 
 public class Couverture<DEV> implements Serializable {  
 	private static final long serialVersionUID = 4171725370071929571L;

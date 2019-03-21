@@ -15,7 +15,7 @@ import org.computate.enUS.site.chaine.Chaine;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import org.computate.enUS.site.page.parti.PagePart;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import org.computate.enUS.site.xml.OutilXml;
 
 public class MiseEnPage extends MiseEnPageGen<Object> {
@@ -37,7 +37,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		o.setPage_(this);
 	}
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {
 	}
 
 	protected void _pageDocumentSolr(Couverture<SolrDocument> c) {
@@ -88,11 +88,11 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	protected void _pageTitre(Couverture<String> c) {
-		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_frFR_stored_string"), StringUtils.join(pageH1, pageH2)));
+		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_enUS_stored_string"), StringUtils.join(pageH1, pageH2)));
 	}
 
 	protected void _pageUri(Couverture<String> c) {
-		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_frFR_stored_string"), null));
+		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_enUS_stored_string"), null));
 	}
 
 	protected void _pageUris(List<String> l) {

@@ -16,10 +16,11 @@ import org.computate.frFR.site.chaine.Chaine;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import org.computate.frFR.site.page.parti.PagePart;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import org.computate.frFR.site.xml.OutilXml;
 
 /**
+ * MotCle: classeNomSimpleMiseEnPage
  */  
 public class MiseEnPage extends MiseEnPageGen<Object> {  
 
@@ -63,7 +64,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * 
 	 * {@inheritDoc}
 	 **/ 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	/**

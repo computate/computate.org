@@ -17,8 +17,11 @@ import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.params.FacetParams;
 import org.apache.solr.common.params.ModifiableSolrParams;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
+/**
+ * MotCle: classeNomSimpleListeRecherche
+ */
 public class ListeRecherche<DEV> extends ListeRechercheGen<DEV> { 
 
 	/**            
@@ -29,7 +32,7 @@ public class ListeRecherche<DEV> extends ListeRechercheGen<DEV> {
 		
 	}
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	protected void _stocker(Couverture<Boolean> c) {

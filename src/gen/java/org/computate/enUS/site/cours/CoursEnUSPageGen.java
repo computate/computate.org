@@ -3,12 +3,12 @@ package org.computate.enUS.site.cours;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import org.computate.enUS.site.cluster.Cluster;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.enUS.site.cours.CoursEnUSGenPage;
 import org.computate.enUS.site.couverture.Couverture;
 import org.apache.commons.lang3.StringUtils;
-import org.computate.enUS.site.requete.RequeteSite;
 
 /**	
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.enUS.site.cours.CoursEnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
@@ -22,7 +22,7 @@ public abstract class CoursEnUSPageGen<DEV> extends CoursEnUSGenPage {
 
 	protected boolean dejaInitialiseCoursEnUSPage = false;
 
-	public CoursEnUSPage initLoinCoursEnUSPage(RequeteSite requeteSite_) {
+	public CoursEnUSPage initLoinCoursEnUSPage(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseCoursEnUSPage) {
 			dejaInitialiseCoursEnUSPage = true;
@@ -38,7 +38,7 @@ public abstract class CoursEnUSPageGen<DEV> extends CoursEnUSGenPage {
 	public void initCoursEnUSPage() {
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinCoursEnUSPage(requeteSite_);
 	}
 
@@ -46,10 +46,10 @@ public abstract class CoursEnUSPageGen<DEV> extends CoursEnUSGenPage {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteCoursEnUSPage(RequeteSite requeteSite_) {
+	public void requeteSiteCoursEnUSPage(RequeteSiteEnUS requeteSite_) {
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteCoursEnUSPage(requeteSite_);
 	}
 

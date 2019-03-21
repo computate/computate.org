@@ -1,8 +1,8 @@
 package org.computate.enUS.site.config;
 
 import org.computate.enUS.site.cluster.Cluster;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import org.apache.commons.configuration2.INIConfiguration;
-import org.computate.enUS.site.contexte.SiteContexte;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
@@ -10,7 +10,7 @@ import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.contexte.SiteContexteEnUS;
 import java.lang.Object;
 import java.lang.String;
 
@@ -26,24 +26,24 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 	//////////////////
 
 	/**	L'entité « requeteSite_ »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut RequeteSite(). 
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut RequeteSiteEnUS(). 
 	 */
-	protected RequeteSite requeteSite_ = new RequeteSite();
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteEnUS requeteSite_ = new RequeteSiteEnUS();
+	public Couverture<RequeteSiteEnUS> requeteSite_Couverture = new Couverture<RequeteSiteEnUS>().p(this).c(RequeteSiteEnUS.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut RequeteSite(). 
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut RequeteSiteEnUS(). 
 	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.enUS.site.config.ConfigSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:requeteSite_">Trouver l'entité requeteSite_ dans Solr</a>
 	 * <br/>
 	 * @param requeteSite_ est l'entité déjà construit. 
 	 **/
-	protected abstract void _requeteSite_(RequeteSite o);
+	protected abstract void _requeteSite_(RequeteSiteEnUS o);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteEnUS getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteEnUS requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -55,8 +55,8 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 	/**	L'entité « siteContexte_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected SiteContexte siteContexte_;
-	public Couverture<SiteContexte> siteContexte_Couverture = new Couverture<SiteContexte>().p(this).c(SiteContexte.class).var("siteContexte_").o(siteContexte_);
+	protected SiteContexteEnUS siteContexte_;
+	public Couverture<SiteContexteEnUS> siteContexte_Couverture = new Couverture<SiteContexteEnUS>().p(this).c(SiteContexteEnUS.class).var("siteContexte_").o(siteContexte_);
 
 	/**	<br/>L'entité « siteContexte_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -64,13 +64,13 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _siteContexte_(Couverture<SiteContexte> c);
+	protected abstract void _siteContexte_(Couverture<SiteContexteEnUS> c);
 
-	public SiteContexte getSiteContexte_() {
+	public SiteContexteEnUS getSiteContexte_() {
 		return siteContexte_;
 	}
 
-	public void setSiteContexte_(SiteContexte siteContexte_) {
+	public void setSiteContexte_(SiteContexteEnUS siteContexte_) {
 		this.siteContexte_ = siteContexte_;
 		this.siteContexte_Couverture.dejaInitialise = true;
 	}
@@ -3303,7 +3303,7 @@ The INI Configuration Object for the config file.
 
 	protected boolean dejaInitialiseConfigSite = false;
 
-	public ConfigSite initLoinConfigSite(RequeteSite requeteSite_) {
+	public ConfigSite initLoinConfigSite(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseConfigSite) {
 			dejaInitialiseConfigSite = true;
@@ -3376,7 +3376,7 @@ The INI Configuration Object for the config file.
 		vertxServiceAddresseInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinConfigSite(requeteSite_);
 	}
 
@@ -3384,10 +3384,10 @@ The INI Configuration Object for the config file.
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteConfigSite(RequeteSite requeteSite_) {
+	public void requeteSiteConfigSite(RequeteSiteEnUS requeteSite_) {
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteConfigSite(requeteSite_);
 	}
 

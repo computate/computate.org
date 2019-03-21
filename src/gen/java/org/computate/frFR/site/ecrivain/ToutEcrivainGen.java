@@ -2,6 +2,7 @@ package org.computate.frFR.site.ecrivain;
 
 import org.computate.frFR.site.cluster.Cluster;
 import java.io.PrintWriter;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import java.io.StringWriter;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +13,6 @@ import io.vertx.core.json.JsonArray;
 import io.vertx.core.buffer.Buffer;
 import org.computate.frFR.site.couverture.Couverture;
 import java.lang.Boolean;
-import org.computate.frFR.site.requete.RequeteSite;
 import java.lang.Object;
 import java.lang.String;
 
@@ -29,8 +29,8 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteFrFR requeteSite_;
+	public Couverture<RequeteSiteFrFR> requeteSite_Couverture = new Couverture<RequeteSiteFrFR>().p(this).c(RequeteSiteFrFR.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -38,13 +38,13 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c);
+	protected abstract void _requeteSite_(Couverture<RequeteSiteFrFR> c);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteFrFR getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteFrFR requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -316,7 +316,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 
 	protected boolean dejaInitialiseToutEcrivain = false;
 
-	public ToutEcrivain initLoinToutEcrivain(RequeteSite requeteSite_) {
+	public ToutEcrivain initLoinToutEcrivain(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseToutEcrivain) {
 			dejaInitialiseToutEcrivain = true;
@@ -338,7 +338,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 		videInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
 		initLoinToutEcrivain(requeteSite_);
 	}
 
@@ -346,10 +346,10 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteToutEcrivain(RequeteSite requeteSite_) {
+	public void requeteSiteToutEcrivain(RequeteSiteFrFR requeteSite_) {
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteToutEcrivain(requeteSite_);
 	}
 

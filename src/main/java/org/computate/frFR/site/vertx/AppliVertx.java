@@ -1,10 +1,20 @@
-package org.computate.frFR.site.vertx;
+package org.computate.frFR.site.vertx; 
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.computate.enUS.site.contexte.SiteContexteEnUS;
+import org.computate.enUS.site.cours.CoursEnUSGenApiService;
+import org.computate.enUS.site.cours.c001.C001EnUSGenApiService;
+import org.computate.enUS.site.cours.c001.C001LeconEnUSGenApiService;
+import org.computate.enUS.site.cours.c001.l001.C001L001ChoisirNomDomaineEnUSGenApiService;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import org.computate.frFR.site.config.ConfigSite;
-import org.computate.frFR.site.contexte.SiteContexte;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
+import org.computate.frFR.site.cours.CoursFrFRGenApiService;
+import org.computate.frFR.site.cours.c001.C001FrFRGenApiService;
+import org.computate.frFR.site.cours.c001.C001LeconFrFRGenApiService;
+import org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomaineFrFRGenApiService;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -37,7 +47,7 @@ import io.vertx.ext.web.sstore.LocalSessionStore;
 import io.vertx.serviceproxy.ServiceBinder;
 
 /**
- * NomCanonique.enUS: AppVertx
+ * Traduire: false
  */
 public class AppliVertx extends AbstractVerticle {
 	public static final String SQL_createTableC = "create table if not exists c(pk bigserial primary key, ajour boolean, nom_canonique text, cree timestamp with time zone default now(), modifie timestamp with time zone default now(), id_utilisateur text); ";
@@ -58,8 +68,37 @@ public class AppliVertx extends AbstractVerticle {
 		CoureurVertx.run(AppliVertx.class);
 	}
 
-	private Future<Void> preparerDonnees(SiteContexte siteContexte) {
-		ConfigSite configSite = siteContexte.getConfigSite();
+	@Override
+	public void start(Future<Void> demarrerFuture) throws Exception {
+
+		SiteContexteFrFR siteContexteFrFR = new SiteContexteFrFR();
+		siteContexteFrFR.setVertx(vertx);
+		RequeteSiteFrFR requeteSiteFrFR = new RequeteSiteFrFR();
+		requeteSiteFrFR.setSiteContexte_(siteContexteFrFR);
+		requeteSiteFrFR.initLoinRequeteSiteFrFR();
+		siteContexteFrFR.initLoinSiteContexteFrFR();
+
+		SiteContexteEnUS siteContexteEnUS = new SiteContexteEnUS();
+		siteContexteEnUS.setVertx(vertx);
+		RequeteSiteEnUS requeteSiteEnUS = new RequeteSiteEnUS();
+		requeteSiteEnUS.setSiteContexte_(siteContexteEnUS);
+		requeteSiteEnUS.initLoinRequeteSiteEnUS();
+		siteContexteEnUS.initLoinSiteContexteEnUS();
+
+
+
+		Future<Void> etapesFutures = preparerDonnees(siteContexteFrFR).compose(a -> 
+			configurerCluster(siteContexteFrFR).compose(b -> 
+				configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
+					demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+				)
+			)
+		);
+		etapesFutures.setHandler(demarrerFuture.completer());
+	}
+
+	private Future<Void> preparerDonnees(SiteContexteFrFR siteContexteFrFR) {
+		ConfigSite configSite = siteContexteFrFR.getConfigSite();
 		Future<Void> future = Future.future();
 
 		JsonObject jdbcConfig = new JsonObject();
@@ -107,7 +146,7 @@ public class AppliVertx extends AbstractVerticle {
 		return future;
 	}
 
-	private Future<Void> configurerCluster(SiteContexte siteContexte) {
+	private Future<Void> configurerCluster(SiteContexteFrFR siteContexte) {
 		ConfigSite configSite = siteContexte.getConfigSite();
 		Future<Void> future = Future.future();
 		SharedData donneesPartagees = vertx.sharedData();
@@ -135,8 +174,8 @@ public class AppliVertx extends AbstractVerticle {
 		return future;
 	}
 
-	private Future<Void> configurerOpenApi(SiteContexte siteContexte) {
-		ConfigSite configSite = siteContexte.getConfigSite();
+	private Future<Void> configurerOpenApi(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
+		ConfigSite configSite = siteContexteFrFR.getConfigSite();
 		Future<Void> future = Future.future();
 		Router routeur = Router.router(vertx);
 
@@ -145,7 +184,8 @@ public class AppliVertx extends AbstractVerticle {
 			if (ar.succeeded()) {
 				AppOpenAPI3RouterFactory usineRouteur = ar.result();
 				usineRouteur.mountServicesFromExtensions();
-				siteContexte.setUsineRouteur(usineRouteur);
+				siteContexteFrFR.setUsineRouteur(usineRouteur);
+				siteContexteEnUS.setUsineRouteur(usineRouteur);
 
 				JsonObject keycloakJson = new JsonObject() {
 					{
@@ -182,9 +222,20 @@ public class AppliVertx extends AbstractVerticle {
 
 				gestionnaireAuth.setupCallback(routeur.get("/callback"));
 
+				routeur.get("/deconnexion").handler(rc -> {
+					Session session = rc.session();
+					if (session != null) {
+						session.destroy();
+					}
+					rc.clearUser();
+					rc.reroute("/mission");
+				});
+
 				usineRouteur.addSecurityHandler("openIdConnect", gestionnaireAuth);
 
 				usineRouteur.initRouter();
+
+				future.complete();
 			} else {
 				LOGGER.error("Could not configure the api", ar.cause());
 				future.fail(ar.cause());
@@ -193,7 +244,7 @@ public class AppliVertx extends AbstractVerticle {
 		return future;
 	}
 
-	public AppliVertx setupCallback(SiteContexte siteContexte, String callbackPath) {
+	public AppliVertx setupCallback(SiteContexteFrFR siteContexte, String callbackPath) { 
 		OpenAPI3RouterFactory usineRouteur = siteContexte.getUsineRouteur();
 		OAuth2AuthHandler gestionnaireAuth = siteContexte.getGestionnaireAuth();
 		ConfigSite configSite = siteContexte.getConfigSite();
@@ -267,23 +318,27 @@ public class AppliVertx extends AbstractVerticle {
 		MessageConsumer<JsonObject> calculInrApiConsumer = serviceBinder.register(c, service);
 	}
 
-	private Future<Void> demarrerServeur(SiteContexte siteContexte) {
-		ConfigSite configSite = siteContexte.getConfigSite();
+	/**
+	 * r: FrFR
+	 * r.enUS: EnUS
+	 */
+	private Future<Void> demarrerServeur(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
+		ConfigSite configSite = siteContexteFrFR.getConfigSite();
 		Future<Void> future = Future.future();
 
-		org.computate.frFR.site.cours.c001.l001.C001L001ChoisirNomDomaineGenApiService.enregistrerService(siteContexte, vertx);
-		org.computate.enUS.site.cours.c001.l001.C001L001ChoisirNomDomaineGenApiService.enregistrerService(siteContexte, vertx);
+		C001L001ChoisirNomDomaineFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001L001ChoisirNomDomaineEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
-		org.computate.frFR.site.cours.c001.C001LeconGenApiService.enregistrerService(siteContexte, vertx);
-		org.computate.enUS.site.cours.c001.C001LeconGenApiService.enregistrerService(siteContexte, vertx);
+		C001LeconFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001LeconEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
-		org.computate.frFR.site.cours.c001.C001GenApiService.enregistrerService(siteContexte, vertx);
-		org.computate.enUS.site.cours.c001.C001GenApiService.enregistrerService(siteContexte, vertx);
+		C001FrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001EnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
-		org.computate.frFR.site.cours.CoursGenApiService.enregistrerService(siteContexte, vertx);
-		org.computate.enUS.site.cours.CoursGenApiService.enregistrerService(siteContexte, vertx);
+		CoursFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		CoursEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
-		Router siteRouteur = siteContexte.getUsineRouteur().getRouter();
+		Router siteRouteur = siteContexteFrFR.getUsineRouteur().getRouter();
 		// siteContexte.setSiteRouteur_(siteRouteur);
 
 		siteRouteur.route("/static/*").handler(StaticHandler.create().setCachingEnabled(false).setFilesReadOnly(true));
@@ -310,27 +365,5 @@ public class AppliVertx extends AbstractVerticle {
 		});
 
 		return future;
-	}
-
-	@Override
-	public void start(Future<Void> demarrerFuture) throws Exception {
-
-		SiteContexte siteContexte = new SiteContexte();
-		siteContexte.setVertx(vertx);
-
-		RequeteSite requeteSite = new RequeteSite();
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.initLoinRequeteSite();
-
-		siteContexte.initLoinSiteContexte();
-
-		Future<Void> etapesFutures = preparerDonnees(siteContexte).compose(a -> 
-			configurerCluster(siteContexte).compose(b -> 
-				configurerOpenApi(siteContexte).compose(c -> 
-					demarrerServeur(siteContexte)
-				)
-			)
-		);
-		etapesFutures.setHandler(demarrerFuture.completer());
 	}
 }

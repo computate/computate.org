@@ -6,11 +6,11 @@ import org.computate.enUS.site.recherche.ListeRecherche;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import org.computate.enUS.site.page.MiseEnPage;
 import org.computate.enUS.site.cours.Cours;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import org.computate.enUS.site.cluster.Cluster;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.enUS.site.couverture.Couverture;
 import org.apache.commons.lang3.StringUtils;
-import org.computate.enUS.site.requete.RequeteSite;
 
 /**	
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.enUS.site.cours.CoursEnUSGenPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
@@ -96,7 +96,7 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 
 	protected boolean dejaInitialiseCoursEnUSGenPage = false;
 
-	public CoursEnUSGenPage initLoinCoursEnUSGenPage(RequeteSite requeteSite_) {
+	public CoursEnUSGenPage initLoinCoursEnUSGenPage(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseCoursEnUSGenPage) {
 			dejaInitialiseCoursEnUSGenPage = true;
@@ -114,7 +114,7 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 		coursInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinCoursEnUSGenPage(requeteSite_);
 	}
 
@@ -122,10 +122,10 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteCoursEnUSGenPage(RequeteSite requeteSite_) {
+	public void requeteSiteCoursEnUSGenPage(RequeteSiteEnUS requeteSite_) {
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteCoursEnUSGenPage(requeteSite_);
 	}
 

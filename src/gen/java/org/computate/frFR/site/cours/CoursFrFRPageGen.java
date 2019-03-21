@@ -3,9 +3,9 @@ package org.computate.frFR.site.cours;
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import io.vertx.core.json.JsonArray;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.frFR.site.cours.CoursFrFRGenPage;
@@ -22,7 +22,7 @@ public abstract class CoursFrFRPageGen<DEV> extends CoursFrFRGenPage {
 
 	protected boolean dejaInitialiseCoursFrFRPage = false;
 
-	public CoursFrFRPage initLoinCoursFrFRPage(RequeteSite requeteSite_) {
+	public CoursFrFRPage initLoinCoursFrFRPage(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseCoursFrFRPage) {
 			dejaInitialiseCoursFrFRPage = true;
@@ -39,7 +39,7 @@ public abstract class CoursFrFRPageGen<DEV> extends CoursFrFRGenPage {
 	public void initCoursFrFRPage() {
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
 		initLoinCoursFrFRPage(requeteSite_);
 	}
 
@@ -47,11 +47,11 @@ public abstract class CoursFrFRPageGen<DEV> extends CoursFrFRGenPage {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteCoursFrFRPage(RequeteSite requeteSite_) {
+	public void requeteSiteCoursFrFRPage(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteCoursFrFRGenPage(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteCoursFrFRPage(requeteSite_);
 	}
 

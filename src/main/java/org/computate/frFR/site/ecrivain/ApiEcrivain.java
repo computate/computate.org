@@ -13,12 +13,13 @@ import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.computate.frFR.site.config.ConfigSite;
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import org.computate.frFR.site.vertx.AppliSwagger2;
 
 /**
+ * Traduire: false
  */ 
 public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<ApiEcrivain> {       
 
@@ -26,7 +27,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	 * 
 	 * {@inheritDoc}
 	 **/
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	protected void _classeDocumentSolr(Couverture<SolrDocument> c) {
@@ -104,7 +105,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	/**
 	 * {@inheritDoc}
 	 **/
-	protected void _siteContexte(Couverture<SiteContexte> c) {
+	protected void _siteContexte(Couverture<SiteContexteFrFR> c) {
 		c.o(requeteSite_.getSiteContexte_());
 	}
 
@@ -175,7 +176,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	 * {@inheritDoc}
 	 **/
 	protected void _classeApiTag(Couverture<String> c) {
-		c.o((String)classeDocumentSolr.get("classeApiTag_frFR_stored_string"));
+		c.o((String)classeDocumentSolr.get("classeApiTag_stored_string"));
 	}
 
 	/**
@@ -220,7 +221,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	 * {@inheritDoc}
 	 **/
 	protected void _classeApiUriMethode(Couverture<String> c) {
-		c.o((String)classeDocumentSolr.get("classeApiUri" + classeApiMethode + "_frFR_stored_string"));
+		c.o((String)classeDocumentSolr.get("classeApiUri" + classeApiMethode + "_stored_string"));
 	}
 
 	/**
@@ -241,35 +242,35 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	 * {@inheritDoc}
 	 **/
 	protected void _classeApiOperationIdMethode(Couverture<String> c) {
-		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "_frFR_stored_string"));
+		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "_stored_string"));
 	}
 
 	/**
 	 * {@inheritDoc}
 	 **/
 	protected void _classeApiOperationIdMethodeRequete(Couverture<String> c) {
-		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "Requete_frFR_stored_string"));
+		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "Requete_stored_string"));
 	}
 
 	/**
 	 * {@inheritDoc}
 	 **/
 	protected void _classeApiOperationIdMethodeReponse(Couverture<String> c) {
-		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "Reponse_frFR_stored_string"));
+		c.o((String)classeDocumentSolr.get("classeApiOperationId" + classeApiMethode + "Reponse_stored_string"));
 	}
 
 	/**
 	 * {@inheritDoc}
 	 **/
 	protected void _classeSuperApiOperationIdMethodeRequete(Couverture<String> c) {
-		c.o((String)classeDocumentSolr.get("classeSuperApiOperationId" + classeApiMethode + "Requete_frFR_stored_string"));
+		c.o((String)classeDocumentSolr.get("classeSuperApiOperationId" + classeApiMethode + "Requete_stored_string"));
 	}
 
 	/**
 	 * {@inheritDoc}
 	 **/
 	protected void _classeSuperApiOperationIdMethodeReponse(Couverture<String> c) {
-		c.o((String)classeDocumentSolr.get("classeSuperApiOperationId" + classeApiMethode + "Reponse_frFR_stored_string"));
+		c.o((String)classeDocumentSolr.get("classeSuperApiOperationId" + classeApiMethode + "Reponse_stored_string"));
 	}
 
 	/**

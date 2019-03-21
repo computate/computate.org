@@ -3,11 +3,11 @@ package org.computate.enUS.site.page.parti;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.page.parti.PagePart;
 import org.computate.enUS.site.chaine.Chaine;
-import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
@@ -144,7 +144,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 
 	protected boolean dejaInitialisePageParagraphe = false;
 
-	public PageParagraphe initLoinPageParagraphe(RequeteSite requeteSite_) {
+	public PageParagraphe initLoinPageParagraphe(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialisePageParagraphe) {
 			dejaInitialisePageParagraphe = true;
@@ -163,7 +163,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 		texteCourtInit();
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinPageParagraphe(requeteSite_);
 	}
 
@@ -171,13 +171,13 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSitePageParagraphe(RequeteSite requeteSite_) {
+	public void requeteSitePageParagraphe(RequeteSiteEnUS requeteSite_) {
 			super.requeteSitePagePart(requeteSite_);
 		texte.setRequeteSite_(requeteSite_);
 		texteCourt.setRequeteSite_(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSitePageParagraphe(requeteSite_);
 	}
 

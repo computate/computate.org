@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
 
 /**   
@@ -14,12 +14,12 @@ public class TousEcrivains extends TousEcrivainsGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 **/
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	/**
 	 */
-	public static TousEcrivains creer(RequeteSite requeteSite_, ToutEcrivain...ecrivains) { 
+	public static TousEcrivains creer(RequeteSiteFrFR requeteSite_, ToutEcrivain...ecrivains) { 
 		TousEcrivains o = new TousEcrivains();
 		o.initLoinPourClasse(requeteSite_);
 		o.addEcrivains(ecrivains);

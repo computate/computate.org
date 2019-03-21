@@ -1,4 +1,7 @@
 package org.computate.enUS.site.cours;
 
-public class CoursEnUSPage {
+/**
+ * Traduire: false
+ **/
+public class CoursEnUSPage extends CoursEnUSPageGen<CoursEnUSGenPage> {
 }

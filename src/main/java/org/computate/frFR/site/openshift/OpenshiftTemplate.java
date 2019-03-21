@@ -3,10 +3,10 @@ package org.computate.frFR.site.openshift;
 import java.io.File;
 
 import org.computate.frFR.site.config.ConfigSite;
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.ecrivain.ToutEcrivain;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
 public class OpenshiftTemplate extends OpenshiftTemplateGen<Object> {
 
@@ -20,12 +20,12 @@ public class OpenshiftTemplate extends OpenshiftTemplateGen<Object> {
 
 	/**
 	 */
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	/**
 	 */
-	protected void _siteContexte(SiteContexte o) {
+	protected void _siteContexte(SiteContexteFrFR o) {
 	}
 
 	/**

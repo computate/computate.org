@@ -12,11 +12,11 @@ import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.page.MiseEnPage;
 import org.computate.enUS.site.page.parti.PagePart;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 public class Cours extends CoursGen<Cluster> {
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {
 	}
 
 	protected void _documentSolr(Couverture<SolrDocument> c) {  
@@ -43,7 +43,7 @@ public class Cours extends CoursGen<Cluster> {
 	}
 
 	protected void _nomHoteOrdinateur(Couverture<String> c) {
-		c.o("tour1." + nomDomaine);
+		c.o("tower1." + nomDomaine);
 	}
 
 	protected void _cheminServeur(Couverture<String> c) {
@@ -137,13 +137,13 @@ public class Cours extends CoursGen<Cluster> {
 
 	protected void _pageH3(Couverture<String> c) { 
 		if(pageCree != null)
-			c.o("Crée : " + pageCree.format(MiseEnPage.FORMATAffichage));
+			c.o("Created: " + pageCree.format(MiseEnPage.FORMATAffichage));
 	}
 
 	protected void _pageTitre(Couverture<String> c) {
 		Class<?> clazz = getClass();
 		try {
-			c.o((String)Optional.ofNullable(clazz.getField(clazz.getSimpleName() + "_Titre")).map(o -> {
+			c.o((String)Optional.ofNullable(clazz.getField(clazz.getSimpleName() + "_Title")).map(o -> {
 					try {
 						return o.get(this);
 					} catch (IllegalArgumentException | IllegalAccessException e) {

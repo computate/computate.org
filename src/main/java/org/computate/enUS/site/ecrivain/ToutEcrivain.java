@@ -14,7 +14,7 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.text.WordUtils;
 import org.computate.enUS.site.chaine.Chaine;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import org.computate.enUS.site.xml.OutilXml;
 import io.vertx.core.buffer.Buffer;
 
@@ -24,34 +24,34 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 
 	public static List<String> HTML_ELEMENTS_NO_WRAP = Arrays.asList("script", "span", "a", "b", "i", "u", "title", "use", "h1", "h2", "h3", "h4", "h5", "h6", "pre", "p");
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {
 	}
 
 	protected void _tabStr(Couverture<String> c) {
 		c.o("\t");
 	}
 
-	public static ToutEcrivain creer(RequeteSite requeteSite_) {
+	public static ToutEcrivain creer(RequeteSiteEnUS requeteSite_) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.initLoinPourClasse(requeteSite_);
 		return o;
 	}
 
-	public static ToutEcrivain creer(RequeteSite requeteSite_, String tabStr) {
+	public static ToutEcrivain creer(RequeteSiteEnUS requeteSite_, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setTabStr(tabStr);
 		o.initLoinPourClasse(requeteSite_);
 		return o;
 	}
 
-	public static ToutEcrivain creer(RequeteSite requeteSite_, File fichier) {
+	public static ToutEcrivain creer(RequeteSiteEnUS requeteSite_, File fichier) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setFichier(fichier);
 		o.initLoinPourClasse(requeteSite_);
 		return o;
 	}
 
-	public static ToutEcrivain creer(RequeteSite requeteSite_, File fichier, String tabStr) {
+	public static ToutEcrivain creer(RequeteSiteEnUS requeteSite_, File fichier, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setFichier(fichier);
 		o.setTabStr(tabStr);
@@ -59,14 +59,14 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 		return o;
 	}
 
-	public static ToutEcrivain creer(RequeteSite requeteSite_, Buffer buffer) {
+	public static ToutEcrivain creer(RequeteSiteEnUS requeteSite_, Buffer buffer) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setBuffer(buffer);
 		o.initLoinPourClasse(requeteSite_);
 		return o;
 	}
 
-	public static ToutEcrivain creer(RequeteSite requeteSite_, Buffer buffer, String tabStr) {
+	public static ToutEcrivain creer(RequeteSiteEnUS requeteSite_, Buffer buffer, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setBuffer(buffer);
 		o.setTabStr(tabStr);

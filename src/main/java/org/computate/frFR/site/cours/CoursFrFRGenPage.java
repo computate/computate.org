@@ -1,26 +1,25 @@
 package org.computate.frFR.site.cours;
 
-import io.vertx.core.http.HttpServerRequest;
-import org.computate.frFR.site.contexte.SiteContexte;
-import java.time.ZonedDateTime;
-import java.time.LocalDateTime;
-import org.computate.frFR.site.page.parti.PagePart;
-import java.io.IOException;
-import org.computate.frFR.site.utilisateur.UtilisateurSite;
-import java.lang.Integer;
-import org.computate.frFR.site.page.MiseEnPage;
-import org.computate.frFR.site.recherche.ListeRecherche;
 import org.apache.solr.common.SolrDocument;
-import java.util.List;
-import org.computate.frFR.site.couverture.Couverture;
-import java.util.Locale;
-import io.vertx.core.http.HttpServerResponse;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
-import java.lang.Boolean;
-import org.computate.frFR.site.requete.RequeteSite;
 import java.lang.String;
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.List;
+import org.computate.frFR.site.page.parti.PagePart;
+import org.computate.frFR.site.page.MiseEnPage;
 import org.computate.frFR.site.config.ConfigSite;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
+import org.computate.frFR.site.utilisateur.UtilisateurSite;
+import java.io.IOException;
+import io.vertx.core.http.HttpServerRequest;
+import io.vertx.core.http.HttpServerResponse;
+import org.computate.frFR.site.recherche.ListeRecherche;
+import org.computate.frFR.site.couverture.Couverture;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 
 /**

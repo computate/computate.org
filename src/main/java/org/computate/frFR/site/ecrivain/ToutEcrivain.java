@@ -15,13 +15,14 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.text.WordUtils;
 import org.computate.frFR.site.chaine.Chaine;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import org.computate.frFR.site.xml.OutilXml;
 
 import io.vertx.core.buffer.Buffer;
 
 
 /**  
+ * MotCle: classeNomSimpleToutEcrivain
  **/
 public class ToutEcrivain extends ToutEcrivainGen<Object> {    
 
@@ -35,7 +36,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	 * 
 	 * {@inheritDoc}
 	 **/ 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static ToutEcrivain creer(RequeteSite requeteSite_) {
+	public static ToutEcrivain creer(RequeteSiteFrFR requeteSite_) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.initLoinPourClasse(requeteSite_);
 		return o;
@@ -58,7 +59,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static ToutEcrivain creer(RequeteSite requeteSite_, String tabStr) {
+	public static ToutEcrivain creer(RequeteSiteFrFR requeteSite_, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setTabStr(tabStr);
 		o.initLoinPourClasse(requeteSite_);
@@ -68,7 +69,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static ToutEcrivain creer(RequeteSite requeteSite_, File fichier) {
+	public static ToutEcrivain creer(RequeteSiteFrFR requeteSite_, File fichier) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setFichier(fichier);
 		o.initLoinPourClasse(requeteSite_);
@@ -78,7 +79,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static ToutEcrivain creer(RequeteSite requeteSite_, File fichier, String tabStr) {
+	public static ToutEcrivain creer(RequeteSiteFrFR requeteSite_, File fichier, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setFichier(fichier);
 		o.setTabStr(tabStr);
@@ -89,7 +90,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static ToutEcrivain creer(RequeteSite requeteSite_, Buffer buffer) {
+	public static ToutEcrivain creer(RequeteSiteFrFR requeteSite_, Buffer buffer) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setBuffer(buffer);
 		o.initLoinPourClasse(requeteSite_);
@@ -99,7 +100,7 @@ public class ToutEcrivain extends ToutEcrivainGen<Object> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static ToutEcrivain creer(RequeteSite requeteSite_, Buffer buffer, String tabStr) {
+	public static ToutEcrivain creer(RequeteSiteFrFR requeteSite_, Buffer buffer, String tabStr) {
 		ToutEcrivain o = new ToutEcrivain();
 		o.setBuffer(buffer);
 		o.setTabStr(tabStr);

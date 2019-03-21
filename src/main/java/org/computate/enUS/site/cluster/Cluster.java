@@ -9,14 +9,14 @@ import org.computate.enUS.site.chaine.Chaine;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import org.computate.enUS.site.page.MiseEnPage;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import org.computate.enUS.site.xml.OutilXml;
 
 public class Cluster extends ClusterGen<Object> {
 
 	public static DateTimeFormatter FORMAT_dateMedicalCourt = DateTimeFormatter.ofPattern("M/d/yyyy", Locale.FRANCE);
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {}
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {}
 
 	protected void _page_(Couverture<MiseEnPage> c) {}
 

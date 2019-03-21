@@ -3,11 +3,11 @@ package org.computate.enUS.site.page.parti;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.page.parti.PagePart;
 import org.computate.enUS.site.chaine.Chaine;
-import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
@@ -172,7 +172,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 
 	protected boolean dejaInitialiseIcone = false;
 
-	public Icone initLoinIcone(RequeteSite requeteSite_) {
+	public Icone initLoinIcone(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseIcone) {
 			dejaInitialiseIcone = true;
@@ -191,7 +191,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 		nomInit();
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinIcone(requeteSite_);
 	}
 
@@ -199,13 +199,13 @@ public abstract class IconeGen<DEV> extends PagePart {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteIcone(RequeteSite requeteSite_) {
+	public void requeteSiteIcone(RequeteSiteEnUS requeteSite_) {
 			super.requeteSitePagePart(requeteSite_);
 		type.setRequeteSite_(requeteSite_);
 		nom.setRequeteSite_(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteIcone(requeteSite_);
 	}
 

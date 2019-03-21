@@ -1,13 +1,11 @@
-package org.computate.frFR.site.cours.c001; 
+package org.computate.frFR.site.cours.c001;      
 
 import java.io.IOException;
-import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrQuery.ORDER;
@@ -15,7 +13,6 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
-import org.computate.frFR.site.chaine.Chaine;
 import org.computate.frFR.site.couverture.Couverture;
 
 /**    
@@ -33,7 +30,7 @@ import org.computate.frFR.site.couverture.Couverture;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: book
-*/     
+*/   
 public class C001Lecon extends C001LeconGen<C001> {  
 
 	@Override protected void _estCours(Couverture<Boolean> c) {

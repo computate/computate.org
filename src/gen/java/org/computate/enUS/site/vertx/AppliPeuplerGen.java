@@ -3,10 +3,10 @@ package org.computate.enUS.site.vertx;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.contexte.SiteContexte;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.contexte.SiteContexteEnUS;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.Object;
 import org.computate.enUS.site.config.ConfigSite;
@@ -26,8 +26,8 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteEnUS requeteSite_;
+	public Couverture<RequeteSiteEnUS> requeteSite_Couverture = new Couverture<RequeteSiteEnUS>().p(this).c(RequeteSiteEnUS.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -35,13 +35,13 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c) throws Exception, Exception;
+	protected abstract void _requeteSite_(Couverture<RequeteSiteEnUS> c) throws Exception, Exception;
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteEnUS getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteEnUS requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -51,24 +51,24 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 	//////////////////
 
 	/**	L'entité « siteContexte »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut SiteContexte(). 
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut SiteContexteEnUS(). 
 	 */
-	protected SiteContexte siteContexte = new SiteContexte();
-	public Couverture<SiteContexte> siteContexteCouverture = new Couverture<SiteContexte>().p(this).c(SiteContexte.class).var("siteContexte").o(siteContexte);
+	protected SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+	public Couverture<SiteContexteEnUS> siteContexteCouverture = new Couverture<SiteContexteEnUS>().p(this).c(SiteContexteEnUS.class).var("siteContexte").o(siteContexte);
 
 	/**	<br/>L'entité « siteContexte »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut SiteContexte(). 
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut SiteContexteEnUS(). 
 	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.enUS.site.vertx.AppliPeupler&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:siteContexte">Trouver l'entité siteContexte dans Solr</a>
 	 * <br/>
 	 * @param siteContexte est l'entité déjà construit. 
 	 **/
-	protected abstract void _siteContexte(SiteContexte o) throws Exception, Exception;
+	protected abstract void _siteContexte(SiteContexteEnUS o) throws Exception, Exception;
 
-	public SiteContexte getSiteContexte() {
+	public SiteContexteEnUS getSiteContexte() {
 		return siteContexte;
 	}
 
-	public void setSiteContexte(SiteContexte siteContexte) {
+	public void setSiteContexte(SiteContexteEnUS siteContexte) {
 		this.siteContexte = siteContexte;
 		this.siteContexteCouverture.dejaInitialise = true;
 	}
@@ -125,7 +125,7 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 
 	protected boolean dejaInitialiseAppliPeupler = false;
 
-	public AppliPeupler initLoinAppliPeupler(RequeteSite requeteSite_) throws Exception {
+	public AppliPeupler initLoinAppliPeupler(RequeteSiteEnUS requeteSite_) throws Exception {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseAppliPeupler) {
 			dejaInitialiseAppliPeupler = true;
@@ -143,7 +143,7 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 		configSiteInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) throws Exception {
+	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) throws Exception {
 		initLoinAppliPeupler(requeteSite_);
 	}
 
@@ -151,12 +151,12 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteAppliPeupler(RequeteSite requeteSite_) {
+	public void requeteSiteAppliPeupler(RequeteSiteEnUS requeteSite_) {
 		siteContexte.setRequeteSite_(requeteSite_);
 		configSite.setRequeteSite_(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteAppliPeupler(requeteSite_);
 	}
 

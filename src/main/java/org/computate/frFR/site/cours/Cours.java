@@ -1,4 +1,4 @@
-package org.computate.frFR.site.cours;  
+package org.computate.frFR.site.cours;    
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.couverture.Couverture;
 import org.computate.frFR.site.page.MiseEnPage;
 import org.computate.frFR.site.page.parti.PagePart;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
 /**
  * Api: true
@@ -28,14 +28,14 @@ import org.computate.frFR.site.requete.RequeteSite;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/               
-public class Cours extends CoursGen<Cluster> {   
+*/                 
+public class Cours extends CoursGen<Cluster> {       
 
 	/**
 	 * 
 	 * {@inheritDoc}
 	 **/
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {
 	}
 
 	protected void _documentSolr(Couverture<SolrDocument> c) {  

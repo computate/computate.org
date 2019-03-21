@@ -3,11 +3,11 @@ package org.computate.enUS.site.page.parti;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.couverture.Couverture;
 import org.computate.enUS.site.page.parti.PagePart;
 import org.computate.enUS.site.chaine.Chaine;
-import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
@@ -264,7 +264,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 
 	protected boolean dejaInitialiseQuestionReponse = false;
 
-	public QuestionReponse initLoinQuestionReponse(RequeteSite requeteSite_) {
+	public QuestionReponse initLoinQuestionReponse(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseQuestionReponse) {
 			dejaInitialiseQuestionReponse = true;
@@ -285,7 +285,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		reponseCourtInit();
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinQuestionReponse(requeteSite_);
 	}
 
@@ -293,7 +293,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteQuestionReponse(RequeteSite requeteSite_) {
+	public void requeteSiteQuestionReponse(RequeteSiteEnUS requeteSite_) {
 			super.requeteSitePagePart(requeteSite_);
 		question.setRequeteSite_(requeteSite_);
 		questionCourt.setRequeteSite_(requeteSite_);
@@ -301,7 +301,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		reponseCourt.setRequeteSite_(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteQuestionReponse(requeteSite_);
 	}
 

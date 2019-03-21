@@ -8,19 +8,19 @@ import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.computate.enUS.site.contexte.SiteContexte;
+import org.computate.enUS.site.contexte.SiteContexteEnUS;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 /**	
  *	Loads the properties in the application config file into specific fields. 
  **/
 public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 
-	protected void _requeteSite_(RequeteSite o) {
+	protected void _requeteSite_(RequeteSiteEnUS o) {
 	}
 
-	protected void _siteContexte_(Couverture<SiteContexte> c) {
+	protected void _siteContexte_(Couverture<SiteContexteEnUS> c) {
 	}
 
 	protected void _configChemin(Couverture<String> c) {   

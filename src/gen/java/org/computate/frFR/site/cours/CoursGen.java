@@ -1,7 +1,7 @@
 package org.computate.frFR.site.cours;
 
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import java.util.Date;
-import org.computate.frFR.site.contexte.SiteContexte;
 import java.time.ZonedDateTime;
 import java.time.LocalDateTime;
 import org.computate.frFR.site.page.parti.PagePart;
@@ -23,7 +23,7 @@ import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;
 import java.time.format.DateTimeFormatter;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -57,8 +57,8 @@ public abstract class CoursGen<DEV> extends Cluster {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteFrFR requeteSite_;
+	public Couverture<RequeteSiteFrFR> requeteSite_Couverture = new Couverture<RequeteSiteFrFR>().p(this).c(RequeteSiteFrFR.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -66,13 +66,13 @@ public abstract class CoursGen<DEV> extends Cluster {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c);
+	protected abstract void _requeteSite_(Couverture<RequeteSiteFrFR> c);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteFrFR getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteFrFR requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -1384,7 +1384,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 
 	protected boolean dejaInitialiseCours = false;
 
-	public Cours initLoinCours(RequeteSite requeteSite_) {
+	public Cours initLoinCours(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseCours) {
 			dejaInitialiseCours = true;
@@ -1424,7 +1424,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 		pagePartsInit();
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
 		initLoinCours(requeteSite_);
 	}
 
@@ -1432,11 +1432,11 @@ public abstract class CoursGen<DEV> extends Cluster {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteCours(RequeteSite requeteSite_) {
+	public void requeteSiteCours(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteCluster(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteCours(requeteSite_);
 	}
 
@@ -1446,11 +1446,11 @@ public abstract class CoursGen<DEV> extends Cluster {
 
 	public static void indexer() {
 		try {
-			RequeteSite requeteSite = new RequeteSite();
-			requeteSite.initLoinRequeteSite();
-			SiteContexte siteContexte = new SiteContexte();
+			RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
+			requeteSite.initLoinRequeteSiteFrFR();
+			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
 			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
-			siteContexte.initLoinSiteContexte();
+			siteContexte.initLoinSiteContexteFrFR();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
 			Cours o = new Cours();
@@ -1528,10 +1528,10 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public void desindexerCours() throws Exception {
-		RequeteSite requeteSite = new RequeteSite();
-		requeteSite.initLoinRequeteSite();
-		SiteContexte siteContexte = new SiteContexte();
-		siteContexte.initLoinSiteContexte();
+		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
+		requeteSite.initLoinRequeteSiteFrFR();
+		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+		siteContexte.initLoinSiteContexteFrFR();
 		siteContexte.setRequeteSite_(requeteSite);
 		requeteSite.setSiteContexte_(siteContexte);
 		requeteSite.setConfigSite_(siteContexte.getConfigSite());

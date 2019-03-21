@@ -2,7 +2,7 @@ package org.computate.frFR.site.ecrivain;
 
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.vertx.AppliSwagger2;
-import org.computate.frFR.site.contexte.SiteContexte;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
@@ -12,9 +12,9 @@ import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import org.computate.frFR.site.couverture.Couverture;
+import org.computate.frFR.site.contexte.SiteContexteFrFR;
 import org.computate.frFR.site.ecrivain.TousEcrivains;
 import java.lang.Boolean;
-import org.computate.frFR.site.requete.RequeteSite;
 import java.lang.Object;
 import java.lang.String;
 import org.computate.frFR.site.config.ConfigSite;
@@ -32,8 +32,8 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteFrFR requeteSite_;
+	public Couverture<RequeteSiteFrFR> requeteSite_Couverture = new Couverture<RequeteSiteFrFR>().p(this).c(RequeteSiteFrFR.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -41,13 +41,13 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c);
+	protected abstract void _requeteSite_(Couverture<RequeteSiteFrFR> c);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteFrFR getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteFrFR requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -620,8 +620,8 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	/**	L'entité « siteContexte »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected SiteContexte siteContexte;
-	public Couverture<SiteContexte> siteContexteCouverture = new Couverture<SiteContexte>().p(this).c(SiteContexte.class).var("siteContexte").o(siteContexte);
+	protected SiteContexteFrFR siteContexte;
+	public Couverture<SiteContexteFrFR> siteContexteCouverture = new Couverture<SiteContexteFrFR>().p(this).c(SiteContexteFrFR.class).var("siteContexte").o(siteContexte);
 
 	/**	<br/>L'entité « siteContexte »
 	 *  est défini comme null avant d'être initialisé. 
@@ -629,13 +629,13 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _siteContexte(Couverture<SiteContexte> c);
+	protected abstract void _siteContexte(Couverture<SiteContexteFrFR> c);
 
-	public SiteContexte getSiteContexte() {
+	public SiteContexteFrFR getSiteContexte() {
 		return siteContexte;
 	}
 
-	public void setSiteContexte(SiteContexte siteContexte) {
+	public void setSiteContexte(SiteContexteFrFR siteContexte) {
 		this.siteContexte = siteContexte;
 		this.siteContexteCouverture.dejaInitialise = true;
 	}
@@ -2101,7 +2101,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 
 	protected boolean dejaInitialiseApiEcrivain = false;
 
-	public ApiEcrivain initLoinApiEcrivain(RequeteSite requeteSite_) {
+	public ApiEcrivain initLoinApiEcrivain(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseApiEcrivain) {
 			dejaInitialiseApiEcrivain = true;
@@ -2157,7 +2157,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		entiteDocumentSolrInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
 		initLoinApiEcrivain(requeteSite_);
 	}
 
@@ -2165,7 +2165,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteApiEcrivain(RequeteSite requeteSite_) {
+	public void requeteSiteApiEcrivain(RequeteSiteFrFR requeteSite_) {
 		appSwagger2.setRequeteSite_(requeteSite_);
 		wChemins.setRequeteSite_(requeteSite_);
 		wCorpsRequetes.setRequeteSite_(requeteSite_);
@@ -2182,7 +2182,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		ecrivains.setRequeteSite_(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteApiEcrivain(requeteSite_);
 	}
 

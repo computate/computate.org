@@ -3,9 +3,9 @@ package org.computate.enUS.site.page.accueil;
 import org.computate.enUS.site.cluster.Cluster;
 import org.computate.enUS.site.ecrivain.ToutEcrivain;
 import java.util.Objects;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import io.vertx.core.json.JsonArray;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
 import org.apache.commons.text.StringEscapeUtils;
 import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
@@ -135,7 +135,7 @@ public abstract class PageAccueilGen<DEV> extends MiseEnPage {
 
 	protected boolean dejaInitialisePageAccueil = false;
 
-	public PageAccueil initLoinPageAccueil(RequeteSite requeteSite_) {
+	public PageAccueil initLoinPageAccueil(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialisePageAccueil) {
 			dejaInitialisePageAccueil = true;
@@ -154,7 +154,7 @@ public abstract class PageAccueilGen<DEV> extends MiseEnPage {
 		pageUriInit();
 	}
 
-	@Override public void initLoinPourClasse(RequeteSite requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinPageAccueil(requeteSite_);
 	}
 
@@ -162,11 +162,11 @@ public abstract class PageAccueilGen<DEV> extends MiseEnPage {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSitePageAccueil(RequeteSite requeteSite_) {
+	public void requeteSitePageAccueil(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteMiseEnPage(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSitePageAccueil(requeteSite_);
 	}
 

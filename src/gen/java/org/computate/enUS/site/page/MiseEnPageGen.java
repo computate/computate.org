@@ -1,6 +1,7 @@
 package org.computate.enUS.site.page;
 
 import org.computate.enUS.site.cluster.Cluster;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 import java.util.Date;
 import java.time.ZonedDateTime;
 import org.computate.enUS.site.page.parti.PagePart;
@@ -18,7 +19,6 @@ import java.util.List;
 import org.computate.enUS.site.couverture.Couverture;
 import java.time.format.DateTimeFormatter;
 import java.lang.Boolean;
-import org.computate.enUS.site.requete.RequeteSite;
 import java.lang.Object;
 import java.lang.String;
 import java.time.ZoneOffset;
@@ -82,8 +82,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	/**	L'entité « requeteSite_ »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected RequeteSite requeteSite_;
-	public Couverture<RequeteSite> requeteSite_Couverture = new Couverture<RequeteSite>().p(this).c(RequeteSite.class).var("requeteSite_").o(requeteSite_);
+	protected RequeteSiteEnUS requeteSite_;
+	public Couverture<RequeteSiteEnUS> requeteSite_Couverture = new Couverture<RequeteSiteEnUS>().p(this).c(RequeteSiteEnUS.class).var("requeteSite_").o(requeteSite_);
 
 	/**	<br/>L'entité « requeteSite_ »
 	 *  est défini comme null avant d'être initialisé. 
@@ -91,13 +91,13 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSite> c);
+	protected abstract void _requeteSite_(Couverture<RequeteSiteEnUS> c);
 
-	public RequeteSite getRequeteSite_() {
+	public RequeteSiteEnUS getRequeteSite_() {
 		return requeteSite_;
 	}
 
-	public void setRequeteSite_(RequeteSite requeteSite_) {
+	public void setRequeteSite_(RequeteSiteEnUS requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
@@ -2040,7 +2040,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 
 	protected boolean dejaInitialiseMiseEnPage = false;
 
-	public MiseEnPage initLoinMiseEnPage(RequeteSite requeteSite_) {
+	public MiseEnPage initLoinMiseEnPage(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
 		if(!dejaInitialiseMiseEnPage) {
 			dejaInitialiseMiseEnPage = true;
@@ -2091,7 +2091,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		pageDeconnexionUriInit();
 	}
 
-	public void initLoinPourClasse(RequeteSite requeteSite_) {
+	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinMiseEnPage(requeteSite_);
 	}
 
@@ -2099,11 +2099,11 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteMiseEnPage(RequeteSite requeteSite_) {
+	public void requeteSiteMiseEnPage(RequeteSiteEnUS requeteSite_) {
 		w.setRequeteSite_(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSite requeteSite_) {
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteMiseEnPage(requeteSite_);
 	}
 

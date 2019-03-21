@@ -1,13 +1,14 @@
-package org.computate.frFR.site.utilisateur;      
+package org.computate.frFR.site.utilisateur;             
 
 import java.time.ZonedDateTime;
 import java.util.List;
 
 import org.computate.frFR.site.cluster.Cluster;
 import org.computate.frFR.site.couverture.Couverture;
-import org.computate.frFR.site.requete.RequeteSite;
+import org.computate.frFR.site.requete.RequeteSiteFrFR;
 
 /**
+ * MotCle: classeNomSimpleUtilisateurSite
  * Modele: true
  * ApiUri.enUS: /api/site/user
  * ApiUri.frFR: /api/site/utilisateur
@@ -24,7 +25,7 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 
 	/**
 	 */
-	protected void _requeteSite_(Couverture<RequeteSite> c) {}
+	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {}
 
 	/**	
 	 * description.frFR: Le nom d'utilisateur pour se connecter au site. 

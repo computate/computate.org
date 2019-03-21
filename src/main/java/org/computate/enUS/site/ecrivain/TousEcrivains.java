@@ -3,14 +3,14 @@ package org.computate.enUS.site.ecrivain;
 import java.io.IOException;
 import java.util.List;
 import org.computate.enUS.site.couverture.Couverture;
-import org.computate.enUS.site.requete.RequeteSite;
+import org.computate.enUS.site.requete.RequeteSiteEnUS;
 
 public class TousEcrivains extends TousEcrivainsGen<Object> {
 
-	protected void _requeteSite_(Couverture<RequeteSite> c) {
+	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {
 	}
 
-	public static TousEcrivains creer(RequeteSite requeteSite_, ToutEcrivain...ecrivains) { 
+	public static TousEcrivains creer(RequeteSiteEnUS requeteSite_, ToutEcrivain...ecrivains) { 
 		TousEcrivains o = new TousEcrivains();
 		o.initLoinPourClasse(requeteSite_);
 		o.addEcrivains(ecrivains);
