@@ -1,0 +1,96 @@
+package org.computate.site.frFR.cours.c001.l001;
+
+import java.lang.String;
+import org.computate.site.frFR.page.parti.PageParagraphe;
+import org.computate.site.frFR.page.parti.QuestionReponse;
+import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
+import org.computate.site.frFR.config.ConfigSite;
+import org.computate.site.frFR.requete.RequeteSiteFrFR;
+import org.computate.site.frFR.contexte.SiteContexteFrFR;
+import org.computate.site.frFR.utilisateur.UtilisateurSite;
+import java.io.IOException;
+import io.vertx.core.http.HttpServerRequest;
+import io.vertx.core.http.HttpServerResponse;
+import org.computate.site.frFR.recherche.ListeRecherche;
+import org.computate.site.frFR.couverture.Couverture;
+import org.computate.site.frFR.page.MiseEnPage;
+import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
+
+/**
+ * Traduire: false
+ **/
+public class C001L001ChoisirNomDomaineFrFRGenPage extends C001L001ChoisirNomDomaineFrFRGenPageGen<C001LeconFrFRPage> {
+
+	protected void _c001L001ChoisirNomDomaine(Couverture<C001L001ChoisirNomDomaine> c) {
+		c.o(new C001L001ChoisirNomDomaine());
+	}
+
+	@Override protected void _pageH1(Couverture<String> c) {
+		if(c001L001ChoisirNomDomaine != null)
+			c.o("Quel est l'étape première pour créer mon propre site Web ? ");
+		else
+			c.o("Quel est l'étape première pour créer mon propre site Web ? ");
+	}
+
+	@Override protected void _pageH2(Couverture<String> c) {
+		c.o("Choisir un nom de domaine. ");
+	}
+
+	@Override protected void _pageH3(Couverture<String> c) {
+		c.o("");
+	}
+
+	@Override protected void _pageTitre(Couverture<String> c) {
+		if(c001L001ChoisirNomDomaine != null)
+			c.o("le leçon");
+	}
+
+	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
+			c.o("regular");
+	}
+
+	@Override protected void _contexteIconeNom(Couverture<String> c) {
+			c.o("book");
+	}
+
+	@Override public void initLoinC001L001ChoisirNomDomaineFrFRGenPage() {
+		initC001L001ChoisirNomDomaineFrFRGenPage();
+		super.initLoinMiseEnPage();
+	}
+
+	@Override public void htmlScriptsC001L001ChoisirNomDomaineFrFRGenPage() {
+		e("script").a("src", "/static/js/C001L001ChoisirNomDomaineFrFRGenPage.js").f().g("script");
+	}
+
+
+	@Override public void htmlBodyC001L001ChoisirNomDomaineFrFRGenPage() {
+
+			if(pageH1 != null) {
+				{ e("h1").f();
+					if(contexteIconeClassesCss != null)
+						e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
+					e("span").a("class", " ").f().sx(pageH1).g("span");
+				} g("h1");
+			}
+			if(pageH2 != null) {
+				{ e("h2").f();
+					e("span").a("class", " ").f().sx(pageH2).g("span");
+				} g("h2");
+			}
+			if(pageH3 != null) {
+				{ e("h3").f();
+					e("span").a("class", " ").f().sx(pageH3).g("span");
+				} g("h3");
+			}
+			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+
+				c001L001ChoisirNomDomaine.htmlBody();
+
+			} g("div");
+	}
+}

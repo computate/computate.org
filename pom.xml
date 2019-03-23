@@ -21,7 +21,7 @@
 		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
 		<vertx-maven-plugin.version>1.0.9</vertx-maven-plugin.version>
 		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
-		<vertx.verticle>org.computate.frFR.site.AppVertx</vertx.verticle>
+		<vertx.verticle>org.computate.site.frFR.AppVertx</vertx.verticle>
 		<!--<vertx.version>3.5.4</vertx.version> -->
 		<vertx.version>3.6.2</vertx.version>
 	</properties>
