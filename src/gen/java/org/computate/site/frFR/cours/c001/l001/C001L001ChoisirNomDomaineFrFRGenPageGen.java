@@ -197,6 +197,18 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 		c001L001ChoisirNomDomaine.htmlBody();
 	}
 
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	public void htmlBodyCourt() {
+		htmlBodyCourtC001L001ChoisirNomDomaineFrFRGenPage();
+	}
+
+	public void htmlBodyCourtC001L001ChoisirNomDomaineFrFRGenPage() {
+		c001L001ChoisirNomDomaine.htmlBodyCourt();
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

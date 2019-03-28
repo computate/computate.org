@@ -2034,6 +2034,118 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		return pageDeconnexionUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageDeconnexionUri());
 	}
 
+	////////////////////
+	// pageYoutubeUrl //
+	////////////////////
+
+	/**	L'entité « pageYoutubeUrl »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageYoutubeUrl;
+	public Couverture<String> pageYoutubeUrlCouverture = new Couverture<String>().p(this).c(String.class).var("pageYoutubeUrl").o(pageYoutubeUrl);
+
+	/**	<br/>L'entité « pageYoutubeUrl »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageYoutubeUrl">Trouver l'entité pageYoutubeUrl dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageYoutubeUrl(Couverture<String> c);
+
+	public String getPageYoutubeUrl() {
+		return pageYoutubeUrl;
+	}
+
+	public void setPageYoutubeUrl(String pageYoutubeUrl) {
+		this.pageYoutubeUrl = pageYoutubeUrl;
+		this.pageYoutubeUrlCouverture.dejaInitialise = true;
+	}
+	protected MiseEnPage pageYoutubeUrlInit() {
+		if(!pageYoutubeUrlCouverture.dejaInitialise) {
+			_pageYoutubeUrl(pageYoutubeUrlCouverture);
+			if(pageYoutubeUrl == null)
+				setPageYoutubeUrl(pageYoutubeUrlCouverture.o);
+		}
+		pageYoutubeUrlCouverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
+
+	public String solrPageYoutubeUrl() {
+		return pageYoutubeUrl;
+	}
+
+	public String strPageYoutubeUrl() {
+		return pageYoutubeUrl == null ? "" : pageYoutubeUrl;
+	}
+
+	public String nomAffichagePageYoutubeUrl() {
+		return null;
+	}
+
+	public String htmTooltipPageYoutubeUrl() {
+		return null;
+	}
+
+	public String htmPageYoutubeUrl() {
+		return pageYoutubeUrl == null ? "" : StringEscapeUtils.escapeHtml4(strPageYoutubeUrl());
+	}
+
+	//////////////////////
+	// pagePinterestUrl //
+	//////////////////////
+
+	/**	L'entité « pagePinterestUrl »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pagePinterestUrl;
+	public Couverture<String> pagePinterestUrlCouverture = new Couverture<String>().p(this).c(String.class).var("pagePinterestUrl").o(pagePinterestUrl);
+
+	/**	<br/>L'entité « pagePinterestUrl »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pagePinterestUrl">Trouver l'entité pagePinterestUrl dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pagePinterestUrl(Couverture<String> c);
+
+	public String getPagePinterestUrl() {
+		return pagePinterestUrl;
+	}
+
+	public void setPagePinterestUrl(String pagePinterestUrl) {
+		this.pagePinterestUrl = pagePinterestUrl;
+		this.pagePinterestUrlCouverture.dejaInitialise = true;
+	}
+	protected MiseEnPage pagePinterestUrlInit() {
+		if(!pagePinterestUrlCouverture.dejaInitialise) {
+			_pagePinterestUrl(pagePinterestUrlCouverture);
+			if(pagePinterestUrl == null)
+				setPagePinterestUrl(pagePinterestUrlCouverture.o);
+		}
+		pagePinterestUrlCouverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
+
+	public String solrPagePinterestUrl() {
+		return pagePinterestUrl;
+	}
+
+	public String strPagePinterestUrl() {
+		return pagePinterestUrl == null ? "" : pagePinterestUrl;
+	}
+
+	public String nomAffichagePagePinterestUrl() {
+		return null;
+	}
+
+	public String htmTooltipPagePinterestUrl() {
+		return null;
+	}
+
+	public String htmPagePinterestUrl() {
+		return pagePinterestUrl == null ? "" : StringEscapeUtils.escapeHtml4(strPagePinterestUrl());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -2089,6 +2201,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		pageFaqUriInit();
 		pageUtilisateurUriInit();
 		pageDeconnexionUriInit();
+		pageYoutubeUrlInit();
+		pagePinterestUrlInit();
 	}
 
 	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -2199,6 +2313,10 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				return oMiseEnPage.pageUtilisateurUri;
 			case "pageDeconnexionUri":
 				return oMiseEnPage.pageDeconnexionUri;
+			case "pageYoutubeUrl":
+				return oMiseEnPage.pageYoutubeUrl;
+			case "pagePinterestUrl":
+				return oMiseEnPage.pagePinterestUrl;
 			default:
 				return null;
 		}
@@ -2332,12 +2450,23 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	public void htmlBodyMiseEnPage() {
 	}
 
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	public void htmlBodyCourt() {
+		htmlBodyCourtMiseEnPage();
+	}
+
+	public void htmlBodyCourtMiseEnPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri);
+		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
 	}
 
 	////////////
@@ -2381,7 +2510,9 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				&& Objects.equals( pageAProposUri, that.pageAProposUri )
 				&& Objects.equals( pageFaqUri, that.pageFaqUri )
 				&& Objects.equals( pageUtilisateurUri, that.pageUtilisateurUri )
-				&& Objects.equals( pageDeconnexionUri, that.pageDeconnexionUri );
+				&& Objects.equals( pageDeconnexionUri, that.pageDeconnexionUri )
+				&& Objects.equals( pageYoutubeUrl, that.pageYoutubeUrl )
+				&& Objects.equals( pagePinterestUrl, that.pagePinterestUrl );
 	}
 
 	//////////////
@@ -2423,6 +2554,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		sb.append( ", pageFaqUri: \"" ).append(pageFaqUri).append( "\"" );
 		sb.append( ", pageUtilisateurUri: \"" ).append(pageUtilisateurUri).append( "\"" );
 		sb.append( ", pageDeconnexionUri: \"" ).append(pageDeconnexionUri).append( "\"" );
+		sb.append( ", pageYoutubeUrl: \"" ).append(pageYoutubeUrl).append( "\"" );
+		sb.append( ", pagePinterestUrl: \"" ).append(pagePinterestUrl).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

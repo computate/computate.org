@@ -74,7 +74,7 @@ public class QuestionReponse extends QuestionReponseGen<PagePart> {
 			e("div").f();
 				e("h3").a("class", "site-questionreponse-h3 ").f();
 					if(questionIconeNom != null && questionIconeType != null)
-						e("i").a("class", questionIconeType, " fa-", questionIconeNom, " w3-margin-right-4 ").f().g("i");
+						e("i").a("class", questionIconeType, " fa-", questionIconeNom, " site-menu-icon ").f().g("i");
 //					for(Icone icone : question.getIconesAvant()) {
 //						icone.htmlBody();
 //					}
@@ -86,7 +86,7 @@ public class QuestionReponse extends QuestionReponseGen<PagePart> {
 //					icone.htmlBody();
 //				}
 				if(reponseIconeNom != null && reponseIconeType != null)
-					e("i").a("class", reponseIconeType, " fa-", reponseIconeNom, " w3-margin-right-4 ").f().g("i");
+					e("i").a("class", reponseIconeType, " fa-", reponseIconeNom, " site-menu-icon ").f().g("i");
 				e("span").f().sx(reponse).g("span");
 			g("h4");
 		g("div");
@@ -105,12 +105,12 @@ public class QuestionReponse extends QuestionReponseGen<PagePart> {
 	}
 
 	public void  htmlBodyCourt() {
-		e("div").a("class", "w3-card ").f();
+		e("div").a("class", "w3-card w3-white ").f();
 			e("fieldset").a("class", "htmlBodyCourt-qa-fieldset ").f();
 				e("legend").a("class", "h3 htmlBodyCourt-qa-legend ").f();
 					e("div").a("class", "").f();
 						if(questionIconeNom != null && questionIconeType != null)
-							e("i").a("class", questionIconeType, " fa-", questionIconeNom, " w3-margin-right-4 ").f().g("i");
+							e("i").a("class", questionIconeType, " fa-", questionIconeNom, " site-menu-icon ").f().g("i");
 //						for(Icone icone : question.getIconesAvant()) {
 //							icone.htmlBody();
 //						}
@@ -122,7 +122,7 @@ public class QuestionReponse extends QuestionReponseGen<PagePart> {
 //						icone.htmlBody();
 //					}
 					if(reponseIconeNom != null && reponseIconeType != null)
-						e("i").a("class", reponseIconeType, " fa-", reponseIconeNom, " w3-margin-right-4 ").f().g("i");
+						e("i").a("class", reponseIconeType, " fa-", reponseIconeNom, " site-menu-icon ").f().g("i");
 					e("span").f().sx(reponseCourt).g("span");
 				g("h4");
 			g("fieldset");

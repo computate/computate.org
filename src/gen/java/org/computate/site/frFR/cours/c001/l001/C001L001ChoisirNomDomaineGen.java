@@ -2,6 +2,7 @@ package org.computate.site.frFR.cours.c001.l001;
 
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import org.computate.site.frFR.couverture.Couverture;
+import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.apache.commons.text.StringEscapeUtils;
@@ -17,7 +18,6 @@ import org.computate.site.frFR.cluster.Cluster;
 import org.computate.site.frFR.page.parti.PageParagraphe;
 import java.util.List;
 import org.computate.site.frFR.page.parti.PagePart;
-import java.lang.String;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -37,62 +37,6 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	public static final String C001L001ChoisirNomDomaine_Couleur = "green";
 	public static final String C001L001ChoisirNomDomaine_IconeGroupe = "regular";
 	public static final String C001L001ChoisirNomDomaine_IconeNom = "book";
-
-	/////////////////
-	// pageVideoId //
-	/////////////////
-
-	/**	L'entité « pageVideoId »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageVideoId;
-	public Couverture<String> pageVideoIdCouverture = new Couverture<String>().p(this).c(String.class).var("pageVideoId").o(pageVideoId);
-
-	/**	<br/>L'entité « pageVideoId »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageVideoId">Trouver l'entité pageVideoId dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageVideoId(Couverture<String> c);
-
-	public String getPageVideoId() {
-		return pageVideoId;
-	}
-
-	public void setPageVideoId(String pageVideoId) {
-		this.pageVideoId = pageVideoId;
-		this.pageVideoIdCouverture.dejaInitialise = true;
-	}
-	protected C001L001ChoisirNomDomaine pageVideoIdInit() {
-		if(!pageVideoIdCouverture.dejaInitialise) {
-			_pageVideoId(pageVideoIdCouverture);
-			if(pageVideoId == null)
-				setPageVideoId(pageVideoIdCouverture.o);
-		}
-		pageVideoIdCouverture.dejaInitialise(true);
-		return (C001L001ChoisirNomDomaine)this;
-	}
-
-	public String solrPageVideoId() {
-		return pageVideoId;
-	}
-
-	public String strPageVideoId() {
-		return pageVideoId == null ? "" : pageVideoId;
-	}
-
-	public String nomAffichagePageVideoId() {
-		return null;
-	}
-
-	public String htmTooltipPageVideoId() {
-		return null;
-	}
-
-	public String htmPageVideoId() {
-		return pageVideoId == null ? "" : StringEscapeUtils.escapeHtml4(strPageVideoId());
-	}
 
 	///////////
 	// intro //
@@ -285,6 +229,338 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		return (C001L001ChoisirNomDomaine)this;
 	}
 
+	/////////////
+	// appeler //
+	/////////////
+
+	public static final String appelerQuestion1 = "Qu'est-ce que je choisis comme un nom de domaine ? ";
+	public static final String appelerQuestion = appelerQuestion1;
+	public static final String appelerQuestionCourt1 = "Qu'est-ce que je choisis comme un nom de domaine ? ";
+	public static final String appelerQuestionCourt = appelerQuestionCourt1;
+	public static final String appelerReponse1 = "Trouver un nom de domaine qui atteindra votre public. ";
+	public static final String appelerReponse = appelerReponse1;
+	public static final String appelerReponseCourt1 = "Atteindra votre public";
+	public static final String appelerReponseCourt = appelerReponseCourt1;
+	public static final String appelerP1 = "Je ne connais pas votre passion, mais trouvez un nom de domaine qui atteindra votre public. ";
+	public static final String appelerP2 = "C'est bon si c'est court. ";
+	public static final String appelerP3 = "Que ce soit un .com, ou .org, ou .fr, tout dépend de vous aussi. ";
+	public static final String appelerP4 = "Créez un endroit dont vous serez fier un jour ! ";
+	public static final String appelerP = appelerP1 + appelerP2 + appelerP3 + appelerP4;
+
+	/**	L'entité « appeler »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 */
+	protected QuestionReponse appeler = new QuestionReponse();
+	public Couverture<QuestionReponse> appelerCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("appeler").o(appeler);
+
+	/**	<br/>L'entité « appeler »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:appeler">Trouver l'entité appeler dans Solr</a>
+	 * <br/>
+	 * @param appeler est l'entité déjà construit. 
+	 **/
+	protected abstract void _appeler(QuestionReponse o);
+
+	public QuestionReponse getAppeler() {
+		return appeler;
+	}
+
+	public void setAppeler(QuestionReponse appeler) {
+		this.appeler = appeler;
+		this.appelerCouverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine appelerInit() {
+		if(appeler != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(appeler, "appeler");
+		}
+		if(!appelerCouverture.dejaInitialise) {
+			_appeler(appeler);
+		}
+		appeler.initLoinPourClasse(requeteSite_);
+		appelerCouverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	////////////
+	// apres1 //
+	////////////
+
+	public static final String apres1Question1 = "Qu'est-ce que je après j'ai acheté un nom de domaine ? ";
+	public static final String apres1Question = apres1Question1;
+	public static final String apres1QuestionCourt1 = "Qu'est-ce que je après j'ai acheté un nom de domaine ? ";
+	public static final String apres1QuestionCourt = apres1QuestionCourt1;
+	public static final String apres1Reponse1 = "Gérer votre domaine. ";
+	public static final String apres1Reponse = apres1Reponse1;
+	public static final String apres1ReponseCourt1 = "Gérer votre domaine";
+	public static final String apres1ReponseCourt = apres1ReponseCourt1;
+	public static final String apres1P1 = "Laissez-moi vous montrer comment gérer un nom de domaine. ";
+	public static final String apres1P2 = "Je vais me connecter au site de mon propre enregistreur, ";
+	public static final String apres1P3 = ". ";
+	public static final String apres1P = apres1P1 + apres1P2 + apres1P3;
+
+	/**	L'entité « apres1 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 */
+	protected QuestionReponse apres1 = new QuestionReponse();
+	public Couverture<QuestionReponse> apres1Couverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("apres1").o(apres1);
+
+	/**	<br/>L'entité « apres1 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:apres1">Trouver l'entité apres1 dans Solr</a>
+	 * <br/>
+	 * @param apres1 est l'entité déjà construit. 
+	 **/
+	protected abstract void _apres1(QuestionReponse o);
+
+	public QuestionReponse getApres1() {
+		return apres1;
+	}
+
+	public void setApres1(QuestionReponse apres1) {
+		this.apres1 = apres1;
+		this.apres1Couverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine apres1Init() {
+		if(apres1 != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres1, "apres1");
+		}
+		if(!apres1Couverture.dejaInitialise) {
+			_apres1(apres1);
+		}
+		apres1.initLoinPourClasse(requeteSite_);
+		apres1Couverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	////////////
+	// apres2 //
+	////////////
+
+	public static final String apres2P1 = "Je clique sur « Login ». ";
+	public static final String apres2P2 = "Je clique encore sur « Login ». ";
+	public static final String apres2P3 = "Je clique sur « DOMAIN NAMES ». ";
+	public static final String apres2P4 = "Et là vous pouvez voir mes noms de domaine qui sont encore vivants, et ceux qui sont morts. ";
+	public static final String apres2P5 = "Ainsi, les domaines expirent chaque année et peuvent être renouvelés chaque année. ";
+	public static final String apres2P6 = "Je peux également gérer mon site, je clique sur « Manage ». ";
+	public static final String apres2P = apres2P1 + apres2P2 + apres2P3 + apres2P4 + apres2P5 + apres2P6;
+
+	/**	L'entité « apres2 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml apres2 = new PageHtml();
+	public Couverture<PageHtml> apres2Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("apres2").o(apres2);
+
+	/**	<br/>L'entité « apres2 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:apres2">Trouver l'entité apres2 dans Solr</a>
+	 * <br/>
+	 * @param apres2 est l'entité déjà construit. 
+	 **/
+	protected abstract void _apres2(PageHtml o);
+
+	public PageHtml getApres2() {
+		return apres2;
+	}
+
+	public void setApres2(PageHtml apres2) {
+		this.apres2 = apres2;
+		this.apres2Couverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine apres2Init() {
+		if(apres2 != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres2, "apres2");
+		}
+		if(!apres2Couverture.dejaInitialise) {
+			_apres2(apres2);
+		}
+		apres2.initLoinPourClasse(requeteSite_);
+		apres2Couverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	////////////
+	// apres3 //
+	////////////
+
+	public static final String apres3P1 = "Si je clique sur « Update Domain Registrant Information », je peux mettre à jour mon nom et mon adresse pour m'assurer que je reçois du spam de tous les internautes qui ont remarqué que j'ai créé un nouveau domaine. ";
+	public static final String apres3P2 = "Je recommanderais un Boîte à la poste pour votre entreprise, plutôt que votre adresse personnelle, pour plus d'intimité. ";
+	public static final String apres3P = apres3P1 + apres3P2;
+
+	/**	L'entité « apres3 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml apres3 = new PageHtml();
+	public Couverture<PageHtml> apres3Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("apres3").o(apres3);
+
+	/**	<br/>L'entité « apres3 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:apres3">Trouver l'entité apres3 dans Solr</a>
+	 * <br/>
+	 * @param apres3 est l'entité déjà construit. 
+	 **/
+	protected abstract void _apres3(PageHtml o);
+
+	public PageHtml getApres3() {
+		return apres3;
+	}
+
+	public void setApres3(PageHtml apres3) {
+		this.apres3 = apres3;
+		this.apres3Couverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine apres3Init() {
+		if(apres3 != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres3, "apres3");
+		}
+		if(!apres3Couverture.dejaInitialise) {
+			_apres3(apres3);
+		}
+		apres3.initLoinPourClasse(requeteSite_);
+		apres3Couverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	////////////
+	// apres4 //
+	////////////
+
+	public static final String apres4P1 = "Si je reviens et clique sur « Update Name Servers », je peux rediriger mon site vers une autre société DNS que mon registraire, brinkster.com. ";
+	public static final String apres4P2 = "C'est pratique pour moi, car j'utilise en fait mon fournisseur de messagerie SMTP fastmail.com comme fournisseur DNS, donc j'ai mis les serveurs de noms de mon fournisseur DNS là-bas. ";
+	public static final String apres4P3 = "Vous n'avez pas besoin d'un fournisseur de DNS différent, vous pouvez également utiliser votre bureau d'enregistrement pour le courrier électronique, mais j'ai choisi Fastmail pour leur confidentialité et leur excellente interface de messagerie. ";
+	public static final String apres4P = apres4P1 + apres4P2 + apres4P3;
+
+	/**	L'entité « apres4 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml apres4 = new PageHtml();
+	public Couverture<PageHtml> apres4Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("apres4").o(apres4);
+
+	/**	<br/>L'entité « apres4 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:apres4">Trouver l'entité apres4 dans Solr</a>
+	 * <br/>
+	 * @param apres4 est l'entité déjà construit. 
+	 **/
+	protected abstract void _apres4(PageHtml o);
+
+	public PageHtml getApres4() {
+		return apres4;
+	}
+
+	public void setApres4(PageHtml apres4) {
+		this.apres4 = apres4;
+		this.apres4Couverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine apres4Init() {
+		if(apres4 != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres4, "apres4");
+		}
+		if(!apres4Couverture.dejaInitialise) {
+			_apres4(apres4);
+		}
+		apres4.initLoinPourClasse(requeteSite_);
+		apres4Couverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	////////////
+	// apres5 //
+	////////////
+
+	public static final String apres5P1 = "Dans un futur leçon, nous parlerons de la création d'une adresse IP statique afin que les utilisateurs puissent trouver votre serveur Web, sur votre ordinateur, sur votre domaine. ";
+	public static final String apres5P2 = "Lorsque vous avez cela, vous pouvez demander à l'équipe de support de votre enregistreur, de créer pour vous des « enregistrements A » sur votre adresse IP statique. ";
+	public static final String apres5P3 = "Par exemple, je demanderais que deux enregistrements A soient créés pour « computate.org » et « *.computate.org » sur mon adresse IP statique « 209.63.89.254 ». ";
+	public static final String apres5P4 = "Mais comme j'utilise fastmail pour mon DNS, je peux créer mes propres enregistrements A pour chacun de mes domaines dans mon compte, ce qui est utile. ";
+	public static final String apres5P = apres5P1 + apres5P2 + apres5P3 + apres5P4;
+
+	/**	L'entité « apres5 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml apres5 = new PageHtml();
+	public Couverture<PageHtml> apres5Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("apres5").o(apres5);
+
+	/**	<br/>L'entité « apres5 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:apres5">Trouver l'entité apres5 dans Solr</a>
+	 * <br/>
+	 * @param apres5 est l'entité déjà construit. 
+	 **/
+	protected abstract void _apres5(PageHtml o);
+
+	public PageHtml getApres5() {
+		return apres5;
+	}
+
+	public void setApres5(PageHtml apres5) {
+		this.apres5 = apres5;
+		this.apres5Couverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine apres5Init() {
+		if(apres5 != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres5, "apres5");
+		}
+		if(!apres5Couverture.dejaInitialise) {
+			_apres5(apres5);
+		}
+		apres5.initLoinPourClasse(requeteSite_);
+		apres5Couverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	//////////////
+	// plusTard //
+	//////////////
+
+	public static final String plusTardQuestion1 = "Puis-je commencer à développer mon site localement avant de choisir mon nom de domaine ? ";
+	public static final String plusTardQuestion = plusTardQuestion1;
+	public static final String plusTardQuestionCourt1 = "Puis-je choisir un nom de domaine plus tard ? ";
+	public static final String plusTardQuestionCourt = plusTardQuestionCourt1;
+	public static final String plusTardReponse1 = "Le nom d'hôte de votre ordinateur dépendra de votre nom de domaine. ";
+	public static final String plusTardReponse = plusTardReponse1;
+	public static final String plusTardReponseCourt1 = "Le nom d'hôte de votre ordinateur le dépendra";
+	public static final String plusTardReponseCourt = plusTardReponseCourt1;
+	public static final String plusTardP1 = "Si vous ne connaissez pas votre nom de domaine, cela vous gâchera plus tard. ";
+	public static final String plusTardP2 = "Avoir un nom d'hôte qui est un sous-domaine de votre nom de domaine facilite le développement et la mise en ligne de votre site. ";
+	public static final String plusTardP3 = "Vous pouvez attribuer à vos ordinateurs des noms d'hôtes qui sont des sous-domaines de votre propre nom de domaine afin de faciliter le développement et l'affichage local et public de votre site à partir de la même URL. ";
+	public static final String plusTardP4 = "J'aime créer un répertoire pour votre nom de domaine pour stocker des certificats SSL et d'autres fichiers spécifiques au domaine au même endroit pour être synchronisé avec tous vos ordinateurs. ";
+	public static final String plusTardP5 = "Alors, au lieu de vous compliquer la vie, profitez de cette opportunité pour acheter votre nom de domaine, c'est moins de 20 euros par an! ";
+	public static final String plusTardP6 = "Vous pouvez maintenant continuer à lancer votre propre site Web avec succès sur votre propre ordinateur. ";
+	public static final String plusTardP = plusTardP1 + plusTardP2 + plusTardP3 + plusTardP4 + plusTardP5 + plusTardP6;
+
+	/**	L'entité « plusTard »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 */
+	protected QuestionReponse plusTard = new QuestionReponse();
+	public Couverture<QuestionReponse> plusTardCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("plusTard").o(plusTard);
+
+	/**	<br/>L'entité « plusTard »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:plusTard">Trouver l'entité plusTard dans Solr</a>
+	 * <br/>
+	 * @param plusTard est l'entité déjà construit. 
+	 **/
+	protected abstract void _plusTard(QuestionReponse o);
+
+	public QuestionReponse getPlusTard() {
+		return plusTard;
+	}
+
+	public void setPlusTard(QuestionReponse plusTard) {
+		this.plusTard = plusTard;
+		this.plusTardCouverture.dejaInitialise = true;
+	}
+	protected C001L001ChoisirNomDomaine plusTardInit() {
+		if(plusTard != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(plusTard, "plusTard");
+		}
+		if(!plusTardCouverture.dejaInitialise) {
+			_plusTard(plusTard);
+		}
+		plusTard.initLoinPourClasse(requeteSite_);
+		plusTardCouverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -306,11 +582,17 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	}
 
 	public void initC001L001ChoisirNomDomaine() {
-		pageVideoIdInit();
 		introInit();
 		moiInit();
 		aLAvanceInit();
 		acheterInit();
+		appelerInit();
+		apres1Init();
+		apres2Init();
+		apres3Init();
+		apres4Init();
+		apres5Init();
+		plusTardInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -327,6 +609,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		moi.setRequeteSite_(requeteSite_);
 		aLAvance.setRequeteSite_(requeteSite_);
 		acheter.setRequeteSite_(requeteSite_);
+		appeler.setRequeteSite_(requeteSite_);
+		apres1.setRequeteSite_(requeteSite_);
+		apres2.setRequeteSite_(requeteSite_);
+		apres3.setRequeteSite_(requeteSite_);
+		apres4.setRequeteSite_(requeteSite_);
+		apres5.setRequeteSite_(requeteSite_);
+		plusTard.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -418,8 +707,6 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	public Object obtenirC001L001ChoisirNomDomaine(String var) throws Exception {
 		C001L001ChoisirNomDomaine oC001L001ChoisirNomDomaine = (C001L001ChoisirNomDomaine)this;
 		switch(var) {
-			case "pageVideoId":
-				return oC001L001ChoisirNomDomaine.pageVideoId;
 			case "intro":
 				return oC001L001ChoisirNomDomaine.intro;
 			case "moi":
@@ -428,6 +715,20 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 				return oC001L001ChoisirNomDomaine.aLAvance;
 			case "acheter":
 				return oC001L001ChoisirNomDomaine.acheter;
+			case "appeler":
+				return oC001L001ChoisirNomDomaine.appeler;
+			case "apres1":
+				return oC001L001ChoisirNomDomaine.apres1;
+			case "apres2":
+				return oC001L001ChoisirNomDomaine.apres2;
+			case "apres3":
+				return oC001L001ChoisirNomDomaine.apres3;
+			case "apres4":
+				return oC001L001ChoisirNomDomaine.apres4;
+			case "apres5":
+				return oC001L001ChoisirNomDomaine.apres5;
+			case "plusTard":
+				return oC001L001ChoisirNomDomaine.plusTard;
 			default:
 				return super.obtenirC001Lecon(var);
 		}
@@ -498,6 +799,35 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		moi.htmlBody();
 		((C001L001ChoisirNomDomaine)this).htmlBodyALAvance();
 		((C001L001ChoisirNomDomaine)this).htmlBodyAcheter();
+		((C001L001ChoisirNomDomaine)this).htmlBodyAppeler();
+		((C001L001ChoisirNomDomaine)this).htmlBodyApres1();
+		((C001L001ChoisirNomDomaine)this).htmlBodyApres2();
+		((C001L001ChoisirNomDomaine)this).htmlBodyApres3();
+		((C001L001ChoisirNomDomaine)this).htmlBodyApres4();
+		((C001L001ChoisirNomDomaine)this).htmlBodyApres5();
+		((C001L001ChoisirNomDomaine)this).htmlBodyPlusTard();
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	public void htmlBodyCourt() {
+		htmlBodyCourtC001L001ChoisirNomDomaine();
+	}
+
+	public void htmlBodyCourtC001L001ChoisirNomDomaine() {
+		intro.htmlBodyCourt();
+		moi.htmlBodyCourt();
+		aLAvance.htmlBodyCourt();
+		acheter.htmlBodyCourt();
+		appeler.htmlBodyCourt();
+		apres1.htmlBodyCourt();
+		apres2.htmlBodyCourt();
+		apres3.htmlBodyCourt();
+		apres4.htmlBodyCourt();
+		apres5.htmlBodyCourt();
+		plusTard.htmlBodyCourt();
 	}
 
 	//////////////
@@ -505,7 +835,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), pageVideoId);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -518,8 +848,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		if(!(o instanceof C001L001ChoisirNomDomaine))
 			return false;
 		C001L001ChoisirNomDomaine that = (C001L001ChoisirNomDomaine)o;
-		return super.equals(o)
-				&& Objects.equals( pageVideoId, that.pageVideoId );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -530,7 +859,6 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("C001L001ChoisirNomDomaine {");
-		sb.append( "pageVideoId: \"" ).append(pageVideoId).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

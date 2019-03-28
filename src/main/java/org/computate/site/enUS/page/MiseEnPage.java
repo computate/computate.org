@@ -96,10 +96,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	protected void _pageUris(List<String> l) {
-		if(pageUri != null) {
 		l.add(pageUri.toString());
 		l.add(pageUri + "/");
-		}
 	}
 
 	protected void _pageUrl(Couverture<String> c) {
@@ -192,6 +190,27 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		c.o("/deconnexion");
 	}
 
+	protected void _pageYoutubeUrl(Couverture<String> c) {
+		c.o("https://www.youtube.com/channel/UC3ryOB2snhO7fItkx6dGx2Q");
+	}
+
+	protected void _pagePinterestUrl(Couverture<String> c) {
+		c.o(" https://www.pinterest.com/computateorg/computate-in-english/");
+	}
+
+	public void  pageRecapituler() {
+		{ e("div").a("class", "w3-margin-top ").f();
+			{ e("h2").a("class", "htmlBodyCourt-h2 ").f();
+				sx("To review: ");
+			} g("h2");
+			htmlBodyCourt();
+		} g("div");
+	}
+
+	@Override()
+	public void  htmlBodyCourtMiseEnPage() {
+	}
+
 	@Override()
 	public void  htmlMeta() {
 		e("meta").a("charset", "UTF-8").fg();
@@ -274,24 +293,24 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("head");
 			e("body").a("class", "w3-light-grey ").f(); 
 				e("a").a("name", "top").f().g("a");
-	//			e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
-	//			e("div").a("id", "fb-root").f().g("div");
-	//			e("script").f().l("/*<![CDATA[*/");
-	//				l("(function(d, s, id) {");
-	//				l("var js, fjs = d.getElementsByTagName(s)[0];");
-	//				l("if (d.getElementById(id)) return;");
-	//				l("js = d.createElement(s); js.id = id;");
-	//				s("js.src = '");
-	//				s("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1871568493111919");
-	//				l("';");
-	//				l("fjs.parentNode.insertBefore(js, fjs);");
-	//				l("}(document, 'script', 'facebook-jssdk'));");
-	//			s("/*]]>*/").g("script");
-	//			e("script").f().l("/*<![CDATA[*/");
-	//				s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
-	//			s("/*]]>*/").g("script");
-	//			e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
-	//			g("script");
+				e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
+				e("div").a("id", "fb-root").f().g("div");
+				e("script").f().l("/*<![CDATA[*/");
+					l("(function(d, s, id) {");
+					l("var js, fjs = d.getElementsByTagName(s)[0];");
+					l("if (d.getElementById(id)) return;");
+					l("js = d.createElement(s); js.id = id;");
+					s("js.src = '");
+					s("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1871568493111919");
+					l("';");
+					l("fjs.parentNode.insertBefore(js, fjs);");
+					l("}(document, 'script', 'facebook-jssdk'));");
+				s("/*]]>*/").g("script");
+				e("script").f().l("/*<![CDATA[*/");
+					s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
+				s("/*]]>*/").g("script");
+				e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
+				g("script");
 				e("div").a("id", "modaleErreur").a("class", "w3-modal").a("onclick", "this.style.display = 'none';").f();
 					e("div").a("class", "w3-modal-content w3-animate-zoom").f();
 						e("header").a("class", "w3-container w3-center w3-red ").f();
@@ -306,7 +325,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					g("header");
 				g("div");
 				e("div").a("class", "site-section-all ").f();
-					e("div").a("class", "site-section-above ").f();
+					e("div").a("class", "site-section-above w3-light-grey ").f();
 						e("div").a("class", "w3-content w3-center w3-text-black ").f();
 							e("div").a("class", "").f();
 	//							e("img").a("src", "/img/trailblaze-top.jpg").a("class", "w3-img ").a("style", "width: 100%; margin-bottom: -10px; ").fg();
@@ -316,7 +335,11 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 						e("div").a("id", "site-section-primary").a("class", "site-section-primary w3-text-black w3-padding-bottom-32 ").f();
 							e("div").a("class", "w3-content ").f();
 	
-								htmlBody();
+								{ t(3).e("div").a("class", "w3-card w3-padding w3-margin-top w3-show w3-white ").f();
+									htmlBody();
+								} t(3).g("div");
+
+								pageRecapituler();
 	
 								abondonnezPas();
 	
@@ -346,8 +369,23 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 									sx("Let's get connected. ");
 								g("h6");
 								e("div").a("style", "").f();
-									e("a").a("data-ajax", "false").a("href", "https://www.facebook.com/Trail-Blaze-Hunting-Consultants-LLC-179217055464922/").f();
-//											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "https://www.computate.org/svg/facebook.svg").fg();
+									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.facebook.com/computateorg/").f();
+										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/facebook.svg").fg();
+									g("a");
+									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://twitter.com/computateorg").f();
+										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/twitter.svg").fg();
+									g("a");
+									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.instagram.com/computateorg/").f();
+										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/instagram.svg").fg();
+									g("a");
+									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://openclipart.org/user-detail/computateorg").f();
+										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/openclipart.svg").fg();
+									g("a");
+									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pageYoutubeUrl).f();
+										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/youtube.svg").fg();
+									g("a");
+									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pagePinterestUrl).f();
+										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/pinterest.svg").fg();
 									g("a");
 								g("div");
 								e("h6").f();
@@ -428,15 +466,11 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	public void  abondonnezPas() {
-		{ e("div").a("class", "site-abondonnezPas-div ").f();
-			{ e("fieldset").a("class", "site-abondonnezPas-fieldset ").f();
-				{ e("legend").f();
-					e("h3").f().sx("Don't give up on your dreams. You can do hard things! ").g("h3");
-				} g("legend");
-				{ e("h4").f();
-					e("img").a("class", "w3-image ").a("src", "/svg/computate-keys.svg").fg();
-				} g("h4");
-			} g("fieldset");
+		{ e("div").a("class", "w3-padding w3-margin-top w3-center site-abondonnezPas-div ").f();
+			e("h3").f().sx("Don't give up on your dreams. You can do hard things! ").g("h3");
+			{ e("div").f();
+				e("img").a("class", "w3-image ").a("src", "/static/svg/computate-keys.svg").fg();
+			} g("div");
 		} g("div");
 	}
 
@@ -448,15 +482,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					e("img").a("class", "blog-publication-social-img").a("src", "https://www.computate.org/svg/facebook.svg").fg();
 					{ e("div").f();
 						e("div").a("class", "fb-like").a("data-href", pageUrl).a("data-layout", "box_count").a("data-action", "like").a("data-size", "small").a("data-show-faces", "true").a("data-share", "true").f().g("div");
-					} g("div");
-				} g("div");
-				{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-					e("img").a("class", "blog-publication-social-img").a("src", "https://www.computate.org/svg/googleplus.svg").fg();
-					{ e("div").f();
-						e("a").a("class", "blog-publication-social-a").a("href", "https://plus.google.com/b/118400712985074754853/118400712985074754853").f().g("a");
-						e("div").f();
-							e("div").a("class", "g-plusone").a("data-size", "tall").f().g("div");
-						g("div");
 					} g("div");
 				} g("div");
 				{ e("div").a("class", "blog-publication-social-div w3-cell ").f();

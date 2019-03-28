@@ -44,7 +44,7 @@ public class PageHtml extends PageHtmlGen<PagePart> {
 	//////////
 
 	public void htmlBody() {
-	}
+	} 
 
 	///////////////
 	// htmlBodyCourt //

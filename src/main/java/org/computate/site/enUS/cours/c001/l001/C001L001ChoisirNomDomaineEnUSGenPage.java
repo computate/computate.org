@@ -1,8 +1,8 @@
 package org.computate.site.enUS.cours.c001.l001;
 
-import java.lang.String;
 import org.computate.site.enUS.page.parti.PageParagraphe;
 import org.computate.site.enUS.page.parti.QuestionReponse;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
 import org.computate.site.enUS.cours.c001.C001LeconEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
@@ -51,6 +51,14 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 			c.o("a lesson");
 	}
 
+	@Override protected void _pageUri(Couverture<String> c) {
+		c.o("/enUS/course/001/001-choose-domain-name");
+	}
+
+	@Override protected void _pageVideoId(Couverture<String> c) {
+			c.o("sBcDnQj9_QM");
+	}
+
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
 			c.o("regular");
 	}
@@ -71,27 +79,33 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 
 	@Override public void htmlBodyC001L001ChoisirNomDomaineEnUSGenPage() {
 
-			if(pageH1 != null) {
-				{ e("h1").f();
-					if(contexteIconeClassesCss != null)
-						e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
-					e("span").a("class", " ").f().sx(pageH1).g("span");
-				} g("h1");
-			}
-			if(pageH2 != null) {
-				{ e("h2").f();
-					e("span").a("class", " ").f().sx(pageH2).g("span");
-				} g("h2");
-			}
-			if(pageH3 != null) {
-				{ e("h3").f();
-					e("span").a("class", " ").f().sx(pageH3).g("span");
-				} g("h3");
-			}
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+		if(pageH1 != null) {
+			{ e("h1").f();
+				if(contexteIconeClassesCss != null)
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
+				e("span").a("class", " ").f().sx(pageH1).g("span");
+			} g("h1");
+		}
+		if(pageH2 != null) {
+			{ e("h2").f();
+				e("span").a("class", " ").f().sx(pageH2).g("span");
+			} g("h2");
+		}
+		if(pageH3 != null) {
+			{ e("h3").f();
+				e("span").a("class", " ").f().sx(pageH3).g("span");
+			} g("h3");
+		}
+		{ e("div").a("class", "site-video-box ").f();
+			e("iframe").a("class", "site-video-embed ").a("width", "560").a("height", "315").a("src", pageVideoUrlEmbed).a("frameborder", "0").a("allow", "autoplay; encrypted-media").a("allowfullscreen", "").f().g("iframe");
+		} g("div");
 
-				c001L001ChoisirNomDomaine.htmlBody();
+		c001L001ChoisirNomDomaine.htmlBody();
 
-			} g("div");
+	}
+
+	@Override public void htmlBodyCourtC001L001ChoisirNomDomaineEnUSGenPage() {
+
+		c001L001ChoisirNomDomaine.htmlBodyCourt();
 	}
 }
