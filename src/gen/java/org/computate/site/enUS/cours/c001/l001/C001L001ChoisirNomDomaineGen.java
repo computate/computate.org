@@ -4,20 +4,25 @@ import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
+import org.apache.commons.exec.CommandLine;
+import org.apache.commons.lang3.StringUtils;
+import java.util.ArrayList;
+import org.computate.site.enUS.cluster.Cluster;
+import javax.imageio.ImageIO;
+import org.computate.site.enUS.page.parti.PagePart;
+import org.apache.commons.exec.DefaultExecutor;
+import java.awt.image.BufferedImage;
 import org.computate.site.enUS.cours.c001.C001Lecon;
 import org.apache.commons.text.StringEscapeUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
+import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
-import java.util.ArrayList;
 import java.util.Objects;
 import org.computate.site.enUS.page.parti.QuestionReponse;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
-import org.computate.site.enUS.cluster.Cluster;
 import org.computate.site.enUS.page.parti.PageParagraphe;
 import java.util.List;
-import org.computate.site.enUS.page.parti.PagePart;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -469,7 +474,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	public static final String apres5P1 = "In a future lesson, we'll talk about creating a static IP address so that users can find your web server, on your computer, at your domain. ";
 	public static final String apres5P2 = "When you have this, you can ask the support team at your registrar, to create for you some \"A records\" at your static IP. ";
-	public static final String apres5P3 = "For example, I would ask for two A records to be created for \"computate.org\" and \"*.computate.org\" to my static IP address \"209.63.89.254\". ";
+	public static final String apres5P3 = "For example, I would ask for two A records to be created for \"computate.org\" and \"*.computate.org\" to my static IP address. ";
 	public static final String apres5P4 = "But since I use fastmail for my DNS, I can actually create my own A records for any of my domains in my account, which is nice. ";
 	public static final String apres5P = apres5P1 + apres5P2 + apres5P3 + apres5P4;
 
@@ -620,6 +625,32 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteC001L001ChoisirNomDomaine(requeteSite_);
+	}
+
+	///////////
+	// image //
+	///////////
+
+	public static void image() {
+		try {
+			DefaultExecutor executeur = new DefaultExecutor();
+			{
+				new File("/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/cours/001/001-choisir-nom-domaine?pageRecapituler=true --out=/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
+				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
+				System.out.println(" * ImageHauteur.frFR: " + img.getHeight());
+			}
+			{
+				new File("/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/course/001/001-choose-domain-name?pageRecapituler=true --out=/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001/001-choose-domain-name-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001/001-choose-domain-name-999.png"));
+				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
+				System.out.println(" * ImageHauteur.enUS: " + img.getHeight());
+			}
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

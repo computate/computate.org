@@ -124,28 +124,28 @@ public class QuestionReponse extends QuestionReponseGen<PagePart> {
 	///////////////
 
 	public void htmlBodyCourt() {
-		e("div").a("class", "w3-card w3-white ").f();
-			e("fieldset").a("class", "htmlBodyCourt-qa-fieldset ").f();
-				e("legend").a("class", "h3 htmlBodyCourt-qa-legend ").f();
-					e("div").a("class", "").f();
+		{ e("div").a("class", "w3-half ").f();
+			{ e("div").a("class", "w3-card w3-margin w3-padding w3-white ").f();
+				{ e("h3").a("class", "h3 htmlBodyCourt-qa-legend ").f();
+					{ e("div").a("class", "").f();
 						if(questionIconeNom != null && questionIconeType != null)
 							e("i").a("class", questionIconeType, " fa-", questionIconeNom, " site-menu-icon ").f().g("i");
-//						for(Icone icone : question.getIconesAvant()) {
-//							icone.htmlBody();
-//						}
+	//						for(Icone icone : question.getIconesAvant()) {
+	//							icone.htmlBody();
+	//						}
 						e("span").f().sx(questionCourt).g("span");
-					g("div");
-				g("legend");
-				e("h4").a("class", "htmlBodyCourt-qa-h4 ").f();
-//					for(Icone icone : reponse.getIconesAvant()) {
-//						icone.htmlBody();
-//					}
+					} g("div");
+				} g("h3");
+				{ e("h4").a("class", "htmlBodyCourt-qa-h4 ").f();
+	//					for(Icone icone : reponse.getIconesAvant()) {
+	//						icone.htmlBody();
+	//					}
 					if(reponseIconeNom != null && reponseIconeType != null)
 						e("i").a("class", reponseIconeType, " fa-", reponseIconeNom, " site-menu-icon ").f().g("i");
 					e("span").f().sx(reponseCourt).g("span");
-				g("h4");
-			g("fieldset");
-		g("div");
+				} g("h4");
+			} g("div");
+		} g("div");
 	}
 
 	//////////

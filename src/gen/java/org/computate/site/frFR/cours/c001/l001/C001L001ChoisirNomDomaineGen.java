@@ -4,20 +4,25 @@ import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
+import org.apache.commons.exec.CommandLine;
+import org.apache.commons.lang3.StringUtils;
+import java.util.ArrayList;
+import org.computate.site.frFR.cluster.Cluster;
+import javax.imageio.ImageIO;
+import org.computate.site.frFR.page.parti.PagePart;
+import org.apache.commons.exec.DefaultExecutor;
+import java.awt.image.BufferedImage;
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.apache.commons.text.StringEscapeUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
+import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
-import java.util.ArrayList;
 import java.util.Objects;
 import org.computate.site.frFR.page.parti.QuestionReponse;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
-import org.computate.site.frFR.cluster.Cluster;
 import org.computate.site.frFR.page.parti.PageParagraphe;
 import java.util.List;
-import org.computate.site.frFR.page.parti.PagePart;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -285,9 +290,9 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	// apres1 //
 	////////////
 
-	public static final String apres1Question1 = "Qu'est-ce que je après j'ai acheté un nom de domaine ? ";
+	public static final String apres1Question1 = "Qu'est-ce que je fais après j'ai acheté un nom de domaine ? ";
 	public static final String apres1Question = apres1Question1;
-	public static final String apres1QuestionCourt1 = "Qu'est-ce que je après j'ai acheté un nom de domaine ? ";
+	public static final String apres1QuestionCourt1 = "Quoi faire après j'ai acheté un nom de domaine ? ";
 	public static final String apres1QuestionCourt = apres1QuestionCourt1;
 	public static final String apres1Reponse1 = "Gérer votre domaine. ";
 	public static final String apres1Reponse = apres1Reponse1;
@@ -469,7 +474,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	public static final String apres5P1 = "Dans un futur leçon, nous parlerons de la création d'une adresse IP statique afin que les utilisateurs puissent trouver votre serveur Web, sur votre ordinateur, sur votre domaine. ";
 	public static final String apres5P2 = "Lorsque vous avez cela, vous pouvez demander à l'équipe de support de votre enregistreur, de créer pour vous des « enregistrements A » sur votre adresse IP statique. ";
-	public static final String apres5P3 = "Par exemple, je demanderais que deux enregistrements A soient créés pour « computate.org » et « *.computate.org » sur mon adresse IP statique « 209.63.89.254 ». ";
+	public static final String apres5P3 = "Par exemple, je demanderais que deux enregistrements A soient créés pour « computate.org » et « *.computate.org » sur mon adresse IP statique. ";
 	public static final String apres5P4 = "Mais comme j'utilise fastmail pour mon DNS, je peux créer mes propres enregistrements A pour chacun de mes domaines dans mon compte, ce qui est utile. ";
 	public static final String apres5P = apres5P1 + apres5P2 + apres5P3 + apres5P4;
 
@@ -620,6 +625,32 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteC001L001ChoisirNomDomaine(requeteSite_);
+	}
+
+	///////////
+	// image //
+	///////////
+
+	public static void image() {
+		try {
+			DefaultExecutor executeur = new DefaultExecutor();
+			{
+				new File("/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/cours/001/001-choisir-nom-domaine?pageRecapituler=true --out=/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
+				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
+				System.out.println(" * ImageHauteur.frFR: " + img.getHeight());
+			}
+			{
+				new File("/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/course/001/001-choose-domain-name?pageRecapituler=true --out=/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001/001-choose-domain-name-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001/001-choose-domain-name-999.png"));
+				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
+				System.out.println(" * ImageHauteur.enUS: " + img.getHeight());
+			}
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

@@ -10,6 +10,7 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 
 	public static void  main(String[] args) {  
 		indexer(); 
+		image();
 	}
 
 	@Override()

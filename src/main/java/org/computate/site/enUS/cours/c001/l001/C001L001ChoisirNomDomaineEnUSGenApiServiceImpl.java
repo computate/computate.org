@@ -148,7 +148,6 @@ public class C001L001ChoisirNomDomaineEnUSGenApiServiceImpl implements C001L001C
 			ToutEcrivain w = ToutEcrivain.creer(listeC001L001ChoisirNomDomaine.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
 			C001L001ChoisirNomDomaineEnUSPage page = new C001L001ChoisirNomDomaineEnUSPage();
-			page.setPageUrl("");
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/001-choose-domain-name");

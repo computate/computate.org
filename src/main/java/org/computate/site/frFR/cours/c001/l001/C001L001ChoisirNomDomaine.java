@@ -32,6 +32,11 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * IconeGroupe: regular
  * IconeNom: book
  * Indexe: true
+ * Image: true
+ * ImageLargeur.frFR: 800
+ * ImageHauteur.frFR: 616
+ * ImageLargeur.enUS: 800
+ * ImageHauteur.enUS: 616
  * VideoId.frFR: sBcDnQj9_QM
  * VideoId.enUS: sBcDnQj9_QM
 */  
@@ -39,7 +44,8 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 
 	public static void main(String[] args) {  
 		indexer(); 
-	}
+		image();
+	} 
 
 	@Override protected void _leconNumero(Couverture<Integer> c) { 
 		c.o(1);
@@ -210,9 +216,9 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 
 	/**  
 	 * 
-	 * Val.Question.frFR:Qu'est-ce que je après j'ai acheté un nom de domaine ? 
+	 * Val.Question.frFR:Qu'est-ce que je fais après j'ai acheté un nom de domaine ? 
 	 * Val.Question.enUS:What do I do after I bought a domain name? 
-	 * Val.QuestionCourt.frFR:Qu'est-ce que je après j'ai acheté un nom de domaine ? 
+	 * Val.QuestionCourt.frFR:Quoi faire après j'ai acheté un nom de domaine ? 
 	 * Val.QuestionCourt.enUS:What do I do after I bought a domain name? 
 	 * Val.Reponse.frFR:Gérer votre domaine. 
 	 * Val.Reponse.enUS:Manage your domain. 
@@ -333,11 +339,11 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	/**  
 	 * Val.P.frFR:Dans un futur leçon, nous parlerons de la création d'une adresse IP statique afin que les utilisateurs puissent trouver votre serveur Web, sur votre ordinateur, sur votre domaine. 
 	 * Val.P.frFR:Lorsque vous avez cela, vous pouvez demander à l'équipe de support de votre enregistreur, de créer pour vous des « enregistrements A » sur votre adresse IP statique. 
-	 * Val.P.frFR:Par exemple, je demanderais que deux enregistrements A soient créés pour « computate.org » et « *.computate.org » sur mon adresse IP statique « 209.63.89.254 ». 
+	 * Val.P.frFR:Par exemple, je demanderais que deux enregistrements A soient créés pour « computate.org » et « *.computate.org » sur mon adresse IP statique. 
 	 * Val.P.frFR:Mais comme j'utilise fastmail pour mon DNS, je peux créer mes propres enregistrements A pour chacun de mes domaines dans mon compte, ce qui est utile. 
 	 * Val.P.enUS:In a future lesson, we'll talk about creating a static IP address so that users can find your web server, on your computer, at your domain. 
 	 * Val.P.enUS:When you have this, you can ask the support team at your registrar, to create for you some "A records" at your static IP. 
-	 * Val.P.enUS:For example, I would ask for two A records to be created for "computate.org" and "*.computate.org" to my static IP address "209.63.89.254". 
+	 * Val.P.enUS:For example, I would ask for two A records to be created for "computate.org" and "*.computate.org" to my static IP address. 
 	 * Val.P.enUS:But since I use fastmail for my DNS, I can actually create my own A records for any of my domains in my account, which is nice. 
 	 */     
 	protected void _apres5(PageHtml o) {      

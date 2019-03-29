@@ -55,6 +55,22 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 		c.o("/enUS/course/001/001-choose-domain-name");
 	}
 
+	@Override protected void _pageUriFrFR(Couverture<String> c) {
+		c.o("/frFR/cours/001/001-choisir-nom-domaine");
+	}
+
+	@Override protected void _pageImageUri(Couverture<String> c) {
+			c.o("/static/png/enUS/course/001/001-choose-domain-name-999.png");
+	}
+
+	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
+			c.o(800);
+	}
+
+	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
+			c.o(616);
+	}
+
 	@Override protected void _pageVideoId(Couverture<String> c) {
 			c.o("sBcDnQj9_QM");
 	}

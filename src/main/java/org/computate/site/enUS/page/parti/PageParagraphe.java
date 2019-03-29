@@ -75,19 +75,19 @@ public class PageParagraphe extends PageParagrapheGen<PagePart> {
 	}
 
 	public void  htmlBodyCourt() {
-		ToutEcrivain w = requeteSite_.getW();
-		w.e("div").a("class", "w3-card ").f();
-			w.e("fieldset").a("class", "htmlBodyCourt-qa-fieldset ").f();
-				w.e("legend").a("class", "h3 htmlBodyCourt-qa-legend ").f();
-					w.e("div").a("class", "").f();
-						for(Icone icone : texte.getIconesAvant()) {
-							icone.htmlBody();
-						}
-						w.e("span").f().sx(texteCourt).g("span");
-					w.g("div");
-				w.g("legend");
-			w.g("fieldset");
-		w.g("div");
+//		ToutEcrivain w = requeteSite_.getW();
+//		w.e("div").a("class", "w3-card ").f();
+//			w.e("fieldset").a("class", "htmlBodyCourt-qa-fieldset ").f();
+//				w.e("legend").a("class", "h3 htmlBodyCourt-qa-legend ").f();
+//					w.e("div").a("class", "").f();
+//						for(Icone icone : texte.getIconesAvant()) {
+//							icone.htmlBody();
+//						}
+//						w.e("span").f().sx(texteCourt).g("span");
+//					w.g("div");
+//				w.g("legend");
+//			w.g("fieldset");
+//		w.g("div");
 	}
 
 	public void  codeAvant() { 

@@ -853,6 +853,62 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		return pageUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri());
 	}
 
+	/////////////////
+	// pageUriFrFR //
+	/////////////////
+
+	/**	L'entité « pageUriFrFR »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUriFrFR;
+	public Couverture<String> pageUriFrFRCouverture = new Couverture<String>().p(this).c(String.class).var("pageUriFrFR").o(pageUriFrFR);
+
+	/**	<br/>L'entité « pageUriFrFR »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUriFrFR">Trouver l'entité pageUriFrFR dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUriFrFR(Couverture<String> c);
+
+	public String getPageUriFrFR() {
+		return pageUriFrFR;
+	}
+
+	public void setPageUriFrFR(String pageUriFrFR) {
+		this.pageUriFrFR = pageUriFrFR;
+		this.pageUriFrFRCouverture.dejaInitialise = true;
+	}
+	protected MiseEnPage pageUriFrFRInit() {
+		if(!pageUriFrFRCouverture.dejaInitialise) {
+			_pageUriFrFR(pageUriFrFRCouverture);
+			if(pageUriFrFR == null)
+				setPageUriFrFR(pageUriFrFRCouverture.o);
+		}
+		pageUriFrFRCouverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
+
+	public String solrPageUriFrFR() {
+		return pageUriFrFR;
+	}
+
+	public String strPageUriFrFR() {
+		return pageUriFrFR == null ? "" : pageUriFrFR;
+	}
+
+	public String nomAffichagePageUriFrFR() {
+		return null;
+	}
+
+	public String htmTooltipPageUriFrFR() {
+		return null;
+	}
+
+	public String htmPageUriFrFR() {
+		return pageUriFrFR == null ? "" : StringEscapeUtils.escapeHtml4(strPageUriFrFR());
+	}
+
 	//////////////
 	// pageUris //
 	//////////////
@@ -1866,6 +1922,118 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		return pageAProposUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageAProposUri());
 	}
 
+	/////////////////
+	// pageBlogUri //
+	/////////////////
+
+	/**	L'entité « pageBlogUri »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageBlogUri;
+	public Couverture<String> pageBlogUriCouverture = new Couverture<String>().p(this).c(String.class).var("pageBlogUri").o(pageBlogUri);
+
+	/**	<br/>L'entité « pageBlogUri »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageBlogUri">Trouver l'entité pageBlogUri dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageBlogUri(Couverture<String> c);
+
+	public String getPageBlogUri() {
+		return pageBlogUri;
+	}
+
+	public void setPageBlogUri(String pageBlogUri) {
+		this.pageBlogUri = pageBlogUri;
+		this.pageBlogUriCouverture.dejaInitialise = true;
+	}
+	protected MiseEnPage pageBlogUriInit() {
+		if(!pageBlogUriCouverture.dejaInitialise) {
+			_pageBlogUri(pageBlogUriCouverture);
+			if(pageBlogUri == null)
+				setPageBlogUri(pageBlogUriCouverture.o);
+		}
+		pageBlogUriCouverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
+
+	public String solrPageBlogUri() {
+		return pageBlogUri;
+	}
+
+	public String strPageBlogUri() {
+		return pageBlogUri == null ? "" : pageBlogUri;
+	}
+
+	public String nomAffichagePageBlogUri() {
+		return null;
+	}
+
+	public String htmTooltipPageBlogUri() {
+		return null;
+	}
+
+	public String htmPageBlogUri() {
+		return pageBlogUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageBlogUri());
+	}
+
+	//////////////////
+	// pageCoursUri //
+	//////////////////
+
+	/**	L'entité « pageCoursUri »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageCoursUri;
+	public Couverture<String> pageCoursUriCouverture = new Couverture<String>().p(this).c(String.class).var("pageCoursUri").o(pageCoursUri);
+
+	/**	<br/>L'entité « pageCoursUri »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageCoursUri">Trouver l'entité pageCoursUri dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageCoursUri(Couverture<String> c);
+
+	public String getPageCoursUri() {
+		return pageCoursUri;
+	}
+
+	public void setPageCoursUri(String pageCoursUri) {
+		this.pageCoursUri = pageCoursUri;
+		this.pageCoursUriCouverture.dejaInitialise = true;
+	}
+	protected MiseEnPage pageCoursUriInit() {
+		if(!pageCoursUriCouverture.dejaInitialise) {
+			_pageCoursUri(pageCoursUriCouverture);
+			if(pageCoursUri == null)
+				setPageCoursUri(pageCoursUriCouverture.o);
+		}
+		pageCoursUriCouverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
+
+	public String solrPageCoursUri() {
+		return pageCoursUri;
+	}
+
+	public String strPageCoursUri() {
+		return pageCoursUri == null ? "" : pageCoursUri;
+	}
+
+	public String nomAffichagePageCoursUri() {
+		return null;
+	}
+
+	public String htmTooltipPageCoursUri() {
+		return null;
+	}
+
+	public String htmPageCoursUri() {
+		return pageCoursUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageCoursUri());
+	}
+
 	////////////////
 	// pageFaqUri //
 	////////////////
@@ -2181,6 +2349,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		pageH3CourtInit();
 		pageTitreInit();
 		pageUriInit();
+		pageUriFrFRInit();
 		pageUrisInit();
 		pageUrlInit();
 		pageImageUriInit();
@@ -2198,6 +2367,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		pageDescriptionInit();
 		pageAccueilUriInit();
 		pageAProposUriInit();
+		pageBlogUriInit();
+		pageCoursUriInit();
 		pageFaqUriInit();
 		pageUtilisateurUriInit();
 		pageDeconnexionUriInit();
@@ -2273,6 +2444,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				return oMiseEnPage.pageTitre;
 			case "pageUri":
 				return oMiseEnPage.pageUri;
+			case "pageUriFrFR":
+				return oMiseEnPage.pageUriFrFR;
 			case "pageUris":
 				return oMiseEnPage.pageUris;
 			case "pageUrl":
@@ -2307,6 +2480,10 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				return oMiseEnPage.pageAccueilUri;
 			case "pageAProposUri":
 				return oMiseEnPage.pageAProposUri;
+			case "pageBlogUri":
+				return oMiseEnPage.pageBlogUri;
+			case "pageCoursUri":
+				return oMiseEnPage.pageCoursUri;
 			case "pageFaqUri":
 				return oMiseEnPage.pageFaqUri;
 			case "pageUtilisateurUri":
@@ -2466,7 +2643,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
+		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUriFrFR, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageBlogUri, pageCoursUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
 	}
 
 	////////////
@@ -2491,6 +2668,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				&& Objects.equals( pageH3Court, that.pageH3Court )
 				&& Objects.equals( pageTitre, that.pageTitre )
 				&& Objects.equals( pageUri, that.pageUri )
+				&& Objects.equals( pageUriFrFR, that.pageUriFrFR )
 				&& Objects.equals( pageUris, that.pageUris )
 				&& Objects.equals( pageUrl, that.pageUrl )
 				&& Objects.equals( pageImageUri, that.pageImageUri )
@@ -2508,6 +2686,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				&& Objects.equals( pageDescription, that.pageDescription )
 				&& Objects.equals( pageAccueilUri, that.pageAccueilUri )
 				&& Objects.equals( pageAProposUri, that.pageAProposUri )
+				&& Objects.equals( pageBlogUri, that.pageBlogUri )
+				&& Objects.equals( pageCoursUri, that.pageCoursUri )
 				&& Objects.equals( pageFaqUri, that.pageFaqUri )
 				&& Objects.equals( pageUtilisateurUri, that.pageUtilisateurUri )
 				&& Objects.equals( pageDeconnexionUri, that.pageDeconnexionUri )
@@ -2534,6 +2714,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		sb.append( ", pageH3Court: \"" ).append(pageH3Court).append( "\"" );
 		sb.append( ", pageTitre: \"" ).append(pageTitre).append( "\"" );
 		sb.append( ", pageUri: \"" ).append(pageUri).append( "\"" );
+		sb.append( ", pageUriFrFR: \"" ).append(pageUriFrFR).append( "\"" );
 		sb.append( ", pageUris: " ).append(pageUris);
 		sb.append( ", pageUrl: \"" ).append(pageUrl).append( "\"" );
 		sb.append( ", pageImageUri: \"" ).append(pageImageUri).append( "\"" );
@@ -2551,6 +2732,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		sb.append( ", pageDescription: \"" ).append(pageDescription).append( "\"" );
 		sb.append( ", pageAccueilUri: \"" ).append(pageAccueilUri).append( "\"" );
 		sb.append( ", pageAProposUri: \"" ).append(pageAProposUri).append( "\"" );
+		sb.append( ", pageBlogUri: \"" ).append(pageBlogUri).append( "\"" );
+		sb.append( ", pageCoursUri: \"" ).append(pageCoursUri).append( "\"" );
 		sb.append( ", pageFaqUri: \"" ).append(pageFaqUri).append( "\"" );
 		sb.append( ", pageUtilisateurUri: \"" ).append(pageUtilisateurUri).append( "\"" );
 		sb.append( ", pageDeconnexionUri: \"" ).append(pageDeconnexionUri).append( "\"" );

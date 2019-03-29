@@ -95,12 +95,16 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_enUS_stored_string"), null));
 	}
 
+	protected void _pageUriFrFR(Couverture<String> c) {
+	}
+
 	protected void _pageUris(List<String> l) {
 		l.add(pageUri.toString());
 		l.add(pageUri + "/");
 	}
 
 	protected void _pageUrl(Couverture<String> c) {
+		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), requeteSite_.getConfigSite_().getSiteUrlBase() + pageUri));
 	}
 
 	protected void _pageImageUri(Couverture<String> c) {
@@ -108,7 +112,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	protected void _pageImageUrl(Couverture<String> c) {
-		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), "https://" + requeteSite_.getConfigSite_().getSiteNomHote() + pageImageUri));
+		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), requeteSite_.getConfigSite_().getSiteUrlBase() + pageImageUri));
 	}
 
 	protected void _pageVideoId(Couverture<String> c) {
@@ -178,6 +182,14 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		c.o("/apropos");
 	}
 
+	protected void _pageBlogUri(Couverture<String> c) {
+		c.o("/blog");
+	}
+
+	protected void _pageCoursUri(Couverture<String> c) {
+		c.o("/cours");
+	}
+
 	protected void _pageFaqUri(Couverture<String> c) {
 		c.o("/faq");
 	}
@@ -199,12 +211,29 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	public void  pageRecapituler() {
-		{ e("div").a("class", "w3-margin-top ").f();
-			{ e("h2").a("class", "htmlBodyCourt-h2 ").f();
-				sx("To review: ");
-			} g("h2");
-			htmlBodyCourt();
-		} g("div");
+		{ e("html").a("xmlns:xlink", "http://www.w3.org/1999/xlink").a("xmlns", "http://www.w3.org/1999/xhtml").a("xmlns:fb", "http://ogp.me/ns/fb#").f();
+			{ e("head").f();
+				e("title").f();
+					sx(pageTitre);
+				g("title");
+				htmlScripts();
+				e("script").f().l("/*<![CDATA[*/");
+				htmlScript();
+				s("/*]]>*/").g("script");
+				htmlStyles();
+				e("style").f().l("/*<![CDATA[*/");
+				htmlStyle();
+				s("/*]]>*/").g("style");
+	
+			} g("head");
+			{ e("body").a("class", "w3-light-grey ").f(); 
+				{ e("div").a("class", "w3-margin-top ").f();
+					{ e("div").a("class", "w3-row ").f();
+						htmlBodyCourt();
+					} g("div");
+				} g("div");
+			} g("body");
+		} g("html");
 	}
 
 	@Override()
@@ -212,7 +241,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	@Override()
-	public void  htmlMeta() {
+	public void  htmlMetaMiseEnPage() {
 		e("meta").a("charset", "UTF-8").fg();
 		e("meta").a("name", "viewport").a("content", "width=device-width, initial-scale=1").fg();
 		e("meta").a("name", "keywords").a("content", pageMotsCles).fg();
@@ -276,75 +305,79 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 
 	@Override()
 	public void  htmlMiseEnPage() {
-		e("html").a("xmlns:xlink", "http://www.w3.org/1999/xlink").a("xmlns", "http://www.w3.org/1999/xhtml").a("xmlns:fb", "http://ogp.me/ns/fb#").f();
-			e("head").f();
-				e("title").f();
-					sx(pageTitre);
-				g("title");
-				htmlScripts();
-				e("script").f().l("/*<![CDATA[*/");
-				htmlScript();
-				s("/*]]>*/").g("script");
-				htmlStyles();
-				e("style").f().l("/*<![CDATA[*/");
-				htmlStyle();
-				s("/*]]>*/").g("style");
-	
-			g("head");
-			e("body").a("class", "w3-light-grey ").f(); 
-				e("a").a("name", "top").f().g("a");
-				e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
-				e("div").a("id", "fb-root").f().g("div");
-				e("script").f().l("/*<![CDATA[*/");
-					l("(function(d, s, id) {");
-					l("var js, fjs = d.getElementsByTagName(s)[0];");
-					l("if (d.getElementById(id)) return;");
-					l("js = d.createElement(s); js.id = id;");
-					s("js.src = '");
-					s("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1871568493111919");
-					l("';");
-					l("fjs.parentNode.insertBefore(js, fjs);");
-					l("}(document, 'script', 'facebook-jssdk'));");
-				s("/*]]>*/").g("script");
-				e("script").f().l("/*<![CDATA[*/");
-					s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
-				s("/*]]>*/").g("script");
-				e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
-				g("script");
-				e("div").a("id", "modaleErreur").a("class", "w3-modal").a("onclick", "this.style.display = 'none';").f();
-					e("div").a("class", "w3-modal-content w3-animate-zoom").f();
-						e("header").a("class", "w3-container w3-center w3-red ").f();
-							e("h3").f();
-								sx("Une erreur s'est produite. ");
-							g("h3");
+		if(requeteSite_.getOperationRequete().getParams().getJsonObject("query").getBoolean("pageRecapituler")) {
+			pageRecapituler();
+		}
+		else {
+			e("html").a("xmlns:xlink", "http://www.w3.org/1999/xlink").a("xmlns", "http://www.w3.org/1999/xhtml").a("xmlns:fb", "http://ogp.me/ns/fb#").f();
+				e("head").f();
+					e("title").f();
+						sx(pageTitre);
+					g("title");
+					htmlMeta();
+					htmlScripts();
+					e("script").f().l("/*<![CDATA[*/");
+					htmlScript();
+					s("/*]]>*/").g("script");
+					htmlStyles();
+					e("style").f().l("/*<![CDATA[*/");
+					htmlStyle();
+					s("/*]]>*/").g("style");
+		
+				g("head");
+				e("body").a("class", "w3-light-grey ").f(); 
+					e("a").a("name", "top").f().g("a");
+					e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
+					e("div").a("id", "fb-root").f().g("div");
+					e("script").f().l("/*<![CDATA[*/");
+						l("(function(d, s, id) {");
+						l("var js, fjs = d.getElementsByTagName(s)[0];");
+						l("if (d.getElementById(id)) return;");
+						l("js = d.createElement(s); js.id = id;");
+						s("js.src = '");
+						s("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1871568493111919");
+						l("';");
+						l("fjs.parentNode.insertBefore(js, fjs);");
+						l("}(document, 'script', 'facebook-jssdk'));");
+					s("/*]]>*/").g("script");
+					e("script").f().l("/*<![CDATA[*/");
+						s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
+					s("/*]]>*/").g("script");
+					e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
+					g("script");
+					e("div").a("id", "modaleErreur").a("class", "w3-modal").a("onclick", "this.style.display = 'none';").f();
+						e("div").a("class", "w3-modal-content w3-animate-zoom").f();
+							e("header").a("class", "w3-container w3-center w3-red ").f();
+								e("h3").f();
+									sx("Une erreur s'est produite. ");
+								g("h3");
+							g("header");
+						g("div");
+						e("div").a("id", "modaleErreurMessage").a("class", "w3-container w3-center").f().g("div");
+						e("header").a("class", "w3-container w3-center w3-padding-16 ").f();
+							sx("L'erreur a été envoyée par e-mail à l'administrateur pour analyse. ");
 						g("header");
 					g("div");
-					e("div").a("id", "modaleErreurMessage").a("class", "w3-container w3-center").f().g("div");
-					e("header").a("class", "w3-container w3-center w3-padding-16 ").f();
-						sx("L'erreur a été envoyée par e-mail à l'administrateur pour analyse. ");
-					g("header");
-				g("div");
-				e("div").a("class", "site-section-all ").f();
-					e("div").a("class", "site-section-above w3-light-grey ").f();
-						e("div").a("class", "w3-content w3-center w3-text-black ").f();
-							e("div").a("class", "").f();
-	//							e("img").a("src", "/img/trailblaze-top.jpg").a("class", "w3-img ").a("style", "width: 100%; margin-bottom: -10px; ").fg();
+					e("div").a("class", "site-section-all ").f();
+						e("div").a("class", "site-section-above w3-light-grey ").f();
+							e("div").a("class", "w3-center w3-black w3-text-white ").f();
+		//							e("img").a("src", "/img/trailblaze-top.jpg").a("class", "w3-img ").a("style", "width: 100%; margin-bottom: -10px; ").fg();
 								menu();
-							g("div"); 
-						g("div");
-						e("div").a("id", "site-section-primary").a("class", "site-section-primary w3-text-black w3-padding-bottom-32 ").f();
-							e("div").a("class", "w3-content ").f();
+							g("div");
+							e("div").a("id", "site-section-primary").a("class", "site-section-primary w3-text-black w3-padding-bottom-32 ").f();
+								e("div").a("class", "w3-content ").f();
+		
+									{ t(3).e("div").a("class", "w3-card w3-padding w3-margin-top w3-show w3-white ").f();
+										htmlBody();
+									} t(3).g("div");
 	
-								{ t(3).e("div").a("class", "w3-card w3-padding w3-margin-top w3-show w3-white ").f();
-									htmlBody();
-								} t(3).g("div");
-
-								pageRecapituler();
+									pageRecapituler();
+		
+									abondonnezPas();
+		
+									partagerPage();
 	
-								abondonnezPas();
-	
-								partagerPage();
-
+								g("div");
 								e("footer").a("class", "w3-center w3-black w3-padding-48 ").f();
 									e("div").a("class", "w3-xxlarge ").f();
 										sx("Ce site est open source. ");
@@ -359,75 +392,95 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 							g("div");
 						g("div");
 					g("div");
-				g("div");
-				e("div").a("class", "w3-row site-section-contact ").f();
-					e("div").a("class", "w3-content w3-center  w3-cell-row w3-margin-bottom-32 ").f();
-						menu();
-						e("div").a("class", "w3-container ").f();
-							e("div").a("class", "w3-container w3-text-black w3-margin-top ").f();
-								e("h6").a("id", "h2-contactez-nous").a("class",  "w3-xlarge ").f();
-									sx("Let's get connected. ");
-								g("h6");
-								e("div").a("style", "").f();
-									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.facebook.com/computateorg/").f();
-										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/facebook.svg").fg();
-									g("a");
-									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://twitter.com/computateorg").f();
-										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/twitter.svg").fg();
-									g("a");
-									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.instagram.com/computateorg/").f();
-										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/instagram.svg").fg();
-									g("a");
-									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://openclipart.org/user-detail/computateorg").f();
-										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/openclipart.svg").fg();
-									g("a");
-									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pageYoutubeUrl).f();
-										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/youtube.svg").fg();
-									g("a");
-									e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pagePinterestUrl).f();
-										e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/pinterest.svg").fg();
-									g("a");
+					e("div").a("class", "w3-row site-section-contact w3-text-white ").f();
+						e("div").a("class", "w3-content w3-center  w3-cell-row w3-margin-bottom-32 ").f();
+							menu();
+							e("div").a("class", "w3-container ").f();
+								e("div").a("class", "w3-container w3-text-black w3-margin-top ").f();
+									e("h6").a("id", "h2-contactez-nous").a("class",  "w3-xlarge w3-text-white ").f();
+										sx("Let's get connected. ");
+									g("h6");
+									e("div").a("style", "").f();
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.facebook.com/computateorg/").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/facebook.svg").fg();
+										g("a");
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://twitter.com/computateorg").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/twitter.svg").fg();
+										g("a");
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.instagram.com/computateorg/").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/instagram.svg").fg();
+										g("a");
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://openclipart.org/user-detail/computateorg").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/openclipart.svg").fg();
+										g("a");
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pageYoutubeUrl).f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/youtube.svg").fg();
+										g("a");
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pagePinterestUrl).f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/pinterest.svg").fg();
+										g("a");
+									g("div");
+									e("h6").f();
+										e("a").a("href", "#top").a("class", "w3-text-white ").f();
+											sx("Up to the top. ");
+										g("a");
+									g("h6");
 								g("div");
-								e("h6").f();
-									e("a").a("href", "#top").f();
-										sx("Up to the top. ");
-									g("a");
-								g("h6");
 							g("div");
 						g("div");
 					g("div");
-				g("div");
-			g("body");
-		g("html");
-
+				g("body");
+			g("html");
+		}
 	}
 
 	public void  menu() {
-		e("div").a("class", "w3-black w3-bar w3-text-white w3-card-2 w3-padding-bottom-8 w3-padding-top-8 ").a("style", "padding-left: 16px; padding-right: 16px; ").f();
-//					e("span").a("class", "header-icon-a grow-30 w3-center ").f();
-//						e("a").a("class", "w3-hover-opacity").a("title", "English").a("href", pageUri.enUS()).f();
-//							e("img").a("src", "/svg/flag-US.svg").a("style", "height: 50px; ").fg();
-//						g("a");
-//						e("a").a("class", "w3-hover-opacity").a("title", "French").a("href", pageUri.frFR()).f();
-//							e("img").a("src", "/svg/flag-FR.svg").a("style", "height: 50px; ").fg();
-//						g("a");
-//						e("br").fg();
-//						e("span").a("class", "site-menu-item").f();
-//							enUSx("Language");
-//							frFRx("Language");
-//						g("span");
-//					g("span");
+		e("div").a("class", "w3-bar w3-text-white w3-card-2 w3-padding-bottom-8 w3-padding-top-8 ").a("style", "padding-left: 16px; padding-right: 16px; ").f();
+			e("div").a("class", "w3-bar-item ").f();
+				e("span").a("class", "header-icon-a grow-30 w3-center ").f();
+					e("a").a("class", "w3-hover-opacity").a("title", "English").a("href", pageUri).f();
+						e("img").a("src", "/static/svg/flag-US.svg").a("style", "height: 50px; ").fg();
+					g("a");
+					e("a").a("class", "w3-hover-opacity").a("title", "français").a("href", pageUriFrFR).f();
+						e("img").a("src", "/static/svg/flag-FR.svg").a("style", "height: 50px; ").fg();
+					g("a");
+					e("br").fg();
+					e("span").a("class", "site-menu-item").f();
+						sx("Language");
+					g("span");
+				g("span");
+			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
-					e("i").a("class", "fas site-menu-icon ").f().g("i");
+					e("img").a("src", "/static/svg/computate.org.svg").a("style", "height: 50px; ").fg();
+					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("Home");
 					g("span");
 				g("a");
 			g("div");
 			e("div").a("class", "w3-bar-item ").f();
+				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageBlogUri).f();
+					e("img").a("src", "/static/svg/full-moon.svg").a("style", "height: 50px; ").fg();
+					e("br").fg();
+					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+						sx("Blog");
+					g("span");
+				g("a");
+			g("div");
+			e("div").a("class", "w3-bar-item ").f();
+				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
+					e("img").a("src", "/static/svg/cluster.svg").a("style", "height: 50px; ").fg();
+					e("br").fg();
+					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+						sx("Course");
+					g("span");
+				g("a");
+			g("div");
+			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAProposUri).f();
-					e("i").a("class", "fas fa-book-open site-menu-icon ").f().g("i");
+					e("img").a("src", "/static/png/computate.png").a("style", "height: 50px; ").fg();
+					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("About");
 					g("span");
@@ -435,7 +488,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageFaqUri).f();
-					e("i").a("class", "fas fa-question-square site-menu-icon ").f().g("i");
+					e("img").a("src", "/static/svg/ufo.svg").a("style", "height: 50px; ").fg();
+					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("FAQ");
 					g("span");
@@ -444,7 +498,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() == null) {
 				e("div").a("class", "w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageUtilisateurUri).f(); 
-						e("i").a("class", "fas fa-sign-in site-menu-icon ").f().g("i");
+						e("img").a("src", "/static/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
+						e("br").fg();
 						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 							sx("Login");
 						g("span");
@@ -454,7 +509,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() != null) {
 				e("div").a("class", "w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageDeconnexionUri).f();
-						e("i").a("class", "fas fa-sign-out site-menu-icon ").f().g("i");
+						e("img").a("src", "/static/svg/light-speed.svg").a("style", "height: 50px; ").fg();
+						e("br").fg();
 						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 							sx("Logout");
 							sx("Logout");
@@ -475,8 +531,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	public void  partagerPage() {
-		{ e("div").a("class", "w3-content w3-center w3-padding-top-32 ").f();
-			e("h3").f().sx("Share this story. ").g("h3");
+		{ e("div").a("class", "w3-content w3-center w3-margin w3-padding-top-32 ").f();
+			e("h3").f().sx("Partager cette page. ").g("h3");
 			{ e("div").a("class", "w3-cell-row ").f();
 				{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
 					e("img").a("class", "blog-publication-social-img").a("src", "https://www.computate.org/svg/facebook.svg").fg();

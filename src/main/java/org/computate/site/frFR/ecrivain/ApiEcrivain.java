@@ -762,6 +762,13 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 				wChemins.tl(6, "type: string");
 				wChemins.tl(6, "default: '*:*'");
 				wChemins.tl(4, "- in: query");
+				wChemins.tl(5, "name: pageRecapituler");
+				wChemins.tl(5, "description: ''");
+				wChemins.tl(5, "required: false");
+				wChemins.tl(5, "schema:");
+				wChemins.tl(6, "type: boolean");
+				wChemins.tl(6, "default: false");
+				wChemins.tl(4, "- in: query");
 				wChemins.tl(5, "name: fq");
 				wChemins.tl(5, "description: ''");
 				wChemins.tl(5, "required: false");
