@@ -731,7 +731,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * r.enUS:"français").a("href", pageUriFrFR)
 	 */
 	public void menu()  {
-		e("div").a("class", "w3-bar w3-text-white w3-card-2 w3-padding-bottom-8 w3-padding-top-8 ").a("style", "padding-left: 16px; padding-right: 16px; ").f();
+		e("div").a("class", "w3-bar w3-text-white w3-padding-bottom-8 w3-padding-top-8 ").a("style", "padding-left: 16px; padding-right: 16px; ").f();
 			e("div").a("class", "w3-bar-item ").f();
 				e("span").a("class", "header-icon-a grow-30 w3-center ").f();
 					e("a").a("class", "w3-hover-opacity").a("title", "English").a("href", pageUriEnUS).f();
