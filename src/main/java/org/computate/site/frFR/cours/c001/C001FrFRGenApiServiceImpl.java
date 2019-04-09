@@ -147,13 +147,11 @@ public class C001FrFRGenApiServiceImpl implements C001FrFRGenApiService {
 			ToutEcrivain w = ToutEcrivain.creer(listeC001.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
 			C001FrFRPage page = new C001FrFRPage();
-			page.setPageUrl("");
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours/001");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
-			page.setListeC001(listeC001);
 			page.initLoinC001FrFRPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
@@ -174,6 +172,8 @@ public class C001FrFRGenApiServiceImpl implements C001FrFRGenApiService {
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
@@ -184,8 +184,18 @@ public class C001FrFRGenApiServiceImpl implements C001FrFRGenApiService {
 				return "coursNumero_indexed_int";
 			case "coursCree":
 				return "coursCree_indexed_date";
-			case "coursDescription":
-				return "coursDescription_indexed_string";
+			case "coursH1_enUS":
+				return "coursH1_enUS_indexed_string";
+			case "coursH1_frFR":
+				return "coursH1_frFR_indexed_string";
+			case "coursH2_enUS":
+				return "coursH2_enUS_indexed_string";
+			case "coursH2_frFR":
+				return "coursH2_frFR_indexed_string";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
 			case "pageCree":
 				return "pageCree_indexed_date";
 			case "pageH1":
@@ -386,7 +396,7 @@ public class C001FrFRGenApiServiceImpl implements C001FrFRGenApiService {
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.C001"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.C001"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");

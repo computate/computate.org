@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours;    
+package org.computate.site.frFR.cours;      
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,7 +13,6 @@ import org.computate.site.frFR.cluster.Cluster;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.computate.site.frFR.page.parti.PagePart;
-import org.computate.site.frFR.requete.RequeteSiteFrFR;
 
 /**
  * Api: true
@@ -24,12 +23,20 @@ import org.computate.site.frFR.requete.RequeteSiteFrFR;
  * PageRechercheFrFRPage: CoursFrFRPage
  * PageRechercheEnUSPage: CoursEnUSPage
  * UnNomMinuscule.frFR: un cours
+ * UnNomMinuscule.enUS: a course
  * NomPluriel.frFR: cours
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/                 
-public class Cours extends CoursGen<Cluster> {       
+*/                
+public class Cours extends CoursGen<Cluster> {          
+
+	@Override
+	protected void _classeNomsCanoniques(List<String> l) {
+		l.add(Cours.class.getCanonicalName());
+		l.add(org.computate.site.enUS.cours.Cours.class.getCanonicalName());
+		super._classeNomsCanoniques(l);
+	}
 
 	protected void _documentSolr(Couverture<SolrDocument> c) {  
 		c.o(requeteSite_.getDocumentSolr());
@@ -168,17 +175,39 @@ public class Cours extends CoursGen<Cluster> {
 	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
+	 * NomAffichage.frFR: est leçon
+	 * NomAffichage.enUS: is lesson
+	 */
+	protected void _estLecon(Couverture<Boolean> c) {
+		c.o(false);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Indexe: true
+	 * Stocke: true
 	 * HtmlLigne: 1
 	 * HtmlColonne: 1
-	 * NomAffichage.frFR: cours numéro
-	 * NomAffichage.enUS: course number
-	 */
+	 * NomAffichage.frFR: cours
+	 * NomAffichage.enUS: course
+	 */ 
 	protected void _coursNumero(Couverture<Integer> c) {
 		Matcher m = Pattern.compile("^C(\\d+)", Pattern.MULTILINE).matcher(getClass().getSimpleName());
 		if(m.find()) {
 			Integer o = Integer.parseInt(m.group(1));
 			c.o(o);
 		}
+	}
+
+	/**
+	 * leconNumeroCouverture.indexe: true
+	 * Stocke: true
+	 * Indexe: true
+	 * HtmlColonne: 2
+	 * NomAffichage.frFR: leçon
+	 * NomAffichage.enUS: lesson
+	 */
+	protected void _leconNumero(Couverture<Integer> c) {
 	}
 
 	protected void _coursIdentifiantMinuscule(Couverture<String> c) {
@@ -198,19 +227,96 @@ public class Cours extends CoursGen<Cluster> {
 	protected void _coursCree(Couverture<LocalDateTime> c) {
 	}
 
+	protected void _coursIdentifiantUri(Couverture<String> o) {}
+
 	/**
 	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
+	 * Langue: enUS
+	 * NomAffichage.enUS: title in English
+	 */
+	protected void _coursH1_enUS(Couverture<String> c) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Indexe: true
+	 * Stocke: true
+	 * Langue: frFR
+	 * NomAffichage.frFR: titre en français
+	 */
+	protected void _coursH1_frFR(Couverture<String> c) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Indexe: true
+	 * Stocke: true
+	 * Langue: enUS
+	 */
+	protected void _coursH2_enUS(Couverture<String> c) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Indexe: true
+	 * Stocke: true
+	 * Langue: frFR
+	 */
+	protected void _coursH2_frFR(Couverture<String> c) {
+	}
+
+	/**
+	 * {@inheritDoc}
 	 * HtmlLigne: 1
 	 * HtmlColonne: 3
 	 * NomAffichage.frFR: description
 	 * NomAffichage.enUS: description
+	 * r: frFR
+	 * r.enUS: enUS
 	 */
 	protected void _coursDescription(Couverture<String> c) {
+		if(estCours)
+			c.o(coursH1_frFR + "\n" + coursH2_frFR);
+		else if(estLecon)
+			c.o(coursH1_frFR + "\n" + coursH2_frFR);
 	}
 
-	protected void _coursIdentifiantUri(Couverture<String> o) {}
+	/**
+	 * {@inheritDoc}
+	 * HtmlLigne: 1
+	 * NomAffichage.frFR: description
+	 * NomAffichage.enUS: description
+	 * r: frFR
+	 * r.enUS: enUS
+	 */
+	protected void _leconDescription(Couverture<String> c) {
+		if(estLecon)
+			c.o(coursH1_frFR + "\n" + coursH2_frFR);
+	}
+
+	/**
+	 * Indexe: true
+	 * Stocke: true
+	 */
+	protected void _pageUri_enUS(Couverture<String> c) {
+	}
+
+	/**
+	 * Indexe: true
+	 * Stocke: true
+	 */
+	protected void _pageUri_frFR(Couverture<String> c) {
+	}
+
+	/**
+	 * r: frFR
+	 * r.enUS: enUS
+	 */
+	protected void _pageUri(Couverture<String> c) {
+		c.o(pageUri_frFR);
+	}
 
 	/**
 	 * Indexe: true
@@ -288,6 +394,22 @@ public class Cours extends CoursGen<Cluster> {
 		} catch (NoSuchFieldException | SecurityException e) {
 			// ignore
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Texte: true
+	 * Langue: enUS
+	 */
+	protected void _pageRecherche_enUS(List<String> l) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Texte: true
+	 * Langue: frFR
+	 */
+	protected void _pageRecherche_frFR(List<String> l) {
 	}
 
 	public void htmlBody() {

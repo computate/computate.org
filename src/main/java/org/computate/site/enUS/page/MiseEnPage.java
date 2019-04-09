@@ -17,6 +17,7 @@ import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.page.parti.PagePart;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.xml.OutilXml;
+import io.vertx.core.json.JsonObject;
 
 public class MiseEnPage extends MiseEnPageGen<Object> {
 
@@ -186,8 +187,12 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		c.o("/blog");
 	}
 
+	protected void _pageLeconUri(Couverture<String> c) {
+		c.o(" /enUS/lesson");
+	}
+
 	protected void _pageCoursUri(Couverture<String> c) {
-		c.o("/cours");
+		c.o(" /enUS/course");
 	}
 
 	protected void _pageFaqUri(Couverture<String> c) {
@@ -228,7 +233,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			} g("head");
 			{ e("body").a("class", "w3-light-grey ").f(); 
 				{ e("div").a("class", "w3-margin-top ").f();
-					{ e("div").a("class", "w3-row ").f();
+					{ e("div").a("class", "w3-row w3-margin-left ").f();
 						htmlBodyCourt();
 					} g("div");
 				} g("div");
@@ -266,7 +271,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 
 	@Override()
 	public void  htmlScriptsMiseEnPage() {
-		e("script").a("src", "https://code.jquery.com/jquery-1.12.4.min.js").f().g("script");
+//		e("script").a("src", "https://code.jquery.com/jquery-1.12.4.min.js").f().g("script");
+		e("script").a("src", "/static/js/jquery-1.12.4.min.js").f().g("script");
 		e("script").a("src", "/static/js/site.js").f().g("script");
 		e("script").a("src", "/static/js/moment.min.js").f().g("script");
 		e("script").a("src", "/static/js/jqDatePicker.js").f().g("script");
@@ -287,11 +293,14 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 
 	@Override()
 	public void  htmlStylesMiseEnPage() {
-		e("link").a("rel", "stylesheet").a("href", "https://www.w3schools.com/w3css/4/w3.css").fg();
+//		e("link").a("rel", "stylesheet").a("href", "https://www.w3schools.com/w3css/4/w3.css").fg();
+		e("link").a("rel", "stylesheet").a("href", "/static/css/w3.css").fg();
 		e("link").a("rel", "stylesheet").a("href", "/static/css/site.css").fg();
 		e("link").a("rel", "stylesheet").a("href", "/static/css/datePicker.css").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Khand").fg();
+//		e("link").a("rel", "stylesheet").a("href", "/static/css/font-Khand.css").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.7.1/css/all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
+//		e("link").a("rel", "stylesheet").a("href", "/static/css/font-awesome-all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
 //		e("link").a("rel", "stylesheet").a("href", "https://use.fontawesome.com/releases/v5.7.1/css/all.css").a("integrity", "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr").a("crossorigin", "anonymous").fg();
 	}
 
@@ -327,24 +336,27 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				g("head");
 				e("body").a("class", "w3-light-grey ").f(); 
 					e("a").a("name", "top").f().g("a");
-					e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
-					e("div").a("id", "fb-root").f().g("div");
-					e("script").f().l("/*<![CDATA[*/");
-						l("(function(d, s, id) {");
-						l("var js, fjs = d.getElementsByTagName(s)[0];");
-						l("if (d.getElementById(id)) return;");
-						l("js = d.createElement(s); js.id = id;");
-						s("js.src = '");
-						s("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1871568493111919");
-						l("';");
-						l("fjs.parentNode.insertBefore(js, fjs);");
-						l("}(document, 'script', 'facebook-jssdk'));");
-					s("/*]]>*/").g("script");
-					e("script").f().l("/*<![CDATA[*/");
-						s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
-					s("/*]]>*/").g("script");
-					e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
-					g("script");
+					JsonObject params = requeteSite_.getOperationRequete().getParams();
+					if(params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+						e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
+						e("div").a("id", "fb-root").f().g("div");
+						e("script").f().l("/*<![CDATA[*/");
+							l("(function(d, s, id) {");
+							l("var js, fjs = d.getElementsByTagName(s)[0];");
+							l("if (d.getElementById(id)) return;");
+							l("js = d.createElement(s); js.id = id;");
+							s("js.src = '");
+							s("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1871568493111919");
+							l("';");
+							l("fjs.parentNode.insertBefore(js, fjs);");
+							l("}(document, 'script', 'facebook-jssdk'));");
+						s("/*]]>*/").g("script");
+						e("script").f().l("/*<![CDATA[*/");
+							s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
+						s("/*]]>*/").g("script");
+						e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
+						g("script");
+					}
 					e("div").a("id", "modaleErreur").a("class", "w3-modal").a("onclick", "this.style.display = 'none';").f();
 						e("div").a("class", "w3-modal-content w3-animate-zoom").f();
 							e("header").a("class", "w3-container w3-center w3-red ").f();
@@ -371,7 +383,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 										htmlBody();
 									} t(3).g("div");
 	
-									pageRecapituler();
+									htmlBodyCourt();
 		
 									abondonnezPas();
 		
@@ -380,7 +392,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 								g("div");
 								e("footer").a("class", "w3-center w3-black w3-padding-48 ").f();
 									e("div").a("class", "w3-xxlarge ").f();
-										sx("Ce site est open source. ");
+										sx("This site is open source. ");
 									g("div");
 									e("div").a("class", "w3-large ").f();
 										String urlSource = "https://github.com/computate/computate.org/blob/master/src/main/java/" + StringUtils.replace(getClass().getSuperclass().getSuperclass().getCanonicalName(), ".", "/") + ".java";
@@ -477,6 +489,15 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					g("span");
 				g("a");
 			g("div");
+//			e("div").a("class", "w3-bar-item ").f();
+//				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
+//					e("img").a("src", "/static/svg/full-moon.svg").a("style", "height: 50px; ").fg();
+//					e("br").fg();
+//					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+//						sx("Lessons");
+//					g("span");
+//				g("a");
+//			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAProposUri).f();
 					e("img").a("src", "/static/png/computate.png").a("style", "height: 50px; ").fg();
@@ -531,39 +552,42 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	public void  partagerPage() {
-		{ e("div").a("class", "w3-content w3-center w3-margin w3-padding-top-32 ").f();
-			e("h3").f().sx("Partager cette page. ").g("h3");
-			{ e("div").a("class", "w3-cell-row ").f();
-				{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-					e("img").a("class", "blog-publication-social-img").a("src", "https://www.computate.org/svg/facebook.svg").fg();
-					{ e("div").f();
-						e("div").a("class", "fb-like").a("data-href", pageUrl).a("data-layout", "box_count").a("data-action", "like").a("data-size", "small").a("data-show-faces", "true").a("data-share", "true").f().g("div");
+		JsonObject params = requeteSite_.getOperationRequete().getParams();
+		if(params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+			{ e("div").a("class", "w3-content w3-center w3-margin w3-padding-top-32 ").f();
+				e("h3").f().sx("Share this story. ").g("h3");
+				{ e("div").a("class", "w3-cell-row ").f();
+					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
+						e("img").a("class", "blog-publication-social-img").a("src", "/static/svg/facebook.svg").fg();
+						{ e("div").f();
+							e("div").a("class", "fb-like").a("data-href", pageUrl).a("data-layout", "box_count").a("data-action", "like").a("data-size", "small").a("data-show-faces", "true").a("data-share", "true").f().g("div");
+						} g("div");
 					} g("div");
-				} g("div");
-				{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-					e("img").a("class", "blog-publication-social-img").a("src", "https://www.computate.org/svg/twitter.svg").fg();
-					{ e("div").f();
-						e("a").a("href", "https://twitter.com/share").a("class", "twitter-share-button ").a("data-show-count", "false").f().g("a");
-						e("script").a("async", "").a("charset", "utf-8").a("src", "//platform.twitter.com/widgets.js").f().g("script");
-					} g("div");
-				}g("div");
-				{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-					e("img").a("class", "blog-publication-social-img").a("src", "https://www.computate.org/svg/pinterest.svg").fg();
-					{ e("div").a("class",  "pinterest-div ").f();
-						{ e("a");
-							a("data-pin-media", pageImageUrl);
-							a("data-pin-description", pageDescription);
-							a("data-pin-url", pageUrl);
-							a("data-pin-id", "");
-							a("href", "https://www.pinterest.com/pin/create/button/");
-							a("data-pin-do", "buttonPin");
-							f();
-								e("img").a("src", "//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png").fg();
-						} g("a");
+					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
+						e("img").a("class", "blog-publication-social-img").a("src", "/static/svg/twitter.svg").fg();
+						{ e("div").f();
+							e("a").a("href", "https://twitter.com/share").a("class", "twitter-share-button ").a("data-show-count", "false").f().g("a");
+							e("script").a("async", "").a("charset", "utf-8").a("src", "//platform.twitter.com/widgets.js").f().g("script");
+						} g("div");
+					}g("div");
+					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
+						e("img").a("class", "blog-publication-social-img").a("src", "/static/svg/pinterest.svg").fg();
+						{ e("div").a("class",  "pinterest-div ").f();
+							{ e("a");
+								a("data-pin-media", pageImageUrl);
+								a("data-pin-description", pageDescription);
+								a("data-pin-url", pageUrl);
+								a("data-pin-id", "");
+								a("href", "https://www.pinterest.com/pin/create/button/");
+								a("data-pin-do", "buttonPin");
+								f();
+									e("img").a("src", "//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png").fg();
+							} g("a");
+						} g("div");
 					} g("div");
 				} g("div");
 			} g("div");
-		} g("div");
+		}
 	}
 
 	public String formaterDateHeureCourt(Date date) {

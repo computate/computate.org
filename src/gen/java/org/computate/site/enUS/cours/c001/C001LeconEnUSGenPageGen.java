@@ -50,6 +50,8 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 			if(listeC001Lecon == null)
 				setListeC001Lecon(listeC001LeconCouverture.o);
 		}
+		if(listeC001Lecon != null)
+			listeC001Lecon.initLoinPourClasse(requeteSite_);
 		listeC001LeconCouverture.dejaInitialise(true);
 		return (C001LeconEnUSGenPage)this;
 	}
@@ -86,6 +88,8 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 			if(c001Lecon == null)
 				setC001Lecon(c001LeconCouverture.o);
 		}
+		if(c001Lecon != null)
+			c001Lecon.initLoinPourClasse(requeteSite_);
 		c001LeconCouverture.dejaInitialise(true);
 		return (C001LeconEnUSGenPage)this;
 	}
@@ -125,6 +129,8 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 
 	public void requeteSiteC001LeconEnUSGenPage(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteC001EnUSPage(requeteSite_);
+		listeC001Lecon.setRequeteSite_(requeteSite_);
+		c001Lecon.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {

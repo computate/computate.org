@@ -1,10 +1,8 @@
 package org.computate.site.frFR.cours.c001;
 
-import java.lang.Boolean;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import java.lang.Integer;
 import java.util.ArrayList;
 import org.apache.solr.common.SolrDocument;
 import org.computate.site.frFR.cours.c001.C001FrFRPage;
@@ -59,6 +57,18 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 			c.o("un leçon");
 		else if(listeC001Lecon.size() == 0)
 			c.o("aucun leçon trouvé");
+	}
+
+	@Override protected void _pageUri(Couverture<String> c) {
+		c.o("/frFR/cours/001/lecons");
+	}
+
+	@Override protected void _pageUriEnUS(Couverture<String> c) {
+		c.o("/enUS/course/001/lessons");
+	}
+
+	@Override protected void _pageImageUri(Couverture<String> c) {
+			c.o("/static/png/frFR/cours/001/lecons-999.png");
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -125,16 +135,32 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("form").a("id", "coursDescriptionForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_coursDescription").a("class", "").f().sx("description").g("label");
+					e("label").a("for", "Page_coursDescription").a("class", "").f().sx("cours").g("label");
 
 					e("input")
 						.a("type", "text")
-						.a("placeholder", "description")
+						.a("placeholder", "cours")
 						.a("class", "setCoursDescription w3-input w3-border ")
 						.a("name", "setCoursDescription")
 						.a("id", "Page_coursDescription")
 						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#coursDescriptionForm')); ")
 						.a("value", o.strCoursDescription())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("id", "leconDescriptionForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_leconDescription").a("class", "").f().sx("leçon").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "leçon")
+						.a("class", "setLeconDescription w3-input w3-border ")
+						.a("name", "setLeconDescription")
+						.a("id", "Page_leconDescription")
+						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#leconDescriptionForm')); ")
+						.a("value", o.strLeconDescription())
 					.fg();
 
 				} g("form");
@@ -231,15 +257,28 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_coursDescription").a("class", "").f().sx("description").g("label");
+				e("label").a("for", "POST_coursDescription").a("class", "").f().sx("cours").g("label");
 
 				e("input")
 					.a("type", "text")
-					.a("placeholder", "description")
+					.a("placeholder", "cours")
 					.a("class", "valeurCoursDescription w3-input w3-border ")
 					.a("name", "coursDescription")
 					.a("id", "POST_coursDescription")
 					.a("value", o.strCoursDescription())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_leconDescription").a("class", "").f().sx("leçon").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "leçon")
+					.a("class", "valeurLeconDescription w3-input w3-border ")
+					.a("name", "leconDescription")
+					.a("id", "POST_leconDescription")
+					.a("value", o.strLeconDescription())
 				.fg();
 
 			} g("div");
@@ -307,19 +346,6 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				.fg();
 
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "PATCH_coursDescription").a("class", "").f().sx("description").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "description")
-					.a("class", "setCoursDescription w3-input w3-border ")
-					.a("name", "setCoursDescription")
-					.a("id", "PATCH_coursDescription")
-					.a("value", o.strCoursDescription())
-				.fg();
-
-			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
@@ -384,19 +410,6 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				.fg();
 
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "Recherche_coursDescription").a("class", "").f().sx("description").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "description")
-					.a("class", "valeurCoursDescription w3-input w3-border ")
-					.a("name", "coursDescription")
-					.a("id", "Recherche_coursDescription")
-					.a("value", o.strCoursDescription())
-				.fg();
-
-			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
@@ -453,7 +466,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
-					e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("aucun leçon trouvé").g("span");
 			} g("h1");
 		} else if(listeC001Lecon.size() == 1) {
@@ -463,7 +476,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
-						e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
+						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx(pageH1).g("span");
 				} g("h1");
 			}
@@ -477,7 +490,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 					e("span").a("class", " ").f().sx(pageH3).g("span");
 				} g("h3");
 			}
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show ").f();
+			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("id", "C001LeconForm").a("style", "display: inline-block; ").f();
@@ -499,20 +512,21 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
-					e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
-				e("span").a("class", " ").f().sx("leçons").g("i");
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
+				e("span").a("class", " ").f().sx("leçons").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
 					{ e("tr").f();
 						e("th").f().sx("cours numéro").g("th");
-						e("th").f().sx("description").g("th");
+						e("th").f().sx("cours").g("th");
+						e("th").f().sx("leçon").g("th");
 					} g("tr");
 				} g("thead");
 				{ e("tbody").f();
 					for(int i = 0; i < listeC001Lecon.size(); i++) {
 						C001Lecon o = listeC001Lecon.getList().get(i);
-						String uri = "/frFR/cours/001/lecons/" + o.getPk();
+						String uri = o.getPageUri();
 						{ e("tr").f();
 							{ e("td").f();
 								{ e("a").a("href", uri).f();
@@ -524,6 +538,11 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 									sx(o.getCoursDescription());
 								} g("a");
 							} g("td");
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getLeconDescription());
+								} g("a");
+							} g("td");
 						} g("tr");
 					}
 				} g("tbody");
@@ -533,4 +552,5 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 
 		g("div");
 	}
+
 }

@@ -50,6 +50,8 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 			if(listeCours == null)
 				setListeCours(listeCoursCouverture.o);
 		}
+		if(listeCours != null)
+			listeCours.initLoinPourClasse(requeteSite_);
 		listeCoursCouverture.dejaInitialise(true);
 		return (CoursEnUSGenPage)this;
 	}
@@ -86,6 +88,8 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 			if(cours == null)
 				setCours(coursCouverture.o);
 		}
+		if(cours != null)
+			cours.initLoinPourClasse(requeteSite_);
 		coursCouverture.dejaInitialise(true);
 		return (CoursEnUSGenPage)this;
 	}
@@ -125,6 +129,8 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 
 	public void requeteSiteCoursEnUSGenPage(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteMiseEnPage(requeteSite_);
+		listeCours.setRequeteSite_(requeteSite_);
+		cours.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -215,8 +221,9 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsCoursEnUSGenPage();
+		super.htmlScriptsMiseEnPage();
 	}
 
 	public void htmlScriptsCoursEnUSGenPage() {
@@ -226,8 +233,9 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 	// htmlScript //
 	////////////////
 
-	public void htmlScript() {
+	@Override public void htmlScript() {
 		htmlScriptCoursEnUSGenPage();
+		super.htmlScriptMiseEnPage();
 	}
 
 	public void htmlScriptCoursEnUSGenPage() {
@@ -237,8 +245,9 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyCoursEnUSGenPage();
+		super.htmlBodyMiseEnPage();
 	}
 
 	public void htmlBodyCoursEnUSGenPage() {

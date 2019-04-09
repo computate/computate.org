@@ -7,12 +7,11 @@ import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import java.time.ZonedDateTime;
 import java.time.LocalDateTime;
 import org.apache.commons.lang3.StringUtils;
-import java.lang.Integer;
 import org.computate.site.enUS.cours.c001.C001;
 import java.util.ArrayList;
 import org.computate.site.enUS.cluster.Cluster;
-import java.lang.Boolean;
 import java.time.ZoneOffset;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -23,6 +22,8 @@ import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import java.time.format.DateTimeFormatter;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -40,67 +41,8 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	public static final String C001Lecon_Couleur = "green";
 	public static final String C001Lecon_IconeGroupe = "regular";
 	public static final String C001Lecon_IconeNom = "book";
-
-	//////////////
-	// estLecon //
-	//////////////
-
-	/**	L'entité « estLecon »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected Boolean estLecon;
-	public Couverture<Boolean> estLeconCouverture = new Couverture<Boolean>().p(this).c(Boolean.class).var("estLecon").o(estLecon);
-
-	/**	<br/>L'entité « estLecon »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.C001Lecon&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:estLecon">Trouver l'entité estLecon dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _estLecon(Couverture<Boolean> c);
-
-	public Boolean getEstLecon() {
-		return estLecon;
-	}
-
-	public void setEstLecon(Boolean estLecon) {
-		this.estLecon = estLecon;
-		this.estLeconCouverture.dejaInitialise = true;
-	}
-	public C001Lecon setEstLecon(String o) {
-		this.estLecon = Boolean.parseBoolean(o);
-		this.estLeconCouverture.dejaInitialise = true;
-		return (C001Lecon)this;
-	}
-	protected C001Lecon estLeconInit() {
-		if(!estLeconCouverture.dejaInitialise) {
-			_estLecon(estLeconCouverture);
-			if(estLecon == null)
-				setEstLecon(estLeconCouverture.o);
-		}
-		estLeconCouverture.dejaInitialise(true);
-		return (C001Lecon)this;
-	}
-
-	public Boolean solrEstLecon() {
-		return estLecon;
-	}
-
-	public String strEstLecon() {
-		return estLecon == null ? "" : estLecon.toString();
-	}
-
-	public String nomAffichageEstLecon() {
-		return "is lesson";
-	}
-
-	public String htmTooltipEstLecon() {
-		return null;
-	}
-
-	public String htmEstLecon() {
-		return estLecon == null ? "" : StringEscapeUtils.escapeHtml4(strEstLecon());
-	}
+	public static final String C001LeconFrFRPage_Uri = "/frFR/cours/001/lecons";
+	public static final String C001LeconEnUSPage_Uri = "/enUS/course/001/lessons";
 
 	///////////////
 	// leconCree //
@@ -174,129 +116,6 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		return leconCree == null ? "" : StringEscapeUtils.escapeHtml4(strLeconCree());
 	}
 
-	/////////////////
-	// leconNumero //
-	/////////////////
-
-	/**	L'entité « leconNumero »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected Integer leconNumero;
-	public Couverture<Integer> leconNumeroCouverture = new Couverture<Integer>().p(this).c(Integer.class).var("leconNumero").o(leconNumero);
-
-	/**	<br/>L'entité « leconNumero »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.C001Lecon&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:leconNumero">Trouver l'entité leconNumero dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _leconNumero(Couverture<Integer> c);
-
-	public Integer getLeconNumero() {
-		return leconNumero;
-	}
-
-	public void setLeconNumero(Integer leconNumero) {
-		this.leconNumero = leconNumero;
-		this.leconNumeroCouverture.dejaInitialise = true;
-	}
-	public C001Lecon setLeconNumero(String o) {
-		if(org.apache.commons.lang3.math.NumberUtils.isCreatable(o))
-			this.leconNumero = Integer.parseInt(o);
-		this.leconNumeroCouverture.dejaInitialise = true;
-		return (C001Lecon)this;
-	}
-	protected C001Lecon leconNumeroInit() {
-		if(!leconNumeroCouverture.dejaInitialise) {
-			_leconNumero(leconNumeroCouverture);
-			if(leconNumero == null)
-				setLeconNumero(leconNumeroCouverture.o);
-		}
-		leconNumeroCouverture.dejaInitialise(true);
-		return (C001Lecon)this;
-	}
-
-	public Integer solrLeconNumero() {
-		return leconNumero;
-	}
-
-	public String strLeconNumero() {
-		return leconNumero == null ? "" : leconNumero.toString();
-	}
-
-	public String nomAffichageLeconNumero() {
-		return "lesson number";
-	}
-
-	public String htmTooltipLeconNumero() {
-		return null;
-	}
-
-	public String htmLeconNumero() {
-		return leconNumero == null ? "" : StringEscapeUtils.escapeHtml4(strLeconNumero());
-	}
-
-	////////////////
-	// estArticle //
-	////////////////
-
-	/**	L'entité « estArticle »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected Boolean estArticle;
-	public Couverture<Boolean> estArticleCouverture = new Couverture<Boolean>().p(this).c(Boolean.class).var("estArticle").o(estArticle);
-
-	/**	<br/>L'entité « estArticle »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.C001Lecon&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:estArticle">Trouver l'entité estArticle dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _estArticle(Couverture<Boolean> c);
-
-	public Boolean getEstArticle() {
-		return estArticle;
-	}
-
-	public void setEstArticle(Boolean estArticle) {
-		this.estArticle = estArticle;
-		this.estArticleCouverture.dejaInitialise = true;
-	}
-	public C001Lecon setEstArticle(String o) {
-		this.estArticle = Boolean.parseBoolean(o);
-		this.estArticleCouverture.dejaInitialise = true;
-		return (C001Lecon)this;
-	}
-	protected C001Lecon estArticleInit() {
-		if(!estArticleCouverture.dejaInitialise) {
-			_estArticle(estArticleCouverture);
-			if(estArticle == null)
-				setEstArticle(estArticleCouverture.o);
-		}
-		estArticleCouverture.dejaInitialise(true);
-		return (C001Lecon)this;
-	}
-
-	public Boolean solrEstArticle() {
-		return estArticle;
-	}
-
-	public String strEstArticle() {
-		return estArticle == null ? "" : estArticle.toString();
-	}
-
-	public String nomAffichageEstArticle() {
-		return null;
-	}
-
-	public String htmTooltipEstArticle() {
-		return null;
-	}
-
-	public String htmEstArticle() {
-		return estArticle == null ? "" : StringEscapeUtils.escapeHtml4(strEstArticle());
-	}
-
 	//////////////////////////
 	// leconsACoteDocuments //
 	//////////////////////////
@@ -363,10 +182,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	}
 
 	public void initC001Lecon() {
-		estLeconInit();
 		leconCreeInit();
-		leconNumeroInit();
-		estArticleInit();
 		leconsACoteDocumentsInit();
 	}
 
@@ -399,6 +215,13 @@ public abstract class C001LeconGen<DEV> extends C001 {
 			siteContexte.initLoinSiteContexteEnUS();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.C001Lecon"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
 			C001Lecon o = new C001Lecon();
 			o.requeteSiteC001Lecon(requeteSite);
 			o.initLoinC001Lecon(requeteSite);
@@ -433,20 +256,9 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	}
 
 	public void indexerC001Lecon(SolrInputDocument document) throws Exception {
-		if(estLecon != null) {
-			document.addField("estLecon_indexed_boolean", estLecon);
-			document.addField("estLecon_stored_boolean", estLecon);
-		}
 		if(leconCree != null) {
 			document.addField("leconCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(leconCree.atOffset(ZoneOffset.UTC)));
 			document.addField("leconCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(leconCree.atOffset(ZoneOffset.UTC)));
-		}
-		if(leconNumero != null) {
-			document.addField("leconNumero_indexed_int", leconNumero);
-			document.addField("leconNumero_stored_int", leconNumero);
-		}
-		if(estArticle != null) {
-			document.addField("estArticle_indexed_boolean", estArticle);
 		}
 		super.indexerC001(document);
 
@@ -486,14 +298,8 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	public Object obtenirC001Lecon(String var) throws Exception {
 		C001Lecon oC001Lecon = (C001Lecon)this;
 		switch(var) {
-			case "estLecon":
-				return oC001Lecon.estLecon;
 			case "leconCree":
 				return oC001Lecon.leconCree;
-			case "leconNumero":
-				return oC001Lecon.leconNumero;
-			case "estArticle":
-				return oC001Lecon.estArticle;
 			case "leconsACoteDocuments":
 				return oC001Lecon.leconsACoteDocuments;
 			default:
@@ -552,6 +358,23 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		}
 	}
 
+	/////////////
+	// stocker //
+	/////////////
+
+	@Override public void stockerPourClasse(SolrDocument solrDocument) {
+		stockerC001Lecon(solrDocument);
+	}
+	public void stockerC001Lecon(SolrDocument solrDocument) {
+		C001Lecon oC001Lecon = (C001Lecon)this;
+
+		Date leconCree = (Date)solrDocument.get("leconCree_stored_date");
+		if(leconCree != null)
+			oC001Lecon.setLeconCree(leconCree);
+
+		super.stockerC001(solrDocument);
+	}
+
 	//////////////
 	// htmlBody //
 	//////////////
@@ -569,7 +392,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), estLecon, leconCree, leconNumero, estArticle);
+		return Objects.hash(super.hashCode(), leconCree);
 	}
 
 	////////////
@@ -583,10 +406,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 			return false;
 		C001Lecon that = (C001Lecon)o;
 		return super.equals(o)
-				&& Objects.equals( estLecon, that.estLecon )
-				&& Objects.equals( leconCree, that.leconCree )
-				&& Objects.equals( leconNumero, that.leconNumero )
-				&& Objects.equals( estArticle, that.estArticle );
+				&& Objects.equals( leconCree, that.leconCree );
 	}
 
 	//////////////
@@ -597,10 +417,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("C001Lecon {");
-		sb.append( "estLecon: " ).append(estLecon);
-		sb.append( ", leconCree: " ).append(leconCree);
-		sb.append( ", leconNumero: " ).append(leconNumero);
-		sb.append( ", estArticle: " ).append(estArticle);
+		sb.append( "leconCree: " ).append(leconCree);
 		sb.append(" }");
 		return sb.toString();
 	}

@@ -148,7 +148,6 @@ public class C001LeconEnUSGenApiServiceImpl implements C001LeconEnUSGenApiServic
 			ToutEcrivain w = ToutEcrivain.creer(listeC001Lecon.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
 			C001LeconEnUSPage page = new C001LeconEnUSPage();
-			page.setPageUrl("");
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/lessons");
@@ -355,7 +354,7 @@ public class C001LeconEnUSGenApiServiceImpl implements C001LeconEnUSGenApiServic
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.C001Lecon"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.C001Lecon"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");

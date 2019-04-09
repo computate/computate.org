@@ -7,6 +7,7 @@ import org.computate.site.enUS.cours.CoursEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.C001EnUSGenApiService;
 import org.computate.site.enUS.cours.c001.C001LeconEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaineEnUSGenApiService;
+import org.computate.site.enUS.cours.c001.l002.C001L002ChoisirOrdinateurEnUSGenApiService;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
@@ -14,6 +15,7 @@ import org.computate.site.frFR.cours.CoursFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.C001FrFRGenApiService;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaineFrFRGenApiService;
+import org.computate.site.frFR.cours.c001.l002.C001L002ChoisirOrdinateurFrFRGenApiService;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 
 import io.vertx.core.AbstractVerticle;
@@ -325,6 +327,9 @@ public class AppliVertx extends AbstractVerticle {
 	private Future<Void> demarrerServeur(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
 		ConfigSite configSite = siteContexteFrFR.getConfigSite();
 		Future<Void> future = Future.future();
+
+		C001L002ChoisirOrdinateurFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001L002ChoisirOrdinateurEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		C001L001ChoisirNomDomaineFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001L001ChoisirNomDomaineEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);

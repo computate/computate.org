@@ -212,6 +212,15 @@ function ajouterRemplacer($input) {
 	return false; 
 }
 
+function rechercher($input) {
+	$form = $input.closest('form');
+	$icone = $input.prev('i');
+	$icone.addClass('w3-spin-fast');
+	$icone.show();
+	window.location.href = $form.attr('action') + '?q=' + encodeURIComponent($input.attr('name') + ':' + encodeURIComponent($input.val()));
+	return false; 
+}
+
 function suggere($input) {
 	var idListe = $input.attr('data-id'); 
 		$liste = null; 

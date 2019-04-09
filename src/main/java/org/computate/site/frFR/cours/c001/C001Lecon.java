@@ -3,6 +3,7 @@ package org.computate.site.frFR.cours.c001;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,19 +34,11 @@ import org.computate.site.frFR.couverture.Couverture;
 */   
 public class C001Lecon extends C001LeconGen<C001> {   
 
-	@Override protected void _estCours(Couverture<Boolean> c) {
-		c.o(false);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * Indexe: true
-	 * Stocke: true
-	 * NomAffichage.frFR: est leçon
-	 * NomAffichage.enUS: is lesson
-	 */
-	protected void _estLecon(Couverture<Boolean> c) {
-		c.o(true);
+	@Override
+	protected void _classeNomsCanoniques(List<String> l) {
+		l.add(C001Lecon.class.getCanonicalName());
+		l.add(org.computate.site.enUS.cours.c001.C001Lecon.class.getCanonicalName());
+		super._classeNomsCanoniques(l);
 	}
 
 	/**
@@ -55,30 +48,19 @@ public class C001Lecon extends C001LeconGen<C001> {
 	protected void _leconCree(Couverture<LocalDateTime> c) {
 	}
 
-	/**
-	 * leconNumeroCouverture.indexe: true
-	 * Stocke: true
-	 * Indexe: true
-	 * NomAffichage.frFR: leçon numéro
-	 * NomAffichage.enUS: lesson number
-	 */
-	protected void _leconNumero(Couverture<Integer> c) {
-		Matcher m = Pattern.compile("^L(\\d+)", Pattern.MULTILINE).matcher(getClass().getSimpleName());
-		if(m.find()) {
-			Integer o = Integer.parseInt(m.group(1));
-			c.o(o);
-		}
+	@Override protected void _leconNumero(Couverture<Integer> c) {
 	}
 
 	@Override protected void _pageCree(Couverture<LocalDateTime> c) {
 		c.o(leconCree);
 	}
 
-	/**
-	 * Indexe: true
-	 */
-	protected void _estArticle(Couverture<Boolean> c) {
+	@Override protected void _estLecon(Couverture<Boolean> c) {
 		c.o(true);
+	}
+
+	@Override protected void _estCours(Couverture<Boolean> c) {
+		c.o(false);
 	}
 
 	/**

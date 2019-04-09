@@ -1,10 +1,8 @@
 package org.computate.site.enUS.cours.c001;
 
-import java.lang.Boolean;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import java.lang.Integer;
 import java.util.ArrayList;
 import org.apache.solr.common.SolrDocument;
 import org.computate.site.frFR.cours.c001.C001FrFRPage;
@@ -62,6 +60,18 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 			c.o("");
 	}
 
+	@Override protected void _pageUri(Couverture<String> c) {
+		c.o("/enUS/course/001/lessons");
+	}
+
+	@Override protected void _pageUriFrFR(Couverture<String> c) {
+		c.o("/frFR/cours/001/lecons");
+	}
+
+	@Override protected void _pageImageUri(Couverture<String> c) {
+			c.o("/static/png/enUS/course/001/lessons-999.png");
+	}
+
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
 			c.o("regular");
 	}
@@ -101,7 +111,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
-					e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
 		} else if(listeC001Lecon.size() == 1) {
@@ -111,7 +121,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
-						e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
+						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx(pageH1).g("span");
 				} g("h1");
 			}
@@ -125,7 +135,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 					e("span").a("class", " ").f().sx(pageH3).g("span");
 				} g("h3");
 			}
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show ").f();
+			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("id", "C001LeconForm").a("style", "display: inline-block; ").f();
@@ -147,19 +157,37 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
-					e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
-				e("span").a("class", " ").f().sx("lessons").g("i");
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
+				e("span").a("class", " ").f().sx("lessons").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
 					{ e("tr").f();
+						e("th").f().sx("course number").g("th");
+						e("th").f().sx("course").g("th");
+						e("th").f().sx("lesson").g("th");
 					} g("tr");
 				} g("thead");
 				{ e("tbody").f();
 					for(int i = 0; i < listeC001Lecon.size(); i++) {
 						C001Lecon o = listeC001Lecon.getList().get(i);
-						String uri = "/enUS/course/001/lessons/" + o.getPk();
+						String uri = o.getPageUri();
 						{ e("tr").f();
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getCoursNumero());
+								} g("a");
+							} g("td");
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getCoursDescription());
+								} g("a");
+							} g("td");
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getLeconDescription());
+								} g("a");
+							} g("td");
 						} g("tr");
 					}
 				} g("tbody");
@@ -169,4 +197,5 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 
 		g("div");
 	}
+
 }

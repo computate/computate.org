@@ -14,6 +14,7 @@ import java.lang.Boolean;
 import org.computate.site.enUS.page.parti.PagePart;
 import java.lang.String;
 import java.time.ZoneOffset;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -24,6 +25,8 @@ import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import java.time.format.DateTimeFormatter;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -33,9 +36,25 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class CoursGen<DEV> extends Cluster {
 
+	public static final String Cours_UnNom = "a course";
+	public static final String Cours_Ce = "this ";
+	public static final String Cours_CeNom = "this course";
+	public static final String Cours_Un = "an ";
+	public static final String Cours_LeNom = "the course";
+	public static final String Cours_NomSingulier = "course";
+	public static final String Cours_NomPluriel = "courses";
+	public static final String Cours_NomActuel = "current course";
+	public static final String Cours_TousNom = "the courses";
+	public static final String Cours_RechercherTousNomPar = "search courses by ";
+	public static final String Cours_LesNoms = "the courses";
+	public static final String Cours_AucunNomTrouve = "no course found";
+	public static final String Cours_NomVar = "course";
+	public static final String Cours_DeNom = "of course";
 	public static final String Cours_Couleur = "green";
 	public static final String Cours_IconeGroupe = "regular";
 	public static final String Cours_IconeNom = "university";
+	public static final String CoursFrFRPage_Uri = "/frFR/cours";
+	public static final String CoursEnUSPage_Uri = "/enUS/course";
 
 	//////////////////
 	// documentSolr //
@@ -638,6 +657,67 @@ public abstract class CoursGen<DEV> extends Cluster {
 		return estCours == null ? "" : StringEscapeUtils.escapeHtml4(strEstCours());
 	}
 
+	//////////////
+	// estLecon //
+	//////////////
+
+	/**	L'entité « estLecon »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected Boolean estLecon;
+	public Couverture<Boolean> estLeconCouverture = new Couverture<Boolean>().p(this).c(Boolean.class).var("estLecon").o(estLecon);
+
+	/**	<br/>L'entité « estLecon »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:estLecon">Trouver l'entité estLecon dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _estLecon(Couverture<Boolean> c);
+
+	public Boolean getEstLecon() {
+		return estLecon;
+	}
+
+	public void setEstLecon(Boolean estLecon) {
+		this.estLecon = estLecon;
+		this.estLeconCouverture.dejaInitialise = true;
+	}
+	public Cours setEstLecon(String o) {
+		this.estLecon = Boolean.parseBoolean(o);
+		this.estLeconCouverture.dejaInitialise = true;
+		return (Cours)this;
+	}
+	protected Cours estLeconInit() {
+		if(!estLeconCouverture.dejaInitialise) {
+			_estLecon(estLeconCouverture);
+			if(estLecon == null)
+				setEstLecon(estLeconCouverture.o);
+		}
+		estLeconCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public Boolean solrEstLecon() {
+		return estLecon;
+	}
+
+	public String strEstLecon() {
+		return estLecon == null ? "" : estLecon.toString();
+	}
+
+	public String nomAffichageEstLecon() {
+		return "is lesson";
+	}
+
+	public String htmTooltipEstLecon() {
+		return null;
+	}
+
+	public String htmEstLecon() {
+		return estLecon == null ? "" : StringEscapeUtils.escapeHtml4(strEstLecon());
+	}
+
 	/////////////////
 	// coursNumero //
 	/////////////////
@@ -689,7 +769,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageCoursNumero() {
-		return "course number";
+		return "course";
 	}
 
 	public String htmTooltipCoursNumero() {
@@ -698,6 +778,68 @@ public abstract class CoursGen<DEV> extends Cluster {
 
 	public String htmCoursNumero() {
 		return coursNumero == null ? "" : StringEscapeUtils.escapeHtml4(strCoursNumero());
+	}
+
+	/////////////////
+	// leconNumero //
+	/////////////////
+
+	/**	L'entité « leconNumero »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected Integer leconNumero;
+	public Couverture<Integer> leconNumeroCouverture = new Couverture<Integer>().p(this).c(Integer.class).var("leconNumero").o(leconNumero);
+
+	/**	<br/>L'entité « leconNumero »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:leconNumero">Trouver l'entité leconNumero dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _leconNumero(Couverture<Integer> c);
+
+	public Integer getLeconNumero() {
+		return leconNumero;
+	}
+
+	public void setLeconNumero(Integer leconNumero) {
+		this.leconNumero = leconNumero;
+		this.leconNumeroCouverture.dejaInitialise = true;
+	}
+	public Cours setLeconNumero(String o) {
+		if(org.apache.commons.lang3.math.NumberUtils.isCreatable(o))
+			this.leconNumero = Integer.parseInt(o);
+		this.leconNumeroCouverture.dejaInitialise = true;
+		return (Cours)this;
+	}
+	protected Cours leconNumeroInit() {
+		if(!leconNumeroCouverture.dejaInitialise) {
+			_leconNumero(leconNumeroCouverture);
+			if(leconNumero == null)
+				setLeconNumero(leconNumeroCouverture.o);
+		}
+		leconNumeroCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public Integer solrLeconNumero() {
+		return leconNumero;
+	}
+
+	public String strLeconNumero() {
+		return leconNumero == null ? "" : leconNumero.toString();
+	}
+
+	public String nomAffichageLeconNumero() {
+		return "lesson";
+	}
+
+	public String htmTooltipLeconNumero() {
+		return null;
+	}
+
+	public String htmLeconNumero() {
+		return leconNumero == null ? "" : StringEscapeUtils.escapeHtml4(strLeconNumero());
 	}
 
 	///////////////////////////////
@@ -884,6 +1026,286 @@ public abstract class CoursGen<DEV> extends Cluster {
 		return coursCree == null ? "" : StringEscapeUtils.escapeHtml4(strCoursCree());
 	}
 
+	/////////////////////////
+	// coursIdentifiantUri //
+	/////////////////////////
+
+	/**	L'entité « coursIdentifiantUri »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String coursIdentifiantUri;
+	public Couverture<String> coursIdentifiantUriCouverture = new Couverture<String>().p(this).c(String.class).var("coursIdentifiantUri").o(coursIdentifiantUri);
+
+	/**	<br/>L'entité « coursIdentifiantUri »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:coursIdentifiantUri">Trouver l'entité coursIdentifiantUri dans Solr</a>
+	 * <br/>
+	 * @param o est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _coursIdentifiantUri(Couverture<String> o);
+
+	public String getCoursIdentifiantUri() {
+		return coursIdentifiantUri;
+	}
+
+	public void setCoursIdentifiantUri(String coursIdentifiantUri) {
+		this.coursIdentifiantUri = coursIdentifiantUri;
+		this.coursIdentifiantUriCouverture.dejaInitialise = true;
+	}
+	protected Cours coursIdentifiantUriInit() {
+		if(!coursIdentifiantUriCouverture.dejaInitialise) {
+			_coursIdentifiantUri(coursIdentifiantUriCouverture);
+			if(coursIdentifiantUri == null)
+				setCoursIdentifiantUri(coursIdentifiantUriCouverture.o);
+		}
+		coursIdentifiantUriCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrCoursIdentifiantUri() {
+		return coursIdentifiantUri;
+	}
+
+	public String strCoursIdentifiantUri() {
+		return coursIdentifiantUri == null ? "" : coursIdentifiantUri;
+	}
+
+	public String nomAffichageCoursIdentifiantUri() {
+		return null;
+	}
+
+	public String htmTooltipCoursIdentifiantUri() {
+		return null;
+	}
+
+	public String htmCoursIdentifiantUri() {
+		return coursIdentifiantUri == null ? "" : StringEscapeUtils.escapeHtml4(strCoursIdentifiantUri());
+	}
+
+	//////////////////
+	// coursH1_enUS //
+	//////////////////
+
+	/**	L'entité « coursH1_enUS »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String coursH1_enUS;
+	public Couverture<String> coursH1_enUSCouverture = new Couverture<String>().p(this).c(String.class).var("coursH1_enUS").o(coursH1_enUS);
+
+	/**	<br/>L'entité « coursH1_enUS »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:coursH1_enUS">Trouver l'entité coursH1_enUS dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _coursH1_enUS(Couverture<String> c);
+
+	public String getCoursH1_enUS() {
+		return coursH1_enUS;
+	}
+
+	public void setCoursH1_enUS(String coursH1_enUS) {
+		this.coursH1_enUS = coursH1_enUS;
+		this.coursH1_enUSCouverture.dejaInitialise = true;
+	}
+	protected Cours coursH1_enUSInit() {
+		if(!coursH1_enUSCouverture.dejaInitialise) {
+			_coursH1_enUS(coursH1_enUSCouverture);
+			if(coursH1_enUS == null)
+				setCoursH1_enUS(coursH1_enUSCouverture.o);
+		}
+		coursH1_enUSCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrCoursH1_enUS() {
+		return coursH1_enUS;
+	}
+
+	public String strCoursH1_enUS() {
+		return coursH1_enUS == null ? "" : coursH1_enUS;
+	}
+
+	public String nomAffichageCoursH1_enUS() {
+		return "title in English";
+	}
+
+	public String htmTooltipCoursH1_enUS() {
+		return null;
+	}
+
+	public String htmCoursH1_enUS() {
+		return coursH1_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strCoursH1_enUS());
+	}
+
+	//////////////////
+	// coursH1_frFR //
+	//////////////////
+
+	/**	L'entité « coursH1_frFR »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String coursH1_frFR;
+	public Couverture<String> coursH1_frFRCouverture = new Couverture<String>().p(this).c(String.class).var("coursH1_frFR").o(coursH1_frFR);
+
+	/**	<br/>L'entité « coursH1_frFR »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:coursH1_frFR">Trouver l'entité coursH1_frFR dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _coursH1_frFR(Couverture<String> c);
+
+	public String getCoursH1_frFR() {
+		return coursH1_frFR;
+	}
+
+	public void setCoursH1_frFR(String coursH1_frFR) {
+		this.coursH1_frFR = coursH1_frFR;
+		this.coursH1_frFRCouverture.dejaInitialise = true;
+	}
+	protected Cours coursH1_frFRInit() {
+		if(!coursH1_frFRCouverture.dejaInitialise) {
+			_coursH1_frFR(coursH1_frFRCouverture);
+			if(coursH1_frFR == null)
+				setCoursH1_frFR(coursH1_frFRCouverture.o);
+		}
+		coursH1_frFRCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrCoursH1_frFR() {
+		return coursH1_frFR;
+	}
+
+	public String strCoursH1_frFR() {
+		return coursH1_frFR == null ? "" : coursH1_frFR;
+	}
+
+	public String nomAffichageCoursH1_frFR() {
+		return null;
+	}
+
+	public String htmTooltipCoursH1_frFR() {
+		return null;
+	}
+
+	public String htmCoursH1_frFR() {
+		return coursH1_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strCoursH1_frFR());
+	}
+
+	//////////////////
+	// coursH2_enUS //
+	//////////////////
+
+	/**	L'entité « coursH2_enUS »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String coursH2_enUS;
+	public Couverture<String> coursH2_enUSCouverture = new Couverture<String>().p(this).c(String.class).var("coursH2_enUS").o(coursH2_enUS);
+
+	/**	<br/>L'entité « coursH2_enUS »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:coursH2_enUS">Trouver l'entité coursH2_enUS dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _coursH2_enUS(Couverture<String> c);
+
+	public String getCoursH2_enUS() {
+		return coursH2_enUS;
+	}
+
+	public void setCoursH2_enUS(String coursH2_enUS) {
+		this.coursH2_enUS = coursH2_enUS;
+		this.coursH2_enUSCouverture.dejaInitialise = true;
+	}
+	protected Cours coursH2_enUSInit() {
+		if(!coursH2_enUSCouverture.dejaInitialise) {
+			_coursH2_enUS(coursH2_enUSCouverture);
+			if(coursH2_enUS == null)
+				setCoursH2_enUS(coursH2_enUSCouverture.o);
+		}
+		coursH2_enUSCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrCoursH2_enUS() {
+		return coursH2_enUS;
+	}
+
+	public String strCoursH2_enUS() {
+		return coursH2_enUS == null ? "" : coursH2_enUS;
+	}
+
+	public String nomAffichageCoursH2_enUS() {
+		return null;
+	}
+
+	public String htmTooltipCoursH2_enUS() {
+		return null;
+	}
+
+	public String htmCoursH2_enUS() {
+		return coursH2_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strCoursH2_enUS());
+	}
+
+	//////////////////
+	// coursH2_frFR //
+	//////////////////
+
+	/**	L'entité « coursH2_frFR »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String coursH2_frFR;
+	public Couverture<String> coursH2_frFRCouverture = new Couverture<String>().p(this).c(String.class).var("coursH2_frFR").o(coursH2_frFR);
+
+	/**	<br/>L'entité « coursH2_frFR »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:coursH2_frFR">Trouver l'entité coursH2_frFR dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _coursH2_frFR(Couverture<String> c);
+
+	public String getCoursH2_frFR() {
+		return coursH2_frFR;
+	}
+
+	public void setCoursH2_frFR(String coursH2_frFR) {
+		this.coursH2_frFR = coursH2_frFR;
+		this.coursH2_frFRCouverture.dejaInitialise = true;
+	}
+	protected Cours coursH2_frFRInit() {
+		if(!coursH2_frFRCouverture.dejaInitialise) {
+			_coursH2_frFR(coursH2_frFRCouverture);
+			if(coursH2_frFR == null)
+				setCoursH2_frFR(coursH2_frFRCouverture.o);
+		}
+		coursH2_frFRCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrCoursH2_frFR() {
+		return coursH2_frFR;
+	}
+
+	public String strCoursH2_frFR() {
+		return coursH2_frFR == null ? "" : coursH2_frFR;
+	}
+
+	public String nomAffichageCoursH2_frFR() {
+		return null;
+	}
+
+	public String htmTooltipCoursH2_frFR() {
+		return null;
+	}
+
+	public String htmCoursH2_frFR() {
+		return coursH2_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strCoursH2_frFR());
+	}
+
 	//////////////////////
 	// coursDescription //
 	//////////////////////
@@ -940,60 +1362,228 @@ public abstract class CoursGen<DEV> extends Cluster {
 		return coursDescription == null ? "" : StringEscapeUtils.escapeHtml4(strCoursDescription());
 	}
 
-	/////////////////////////
-	// coursIdentifiantUri //
-	/////////////////////////
+	//////////////////////
+	// leconDescription //
+	//////////////////////
 
-	/**	L'entité « coursIdentifiantUri »
+	/**	L'entité « leconDescription »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected String coursIdentifiantUri;
-	public Couverture<String> coursIdentifiantUriCouverture = new Couverture<String>().p(this).c(String.class).var("coursIdentifiantUri").o(coursIdentifiantUri);
+	protected String leconDescription;
+	public Couverture<String> leconDescriptionCouverture = new Couverture<String>().p(this).c(String.class).var("leconDescription").o(leconDescription);
 
-	/**	<br/>L'entité « coursIdentifiantUri »
+	/**	<br/>L'entité « leconDescription »
 	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:coursIdentifiantUri">Trouver l'entité coursIdentifiantUri dans Solr</a>
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:leconDescription">Trouver l'entité leconDescription dans Solr</a>
 	 * <br/>
-	 * @param o est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _coursIdentifiantUri(Couverture<String> o);
+	protected abstract void _leconDescription(Couverture<String> c);
 
-	public String getCoursIdentifiantUri() {
-		return coursIdentifiantUri;
+	public String getLeconDescription() {
+		return leconDescription;
 	}
 
-	public void setCoursIdentifiantUri(String coursIdentifiantUri) {
-		this.coursIdentifiantUri = coursIdentifiantUri;
-		this.coursIdentifiantUriCouverture.dejaInitialise = true;
+	public void setLeconDescription(String leconDescription) {
+		this.leconDescription = leconDescription;
+		this.leconDescriptionCouverture.dejaInitialise = true;
 	}
-	protected Cours coursIdentifiantUriInit() {
-		if(!coursIdentifiantUriCouverture.dejaInitialise) {
-			_coursIdentifiantUri(coursIdentifiantUriCouverture);
-			if(coursIdentifiantUri == null)
-				setCoursIdentifiantUri(coursIdentifiantUriCouverture.o);
+	protected Cours leconDescriptionInit() {
+		if(!leconDescriptionCouverture.dejaInitialise) {
+			_leconDescription(leconDescriptionCouverture);
+			if(leconDescription == null)
+				setLeconDescription(leconDescriptionCouverture.o);
 		}
-		coursIdentifiantUriCouverture.dejaInitialise(true);
+		leconDescriptionCouverture.dejaInitialise(true);
 		return (Cours)this;
 	}
 
-	public String solrCoursIdentifiantUri() {
-		return coursIdentifiantUri;
+	public String solrLeconDescription() {
+		return leconDescription;
 	}
 
-	public String strCoursIdentifiantUri() {
-		return coursIdentifiantUri == null ? "" : coursIdentifiantUri;
+	public String strLeconDescription() {
+		return leconDescription == null ? "" : leconDescription;
 	}
 
-	public String nomAffichageCoursIdentifiantUri() {
+	public String nomAffichageLeconDescription() {
+		return "description";
+	}
+
+	public String htmTooltipLeconDescription() {
 		return null;
 	}
 
-	public String htmTooltipCoursIdentifiantUri() {
+	public String htmLeconDescription() {
+		return leconDescription == null ? "" : StringEscapeUtils.escapeHtml4(strLeconDescription());
+	}
+
+	//////////////////
+	// pageUri_enUS //
+	//////////////////
+
+	/**	L'entité « pageUri_enUS »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUri_enUS;
+	public Couverture<String> pageUri_enUSCouverture = new Couverture<String>().p(this).c(String.class).var("pageUri_enUS").o(pageUri_enUS);
+
+	/**	<br/>L'entité « pageUri_enUS »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUri_enUS">Trouver l'entité pageUri_enUS dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUri_enUS(Couverture<String> c);
+
+	public String getPageUri_enUS() {
+		return pageUri_enUS;
+	}
+
+	public void setPageUri_enUS(String pageUri_enUS) {
+		this.pageUri_enUS = pageUri_enUS;
+		this.pageUri_enUSCouverture.dejaInitialise = true;
+	}
+	protected Cours pageUri_enUSInit() {
+		if(!pageUri_enUSCouverture.dejaInitialise) {
+			_pageUri_enUS(pageUri_enUSCouverture);
+			if(pageUri_enUS == null)
+				setPageUri_enUS(pageUri_enUSCouverture.o);
+		}
+		pageUri_enUSCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrPageUri_enUS() {
+		return pageUri_enUS;
+	}
+
+	public String strPageUri_enUS() {
+		return pageUri_enUS == null ? "" : pageUri_enUS;
+	}
+
+	public String nomAffichagePageUri_enUS() {
 		return null;
 	}
 
-	public String htmCoursIdentifiantUri() {
-		return coursIdentifiantUri == null ? "" : StringEscapeUtils.escapeHtml4(strCoursIdentifiantUri());
+	public String htmTooltipPageUri_enUS() {
+		return null;
+	}
+
+	public String htmPageUri_enUS() {
+		return pageUri_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri_enUS());
+	}
+
+	//////////////////
+	// pageUri_frFR //
+	//////////////////
+
+	/**	L'entité « pageUri_frFR »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUri_frFR;
+	public Couverture<String> pageUri_frFRCouverture = new Couverture<String>().p(this).c(String.class).var("pageUri_frFR").o(pageUri_frFR);
+
+	/**	<br/>L'entité « pageUri_frFR »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUri_frFR">Trouver l'entité pageUri_frFR dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUri_frFR(Couverture<String> c);
+
+	public String getPageUri_frFR() {
+		return pageUri_frFR;
+	}
+
+	public void setPageUri_frFR(String pageUri_frFR) {
+		this.pageUri_frFR = pageUri_frFR;
+		this.pageUri_frFRCouverture.dejaInitialise = true;
+	}
+	protected Cours pageUri_frFRInit() {
+		if(!pageUri_frFRCouverture.dejaInitialise) {
+			_pageUri_frFR(pageUri_frFRCouverture);
+			if(pageUri_frFR == null)
+				setPageUri_frFR(pageUri_frFRCouverture.o);
+		}
+		pageUri_frFRCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrPageUri_frFR() {
+		return pageUri_frFR;
+	}
+
+	public String strPageUri_frFR() {
+		return pageUri_frFR == null ? "" : pageUri_frFR;
+	}
+
+	public String nomAffichagePageUri_frFR() {
+		return null;
+	}
+
+	public String htmTooltipPageUri_frFR() {
+		return null;
+	}
+
+	public String htmPageUri_frFR() {
+		return pageUri_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri_frFR());
+	}
+
+	/////////////
+	// pageUri //
+	/////////////
+
+	/**	L'entité « pageUri »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUri;
+	public Couverture<String> pageUriCouverture = new Couverture<String>().p(this).c(String.class).var("pageUri").o(pageUri);
+
+	/**	<br/>L'entité « pageUri »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUri">Trouver l'entité pageUri dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUri(Couverture<String> c);
+
+	public String getPageUri() {
+		return pageUri;
+	}
+
+	public void setPageUri(String pageUri) {
+		this.pageUri = pageUri;
+		this.pageUriCouverture.dejaInitialise = true;
+	}
+	protected Cours pageUriInit() {
+		if(!pageUriCouverture.dejaInitialise) {
+			_pageUri(pageUriCouverture);
+			if(pageUri == null)
+				setPageUri(pageUriCouverture.o);
+		}
+		pageUriCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrPageUri() {
+		return pageUri;
+	}
+
+	public String strPageUri() {
+		return pageUri == null ? "" : pageUri;
+	}
+
+	public String nomAffichagePageUri() {
+		return null;
+	}
+
+	public String htmTooltipPageUri() {
+		return null;
+	}
+
+	public String htmPageUri() {
+		return pageUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri());
 	}
 
 	//////////////
@@ -1292,6 +1882,152 @@ public abstract class CoursGen<DEV> extends Cluster {
 		return pageTitre == null ? "" : StringEscapeUtils.escapeHtml4(strPageTitre());
 	}
 
+	////////////////////////
+	// pageRecherche_enUS //
+	////////////////////////
+
+	/**	L'entité « pageRecherche_enUS »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 */
+	protected List<String> pageRecherche_enUS = new java.util.ArrayList<java.lang.String>();
+	public Couverture<List<String>> pageRecherche_enUSCouverture = new Couverture<List<String>>().p(this).c(List.class).var("pageRecherche_enUS").o(pageRecherche_enUS);
+
+	/**	<br/>L'entité « pageRecherche_enUS »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageRecherche_enUS">Trouver l'entité pageRecherche_enUS dans Solr</a>
+	 * <br/>
+	 * @param pageRecherche_enUS est l'entité déjà construit. 
+	 **/
+	protected abstract void _pageRecherche_enUS(List<String> l);
+
+	public List<String> getPageRecherche_enUS() {
+		return pageRecherche_enUS;
+	}
+
+	public void setPageRecherche_enUS(List<String> pageRecherche_enUS) {
+		this.pageRecherche_enUS = pageRecherche_enUS;
+		this.pageRecherche_enUSCouverture.dejaInitialise = true;
+	}
+	public Cours addPageRecherche_enUS(String...objets) {
+		for(String o : objets) {
+			addPageRecherche_enUS(o);
+		}
+		return (Cours)this;
+	}
+	public Cours addPageRecherche_enUS(String o) {
+		if(o != null && !pageRecherche_enUS.contains(o))
+			this.pageRecherche_enUS.add(o);
+		return (Cours)this;
+	}
+	public Cours setPageRecherche_enUS(JsonArray objets) {
+		pageRecherche_enUS.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addPageRecherche_enUS(o);
+		}
+		return (Cours)this;
+	}
+	protected Cours pageRecherche_enUSInit() {
+		if(!pageRecherche_enUSCouverture.dejaInitialise) {
+			_pageRecherche_enUS(pageRecherche_enUS);
+		}
+		pageRecherche_enUSCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public List<String> solrPageRecherche_enUS() {
+		return pageRecherche_enUS;
+	}
+
+	public String strPageRecherche_enUS() {
+		return pageRecherche_enUS == null ? "" : pageRecherche_enUS.toString();
+	}
+
+	public String nomAffichagePageRecherche_enUS() {
+		return null;
+	}
+
+	public String htmTooltipPageRecherche_enUS() {
+		return null;
+	}
+
+	public String htmPageRecherche_enUS() {
+		return pageRecherche_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strPageRecherche_enUS());
+	}
+
+	////////////////////////
+	// pageRecherche_frFR //
+	////////////////////////
+
+	/**	L'entité « pageRecherche_frFR »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 */
+	protected List<String> pageRecherche_frFR = new java.util.ArrayList<java.lang.String>();
+	public Couverture<List<String>> pageRecherche_frFRCouverture = new Couverture<List<String>>().p(this).c(List.class).var("pageRecherche_frFR").o(pageRecherche_frFR);
+
+	/**	<br/>L'entité « pageRecherche_frFR »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageRecherche_frFR">Trouver l'entité pageRecherche_frFR dans Solr</a>
+	 * <br/>
+	 * @param pageRecherche_frFR est l'entité déjà construit. 
+	 **/
+	protected abstract void _pageRecherche_frFR(List<String> l);
+
+	public List<String> getPageRecherche_frFR() {
+		return pageRecherche_frFR;
+	}
+
+	public void setPageRecherche_frFR(List<String> pageRecherche_frFR) {
+		this.pageRecherche_frFR = pageRecherche_frFR;
+		this.pageRecherche_frFRCouverture.dejaInitialise = true;
+	}
+	public Cours addPageRecherche_frFR(String...objets) {
+		for(String o : objets) {
+			addPageRecherche_frFR(o);
+		}
+		return (Cours)this;
+	}
+	public Cours addPageRecherche_frFR(String o) {
+		if(o != null && !pageRecherche_frFR.contains(o))
+			this.pageRecherche_frFR.add(o);
+		return (Cours)this;
+	}
+	public Cours setPageRecherche_frFR(JsonArray objets) {
+		pageRecherche_frFR.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addPageRecherche_frFR(o);
+		}
+		return (Cours)this;
+	}
+	protected Cours pageRecherche_frFRInit() {
+		if(!pageRecherche_frFRCouverture.dejaInitialise) {
+			_pageRecherche_frFR(pageRecherche_frFR);
+		}
+		pageRecherche_frFRCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public List<String> solrPageRecherche_frFR() {
+		return pageRecherche_frFR;
+	}
+
+	public String strPageRecherche_frFR() {
+		return pageRecherche_frFR == null ? "" : pageRecherche_frFR.toString();
+	}
+
+	public String nomAffichagePageRecherche_frFR() {
+		return null;
+	}
+
+	public String htmTooltipPageRecherche_frFR() {
+		return null;
+	}
+
+	public String htmPageRecherche_frFR() {
+		return pageRecherche_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strPageRecherche_frFR());
+	}
+
 	///////////////
 	// pageParts //
 	///////////////
@@ -1370,17 +2106,29 @@ public abstract class CoursGen<DEV> extends Cluster {
 		utilisateurNomInit();
 		groupeNomInit();
 		estCoursInit();
+		estLeconInit();
 		coursNumeroInit();
+		leconNumeroInit();
 		coursIdentifiantMinusculeInit();
 		coursIdentifiantMajusculeInit();
 		coursCreeInit();
-		coursDescriptionInit();
 		coursIdentifiantUriInit();
+		coursH1_enUSInit();
+		coursH1_frFRInit();
+		coursH2_enUSInit();
+		coursH2_frFRInit();
+		coursDescriptionInit();
+		leconDescriptionInit();
+		pageUri_enUSInit();
+		pageUri_frFRInit();
+		pageUriInit();
 		pageCreeInit();
 		pageH1Init();
 		pageH2Init();
 		pageH3Init();
 		pageTitreInit();
+		pageRecherche_enUSInit();
+		pageRecherche_frFRInit();
 		pagePartsInit();
 	}
 
@@ -1398,107 +2146,6 @@ public abstract class CoursGen<DEV> extends Cluster {
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteCours(requeteSite_);
-	}
-
-	/////////////
-	// indexer //
-	/////////////
-
-	public static void indexer() {
-		try {
-			RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-			requeteSite.initLoinRequeteSiteEnUS();
-			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
-			siteContexte.initLoinSiteContexteEnUS();
-			siteContexte.setRequeteSite_(requeteSite);
-			requeteSite.setSiteContexte_(siteContexte);
-			Cours o = new Cours();
-			o.requeteSiteCours(requeteSite);
-			o.initLoinCours(requeteSite);
-			o.indexerCours();
-		} catch(Exception e) {
-			ExceptionUtils.rethrow(e);
-		}
-	}
-
-
-	@Override public void indexerPourClasse() throws Exception {
-		indexerCours();
-	}
-
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
-		indexerCours(document);
-	}
-
-	public void indexerCours(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCours(document);
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerCours() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCours(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerCours(SolrInputDocument document) throws Exception {
-		if(estCours != null) {
-			document.addField("estCours_indexed_boolean", estCours);
-			document.addField("estCours_stored_boolean", estCours);
-		}
-		if(coursNumero != null) {
-			document.addField("coursNumero_indexed_int", coursNumero);
-			document.addField("coursNumero_stored_int", coursNumero);
-		}
-		if(coursCree != null) {
-			document.addField("coursCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(coursCree.atOffset(ZoneOffset.UTC)));
-			document.addField("coursCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(coursCree.atOffset(ZoneOffset.UTC)));
-		}
-		if(coursDescription != null) {
-			document.addField("coursDescription_indexed_string", coursDescription);
-			document.addField("coursDescription_stored_string", coursDescription);
-		}
-		if(pageCree != null) {
-			document.addField("pageCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
-			document.addField("pageCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
-		}
-		if(pageH1 != null) {
-			document.addField("pageH1_indexed_string", pageH1);
-			document.addField("pageH1_stored_string", pageH1);
-		}
-		if(pageH2 != null) {
-			document.addField("pageH2_indexed_string", pageH2);
-			document.addField("pageH2_stored_string", pageH2);
-		}
-		if(pageH3 != null) {
-			document.addField("pageH3_indexed_string", pageH3);
-			document.addField("pageH3_stored_string", pageH3);
-		}
-		if(pageTitre != null) {
-			document.addField("pageTitre_indexed_string", pageTitre);
-			document.addField("pageTitre_stored_string", pageTitre);
-		}
-		super.indexerCluster(document);
-
-	}
-
-	public void desindexerCours() throws Exception {
-		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinCours(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
 	}
 
 	/////////////
@@ -1543,18 +2190,38 @@ public abstract class CoursGen<DEV> extends Cluster {
 				return oCours.groupeNom;
 			case "estCours":
 				return oCours.estCours;
+			case "estLecon":
+				return oCours.estLecon;
 			case "coursNumero":
 				return oCours.coursNumero;
+			case "leconNumero":
+				return oCours.leconNumero;
 			case "coursIdentifiantMinuscule":
 				return oCours.coursIdentifiantMinuscule;
 			case "coursIdentifiantMajuscule":
 				return oCours.coursIdentifiantMajuscule;
 			case "coursCree":
 				return oCours.coursCree;
-			case "coursDescription":
-				return oCours.coursDescription;
 			case "coursIdentifiantUri":
 				return oCours.coursIdentifiantUri;
+			case "coursH1_enUS":
+				return oCours.coursH1_enUS;
+			case "coursH1_frFR":
+				return oCours.coursH1_frFR;
+			case "coursH2_enUS":
+				return oCours.coursH2_enUS;
+			case "coursH2_frFR":
+				return oCours.coursH2_frFR;
+			case "coursDescription":
+				return oCours.coursDescription;
+			case "leconDescription":
+				return oCours.leconDescription;
+			case "pageUri_enUS":
+				return oCours.pageUri_enUS;
+			case "pageUri_frFR":
+				return oCours.pageUri_frFR;
+			case "pageUri":
+				return oCours.pageUri;
 			case "pageCree":
 				return oCours.pageCree;
 			case "pageH1":
@@ -1565,6 +2232,10 @@ public abstract class CoursGen<DEV> extends Cluster {
 				return oCours.pageH3;
 			case "pageTitre":
 				return oCours.pageTitre;
+			case "pageRecherche_enUS":
+				return oCours.pageRecherche_enUS;
+			case "pageRecherche_frFR":
+				return oCours.pageRecherche_frFR;
 			case "pageParts":
 				return oCours.pageParts;
 			default:
@@ -1623,6 +2294,237 @@ public abstract class CoursGen<DEV> extends Cluster {
 		}
 	}
 
+	/////////////
+	// indexer //
+	/////////////
+
+	public static void indexer() {
+		try {
+			RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.Cours"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
+			Cours o = new Cours();
+			o.requeteSiteCours(requeteSite);
+			o.initLoinCours(requeteSite);
+			o.indexerCours();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
+	}
+
+
+	@Override public void indexerPourClasse() throws Exception {
+		indexerCours();
+	}
+
+	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+		indexerCours(document);
+	}
+
+	public void indexerCours(SolrClient clientSolr) throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerCours(document);
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerCours() throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerCours(document);
+		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerCours(SolrInputDocument document) throws Exception {
+		if(estCours != null) {
+			document.addField("estCours_indexed_boolean", estCours);
+			document.addField("estCours_stored_boolean", estCours);
+		}
+		if(estLecon != null) {
+			document.addField("estLecon_indexed_boolean", estLecon);
+			document.addField("estLecon_stored_boolean", estLecon);
+		}
+		if(coursNumero != null) {
+			document.addField("coursNumero_indexed_int", coursNumero);
+			document.addField("coursNumero_stored_int", coursNumero);
+		}
+		if(leconNumero != null) {
+			document.addField("leconNumero_indexed_int", leconNumero);
+			document.addField("leconNumero_stored_int", leconNumero);
+		}
+		if(coursCree != null) {
+			document.addField("coursCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(coursCree.atOffset(ZoneOffset.UTC)));
+			document.addField("coursCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(coursCree.atOffset(ZoneOffset.UTC)));
+		}
+		if(coursH1_enUS != null) {
+			document.addField("coursH1_enUS_indexed_string", coursH1_enUS);
+			document.addField("coursH1_enUS_stored_string", coursH1_enUS);
+		}
+		if(coursH1_frFR != null) {
+			document.addField("coursH1_frFR_indexed_string", coursH1_frFR);
+			document.addField("coursH1_frFR_stored_string", coursH1_frFR);
+		}
+		if(coursH2_enUS != null) {
+			document.addField("coursH2_enUS_indexed_string", coursH2_enUS);
+			document.addField("coursH2_enUS_stored_string", coursH2_enUS);
+		}
+		if(coursH2_frFR != null) {
+			document.addField("coursH2_frFR_indexed_string", coursH2_frFR);
+			document.addField("coursH2_frFR_stored_string", coursH2_frFR);
+		}
+		if(pageUri_enUS != null) {
+			document.addField("pageUri_enUS_indexed_string", pageUri_enUS);
+			document.addField("pageUri_enUS_stored_string", pageUri_enUS);
+		}
+		if(pageUri_frFR != null) {
+			document.addField("pageUri_frFR_indexed_string", pageUri_frFR);
+			document.addField("pageUri_frFR_stored_string", pageUri_frFR);
+		}
+		if(pageCree != null) {
+			document.addField("pageCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
+			document.addField("pageCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
+		}
+		if(pageH1 != null) {
+			document.addField("pageH1_indexed_string", pageH1);
+			document.addField("pageH1_stored_string", pageH1);
+		}
+		if(pageH2 != null) {
+			document.addField("pageH2_indexed_string", pageH2);
+			document.addField("pageH2_stored_string", pageH2);
+		}
+		if(pageH3 != null) {
+			document.addField("pageH3_indexed_string", pageH3);
+			document.addField("pageH3_stored_string", pageH3);
+		}
+		if(pageTitre != null) {
+			document.addField("pageTitre_indexed_string", pageTitre);
+			document.addField("pageTitre_stored_string", pageTitre);
+		}
+		if(pageRecherche_enUS != null) {
+			for(String o : pageRecherche_enUS) {
+				document.addField("pageRecherche_enUS_text_enUS", o);
+			}
+		}
+		if(pageRecherche_frFR != null) {
+			for(String o : pageRecherche_frFR) {
+				document.addField("pageRecherche_frFR_text_frFR", o);
+			}
+		}
+		super.indexerCluster(document);
+
+	}
+
+	public void desindexerCours() throws Exception {
+		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
+		requeteSite.initLoinRequeteSiteEnUS();
+		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+		siteContexte.initLoinSiteContexteEnUS();
+		siteContexte.setRequeteSite_(requeteSite);
+		requeteSite.setSiteContexte_(siteContexte);
+		requeteSite.setConfigSite_(siteContexte.getConfigSite());
+		initLoinCours(siteContexte.getRequeteSite_());
+		SolrClient clientSolr = siteContexte.getClientSolr();
+		clientSolr.deleteById(id.toString());
+		clientSolr.commit();
+	}
+
+	/////////////
+	// stocker //
+	/////////////
+
+	@Override public void stockerPourClasse(SolrDocument solrDocument) {
+		stockerCours(solrDocument);
+	}
+	public void stockerCours(SolrDocument solrDocument) {
+		Cours oCours = (Cours)this;
+
+		Boolean estCours = (Boolean)solrDocument.get("estCours_stored_boolean");
+		if(estCours != null)
+			oCours.setEstCours(estCours);
+
+		Boolean estLecon = (Boolean)solrDocument.get("estLecon_stored_boolean");
+		if(estLecon != null)
+			oCours.setEstLecon(estLecon);
+
+		Integer coursNumero = (Integer)solrDocument.get("coursNumero_stored_int");
+		if(coursNumero != null)
+			oCours.setCoursNumero(coursNumero);
+
+		Integer leconNumero = (Integer)solrDocument.get("leconNumero_stored_int");
+		if(leconNumero != null)
+			oCours.setLeconNumero(leconNumero);
+
+		Date coursCree = (Date)solrDocument.get("coursCree_stored_date");
+		if(coursCree != null)
+			oCours.setCoursCree(coursCree);
+
+		String coursH1_enUS = (String)solrDocument.get("coursH1_enUS_stored_string");
+		if(coursH1_enUS != null)
+			oCours.setCoursH1_enUS(coursH1_enUS);
+
+		String coursH1_frFR = (String)solrDocument.get("coursH1_frFR_stored_string");
+		if(coursH1_frFR != null)
+			oCours.setCoursH1_frFR(coursH1_frFR);
+
+		String coursH2_enUS = (String)solrDocument.get("coursH2_enUS_stored_string");
+		if(coursH2_enUS != null)
+			oCours.setCoursH2_enUS(coursH2_enUS);
+
+		String coursH2_frFR = (String)solrDocument.get("coursH2_frFR_stored_string");
+		if(coursH2_frFR != null)
+			oCours.setCoursH2_frFR(coursH2_frFR);
+
+		String pageUri_enUS = (String)solrDocument.get("pageUri_enUS_stored_string");
+		if(pageUri_enUS != null)
+			oCours.setPageUri_enUS(pageUri_enUS);
+
+		String pageUri_frFR = (String)solrDocument.get("pageUri_frFR_stored_string");
+		if(pageUri_frFR != null)
+			oCours.setPageUri_frFR(pageUri_frFR);
+
+		Date pageCree = (Date)solrDocument.get("pageCree_stored_date");
+		if(pageCree != null)
+			oCours.setPageCree(pageCree);
+
+		String pageH1 = (String)solrDocument.get("pageH1_stored_string");
+		if(pageH1 != null)
+			oCours.setPageH1(pageH1);
+
+		String pageH2 = (String)solrDocument.get("pageH2_stored_string");
+		if(pageH2 != null)
+			oCours.setPageH2(pageH2);
+
+		String pageH3 = (String)solrDocument.get("pageH3_stored_string");
+		if(pageH3 != null)
+			oCours.setPageH3(pageH3);
+
+		String pageTitre = (String)solrDocument.get("pageTitre_stored_string");
+		if(pageTitre != null)
+			oCours.setPageTitre(pageTitre);
+
+		List<String> pageRecherche_enUS = (List<String>)solrDocument.get("pageRecherche_enUS_stored_strings");
+		if(pageRecherche_enUS != null)
+			oCours.pageRecherche_enUS.addAll(pageRecherche_enUS);
+
+		List<String> pageRecherche_frFR = (List<String>)solrDocument.get("pageRecherche_frFR_stored_strings");
+		if(pageRecherche_frFR != null)
+			oCours.pageRecherche_frFR.addAll(pageRecherche_frFR);
+
+		super.stockerCluster(solrDocument);
+	}
+
 	//////////////
 	// htmlBody //
 	//////////////
@@ -1639,7 +2541,7 @@ public abstract class CoursGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, coursNumero, coursIdentifiantMinuscule, coursIdentifiantMajuscule, coursCree, coursDescription, coursIdentifiantUri, pageCree, pageH1, pageH2, pageH3, pageTitre);
+		return Objects.hash(super.hashCode(), nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, coursNumero, leconNumero, coursIdentifiantMinuscule, coursIdentifiantMajuscule, coursCree, coursIdentifiantUri, coursH1_enUS, coursH1_frFR, coursH2_enUS, coursH2_frFR, coursDescription, leconDescription, pageUri_enUS, pageUri_frFR, pageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
 	}
 
 	////////////
@@ -1663,17 +2565,29 @@ public abstract class CoursGen<DEV> extends Cluster {
 				&& Objects.equals( utilisateurNom, that.utilisateurNom )
 				&& Objects.equals( groupeNom, that.groupeNom )
 				&& Objects.equals( estCours, that.estCours )
+				&& Objects.equals( estLecon, that.estLecon )
 				&& Objects.equals( coursNumero, that.coursNumero )
+				&& Objects.equals( leconNumero, that.leconNumero )
 				&& Objects.equals( coursIdentifiantMinuscule, that.coursIdentifiantMinuscule )
 				&& Objects.equals( coursIdentifiantMajuscule, that.coursIdentifiantMajuscule )
 				&& Objects.equals( coursCree, that.coursCree )
-				&& Objects.equals( coursDescription, that.coursDescription )
 				&& Objects.equals( coursIdentifiantUri, that.coursIdentifiantUri )
+				&& Objects.equals( coursH1_enUS, that.coursH1_enUS )
+				&& Objects.equals( coursH1_frFR, that.coursH1_frFR )
+				&& Objects.equals( coursH2_enUS, that.coursH2_enUS )
+				&& Objects.equals( coursH2_frFR, that.coursH2_frFR )
+				&& Objects.equals( coursDescription, that.coursDescription )
+				&& Objects.equals( leconDescription, that.leconDescription )
+				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
+				&& Objects.equals( pageUri_frFR, that.pageUri_frFR )
+				&& Objects.equals( pageUri, that.pageUri )
 				&& Objects.equals( pageCree, that.pageCree )
 				&& Objects.equals( pageH1, that.pageH1 )
 				&& Objects.equals( pageH2, that.pageH2 )
 				&& Objects.equals( pageH3, that.pageH3 )
-				&& Objects.equals( pageTitre, that.pageTitre );
+				&& Objects.equals( pageTitre, that.pageTitre )
+				&& Objects.equals( pageRecherche_enUS, that.pageRecherche_enUS )
+				&& Objects.equals( pageRecherche_frFR, that.pageRecherche_frFR );
 	}
 
 	//////////////
@@ -1694,17 +2608,29 @@ public abstract class CoursGen<DEV> extends Cluster {
 		sb.append( ", utilisateurNom: \"" ).append(utilisateurNom).append( "\"" );
 		sb.append( ", groupeNom: \"" ).append(groupeNom).append( "\"" );
 		sb.append( ", estCours: " ).append(estCours);
+		sb.append( ", estLecon: " ).append(estLecon);
 		sb.append( ", coursNumero: " ).append(coursNumero);
+		sb.append( ", leconNumero: " ).append(leconNumero);
 		sb.append( ", coursIdentifiantMinuscule: \"" ).append(coursIdentifiantMinuscule).append( "\"" );
 		sb.append( ", coursIdentifiantMajuscule: \"" ).append(coursIdentifiantMajuscule).append( "\"" );
 		sb.append( ", coursCree: " ).append(coursCree);
-		sb.append( ", coursDescription: \"" ).append(coursDescription).append( "\"" );
 		sb.append( ", coursIdentifiantUri: \"" ).append(coursIdentifiantUri).append( "\"" );
+		sb.append( ", coursH1_enUS: \"" ).append(coursH1_enUS).append( "\"" );
+		sb.append( ", coursH1_frFR: \"" ).append(coursH1_frFR).append( "\"" );
+		sb.append( ", coursH2_enUS: \"" ).append(coursH2_enUS).append( "\"" );
+		sb.append( ", coursH2_frFR: \"" ).append(coursH2_frFR).append( "\"" );
+		sb.append( ", coursDescription: \"" ).append(coursDescription).append( "\"" );
+		sb.append( ", leconDescription: \"" ).append(leconDescription).append( "\"" );
+		sb.append( ", pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
+		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );
+		sb.append( ", pageUri: \"" ).append(pageUri).append( "\"" );
 		sb.append( ", pageCree: " ).append(pageCree);
 		sb.append( ", pageH1: \"" ).append(pageH1).append( "\"" );
 		sb.append( ", pageH2: \"" ).append(pageH2).append( "\"" );
 		sb.append( ", pageH3: \"" ).append(pageH3).append( "\"" );
 		sb.append( ", pageTitre: \"" ).append(pageTitre).append( "\"" );
+		sb.append( ", pageRecherche_enUS: " ).append(pageRecherche_enUS);
+		sb.append( ", pageRecherche_frFR: " ).append(pageRecherche_frFR);
 		sb.append(" }");
 		return sb.toString();
 	}

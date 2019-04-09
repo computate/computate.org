@@ -3,8 +3,10 @@ package org.computate.site.enUS.cluster;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.solr.common.SolrDocument;
 import org.computate.site.enUS.chaine.Chaine;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
@@ -37,6 +39,10 @@ public class Cluster extends ClusterGen<Object> {
 	protected void _cree(Couverture<LocalDateTime> c) {}
 
 	protected void _modifie(Couverture<LocalDateTime> c) {}
+
+	protected void _classeNomsCanoniques(List<String> l) {
+		l.add(Cluster.class.getCanonicalName());
+	}
 
 	protected void _classeNomCanonique(Couverture<String> c) {
 		String o = getClass().getCanonicalName();

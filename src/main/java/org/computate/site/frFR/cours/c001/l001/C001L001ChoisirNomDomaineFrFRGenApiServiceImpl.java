@@ -64,6 +64,7 @@ import io.vertx.ext.web.api.OperationRequest;
 import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import java.util.Optional;
 import java.util.stream.Stream;
+import java.net.URLDecoder;
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaineFrFRPage;
@@ -172,18 +173,36 @@ public class C001L001ChoisirNomDomaineFrFRGenApiServiceImpl implements C001L001C
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			case "estCours":
 				return "estCours_indexed_boolean";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
 			case "coursNumero":
 				return "coursNumero_indexed_int";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
 			case "coursCree":
 				return "coursCree_indexed_date";
-			case "coursDescription":
-				return "coursDescription_indexed_string";
+			case "coursH1_enUS":
+				return "coursH1_enUS_indexed_string";
+			case "coursH1_frFR":
+				return "coursH1_frFR_indexed_string";
+			case "coursH2_enUS":
+				return "coursH2_enUS_indexed_string";
+			case "coursH2_frFR":
+				return "coursH2_frFR_indexed_string";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
 			case "pageCree":
 				return "pageCree_indexed_date";
 			case "pageH1":
@@ -194,14 +213,28 @@ public class C001L001ChoisirNomDomaineFrFRGenApiServiceImpl implements C001L001C
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
-			case "estLecon":
-				return "estLecon_indexed_boolean";
-			case "leconCree":
-				return "leconCree_indexed_date";
-			case "leconNumero":
-				return "leconNumero_indexed_int";
-			case "estArticle":
-				return "estArticle_indexed_boolean";
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varRechercheC001L001ChoisirNomDomaine(String entiteVar) {
+		switch(entiteVar) {
+			case "pageRecherche_enUS":
+				return "pageRecherche_enUS_text_enUS";
+			case "pageRecherche_frFR":
+				return "pageRecherche_frFR_text_frFR";
+			case "leconRecherche_frFR":
+				return "leconRecherche_frFR_text_frFR";
+			case "leconRecherche_enUS":
+				return "leconRecherche_enUS_text_enUS";
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varSuggereC001L001ChoisirNomDomaine(String entiteVar) {
+		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -392,7 +425,7 @@ public class C001L001ChoisirNomDomaineFrFRGenApiServiceImpl implements C001L001C
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
@@ -417,40 +450,44 @@ public class C001L001ChoisirNomDomaineFrFRGenApiServiceImpl implements C001L001C
 				Object paramValeursObjet = paramRequete.getValue();
 				JsonArray paramObjets = paramValeursObjet instanceof JsonArray ? (JsonArray)paramValeursObjet : new JsonArray().add(paramValeursObjet);
 
-				for(Object paramObjet : paramObjets) {
-					switch(paramNom) {
-						case "q":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = "*".equals(entiteVar) ? entiteVar : varIndexeC001L001ChoisirNomDomaine(entiteVar);
-							listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
-							break;
-						case "fq":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = varIndexeC001L001ChoisirNomDomaine(entiteVar);
-							listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
-							break;
-						case "sort":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
-							valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-							varIndexe = varIndexeC001L001ChoisirNomDomaine(entiteVar);
-							listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
-							break;
-						case "fl":
-							entiteVar = StringUtils.trim((String)paramObjet);
-							varIndexe = varIndexeC001L001ChoisirNomDomaine(entiteVar);
-							listeRecherche.addField(varIndexe);
-							break;
-						case "start":
-							rechercheDebut = (Integer)paramObjet;
-							listeRecherche.setStart(rechercheDebut);
-							break;
-						case "rows":
-							rechercheNum = (Integer)paramObjet;
-							listeRecherche.setRows(rechercheNum);
-							break;
+				try {
+					for(Object paramObjet : paramObjets) {
+						switch(paramNom) {
+							case "q":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L001ChoisirNomDomaine(entiteVar);
+								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
+								break;
+							case "fq":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								varIndexe = varIndexeC001L001ChoisirNomDomaine(entiteVar);
+								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
+								break;
+							case "sort":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
+								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
+								varIndexe = varIndexeC001L001ChoisirNomDomaine(entiteVar);
+								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
+								break;
+							case "fl":
+								entiteVar = StringUtils.trim((String)paramObjet);
+								varIndexe = varIndexeC001L001ChoisirNomDomaine(entiteVar);
+								listeRecherche.addField(varIndexe);
+								break;
+							case "start":
+								rechercheDebut = (Integer)paramObjet;
+								listeRecherche.setStart(rechercheDebut);
+								break;
+							case "rows":
+								rechercheNum = (Integer)paramObjet;
+								listeRecherche.setRows(rechercheNum);
+								break;
+						}
 					}
+				} catch(Exception e) {
+					gestionnaireEvenements.handle(Future.failedFuture(e));
 				}
 			});
 			listeRecherche.initLoinPourClasse(requeteSite);

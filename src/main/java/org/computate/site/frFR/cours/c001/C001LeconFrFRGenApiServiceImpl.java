@@ -147,7 +147,6 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 			ToutEcrivain w = ToutEcrivain.creer(listeC001Lecon.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
 			C001LeconFrFRPage page = new C001LeconFrFRPage();
-			page.setPageUrl("");
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours/001/lecons");
@@ -174,18 +173,34 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
 			case "coursNumero":
 				return "coursNumero_indexed_int";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
 			case "coursCree":
 				return "coursCree_indexed_date";
-			case "coursDescription":
-				return "coursDescription_indexed_string";
+			case "coursH1_enUS":
+				return "coursH1_enUS_indexed_string";
+			case "coursH1_frFR":
+				return "coursH1_frFR_indexed_string";
+			case "coursH2_enUS":
+				return "coursH2_enUS_indexed_string";
+			case "coursH2_frFR":
+				return "coursH2_frFR_indexed_string";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
 			case "pageCree":
 				return "pageCree_indexed_date";
 			case "pageH1":
@@ -196,14 +211,8 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
-			case "estLecon":
-				return "estLecon_indexed_boolean";
 			case "leconCree":
 				return "leconCree_indexed_date";
-			case "leconNumero":
-				return "leconNumero_indexed_int";
-			case "estArticle":
-				return "estArticle_indexed_boolean";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -394,7 +403,7 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.C001Lecon"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.C001Lecon"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");

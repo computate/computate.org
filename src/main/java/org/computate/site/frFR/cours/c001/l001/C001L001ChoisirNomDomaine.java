@@ -1,5 +1,7 @@
 package org.computate.site.frFR.cours.c001.l001;          
 
+import java.util.List;
+
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.parti.PageHtml;
@@ -39,8 +41,8 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * ImageHauteur.enUS: 616
  * VideoId.frFR: sBcDnQj9_QM
  * VideoId.enUS: sBcDnQj9_QM
-*/  
-public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {      
+*/ 
+public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {       
 
 	public static void main(String[] args) {  
 		indexer(); 
@@ -49,6 +51,48 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 
 	@Override protected void _leconNumero(Couverture<Integer> c) { 
 		c.o(1);
+	}
+
+	@Override protected void _classeNomsCanoniques(List<String> l) {
+		l.add(C001L001ChoisirNomDomaine.class.getCanonicalName());
+		l.add(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.class.getCanonicalName());
+		super._classeNomsCanoniques(l);
+	}
+
+	@Override protected void _coursH1_frFR(Couverture<String> c) {
+		c.o(C001L001ChoisirNomDomaine_H1);
+	}
+
+	@Override protected void _coursH1_enUS(Couverture<String> c) {
+		c.o(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H1);
+	}
+
+	@Override protected void _coursH2_frFR(Couverture<String> c) {
+		c.o(C001L001ChoisirNomDomaine_H2);
+	}
+
+	@Override protected void _coursH2_enUS(Couverture<String> c) {
+		c.o(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H2);
+	}
+
+	@Override protected void _pageUri_enUS(Couverture<String> c) {
+		c.o(C001L001ChoisirNomDomaineEnUSPage_Uri);
+	}
+
+	@Override protected void _pageUri_frFR(Couverture<String> c) {
+		c.o(C001L001ChoisirNomDomaineFrFRPage_Uri);
+	}
+
+	@Override protected void _pageRecherche_enUS(List<String> l) {
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H1);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H2);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaineVals);
+	}
+
+	@Override protected void _pageRecherche_frFR(List<String> l) {
+		addPageRecherche_frFR(C001L001ChoisirNomDomaine_H1);
+		addPageRecherche_frFR(C001L001ChoisirNomDomaine_H2);
+		addPageRecherche_frFR(C001L001ChoisirNomDomaineVals);
 	}
 
 	/**
@@ -399,5 +443,25 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 			g("span");
 		g("p");
 		plusTard.htmlApres();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Texte: true
+	 * Langue: frFR
+	 **/
+	protected void _leconRecherche_frFR(List<String> l) {
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Texte: true
+	 * Langue: enUS
+	 **/
+	protected void _leconRecherche_enUS(List<String> l) {
+		
 	}
 }

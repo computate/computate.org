@@ -3,6 +3,7 @@ package org.computate.site.enUS.cours.c001;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -17,23 +18,17 @@ import org.computate.site.enUS.couverture.Couverture;
 public class C001Lecon extends C001LeconGen<C001> {
 
 	@Override()
-	protected void  _estCours(Couverture<Boolean> c) {
-		c.o(false);
-	}
-
-	protected void _estLecon(Couverture<Boolean> c) {
-		c.o(true);
+	protected void  _classeNomsCanoniques(List<String> l) {
+		l.add(C001Lecon.class.getCanonicalName());
+		l.add(org.computate.site.enUS.cours.c001.C001Lecon.class.getCanonicalName());
+		super._classeNomsCanoniques(l);
 	}
 
 	protected void _leconCree(Couverture<LocalDateTime> c) {
 	}
 
-	protected void _leconNumero(Couverture<Integer> c) {
-		Matcher m = Pattern.compile("^L(\\d+)", Pattern.MULTILINE).matcher(getClass().getSimpleName());
-		if(m.find()) {
-			Integer o = Integer.parseInt(m.group(1));
-			c.o(o);
-		}
+	@Override()
+	protected void  _leconNumero(Couverture<Integer> c) {
 	}
 
 	@Override()
@@ -41,8 +36,14 @@ public class C001Lecon extends C001LeconGen<C001> {
 		c.o(leconCree);
 	}
 
-	protected void _estArticle(Couverture<Boolean> c) {
+	@Override()
+	protected void  _estLecon(Couverture<Boolean> c) {
 		c.o(true);
+	}
+
+	@Override()
+	protected void  _estCours(Couverture<Boolean> c) {
+		c.o(false);
 	}
 
 	protected void _leconsACoteDocuments(ArrayList<SolrDocument> l) {

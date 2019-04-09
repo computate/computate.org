@@ -21,6 +21,12 @@ import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.couverture.Couverture;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.web.api.OperationRequest;
+import io.vertx.core.json.JsonArray;
+import java.net.URLDecoder;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**
@@ -60,6 +66,18 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 			c.o("un cours");
 		else if(listeCours.size() == 0)
 			c.o("aucun cours trouvé");
+	}
+
+	@Override protected void _pageUri(Couverture<String> c) {
+		c.o("/frFR/cours");
+	}
+
+	@Override protected void _pageUriEnUS(Couverture<String> c) {
+		c.o("/enUS/course");
+	}
+
+	@Override protected void _pageImageUri(Couverture<String> c) {
+			c.o("/static/png/frFR/cours-999.png");
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -110,11 +128,11 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("form").a("id", "coursNumeroForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_coursNumero").a("class", "").f().sx("cours numéro").g("label");
+					e("label").a("for", "Page_coursNumero").a("class", "").f().sx("cours").g("label");
 
 					e("input")
 						.a("type", "text")
-						.a("placeholder", "cours numéro")
+						.a("placeholder", "cours")
 						.a("class", "setCoursNumero w3-input w3-border ")
 						.a("name", "setCoursNumero")
 						.a("id", "Page_coursNumero")
@@ -136,6 +154,22 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 						.a("id", "Page_coursDescription")
 						.a("onchange", "patchCours($('#CoursForm'), $('#coursDescriptionForm')); ")
 						.a("value", o.strCoursDescription())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("id", "leconDescriptionForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_leconDescription").a("class", "").f().sx("description").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "description")
+						.a("class", "setLeconDescription w3-input w3-border ")
+						.a("name", "setLeconDescription")
+						.a("id", "Page_leconDescription")
+						.a("onchange", "patchCours($('#CoursForm'), $('#leconDescriptionForm')); ")
+						.a("value", o.strLeconDescription())
 					.fg();
 
 				} g("form");
@@ -219,11 +253,11 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				e("label").a("for", "POST_supprime").a("class", "").f().sx("Supprimé").g("label");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_coursNumero").a("class", "").f().sx("cours numéro").g("label");
+				e("label").a("for", "POST_coursNumero").a("class", "").f().sx("cours").g("label");
 
 				e("input")
 					.a("type", "text")
-					.a("placeholder", "cours numéro")
+					.a("placeholder", "cours")
 					.a("class", "valeurCoursNumero w3-input w3-border ")
 					.a("name", "coursNumero")
 					.a("id", "POST_coursNumero")
@@ -241,6 +275,19 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					.a("name", "coursDescription")
 					.a("id", "POST_coursDescription")
 					.a("value", o.strCoursDescription())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_leconDescription").a("class", "").f().sx("description").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "description")
+					.a("class", "valeurLeconDescription w3-input w3-border ")
+					.a("name", "leconDescription")
+					.a("id", "POST_leconDescription")
+					.a("value", o.strLeconDescription())
 				.fg();
 
 			} g("div");
@@ -296,28 +343,15 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormPATCHCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "PATCH_coursNumero").a("class", "").f().sx("cours numéro").g("label");
+				e("label").a("for", "PATCH_coursNumero").a("class", "").f().sx("cours").g("label");
 
 				e("input")
 					.a("type", "text")
-					.a("placeholder", "cours numéro")
+					.a("placeholder", "cours")
 					.a("class", "setCoursNumero w3-input w3-border ")
 					.a("name", "setCoursNumero")
 					.a("id", "PATCH_coursNumero")
 					.a("value", o.strCoursNumero())
-				.fg();
-
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "PATCH_coursDescription").a("class", "").f().sx("description").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "description")
-					.a("class", "setCoursDescription w3-input w3-border ")
-					.a("name", "setCoursDescription")
-					.a("id", "PATCH_coursDescription")
-					.a("value", o.strCoursDescription())
 				.fg();
 
 			} g("div");
@@ -368,33 +402,35 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				.fg();
 			} g("div");
 		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_leconNumero").a("class", "").f().sx("leçon").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "leçon")
+					.a("class", "setLeconNumero w3-input w3-border ")
+					.a("name", "setLeconNumero")
+					.a("id", "PATCH_leconNumero")
+					.a("value", o.strLeconNumero())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormRechercheCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "Recherche_coursNumero").a("class", "").f().sx("cours numéro").g("label");
+				e("label").a("for", "Recherche_coursNumero").a("class", "").f().sx("cours").g("label");
 
 				e("input")
 					.a("type", "text")
-					.a("placeholder", "cours numéro")
+					.a("placeholder", "cours")
 					.a("class", "valeurCoursNumero w3-input w3-border ")
 					.a("name", "coursNumero")
 					.a("id", "Recherche_coursNumero")
 					.a("value", o.strCoursNumero())
-				.fg();
-
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "Recherche_coursDescription").a("class", "").f().sx("description").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "description")
-					.a("class", "valeurCoursDescription w3-input w3-border ")
-					.a("name", "coursDescription")
-					.a("id", "Recherche_coursDescription")
-					.a("value", o.strCoursDescription())
 				.fg();
 
 			} g("div");
@@ -445,26 +481,41 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				.fg();
 			} g("div");
 		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_leconNumero").a("class", "").f().sx("leçon").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "leçon")
+					.a("class", "valeurLeconNumero w3-input w3-border ")
+					.a("name", "leconNumero")
+					.a("id", "Recherche_leconNumero")
+					.a("value", o.strLeconNumero())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	@Override public void htmlBodyCoursFrFRGenPage() {
 
+		OperationRequest operationRequete = requeteSite_.getOperationRequete();
+		JsonObject params = operationRequete.getParams();
 		if(listeCours.size() == 0) {
 			//aucun cours trouvé
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
-					e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("aucun cours trouvé").g("span");
 			} g("h1");
-		} else if(listeCours.size() == 1) {
+		} else if(listeCours.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
 			// un cours
-			Cours o = listeCours.first();
-
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
-						e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
+						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx(pageH1).g("span");
 				} g("h1");
 			}
@@ -478,7 +529,92 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					e("span").a("class", " ").f().sx(pageH3).g("span");
 				} g("h3");
 			}
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show ").f();
+		} else {
+			// plusiers cours
+
+			{ e("h1").f();
+				if(contexteIconeClassesCss != null)
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
+				e("span").a("class", " ").f().sx("cours").g("span");
+			} g("h1");
+			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
+				{ e("thead").f();
+					{ e("tr").f();
+						e("th").f().sx("cours").g("th");
+						e("th").f().sx("leçon").g("th");
+						e("th").f().sx("description").g("th");
+					} g("tr");
+				} g("thead");
+				{ e("tbody").f();
+					for(int i = 0; i < listeCours.size(); i++) {
+						Cours o = listeCours.getList().get(i);
+						String uri = o.getPageUri();
+						{ e("tr").f();
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getCoursNumero());
+								} g("a");
+							} g("td");
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getLeconNumero());
+								} g("a");
+							} g("td");
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getCoursDescription());
+								} g("a");
+							} g("td");
+						} g("tr");
+					}
+				} g("tbody");
+			} g("table");
+		}
+
+		{ e("div").a("class", "").f();
+			{ e("form").a("id", "CoursForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/frFR/cours").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_frFR')); return false; ").f();
+				{ e("div").a("class", "w3-bar ").f();
+					e("input").a("type", "text")
+						.a("placeholder", "rechercher cours")
+						.a("title", "")
+						.a("class", "recherchePageRecherche_frFR w3-input w3-border w3-bar-item ")
+						.a("name", "pageRecherche_frFR")
+						.a("id", "recherchePageRecherche_frFR");
+					operationRequete.getParams().getJsonObject("query").forEach(paramRequete -> {
+						String entiteVar = null;
+						String valeurIndexe = null;
+						String paramNom = paramRequete.getKey();
+						Object paramValeursObjet = paramRequete.getValue();
+						JsonArray paramObjets = paramValeursObjet instanceof JsonArray ? (JsonArray)paramValeursObjet : new JsonArray().add(paramValeursObjet);
+
+						try {
+							for(Object paramObjet : paramObjets) {
+								switch(paramNom) {
+									case "q":
+										entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+										valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+										if("pageRecherche_frFR".equals(entiteVar))
+											a("value", URLDecoder.decode(valeurIndexe, "UTF-8"));
+								}
+							}
+						} catch(Exception e) {
+							ExceptionUtils.rethrow(e);
+						}
+					});
+					fg();
+					{ e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-green ")
+						.f();
+						e("i").a("class", "fas fa-search ").f().g("i");
+					} g("button");
+				} g("div");
+			} g("form");
+		} g("div");
+
+		if(listeCours.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+			Cours o = listeCours.first();
+
+			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("id", "CoursForm").a("style", "display: inline-block; ").f();
@@ -495,43 +631,10 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				o.htmlBody();
 
 			} g("div");
-		} else {
-			// plusiers cours
-
-			{ e("h1").f();
-				if(contexteIconeClassesCss != null)
-					e("i").a("class", contexteIconeClassesCss + " w3-margin-right-4 ").f().g("i");
-				e("span").a("class", " ").f().sx("cours").g("i");
-			} g("h1");
-			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
-				{ e("thead").f();
-					{ e("tr").f();
-						e("th").f().sx("cours numéro").g("th");
-						e("th").f().sx("description").g("th");
-					} g("tr");
-				} g("thead");
-				{ e("tbody").f();
-					for(int i = 0; i < listeCours.size(); i++) {
-						Cours o = listeCours.getList().get(i);
-						String uri = "/frFR/cours/" + o.getPk();
-						{ e("tr").f();
-							{ e("td").f();
-								{ e("a").a("href", uri).f();
-									sx(o.getCoursNumero());
-								} g("a");
-							} g("td");
-							{ e("td").f();
-								{ e("a").a("href", uri).f();
-									sx(o.getCoursDescription());
-								} g("a");
-							} g("td");
-						} g("tr");
-					}
-				} g("tbody");
-			} g("table");
 		}
 		e("div").f();
 
 		g("div");
 	}
+
 }

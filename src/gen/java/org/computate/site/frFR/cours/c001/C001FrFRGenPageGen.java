@@ -4,7 +4,6 @@ import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.site.frFR.cluster.Cluster;
-import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.text.StringEscapeUtils;
@@ -17,44 +16,6 @@ import org.computate.site.frFR.cours.CoursFrFRPage;
  * <br/>
  **/
 public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
-
-	///////////////
-	// listeC001 //
-	///////////////
-
-	/**	L'entité « listeC001 »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected ListeRecherche<C001> listeC001;
-	public Couverture<ListeRecherche<C001>> listeC001Couverture = new Couverture<ListeRecherche<C001>>().p(this).c(ListeRecherche.class).var("listeC001").o(listeC001);
-
-	/**	<br/>L'entité « listeC001 »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001FrFRGenPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:listeC001">Trouver l'entité listeC001 dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _listeC001(Couverture<ListeRecherche<C001>> c);
-
-	public ListeRecherche<C001> getListeC001() {
-		return listeC001;
-	}
-
-	public void setListeC001(ListeRecherche<C001> listeC001) {
-		this.listeC001 = listeC001;
-		this.listeC001Couverture.dejaInitialise = true;
-	}
-	protected C001FrFRGenPage listeC001Init() {
-		if(!listeC001Couverture.dejaInitialise) {
-			_listeC001(listeC001Couverture);
-			if(listeC001 == null)
-				setListeC001(listeC001Couverture.o);
-		}
-		if(listeC001 != null)
-			listeC001.initLoinPourClasse(requeteSite_);
-		listeC001Couverture.dejaInitialise(true);
-		return (C001FrFRGenPage)this;
-	}
 
 	//////////
 	// c001 //
@@ -115,7 +76,6 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 	}
 
 	public void initC001FrFRGenPage() {
-		listeC001Init();
 		c001Init();
 	}
 
@@ -129,7 +89,6 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 
 	public void requeteSiteC001FrFRGenPage(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteCoursFrFRPage(requeteSite_);
-		listeC001.setRequeteSite_(requeteSite_);
 		c001.setRequeteSite_(requeteSite_);
 	}
 
@@ -157,8 +116,6 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 	public Object obtenirC001FrFRGenPage(String var) throws Exception {
 		C001FrFRGenPage oC001FrFRGenPage = (C001FrFRGenPage)this;
 		switch(var) {
-			case "listeC001":
-				return oC001FrFRGenPage.listeC001;
 			case "c001":
 				return oC001FrFRGenPage.c001;
 			default:
@@ -226,17 +183,6 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 	}
 
 	public void htmlScriptsC001FrFRGenPage() {
-	}
-
-	////////////////
-	// htmlScript //
-	////////////////
-
-	public void htmlScript() {
-		htmlScriptC001FrFRGenPage();
-	}
-
-	public void htmlScriptC001FrFRGenPage() {
 	}
 
 	//////////////

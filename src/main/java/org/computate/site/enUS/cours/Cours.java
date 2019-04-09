@@ -12,9 +12,15 @@ import org.computate.site.enUS.cluster.Cluster;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.MiseEnPage;
 import org.computate.site.enUS.page.parti.PagePart;
-import org.computate.site.enUS.requete.RequeteSiteEnUS;
 
 public class Cours extends CoursGen<Cluster> {
+
+	@Override()
+	protected void  _classeNomsCanoniques(List<String> l) {
+		l.add(Cours.class.getCanonicalName());
+		l.add(org.computate.site.enUS.cours.Cours.class.getCanonicalName());
+		super._classeNomsCanoniques(l);
+	}
 
 	protected void _documentSolr(Couverture<SolrDocument> c) {  
 		c.o(requeteSite_.getDocumentSolr());
@@ -72,12 +78,19 @@ public class Cours extends CoursGen<Cluster> {
 		c.o(true);
 	}
 
+	protected void _estLecon(Couverture<Boolean> c) {
+		c.o(false);
+	}
+
 	protected void _coursNumero(Couverture<Integer> c) {
 		Matcher m = Pattern.compile("^C(\\d+)", Pattern.MULTILINE).matcher(getClass().getSimpleName());
 		if(m.find()) {
 			Integer o = Integer.parseInt(m.group(1));
 			c.o(o);
 		}
+	}
+
+	protected void _leconNumero(Couverture<Integer> c) {
 	}
 
 	protected void _coursIdentifiantMinuscule(Couverture<String> c) {
@@ -93,10 +106,41 @@ public class Cours extends CoursGen<Cluster> {
 	protected void _coursCree(Couverture<LocalDateTime> c) {
 	}
 
-	protected void _coursDescription(Couverture<String> c) {
+	protected void _coursIdentifiantUri(Couverture<String> o) {}
+
+	protected void _coursH1_enUS(Couverture<String> c) {
 	}
 
-	protected void _coursIdentifiantUri(Couverture<String> o) {}
+	protected void _coursH1_frFR(Couverture<String> c) {
+	}
+
+	protected void _coursH2_enUS(Couverture<String> c) {
+	}
+
+	protected void _coursH2_frFR(Couverture<String> c) {
+	}
+
+	protected void _coursDescription(Couverture<String> c) {
+		if(estCours)
+			c.o(coursH1_enUS + "\n" + coursH2_enUS);
+		else if(estLecon)
+			c.o(coursH1_enUS + "\n" + coursH2_enUS);
+	}
+
+	protected void _leconDescription(Couverture<String> c) {
+		if(estLecon)
+			c.o(coursH1_enUS + "\n" + coursH2_enUS);
+	}
+
+	protected void _pageUri_enUS(Couverture<String> c) {
+	}
+
+	protected void _pageUri_frFR(Couverture<String> c) {
+	}
+
+	protected void _pageUri(Couverture<String> c) {
+		c.o(pageUri_enUS);
+	}
 
 	protected void _pageCree(Couverture<LocalDateTime> c) {
 		c.o(coursCree);
@@ -150,6 +194,12 @@ public class Cours extends CoursGen<Cluster> {
 		} catch (NoSuchFieldException | SecurityException e) {
 			// ignore
 		}
+	}
+
+	protected void _pageRecherche_enUS(List<String> l) {
+	}
+
+	protected void _pageRecherche_frFR(List<String> l) {
 	}
 
 	public void  htmlBody() {

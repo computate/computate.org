@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import org.computate.site.frFR.cluster.Cluster;
 import javax.imageio.ImageIO;
 import org.computate.site.frFR.page.parti.PagePart;
+import java.lang.String;
 import org.apache.commons.exec.DefaultExecutor;
 import java.awt.image.BufferedImage;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
@@ -23,11 +25,13 @@ import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import org.computate.site.frFR.page.parti.PageParagraphe;
 import java.util.List;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true">Trouver la classe leconRecherche_enUS dans Solr</a>
  * <br/>
  **/
 public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
@@ -42,6 +46,8 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	public static final String C001L001ChoisirNomDomaine_Couleur = "green";
 	public static final String C001L001ChoisirNomDomaine_IconeGroupe = "regular";
 	public static final String C001L001ChoisirNomDomaine_IconeNom = "book";
+	public static final String C001L001ChoisirNomDomaineFrFRPage_Uri = "/frFR/cours/001/001-choisir-nom-domaine";
+	public static final String C001L001ChoisirNomDomaineEnUSPage_Uri = "/enUS/course/001/001-choose-domain-name";
 
 	///////////
 	// intro //
@@ -566,6 +572,152 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		return (C001L001ChoisirNomDomaine)this;
 	}
 
+	/////////////////////////
+	// leconRecherche_frFR //
+	/////////////////////////
+
+	/**	L'entité « leconRecherche_frFR »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 */
+	protected List<String> leconRecherche_frFR = new java.util.ArrayList<java.lang.String>();
+	public Couverture<List<String>> leconRecherche_frFRCouverture = new Couverture<List<String>>().p(this).c(List.class).var("leconRecherche_frFR").o(leconRecherche_frFR);
+
+	/**	<br/>L'entité « leconRecherche_frFR »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:leconRecherche_frFR">Trouver l'entité leconRecherche_frFR dans Solr</a>
+	 * <br/>
+	 * @param leconRecherche_frFR est l'entité déjà construit. 
+	 **/
+	protected abstract void _leconRecherche_frFR(List<String> l);
+
+	public List<String> getLeconRecherche_frFR() {
+		return leconRecherche_frFR;
+	}
+
+	public void setLeconRecherche_frFR(List<String> leconRecherche_frFR) {
+		this.leconRecherche_frFR = leconRecherche_frFR;
+		this.leconRecherche_frFRCouverture.dejaInitialise = true;
+	}
+	public C001L001ChoisirNomDomaine addLeconRecherche_frFR(String...objets) {
+		for(String o : objets) {
+			addLeconRecherche_frFR(o);
+		}
+		return (C001L001ChoisirNomDomaine)this;
+	}
+	public C001L001ChoisirNomDomaine addLeconRecherche_frFR(String o) {
+		if(o != null && !leconRecherche_frFR.contains(o))
+			this.leconRecherche_frFR.add(o);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+	public C001L001ChoisirNomDomaine setLeconRecherche_frFR(JsonArray objets) {
+		leconRecherche_frFR.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addLeconRecherche_frFR(o);
+		}
+		return (C001L001ChoisirNomDomaine)this;
+	}
+	protected C001L001ChoisirNomDomaine leconRecherche_frFRInit() {
+		if(!leconRecherche_frFRCouverture.dejaInitialise) {
+			_leconRecherche_frFR(leconRecherche_frFR);
+		}
+		leconRecherche_frFRCouverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	public List<String> solrLeconRecherche_frFR() {
+		return leconRecherche_frFR;
+	}
+
+	public String strLeconRecherche_frFR() {
+		return leconRecherche_frFR == null ? "" : leconRecherche_frFR.toString();
+	}
+
+	public String nomAffichageLeconRecherche_frFR() {
+		return null;
+	}
+
+	public String htmTooltipLeconRecherche_frFR() {
+		return null;
+	}
+
+	public String htmLeconRecherche_frFR() {
+		return leconRecherche_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strLeconRecherche_frFR());
+	}
+
+	/////////////////////////
+	// leconRecherche_enUS //
+	/////////////////////////
+
+	/**	L'entité « leconRecherche_enUS »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 */
+	protected List<String> leconRecherche_enUS = new java.util.ArrayList<java.lang.String>();
+	public Couverture<List<String>> leconRecherche_enUSCouverture = new Couverture<List<String>>().p(this).c(List.class).var("leconRecherche_enUS").o(leconRecherche_enUS);
+
+	/**	<br/>L'entité « leconRecherche_enUS »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:leconRecherche_enUS">Trouver l'entité leconRecherche_enUS dans Solr</a>
+	 * <br/>
+	 * @param leconRecherche_enUS est l'entité déjà construit. 
+	 **/
+	protected abstract void _leconRecherche_enUS(List<String> l);
+
+	public List<String> getLeconRecherche_enUS() {
+		return leconRecherche_enUS;
+	}
+
+	public void setLeconRecherche_enUS(List<String> leconRecherche_enUS) {
+		this.leconRecherche_enUS = leconRecherche_enUS;
+		this.leconRecherche_enUSCouverture.dejaInitialise = true;
+	}
+	public C001L001ChoisirNomDomaine addLeconRecherche_enUS(String...objets) {
+		for(String o : objets) {
+			addLeconRecherche_enUS(o);
+		}
+		return (C001L001ChoisirNomDomaine)this;
+	}
+	public C001L001ChoisirNomDomaine addLeconRecherche_enUS(String o) {
+		if(o != null && !leconRecherche_enUS.contains(o))
+			this.leconRecherche_enUS.add(o);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+	public C001L001ChoisirNomDomaine setLeconRecherche_enUS(JsonArray objets) {
+		leconRecherche_enUS.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addLeconRecherche_enUS(o);
+		}
+		return (C001L001ChoisirNomDomaine)this;
+	}
+	protected C001L001ChoisirNomDomaine leconRecherche_enUSInit() {
+		if(!leconRecherche_enUSCouverture.dejaInitialise) {
+			_leconRecherche_enUS(leconRecherche_enUS);
+		}
+		leconRecherche_enUSCouverture.dejaInitialise(true);
+		return (C001L001ChoisirNomDomaine)this;
+	}
+
+	public List<String> solrLeconRecherche_enUS() {
+		return leconRecherche_enUS;
+	}
+
+	public String strLeconRecherche_enUS() {
+		return leconRecherche_enUS == null ? "" : leconRecherche_enUS.toString();
+	}
+
+	public String nomAffichageLeconRecherche_enUS() {
+		return null;
+	}
+
+	public String htmTooltipLeconRecherche_enUS() {
+		return null;
+	}
+
+	public String htmLeconRecherche_enUS() {
+		return leconRecherche_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strLeconRecherche_enUS());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -598,6 +750,8 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		apres4Init();
 		apres5Init();
 		plusTardInit();
+		leconRecherche_frFRInit();
+		leconRecherche_enUSInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -625,97 +779,6 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteC001L001ChoisirNomDomaine(requeteSite_);
-	}
-
-	///////////
-	// image //
-	///////////
-
-	public static void image() {
-		try {
-			DefaultExecutor executeur = new DefaultExecutor();
-			{
-				new File("/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/cours/001/001-choisir-nom-domaine?pageRecapituler=true --out=/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
-				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org/src/main/resources/webroot/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
-				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
-				System.out.println(" * ImageHauteur.frFR: " + img.getHeight());
-			}
-			{
-				new File("/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/course/001/001-choose-domain-name?pageRecapituler=true --out=/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001/001-choose-domain-name-999.png"));
-				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org/src/main/resources/webroot/png/enUS/course/001/001-choose-domain-name-999.png"));
-				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
-				System.out.println(" * ImageHauteur.enUS: " + img.getHeight());
-			}
-		} catch(Exception e) {
-			ExceptionUtils.rethrow(e);
-		}
-	}
-
-	/////////////
-	// indexer //
-	/////////////
-
-	public static void indexer() {
-		try {
-			RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-			requeteSite.initLoinRequeteSiteFrFR();
-			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
-			siteContexte.initLoinSiteContexteFrFR();
-			siteContexte.setRequeteSite_(requeteSite);
-			requeteSite.setSiteContexte_(siteContexte);
-			C001L001ChoisirNomDomaine o = new C001L001ChoisirNomDomaine();
-			o.requeteSiteC001L001ChoisirNomDomaine(requeteSite);
-			o.initLoinC001L001ChoisirNomDomaine(requeteSite);
-			o.indexerC001L001ChoisirNomDomaine();
-		} catch(Exception e) {
-			ExceptionUtils.rethrow(e);
-		}
-	}
-
-
-	@Override public void indexerPourClasse() throws Exception {
-		indexerC001L001ChoisirNomDomaine();
-	}
-
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
-		indexerC001L001ChoisirNomDomaine(document);
-	}
-
-	public void indexerC001L001ChoisirNomDomaine(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L001ChoisirNomDomaine(document);
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerC001L001ChoisirNomDomaine() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L001ChoisirNomDomaine(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerC001L001ChoisirNomDomaine(SolrInputDocument document) throws Exception {
-		super.indexerC001Lecon(document);
-
-	}
-
-	public void desindexerC001L001ChoisirNomDomaine() throws Exception {
-		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-		requeteSite.initLoinRequeteSiteFrFR();
-		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-		siteContexte.initLoinSiteContexteFrFR();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001L001ChoisirNomDomaine(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
 	}
 
 	/////////////
@@ -760,6 +823,10 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 				return oC001L001ChoisirNomDomaine.apres5;
 			case "plusTard":
 				return oC001L001ChoisirNomDomaine.plusTard;
+			case "leconRecherche_frFR":
+				return oC001L001ChoisirNomDomaine.leconRecherche_frFR;
+			case "leconRecherche_enUS":
+				return oC001L001ChoisirNomDomaine.leconRecherche_enUS;
 			default:
 				return super.obtenirC001Lecon(var);
 		}
@@ -816,6 +883,121 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		}
 	}
 
+	///////////
+	// image //
+	///////////
+
+	public static void image() {
+		try {
+			DefaultExecutor executeur = new DefaultExecutor();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
+	}
+
+	/////////////
+	// indexer //
+	/////////////
+
+	public static void indexer() {
+		try {
+			RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
+			requeteSite.initLoinRequeteSiteFrFR();
+			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
+			siteContexte.initLoinSiteContexteFrFR();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
+			C001L001ChoisirNomDomaine o = new C001L001ChoisirNomDomaine();
+			o.requeteSiteC001L001ChoisirNomDomaine(requeteSite);
+			o.initLoinC001L001ChoisirNomDomaine(requeteSite);
+			o.indexerC001L001ChoisirNomDomaine();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
+	}
+
+
+	@Override public void indexerPourClasse() throws Exception {
+		indexerC001L001ChoisirNomDomaine();
+	}
+
+	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+		indexerC001L001ChoisirNomDomaine(document);
+	}
+
+	public void indexerC001L001ChoisirNomDomaine(SolrClient clientSolr) throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerC001L001ChoisirNomDomaine(document);
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerC001L001ChoisirNomDomaine() throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerC001L001ChoisirNomDomaine(document);
+		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerC001L001ChoisirNomDomaine(SolrInputDocument document) throws Exception {
+		if(leconRecherche_frFR != null) {
+			for(String o : leconRecherche_frFR) {
+				document.addField("leconRecherche_frFR_text_frFR", o);
+			}
+		}
+		if(leconRecherche_enUS != null) {
+			for(String o : leconRecherche_enUS) {
+				document.addField("leconRecherche_enUS_text_enUS", o);
+			}
+		}
+		super.indexerC001Lecon(document);
+
+	}
+
+	public void desindexerC001L001ChoisirNomDomaine() throws Exception {
+		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
+		requeteSite.initLoinRequeteSiteFrFR();
+		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+		siteContexte.initLoinSiteContexteFrFR();
+		siteContexte.setRequeteSite_(requeteSite);
+		requeteSite.setSiteContexte_(siteContexte);
+		requeteSite.setConfigSite_(siteContexte.getConfigSite());
+		initLoinC001L001ChoisirNomDomaine(siteContexte.getRequeteSite_());
+		SolrClient clientSolr = siteContexte.getClientSolr();
+		clientSolr.deleteById(id.toString());
+		clientSolr.commit();
+	}
+
+	/////////////
+	// stocker //
+	/////////////
+
+	@Override public void stockerPourClasse(SolrDocument solrDocument) {
+		stockerC001L001ChoisirNomDomaine(solrDocument);
+	}
+	public void stockerC001L001ChoisirNomDomaine(SolrDocument solrDocument) {
+		C001L001ChoisirNomDomaine oC001L001ChoisirNomDomaine = (C001L001ChoisirNomDomaine)this;
+
+		List<String> leconRecherche_frFR = (List<String>)solrDocument.get("leconRecherche_frFR_stored_strings");
+		if(leconRecherche_frFR != null)
+			oC001L001ChoisirNomDomaine.leconRecherche_frFR.addAll(leconRecherche_frFR);
+
+		List<String> leconRecherche_enUS = (List<String>)solrDocument.get("leconRecherche_enUS_stored_strings");
+		if(leconRecherche_enUS != null)
+			oC001L001ChoisirNomDomaine.leconRecherche_enUS.addAll(leconRecherche_enUS);
+
+		super.stockerC001Lecon(solrDocument);
+	}
+
 	//////////////
 	// htmlBody //
 	//////////////
@@ -866,7 +1048,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode());
+		return Objects.hash(super.hashCode(), leconRecherche_frFR, leconRecherche_enUS);
 	}
 
 	////////////
@@ -879,7 +1061,9 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		if(!(o instanceof C001L001ChoisirNomDomaine))
 			return false;
 		C001L001ChoisirNomDomaine that = (C001L001ChoisirNomDomaine)o;
-		return super.equals(o);
+		return super.equals(o)
+				&& Objects.equals( leconRecherche_frFR, that.leconRecherche_frFR )
+				&& Objects.equals( leconRecherche_enUS, that.leconRecherche_enUS );
 	}
 
 	//////////////
@@ -890,7 +1074,11 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("C001L001ChoisirNomDomaine {");
+		sb.append( "leconRecherche_frFR: " ).append(leconRecherche_frFR);
+		sb.append( ", leconRecherche_enUS: " ).append(leconRecherche_enUS);
 		sb.append(" }");
 		return sb.toString();
 	}
+
+	public static final String[] C001L001ChoisirNomDomaineVals = new String[] { introP1, introP2, moiP1, moiP2, moiP3, aLAvanceQuestion1, aLAvanceQuestionCourt1, aLAvanceReponse1, aLAvanceReponseCourt1, aLAvanceP1, aLAvanceP2, aLAvanceP3, aLAvanceP4, aLAvanceP5, acheterQuestion1, acheterQuestionCourt1, acheterReponse1, acheterReponseCourt1, acheterP1, acheterP2, acheterP3, acheterP4, acheterP5, appelerQuestion1, appelerQuestionCourt1, appelerReponse1, appelerReponseCourt1, appelerP1, appelerP2, appelerP3, appelerP4, apres1Question1, apres1QuestionCourt1, apres1Reponse1, apres1ReponseCourt1, apres1P1, apres1P2, apres1P3, apres2P1, apres2P2, apres2P3, apres2P4, apres2P5, apres2P6, apres3P1, apres3P2, apres4P1, apres4P2, apres4P3, apres5P1, apres5P2, apres5P3, apres5P4, plusTardQuestion1, plusTardQuestionCourt1, plusTardReponse1, plusTardReponseCourt1, plusTardP1, plusTardP2, plusTardP3, plusTardP4, plusTardP5, plusTardP6 };
 }

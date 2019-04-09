@@ -125,7 +125,7 @@ public class QuestionReponse extends QuestionReponseGen<PagePart> {
 
 	public void htmlBodyCourt() {
 		{ e("div").a("class", "w3-half ").f();
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-white ").f();
+			{ e("div").a("class", "w3-card w3-padding w3-white w3-margin-top w3-margin-right ").a("style", "min-height: 8em; ").f();
 				{ e("h3").a("class", "h3 htmlBodyCourt-qa-legend ").f();
 					{ e("div").a("class", "").f();
 						if(questionIconeNom != null && questionIconeType != null)

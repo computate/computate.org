@@ -3,6 +3,8 @@ package org.computate.site.enUS.cours.c001.l001;
 import org.computate.site.enUS.page.parti.PageParagraphe;
 import org.computate.site.enUS.page.parti.QuestionReponse;
 import org.computate.site.enUS.page.parti.PageHtml;
+import java.util.List;
+import java.lang.String;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
 import org.computate.site.enUS.cours.c001.C001LeconEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
@@ -20,6 +22,7 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import io.vertx.core.json.JsonObject;
 
 
 /**

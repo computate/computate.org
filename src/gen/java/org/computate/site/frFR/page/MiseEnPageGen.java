@@ -1979,6 +1979,62 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	}
 
 	//////////////////
+	// pageLeconUri //
+	//////////////////
+
+	/**	L'entité « pageLeconUri »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageLeconUri;
+	public Couverture<String> pageLeconUriCouverture = new Couverture<String>().p(this).c(String.class).var("pageLeconUri").o(pageLeconUri);
+
+	/**	<br/>L'entité « pageLeconUri »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageLeconUri">Trouver l'entité pageLeconUri dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageLeconUri(Couverture<String> c);
+
+	public String getPageLeconUri() {
+		return pageLeconUri;
+	}
+
+	public void setPageLeconUri(String pageLeconUri) {
+		this.pageLeconUri = pageLeconUri;
+		this.pageLeconUriCouverture.dejaInitialise = true;
+	}
+	protected MiseEnPage pageLeconUriInit() {
+		if(!pageLeconUriCouverture.dejaInitialise) {
+			_pageLeconUri(pageLeconUriCouverture);
+			if(pageLeconUri == null)
+				setPageLeconUri(pageLeconUriCouverture.o);
+		}
+		pageLeconUriCouverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
+
+	public String solrPageLeconUri() {
+		return pageLeconUri;
+	}
+
+	public String strPageLeconUri() {
+		return pageLeconUri == null ? "" : pageLeconUri;
+	}
+
+	public String nomAffichagePageLeconUri() {
+		return null;
+	}
+
+	public String htmTooltipPageLeconUri() {
+		return null;
+	}
+
+	public String htmPageLeconUri() {
+		return pageLeconUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageLeconUri());
+	}
+
+	//////////////////
 	// pageCoursUri //
 	//////////////////
 
@@ -2368,6 +2424,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		pageAccueilUriInit();
 		pageAProposUriInit();
 		pageBlogUriInit();
+		pageLeconUriInit();
 		pageCoursUriInit();
 		pageFaqUriInit();
 		pageUtilisateurUriInit();
@@ -2482,6 +2539,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				return oMiseEnPage.pageAProposUri;
 			case "pageBlogUri":
 				return oMiseEnPage.pageBlogUri;
+			case "pageLeconUri":
+				return oMiseEnPage.pageLeconUri;
 			case "pageCoursUri":
 				return oMiseEnPage.pageCoursUri;
 			case "pageFaqUri":
@@ -2643,7 +2702,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUriEnUS, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageBlogUri, pageCoursUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
+		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUriEnUS, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageBlogUri, pageLeconUri, pageCoursUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
 	}
 
 	////////////
@@ -2687,6 +2746,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				&& Objects.equals( pageAccueilUri, that.pageAccueilUri )
 				&& Objects.equals( pageAProposUri, that.pageAProposUri )
 				&& Objects.equals( pageBlogUri, that.pageBlogUri )
+				&& Objects.equals( pageLeconUri, that.pageLeconUri )
 				&& Objects.equals( pageCoursUri, that.pageCoursUri )
 				&& Objects.equals( pageFaqUri, that.pageFaqUri )
 				&& Objects.equals( pageUtilisateurUri, that.pageUtilisateurUri )
@@ -2733,6 +2793,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		sb.append( ", pageAccueilUri: \"" ).append(pageAccueilUri).append( "\"" );
 		sb.append( ", pageAProposUri: \"" ).append(pageAProposUri).append( "\"" );
 		sb.append( ", pageBlogUri: \"" ).append(pageBlogUri).append( "\"" );
+		sb.append( ", pageLeconUri: \"" ).append(pageLeconUri).append( "\"" );
 		sb.append( ", pageCoursUri: \"" ).append(pageCoursUri).append( "\"" );
 		sb.append( ", pageFaqUri: \"" ).append(pageFaqUri).append( "\"" );
 		sb.append( ", pageUtilisateurUri: \"" ).append(pageUtilisateurUri).append( "\"" );

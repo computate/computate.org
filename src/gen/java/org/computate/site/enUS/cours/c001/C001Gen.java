@@ -3,6 +3,7 @@ package org.computate.site.enUS.cours.c001;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
@@ -14,6 +15,8 @@ import org.apache.solr.common.SolrDocument;
 import org.computate.site.enUS.cluster.Cluster;
 import java.util.List;
 import org.computate.site.enUS.cours.Cours;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -26,11 +29,15 @@ public abstract class C001Gen<DEV> extends Cours {
 	public static final String C001_UnNom = "a course #1";
 	public static final String C001_NomSingulier = "course #1";
 	public static final String C001_NomPluriel = "course #1s";
+	public static final String C001_H1 = "Build modern asynchronous web applications with the best open source software. ";
+	public static final String C001_H2 = "With Vert.x, on Linux, PostgreSQL data, Solr search, deployable as Linux containers on OpenShift. ";
 	public static final String C001_LesNoms = "les course #1s";
 	public static final String C001_NomVar = "course#1";
 	public static final String C001_Couleur = "green";
 	public static final String C001_IconeGroupe = "regular";
 	public static final String C001_IconeNom = "university";
+	public static final String C001FrFRPage_Uri = "/frFR/cours/001";
+	public static final String C001EnUSPage_Uri = "/enUS/course/001";
 
 	//////////////
 	// initLoin //
@@ -84,6 +91,13 @@ public abstract class C001Gen<DEV> extends Cours {
 			siteContexte.initLoinSiteContexteEnUS();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.C001"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
 			C001 o = new C001();
 			o.requeteSiteC001(requeteSite);
 			o.initLoinC001(requeteSite);
@@ -210,6 +224,19 @@ public abstract class C001Gen<DEV> extends Cours {
 			default:
 				return super.definirCours(var, val);
 		}
+	}
+
+	/////////////
+	// stocker //
+	/////////////
+
+	@Override public void stockerPourClasse(SolrDocument solrDocument) {
+		stockerC001(solrDocument);
+	}
+	public void stockerC001(SolrDocument solrDocument) {
+		C001 oC001 = (C001)this;
+
+		super.stockerCours(solrDocument);
 	}
 
 	//////////////

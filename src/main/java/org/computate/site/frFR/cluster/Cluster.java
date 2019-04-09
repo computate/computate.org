@@ -3,9 +3,11 @@ package org.computate.site.frFR.cluster;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.solr.common.SolrDocument;
 import org.computate.site.frFR.chaine.Chaine;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
@@ -19,7 +21,7 @@ import org.computate.site.frFR.xml.OutilXml;
  * MotCle: classeNomSimpleCluster
  * Modele: true
  */  
-public class Cluster extends ClusterGen<Object> {   
+public class Cluster extends ClusterGen<Object> {     
 
 	public static DateTimeFormatter FORMAT_dateMedicalCourt = DateTimeFormatter.ofPattern("M/d/yyyy", Locale.FRANCE);
 
@@ -97,6 +99,14 @@ public class Cluster extends ClusterGen<Object> {
 	 * NomAffichage.enUS: Modified
 	 */
 	protected void _modifie(Couverture<LocalDateTime> c) {}
+
+	/**
+	 * Indexe: true
+	 * Stocke: true
+	 **/
+	protected void _classeNomsCanoniques(List<String> l) {
+		l.add(Cluster.class.getCanonicalName());
+	}
 
 	/**
 	 * Indexe: true

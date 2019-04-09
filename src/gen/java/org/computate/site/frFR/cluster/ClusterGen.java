@@ -17,6 +17,7 @@ import java.lang.String;
 import java.time.ZoneOffset;
 import io.vertx.core.logging.Logger;
 import org.computate.site.frFR.page.MiseEnPage;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import java.util.Set;
 import org.apache.commons.text.StringEscapeUtils;
 import java.time.Instant;
@@ -28,9 +29,11 @@ import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
 import java.time.format.DateTimeFormatter;
+import org.apache.solr.client.solrj.SolrQuery;
 import io.vertx.ext.sql.SQLConnection;
 import java.lang.Object;
 import io.vertx.ext.sql.SQLClient;
+import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -720,6 +723,120 @@ public abstract class ClusterGen<DEV> extends Object {
 		}
 	}
 
+	//////////////////////////
+	// classeNomsCanoniques //
+	//////////////////////////
+
+	/**	L'entité « classeNomsCanoniques »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 */
+	protected List<String> classeNomsCanoniques = new java.util.ArrayList<java.lang.String>();
+	public Couverture<List<String>> classeNomsCanoniquesCouverture = new Couverture<List<String>>().p(this).c(List.class).var("classeNomsCanoniques").o(classeNomsCanoniques);
+
+	/**	<br/>L'entité « classeNomsCanoniques »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:classeNomsCanoniques">Trouver l'entité classeNomsCanoniques dans Solr</a>
+	 * <br/>
+	 * @param classeNomsCanoniques est l'entité déjà construit. 
+	 **/
+	protected abstract void _classeNomsCanoniques(List<String> l);
+
+	public List<String> getClasseNomsCanoniques() {
+		return classeNomsCanoniques;
+	}
+
+	public void setClasseNomsCanoniques(List<String> classeNomsCanoniques) {
+		this.classeNomsCanoniques = classeNomsCanoniques;
+		this.classeNomsCanoniquesCouverture.dejaInitialise = true;
+	}
+	public Cluster addClasseNomsCanoniques(String...objets) {
+		for(String o : objets) {
+			addClasseNomsCanoniques(o);
+		}
+		return (Cluster)this;
+	}
+	public Cluster addClasseNomsCanoniques(String o) {
+		if(o != null && !classeNomsCanoniques.contains(o))
+			this.classeNomsCanoniques.add(o);
+		return (Cluster)this;
+	}
+	public Cluster setClasseNomsCanoniques(JsonArray objets) {
+		classeNomsCanoniques.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addClasseNomsCanoniques(o);
+		}
+		return (Cluster)this;
+	}
+	protected Cluster classeNomsCanoniquesInit() {
+		if(!classeNomsCanoniquesCouverture.dejaInitialise) {
+			_classeNomsCanoniques(classeNomsCanoniques);
+		}
+		classeNomsCanoniquesCouverture.dejaInitialise(true);
+		return (Cluster)this;
+	}
+
+	public List<String> solrClasseNomsCanoniques() {
+		return classeNomsCanoniques;
+	}
+
+	public String strClasseNomsCanoniques() {
+		return classeNomsCanoniques == null ? "" : classeNomsCanoniques.toString();
+	}
+
+	public String nomAffichageClasseNomsCanoniques() {
+		return null;
+	}
+
+	public String htmTooltipClasseNomsCanoniques() {
+		return null;
+	}
+
+	public String htmClasseNomsCanoniques() {
+		return classeNomsCanoniques == null ? "" : StringEscapeUtils.escapeHtml4(strClasseNomsCanoniques());
+	}
+
+	public void htmClasseNomsCanoniques(ToutEcrivain r, Boolean patchDroits) {
+		if(pk!= null) {
+			r.s("<div id=\"patchCluster", strPk(), "ClasseNomsCanoniques\">");
+			if(patchDroits) {
+				r.l();
+				r.l("	<script>//<![CDATA[");
+				r.l("		function patchCluster", strPk(), "ClasseNomsCanoniques() {");
+				r.l("			$.ajax({");
+				r.l("				url: '?fq=pk:", strPk(), "',");
+				r.l("				dataType: 'json',");
+				r.l("				type: 'patch',");
+				r.l("				contentType: 'application/json',");
+				r.l("				processData: false,");
+				r.l("				success: function( data, textStatus, jQxhr ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				data: {\"setClasseNomsCanoniques\": this.value },");
+				r.l("				");
+				r.l("			});");
+				r.l("		}");
+				r.l("	//]]></script>");
+				r.l("	<div class=\"\">");
+				r.l("		<label class=\"w3-tooltip \">");
+				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageClasseNomsCanoniques()), "</span>");
+				r.s("			<input");
+							r.s(" name=\"classeNomsCanoniques\"");
+							r.s(" value=\"", htmClasseNomsCanoniques(), "\");");
+							r.s(" onchange=\"\"");
+							r.l("/>");
+				r.l("		</label>");
+				r.l("	</div>");
+			} else {
+				r.s(htmClasseNomsCanoniques());
+			}
+			r.l("</div>");
+		}
+	}
+
 	////////////////////////
 	// classeNomCanonique //
 	////////////////////////
@@ -940,6 +1057,7 @@ public abstract class ClusterGen<DEV> extends Object {
 		utilisateurIdInit();
 		creeInit();
 		modifieInit();
+		classeNomsCanoniquesInit();
 		classeNomCanoniqueInit();
 		classeNomSimpleInit();
 	}
@@ -972,6 +1090,13 @@ public abstract class ClusterGen<DEV> extends Object {
 			siteContexte.initLoinSiteContexteFrFR();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cluster.Cluster"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
 			Cluster o = new Cluster();
 			o.requeteSiteCluster(requeteSite);
 			o.initLoinCluster(requeteSite);
@@ -1028,6 +1153,14 @@ public abstract class ClusterGen<DEV> extends Object {
 		if(modifie != null) {
 			document.addField("modifie_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
 			document.addField("modifie_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
+		}
+		if(classeNomsCanoniques != null) {
+			for(java.lang.String o : classeNomsCanoniques) {
+				document.addField("classeNomsCanoniques_indexed_strings", o);
+			}
+			for(java.lang.String o : classeNomsCanoniques) {
+				document.addField("classeNomsCanoniques_stored_strings", o);
+			}
 		}
 		if(classeNomCanonique != null) {
 			document.addField("classeNomCanonique_indexed_string", classeNomCanonique);
@@ -1089,6 +1222,8 @@ public abstract class ClusterGen<DEV> extends Object {
 				return oCluster.cree;
 			case "modifie":
 				return oCluster.modifie;
+			case "classeNomsCanoniques":
+				return oCluster.classeNomsCanoniques;
 			case "classeNomCanonique":
 				return oCluster.classeNomCanonique;
 			case "classeNomSimple":
@@ -1168,6 +1303,11 @@ public abstract class ClusterGen<DEV> extends Object {
 				setModifie(val);
 				sauvegardesCluster.add(var);
 				return val;
+			case "classeNomsCanoniques":
+				addClasseNomsCanoniques(val);
+				if(!sauvegardesCluster.contains(var))
+					sauvegardesCluster.add(var);
+				return val;
 			case "classeNomCanonique":
 				setClasseNomCanonique(val);
 				sauvegardesCluster.add(var);
@@ -1223,6 +1363,12 @@ public abstract class ClusterGen<DEV> extends Object {
 					oCluster.setModifie(modifie);
 			}
 
+			if(sauvegardesCluster.contains("classeNomsCanoniques")) {
+				List<String> classeNomsCanoniques = (List<String>)solrDocument.get("classeNomsCanoniques_stored_strings");
+				if(classeNomsCanoniques != null)
+					oCluster.classeNomsCanoniques.addAll(classeNomsCanoniques);
+			}
+
 			if(sauvegardesCluster.contains("classeNomCanonique")) {
 				String classeNomCanonique = (String)solrDocument.get("classeNomCanonique_stored_string");
 				if(classeNomCanonique != null)
@@ -1266,6 +1412,10 @@ public abstract class ClusterGen<DEV> extends Object {
 		if(modifie != null)
 			oCluster.setModifie(modifie);
 
+		List<String> classeNomsCanoniques = (List<String>)solrDocument.get("classeNomsCanoniques_stored_strings");
+		if(classeNomsCanoniques != null)
+			oCluster.classeNomsCanoniques.addAll(classeNomsCanoniques);
+
 		String classeNomCanonique = (String)solrDocument.get("classeNomCanonique_stored_string");
 		if(classeNomCanonique != null)
 			oCluster.setClasseNomCanonique(classeNomCanonique);
@@ -1280,7 +1430,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(pk, id, supprime, utilisateurId, cree, modifie, classeNomCanonique, classeNomSimple);
+		return Objects.hash(pk, id, supprime, utilisateurId, cree, modifie, classeNomsCanoniques, classeNomCanonique, classeNomSimple);
 	}
 
 	////////////
@@ -1299,6 +1449,7 @@ public abstract class ClusterGen<DEV> extends Object {
 				&& Objects.equals( utilisateurId, that.utilisateurId )
 				&& Objects.equals( cree, that.cree )
 				&& Objects.equals( modifie, that.modifie )
+				&& Objects.equals( classeNomsCanoniques, that.classeNomsCanoniques )
 				&& Objects.equals( classeNomCanonique, that.classeNomCanonique )
 				&& Objects.equals( classeNomSimple, that.classeNomSimple );
 	}
@@ -1316,6 +1467,7 @@ public abstract class ClusterGen<DEV> extends Object {
 		sb.append( ", utilisateurId: \"" ).append(utilisateurId).append( "\"" );
 		sb.append( ", cree: " ).append(cree);
 		sb.append( ", modifie: " ).append(modifie);
+		sb.append( ", classeNomsCanoniques: " ).append(classeNomsCanoniques);
 		sb.append( ", classeNomCanonique: \"" ).append(classeNomCanonique).append( "\"" );
 		sb.append( ", classeNomSimple: \"" ).append(classeNomSimple).append( "\"" );
 		sb.append(" }");
