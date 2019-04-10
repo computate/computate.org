@@ -166,3 +166,11 @@ textarea {
 	width: 1.4em;
 	text-align: center;
 }
+.site-highlight {
+	font-family: arial,sans-serif;
+	font-size: small;
+}
+em {
+	font-weight: bold;
+	font-style: normal;
+}

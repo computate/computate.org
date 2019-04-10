@@ -27,6 +27,7 @@ import io.vertx.core.json.JsonArray;
 import java.net.URLDecoder;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.StringUtils;
+import java.util.Map;
 
 
 /**
@@ -160,8 +161,11 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 					} g("tr");
 				} g("thead");
 				{ e("tbody").f();
+					Map<String, Map<String, List<String>>> highlighting = listeCours.getQueryResponse().getHighlighting();
 					for(int i = 0; i < listeCours.size(); i++) {
 						Cours o = listeCours.getList().get(i);
+						Map<String, List<String>> highlights = highlighting == null ? null : highlighting.get(o.getId());
+						List<String> highlightList = highlights == null ? null : highlights.get(highlights.keySet().stream().findFirst().orElse(null));
 						String uri = o.getPageUri();
 						{ e("tr").f();
 							{ e("td").f();
@@ -178,6 +182,11 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 								{ e("a").a("href", uri).f();
 									sx(o.getCoursDescription());
 								} g("a");
+								if(highlightList != null) {
+									{ e("div").a("class", "site-highlight ").f();
+										s(StringUtils.join(highlightList, " ... "));
+									} g("div");
+								}
 							} g("td");
 						} g("tr");
 					}

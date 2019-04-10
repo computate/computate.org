@@ -437,7 +437,6 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 
 			operationRequete.getParams().getJsonObject("query").forEach(paramRequete -> {
 				String entiteVar = null;
-				String entiteVarRecherche = null;
 				String valeurIndexe = null;
 				String varIndexe = null;
 				String valeurTri = null;
@@ -452,15 +451,16 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 						switch(paramNom) {
 							case "q":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-								entiteVarRecherche = varRechercheCours(entiteVar);
-								varIndexe = "*".equals(entiteVar) ? entiteVar : entiteVarRecherche;
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheCours(entiteVar);
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
 								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
 								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
-								listeRecherche.setHighlight(true);
-								listeRecherche.setHighlightSnippets(3);
-								listeRecherche.addHighlightField(entiteVarRecherche);
-								listeRecherche.setParam("hl.encoder", "html");
+								if(!"*".equals(entiteVar)) {
+									listeRecherche.setHighlight(true);
+									listeRecherche.setHighlightSnippets(3);
+									listeRecherche.addHighlightField(varIndexe);
+									listeRecherche.setParam("hl.encoder", "html");
+								}
 								break;
 							case "fq":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));

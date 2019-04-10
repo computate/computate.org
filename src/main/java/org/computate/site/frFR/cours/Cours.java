@@ -273,6 +273,7 @@ public class Cours extends CoursGen<Cluster> {
 	 * HtmlColonne: 3
 	 * NomAffichage.frFR: description
 	 * NomAffichage.enUS: description
+	 * Highlighting: true
 	 * r: frFR
 	 * r.enUS: enUS
 	 */
