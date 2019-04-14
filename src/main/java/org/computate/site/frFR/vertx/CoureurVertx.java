@@ -15,7 +15,8 @@ public class CoureurVertx {
 
 	public static void run(Class<?> c) {
 		JsonObject zkConfig = new JsonObject();
-		zkConfig.put("zookeeperHosts", "localhost:10281");
+		String zookeeperHosts = System.getenv("zookeeperNomHote") + ":" + System.getenv("zookeeperPort");
+		zkConfig.put("zookeeperHosts", zookeeperHosts);
 		zkConfig.put("sessionTimeout", 20000);
 		zkConfig.put("connectTimeout", 3000);
 		zkConfig.put("rootPath", "io.vertx");

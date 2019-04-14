@@ -40,6 +40,12 @@ public class PageHtml extends PageHtmlGen<PagePart> {
 	public void  htmlBody() {
 	}
 
+	public void  htmlAvant() {
+	}
+
+	public void  htmlApres() {
+	}
+
 	public void  htmlBodyCourt() {
 	}
 

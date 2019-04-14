@@ -82,6 +82,11 @@ public class PageParagraphe extends PageParagrapheGen<PagePart> {
 		w.g("p");
 	}
 
+	public void htmlAvant() {
+	}
+	public void htmlApres() {
+	}
+
 	///////////////
 	// htmlBodyCourt //
 	///////////////

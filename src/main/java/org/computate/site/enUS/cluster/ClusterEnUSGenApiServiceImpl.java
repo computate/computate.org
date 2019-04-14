@@ -64,6 +64,7 @@ import io.vertx.ext.web.api.OperationRequest;
 import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import java.util.Optional;
 import java.util.stream.Stream;
+import java.net.URLDecoder;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 
@@ -85,6 +86,36 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 	}
 
 	public String varIndexeCluster(String entiteVar) {
+		switch(entiteVar) {
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varRechercheCluster(String entiteVar) {
+		switch(entiteVar) {
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varSuggereCluster(String entiteVar) {
 		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
@@ -134,21 +165,25 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
-			clientSql.getConnection(sqlAsync -> {
-				if(sqlAsync.succeeded()) {
-					SQLConnection connexionSql = sqlAsync.result();
-					connexionSql.setAutoCommit(false, a -> {
-						if(a.succeeded()) {
-							requeteSite.setConnexionSql(connexionSql);
-							gestionnaireEvenements.handle(Future.succeededFuture());
-						} else {
-							gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
-						}
-					});
-				} else {
-					gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
-				}
-			});
+			if(clientSql == null) {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			} else {
+				clientSql.getConnection(sqlAsync -> {
+					if(sqlAsync.succeeded()) {
+						SQLConnection connexionSql = sqlAsync.result();
+						connexionSql.setAutoCommit(false, a -> {
+							if(a.succeeded()) {
+								requeteSite.setConnexionSql(connexionSql);
+								gestionnaireEvenements.handle(Future.succeededFuture());
+							} else {
+								gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
+							}
+						});
+					} else {
+						gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
+					}
+				});
+			}
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
 		}
@@ -301,40 +336,51 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 				Object paramValeursObjet = paramRequete.getValue();
 				JsonArray paramObjets = paramValeursObjet instanceof JsonArray ? (JsonArray)paramValeursObjet : new JsonArray().add(paramValeursObjet);
 
-				for(Object paramObjet : paramObjets) {
-					switch(paramNom) {
-						case "q":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = "*".equals(entiteVar) ? entiteVar : varIndexeCluster(entiteVar);
-							listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
-							break;
-						case "fq":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = varIndexeCluster(entiteVar);
-							listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
-							break;
-						case "sort":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
-							valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-							varIndexe = varIndexeCluster(entiteVar);
-							listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
-							break;
-						case "fl":
-							entiteVar = StringUtils.trim((String)paramObjet);
-							varIndexe = varIndexeCluster(entiteVar);
-							listeRecherche.addField(varIndexe);
-							break;
-						case "start":
-							rechercheDebut = (Integer)paramObjet;
-							listeRecherche.setStart(rechercheDebut);
-							break;
-						case "rows":
-							rechercheNum = (Integer)paramObjet;
-							listeRecherche.setRows(rechercheNum);
-							break;
+				try {
+					for(Object paramObjet : paramObjets) {
+						switch(paramNom) {
+							case "q":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheCluster(entiteVar);
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
+								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
+								if(!"*".equals(entiteVar)) {
+									listeRecherche.setHighlight(true);
+									listeRecherche.setHighlightSnippets(3);
+									listeRecherche.addHighlightField(varIndexe);
+									listeRecherche.setParam("hl.encoder", "html");
+								}
+								break;
+							case "fq":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								varIndexe = varIndexeCluster(entiteVar);
+								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
+								break;
+							case "sort":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
+								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
+								varIndexe = varIndexeCluster(entiteVar);
+								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
+								break;
+							case "fl":
+								entiteVar = StringUtils.trim((String)paramObjet);
+								varIndexe = varIndexeCluster(entiteVar);
+								listeRecherche.addField(varIndexe);
+								break;
+							case "start":
+								rechercheDebut = (Integer)paramObjet;
+								listeRecherche.setStart(rechercheDebut);
+								break;
+							case "rows":
+								rechercheNum = (Integer)paramObjet;
+								listeRecherche.setRows(rechercheNum);
+								break;
+						}
 					}
+				} catch(Exception e) {
+					gestionnaireEvenements.handle(Future.failedFuture(e));
 				}
 			});
 			listeRecherche.initLoinPourClasse(requeteSite);

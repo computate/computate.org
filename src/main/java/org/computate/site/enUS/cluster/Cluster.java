@@ -6,11 +6,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.solr.common.SolrDocument;
 import org.computate.site.enUS.chaine.Chaine;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.page.MiseEnPage;
+import org.computate.site.enUS.page.parti.PagePart;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.xml.OutilXml;
 
@@ -20,7 +20,11 @@ public class Cluster extends ClusterGen<Object> {
 
 	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {}
 
-	protected void _page_(Couverture<MiseEnPage> c) {}
+	protected void _pageParts(List<PagePart> l) {
+	}
+
+	public void  avantPagePart(PagePart o, String var) {
+	}
 
 	protected void _pk(Couverture<Long> c) {}
 

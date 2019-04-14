@@ -91,10 +91,10 @@ public class SiteContexteEnUS extends SiteContexteEnUSGen<Object> {
 	}
 
 	protected void _clientSql(Couverture<SQLClient> c) {
-		if(vertx != null) {
-			SQLClient o = JDBCClient.createShared(vertx, jdbcConfig);
-			c.o(o);
-		}
+//		if(vertx != null) {
+//			SQLClient o = JDBCClient.createShared(vertx, jdbcConfig);
+//			c.o(o);
+//		}
 	}
 
 	protected void _clientSolr(Couverture<HttpSolrClient> c) {

@@ -13,10 +13,10 @@ import org.computate.site.enUS.cluster.Cluster;
 import java.lang.Long;
 import java.lang.Boolean;
 import io.vertx.core.json.JsonObject;
+import org.computate.site.enUS.page.parti.PagePart;
 import java.lang.String;
 import java.time.ZoneOffset;
 import io.vertx.core.logging.Logger;
-import org.computate.site.enUS.page.MiseEnPage;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import java.util.Set;
 import org.apache.commons.text.StringEscapeUtils;
@@ -71,31 +71,49 @@ public abstract class ClusterGen<DEV> extends Object {
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
 
-	///////////
-	// page_ //
-	///////////
+	///////////////
+	// pageParts //
+	///////////////
 
-	/**	L'entité « page_ »
-	 *	 is defined as null before being initialized. 
+	/**	L'entité « pageParts »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<PagePart>(). 
 	 */
-	protected MiseEnPage page_;
-	public Couverture<MiseEnPage> page_Couverture = new Couverture<MiseEnPage>().p(this).c(MiseEnPage.class).var("page_").o(page_);
+	protected List<PagePart> pageParts = new java.util.ArrayList<org.computate.site.enUS.page.parti.PagePart>();
+	public Couverture<List<PagePart>> pagePartsCouverture = new Couverture<List<PagePart>>().p(this).c(List.class).var("pageParts").o(pageParts);
 
-	/**	<br/>L'entité « page_ »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:page_">Trouver l'entité page_ dans Solr</a>
+	/**	<br/>L'entité « pageParts »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<PagePart>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageParts">Trouver l'entité pageParts dans Solr</a>
 	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 * @param pageParts est l'entité déjà construit. 
 	 **/
-	protected abstract void _page_(Couverture<MiseEnPage> c);
+	protected abstract void _pageParts(List<PagePart> l);
 
-	public MiseEnPage getPage_() {
-		return page_;
+	public List<PagePart> getPageParts() {
+		return pageParts;
 	}
 
-	public void setPage_(MiseEnPage page_) {
-		this.page_ = page_;
-		this.page_Couverture.dejaInitialise = true;
+	public void setPageParts(List<PagePart> pageParts) {
+		this.pageParts = pageParts;
+		this.pagePartsCouverture.dejaInitialise = true;
+	}
+	public Cluster addPageParts(PagePart...objets) {
+		for(PagePart o : objets) {
+			addPageParts(o);
+		}
+		return (Cluster)this;
+	}
+	public Cluster addPageParts(PagePart o) {
+		if(o != null && !pageParts.contains(o))
+			this.pageParts.add(o);
+		return (Cluster)this;
+	}
+	protected Cluster pagePartsInit() {
+		if(!pagePartsCouverture.dejaInitialise) {
+			_pageParts(pageParts);
+		}
+		pagePartsCouverture.dejaInitialise(true);
+		return (Cluster)this;
 	}
 
 	////////
@@ -1051,6 +1069,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 
 	public void initCluster() {
+		pagePartsInit();
 		pkInit();
 		idInit();
 		supprimeInit();
@@ -1078,115 +1097,6 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 
 	/////////////
-	// indexer //
-	/////////////
-
-	public static void indexer() {
-		try {
-			RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-			requeteSite.initLoinRequeteSiteEnUS();
-			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
-			siteContexte.initLoinSiteContexteEnUS();
-			siteContexte.setRequeteSite_(requeteSite);
-			requeteSite.setSiteContexte_(siteContexte);
-			SolrQuery rechercheSolr = new SolrQuery();
-			rechercheSolr.setQuery("*:*");
-			rechercheSolr.setRows(1);
-			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cluster.Cluster"));
-			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
-			if(reponseRecherche.getResults().size() > 0)
-				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
-			Cluster o = new Cluster();
-			o.requeteSiteCluster(requeteSite);
-			o.initLoinCluster(requeteSite);
-			o.indexerCluster();
-		} catch(Exception e) {
-			ExceptionUtils.rethrow(e);
-		}
-	}
-
-
-	public void indexerPourClasse() throws Exception {
-		indexerCluster();
-	}
-
-	public void indexerPourClasse(SolrInputDocument document) throws Exception {
-		indexerCluster(document);
-	}
-
-	public void indexerCluster(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCluster(document);
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerCluster() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCluster(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerCluster(SolrInputDocument document) throws Exception {
-		if(sauvegardesCluster != null)
-			document.addField("sauvegardesCluster_stored_strings", sauvegardesCluster);
-
-		if(pk != null) {
-			document.addField("pk_indexed_long", pk);
-			document.addField("pk_stored_long", pk);
-		}
-		if(id != null) {
-			document.addField("id", id);
-			document.addField("id_indexed_string", id);
-		}
-		if(utilisateurId != null) {
-			document.addField("utilisateurId_indexed_string", utilisateurId);
-			document.addField("utilisateurId_stored_string", utilisateurId);
-		}
-		if(cree != null) {
-			document.addField("cree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(cree.atOffset(ZoneOffset.UTC)));
-			document.addField("cree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(cree.atOffset(ZoneOffset.UTC)));
-		}
-		if(modifie != null) {
-			document.addField("modifie_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
-			document.addField("modifie_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
-		}
-		if(classeNomsCanoniques != null) {
-			for(java.lang.String o : classeNomsCanoniques) {
-				document.addField("classeNomsCanoniques_indexed_strings", o);
-			}
-			for(java.lang.String o : classeNomsCanoniques) {
-				document.addField("classeNomsCanoniques_stored_strings", o);
-			}
-		}
-		if(classeNomCanonique != null) {
-			document.addField("classeNomCanonique_indexed_string", classeNomCanonique);
-			document.addField("classeNomCanonique_stored_string", classeNomCanonique);
-		}
-		if(classeNomSimple != null) {
-			document.addField("classeNomSimple_indexed_string", classeNomSimple);
-			document.addField("classeNomSimple_stored_string", classeNomSimple);
-		}
-	}
-
-	public void desindexerCluster() throws Exception {
-		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinCluster(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
-	}
-
-	/////////////
 	// obtenir //
 	/////////////
 
@@ -1208,8 +1118,8 @@ public abstract class ClusterGen<DEV> extends Object {
 		switch(var) {
 			case "requeteSite_":
 				return oCluster.requeteSite_;
-			case "page_":
-				return oCluster.page_;
+			case "pageParts":
+				return oCluster.pageParts;
 			case "pk":
 				return oCluster.pk;
 			case "id":
@@ -1381,6 +1291,115 @@ public abstract class ClusterGen<DEV> extends Object {
 					oCluster.setClasseNomSimple(classeNomSimple);
 			}
 		}
+	}
+
+	/////////////
+	// indexer //
+	/////////////
+
+	public static void indexer() {
+		try {
+			RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cluster.Cluster"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
+			Cluster o = new Cluster();
+			o.requeteSiteCluster(requeteSite);
+			o.initLoinCluster(requeteSite);
+			o.indexerCluster();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
+	}
+
+
+	public void indexerPourClasse() throws Exception {
+		indexerCluster();
+	}
+
+	public void indexerPourClasse(SolrInputDocument document) throws Exception {
+		indexerCluster(document);
+	}
+
+	public void indexerCluster(SolrClient clientSolr) throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerCluster(document);
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerCluster() throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerCluster(document);
+		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerCluster(SolrInputDocument document) throws Exception {
+		if(sauvegardesCluster != null)
+			document.addField("sauvegardesCluster_stored_strings", sauvegardesCluster);
+
+		if(pk != null) {
+			document.addField("pk_indexed_long", pk);
+			document.addField("pk_stored_long", pk);
+		}
+		if(id != null) {
+			document.addField("id", id);
+			document.addField("id_indexed_string", id);
+		}
+		if(utilisateurId != null) {
+			document.addField("utilisateurId_indexed_string", utilisateurId);
+			document.addField("utilisateurId_stored_string", utilisateurId);
+		}
+		if(cree != null) {
+			document.addField("cree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(cree.atOffset(ZoneOffset.UTC)));
+			document.addField("cree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(cree.atOffset(ZoneOffset.UTC)));
+		}
+		if(modifie != null) {
+			document.addField("modifie_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
+			document.addField("modifie_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
+		}
+		if(classeNomsCanoniques != null) {
+			for(java.lang.String o : classeNomsCanoniques) {
+				document.addField("classeNomsCanoniques_indexed_strings", o);
+			}
+			for(java.lang.String o : classeNomsCanoniques) {
+				document.addField("classeNomsCanoniques_stored_strings", o);
+			}
+		}
+		if(classeNomCanonique != null) {
+			document.addField("classeNomCanonique_indexed_string", classeNomCanonique);
+			document.addField("classeNomCanonique_stored_string", classeNomCanonique);
+		}
+		if(classeNomSimple != null) {
+			document.addField("classeNomSimple_indexed_string", classeNomSimple);
+			document.addField("classeNomSimple_stored_string", classeNomSimple);
+		}
+	}
+
+	public void desindexerCluster() throws Exception {
+		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
+		requeteSite.initLoinRequeteSiteEnUS();
+		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+		siteContexte.initLoinSiteContexteEnUS();
+		siteContexte.setRequeteSite_(requeteSite);
+		requeteSite.setSiteContexte_(siteContexte);
+		requeteSite.setConfigSite_(siteContexte.getConfigSite());
+		initLoinCluster(siteContexte.getRequeteSite_());
+		SolrClient clientSolr = siteContexte.getClientSolr();
+		clientSolr.deleteById(id.toString());
+		clientSolr.commit();
 	}
 
 	/////////////

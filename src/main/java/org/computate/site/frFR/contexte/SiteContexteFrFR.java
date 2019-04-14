@@ -86,10 +86,10 @@ public class SiteContexteFrFR extends SiteContexteFrFRGen<Object> {
 
 	/**	Le source de données du site. **/
 	protected void _clientSql(Couverture<SQLClient> c) {
-		if(vertx != null) {
-			SQLClient o = JDBCClient.createShared(vertx, jdbcConfig);
-			c.o(o);
-		}
+//		if(vertx != null) {
+//			SQLClient o = JDBCClient.createShared(vertx, jdbcConfig);
+//			c.o(o);
+//		}
 	}
 //
 //	/**	L'URL JNDI vers le source de courriels dans Tomcat. **/

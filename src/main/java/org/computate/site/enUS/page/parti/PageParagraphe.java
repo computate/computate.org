@@ -74,6 +74,12 @@ public class PageParagraphe extends PageParagrapheGen<PagePart> {
 		w.g("p");
 	}
 
+	public void  htmlAvant() {
+	}
+
+	public void  htmlApres() {
+	}
+
 	public void  htmlBodyCourt() {
 //		ToutEcrivain w = requeteSite_.getW();
 //		w.e("div").a("class", "w3-card ").f();

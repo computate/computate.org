@@ -32,14 +32,16 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 	 *	The INI Configuration Object for the config file. 
 	 **/
 	protected void _config(Couverture<INIConfiguration> c) {
-		Configurations configurations = new Configurations();
-		File fichierConfig = new File(configChemin);
-		if(configChemin != null && fichierConfig.exists()) {
-			try {
-				INIConfiguration o = configurations.ini(fichierConfig);
-				c.o(o);
-			} catch (ConfigurationException e) {
-				ExceptionUtils.rethrow(e);
+		if(configChemin != null) {
+			Configurations configurations = new Configurations();
+			File fichierConfig = new File(configChemin);
+			if(fichierConfig.exists()) {
+				try {
+					INIConfiguration o = configurations.ini(fichierConfig);
+					c.o(o);
+				} catch (ConfigurationException e) {
+					ExceptionUtils.rethrow(e);
+				}
 			}
 		}
 	}
@@ -93,6 +95,24 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 			o = System.getenv(c.var);
 		else
 			o = config.getString(prefixeEchappe + c.var);
+		c.o(o);
+	}
+
+	protected void _zookeeperNomHote(Couverture<String> c) {
+		String o;
+		if(config == null)
+			o = System.getenv(c.var);
+		else
+			o = config.getString(prefixeEchappe + c.var);
+		c.o(o);
+	}
+
+	protected void _zookeeperPort(Couverture<Integer> c) {
+		Integer o;
+		if(config == null)
+			o = NumberUtils.toInt(System.getenv(c.var));
+		else
+			o = config.getInt(prefixeEchappe + c.var, 8080);
 		c.o(o);
 	}
 
@@ -431,7 +451,9 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 
 	protected void _nombreExecuteurs(Couverture<Integer> c) {
 		Integer o;
-		if(config == null)
+		if(config == null && System.getenv(c.var) == null)
+			o = 1;
+		else if(config == null)
 			o = Integer.parseInt(System.getenv(c.var), 1);
 		else
 			o = config.getInt(prefixeEchappe + c.var, 1);

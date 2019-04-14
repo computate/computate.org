@@ -90,6 +90,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		introCouverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
 	}
+	public void htmlBodyIntro(PageParagraphe o) {
+	}
+	public void htmlBodyIntro() {
+		intro.htmlAvant();
+		htmlBodyIntro(intro);
+		intro.htmlApres();
+	}
 
 	/////////
 	// moi //
@@ -132,6 +139,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		moi.initLoinPourClasse(requeteSite_);
 		moiCouverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
+	}
+	public void htmlBodyMoi(PageParagraphe o) {
+	}
+	public void htmlBodyMoi() {
+		moi.htmlAvant();
+		htmlBodyMoi(moi);
+		moi.htmlApres();
 	}
 
 	//////////////
@@ -186,6 +200,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		aLAvanceCouverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
 	}
+	public void htmlBodyALAvance(QuestionReponse o) {
+	}
+	public void htmlBodyALAvance() {
+		aLAvance.htmlAvant();
+		htmlBodyALAvance(aLAvance);
+		aLAvance.htmlApres();
+	}
 
 	/////////////
 	// acheter //
@@ -239,6 +260,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		acheterCouverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
 	}
+	public void htmlBodyAcheter(QuestionReponse o) {
+	}
+	public void htmlBodyAcheter() {
+		acheter.htmlAvant();
+		htmlBodyAcheter(acheter);
+		acheter.htmlApres();
+	}
 
 	/////////////
 	// appeler //
@@ -291,6 +319,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		appelerCouverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
 	}
+	public void htmlBodyAppeler(QuestionReponse o) {
+	}
+	public void htmlBodyAppeler() {
+		appeler.htmlAvant();
+		htmlBodyAppeler(appeler);
+		appeler.htmlApres();
+	}
 
 	////////////
 	// apres1 //
@@ -342,6 +377,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		apres1Couverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
 	}
+	public void htmlBodyApres1(QuestionReponse o) {
+	}
+	public void htmlBodyApres1() {
+		apres1.htmlAvant();
+		htmlBodyApres1(apres1);
+		apres1.htmlApres();
+	}
 
 	////////////
 	// apres2 //
@@ -388,6 +430,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		apres2Couverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
 	}
+	public void htmlBodyApres2(PageHtml o) {
+	}
+	public void htmlBodyApres2() {
+		apres2.htmlAvant();
+		htmlBodyApres2(apres2);
+		apres2.htmlApres();
+	}
 
 	////////////
 	// apres3 //
@@ -429,6 +478,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		apres3.initLoinPourClasse(requeteSite_);
 		apres3Couverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
+	}
+	public void htmlBodyApres3(PageHtml o) {
+	}
+	public void htmlBodyApres3() {
+		apres3.htmlAvant();
+		htmlBodyApres3(apres3);
+		apres3.htmlApres();
 	}
 
 	////////////
@@ -473,6 +529,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		apres4Couverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
 	}
+	public void htmlBodyApres4(PageHtml o) {
+	}
+	public void htmlBodyApres4() {
+		apres4.htmlAvant();
+		htmlBodyApres4(apres4);
+		apres4.htmlApres();
+	}
 
 	////////////
 	// apres5 //
@@ -516,6 +579,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		apres5.initLoinPourClasse(requeteSite_);
 		apres5Couverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
+	}
+	public void htmlBodyApres5(PageHtml o) {
+	}
+	public void htmlBodyApres5() {
+		apres5.htmlAvant();
+		htmlBodyApres5(apres5);
+		apres5.htmlApres();
 	}
 
 	//////////////
@@ -570,6 +640,13 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		plusTard.initLoinPourClasse(requeteSite_);
 		plusTardCouverture.dejaInitialise(true);
 		return (C001L001ChoisirNomDomaine)this;
+	}
+	public void htmlBodyPlusTard(QuestionReponse o) {
+	}
+	public void htmlBodyPlusTard() {
+		plusTard.htmlAvant();
+		htmlBodyPlusTard(plusTard);
+		plusTard.htmlApres();
 	}
 
 	/////////////////////////

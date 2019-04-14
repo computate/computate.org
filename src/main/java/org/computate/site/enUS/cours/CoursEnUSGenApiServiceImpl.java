@@ -108,19 +108,23 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 									reponse200RechercheEnUSPageCours(listeCours, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
-											connexionSql.commit(e -> {
-												if(e.succeeded()) {
-													connexionSql.close(f -> {
-														if(f.succeeded()) {
-															gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-														} else {
-															erreurCours(requeteSite, gestionnaireEvenements, f);
-														}
-													});
-												} else {
-													erreurCours(requeteSite, gestionnaireEvenements, e);
-												}
-											});
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurCours(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurCours(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
 										} else {
 											erreurCours(requeteSite, gestionnaireEvenements, d);
 										}
@@ -279,21 +283,25 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
-			clientSql.getConnection(sqlAsync -> {
-				if(sqlAsync.succeeded()) {
-					SQLConnection connexionSql = sqlAsync.result();
-					connexionSql.setAutoCommit(false, a -> {
-						if(a.succeeded()) {
-							requeteSite.setConnexionSql(connexionSql);
-							gestionnaireEvenements.handle(Future.succeededFuture());
-						} else {
-							gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
-						}
-					});
-				} else {
-					gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
-				}
-			});
+			if(clientSql == null) {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			} else {
+				clientSql.getConnection(sqlAsync -> {
+					if(sqlAsync.succeeded()) {
+						SQLConnection connexionSql = sqlAsync.result();
+						connexionSql.setAutoCommit(false, a -> {
+							if(a.succeeded()) {
+								requeteSite.setConnexionSql(connexionSql);
+								gestionnaireEvenements.handle(Future.succeededFuture());
+							} else {
+								gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
+							}
+						});
+					} else {
+						gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
+					}
+				});
+			}
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
 		}

@@ -108,19 +108,23 @@ public class C001L001ChoisirNomDomaineEnUSGenApiServiceImpl implements C001L001C
 									reponse200RechercheEnUSPageC001L001ChoisirNomDomaine(listeC001L001ChoisirNomDomaine, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
-											connexionSql.commit(e -> {
-												if(e.succeeded()) {
-													connexionSql.close(f -> {
-														if(f.succeeded()) {
-															gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-														} else {
-															erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, f);
-														}
-													});
-												} else {
-													erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, e);
-												}
-											});
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
 										} else {
 											erreurC001L001ChoisirNomDomaine(requeteSite, gestionnaireEvenements, d);
 										}
@@ -284,21 +288,25 @@ public class C001L001ChoisirNomDomaineEnUSGenApiServiceImpl implements C001L001C
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
-			clientSql.getConnection(sqlAsync -> {
-				if(sqlAsync.succeeded()) {
-					SQLConnection connexionSql = sqlAsync.result();
-					connexionSql.setAutoCommit(false, a -> {
-						if(a.succeeded()) {
-							requeteSite.setConnexionSql(connexionSql);
-							gestionnaireEvenements.handle(Future.succeededFuture());
-						} else {
-							gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
-						}
-					});
-				} else {
-					gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
-				}
-			});
+			if(clientSql == null) {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			} else {
+				clientSql.getConnection(sqlAsync -> {
+					if(sqlAsync.succeeded()) {
+						SQLConnection connexionSql = sqlAsync.result();
+						connexionSql.setAutoCommit(false, a -> {
+							if(a.succeeded()) {
+								requeteSite.setConnexionSql(connexionSql);
+								gestionnaireEvenements.handle(Future.succeededFuture());
+							} else {
+								gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
+							}
+						});
+					} else {
+						gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
+					}
+				});
+			}
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
 		}
@@ -456,9 +464,16 @@ public class C001L001ChoisirNomDomaineEnUSGenApiServiceImpl implements C001L001C
 						switch(paramNom) {
 							case "q":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
 								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L001ChoisirNomDomaine(entiteVar);
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
 								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
+								if(!"*".equals(entiteVar)) {
+									listeRecherche.setHighlight(true);
+									listeRecherche.setHighlightSnippets(3);
+									listeRecherche.addHighlightField(varIndexe);
+									listeRecherche.setParam("hl.encoder", "html");
+								}
 								break;
 							case "fq":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));

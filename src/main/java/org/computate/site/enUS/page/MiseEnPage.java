@@ -176,7 +176,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	protected void _pageAccueilUri(Couverture<String> c) {
-		c.o("");
+		c.o(" /");
 	}
 
 	protected void _pageAProposUri(Couverture<String> c) {
@@ -272,11 +272,11 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	@Override()
 	public void  htmlScriptsMiseEnPage() {
 //		e("script").a("src", "https://code.jquery.com/jquery-1.12.4.min.js").f().g("script");
-		e("script").a("src", "/static/js/jquery-1.12.4.min.js").f().g("script");
-		e("script").a("src", "/static/js/site.js").f().g("script");
-		e("script").a("src", "/static/js/moment.min.js").f().g("script");
-		e("script").a("src", "/static/js/jqDatePicker.js").f().g("script");
-		e("script").a("src", "/static/js/jquery.serialize-object.js").f().g("script");
+		e("script").a("src", "https://computate.neocities.org/js/jquery-1.12.4.min.js").f().g("script");
+		e("script").a("src", "https://computate.neocities.org/js/site.js").f().g("script");
+		e("script").a("src", "https://computate.neocities.org/js/moment.min.js").f().g("script");
+		e("script").a("src", "https://computate.neocities.org/js/jqDatePicker.js").f().g("script");
+		e("script").a("src", "https://computate.neocities.org/js/jquery.serialize-object.js").f().g("script");
 //		e("script").a("async", "").a("defer", "").a("src", "https://apis.google.com/js/platform.js").f().g("script");
 //		e("script").a("async", "").a("src", "https://www.googletagmanager.com/gtag/js?id=UA-118970786-1").f().g("script");
 //		e("script").f().l("/*<![CDATA[*/");
@@ -294,13 +294,13 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	@Override()
 	public void  htmlStylesMiseEnPage() {
 //		e("link").a("rel", "stylesheet").a("href", "https://www.w3schools.com/w3css/4/w3.css").fg();
-		e("link").a("rel", "stylesheet").a("href", "/static/css/w3.css").fg();
-		e("link").a("rel", "stylesheet").a("href", "/static/css/site.css").fg();
-		e("link").a("rel", "stylesheet").a("href", "/static/css/datePicker.css").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/w3.css").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/site.css").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/datePicker.css").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Khand").fg();
-//		e("link").a("rel", "stylesheet").a("href", "/static/css/font-Khand.css").fg();
+//		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/font-Khand.css").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.7.1/css/all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
-//		e("link").a("rel", "stylesheet").a("href", "/static/css/font-awesome-all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
+//		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/font-awesome-all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
 //		e("link").a("rel", "stylesheet").a("href", "https://use.fontawesome.com/releases/v5.7.1/css/all.css").a("integrity", "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr").a("crossorigin", "anonymous").fg();
 	}
 
@@ -354,7 +354,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 						e("script").f().l("/*<![CDATA[*/");
 							s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
 						s("/*]]>*/").g("script");
-						e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
+						e("script").a("id", "signupScript").a("src", "/https://computate.neocities.org.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
 						g("script");
 					}
 					e("div").a("id", "modaleErreur").a("class", "w3-modal").a("onclick", "this.style.display = 'none';").f();
@@ -383,7 +383,9 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 										htmlBody();
 									} t(3).g("div");
 	
-									htmlBodyCourt();
+									{ t(3).e("div").a("class", "w3-row ").f();
+										htmlBodyCourt();
+									} t(3).g("div");
 		
 									abondonnezPas();
 		
@@ -396,8 +398,16 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 									g("div");
 									e("div").a("class", "w3-large ").f();
 										String urlSource = "https://github.com/computate/computate.org/blob/master/src/main/java/" + StringUtils.replace(getClass().getSuperclass().getSuperclass().getCanonicalName(), ".", "/") + ".java";
-										e("a").a("href", urlSource).a("target", "_new").f();
-											sx("View the source code here. ");
+										e("a").a("href", urlSource).a("target", "_new").a("class", "grow-30 ").f();
+											sx("View the source code here on github. ");
+										g("a");
+									g("div");
+									e("div").a("class", "grow-30 w3-margin ").f();
+										e("a").a("href", "https://www.openshift.com/").a("target", "_new").f();
+											e("span").a("class", "w3-large ").f();
+												sx("Powered by ");
+											g("span");
+											e("img").a("class", "w3-image ").a("style", "display: inline-block; width: 200px; margin: 0 10px;").a("src", "https://computate.neocities.org/svg/openshift.svg").fg();
 										g("a");
 									g("div");
 								g("footer");
@@ -413,23 +423,23 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 										sx("Let's get connected. ");
 									g("h6");
 									e("div").a("style", "").f();
-										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.facebook.com/computateorg/").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/facebook.svg").fg();
+										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.facebook.com/computateorg/").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "https://computate.neocities.org/svg/facebook.svg").fg();
 										g("a");
-										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://twitter.com/computateorg").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/twitter.svg").fg();
+										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://twitter.com/computateorg").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "https://computate.neocities.org/svg/twitter.svg").fg();
 										g("a");
-										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.instagram.com/computateorg/").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/instagram.svg").fg();
+										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.instagram.com/computateorg/").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "https://computate.neocities.org/svg/instagram.svg").fg();
 										g("a");
-										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://openclipart.org/user-detail/computateorg").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/openclipart.svg").fg();
+										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://openclipart.org/user-detail/computateorg").f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "https://computate.neocities.org/svg/openclipart.svg").fg();
 										g("a");
-										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pageYoutubeUrl).f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/youtube.svg").fg();
+										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pageYoutubeUrl).f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "https://computate.neocities.org/svg/youtube.svg").fg();
 										g("a");
-										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pagePinterestUrl).f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "/static/svg/pinterest.svg").fg();
+										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pagePinterestUrl).f();
+											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", "https://computate.neocities.org/svg/pinterest.svg").fg();
 										g("a");
 									g("div");
 									e("h6").f();
@@ -451,10 +461,10 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			e("div").a("class", "w3-bar-item ").f();
 				e("span").a("class", "header-icon-a grow-30 w3-center ").f();
 					e("a").a("class", "w3-hover-opacity").a("title", "English").a("href", pageUri).f();
-						e("img").a("src", "/static/svg/flag-US.svg").a("style", "height: 50px; ").fg();
+						e("img").a("src", "https://computate.neocities.org/svg/flag-US.svg").a("style", "height: 50px; ").fg();
 					g("a");
 					e("a").a("class", "w3-hover-opacity").a("title", "français").a("href", pageUriFrFR).f();
-						e("img").a("src", "/static/svg/flag-FR.svg").a("style", "height: 50px; ").fg();
+						e("img").a("src", "https://computate.neocities.org/svg/flag-FR.svg").a("style", "height: 50px; ").fg();
 					g("a");
 					e("br").fg();
 					e("span").a("class", "site-menu-item").f();
@@ -464,7 +474,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
-					e("img").a("src", "/static/svg/computate.org.svg").a("style", "height: 50px; ").fg();
+					e("img").a("src", "https://computate.neocities.org/svg/computate.org.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("Home");
@@ -473,7 +483,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageBlogUri).f();
-					e("img").a("src", "/static/svg/full-moon.svg").a("style", "height: 50px; ").fg();
+					e("img").a("src", "https://computate.neocities.org/svg/full-moon.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("Blog");
@@ -482,7 +492,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
-					e("img").a("src", "/static/svg/cluster.svg").a("style", "height: 50px; ").fg();
+					e("img").a("src", "https://computate.neocities.org/svg/cluster.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("Course");
@@ -491,7 +501,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 //			e("div").a("class", "w3-bar-item ").f();
 //				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
-//					e("img").a("src", "/static/svg/full-moon.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("src", "https://computate.neocities.org/svg/full-moon.svg").a("style", "height: 50px; ").fg();
 //					e("br").fg();
 //					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 //						sx("Lessons");
@@ -500,7 +510,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAProposUri).f();
-					e("img").a("src", "/static/png/computate.png").a("style", "height: 50px; ").fg();
+					e("img").a("src", "https://computate.neocities.org/png/computate.png").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("About");
@@ -509,7 +519,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageFaqUri).f();
-					e("img").a("src", "/static/svg/ufo.svg").a("style", "height: 50px; ").fg();
+					e("img").a("src", "https://computate.neocities.org/svg/ufo.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("FAQ");
@@ -519,7 +529,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() == null) {
 				e("div").a("class", "w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageUtilisateurUri).f(); 
-						e("img").a("src", "/static/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
+						e("img").a("src", "https://computate.neocities.org/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
 						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 							sx("Login");
@@ -530,7 +540,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() != null) {
 				e("div").a("class", "w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageDeconnexionUri).f();
-						e("img").a("src", "/static/svg/light-speed.svg").a("style", "height: 50px; ").fg();
+						e("img").a("src", "https://computate.neocities.org/svg/light-speed.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
 						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 							sx("Logout");
@@ -546,7 +556,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		{ e("div").a("class", "w3-padding w3-margin-top w3-center site-abondonnezPas-div ").f();
 			e("h3").f().sx("Don't give up on your dreams. You can do hard things! ").g("h3");
 			{ e("div").f();
-				e("img").a("class", "w3-image ").a("src", "/static/svg/computate-keys.svg").fg();
+				e("img").a("class", "w3-image ").a("src", "https://computate.neocities.org/svg/computate-keys.svg").fg();
 			} g("div");
 		} g("div");
 	}
@@ -558,20 +568,20 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				e("h3").f().sx("Share this story. ").g("h3");
 				{ e("div").a("class", "w3-cell-row ").f();
 					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-						e("img").a("class", "blog-publication-social-img").a("src", "/static/svg/facebook.svg").fg();
+						e("img").a("class", "blog-publication-social-img").a("src", "https://computate.neocities.org/svg/facebook.svg").fg();
 						{ e("div").f();
 							e("div").a("class", "fb-like").a("data-href", pageUrl).a("data-layout", "box_count").a("data-action", "like").a("data-size", "small").a("data-show-faces", "true").a("data-share", "true").f().g("div");
 						} g("div");
 					} g("div");
 					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-						e("img").a("class", "blog-publication-social-img").a("src", "/static/svg/twitter.svg").fg();
+						e("img").a("class", "blog-publication-social-img").a("src", "https://computate.neocities.org/svg/twitter.svg").fg();
 						{ e("div").f();
 							e("a").a("href", "https://twitter.com/share").a("class", "twitter-share-button ").a("data-show-count", "false").f().g("a");
 							e("script").a("async", "").a("charset", "utf-8").a("src", "//platform.twitter.com/widgets.js").f().g("script");
 						} g("div");
 					}g("div");
 					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-						e("img").a("class", "blog-publication-social-img").a("src", "/static/svg/pinterest.svg").fg();
+						e("img").a("class", "blog-publication-social-img").a("src", "https://computate.neocities.org/svg/pinterest.svg").fg();
 						{ e("div").a("class",  "pinterest-div ").f();
 							{ e("a");
 								a("data-pin-media", pageImageUrl);

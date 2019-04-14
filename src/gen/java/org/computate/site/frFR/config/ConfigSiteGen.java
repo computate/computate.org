@@ -503,6 +503,124 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 		return nomDomaine == null ? "" : StringEscapeUtils.escapeHtml4(strNomDomaine());
 	}
 
+	//////////////////////
+	// zookeeperNomHote //
+	//////////////////////
+
+	/**	L'entité « zookeeperNomHote »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String zookeeperNomHote;
+	public Couverture<String> zookeeperNomHoteCouverture = new Couverture<String>().p(this).c(String.class).var("zookeeperNomHote").o(zookeeperNomHote);
+
+	/**	<br/>L'entité « zookeeperNomHote »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.config.ConfigSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:zookeeperNomHote">Trouver l'entité zookeeperNomHote dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _zookeeperNomHote(Couverture<String> c);
+
+	public String getZookeeperNomHote() {
+		return zookeeperNomHote;
+	}
+
+	public void setZookeeperNomHote(String zookeeperNomHote) {
+		this.zookeeperNomHote = zookeeperNomHote;
+		this.zookeeperNomHoteCouverture.dejaInitialise = true;
+	}
+	protected ConfigSite zookeeperNomHoteInit() {
+		if(!zookeeperNomHoteCouverture.dejaInitialise) {
+			_zookeeperNomHote(zookeeperNomHoteCouverture);
+			if(zookeeperNomHote == null)
+				setZookeeperNomHote(zookeeperNomHoteCouverture.o);
+		}
+		zookeeperNomHoteCouverture.dejaInitialise(true);
+		return (ConfigSite)this;
+	}
+
+	public String solrZookeeperNomHote() {
+		return zookeeperNomHote;
+	}
+
+	public String strZookeeperNomHote() {
+		return zookeeperNomHote == null ? "" : zookeeperNomHote;
+	}
+
+	public String nomAffichageZookeeperNomHote() {
+		return null;
+	}
+
+	public String htmTooltipZookeeperNomHote() {
+		return null;
+	}
+
+	public String htmZookeeperNomHote() {
+		return zookeeperNomHote == null ? "" : StringEscapeUtils.escapeHtml4(strZookeeperNomHote());
+	}
+
+	///////////////////
+	// zookeeperPort //
+	///////////////////
+
+	/**	L'entité « zookeeperPort »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected Integer zookeeperPort;
+	public Couverture<Integer> zookeeperPortCouverture = new Couverture<Integer>().p(this).c(Integer.class).var("zookeeperPort").o(zookeeperPort);
+
+	/**	<br/>L'entité « zookeeperPort »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.config.ConfigSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:zookeeperPort">Trouver l'entité zookeeperPort dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _zookeeperPort(Couverture<Integer> c);
+
+	public Integer getZookeeperPort() {
+		return zookeeperPort;
+	}
+
+	public void setZookeeperPort(Integer zookeeperPort) {
+		this.zookeeperPort = zookeeperPort;
+		this.zookeeperPortCouverture.dejaInitialise = true;
+	}
+	public ConfigSite setZookeeperPort(String o) {
+		if(org.apache.commons.lang3.math.NumberUtils.isCreatable(o))
+			this.zookeeperPort = Integer.parseInt(o);
+		this.zookeeperPortCouverture.dejaInitialise = true;
+		return (ConfigSite)this;
+	}
+	protected ConfigSite zookeeperPortInit() {
+		if(!zookeeperPortCouverture.dejaInitialise) {
+			_zookeeperPort(zookeeperPortCouverture);
+			if(zookeeperPort == null)
+				setZookeeperPort(zookeeperPortCouverture.o);
+		}
+		zookeeperPortCouverture.dejaInitialise(true);
+		return (ConfigSite)this;
+	}
+
+	public Integer solrZookeeperPort() {
+		return zookeeperPort;
+	}
+
+	public String strZookeeperPort() {
+		return zookeeperPort == null ? "" : zookeeperPort.toString();
+	}
+
+	public String nomAffichageZookeeperPort() {
+		return null;
+	}
+
+	public String htmTooltipZookeeperPort() {
+		return null;
+	}
+
+	public String htmZookeeperPort() {
+		return zookeeperPort == null ? "" : StringEscapeUtils.escapeHtml4(strZookeeperPort());
+	}
+
 	/////////////////
 	// siteNomHote //
 	/////////////////
@@ -3323,6 +3441,8 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 		racineDocumentInit();
 		nomEntrepriseInit();
 		nomDomaineInit();
+		zookeeperNomHoteInit();
+		zookeeperPortInit();
 		siteNomHoteInit();
 		sitePortInit();
 		authRoyaumeInit();
@@ -3429,6 +3549,10 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 				return oConfigSite.nomEntreprise;
 			case "nomDomaine":
 				return oConfigSite.nomDomaine;
+			case "zookeeperNomHote":
+				return oConfigSite.zookeeperNomHote;
+			case "zookeeperPort":
+				return oConfigSite.zookeeperPort;
 			case "siteNomHote":
 				return oConfigSite.siteNomHote;
 			case "sitePort":
@@ -3588,7 +3712,7 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(configChemin, identifiantSite, prefixeEchappe, appliChemin, racineDocument, nomEntreprise, nomDomaine, siteNomHote, sitePort, authRoyaume, authRessource, authSecret, authSslRequis, sslJksChemin, sslJksMotDePasse, authUrl, selCryptage, motDePasseCryptage, siteUrlBase, siteNomAffichage, jdbcClassePilote, jdbcUtilisateur, jdbcMotDePasse, jdbcTailleMaxPiscine, jdbcTailleInitialePiscine, jdbcTailleMinPiscine, jdbcMaxDeclarations, jdbcMaxDeclarationsParConnexion, jdbcTempsInactiviteMax, jdbcUrl, solrUrl, solrUrlComputate, jetonIdentitePaypal, compteFacebook, compteTwitter, compteGooglePlus, compteInstagram, compteYoutube, identifiantCanalYoutube, comptePinterest, compteOpenclipart, compteMail, roleAdmin, mailAdmin, nombreExecuteurs, openApiVersion, apiDescription, apiTitre, apiTermsService, apiVersion, apiContactMail, apiLicenceNom, apiLicenceUrl, apiNomHote, apiCheminBase, vertxServiceAddresse);
+		return Objects.hash(configChemin, identifiantSite, prefixeEchappe, appliChemin, racineDocument, nomEntreprise, nomDomaine, zookeeperNomHote, zookeeperPort, siteNomHote, sitePort, authRoyaume, authRessource, authSecret, authSslRequis, sslJksChemin, sslJksMotDePasse, authUrl, selCryptage, motDePasseCryptage, siteUrlBase, siteNomAffichage, jdbcClassePilote, jdbcUtilisateur, jdbcMotDePasse, jdbcTailleMaxPiscine, jdbcTailleInitialePiscine, jdbcTailleMinPiscine, jdbcMaxDeclarations, jdbcMaxDeclarationsParConnexion, jdbcTempsInactiviteMax, jdbcUrl, solrUrl, solrUrlComputate, jetonIdentitePaypal, compteFacebook, compteTwitter, compteGooglePlus, compteInstagram, compteYoutube, identifiantCanalYoutube, comptePinterest, compteOpenclipart, compteMail, roleAdmin, mailAdmin, nombreExecuteurs, openApiVersion, apiDescription, apiTitre, apiTermsService, apiVersion, apiContactMail, apiLicenceNom, apiLicenceUrl, apiNomHote, apiCheminBase, vertxServiceAddresse);
 	}
 
 	////////////
@@ -3608,6 +3732,8 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 				&& Objects.equals( racineDocument, that.racineDocument )
 				&& Objects.equals( nomEntreprise, that.nomEntreprise )
 				&& Objects.equals( nomDomaine, that.nomDomaine )
+				&& Objects.equals( zookeeperNomHote, that.zookeeperNomHote )
+				&& Objects.equals( zookeeperPort, that.zookeeperPort )
 				&& Objects.equals( siteNomHote, that.siteNomHote )
 				&& Objects.equals( sitePort, that.sitePort )
 				&& Objects.equals( authRoyaume, that.authRoyaume )
@@ -3673,6 +3799,8 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 		sb.append( ", racineDocument: \"" ).append(racineDocument).append( "\"" );
 		sb.append( ", nomEntreprise: \"" ).append(nomEntreprise).append( "\"" );
 		sb.append( ", nomDomaine: \"" ).append(nomDomaine).append( "\"" );
+		sb.append( ", zookeeperNomHote: \"" ).append(zookeeperNomHote).append( "\"" );
+		sb.append( ", zookeeperPort: " ).append(zookeeperPort);
 		sb.append( ", siteNomHote: \"" ).append(siteNomHote).append( "\"" );
 		sb.append( ", sitePort: " ).append(sitePort);
 		sb.append( ", authRoyaume: \"" ).append(authRoyaume).append( "\"" );

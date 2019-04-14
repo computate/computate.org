@@ -5,7 +5,10 @@ import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 
-public abstract class PagePart extends PagePartGen<Cluster> { 
+/**
+ * MotCle: classeNomSimplePagePart
+ */
+public abstract class PagePart extends PagePartGen<Cluster> {
 
 	protected void _page_(Couverture<MiseEnPage> c) {}
 

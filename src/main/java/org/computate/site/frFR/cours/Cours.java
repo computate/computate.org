@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours;      
+package org.computate.site.frFR.cours;       
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,7 +28,7 @@ import org.computate.site.frFR.page.parti.PagePart;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/                
+*/               
 public class Cours extends CoursGen<Cluster> {          
 
 	@Override
@@ -263,7 +263,7 @@ public class Cours extends CoursGen<Cluster> {
 	 * Indexe: true
 	 * Stocke: true
 	 * Langue: frFR
-	 */
+	 */ 
 	protected void _coursH2_frFR(Couverture<String> c) {
 	}
 

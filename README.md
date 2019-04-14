@@ -1,14 +1,10 @@
-# Spring-Boot Camel QuickStart
-
-This example demonstrates how you can use Apache Camel with Spring Boot.
-
-The quickstart uses Spring Boot to configure a little application that includes a Camel route that triggers a message every 5th second, and routes the message to a log.
+# computate.org
 
 ### Building
 
 The example can be built with
 
-    mvn clean install
+	mvn clean install
 
 ### Running the example in OpenShift
 
@@ -18,7 +14,7 @@ It is assumed that:
 
 The example can be built and run on OpenShift using a single goal:
 
-    mvn fabric8:deploy
+	mvn fabric8:deploy -Popenshift
 
 When the example runs in OpenShift, you can use the OpenShift client tool to inspect the status
 
