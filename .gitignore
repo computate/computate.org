@@ -12,6 +12,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 config/computate.org.config
+src/main/fabric8/deployment.yaml
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
