@@ -179,42 +179,34 @@ public class PageAccueil extends PageAccueilGen<Article> {
 				e("i").a("class", Article.Article_IconeGroupe, " ", Article.Article_IconeNom, " site-menu-icon ").f().g("i");
 			e("span").a("class", " ").f().sx("articles").g("span");
 		} g("h1");
-		{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
-			{ e("thead").f();
-				{ e("tr").f();
-					e("th").f().sx("").g("th");
-					e("th").f().sx("description").g("th");
-				} g("tr");
-			} g("thead");
-			{ e("tbody").f();
-				Map<String, Map<String, List<String>>> highlighting = listeArticle.getQueryResponse().getHighlighting();
-				for(int i = 0; i < listeArticle.size(); i++) {
-					Article o = listeArticle.getList().get(i);
-					Map<String, List<String>> highlights = highlighting == null ? null : highlighting.get(o.getId());
-					List<String> highlightList = highlights == null ? null : highlights.get(highlights.keySet().stream().findFirst().orElse(null));
-					String uri = o.getPageUri();
-					{ e("tr").f();
-						{ e("td").f();
-							if(o.getPageImageUri() != null) {
-								{ e("a").a("href", uri).f();
-									e("img").a("src", "https://computate.neocities.org/", o.getPageImageUri()).a("class", "w3-image ").fg();
-								} g("a");
-							}
-						} g("td");
-						{ e("td").f();
-							{ e("a").a("href", uri).f();
-								sx(o.getArticleDescription());
-							} g("a");
-							if(highlightList != null) {
-								{ e("div").a("class", "site-highlight ").f();
-									s(StringUtils.join(highlightList, " ... "));
+		{ e("div").a("class", "w3-row ").f();
+			Map<String, Map<String, List<String>>> highlighting = listeArticle.getQueryResponse().getHighlighting();
+			for(int i = 0; i < listeArticle.size(); i++) {
+				Article o = listeArticle.getList().get(i);
+				Map<String, List<String>> highlights = highlighting == null ? null : highlighting.get(o.getId());
+				List<String> highlightList = highlights == null ? null : highlights.get(highlights.keySet().stream().findFirst().orElse(null));
+				String uri = o.getPageUri();
+				{ e("div").a("class", "w3-half w3-mobile ").f();
+					{ e("div").a("class", "w3-card-4 w3-margin w3-white ").f();
+						{ e("a").a("href", uri).f();
+							{ e("span").a("class", "w3-container w3-responsive ").f();
+								{ e("h3").a("class", "w3-margin-top ").f();
+									sx(o.getArticleH1());
+								} g("h3");
+								{ e("div").a("class", "site-highlight w3-opacity ").f();
+									sx(requeteSite_.getConfigSite_().getSiteUrlBase(), o.getPageUri());
 								} g("div");
-							}
-						} g("td");
-					} g("tr");
-				}
-			} g("tbody");
-		} g("table");
+								{ e("h4").a("class", "w3-margin-top w3-margin-bottom ").f();
+									sx(o.getArticleH2());
+								} g("h4");
+							} g("span");
+							if(o.getPageImageUri() != null)
+								e("img").a("src", "https://computate.neocities.org/", o.getPageImageUri()).a("class", "w3-image ").fg();
+						} g("a");
+					} g("div");
+				} g("div");
+			}
+		} g("div");
 	}
 
 	public void htmlBodyCourt() {

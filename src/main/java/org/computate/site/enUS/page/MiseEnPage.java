@@ -293,15 +293,19 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 
 	@Override()
 	public void  htmlStylesMiseEnPage() {
-//		e("link").a("rel", "stylesheet").a("href", "https://www.w3schools.com/w3css/4/w3.css").fg();
-		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/w3.css").fg();
-		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/site.css").fg();
-		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/datePicker.css").fg();
+		if("site.computate.org".equals(requeteSite_.getConfigSite_().getSiteNomHote())) {
+			e("link").a("rel", "stylesheet").a("href", "/static/css/w3.css").fg();
+			e("link").a("rel", "stylesheet").a("href", "/static/css/site.css").fg();
+			e("link").a("rel", "stylesheet").a("href", "/static/css/datePicker.css").fg();
+		}
+		else {
+			e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/w3.css").fg();
+			e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/site.css").fg();
+			e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/datePicker.css").fg();
+		}
 		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Khand").fg();
-//		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/font-Khand.css").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Raleway").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.7.1/css/all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
-//		e("link").a("rel", "stylesheet").a("href", "https://computate.neocities.org/css/font-awesome-all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
-//		e("link").a("rel", "stylesheet").a("href", "https://use.fontawesome.com/releases/v5.7.1/css/all.css").a("integrity", "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr").a("crossorigin", "anonymous").fg();
 	}
 
 	@Override()

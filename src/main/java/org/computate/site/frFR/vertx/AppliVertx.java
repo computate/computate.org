@@ -358,7 +358,12 @@ public class AppliVertx extends AbstractVerticle {
 		Router siteRouteur = siteContexteFrFR.getUsineRouteur().getRouter();
 		// siteContexte.setSiteRouteur_(siteRouteur);
 
-		siteRouteur.route("/static/*").handler(StaticHandler.create().setCachingEnabled(false).setFilesReadOnly(true));
+		StaticHandler staticHandler = StaticHandler.create().setCachingEnabled(false).setFilesReadOnly(true);
+		if("site.computate.org".equals(configSite.getSiteNomHote())) {
+			staticHandler.setAllowRootFileSystemAccess(true);
+			staticHandler.setWebRoot("/usr/local/src/computate.org-static");
+		}
+		siteRouteur.route("/static/*").handler(staticHandler);
 
 		String siteNomHote = configSite.getSiteNomHote();
 		Integer sitePort = configSite.getSitePort();

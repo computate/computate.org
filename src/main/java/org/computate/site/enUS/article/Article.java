@@ -114,6 +114,14 @@ public class Article extends ArticleGen<Cluster> {
 	protected void _articleH2_frFR(Couverture<String> c) {
 	}
 
+	protected void _articleH1(Couverture<String> c) {
+		c.o(articleH1_enUS);
+	}
+
+	protected void _articleH2(Couverture<String> c) {
+		c.o(articleH2_enUS);
+	}
+
 	protected void _articleDescription(Couverture<String> c) {
 		c.o(articleH1_enUS + "\n" + articleH2_enUS);
 	}

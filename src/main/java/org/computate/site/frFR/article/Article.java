@@ -272,6 +272,24 @@ public class Article extends ArticleGen<Cluster> {
 
 	/**
 	 * {@inheritDoc}
+	 * r: frFR
+	 * r.enUS: enUS
+	 */
+	protected void _articleH1(Couverture<String> c) {
+		c.o(articleH1_frFR);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * r: frFR
+	 * r.enUS: enUS
+	 */
+	protected void _articleH2(Couverture<String> c) {
+		c.o(articleH2_frFR);
+	}
+
+	/**
+	 * {@inheritDoc}
 	 * HtmlLigne: 1
 	 * HtmlColonne: 3
 	 * NomAffichage.frFR: description

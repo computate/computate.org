@@ -54,7 +54,9 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	public static final String Article_IconeGroupe = "regular";
 	public static final String Article_IconeNom = "university";
 	public static final String ArticleFrFRPage_Uri = "/frFR/article";
+	public static final String ArticleFrFRPage_ImageUri = "/png/frFR/article-999.png";
 	public static final String ArticleEnUSPage_Uri = "/enUS/article";
+	public static final String ArticleEnUSPage_ImageUri = "/png/enUS/article-999.png";
 
 	//////////////////
 	// documentSolr //
@@ -1183,6 +1185,118 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		return articleH2_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strArticleH2_frFR());
 	}
 
+	///////////////
+	// articleH1 //
+	///////////////
+
+	/**	L'entité « articleH1 »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String articleH1;
+	public Couverture<String> articleH1Couverture = new Couverture<String>().p(this).c(String.class).var("articleH1").o(articleH1);
+
+	/**	<br/>L'entité « articleH1 »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.article.Article&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:articleH1">Trouver l'entité articleH1 dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _articleH1(Couverture<String> c);
+
+	public String getArticleH1() {
+		return articleH1;
+	}
+
+	public void setArticleH1(String articleH1) {
+		this.articleH1 = articleH1;
+		this.articleH1Couverture.dejaInitialise = true;
+	}
+	protected Article articleH1Init() {
+		if(!articleH1Couverture.dejaInitialise) {
+			_articleH1(articleH1Couverture);
+			if(articleH1 == null)
+				setArticleH1(articleH1Couverture.o);
+		}
+		articleH1Couverture.dejaInitialise(true);
+		return (Article)this;
+	}
+
+	public String solrArticleH1() {
+		return articleH1;
+	}
+
+	public String strArticleH1() {
+		return articleH1 == null ? "" : articleH1;
+	}
+
+	public String nomAffichageArticleH1() {
+		return null;
+	}
+
+	public String htmTooltipArticleH1() {
+		return null;
+	}
+
+	public String htmArticleH1() {
+		return articleH1 == null ? "" : StringEscapeUtils.escapeHtml4(strArticleH1());
+	}
+
+	///////////////
+	// articleH2 //
+	///////////////
+
+	/**	L'entité « articleH2 »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String articleH2;
+	public Couverture<String> articleH2Couverture = new Couverture<String>().p(this).c(String.class).var("articleH2").o(articleH2);
+
+	/**	<br/>L'entité « articleH2 »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.article.Article&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:articleH2">Trouver l'entité articleH2 dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _articleH2(Couverture<String> c);
+
+	public String getArticleH2() {
+		return articleH2;
+	}
+
+	public void setArticleH2(String articleH2) {
+		this.articleH2 = articleH2;
+		this.articleH2Couverture.dejaInitialise = true;
+	}
+	protected Article articleH2Init() {
+		if(!articleH2Couverture.dejaInitialise) {
+			_articleH2(articleH2Couverture);
+			if(articleH2 == null)
+				setArticleH2(articleH2Couverture.o);
+		}
+		articleH2Couverture.dejaInitialise(true);
+		return (Article)this;
+	}
+
+	public String solrArticleH2() {
+		return articleH2;
+	}
+
+	public String strArticleH2() {
+		return articleH2 == null ? "" : articleH2;
+	}
+
+	public String nomAffichageArticleH2() {
+		return null;
+	}
+
+	public String htmTooltipArticleH2() {
+		return null;
+	}
+
+	public String htmArticleH2() {
+		return articleH2 == null ? "" : StringEscapeUtils.escapeHtml4(strArticleH2());
+	}
+
 	////////////////////////
 	// articleDescription //
 	////////////////////////
@@ -2175,6 +2289,8 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		articleH1_frFRInit();
 		articleH2_enUSInit();
 		articleH2_frFRInit();
+		articleH1Init();
+		articleH2Init();
 		articleDescriptionInit();
 		articleCreeInit();
 		pageUri_enUSInit();
@@ -2269,6 +2385,10 @@ public abstract class ArticleGen<DEV> extends Cluster {
 				return oArticle.articleH2_enUS;
 			case "articleH2_frFR":
 				return oArticle.articleH2_frFR;
+			case "articleH1":
+				return oArticle.articleH1;
+			case "articleH2":
+				return oArticle.articleH2;
 			case "articleDescription":
 				return oArticle.articleDescription;
 			case "articleCree":
@@ -2628,7 +2748,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
+		return Objects.hash(super.hashCode(), nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleH1, articleH2, articleDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
 	}
 
 	////////////
@@ -2661,6 +2781,8 @@ public abstract class ArticleGen<DEV> extends Cluster {
 				&& Objects.equals( articleH1_frFR, that.articleH1_frFR )
 				&& Objects.equals( articleH2_enUS, that.articleH2_enUS )
 				&& Objects.equals( articleH2_frFR, that.articleH2_frFR )
+				&& Objects.equals( articleH1, that.articleH1 )
+				&& Objects.equals( articleH2, that.articleH2 )
 				&& Objects.equals( articleDescription, that.articleDescription )
 				&& Objects.equals( articleCree, that.articleCree )
 				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
@@ -2705,6 +2827,8 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		sb.append( ", articleH1_frFR: \"" ).append(articleH1_frFR).append( "\"" );
 		sb.append( ", articleH2_enUS: \"" ).append(articleH2_enUS).append( "\"" );
 		sb.append( ", articleH2_frFR: \"" ).append(articleH2_frFR).append( "\"" );
+		sb.append( ", articleH1: \"" ).append(articleH1).append( "\"" );
+		sb.append( ", articleH2: \"" ).append(articleH2).append( "\"" );
 		sb.append( ", articleDescription: \"" ).append(articleDescription).append( "\"" );
 		sb.append( ", articleCree: " ).append(articleCree);
 		sb.append( ", pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
