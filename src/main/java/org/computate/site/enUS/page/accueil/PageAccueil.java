@@ -144,7 +144,7 @@ public class PageAccueil extends PageAccueilGen<Article> {
 		{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 			{ e("thead").f();
 				{ e("tr").f();
-					e("th").f().sx("lesson").g("th");
+					e("th").f().sx("").g("th");
 					e("th").f().sx("description").g("th");
 				} g("tr");
 			} g("thead");
@@ -157,9 +157,11 @@ public class PageAccueil extends PageAccueilGen<Article> {
 					String uri = o.getPageUri();
 					{ e("tr").f();
 						{ e("td").f();
-							{ e("a").a("href", uri).f();
-								sx(o.getLeconNumero());
-							} g("a");
+							if(o.getPageImageUri() != null) {
+								{ e("a").a("href", uri).f();
+									e("img").a("src", "https://computate.neocities.org/", o.getPageImageUri()).a("class", "w3-image ").fg();
+								} g("a");
+							}
 						} g("td");
 						{ e("td").f();
 							{ e("a").a("href", uri).f();

@@ -83,6 +83,14 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		c.o(C001L001ChoisirNomDomaineFrFRPage_Uri);
 	}
 
+	@Override protected void _pageImageUri_enUS(Couverture<String> c) {
+		c.o(C001L001ChoisirNomDomaineEnUSPage_ImageUri);
+	}
+
+	@Override protected void _pageImageUri_frFR(Couverture<String> c) {
+		c.o(C001L001ChoisirNomDomaineFrFRPage_ImageUri);
+	}
+
 	@Override protected void _pageRecherche_enUS(List<String> l) {
 		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H1);
 		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H2);

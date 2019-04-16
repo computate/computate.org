@@ -317,6 +317,28 @@ public class Article extends ArticleGen<Cluster> {
 	 * Indexe: true
 	 * Stocke: true
 	 */
+	protected void _pageImageUri_enUS(Couverture<String> c) {
+	}
+
+	/**
+	 * Indexe: true
+	 * Stocke: true
+	 */
+	protected void _pageImageUri_frFR(Couverture<String> c) {
+	}
+
+	/**
+	 * r: frFR
+	 * r.enUS: enUS
+	 */
+	protected void _pageImageUri(Couverture<String> c) {
+		c.o(pageImageUri_frFR);
+	}
+
+	/**
+	 * Indexe: true
+	 * Stocke: true
+	 */
 	protected void _pageCree(Couverture<LocalDateTime> c) {
 		c.o(articleCree);
 	}

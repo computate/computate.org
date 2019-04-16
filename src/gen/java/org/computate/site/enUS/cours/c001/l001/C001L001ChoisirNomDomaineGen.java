@@ -56,7 +56,9 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	public static final String C001L001ChoisirNomDomaine_IconeGroupe = "regular";
 	public static final String C001L001ChoisirNomDomaine_IconeNom = "book";
 	public static final String C001L001ChoisirNomDomaineFrFRPage_Uri = "/frFR/cours/001/001-choisir-nom-domaine";
+	public static final String C001L001ChoisirNomDomaineFrFRPage_ImageUri = "/png/frFR/cours/001/001-choisir-nom-domaine-999.png";
 	public static final String C001L001ChoisirNomDomaineEnUSPage_Uri = "/enUS/course/001/001-choose-domain-name";
+	public static final String C001L001ChoisirNomDomaineEnUSPage_ImageUri = "/png/enUS/course/001/001-choose-domain-name-999.png";
 
 	///////////
 	// intro //

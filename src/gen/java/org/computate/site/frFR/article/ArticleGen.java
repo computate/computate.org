@@ -1480,6 +1480,174 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		return pageUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri());
 	}
 
+	///////////////////////
+	// pageImageUri_enUS //
+	///////////////////////
+
+	/**	L'entité « pageImageUri_enUS »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageImageUri_enUS;
+	public Couverture<String> pageImageUri_enUSCouverture = new Couverture<String>().p(this).c(String.class).var("pageImageUri_enUS").o(pageImageUri_enUS);
+
+	/**	<br/>L'entité « pageImageUri_enUS »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.article.Article&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageImageUri_enUS">Trouver l'entité pageImageUri_enUS dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageImageUri_enUS(Couverture<String> c);
+
+	public String getPageImageUri_enUS() {
+		return pageImageUri_enUS;
+	}
+
+	public void setPageImageUri_enUS(String pageImageUri_enUS) {
+		this.pageImageUri_enUS = pageImageUri_enUS;
+		this.pageImageUri_enUSCouverture.dejaInitialise = true;
+	}
+	protected Article pageImageUri_enUSInit() {
+		if(!pageImageUri_enUSCouverture.dejaInitialise) {
+			_pageImageUri_enUS(pageImageUri_enUSCouverture);
+			if(pageImageUri_enUS == null)
+				setPageImageUri_enUS(pageImageUri_enUSCouverture.o);
+		}
+		pageImageUri_enUSCouverture.dejaInitialise(true);
+		return (Article)this;
+	}
+
+	public String solrPageImageUri_enUS() {
+		return pageImageUri_enUS;
+	}
+
+	public String strPageImageUri_enUS() {
+		return pageImageUri_enUS == null ? "" : pageImageUri_enUS;
+	}
+
+	public String nomAffichagePageImageUri_enUS() {
+		return null;
+	}
+
+	public String htmTooltipPageImageUri_enUS() {
+		return null;
+	}
+
+	public String htmPageImageUri_enUS() {
+		return pageImageUri_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strPageImageUri_enUS());
+	}
+
+	///////////////////////
+	// pageImageUri_frFR //
+	///////////////////////
+
+	/**	L'entité « pageImageUri_frFR »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageImageUri_frFR;
+	public Couverture<String> pageImageUri_frFRCouverture = new Couverture<String>().p(this).c(String.class).var("pageImageUri_frFR").o(pageImageUri_frFR);
+
+	/**	<br/>L'entité « pageImageUri_frFR »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.article.Article&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageImageUri_frFR">Trouver l'entité pageImageUri_frFR dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageImageUri_frFR(Couverture<String> c);
+
+	public String getPageImageUri_frFR() {
+		return pageImageUri_frFR;
+	}
+
+	public void setPageImageUri_frFR(String pageImageUri_frFR) {
+		this.pageImageUri_frFR = pageImageUri_frFR;
+		this.pageImageUri_frFRCouverture.dejaInitialise = true;
+	}
+	protected Article pageImageUri_frFRInit() {
+		if(!pageImageUri_frFRCouverture.dejaInitialise) {
+			_pageImageUri_frFR(pageImageUri_frFRCouverture);
+			if(pageImageUri_frFR == null)
+				setPageImageUri_frFR(pageImageUri_frFRCouverture.o);
+		}
+		pageImageUri_frFRCouverture.dejaInitialise(true);
+		return (Article)this;
+	}
+
+	public String solrPageImageUri_frFR() {
+		return pageImageUri_frFR;
+	}
+
+	public String strPageImageUri_frFR() {
+		return pageImageUri_frFR == null ? "" : pageImageUri_frFR;
+	}
+
+	public String nomAffichagePageImageUri_frFR() {
+		return null;
+	}
+
+	public String htmTooltipPageImageUri_frFR() {
+		return null;
+	}
+
+	public String htmPageImageUri_frFR() {
+		return pageImageUri_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strPageImageUri_frFR());
+	}
+
+	//////////////////
+	// pageImageUri //
+	//////////////////
+
+	/**	L'entité « pageImageUri »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageImageUri;
+	public Couverture<String> pageImageUriCouverture = new Couverture<String>().p(this).c(String.class).var("pageImageUri").o(pageImageUri);
+
+	/**	<br/>L'entité « pageImageUri »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.article.Article&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageImageUri">Trouver l'entité pageImageUri dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageImageUri(Couverture<String> c);
+
+	public String getPageImageUri() {
+		return pageImageUri;
+	}
+
+	public void setPageImageUri(String pageImageUri) {
+		this.pageImageUri = pageImageUri;
+		this.pageImageUriCouverture.dejaInitialise = true;
+	}
+	protected Article pageImageUriInit() {
+		if(!pageImageUriCouverture.dejaInitialise) {
+			_pageImageUri(pageImageUriCouverture);
+			if(pageImageUri == null)
+				setPageImageUri(pageImageUriCouverture.o);
+		}
+		pageImageUriCouverture.dejaInitialise(true);
+		return (Article)this;
+	}
+
+	public String solrPageImageUri() {
+		return pageImageUri;
+	}
+
+	public String strPageImageUri() {
+		return pageImageUri == null ? "" : pageImageUri;
+	}
+
+	public String nomAffichagePageImageUri() {
+		return null;
+	}
+
+	public String htmTooltipPageImageUri() {
+		return null;
+	}
+
+	public String htmPageImageUri() {
+		return pageImageUri == null ? "" : StringEscapeUtils.escapeHtml4(strPageImageUri());
+	}
+
 	//////////////
 	// pageCree //
 	//////////////
@@ -2013,6 +2181,9 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		pageUri_enUSInit();
 		pageUri_frFRInit();
 		pageUriInit();
+		pageImageUri_enUSInit();
+		pageImageUri_frFRInit();
+		pageImageUriInit();
 		pageCreeInit();
 		pageH1Init();
 		pageH2Init();
@@ -2109,6 +2280,12 @@ public abstract class ArticleGen<DEV> extends Cluster {
 				return oArticle.pageUri_frFR;
 			case "pageUri":
 				return oArticle.pageUri;
+			case "pageImageUri_enUS":
+				return oArticle.pageImageUri_enUS;
+			case "pageImageUri_frFR":
+				return oArticle.pageImageUri_frFR;
+			case "pageImageUri":
+				return oArticle.pageImageUri;
 			case "pageCree":
 				return oArticle.pageCree;
 			case "pageH1":
@@ -2283,6 +2460,14 @@ public abstract class ArticleGen<DEV> extends Cluster {
 			document.addField("pageUri_frFR_indexed_string", pageUri_frFR);
 			document.addField("pageUri_frFR_stored_string", pageUri_frFR);
 		}
+		if(pageImageUri_enUS != null) {
+			document.addField("pageImageUri_enUS_indexed_string", pageImageUri_enUS);
+			document.addField("pageImageUri_enUS_stored_string", pageImageUri_enUS);
+		}
+		if(pageImageUri_frFR != null) {
+			document.addField("pageImageUri_frFR_indexed_string", pageImageUri_frFR);
+			document.addField("pageImageUri_frFR_stored_string", pageImageUri_frFR);
+		}
 		if(pageCree != null) {
 			document.addField("pageCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
 			document.addField("pageCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(pageCree.atOffset(ZoneOffset.UTC)));
@@ -2389,6 +2574,14 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		if(pageUri_frFR != null)
 			oArticle.setPageUri_frFR(pageUri_frFR);
 
+		String pageImageUri_enUS = (String)solrDocument.get("pageImageUri_enUS_stored_string");
+		if(pageImageUri_enUS != null)
+			oArticle.setPageImageUri_enUS(pageImageUri_enUS);
+
+		String pageImageUri_frFR = (String)solrDocument.get("pageImageUri_frFR_stored_string");
+		if(pageImageUri_frFR != null)
+			oArticle.setPageImageUri_frFR(pageImageUri_frFR);
+
 		Date pageCree = (Date)solrDocument.get("pageCree_stored_date");
 		if(pageCree != null)
 			oArticle.setPageCree(pageCree);
@@ -2436,7 +2629,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
+		return Objects.hash(super.hashCode(), nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
 	}
 
 	////////////
@@ -2474,6 +2667,9 @@ public abstract class ArticleGen<DEV> extends Cluster {
 				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
 				&& Objects.equals( pageUri_frFR, that.pageUri_frFR )
 				&& Objects.equals( pageUri, that.pageUri )
+				&& Objects.equals( pageImageUri_enUS, that.pageImageUri_enUS )
+				&& Objects.equals( pageImageUri_frFR, that.pageImageUri_frFR )
+				&& Objects.equals( pageImageUri, that.pageImageUri )
 				&& Objects.equals( pageCree, that.pageCree )
 				&& Objects.equals( pageH1, that.pageH1 )
 				&& Objects.equals( pageH2, that.pageH2 )
@@ -2515,6 +2711,9 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		sb.append( ", pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
 		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );
 		sb.append( ", pageUri: \"" ).append(pageUri).append( "\"" );
+		sb.append( ", pageImageUri_enUS: \"" ).append(pageImageUri_enUS).append( "\"" );
+		sb.append( ", pageImageUri_frFR: \"" ).append(pageImageUri_frFR).append( "\"" );
+		sb.append( ", pageImageUri: \"" ).append(pageImageUri).append( "\"" );
 		sb.append( ", pageCree: " ).append(pageCree);
 		sb.append( ", pageH1: \"" ).append(pageH1).append( "\"" );
 		sb.append( ", pageH2: \"" ).append(pageH2).append( "\"" );

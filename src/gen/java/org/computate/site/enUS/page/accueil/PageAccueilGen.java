@@ -42,7 +42,9 @@ public abstract class PageAccueilGen<DEV> extends Article {
 	public static final String PageAccueil_IconeGroupe = "regular";
 	public static final String PageAccueil_IconeNom = "book";
 	public static final String PageAccueilFrFRPage_Uri = "/frFR";
+	public static final String PageAccueilFrFRPage_ImageUri = "/png/frFR-999.png";
 	public static final String PageAccueilEnUSPage_Uri = "/";
+	public static final String PageAccueilEnUSPage_ImageUri = "/png/-999.png";
 
 	//////////////////
 	// pageUri_enUS //
@@ -434,6 +436,22 @@ public abstract class PageAccueilGen<DEV> extends Article {
 	public static void image() {
 		try {
 			DefaultExecutor executeur = new DefaultExecutor();
+			{
+				new File("/usr/local/src/computate.org-static/png").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR-999.png"));
+				System.out.println("PageAccueilFrFRPage");
+				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
+				System.out.println(" * ImageHauteur.frFR: " + img.getHeight());
+			}
+			{
+				new File("/usr/local/src/computate.org-static/png").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/-999.png"));
+				System.out.println("PageAccueilEnUSPage");
+				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
+				System.out.println(" * ImageHauteur.enUS: " + img.getHeight());
+			}
 		} catch(Exception e) {
 			ExceptionUtils.rethrow(e);
 		}

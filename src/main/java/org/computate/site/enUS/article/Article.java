@@ -131,6 +131,16 @@ public class Article extends ArticleGen<Cluster> {
 		c.o(pageUri_enUS);
 	}
 
+	protected void _pageImageUri_enUS(Couverture<String> c) {
+	}
+
+	protected void _pageImageUri_frFR(Couverture<String> c) {
+	}
+
+	protected void _pageImageUri(Couverture<String> c) {
+		c.o(pageImageUri_enUS);
+	}
+
 	protected void _pageCree(Couverture<LocalDateTime> c) {
 		c.o(articleCree);
 	}

@@ -207,6 +207,10 @@ public class PageAccueilFrFRGenApiServiceImpl implements PageAccueilFrFRGenApiSe
 				return "pageUri_enUS_indexed_string";
 			case "pageUri_frFR":
 				return "pageUri_frFR_indexed_string";
+			case "pageImageUri_enUS":
+				return "pageImageUri_enUS_indexed_string";
+			case "pageImageUri_frFR":
+				return "pageImageUri_frFR_indexed_string";
 			case "pageCree":
 				return "pageCree_indexed_date";
 			case "pageH1":

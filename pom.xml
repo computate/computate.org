@@ -377,10 +377,10 @@
 							</execution>
 						</executions>
 						<configuration>
-							<keystore>/srv/heytate.com/server.jks</keystore>
-							<alias>heytate.com</alias>
-							<storepass>T@wgf77q~=3t^KtY</storepass>
-							<keypass>T@wgf77q~=3t^KtY</keypass>
+							<keystore>${keystore-path}</keystore>
+							<alias>${keystore-alias}</alias>
+							<storepass>${keystore-storepass}</storepass>
+							<keypass>${keystore-keypass}</keypass>
 						</configuration>
 					</plugin>
 				</plugins>

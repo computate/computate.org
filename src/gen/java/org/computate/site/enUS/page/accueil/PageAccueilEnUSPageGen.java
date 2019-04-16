@@ -131,18 +131,6 @@ public abstract class PageAccueilEnUSPageGen<DEV> extends PageAccueilEnUSGenPage
 		}
 	}
 
-	/////////////////
-	// htmlScripts //
-	/////////////////
-
-	@Override public void htmlScripts() {
-		htmlScriptsPageAccueilEnUSPage();
-		super.htmlScripts();
-	}
-
-	public void htmlScriptsPageAccueilEnUSPage() {
-	}
-
 	//////////////
 	// htmlBody //
 	//////////////
@@ -153,6 +141,18 @@ public abstract class PageAccueilEnUSPageGen<DEV> extends PageAccueilEnUSGenPage
 	}
 
 	public void htmlBodyPageAccueilEnUSPage() {
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsPageAccueilEnUSPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsPageAccueilEnUSPage() {
 	}
 
 	///////////////////
