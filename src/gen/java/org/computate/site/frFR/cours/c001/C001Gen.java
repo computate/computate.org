@@ -21,7 +21,7 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001&fq=classeEtendGen_indexed_boolean:true">Trouver la classe coursIdentifiantMajuscule dans Solr</a>
  * <br/>
  **/
 public abstract class C001Gen<DEV> extends Cours {
@@ -35,6 +35,8 @@ public abstract class C001Gen<DEV> extends Cours {
 	public static final String C001_NomPluriel = "courses";
 	public static final String C001_NomActuel = "cours n ° 1 actuel";
 	public static final String C001_TousNom = "tous les courses";
+	public static final String C001_RechercherTousNomPar = "rechercher courses par ";
+	public static final String C001_RechercherTousNom = "rechercher courses";
 	public static final String C001_H1 = "Construire des applications Web modernes et async avec les meilleurs logiciels open sources. ";
 	public static final String C001_H2 = "Avec Vert.x, sur Linux, données PostgreSQL, recherche Solr, construit comme containers Linux sur OpenShift. ";
 	public static final String C001_LesNoms = "les courses";
@@ -84,78 +86,6 @@ public abstract class C001Gen<DEV> extends Cours {
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
 		requeteSiteC001(requeteSite_);
-	}
-
-	/////////////
-	// indexer //
-	/////////////
-
-	public static void indexer() {
-		try {
-			RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-			requeteSite.initLoinRequeteSiteFrFR();
-			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
-			siteContexte.initLoinSiteContexteFrFR();
-			siteContexte.setRequeteSite_(requeteSite);
-			requeteSite.setSiteContexte_(siteContexte);
-			SolrQuery rechercheSolr = new SolrQuery();
-			rechercheSolr.setQuery("*:*");
-			rechercheSolr.setRows(1);
-			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.C001"));
-			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
-			if(reponseRecherche.getResults().size() > 0)
-				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
-			C001 o = new C001();
-			o.requeteSiteC001(requeteSite);
-			o.initLoinC001(requeteSite);
-			o.indexerC001();
-		} catch(Exception e) {
-			ExceptionUtils.rethrow(e);
-		}
-	}
-
-
-	@Override public void indexerPourClasse() throws Exception {
-		indexerC001();
-	}
-
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
-		indexerC001(document);
-	}
-
-	public void indexerC001(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001(document);
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerC001() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerC001(SolrInputDocument document) throws Exception {
-		super.indexerCours(document);
-
-	}
-
-	public void desindexerC001() throws Exception {
-		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-		requeteSite.initLoinRequeteSiteFrFR();
-		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-		siteContexte.initLoinSiteContexteFrFR();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
 	}
 
 	/////////////
@@ -235,6 +165,78 @@ public abstract class C001Gen<DEV> extends Cours {
 	}
 
 	/////////////
+	// indexer //
+	/////////////
+
+	public static void indexer() {
+		try {
+			RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
+			requeteSite.initLoinRequeteSiteFrFR();
+			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
+			siteContexte.initLoinSiteContexteFrFR();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.C001"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
+			C001 o = new C001();
+			o.requeteSiteC001(requeteSite);
+			o.initLoinC001(requeteSite);
+			o.indexerC001();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
+	}
+
+
+	@Override public void indexerPourClasse() throws Exception {
+		indexerC001();
+	}
+
+	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+		indexerC001(document);
+	}
+
+	public void indexerC001(SolrClient clientSolr) throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerC001(document);
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerC001() throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerC001(document);
+		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerC001(SolrInputDocument document) throws Exception {
+		super.indexerCours(document);
+
+	}
+
+	public void desindexerC001() throws Exception {
+		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
+		requeteSite.initLoinRequeteSiteFrFR();
+		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+		siteContexte.initLoinSiteContexteFrFR();
+		siteContexte.setRequeteSite_(requeteSite);
+		requeteSite.setSiteContexte_(siteContexte);
+		requeteSite.setConfigSite_(siteContexte.getConfigSite());
+		initLoinC001(siteContexte.getRequeteSite_());
+		SolrClient clientSolr = siteContexte.getClientSolr();
+		clientSolr.deleteById(id.toString());
+		clientSolr.commit();
+	}
+
+	/////////////
 	// stocker //
 	/////////////
 
@@ -251,9 +253,8 @@ public abstract class C001Gen<DEV> extends Cours {
 	// htmlBody //
 	//////////////
 
-	@Override public void htmlBody() {
+	public void htmlBody() {
 		htmlBodyC001();
-		super.htmlBodyCours();
 	}
 
 	public void htmlBodyC001() {

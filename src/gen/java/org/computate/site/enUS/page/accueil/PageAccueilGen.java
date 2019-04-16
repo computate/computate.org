@@ -8,7 +8,6 @@ import org.apache.commons.exec.CommandLine;
 import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import org.computate.site.enUS.cluster.Cluster;
-import org.computate.site.enUS.cours.Cours;
 import javax.imageio.ImageIO;
 import org.computate.site.enUS.page.parti.PagePart;
 import java.lang.String;
@@ -16,14 +15,15 @@ import org.apache.commons.exec.DefaultExecutor;
 import java.awt.image.BufferedImage;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
+import org.computate.site.enUS.article.Article;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
-import java.util.List;
 import org.computate.site.enUS.page.parti.PageParagraphe;
+import java.util.List;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
@@ -33,7 +33,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class PageAccueilGen<DEV> extends Cluster {
+public abstract class PageAccueilGen<DEV> extends Article {
 
 	public static final String PageAccueil_H1 = "Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ";
 	public static final String PageAccueil_H2 = "Flexible PostgreSQL database, Solr search integration, OpenAPI 3 standards, completely asynchronous Vert.x code, deployed on Red Hat OpenShift, for the very best, 100% open source solutions. ";
@@ -43,79 +43,6 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	public static final String PageAccueil_IconeNom = "book";
 	public static final String PageAccueilFrFRPage_Uri = "/frFR";
 	public static final String PageAccueilEnUSPage_Uri = "/";
-
-	//////////////////////////
-	// classeNomsCanoniques //
-	//////////////////////////
-
-	/**	L'entité « classeNomsCanoniques »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
-	 */
-	protected List<String> classeNomsCanoniques = new java.util.ArrayList<java.lang.String>();
-	public Couverture<List<String>> classeNomsCanoniquesCouverture = new Couverture<List<String>>().p(this).c(List.class).var("classeNomsCanoniques").o(classeNomsCanoniques);
-
-	/**	<br/>L'entité « classeNomsCanoniques »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:classeNomsCanoniques">Trouver l'entité classeNomsCanoniques dans Solr</a>
-	 * <br/>
-	 * @param classeNomsCanoniques est l'entité déjà construit. 
-	 **/
-	protected abstract void _classeNomsCanoniques(List<String> l);
-
-	public List<String> getClasseNomsCanoniques() {
-		return classeNomsCanoniques;
-	}
-
-	public void setClasseNomsCanoniques(List<String> classeNomsCanoniques) {
-		this.classeNomsCanoniques = classeNomsCanoniques;
-		this.classeNomsCanoniquesCouverture.dejaInitialise = true;
-	}
-	public PageAccueil addClasseNomsCanoniques(String...objets) {
-		for(String o : objets) {
-			addClasseNomsCanoniques(o);
-		}
-		return (PageAccueil)this;
-	}
-	public PageAccueil addClasseNomsCanoniques(String o) {
-		if(o != null && !classeNomsCanoniques.contains(o))
-			this.classeNomsCanoniques.add(o);
-		return (PageAccueil)this;
-	}
-	public PageAccueil setClasseNomsCanoniques(JsonArray objets) {
-		classeNomsCanoniques.clear();
-		for(int i = 0; i < objets.size(); i++) {
-			String o = objets.getString(i);
-			addClasseNomsCanoniques(o);
-		}
-		return (PageAccueil)this;
-	}
-	protected PageAccueil classeNomsCanoniquesInit() {
-		if(!classeNomsCanoniquesCouverture.dejaInitialise) {
-			_classeNomsCanoniques(classeNomsCanoniques);
-		}
-		classeNomsCanoniquesCouverture.dejaInitialise(true);
-		return (PageAccueil)this;
-	}
-
-	public List<String> solrClasseNomsCanoniques() {
-		return classeNomsCanoniques;
-	}
-
-	public String strClasseNomsCanoniques() {
-		return classeNomsCanoniques == null ? "" : classeNomsCanoniques.toString();
-	}
-
-	public String nomAffichageClasseNomsCanoniques() {
-		return null;
-	}
-
-	public String htmTooltipClasseNomsCanoniques() {
-		return null;
-	}
-
-	public String htmClasseNomsCanoniques() {
-		return classeNomsCanoniques == null ? "" : StringEscapeUtils.escapeHtml4(strClasseNomsCanoniques());
-	}
 
 	//////////////////
 	// pageUri_enUS //
@@ -229,244 +156,38 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 		return pageUri_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri_frFR());
 	}
 
-	///////////////
-	// pageTitre //
-	///////////////
+	//////////////////
+	// listeArticle //
+	//////////////////
 
-	/**	L'entité « pageTitre »
-	 *	 is defined as null before being initialized. 
+	/**	L'entité « listeArticle »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut ListeRecherche<Article>(). 
 	 */
-	protected String pageTitre;
-	public Couverture<String> pageTitreCouverture = new Couverture<String>().p(this).c(String.class).var("pageTitre").o(pageTitre);
+	protected ListeRecherche<Article> listeArticle = new ListeRecherche<Article>();
+	public Couverture<ListeRecherche<Article>> listeArticleCouverture = new Couverture<ListeRecherche<Article>>().p(this).c(ListeRecherche.class).var("listeArticle").o(listeArticle);
 
-	/**	<br/>L'entité « pageTitre »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageTitre">Trouver l'entité pageTitre dans Solr</a>
+	/**	<br/>L'entité « listeArticle »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut ListeRecherche<Article>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:listeArticle">Trouver l'entité listeArticle dans Solr</a>
 	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 * @param listeArticle est l'entité déjà construit. 
 	 **/
-	protected abstract void _pageTitre(Couverture<String> c);
+	protected abstract void _listeArticle(ListeRecherche<Article> o);
 
-	public String getPageTitre() {
-		return pageTitre;
+	public ListeRecherche<Article> getListeArticle() {
+		return listeArticle;
 	}
 
-	public void setPageTitre(String pageTitre) {
-		this.pageTitre = pageTitre;
-		this.pageTitreCouverture.dejaInitialise = true;
+	public void setListeArticle(ListeRecherche<Article> listeArticle) {
+		this.listeArticle = listeArticle;
+		this.listeArticleCouverture.dejaInitialise = true;
 	}
-	protected PageAccueil pageTitreInit() {
-		if(!pageTitreCouverture.dejaInitialise) {
-			_pageTitre(pageTitreCouverture);
-			if(pageTitre == null)
-				setPageTitre(pageTitreCouverture.o);
+	protected PageAccueil listeArticleInit() {
+		if(!listeArticleCouverture.dejaInitialise) {
+			_listeArticle(listeArticle);
 		}
-		pageTitreCouverture.dejaInitialise(true);
-		return (PageAccueil)this;
-	}
-
-	public String solrPageTitre() {
-		return pageTitre;
-	}
-
-	public String strPageTitre() {
-		return pageTitre == null ? "" : pageTitre;
-	}
-
-	public String nomAffichagePageTitre() {
-		return null;
-	}
-
-	public String htmTooltipPageTitre() {
-		return null;
-	}
-
-	public String htmPageTitre() {
-		return pageTitre == null ? "" : StringEscapeUtils.escapeHtml4(strPageTitre());
-	}
-
-	////////////
-	// pageH1 //
-	////////////
-
-	/**	L'entité « pageH1 »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageH1;
-	public Couverture<String> pageH1Couverture = new Couverture<String>().p(this).c(String.class).var("pageH1").o(pageH1);
-
-	/**	<br/>L'entité « pageH1 »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageH1">Trouver l'entité pageH1 dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageH1(Couverture<String> c);
-
-	public String getPageH1() {
-		return pageH1;
-	}
-
-	public void setPageH1(String pageH1) {
-		this.pageH1 = pageH1;
-		this.pageH1Couverture.dejaInitialise = true;
-	}
-	protected PageAccueil pageH1Init() {
-		if(!pageH1Couverture.dejaInitialise) {
-			_pageH1(pageH1Couverture);
-			if(pageH1 == null)
-				setPageH1(pageH1Couverture.o);
-		}
-		pageH1Couverture.dejaInitialise(true);
-		return (PageAccueil)this;
-	}
-
-	public String solrPageH1() {
-		return pageH1;
-	}
-
-	public String strPageH1() {
-		return pageH1 == null ? "" : pageH1;
-	}
-
-	public String nomAffichagePageH1() {
-		return null;
-	}
-
-	public String htmTooltipPageH1() {
-		return null;
-	}
-
-	public String htmPageH1() {
-		return pageH1 == null ? "" : StringEscapeUtils.escapeHtml4(strPageH1());
-	}
-
-	////////////
-	// pageH2 //
-	////////////
-
-	/**	L'entité « pageH2 »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageH2;
-	public Couverture<String> pageH2Couverture = new Couverture<String>().p(this).c(String.class).var("pageH2").o(pageH2);
-
-	/**	<br/>L'entité « pageH2 »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageH2">Trouver l'entité pageH2 dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageH2(Couverture<String> c);
-
-	public String getPageH2() {
-		return pageH2;
-	}
-
-	public void setPageH2(String pageH2) {
-		this.pageH2 = pageH2;
-		this.pageH2Couverture.dejaInitialise = true;
-	}
-	protected PageAccueil pageH2Init() {
-		if(!pageH2Couverture.dejaInitialise) {
-			_pageH2(pageH2Couverture);
-			if(pageH2 == null)
-				setPageH2(pageH2Couverture.o);
-		}
-		pageH2Couverture.dejaInitialise(true);
-		return (PageAccueil)this;
-	}
-
-	public String solrPageH2() {
-		return pageH2;
-	}
-
-	public String strPageH2() {
-		return pageH2 == null ? "" : pageH2;
-	}
-
-	public String nomAffichagePageH2() {
-		return null;
-	}
-
-	public String htmTooltipPageH2() {
-		return null;
-	}
-
-	public String htmPageH2() {
-		return pageH2 == null ? "" : StringEscapeUtils.escapeHtml4(strPageH2());
-	}
-
-	////////////////
-	// listeCours //
-	////////////////
-
-	/**	L'entité « listeCours »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut ListeRecherche<Cours>(). 
-	 */
-	protected ListeRecherche<Cours> listeCours = new ListeRecherche<Cours>();
-	public Couverture<ListeRecherche<Cours>> listeCoursCouverture = new Couverture<ListeRecherche<Cours>>().p(this).c(ListeRecherche.class).var("listeCours").o(listeCours);
-
-	/**	<br/>L'entité « listeCours »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut ListeRecherche<Cours>(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:listeCours">Trouver l'entité listeCours dans Solr</a>
-	 * <br/>
-	 * @param listeCours est l'entité déjà construit. 
-	 **/
-	protected abstract void _listeCours(ListeRecherche<Cours> o);
-
-	public ListeRecherche<Cours> getListeCours() {
-		return listeCours;
-	}
-
-	public void setListeCours(ListeRecherche<Cours> listeCours) {
-		this.listeCours = listeCours;
-		this.listeCoursCouverture.dejaInitialise = true;
-	}
-	protected PageAccueil listeCoursInit() {
-		if(!listeCoursCouverture.dejaInitialise) {
-			_listeCours(listeCours);
-		}
-		listeCours.initLoinPourClasse(requeteSite_);
-		listeCoursCouverture.dejaInitialise(true);
-		return (PageAccueil)this;
-	}
-
-	///////////
-	// cours //
-	///////////
-
-	/**	L'entité « cours »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected Cours cours;
-	public Couverture<Cours> coursCouverture = new Couverture<Cours>().p(this).c(Cours.class).var("cours").o(cours);
-
-	/**	<br/>L'entité « cours »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.accueil.PageAccueil&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:cours">Trouver l'entité cours dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _cours(Couverture<Cours> c);
-
-	public Cours getCours() {
-		return cours;
-	}
-
-	public void setCours(Cours cours) {
-		this.cours = cours;
-		this.coursCouverture.dejaInitialise = true;
-	}
-	protected PageAccueil coursInit() {
-		if(!coursCouverture.dejaInitialise) {
-			_cours(coursCouverture);
-			if(cours == null)
-				setCours(coursCouverture.o);
-		}
-		if(cours != null)
-			cours.initLoinPourClasse(requeteSite_);
-		coursCouverture.dejaInitialise(true);
+		listeArticle.initLoinPourClasse(requeteSite_);
+		listeArticleCouverture.dejaInitialise(true);
 		return (PageAccueil)this;
 	}
 
@@ -586,19 +307,14 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	}
 
 	public void initLoinPageAccueil() {
-		super.initLoinCluster(requeteSite_);
+		super.initLoinArticle(requeteSite_);
 		initPageAccueil();
 	}
 
 	public void initPageAccueil() {
-		classeNomsCanoniquesInit();
 		pageUri_enUSInit();
 		pageUri_frFRInit();
-		pageTitreInit();
-		pageH1Init();
-		pageH2Init();
-		listeCoursInit();
-		coursInit();
+		listeArticleInit();
 		introInit();
 		moiInit();
 	}
@@ -612,11 +328,13 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	/////////////////
 
 	public void requeteSitePageAccueil(RequeteSiteEnUS requeteSite_) {
-			super.requeteSiteCluster(requeteSite_);
-		listeCours.setRequeteSite_(requeteSite_);
-		cours.setRequeteSite_(requeteSite_);
-		intro.setRequeteSite_(requeteSite_);
-		moi.setRequeteSite_(requeteSite_);
+			super.requeteSiteArticle(requeteSite_);
+		if(listeArticle != null)
+			listeArticle.setRequeteSite_(requeteSite_);
+		if(intro != null)
+			intro.setRequeteSite_(requeteSite_);
+		if(moi != null)
+			moi.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -643,28 +361,18 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	public Object obtenirPageAccueil(String var) throws Exception {
 		PageAccueil oPageAccueil = (PageAccueil)this;
 		switch(var) {
-			case "classeNomsCanoniques":
-				return oPageAccueil.classeNomsCanoniques;
 			case "pageUri_enUS":
 				return oPageAccueil.pageUri_enUS;
 			case "pageUri_frFR":
 				return oPageAccueil.pageUri_frFR;
-			case "pageTitre":
-				return oPageAccueil.pageTitre;
-			case "pageH1":
-				return oPageAccueil.pageH1;
-			case "pageH2":
-				return oPageAccueil.pageH2;
-			case "listeCours":
-				return oPageAccueil.listeCours;
-			case "cours":
-				return oPageAccueil.cours;
+			case "listeArticle":
+				return oPageAccueil.listeArticle;
 			case "intro":
 				return oPageAccueil.intro;
 			case "moi":
 				return oPageAccueil.moi;
 			default:
-				return super.obtenirCluster(var);
+				return super.obtenirArticle(var);
 		}
 	}
 
@@ -689,7 +397,7 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 		PageAccueil oPageAccueil = (PageAccueil)this;
 		switch(var) {
 			default:
-				return super.attribuerCluster(var, val);
+				return super.attribuerArticle(var, val);
 		}
 	}
 
@@ -715,7 +423,7 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	public Object definirPageAccueil(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirCluster(var, val);
+				return super.definirArticle(var, val);
 		}
 	}
 
@@ -785,19 +493,7 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	}
 
 	public void indexerPageAccueil(SolrInputDocument document) throws Exception {
-		if(pageTitre != null) {
-			document.addField("pageTitre_indexed_string", pageTitre);
-			document.addField("pageTitre_stored_string", pageTitre);
-		}
-		if(pageH1 != null) {
-			document.addField("pageH1_indexed_string", pageH1);
-			document.addField("pageH1_stored_string", pageH1);
-		}
-		if(pageH2 != null) {
-			document.addField("pageH2_indexed_string", pageH2);
-			document.addField("pageH2_stored_string", pageH2);
-		}
-		super.indexerCluster(document);
+		super.indexerArticle(document);
 
 	}
 
@@ -825,32 +521,19 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	public void stockerPageAccueil(SolrDocument solrDocument) {
 		PageAccueil oPageAccueil = (PageAccueil)this;
 
-		String pageTitre = (String)solrDocument.get("pageTitre_stored_string");
-		if(pageTitre != null)
-			oPageAccueil.setPageTitre(pageTitre);
-
-		String pageH1 = (String)solrDocument.get("pageH1_stored_string");
-		if(pageH1 != null)
-			oPageAccueil.setPageH1(pageH1);
-
-		String pageH2 = (String)solrDocument.get("pageH2_stored_string");
-		if(pageH2 != null)
-			oPageAccueil.setPageH2(pageH2);
-
-		super.stockerCluster(solrDocument);
+		super.stockerArticle(solrDocument);
 	}
 
 	//////////////
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyPageAccueil();
+		super.htmlBody();
 	}
 
 	public void htmlBodyPageAccueil() {
-		if(cours != null)
-			cours.htmlBody();
 		if(intro != null)
 			intro.htmlBody();
 		if(moi != null)
@@ -877,7 +560,7 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), classeNomsCanoniques, pageUri_enUS, pageUri_frFR, pageTitre, pageH1, pageH2);
+		return Objects.hash(super.hashCode(), pageUri_enUS, pageUri_frFR);
 	}
 
 	////////////
@@ -891,12 +574,8 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 			return false;
 		PageAccueil that = (PageAccueil)o;
 		return super.equals(o)
-				&& Objects.equals( classeNomsCanoniques, that.classeNomsCanoniques )
 				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
-				&& Objects.equals( pageUri_frFR, that.pageUri_frFR )
-				&& Objects.equals( pageTitre, that.pageTitre )
-				&& Objects.equals( pageH1, that.pageH1 )
-				&& Objects.equals( pageH2, that.pageH2 );
+				&& Objects.equals( pageUri_frFR, that.pageUri_frFR );
 	}
 
 	//////////////
@@ -907,12 +586,8 @@ public abstract class PageAccueilGen<DEV> extends Cluster {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("PageAccueil {");
-		sb.append( "classeNomsCanoniques: " ).append(classeNomsCanoniques);
-		sb.append( ", pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
+		sb.append( "pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
 		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );
-		sb.append( ", pageTitre: \"" ).append(pageTitre).append( "\"" );
-		sb.append( ", pageH1: \"" ).append(pageH1).append( "\"" );
-		sb.append( ", pageH2: \"" ).append(pageH2).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

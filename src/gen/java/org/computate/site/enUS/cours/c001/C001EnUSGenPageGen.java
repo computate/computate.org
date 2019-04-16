@@ -89,7 +89,8 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 
 	public void requeteSiteC001EnUSGenPage(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteCoursEnUSPage(requeteSite_);
-		c001.setRequeteSite_(requeteSite_);
+		if(c001 != null)
+			c001.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -194,7 +195,8 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 	}
 
 	public void htmlBodyC001EnUSGenPage() {
-		c001.htmlBody();
+		if(c001 != null)
+			c001.htmlBody();
 	}
 
 	//////////////

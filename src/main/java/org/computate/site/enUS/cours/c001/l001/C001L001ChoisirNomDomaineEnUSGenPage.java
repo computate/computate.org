@@ -57,7 +57,7 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L001ChoisirNomDomaine != null)
-			c.o("a lesson");
+			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {

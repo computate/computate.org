@@ -4,10 +4,10 @@ import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.site.frFR.cluster.Cluster;
+import org.computate.site.frFR.article.ArticleFrFRPage;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.accueil.PageAccueil;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
-import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.page.accueil.PageAccueilFrFRGenPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
+public abstract class PageAccueilFrFRGenPageGen<DEV> extends ArticleFrFRPage {
 
 	/////////////////
 	// pageAccueil //
@@ -71,7 +71,7 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 	}
 
 	public void initLoinPageAccueilFrFRGenPage() {
-		super.initLoinC001LeconFrFRPage(requeteSite_);
+		super.initLoinArticleFrFRPage(requeteSite_);
 		initPageAccueilFrFRGenPage();
 	}
 
@@ -88,8 +88,9 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 	/////////////////
 
 	public void requeteSitePageAccueilFrFRGenPage(RequeteSiteFrFR requeteSite_) {
-			super.requeteSiteC001LeconFrFRPage(requeteSite_);
-		pageAccueil.setRequeteSite_(requeteSite_);
+			super.requeteSiteArticleFrFRPage(requeteSite_);
+		if(pageAccueil != null)
+			pageAccueil.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -119,7 +120,7 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 			case "pageAccueil":
 				return oPageAccueilFrFRGenPage.pageAccueil;
 			default:
-				return super.obtenirC001LeconFrFRPage(var);
+				return super.obtenirArticleFrFRPage(var);
 		}
 	}
 
@@ -144,7 +145,7 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 		PageAccueilFrFRGenPage oPageAccueilFrFRGenPage = (PageAccueilFrFRGenPage)this;
 		switch(var) {
 			default:
-				return super.attribuerC001LeconFrFRPage(var, val);
+				return super.attribuerArticleFrFRPage(var, val);
 		}
 	}
 
@@ -170,7 +171,7 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 	public Object definirPageAccueilFrFRGenPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirC001LeconFrFRPage(var, val);
+				return super.definirArticleFrFRPage(var, val);
 		}
 	}
 
@@ -178,8 +179,9 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsPageAccueilFrFRGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsPageAccueilFrFRGenPage() {
@@ -189,8 +191,9 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyPageAccueilFrFRGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyPageAccueilFrFRGenPage() {
@@ -202,13 +205,74 @@ public abstract class PageAccueilFrFRGenPageGen<DEV> extends C001LeconFrFRPage {
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtPageAccueilFrFRGenPage();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtPageAccueilFrFRGenPage() {
 		if(pageAccueil != null)
 			pageAccueil.htmlBodyCourt();
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptPageAccueilFrFRGenPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptPageAccueilFrFRGenPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlPageAccueilFrFRGenPage();
+		super.html();
+	}
+
+	public void htmlPageAccueilFrFRGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaPageAccueilFrFRGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaPageAccueilFrFRGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesPageAccueilFrFRGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesPageAccueilFrFRGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStylePageAccueilFrFRGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStylePageAccueilFrFRGenPage() {
 	}
 
 	//////////////

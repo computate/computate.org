@@ -64,6 +64,7 @@ import io.vertx.ext.web.api.OperationRequest;
 import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import java.util.Optional;
 import java.util.stream.Stream;
+import java.net.URLDecoder;
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
@@ -74,9 +75,9 @@ import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
  **/
 public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(C001LeconFrFRGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(C001LeconFrFRGenApiServiceImpl.class);
 
-	private static final String SERVICE_ADDRESS = "C001LeconFrFRApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "C001LeconFrFRApiServiceImpl";
 
 	protected SiteContexteFrFR siteContexte;
 
@@ -106,19 +107,23 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 									reponse200RechercheFrFRPageC001Lecon(listeC001Lecon, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
-											connexionSql.commit(e -> {
-												if(e.succeeded()) {
-													connexionSql.close(f -> {
-														if(f.succeeded()) {
-															gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-														} else {
-															erreurC001Lecon(requeteSite, gestionnaireEvenements, f);
-														}
-													});
-												} else {
-													erreurC001Lecon(requeteSite, gestionnaireEvenements, e);
-												}
-											});
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurC001Lecon(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurC001Lecon(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
 										} else {
 											erreurC001Lecon(requeteSite, gestionnaireEvenements, d);
 										}
@@ -183,20 +188,20 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 				return "estCours_indexed_boolean";
 			case "estLecon":
 				return "estLecon_indexed_boolean";
-			case "coursNumero":
-				return "coursNumero_indexed_int";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
 			case "leconNumero":
 				return "leconNumero_indexed_int";
-			case "coursCree":
-				return "coursCree_indexed_date";
-			case "coursH1_enUS":
-				return "coursH1_enUS_indexed_string";
-			case "coursH1_frFR":
-				return "coursH1_frFR_indexed_string";
-			case "coursH2_enUS":
-				return "coursH2_enUS_indexed_string";
-			case "coursH2_frFR":
-				return "coursH2_frFR_indexed_string";
+			case "articleH1_enUS":
+				return "articleH1_enUS_indexed_string";
+			case "articleH1_frFR":
+				return "articleH1_frFR_indexed_string";
+			case "articleH2_enUS":
+				return "articleH2_enUS_indexed_string";
+			case "articleH2_frFR":
+				return "articleH2_frFR_indexed_string";
+			case "articleCree":
+				return "articleCree_indexed_date";
 			case "pageUri_enUS":
 				return "pageUri_enUS_indexed_string";
 			case "pageUri_frFR":
@@ -211,8 +216,28 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
 			case "leconCree":
 				return "leconCree_indexed_date";
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varRechercheC001Lecon(String entiteVar) {
+		switch(entiteVar) {
+			case "pageRecherche_enUS":
+				return "pageRecherche_enUS_text_enUS";
+			case "pageRecherche_frFR":
+				return "pageRecherche_frFR_text_frFR";
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varSuggereC001Lecon(String entiteVar) {
+		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -261,21 +286,25 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
-			clientSql.getConnection(sqlAsync -> {
-				if(sqlAsync.succeeded()) {
-					SQLConnection connexionSql = sqlAsync.result();
-					connexionSql.setAutoCommit(false, a -> {
-						if(a.succeeded()) {
-							requeteSite.setConnexionSql(connexionSql);
-							gestionnaireEvenements.handle(Future.succeededFuture());
-						} else {
-							gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
-						}
-					});
-				} else {
-					gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
-				}
-			});
+			if(clientSql == null) {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			} else {
+				clientSql.getConnection(sqlAsync -> {
+					if(sqlAsync.succeeded()) {
+						SQLConnection connexionSql = sqlAsync.result();
+						connexionSql.setAutoCommit(false, a -> {
+							if(a.succeeded()) {
+								requeteSite.setConnexionSql(connexionSql);
+								gestionnaireEvenements.handle(Future.succeededFuture());
+							} else {
+								gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
+							}
+						});
+					} else {
+						gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
+					}
+				});
+			}
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
 		}
@@ -428,40 +457,51 @@ public class C001LeconFrFRGenApiServiceImpl implements C001LeconFrFRGenApiServic
 				Object paramValeursObjet = paramRequete.getValue();
 				JsonArray paramObjets = paramValeursObjet instanceof JsonArray ? (JsonArray)paramValeursObjet : new JsonArray().add(paramValeursObjet);
 
-				for(Object paramObjet : paramObjets) {
-					switch(paramNom) {
-						case "q":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = "*".equals(entiteVar) ? entiteVar : varIndexeC001Lecon(entiteVar);
-							listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
-							break;
-						case "fq":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = varIndexeC001Lecon(entiteVar);
-							listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
-							break;
-						case "sort":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
-							valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-							varIndexe = varIndexeC001Lecon(entiteVar);
-							listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
-							break;
-						case "fl":
-							entiteVar = StringUtils.trim((String)paramObjet);
-							varIndexe = varIndexeC001Lecon(entiteVar);
-							listeRecherche.addField(varIndexe);
-							break;
-						case "start":
-							rechercheDebut = (Integer)paramObjet;
-							listeRecherche.setStart(rechercheDebut);
-							break;
-						case "rows":
-							rechercheNum = (Integer)paramObjet;
-							listeRecherche.setRows(rechercheNum);
-							break;
+				try {
+					for(Object paramObjet : paramObjets) {
+						switch(paramNom) {
+							case "q":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001Lecon(entiteVar);
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
+								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
+								if(!"*".equals(entiteVar)) {
+									listeRecherche.setHighlight(true);
+									listeRecherche.setHighlightSnippets(3);
+									listeRecherche.addHighlightField(varIndexe);
+									listeRecherche.setParam("hl.encoder", "html");
+								}
+								break;
+							case "fq":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								varIndexe = varIndexeC001Lecon(entiteVar);
+								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
+								break;
+							case "sort":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
+								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
+								varIndexe = varIndexeC001Lecon(entiteVar);
+								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
+								break;
+							case "fl":
+								entiteVar = StringUtils.trim((String)paramObjet);
+								varIndexe = varIndexeC001Lecon(entiteVar);
+								listeRecherche.addField(varIndexe);
+								break;
+							case "start":
+								rechercheDebut = (Integer)paramObjet;
+								listeRecherche.setStart(rechercheDebut);
+								break;
+							case "rows":
+								rechercheNum = (Integer)paramObjet;
+								listeRecherche.setRows(rechercheNum);
+								break;
+						}
 					}
+				} catch(Exception e) {
+					gestionnaireEvenements.handle(Future.failedFuture(e));
 				}
 			});
 			listeRecherche.initLoinPourClasse(requeteSite);

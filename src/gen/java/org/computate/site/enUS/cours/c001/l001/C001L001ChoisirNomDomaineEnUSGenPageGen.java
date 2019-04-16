@@ -89,7 +89,8 @@ public abstract class C001L001ChoisirNomDomaineEnUSGenPageGen<DEV> extends C001L
 
 	public void requeteSiteC001L001ChoisirNomDomaineEnUSGenPage(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteC001LeconEnUSPage(requeteSite_);
-		c001L001ChoisirNomDomaine.setRequeteSite_(requeteSite_);
+		if(c001L001ChoisirNomDomaine != null)
+			c001L001ChoisirNomDomaine.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -194,7 +195,8 @@ public abstract class C001L001ChoisirNomDomaineEnUSGenPageGen<DEV> extends C001L
 	}
 
 	public void htmlBodyC001L001ChoisirNomDomaineEnUSGenPage() {
-		c001L001ChoisirNomDomaine.htmlBody();
+		if(c001L001ChoisirNomDomaine != null)
+			c001L001ChoisirNomDomaine.htmlBody();
 	}
 
 	///////////////////
@@ -206,7 +208,8 @@ public abstract class C001L001ChoisirNomDomaineEnUSGenPageGen<DEV> extends C001L
 	}
 
 	public void htmlBodyCourtC001L001ChoisirNomDomaineEnUSGenPage() {
-		c001L001ChoisirNomDomaine.htmlBodyCourt();
+		if(c001L001ChoisirNomDomaine != null)
+			c001L001ChoisirNomDomaine.htmlBodyCourt();
 	}
 
 	//////////////

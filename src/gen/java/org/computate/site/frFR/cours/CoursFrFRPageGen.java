@@ -131,6 +131,42 @@ public abstract class CoursFrFRPageGen<DEV> extends CoursFrFRGenPage {
 		}
 	}
 
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsCoursFrFRPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsCoursFrFRPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptCoursFrFRPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptCoursFrFRPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyCoursFrFRPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyCoursFrFRPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

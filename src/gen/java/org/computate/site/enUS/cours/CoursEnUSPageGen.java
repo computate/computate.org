@@ -131,6 +131,42 @@ public abstract class CoursEnUSPageGen<DEV> extends CoursEnUSGenPage {
 		}
 	}
 
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsCoursEnUSPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsCoursEnUSPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptCoursEnUSPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptCoursEnUSPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyCoursEnUSPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyCoursEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

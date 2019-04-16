@@ -76,9 +76,9 @@ import org.computate.site.enUS.cours.CoursEnUSPage;
  **/
 public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CoursEnUSGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(CoursEnUSGenApiServiceImpl.class);
 
-	private static final String SERVICE_ADDRESS = "CoursEnUSApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "CoursEnUSApiServiceImpl";
 
 	protected SiteContexteEnUS siteContexte;
 
@@ -189,20 +189,22 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 				return "estCours_indexed_boolean";
 			case "estLecon":
 				return "estLecon_indexed_boolean";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
 			case "coursNumero":
 				return "coursNumero_indexed_int";
 			case "leconNumero":
 				return "leconNumero_indexed_int";
-			case "coursCree":
-				return "coursCree_indexed_date";
-			case "coursH1_enUS":
-				return "coursH1_enUS_indexed_string";
-			case "coursH1_frFR":
-				return "coursH1_frFR_indexed_string";
-			case "coursH2_enUS":
-				return "coursH2_enUS_indexed_string";
-			case "coursH2_frFR":
-				return "coursH2_frFR_indexed_string";
+			case "articleH1_enUS":
+				return "articleH1_enUS_indexed_string";
+			case "articleH1_frFR":
+				return "articleH1_frFR_indexed_string";
+			case "articleH2_enUS":
+				return "articleH2_enUS_indexed_string";
+			case "articleH2_frFR":
+				return "articleH2_frFR_indexed_string";
+			case "articleCree":
+				return "articleCree_indexed_date";
 			case "pageUri_enUS":
 				return "pageUri_enUS_indexed_string";
 			case "pageUri_frFR":

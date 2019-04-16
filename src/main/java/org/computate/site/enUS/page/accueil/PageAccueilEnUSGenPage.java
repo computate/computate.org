@@ -1,12 +1,11 @@
 package org.computate.site.enUS.page.accueil;
 
-import java.util.List;
 import java.lang.String;
 import org.computate.site.enUS.recherche.ListeRecherche;
-import org.computate.site.enUS.cours.Cours;
+import org.computate.site.enUS.article.Article;
 import org.computate.site.enUS.page.parti.PageParagraphe;
-import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
-import org.computate.site.enUS.cours.c001.C001LeconEnUSPage;
+import org.computate.site.frFR.article.ArticleFrFRPage;
+import org.computate.site.enUS.article.ArticleEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
@@ -28,12 +27,13 @@ import java.net.URLDecoder;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.util.Map;
+import java.util.List;
 
 
 /**
  * Traduire: false
  **/
-public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<C001LeconEnUSPage> {
+public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnUSPage> {
 
 	protected void _pageAccueil(Couverture<PageAccueil> c) {
 		c.o(new PageAccueil());
@@ -112,6 +112,11 @@ public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<C001LeconE
 			{ e("h2").f();
 				e("span").a("class", " ").f().sx(pageH2).g("span");
 			} g("h2");
+		}
+		if(pageH3 != null) {
+			{ e("h3").f();
+				e("span").a("class", " ").f().sx(pageH3).g("span");
+			} g("h3");
 		}
 
 		pageAccueil.htmlBody();

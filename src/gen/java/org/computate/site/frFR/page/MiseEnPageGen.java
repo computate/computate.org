@@ -2442,7 +2442,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	/////////////////
 
 	public void requeteSiteMiseEnPage(RequeteSiteFrFR requeteSite_) {
-		w.setRequeteSite_(requeteSite_);
+		if(w != null)
+			w.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {

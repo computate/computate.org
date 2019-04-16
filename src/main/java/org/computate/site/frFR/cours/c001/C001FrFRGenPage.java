@@ -16,6 +16,14 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.web.api.OperationRequest;
+import io.vertx.core.json.JsonArray;
+import java.net.URLDecoder;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.StringUtils;
+import java.util.Map;
+import java.util.List;
 
 
 /**
@@ -44,7 +52,7 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001 != null)
-			c.o("un cours n ° 1");
+			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {

@@ -89,7 +89,8 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 
 	public void requeteSiteC001FrFRGenPage(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteCoursFrFRPage(requeteSite_);
-		c001.setRequeteSite_(requeteSite_);
+		if(c001 != null)
+			c001.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -194,7 +195,8 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 	}
 
 	public void htmlBodyC001FrFRGenPage() {
-		c001.htmlBody();
+		if(c001 != null)
+			c001.htmlBody();
 	}
 
 	//////////////

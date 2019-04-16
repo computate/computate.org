@@ -132,6 +132,102 @@ public abstract class PageAccueilFrFRPageGen<DEV> extends PageAccueilFrFRGenPage
 	}
 
 	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyPageAccueilFrFRPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyPageAccueilFrFRPage() {
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsPageAccueilFrFRPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsPageAccueilFrFRPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtPageAccueilFrFRPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtPageAccueilFrFRPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptPageAccueilFrFRPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptPageAccueilFrFRPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlPageAccueilFrFRPage();
+		super.html();
+	}
+
+	public void htmlPageAccueilFrFRPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaPageAccueilFrFRPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaPageAccueilFrFRPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesPageAccueilFrFRPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesPageAccueilFrFRPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStylePageAccueilFrFRPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStylePageAccueilFrFRPage() {
+	}
+
+	//////////////
 	// hashCode //
 	//////////////
 

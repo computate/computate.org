@@ -2,6 +2,7 @@ package org.computate.site.frFR.vertx;
 
 import java.io.File;
 
+import org.computate.site.enUS.article.ArticleEnUSGenApiService;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import org.computate.site.enUS.cours.CoursEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.C001EnUSGenApiService;
@@ -10,6 +11,7 @@ import org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaineEnUSGenA
 import org.computate.site.enUS.cours.c001.l002.C001L002ChoisirSystemeExploitationEnUSGenApiService;
 import org.computate.site.enUS.page.accueil.PageAccueilEnUSGenApiService;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
+import org.computate.site.frFR.article.ArticleFrFRGenApiService;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
 import org.computate.site.frFR.cours.CoursFrFRGenApiService;
@@ -349,6 +351,9 @@ public class AppliVertx extends AbstractVerticle {
 
 		CoursFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		CoursEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		ArticleFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		ArticleEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		Router siteRouteur = siteContexteFrFR.getUsineRouteur().getRouter();
 		// siteContexte.setSiteRouteur_(siteRouteur);

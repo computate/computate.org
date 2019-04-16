@@ -131,6 +131,42 @@ public abstract class C001L001ChoisirNomDomaineEnUSPageGen<DEV> extends C001L001
 		}
 	}
 
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsC001L001ChoisirNomDomaineEnUSPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyC001L001ChoisirNomDomaineEnUSPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001L001ChoisirNomDomaineEnUSPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

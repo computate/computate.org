@@ -129,8 +129,10 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 
 	public void requeteSiteCoursEnUSGenPage(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteMiseEnPage(requeteSite_);
-		listeCours.setRequeteSite_(requeteSite_);
-		cours.setRequeteSite_(requeteSite_);
+		if(listeCours != null)
+			listeCours.setRequeteSite_(requeteSite_);
+		if(cours != null)
+			cours.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -223,7 +225,7 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 
 	@Override public void htmlScripts() {
 		htmlScriptsCoursEnUSGenPage();
-		super.htmlScriptsMiseEnPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsCoursEnUSGenPage() {
@@ -235,7 +237,7 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 
 	@Override public void htmlScript() {
 		htmlScriptCoursEnUSGenPage();
-		super.htmlScriptMiseEnPage();
+		super.htmlScript();
 	}
 
 	public void htmlScriptCoursEnUSGenPage() {
@@ -247,11 +249,70 @@ public abstract class CoursEnUSGenPageGen<DEV> extends MiseEnPage {
 
 	@Override public void htmlBody() {
 		htmlBodyCoursEnUSGenPage();
-		super.htmlBodyMiseEnPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyCoursEnUSGenPage() {
-		cours.htmlBody();
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlCoursEnUSGenPage();
+		super.html();
+	}
+
+	public void htmlCoursEnUSGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaCoursEnUSGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaCoursEnUSGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesCoursEnUSGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesCoursEnUSGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleCoursEnUSGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleCoursEnUSGenPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtCoursEnUSGenPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtCoursEnUSGenPage() {
 	}
 
 	//////////////

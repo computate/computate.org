@@ -18,6 +18,14 @@ import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.MiseEnPage;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.web.api.OperationRequest;
+import io.vertx.core.json.JsonArray;
+import java.net.URLDecoder;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.StringUtils;
+import java.util.Map;
+import java.util.List;
 
 
 /**
@@ -54,7 +62,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001Lecon != null)
-			c.o("un leçon");
+			c.o("");
 		else if(listeC001Lecon.size() == 0)
 			c.o("aucun leçon trouvé");
 	}
@@ -118,49 +126,49 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				} g("form");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "coursNumeroForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_coursNumero").a("class", "").f().sx("cours numéro").g("label");
-
-					e("input")
-						.a("type", "text")
-						.a("placeholder", "cours numéro")
-						.a("class", "setCoursNumero w3-input w3-border ")
-						.a("name", "setCoursNumero")
-						.a("id", "Page_coursNumero")
-						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#coursNumeroForm')); ")
-						.a("value", o.strCoursNumero())
-					.fg();
-
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "coursDescriptionForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_coursDescription").a("class", "").f().sx("cours").g("label");
-
-					e("input")
-						.a("type", "text")
-						.a("placeholder", "cours")
-						.a("class", "setCoursDescription w3-input w3-border ")
-						.a("name", "setCoursDescription")
-						.a("id", "Page_coursDescription")
-						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#coursDescriptionForm')); ")
-						.a("value", o.strCoursDescription())
-					.fg();
-
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("form").a("id", "leconDescriptionForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_leconDescription").a("class", "").f().sx("leçon").g("label");
+					e("label").a("for", "Page_leconDescription").a("class", "").f().sx("description").g("label");
 
 					e("input")
 						.a("type", "text")
-						.a("placeholder", "leçon")
+						.a("placeholder", "description")
 						.a("class", "setLeconDescription w3-input w3-border ")
 						.a("name", "setLeconDescription")
 						.a("id", "Page_leconDescription")
 						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#leconDescriptionForm')); ")
 						.a("value", o.strLeconDescription())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("id", "articleDescriptionForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_articleDescription").a("class", "").f().sx("description").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "description")
+						.a("class", "setArticleDescription w3-input w3-border ")
+						.a("name", "setArticleDescription")
+						.a("id", "Page_articleDescription")
+						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#articleDescriptionForm')); ")
+						.a("value", o.strArticleDescription())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("id", "coursNumeroForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_coursNumero").a("class", "").f().sx("cours").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "cours")
+						.a("class", "setCoursNumero w3-input w3-border ")
+						.a("name", "setCoursNumero")
+						.a("id", "Page_coursNumero")
+						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#coursNumeroForm')); ")
+						.a("value", o.strCoursNumero())
 					.fg();
 
 				} g("form");
@@ -244,41 +252,41 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				e("label").a("for", "POST_supprime").a("class", "").f().sx("Supprimé").g("label");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_coursNumero").a("class", "").f().sx("cours numéro").g("label");
+				e("label").a("for", "POST_leconDescription").a("class", "").f().sx("description").g("label");
 
 				e("input")
 					.a("type", "text")
-					.a("placeholder", "cours numéro")
-					.a("class", "valeurCoursNumero w3-input w3-border ")
-					.a("name", "coursNumero")
-					.a("id", "POST_coursNumero")
-					.a("value", o.strCoursNumero())
-				.fg();
-
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_coursDescription").a("class", "").f().sx("cours").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "cours")
-					.a("class", "valeurCoursDescription w3-input w3-border ")
-					.a("name", "coursDescription")
-					.a("id", "POST_coursDescription")
-					.a("value", o.strCoursDescription())
-				.fg();
-
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_leconDescription").a("class", "").f().sx("leçon").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "leçon")
+					.a("placeholder", "description")
 					.a("class", "valeurLeconDescription w3-input w3-border ")
 					.a("name", "leconDescription")
 					.a("id", "POST_leconDescription")
 					.a("value", o.strLeconDescription())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_articleDescription").a("class", "").f().sx("description").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "description")
+					.a("class", "valeurArticleDescription w3-input w3-border ")
+					.a("name", "articleDescription")
+					.a("id", "POST_articleDescription")
+					.a("value", o.strArticleDescription())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_coursNumero").a("class", "").f().sx("cours").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "cours")
+					.a("class", "valeurCoursNumero w3-input w3-border ")
+					.a("name", "coursNumero")
+					.a("id", "POST_coursNumero")
+					.a("value", o.strCoursNumero())
 				.fg();
 
 			} g("div");
@@ -334,11 +342,11 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 	public void htmlFormPATCHC001Lecon(C001Lecon o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "PATCH_coursNumero").a("class", "").f().sx("cours numéro").g("label");
+				e("label").a("for", "PATCH_coursNumero").a("class", "").f().sx("cours").g("label");
 
 				e("input")
 					.a("type", "text")
-					.a("placeholder", "cours numéro")
+					.a("placeholder", "cours")
 					.a("class", "setCoursNumero w3-input w3-border ")
 					.a("name", "setCoursNumero")
 					.a("id", "PATCH_coursNumero")
@@ -393,16 +401,31 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				.fg();
 			} g("div");
 		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_leconNumero").a("class", "").f().sx("leçon").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "leçon")
+					.a("class", "setLeconNumero w3-input w3-border ")
+					.a("name", "setLeconNumero")
+					.a("id", "PATCH_leconNumero")
+					.a("value", o.strLeconNumero())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormRechercheC001Lecon(C001Lecon o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "Recherche_coursNumero").a("class", "").f().sx("cours numéro").g("label");
+				e("label").a("for", "Recherche_coursNumero").a("class", "").f().sx("cours").g("label");
 
 				e("input")
 					.a("type", "text")
-					.a("placeholder", "cours numéro")
+					.a("placeholder", "cours")
 					.a("class", "valeurCoursNumero w3-input w3-border ")
 					.a("name", "coursNumero")
 					.a("id", "Recherche_coursNumero")
@@ -457,10 +480,27 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				.fg();
 			} g("div");
 		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_leconNumero").a("class", "").f().sx("leçon").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "leçon")
+					.a("class", "valeurLeconNumero w3-input w3-border ")
+					.a("name", "leconNumero")
+					.a("id", "Recherche_leconNumero")
+					.a("value", o.strLeconNumero())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	@Override public void htmlBodyC001LeconFrFRGenPage() {
 
+		OperationRequest operationRequete = requeteSite_.getOperationRequete();
+		JsonObject params = operationRequete.getParams();
 		if(listeC001Lecon.size() == 0) {
 			//aucun leçon trouvé
 
@@ -469,10 +509,8 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("aucun leçon trouvé").g("span");
 			} g("h1");
-		} else if(listeC001Lecon.size() == 1) {
+		} else if(listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
 			// un leçon
-			C001Lecon o = listeC001Lecon.first();
-
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
@@ -490,6 +528,99 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 					e("span").a("class", " ").f().sx(pageH3).g("span");
 				} g("h3");
 			}
+		} else {
+			// plusiers leçons
+
+			{ e("h1").f();
+				if(contexteIconeClassesCss != null)
+					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
+				e("span").a("class", " ").f().sx("leçons").g("span");
+			} g("h1");
+			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
+				{ e("thead").f();
+					{ e("tr").f();
+						e("th").f().sx("cours").g("th");
+						e("th").f().sx("leçon").g("th");
+						e("th").f().sx("description").g("th");
+					} g("tr");
+				} g("thead");
+				{ e("tbody").f();
+					Map<String, Map<String, List<String>>> highlighting = listeC001Lecon.getQueryResponse().getHighlighting();
+					for(int i = 0; i < listeC001Lecon.size(); i++) {
+						C001Lecon o = listeC001Lecon.getList().get(i);
+						Map<String, List<String>> highlights = highlighting == null ? null : highlighting.get(o.getId());
+						List<String> highlightList = highlights == null ? null : highlights.get(highlights.keySet().stream().findFirst().orElse(null));
+						String uri = o.getPageUri();
+						{ e("tr").f();
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getCoursNumero());
+								} g("a");
+							} g("td");
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getLeconNumero());
+								} g("a");
+							} g("td");
+							{ e("td").f();
+								{ e("a").a("href", uri).f();
+									sx(o.getArticleDescription());
+								} g("a");
+								if(highlightList != null) {
+									{ e("div").a("class", "site-highlight ").f();
+										s(StringUtils.join(highlightList, " ... "));
+									} g("div");
+								}
+							} g("td");
+						} g("tr");
+					}
+				} g("tbody");
+			} g("table");
+		}
+
+		{ e("div").a("class", "").f();
+			{ e("form").a("id", "C001LeconForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/frFR/cours/001/lecons").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_frFR')); return false; ").f();
+				{ e("div").a("class", "w3-bar ").f();
+					e("input").a("type", "text")
+						.a("placeholder", "rechercher leçons")
+						.a("title", "")
+						.a("class", "recherchePageRecherche_frFR w3-input w3-border w3-bar-item ")
+						.a("name", "pageRecherche_frFR")
+						.a("id", "recherchePageRecherche_frFR");
+					operationRequete.getParams().getJsonObject("query").forEach(paramRequete -> {
+						String entiteVar = null;
+						String valeurIndexe = null;
+						String paramNom = paramRequete.getKey();
+						Object paramValeursObjet = paramRequete.getValue();
+						JsonArray paramObjets = paramValeursObjet instanceof JsonArray ? (JsonArray)paramValeursObjet : new JsonArray().add(paramValeursObjet);
+
+						try {
+							for(Object paramObjet : paramObjets) {
+								switch(paramNom) {
+									case "q":
+										entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+										valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+										if("pageRecherche_frFR".equals(entiteVar))
+											a("value", URLDecoder.decode(valeurIndexe, "UTF-8"));
+								}
+							}
+						} catch(Exception e) {
+							ExceptionUtils.rethrow(e);
+						}
+					});
+					fg();
+					{ e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-green ")
+						.f();
+						e("i").a("class", "fas fa-search ").f().g("i");
+					} g("button");
+				} g("div");
+			} g("form");
+		} g("div");
+
+		if(listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+			C001Lecon o = listeC001Lecon.first();
+
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
@@ -507,46 +638,6 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				o.htmlBody();
 
 			} g("div");
-		} else {
-			// plusiers leçons
-
-			{ e("h1").f();
-				if(contexteIconeClassesCss != null)
-					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("leçons").g("span");
-			} g("h1");
-			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
-				{ e("thead").f();
-					{ e("tr").f();
-						e("th").f().sx("cours numéro").g("th");
-						e("th").f().sx("cours").g("th");
-						e("th").f().sx("leçon").g("th");
-					} g("tr");
-				} g("thead");
-				{ e("tbody").f();
-					for(int i = 0; i < listeC001Lecon.size(); i++) {
-						C001Lecon o = listeC001Lecon.getList().get(i);
-						String uri = o.getPageUri();
-						{ e("tr").f();
-							{ e("td").f();
-								{ e("a").a("href", uri).f();
-									sx(o.getCoursNumero());
-								} g("a");
-							} g("td");
-							{ e("td").f();
-								{ e("a").a("href", uri).f();
-									sx(o.getCoursDescription());
-								} g("a");
-							} g("td");
-							{ e("td").f();
-								{ e("a").a("href", uri).f();
-									sx(o.getLeconDescription());
-								} g("a");
-							} g("td");
-						} g("tr");
-					}
-				} g("tbody");
-			} g("table");
 		}
 		e("div").f();
 

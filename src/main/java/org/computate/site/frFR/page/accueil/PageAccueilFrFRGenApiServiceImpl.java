@@ -75,9 +75,9 @@ import org.computate.site.frFR.page.accueil.PageAccueilFrFRPage;
  **/
 public class PageAccueilFrFRGenApiServiceImpl implements PageAccueilFrFRGenApiService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(PageAccueilFrFRGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(PageAccueilFrFRGenApiServiceImpl.class);
 
-	private static final String SERVICE_ADDRESS = "PageAccueilFrFRApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "PageAccueilFrFRApiServiceImpl";
 
 	protected SiteContexteFrFR siteContexte;
 
@@ -183,12 +183,40 @@ public class PageAccueilFrFRGenApiServiceImpl implements PageAccueilFrFRGenApiSe
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "pageTitre":
-				return "pageTitre_indexed_string";
+			case "estCours":
+				return "estCours_indexed_boolean";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
+			case "articleH1_enUS":
+				return "articleH1_enUS_indexed_string";
+			case "articleH1_frFR":
+				return "articleH1_frFR_indexed_string";
+			case "articleH2_enUS":
+				return "articleH2_enUS_indexed_string";
+			case "articleH2_frFR":
+				return "articleH2_frFR_indexed_string";
+			case "articleCree":
+				return "articleCree_indexed_date";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
+			case "pageCree":
+				return "pageCree_indexed_date";
 			case "pageH1":
 				return "pageH1_indexed_string";
 			case "pageH2":
 				return "pageH2_indexed_string";
+			case "pageH3":
+				return "pageH3_indexed_string";
+			case "pageTitre":
+				return "pageTitre_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -196,6 +224,10 @@ public class PageAccueilFrFRGenApiServiceImpl implements PageAccueilFrFRGenApiSe
 
 	public String varRecherchePageAccueil(String entiteVar) {
 		switch(entiteVar) {
+			case "pageRecherche_enUS":
+				return "pageRecherche_enUS_text_enUS";
+			case "pageRecherche_frFR":
+				return "pageRecherche_frFR_text_frFR";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

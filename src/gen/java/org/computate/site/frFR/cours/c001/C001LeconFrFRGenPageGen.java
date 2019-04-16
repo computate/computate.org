@@ -129,8 +129,10 @@ public abstract class C001LeconFrFRGenPageGen<DEV> extends C001FrFRPage {
 
 	public void requeteSiteC001LeconFrFRGenPage(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteC001FrFRPage(requeteSite_);
-		listeC001Lecon.setRequeteSite_(requeteSite_);
-		c001Lecon.setRequeteSite_(requeteSite_);
+		if(listeC001Lecon != null)
+			listeC001Lecon.setRequeteSite_(requeteSite_);
+		if(c001Lecon != null)
+			c001Lecon.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -248,7 +250,8 @@ public abstract class C001LeconFrFRGenPageGen<DEV> extends C001FrFRPage {
 	}
 
 	public void htmlBodyC001LeconFrFRGenPage() {
-		c001Lecon.htmlBody();
+		if(c001Lecon != null)
+			c001Lecon.htmlBody();
 	}
 
 	//////////////

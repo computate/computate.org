@@ -1,14 +1,6 @@
 package org.computate.site.enUS.cours;
 
-import org.apache.solr.common.SolrDocument;
 import java.lang.String;
-import java.lang.Boolean;
-import java.lang.Integer;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.List;
-import org.computate.site.enUS.page.parti.PagePart;
 import org.computate.site.enUS.page.MiseEnPage;
 import org.computate.site.enUS.config.ConfigSite;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
@@ -19,8 +11,11 @@ import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.couverture.Couverture;
+import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.api.OperationRequest;
 import io.vertx.core.json.JsonArray;
@@ -28,6 +23,7 @@ import java.net.URLDecoder;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.util.Map;
+import java.util.List;
 
 
 /**
@@ -43,14 +39,14 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 	}
 
 	protected void _cours(Couverture<Cours> c) {
-		if(listeCours.size() == 1)
+		if(listeCours != null && listeCours.size() == 1)
 			c.o(listeCours.get(0));
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(cours != null)
 			c.o("a course");
-		else if(listeCours.size() == 0)
+		else if(listeCours == null || listeCours.size() == 0)
 			c.o("no course found");
 	}
 
@@ -64,8 +60,8 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(cours != null)
-			c.o("a course");
-		else if(listeCours.size() == 0)
+			c.o("");
+		else if(listeCours == null || listeCours.size() == 0)
 			c.o("no course found");
 	}
 
@@ -117,7 +113,7 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
-		if(listeCours.size() == 0) {
+		if(listeCours == null || listeCours.size() == 0) {
 			//no course found
 
 			{ e("h1").f();
@@ -125,7 +121,7 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("no course found").g("span");
 			} g("h1");
-		} else if(listeCours.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		} else if(listeCours != null && listeCours.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
 			// a course
 			if(pageH1 != null) {
 				{ e("h1").f();
@@ -180,7 +176,7 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 							} g("td");
 							{ e("td").f();
 								{ e("a").a("href", uri).f();
-									sx(o.getCoursDescription());
+									sx(o.getArticleDescription());
 								} g("a");
 								if(highlightList != null) {
 									{ e("div").a("class", "site-highlight ").f();
@@ -234,7 +230,7 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 			} g("form");
 		} g("div");
 
-		if(listeCours.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeCours != null && listeCours.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
 			Cours o = listeCours.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();

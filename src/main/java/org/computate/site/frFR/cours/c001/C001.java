@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours.c001;      
+package org.computate.site.frFR.cours.c001;        
 
 import java.util.List;
 
@@ -43,19 +43,19 @@ public class C001 extends C001Gen<Cours> {
 		super._classeNomsCanoniques(l);
 	}
 
-	@Override protected void _coursH1_frFR(Couverture<String> c) {
+	@Override protected void _articleH1_frFR(Couverture<String> c) {
 		c.o(C001_H1);
 	}
 
-	@Override protected void _coursH1_enUS(Couverture<String> c) {
+	@Override protected void _articleH1_enUS(Couverture<String> c) {
 		c.o(org.computate.site.enUS.cours.c001.C001.C001_H1);
 	}
 
-	@Override protected void _coursH2_frFR(Couverture<String> c) {
+	@Override protected void _articleH2_frFR(Couverture<String> c) {
 		c.o(C001_H2);
 	}
 
-	@Override protected void _coursH2_enUS(Couverture<String> c) {
+	@Override protected void _articleH2_enUS(Couverture<String> c) {
 		c.o(org.computate.site.enUS.cours.c001.C001.C001_H2);
 	}
 

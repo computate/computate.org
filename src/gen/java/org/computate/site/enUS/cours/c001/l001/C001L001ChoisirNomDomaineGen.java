@@ -91,6 +91,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	protected C001L001ChoisirNomDomaine introInit() {
 		if(intro != null) {
 			((C001L001ChoisirNomDomaine)this).avantPagePart(intro, "intro");
+			((C001L001ChoisirNomDomaine)this).avantPagePart(intro, "intro");
 		}
 		if(!introCouverture.dejaInitialise) {
 			_intro(intro);
@@ -140,6 +141,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	}
 	protected C001L001ChoisirNomDomaine moiInit() {
 		if(moi != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(moi, "moi");
 			((C001L001ChoisirNomDomaine)this).avantPagePart(moi, "moi");
 		}
 		if(!moiCouverture.dejaInitialise) {
@@ -201,6 +203,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	protected C001L001ChoisirNomDomaine aLAvanceInit() {
 		if(aLAvance != null) {
 			((C001L001ChoisirNomDomaine)this).avantPagePart(aLAvance, "aLAvance");
+			((C001L001ChoisirNomDomaine)this).avantPagePart(aLAvance, "aLAvance");
 		}
 		if(!aLAvanceCouverture.dejaInitialise) {
 			_aLAvance(aLAvance);
@@ -261,6 +264,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	protected C001L001ChoisirNomDomaine acheterInit() {
 		if(acheter != null) {
 			((C001L001ChoisirNomDomaine)this).avantPagePart(acheter, "acheter");
+			((C001L001ChoisirNomDomaine)this).avantPagePart(acheter, "acheter");
 		}
 		if(!acheterCouverture.dejaInitialise) {
 			_acheter(acheter);
@@ -320,6 +324,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	protected C001L001ChoisirNomDomaine appelerInit() {
 		if(appeler != null) {
 			((C001L001ChoisirNomDomaine)this).avantPagePart(appeler, "appeler");
+			((C001L001ChoisirNomDomaine)this).avantPagePart(appeler, "appeler");
 		}
 		if(!appelerCouverture.dejaInitialise) {
 			_appeler(appeler);
@@ -378,6 +383,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	protected C001L001ChoisirNomDomaine apres1Init() {
 		if(apres1 != null) {
 			((C001L001ChoisirNomDomaine)this).avantPagePart(apres1, "apres1");
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres1, "apres1");
 		}
 		if(!apres1Couverture.dejaInitialise) {
 			_apres1(apres1);
@@ -431,6 +437,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	protected C001L001ChoisirNomDomaine apres2Init() {
 		if(apres2 != null) {
 			((C001L001ChoisirNomDomaine)this).avantPagePart(apres2, "apres2");
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres2, "apres2");
 		}
 		if(!apres2Couverture.dejaInitialise) {
 			_apres2(apres2);
@@ -479,6 +486,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	}
 	protected C001L001ChoisirNomDomaine apres3Init() {
 		if(apres3 != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres3, "apres3");
 			((C001L001ChoisirNomDomaine)this).avantPagePart(apres3, "apres3");
 		}
 		if(!apres3Couverture.dejaInitialise) {
@@ -530,6 +538,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	protected C001L001ChoisirNomDomaine apres4Init() {
 		if(apres4 != null) {
 			((C001L001ChoisirNomDomaine)this).avantPagePart(apres4, "apres4");
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres4, "apres4");
 		}
 		if(!apres4Couverture.dejaInitialise) {
 			_apres4(apres4);
@@ -580,6 +589,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	}
 	protected C001L001ChoisirNomDomaine apres5Init() {
 		if(apres5 != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(apres5, "apres5");
 			((C001L001ChoisirNomDomaine)this).avantPagePart(apres5, "apres5");
 		}
 		if(!apres5Couverture.dejaInitialise) {
@@ -641,6 +651,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	}
 	protected C001L001ChoisirNomDomaine plusTardInit() {
 		if(plusTard != null) {
+			((C001L001ChoisirNomDomaine)this).avantPagePart(plusTard, "plusTard");
 			((C001L001ChoisirNomDomaine)this).avantPagePart(plusTard, "plusTard");
 		}
 		if(!plusTardCouverture.dejaInitialise) {
@@ -850,17 +861,28 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	public void requeteSiteC001L001ChoisirNomDomaine(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteC001Lecon(requeteSite_);
-		intro.setRequeteSite_(requeteSite_);
-		moi.setRequeteSite_(requeteSite_);
-		aLAvance.setRequeteSite_(requeteSite_);
-		acheter.setRequeteSite_(requeteSite_);
-		appeler.setRequeteSite_(requeteSite_);
-		apres1.setRequeteSite_(requeteSite_);
-		apres2.setRequeteSite_(requeteSite_);
-		apres3.setRequeteSite_(requeteSite_);
-		apres4.setRequeteSite_(requeteSite_);
-		apres5.setRequeteSite_(requeteSite_);
-		plusTard.setRequeteSite_(requeteSite_);
+		if(intro != null)
+			intro.setRequeteSite_(requeteSite_);
+		if(moi != null)
+			moi.setRequeteSite_(requeteSite_);
+		if(aLAvance != null)
+			aLAvance.setRequeteSite_(requeteSite_);
+		if(acheter != null)
+			acheter.setRequeteSite_(requeteSite_);
+		if(appeler != null)
+			appeler.setRequeteSite_(requeteSite_);
+		if(apres1 != null)
+			apres1.setRequeteSite_(requeteSite_);
+		if(apres2 != null)
+			apres2.setRequeteSite_(requeteSite_);
+		if(apres3 != null)
+			apres3.setRequeteSite_(requeteSite_);
+		if(apres4 != null)
+			apres4.setRequeteSite_(requeteSite_);
+		if(apres5 != null)
+			apres5.setRequeteSite_(requeteSite_);
+		if(plusTard != null)
+			plusTard.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -976,6 +998,22 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	public static void image() {
 		try {
 			DefaultExecutor executeur = new DefaultExecutor();
+			{
+				new File("/usr/local/src/computate.org-static/png/frFR/cours/001").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/cours/001/001-choisir-nom-domaine?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR/cours/001/001-choisir-nom-domaine-999.png"));
+				System.out.println("C001L001ChoisirNomDomaineFrFRPage");
+				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
+				System.out.println(" * ImageHauteur.frFR: " + img.getHeight());
+			}
+			{
+				new File("/usr/local/src/computate.org-static/png/enUS/course/001").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/course/001/001-choose-domain-name?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/course/001/001-choose-domain-name-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/enUS/course/001/001-choose-domain-name-999.png"));
+				System.out.println("C001L001ChoisirNomDomaineEnUSPage");
+				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
+				System.out.println(" * ImageHauteur.enUS: " + img.getHeight());
+			}
 		} catch(Exception e) {
 			ExceptionUtils.rethrow(e);
 		}
@@ -1090,12 +1128,14 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	@Override public void htmlBody() {
 		htmlBodyC001L001ChoisirNomDomaine();
-		super.htmlBodyC001Lecon();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001L001ChoisirNomDomaine() {
-		intro.htmlBody();
-		moi.htmlBody();
+		if(intro != null)
+			intro.htmlBody();
+		if(moi != null)
+			moi.htmlBody();
 		((C001L001ChoisirNomDomaine)this).htmlBodyALAvance();
 		((C001L001ChoisirNomDomaine)this).htmlBodyAcheter();
 		((C001L001ChoisirNomDomaine)this).htmlBodyAppeler();
@@ -1116,17 +1156,28 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	}
 
 	public void htmlBodyCourtC001L001ChoisirNomDomaine() {
-		intro.htmlBodyCourt();
-		moi.htmlBodyCourt();
-		aLAvance.htmlBodyCourt();
-		acheter.htmlBodyCourt();
-		appeler.htmlBodyCourt();
-		apres1.htmlBodyCourt();
-		apres2.htmlBodyCourt();
-		apres3.htmlBodyCourt();
-		apres4.htmlBodyCourt();
-		apres5.htmlBodyCourt();
-		plusTard.htmlBodyCourt();
+		if(intro != null)
+			intro.htmlBodyCourt();
+		if(moi != null)
+			moi.htmlBodyCourt();
+		if(aLAvance != null)
+			aLAvance.htmlBodyCourt();
+		if(acheter != null)
+			acheter.htmlBodyCourt();
+		if(appeler != null)
+			appeler.htmlBodyCourt();
+		if(apres1 != null)
+			apres1.htmlBodyCourt();
+		if(apres2 != null)
+			apres2.htmlBodyCourt();
+		if(apres3 != null)
+			apres3.htmlBodyCourt();
+		if(apres4 != null)
+			apres4.htmlBodyCourt();
+		if(apres5 != null)
+			apres5.htmlBodyCourt();
+		if(plusTard != null)
+			plusTard.htmlBodyCourt();
 	}
 
 	//////////////

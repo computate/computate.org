@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page;   
+package org.computate.site.frFR.page;    
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -23,7 +23,7 @@ import io.vertx.core.json.JsonObject;
 
 /**
  * MotCle: classeNomSimpleMiseEnPage
- */  
+ */
 public class MiseEnPage extends MiseEnPageGen<Object> {  
 
 	/**

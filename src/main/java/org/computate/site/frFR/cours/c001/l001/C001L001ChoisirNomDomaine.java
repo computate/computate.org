@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours.c001.l001;          
+package org.computate.site.frFR.cours.c001.l001;           
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * VideoId.frFR: sBcDnQj9_QM
  * VideoId.enUS: sBcDnQj9_QM
 */ 
-public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {       
+public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {      
 
 	public static void main(String[] args) {  
 		indexer(); 
@@ -59,19 +59,19 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		super._classeNomsCanoniques(l);
 	}
 
-	@Override protected void _coursH1_frFR(Couverture<String> c) {
+	@Override protected void _articleH1_frFR(Couverture<String> c) {
 		c.o(C001L001ChoisirNomDomaine_H1);
 	}
 
-	@Override protected void _coursH1_enUS(Couverture<String> c) {
+	@Override protected void _articleH1_enUS(Couverture<String> c) {
 		c.o(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H1);
 	}
 
-	@Override protected void _coursH2_frFR(Couverture<String> c) {
+	@Override protected void _articleH2_frFR(Couverture<String> c) {
 		c.o(C001L001ChoisirNomDomaine_H2);
 	}
 
-	@Override protected void _coursH2_enUS(Couverture<String> c) {
+	@Override protected void _articleH2_enUS(Couverture<String> c) {
 		c.o(org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaine.C001L001ChoisirNomDomaine_H2);
 	}
 
