@@ -1,11 +1,9 @@
-package org.computate.site.frFR.cours.c001.l001;
+package org.computate.site.frFR.page.blog;
 
-import org.computate.site.frFR.page.parti.PageParagraphe;
-import org.computate.site.frFR.page.parti.QuestionReponse;
-import org.computate.site.frFR.page.parti.PageHtml;
-import java.util.List;
 import java.lang.String;
-import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
+import org.computate.site.frFR.recherche.ListeRecherche;
+import org.computate.site.frFR.article.Article;
+import org.computate.site.frFR.article.ArticleFrFRPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
@@ -13,7 +11,6 @@ import org.computate.site.frFR.utilisateur.UtilisateurSite;
 import java.io.IOException;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
-import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.MiseEnPage;
 import java.time.LocalDateTime;
@@ -28,26 +25,27 @@ import java.net.URLDecoder;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.util.Map;
+import java.util.List;
 
 
 /**
  * Traduire: false
  **/
-public class C001L001ChoisirNomDomaineFrFRGenPage extends C001L001ChoisirNomDomaineFrFRGenPageGen<C001LeconFrFRPage> {
+public class PageBlogFrFRGenPage extends PageBlogFrFRGenPageGen<ArticleFrFRPage> {
 
-	protected void _c001L001ChoisirNomDomaine(Couverture<C001L001ChoisirNomDomaine> c) {
-		c.o(new C001L001ChoisirNomDomaine());
+	protected void _pageBlog(Couverture<PageBlog> c) {
+		c.o(new PageBlog());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L001ChoisirNomDomaine != null)
-			c.o("Quel est l'étape première pour créer mon propre site Web ? ");
+		if(pageBlog != null)
+			c.o("computate.org blog: ");
 		else
-			c.o("Quel est l'étape première pour créer mon propre site Web ? ");
+			c.o("computate.org blog: ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Choisir un nom de domaine. ");
+		c.o("Rechercher articles dans le site computate.org. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -55,20 +53,22 @@ public class C001L001ChoisirNomDomaineFrFRGenPage extends C001L001ChoisirNomDoma
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L001ChoisirNomDomaine != null)
-			c.o("");
+		if(pageBlog != null)
+			c.o("Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. ");
+		else
+			c.o("Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/frFR/cours/001/001-choisir-nom-domaine");
+		c.o("/frFR/blog");
 	}
 
 	@Override protected void _pageUriEnUS(Couverture<String> c) {
-		c.o("/enUS/course/001/001-choose-domain-name");
+		c.o("/enUS/blog");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/frFR/cours/001/001-choisir-nom-domaine-999.png");
+			c.o("/png/frFR/blog-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -79,10 +79,6 @@ public class C001L001ChoisirNomDomaineFrFRGenPage extends C001L001ChoisirNomDoma
 			c.o(616);
 	}
 
-	@Override protected void _pageVideoId(Couverture<String> c) {
-			c.o("sBcDnQj9_QM");
-	}
-
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
 			c.o("regular");
 	}
@@ -91,17 +87,17 @@ public class C001L001ChoisirNomDomaineFrFRGenPage extends C001L001ChoisirNomDoma
 			c.o("book");
 	}
 
-	@Override public void initLoinC001L001ChoisirNomDomaineFrFRGenPage() {
-		initC001L001ChoisirNomDomaineFrFRGenPage();
+	@Override public void initLoinPageBlogFrFRGenPage() {
+		initPageBlogFrFRGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L001ChoisirNomDomaineFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L001ChoisirNomDomaineFrFRGenPage.js").f().g("script");
+	@Override public void htmlScriptsPageBlogFrFRGenPage() {
+		e("script").a("src", "/static/js/PageBlogFrFRGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyC001L001ChoisirNomDomaineFrFRGenPage() {
+	@Override public void htmlBodyPageBlogFrFRGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -120,16 +116,13 @@ public class C001L001ChoisirNomDomaineFrFRGenPage extends C001L001ChoisirNomDoma
 				e("span").a("class", " ").f().sx(pageH3).g("span");
 			} g("h3");
 		}
-		{ e("div").a("class", "site-video-box ").f();
-			e("iframe").a("class", "site-video-embed ").a("width", "560").a("height", "315").a("src", pageVideoUrlEmbed).a("frameborder", "0").a("allow", "autoplay; encrypted-media").a("allowfullscreen", "").f().g("iframe");
-		} g("div");
 
-		c001L001ChoisirNomDomaine.htmlBody();
+		pageBlog.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtC001L001ChoisirNomDomaineFrFRGenPage() {
+	@Override public void htmlBodyCourtPageBlogFrFRGenPage() {
 
-		c001L001ChoisirNomDomaine.htmlBodyCourt();
+		pageBlog.htmlBodyCourt();
 	}
 }

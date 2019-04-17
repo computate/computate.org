@@ -64,8 +64,11 @@ import io.vertx.ext.web.api.OperationRequest;
 import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import java.util.Optional;
 import java.util.stream.Stream;
+import java.net.URLDecoder;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
+import org.computate.site.frFR.utilisateur.UtilisateurSiteFrFRPage;
+import org.computate.site.enUS.utilisateur.UtilisateurSiteEnUSPage;
 
 
 /**
@@ -73,9 +76,9 @@ import org.computate.site.enUS.ecrivain.ToutEcrivain;
  **/
 public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUSGenApiService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UtilisateurSiteEnUSGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(UtilisateurSiteEnUSGenApiServiceImpl.class);
 
-	private static final String SERVICE_ADDRESS = "UtilisateurSiteEnUSApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "UtilisateurSiteEnUSApiServiceImpl";
 
 	protected SiteContexteEnUS siteContexte;
 
@@ -84,7 +87,136 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 		UtilisateurSiteEnUSGenApiService service = UtilisateurSiteEnUSGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
+	// RechercheEnUSPage //
+
+	@Override
+	public void rechercheenuspageUtilisateurSiteId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		rechercheenuspageUtilisateurSite(operationRequete, gestionnaireEvenements);
+	}
+
+	@Override
+	public void rechercheenuspageUtilisateurSite(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourUtilisateurSite(siteContexte, operationRequete);
+			sqlUtilisateurSite(requeteSite, a -> {
+				if(a.succeeded()) {
+					utilisateurUtilisateurSite(requeteSite, b -> {
+						if(b.succeeded()) {
+							rechercheUtilisateurSite(requeteSite, false, true, "/enUS/user", c -> {
+								if(c.succeeded()) {
+									ListeRecherche<UtilisateurSite> listeUtilisateurSite = c.result();
+									reponse200RechercheEnUSPageUtilisateurSite(listeUtilisateurSite, d -> {
+										if(d.succeeded()) {
+											SQLConnection connexionSql = requeteSite.getConnexionSql();
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurUtilisateurSite(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurUtilisateurSite(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
+										} else {
+											erreurUtilisateurSite(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurUtilisateurSite(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurUtilisateurSite(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurUtilisateurSite(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurUtilisateurSite(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200RechercheEnUSPageUtilisateurSite(ListeRecherche<UtilisateurSite> listeUtilisateurSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteEnUS requeteSite = listeUtilisateurSite.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeUtilisateurSite.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			UtilisateurSiteEnUSPage page = new UtilisateurSiteEnUSPage();
+			SolrDocument pageDocumentSolr = new SolrDocument();
+
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/user");
+			page.setPageDocumentSolr(pageDocumentSolr);
+			page.setW(w);
+			page.initLoinUtilisateurSiteEnUSPage(requeteSite);
+			page.html();
+			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
 	public String varIndexeUtilisateurSite(String entiteVar) {
+		switch(entiteVar) {
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "calculInrPks":
+				return "calculInrPks_indexed_longs";
+			case "utilisateurNom":
+				return "utilisateurNom_indexed_string";
+			case "utilisateurMail":
+				return "utilisateurMail_indexed_string";
+			case "utilisateurPrenom":
+				return "utilisateurPrenom_indexed_string";
+			case "utilisateurNomFamille":
+				return "utilisateurNomFamille_indexed_string";
+			case "utilisateurNomComplet":
+				return "utilisateurNomComplet_indexed_string";
+			case "utilisateurSite":
+				return "utilisateurSite_indexed_string";
+			case "utilisateurRecevoirCourriels":
+				return "utilisateurRecevoirCourriels_indexed_boolean";
+			case "voirArchive":
+				return "voirArchive_indexed_boolean";
+			case "voirSupprime":
+				return "voirSupprime_indexed_boolean";
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varRechercheUtilisateurSite(String entiteVar) {
+		switch(entiteVar) {
+			default:
+				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
+		}
+	}
+
+	public String varSuggereUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
@@ -134,21 +266,25 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
-			clientSql.getConnection(sqlAsync -> {
-				if(sqlAsync.succeeded()) {
-					SQLConnection connexionSql = sqlAsync.result();
-					connexionSql.setAutoCommit(false, a -> {
-						if(a.succeeded()) {
-							requeteSite.setConnexionSql(connexionSql);
-							gestionnaireEvenements.handle(Future.succeededFuture());
-						} else {
-							gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
-						}
-					});
-				} else {
-					gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
-				}
-			});
+			if(clientSql == null) {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			} else {
+				clientSql.getConnection(sqlAsync -> {
+					if(sqlAsync.succeeded()) {
+						SQLConnection connexionSql = sqlAsync.result();
+						connexionSql.setAutoCommit(false, a -> {
+							if(a.succeeded()) {
+								requeteSite.setConnexionSql(connexionSql);
+								gestionnaireEvenements.handle(Future.succeededFuture());
+							} else {
+								gestionnaireEvenements.handle(Future.failedFuture(a.cause()));
+							}
+						});
+					} else {
+						gestionnaireEvenements.handle(Future.failedFuture(sqlAsync.cause()));
+					}
+				});
+			}
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
 		}
@@ -276,7 +412,7 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomCanonique_indexed_string:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.utilisateur.UtilisateurSite"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.utilisateur.UtilisateurSite"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
@@ -301,40 +437,51 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 				Object paramValeursObjet = paramRequete.getValue();
 				JsonArray paramObjets = paramValeursObjet instanceof JsonArray ? (JsonArray)paramValeursObjet : new JsonArray().add(paramValeursObjet);
 
-				for(Object paramObjet : paramObjets) {
-					switch(paramNom) {
-						case "q":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = "*".equals(entiteVar) ? entiteVar : varIndexeUtilisateurSite(entiteVar);
-							listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
-							break;
-						case "fq":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-							valeurIndexe = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":"));
-							varIndexe = varIndexeUtilisateurSite(entiteVar);
-							listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
-							break;
-						case "sort":
-							entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
-							valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-							varIndexe = varIndexeUtilisateurSite(entiteVar);
-							listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
-							break;
-						case "fl":
-							entiteVar = StringUtils.trim((String)paramObjet);
-							varIndexe = varIndexeUtilisateurSite(entiteVar);
-							listeRecherche.addField(varIndexe);
-							break;
-						case "start":
-							rechercheDebut = (Integer)paramObjet;
-							listeRecherche.setStart(rechercheDebut);
-							break;
-						case "rows":
-							rechercheNum = (Integer)paramObjet;
-							listeRecherche.setRows(rechercheNum);
-							break;
+				try {
+					for(Object paramObjet : paramObjets) {
+						switch(paramNom) {
+							case "q":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheUtilisateurSite(entiteVar);
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
+								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
+								if(!"*".equals(entiteVar)) {
+									listeRecherche.setHighlight(true);
+									listeRecherche.setHighlightSnippets(3);
+									listeRecherche.addHighlightField(varIndexe);
+									listeRecherche.setParam("hl.encoder", "html");
+								}
+								break;
+							case "fq":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
+								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
+								varIndexe = varIndexeUtilisateurSite(entiteVar);
+								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
+								break;
+							case "sort":
+								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
+								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
+								varIndexe = varIndexeUtilisateurSite(entiteVar);
+								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
+								break;
+							case "fl":
+								entiteVar = StringUtils.trim((String)paramObjet);
+								varIndexe = varIndexeUtilisateurSite(entiteVar);
+								listeRecherche.addField(varIndexe);
+								break;
+							case "start":
+								rechercheDebut = (Integer)paramObjet;
+								listeRecherche.setStart(rechercheDebut);
+								break;
+							case "rows":
+								rechercheNum = (Integer)paramObjet;
+								listeRecherche.setRows(rechercheNum);
+								break;
+						}
 					}
+				} catch(Exception e) {
+					gestionnaireEvenements.handle(Future.failedFuture(e));
 				}
 			});
 			listeRecherche.initLoinPourClasse(requeteSite);

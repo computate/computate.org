@@ -2280,20 +2280,34 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	/////////////////
 
 	public void requeteSiteApiEcrivain(RequeteSiteFrFR requeteSite_) {
-		appSwagger2.setRequeteSite_(requeteSite_);
-		wChemins.setRequeteSite_(requeteSite_);
-		wCorpsRequetes.setRequeteSite_(requeteSite_);
-		wSchemas.setRequeteSite_(requeteSite_);
-		siteContexte.setRequeteSite_(requeteSite_);
-		configSite.setRequeteSite_(requeteSite_);
-		wRequeteEnTete.setRequeteSite_(requeteSite_);
-		wRequeteDescription.setRequeteSite_(requeteSite_);
-		wReponseDescription.setRequeteSite_(requeteSite_);
-		wRequeteCorps.setRequeteSite_(requeteSite_);
-		wReponseCorps.setRequeteSite_(requeteSite_);
-		wRequeteSchema.setRequeteSite_(requeteSite_);
-		wReponseSchema.setRequeteSite_(requeteSite_);
-		ecrivains.setRequeteSite_(requeteSite_);
+		if(appSwagger2 != null)
+			appSwagger2.setRequeteSite_(requeteSite_);
+		if(wChemins != null)
+			wChemins.setRequeteSite_(requeteSite_);
+		if(wCorpsRequetes != null)
+			wCorpsRequetes.setRequeteSite_(requeteSite_);
+		if(wSchemas != null)
+			wSchemas.setRequeteSite_(requeteSite_);
+		if(siteContexte != null)
+			siteContexte.setRequeteSite_(requeteSite_);
+		if(configSite != null)
+			configSite.setRequeteSite_(requeteSite_);
+		if(wRequeteEnTete != null)
+			wRequeteEnTete.setRequeteSite_(requeteSite_);
+		if(wRequeteDescription != null)
+			wRequeteDescription.setRequeteSite_(requeteSite_);
+		if(wReponseDescription != null)
+			wReponseDescription.setRequeteSite_(requeteSite_);
+		if(wRequeteCorps != null)
+			wRequeteCorps.setRequeteSite_(requeteSite_);
+		if(wReponseCorps != null)
+			wReponseCorps.setRequeteSite_(requeteSite_);
+		if(wRequeteSchema != null)
+			wRequeteSchema.setRequeteSite_(requeteSite_);
+		if(wReponseSchema != null)
+			wReponseSchema.setRequeteSite_(requeteSite_);
+		if(ecrivains != null)
+			ecrivains.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {

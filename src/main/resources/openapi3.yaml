@@ -5,230 +5,6 @@ info:
 servers:
   - url: https://site.computate.org:10080
 paths:
-  /enUS/course:
-    get:
-      operationId: rechercheenuspageCours
-      x-vertx-event-bus: enUSCours
-      description: >+
-      summary: >+
-      parameters:
-        - in: query
-          name: q
-          description: ''
-          required: false
-          schema:
-            type: string
-            default: '*:*'
-        - in: query
-          name: pageRecapituler
-          description: ''
-          required: false
-          schema:
-            type: boolean
-            default: false
-        - in: query
-          name: fq
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: fl
-          description: ''
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: sort
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: start
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 0
-            minimum: 0
-        - in: query
-          name: rows
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 10
-            minimum: 1
-      responses:
-        '200':
-          description: >+
-          content:
-            text/html; charset=utf-8:
-              schema:
-                $ref: '#/components/requestBodies/RechercheEnUSPageCoursReponse'
-        '400':
-          description: >+
-                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
-                or invalid Parameters</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '401':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
-                credentials are missing or invalid</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '403':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
-                request operation is not configured to access this
-                resource</td><td>Channel/Country/Business provided in the request is
-                not supported currently</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '404':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
-                requested resource was not found</td><td>Empty resource/resource not
-                found</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '500':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
-                request failed due to an internal error/server
-                unavailability</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-  /frFR/cours:
-    get:
-      operationId: recherchefrfrpageCours
-      x-vertx-event-bus: frFRCours
-      description: >+
-      summary: >+
-      parameters:
-        - in: query
-          name: q
-          description: ''
-          required: false
-          schema:
-            type: string
-            default: '*:*'
-        - in: query
-          name: pageRecapituler
-          description: ''
-          required: false
-          schema:
-            type: boolean
-            default: false
-        - in: query
-          name: fq
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: fl
-          description: ''
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: sort
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: start
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 0
-            minimum: 0
-        - in: query
-          name: rows
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 10
-            minimum: 1
-      responses:
-        '200':
-          description: >+
-          content:
-            text/html; charset=utf-8:
-              schema:
-                $ref: '#/components/requestBodies/RechercheFrFRPageCoursReponse'
-        '400':
-          description: >+
-                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
-                or invalid Parameters</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '401':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
-                credentials are missing or invalid</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '403':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
-                request operation is not configured to access this
-                resource</td><td>Channel/Country/Business provided in the request is
-                not supported currently</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '404':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
-                requested resource was not found</td><td>Empty resource/resource not
-                found</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '500':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
-                request failed due to an internal error/server
-                unavailability</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
   /enUS/course/001:
     get:
       operationId: rechercheenuspageC001
@@ -677,10 +453,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/requestBodies/ErrorResponse'
-  /enUS/course/001/001-choose-domain-name:
+  /enUS/course:
     get:
-      operationId: rechercheenuspageC001L001ChoisirNomDomaine
-      x-vertx-event-bus: enUSC001L001ChoisirNomDomaine
+      operationId: rechercheenuspageCours
+      x-vertx-event-bus: enUSCours
       description: >+
       summary: >+
       parameters:
@@ -742,7 +518,7 @@ paths:
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/requestBodies/RechercheEnUSPageC001L001ChoisirNomDomaineReponse'
+                $ref: '#/components/requestBodies/RechercheEnUSPageCoursReponse'
         '400':
           description: >+
                 <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
@@ -789,10 +565,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/requestBodies/ErrorResponse'
-  /frFR/cours/001/001-choisir-nom-domaine:
+  /frFR/cours:
     get:
-      operationId: recherchefrfrpageC001L001ChoisirNomDomaine
-      x-vertx-event-bus: frFRC001L001ChoisirNomDomaine
+      operationId: recherchefrfrpageCours
+      x-vertx-event-bus: frFRCours
       description: >+
       summary: >+
       parameters:
@@ -854,231 +630,7 @@ paths:
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/requestBodies/RechercheFrFRPageC001L001ChoisirNomDomaineReponse'
-        '400':
-          description: >+
-                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
-                or invalid Parameters</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '401':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
-                credentials are missing or invalid</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '403':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
-                request operation is not configured to access this
-                resource</td><td>Channel/Country/Business provided in the request is
-                not supported currently</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '404':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
-                requested resource was not found</td><td>Empty resource/resource not
-                found</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '500':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
-                request failed due to an internal error/server
-                unavailability</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-  /enUS/course/001/002-choose-your-operating-system:
-    get:
-      operationId: rechercheenuspageC001L002ChoisirSystemeExploitation
-      x-vertx-event-bus: enUSC001L002ChoisirSystemeExploitation
-      description: >+
-      summary: >+
-      parameters:
-        - in: query
-          name: q
-          description: ''
-          required: false
-          schema:
-            type: string
-            default: '*:*'
-        - in: query
-          name: pageRecapituler
-          description: ''
-          required: false
-          schema:
-            type: boolean
-            default: false
-        - in: query
-          name: fq
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: fl
-          description: ''
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: sort
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: start
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 0
-            minimum: 0
-        - in: query
-          name: rows
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 10
-            minimum: 1
-      responses:
-        '200':
-          description: >+
-          content:
-            text/html; charset=utf-8:
-              schema:
-                $ref: '#/components/requestBodies/RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse'
-        '400':
-          description: >+
-                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
-                or invalid Parameters</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '401':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
-                credentials are missing or invalid</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '403':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
-                request operation is not configured to access this
-                resource</td><td>Channel/Country/Business provided in the request is
-                not supported currently</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '404':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
-                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
-                requested resource was not found</td><td>Empty resource/resource not
-                found</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-        '500':
-          description: >+
-                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
-                request failed due to an internal error/server
-                unavailability</td></tr></table>
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/ErrorResponse'
-  /frFR/cours/001/002-choisir-votre-system-exploitation:
-    get:
-      operationId: recherchefrfrpageC001L002ChoisirSystemeExploitation
-      x-vertx-event-bus: frFRC001L002ChoisirSystemeExploitation
-      description: >+
-      summary: >+
-      parameters:
-        - in: query
-          name: q
-          description: ''
-          required: false
-          schema:
-            type: string
-            default: '*:*'
-        - in: query
-          name: pageRecapituler
-          description: ''
-          required: false
-          schema:
-            type: boolean
-            default: false
-        - in: query
-          name: fq
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: fl
-          description: ''
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: sort
-          description: ''
-          required: false
-          schema:
-            type: array
-            items:
-                type: string
-        - in: query
-          name: start
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 0
-            minimum: 0
-        - in: query
-          name: rows
-          description: ''
-          required: false
-          schema:
-            type: integer
-            default: 10
-            minimum: 1
-      responses:
-        '200':
-          description: >+
-          content:
-            text/html; charset=utf-8:
-              schema:
-                $ref: '#/components/requestBodies/RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse'
+                $ref: '#/components/requestBodies/RechercheFrFRPageCoursReponse'
         '400':
           description: >+
                 <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
@@ -1573,6 +1125,908 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/requestBodies/ErrorResponse'
+  /enUS/course/001/002-choose-your-operating-system:
+    get:
+      operationId: rechercheenuspageC001L002ChoisirSystemeExploitation
+      x-vertx-event-bus: enUSC001L002ChoisirSystemeExploitation
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /frFR/cours/001/002-choisir-votre-system-exploitation:
+    get:
+      operationId: recherchefrfrpageC001L002ChoisirSystemeExploitation
+      x-vertx-event-bus: frFRC001L002ChoisirSystemeExploitation
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /enUS/course/001/001-choose-domain-name:
+    get:
+      operationId: rechercheenuspageC001L001ChoisirNomDomaine
+      x-vertx-event-bus: enUSC001L001ChoisirNomDomaine
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheEnUSPageC001L001ChoisirNomDomaineReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /frFR/cours/001/001-choisir-nom-domaine:
+    get:
+      operationId: recherchefrfrpageC001L001ChoisirNomDomaine
+      x-vertx-event-bus: frFRC001L001ChoisirNomDomaine
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheFrFRPageC001L001ChoisirNomDomaineReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /enUS/blog:
+    get:
+      operationId: rechercheenuspagePageBlog
+      x-vertx-event-bus: enUSPageBlog
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheEnUSPagePageBlogReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /frFR/blog:
+    get:
+      operationId: recherchefrfrpagePageBlog
+      x-vertx-event-bus: frFRPageBlog
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheFrFRPagePageBlogReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /enUS/user:
+    get:
+      operationId: rechercheenuspageUtilisateurSite
+      x-vertx-event-bus: enUSUtilisateurSite
+      security:
+        - openIdConnect:
+          - SiteAdmin
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheEnUSPageUtilisateurSiteReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /frFR/utilisateur:
+    get:
+      operationId: recherchefrfrpageUtilisateurSite
+      x-vertx-event-bus: frFRUtilisateurSite
+      security:
+        - openIdConnect:
+          - SiteAdmin
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheFrFRPageUtilisateurSiteReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
 components:
   securitySchemes:
     openIdConnect:
@@ -1584,16 +2038,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    RechercheEnUSPageCoursReponse:
-      content:
-        text/html; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/RechercheEnUSPageCoursReponse'
-    RechercheFrFRPageCoursReponse:
-      content:
-        text/html; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/RechercheFrFRPageCoursReponse'
     RechercheEnUSPageC001Reponse:
       content:
         text/html; charset=utf-8:
@@ -1614,26 +2058,16 @@ components:
         text/html; charset=utf-8:
           schema:
             $ref: '#/components/schemas/RechercheFrFRPageC001LeconReponse'
-    RechercheEnUSPageC001L001ChoisirNomDomaineReponse:
+    RechercheEnUSPageCoursReponse:
       content:
         text/html; charset=utf-8:
           schema:
-            $ref: '#/components/schemas/RechercheEnUSPageC001L001ChoisirNomDomaineReponse'
-    RechercheFrFRPageC001L001ChoisirNomDomaineReponse:
+            $ref: '#/components/schemas/RechercheEnUSPageCoursReponse'
+    RechercheFrFRPageCoursReponse:
       content:
         text/html; charset=utf-8:
           schema:
-            $ref: '#/components/schemas/RechercheFrFRPageC001L001ChoisirNomDomaineReponse'
-    RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse:
-      content:
-        text/html; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse'
-    RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse:
-      content:
-        text/html; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse'
+            $ref: '#/components/schemas/RechercheFrFRPageCoursReponse'
     RechercheEnUSPageArticleReponse:
       content:
         text/html; charset=utf-8:
@@ -1654,13 +2088,47 @@ components:
         text/html; charset=utf-8:
           schema:
             $ref: '#/components/schemas/RechercheFrFRPagePageAccueilReponse'
+    RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse'
+    RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse'
+    RechercheEnUSPageC001L001ChoisirNomDomaineReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheEnUSPageC001L001ChoisirNomDomaineReponse'
+    RechercheFrFRPageC001L001ChoisirNomDomaineReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheFrFRPageC001L001ChoisirNomDomaineReponse'
+    RechercheEnUSPagePageBlogReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheEnUSPagePageBlogReponse'
+    RechercheFrFRPagePageBlogReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheFrFRPagePageBlogReponse'
+    RechercheEnUSPageUtilisateurSiteReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheEnUSPageUtilisateurSiteReponse'
+    RechercheFrFRPageUtilisateurSiteReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheFrFRPageUtilisateurSiteReponse'
   schemas:
-    RechercheEnUSPageCoursReponse:
-      allOf:
-        - type: string
-    RechercheFrFRPageCoursReponse:
-      allOf:
-        - type: string
     RechercheEnUSPageC001Reponse:
       allOf:
         - type: string
@@ -1673,16 +2141,10 @@ components:
     RechercheFrFRPageC001LeconReponse:
       allOf:
         - type: string
-    RechercheEnUSPageC001L001ChoisirNomDomaineReponse:
+    RechercheEnUSPageCoursReponse:
       allOf:
         - type: string
-    RechercheFrFRPageC001L001ChoisirNomDomaineReponse:
-      allOf:
-        - type: string
-    RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse:
-      allOf:
-        - type: string
-    RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse:
+    RechercheFrFRPageCoursReponse:
       allOf:
         - type: string
     RechercheEnUSPageArticleReponse:
@@ -1695,6 +2157,30 @@ components:
       allOf:
         - type: string
     RechercheFrFRPagePageAccueilReponse:
+      allOf:
+        - type: string
+    RechercheEnUSPageC001L002ChoisirSystemeExploitationReponse:
+      allOf:
+        - type: string
+    RechercheFrFRPageC001L002ChoisirSystemeExploitationReponse:
+      allOf:
+        - type: string
+    RechercheEnUSPageC001L001ChoisirNomDomaineReponse:
+      allOf:
+        - type: string
+    RechercheFrFRPageC001L001ChoisirNomDomaineReponse:
+      allOf:
+        - type: string
+    RechercheEnUSPagePageBlogReponse:
+      allOf:
+        - type: string
+    RechercheFrFRPagePageBlogReponse:
+      allOf:
+        - type: string
+    RechercheEnUSPageUtilisateurSiteReponse:
+      allOf:
+        - type: string
+    RechercheFrFRPageUtilisateurSiteReponse:
       allOf:
         - type: string
     ErrorResponse:

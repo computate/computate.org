@@ -8,11 +8,31 @@ import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 
 /**
+ * Api: true
  * MotCle: classeNomSimpleUtilisateurSite
- * Modele: true
+ * ApiMethode: RechercheFrFRPage
+ * ApiMethode: RechercheEnUSPage
+ * ApiUriRechercheFrFRPage: /frFR/utilisateur
+ * ApiUriRechercheEnUSPage: /enUS/user
+ * PageRechercheFrFRPage: UtilisateurSiteFrFRPage
+ * PageRechercheEnUSPage: UtilisateurSiteEnUSPage
+ * PageSuperRechercheFrFRPage: ArticleFrFRPage
+ * PageSuperRechercheEnUSPage: ArticleEnUSPage
  * ApiUri.enUS: /api/site/user
  * ApiUri.frFR: /api/site/utilisateur
- */               
+ * Role.frFR: SiteAdmin
+ * 
+ * PageSimple: true
+ * Couleur: green
+ * IconeGroupe: regular
+ * IconeNom: book
+ * Indexe: true
+ * Image: true
+ * ImageLargeur.frFR: 800
+ * ImageHauteur.frFR: 616
+ * ImageLargeur.enUS: 800
+ * ImageHauteur.enUS: 616
+ */              
 public class UtilisateurSite extends UtilisateurSiteGen<Cluster> { 
 
 	/**

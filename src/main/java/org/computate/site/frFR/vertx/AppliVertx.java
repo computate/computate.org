@@ -10,7 +10,9 @@ import org.computate.site.enUS.cours.c001.C001LeconEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaineEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l002.C001L002ChoisirSystemeExploitationEnUSGenApiService;
 import org.computate.site.enUS.page.accueil.PageAccueilEnUSGenApiService;
+import org.computate.site.enUS.page.blog.PageBlogEnUSGenApiService;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
+import org.computate.site.enUS.utilisateur.UtilisateurSiteEnUSGenApiService;
 import org.computate.site.frFR.article.ArticleFrFRGenApiService;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
@@ -20,7 +22,9 @@ import org.computate.site.frFR.cours.c001.C001LeconFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaineFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l002.C001L002ChoisirSystemeExploitationFrFRGenApiService;
 import org.computate.site.frFR.page.accueil.PageAccueilFrFRGenApiService;
+import org.computate.site.frFR.page.blog.PageBlogFrFRGenApiService;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
+import org.computate.site.frFR.utilisateur.UtilisateurSiteFrFRGenApiService;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -217,7 +221,8 @@ public class AppliVertx extends AbstractVerticle {
 
 				String siteNomHote = configSite.getSiteNomHote();
 				Integer sitePort = configSite.getSitePort();
-				String siteUrlBase = "https://" + siteNomHote + ":" + sitePort;
+//				String siteUrlBase = "https://" + siteNomHote + ":" + sitePort;
+				String siteUrlBase = configSite.getSiteUrlBase();
 				OAuth2Auth authFournisseur = KeycloakAuth.create(vertx, OAuth2FlowType.AUTH_CODE, keycloakJson);
 
 				routeur.route().handler(CookieHandler.create());
@@ -334,8 +339,14 @@ public class AppliVertx extends AbstractVerticle {
 		ConfigSite configSite = siteContexteFrFR.getConfigSite();
 		Future<Void> future = Future.future();
 
+		PageBlogFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		PageBlogEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
 		PageAccueilFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		PageAccueilEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		UtilisateurSiteFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		UtilisateurSiteEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		C001L002ChoisirSystemeExploitationFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001L002ChoisirSystemeExploitationEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);

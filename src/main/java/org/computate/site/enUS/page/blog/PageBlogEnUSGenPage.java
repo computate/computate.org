@@ -1,12 +1,10 @@
-package org.computate.site.enUS.cours.c001.l001;
+package org.computate.site.enUS.page.blog;
 
-import org.computate.site.enUS.page.parti.PageParagraphe;
-import org.computate.site.enUS.page.parti.QuestionReponse;
-import org.computate.site.enUS.page.parti.PageHtml;
-import java.util.List;
 import java.lang.String;
-import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
-import org.computate.site.enUS.cours.c001.C001LeconEnUSPage;
+import org.computate.site.enUS.recherche.ListeRecherche;
+import org.computate.site.enUS.article.Article;
+import org.computate.site.frFR.article.ArticleFrFRPage;
+import org.computate.site.enUS.article.ArticleEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
@@ -14,7 +12,6 @@ import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import java.io.IOException;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
-import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.MiseEnPage;
 import java.time.LocalDateTime;
@@ -29,26 +26,27 @@ import java.net.URLDecoder;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.util.Map;
+import java.util.List;
 
 
 /**
  * Traduire: false
  **/
-public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDomaineEnUSGenPageGen<C001LeconEnUSPage> {
+public class PageBlogEnUSGenPage extends PageBlogEnUSGenPageGen<ArticleEnUSPage> {
 
-	protected void _c001L001ChoisirNomDomaine(Couverture<C001L001ChoisirNomDomaine> c) {
-		c.o(new C001L001ChoisirNomDomaine());
+	protected void _pageBlog(Couverture<PageBlog> c) {
+		c.o(new PageBlog());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L001ChoisirNomDomaine != null)
-			c.o("What is the first step to creating my own website? ");
+		if(pageBlog != null)
+			c.o("computate.org blog: ");
 		else
-			c.o("What is the first step to creating my own website? ");
+			c.o("computate.org blog: ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Choose a domain name. ");
+		c.o("Search articles in the site computate.org. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -56,20 +54,22 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L001ChoisirNomDomaine != null)
-			c.o("");
+		if(pageBlog != null)
+			c.o("Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ");
+		else
+			c.o("Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/enUS/course/001/001-choose-domain-name");
+		c.o("/enUS/blog");
 	}
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
-		c.o("/frFR/cours/001/001-choisir-nom-domaine");
+		c.o("/frFR/blog");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/enUS/course/001/001-choose-domain-name-999.png");
+			c.o("/png/enUS/blog-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -80,10 +80,6 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 			c.o(616);
 	}
 
-	@Override protected void _pageVideoId(Couverture<String> c) {
-			c.o("sBcDnQj9_QM");
-	}
-
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
 			c.o("regular");
 	}
@@ -92,17 +88,17 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 			c.o("book");
 	}
 
-	@Override public void initLoinC001L001ChoisirNomDomaineEnUSGenPage() {
-		initC001L001ChoisirNomDomaineEnUSGenPage();
+	@Override public void initLoinPageBlogEnUSGenPage() {
+		initPageBlogEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L001ChoisirNomDomaineEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L001ChoisirNomDomaineEnUSGenPage.js").f().g("script");
+	@Override public void htmlScriptsPageBlogEnUSGenPage() {
+		e("script").a("src", "/static/js/PageBlogEnUSGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyC001L001ChoisirNomDomaineEnUSGenPage() {
+	@Override public void htmlBodyPageBlogEnUSGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -121,16 +117,13 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 				e("span").a("class", " ").f().sx(pageH3).g("span");
 			} g("h3");
 		}
-		{ e("div").a("class", "site-video-box ").f();
-			e("iframe").a("class", "site-video-embed ").a("width", "560").a("height", "315").a("src", pageVideoUrlEmbed).a("frameborder", "0").a("allow", "autoplay; encrypted-media").a("allowfullscreen", "").f().g("iframe");
-		} g("div");
 
-		c001L001ChoisirNomDomaine.htmlBody();
+		pageBlog.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtC001L001ChoisirNomDomaineEnUSGenPage() {
+	@Override public void htmlBodyCourtPageBlogEnUSGenPage() {
 
-		c001L001ChoisirNomDomaine.htmlBodyCourt();
+		pageBlog.htmlBodyCourt();
 	}
 }

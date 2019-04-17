@@ -2,27 +2,28 @@ package org.computate.site.enUS.utilisateur;
 
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.couverture.Couverture;
-import java.util.Date;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
+import org.apache.commons.exec.CommandLine;
 import org.apache.commons.lang3.StringUtils;
-import io.vertx.core.logging.LoggerFactory;
 import java.util.ArrayList;
 import org.computate.site.enUS.cluster.Cluster;
 import java.lang.Long;
+import javax.imageio.ImageIO;
 import java.lang.Boolean;
-import io.vertx.core.json.JsonObject;
 import java.lang.String;
-import io.vertx.core.logging.Logger;
-import java.util.Set;
+import org.apache.commons.exec.DefaultExecutor;
+import java.awt.image.BufferedImage;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
+import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
-import io.vertx.ext.sql.SQLConnection;
-import io.vertx.ext.sql.SQLClient;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -31,7 +32,14 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  * <br/>
  **/
 public abstract class UtilisateurSiteGen<DEV> extends Cluster {
-	private static final Logger LOGGER = LoggerFactory.getLogger(UtilisateurSite.class);
+
+	public static final String UtilisateurSite_Couleur = "green";
+	public static final String UtilisateurSite_IconeGroupe = "regular";
+	public static final String UtilisateurSite_IconeNom = "book";
+	public static final String UtilisateurSiteFrFRPage_Uri = "/frFR/utilisateur";
+	public static final String UtilisateurSiteFrFRPage_ImageUri = "/png/frFR/utilisateur-999.png";
+	public static final String UtilisateurSiteEnUSPage_Uri = "/enUS/user";
+	public static final String UtilisateurSiteEnUSPage_ImageUri = "/png/enUS/user-999.png";
 
 	//////////////////
 	// calculInrPks //
@@ -111,47 +119,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 
 	public String htmCalculInrPks() {
 		return calculInrPks == null ? "" : StringEscapeUtils.escapeHtml4(strCalculInrPks());
-	}
-
-	public void htmCalculInrPks(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "CalculInrPks\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "CalculInrPks() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setCalculInrPks\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageCalculInrPks()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"calculInrPks\"");
-							r.s(" value=\"", htmCalculInrPks(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmCalculInrPks());
-			}
-			r.l("</div>");
-		}
 	}
 
 	//////////////////
@@ -237,47 +204,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		return utilisateurNom == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurNom());
 	}
 
-	public void htmUtilisateurNom(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurNom\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurNom() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setUtilisateurNom\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurNom()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"utilisateurNom\"");
-							r.s(" value=\"", htmUtilisateurNom(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmUtilisateurNom());
-			}
-			r.l("</div>");
-		}
-	}
-
 	/////////////////////
 	// utilisateurMail //
 	/////////////////////
@@ -332,47 +258,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 
 	public String htmUtilisateurMail() {
 		return utilisateurMail == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurMail());
-	}
-
-	public void htmUtilisateurMail(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurMail\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurMail() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setUtilisateurMail\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurMail()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"utilisateurMail\"");
-							r.s(" value=\"", htmUtilisateurMail(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmUtilisateurMail());
-			}
-			r.l("</div>");
-		}
 	}
 
 	///////////////////////
@@ -431,47 +316,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		return utilisateurPrenom == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurPrenom());
 	}
 
-	public void htmUtilisateurPrenom(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurPrenom\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurPrenom() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setUtilisateurPrenom\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurPrenom()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"utilisateurPrenom\"");
-							r.s(" value=\"", htmUtilisateurPrenom(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmUtilisateurPrenom());
-			}
-			r.l("</div>");
-		}
-	}
-
 	///////////////////////////
 	// utilisateurNomFamille //
 	///////////////////////////
@@ -526,47 +370,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 
 	public String htmUtilisateurNomFamille() {
 		return utilisateurNomFamille == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurNomFamille());
-	}
-
-	public void htmUtilisateurNomFamille(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurNomFamille\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurNomFamille() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setUtilisateurNomFamille\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurNomFamille()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"utilisateurNomFamille\"");
-							r.s(" value=\"", htmUtilisateurNomFamille(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmUtilisateurNomFamille());
-			}
-			r.l("</div>");
-		}
 	}
 
 	///////////////////////////
@@ -625,47 +428,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		return utilisateurNomComplet == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurNomComplet());
 	}
 
-	public void htmUtilisateurNomComplet(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurNomComplet\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurNomComplet() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setUtilisateurNomComplet\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurNomComplet()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"utilisateurNomComplet\"");
-							r.s(" value=\"", htmUtilisateurNomComplet(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmUtilisateurNomComplet());
-			}
-			r.l("</div>");
-		}
-	}
-
 	/////////////////////
 	// utilisateurSite //
 	/////////////////////
@@ -720,47 +482,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 
 	public String htmUtilisateurSite() {
 		return utilisateurSite == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurSite());
-	}
-
-	public void htmUtilisateurSite(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurSite\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurSite() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setUtilisateurSite\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurSite()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"utilisateurSite\"");
-							r.s(" value=\"", htmUtilisateurSite(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmUtilisateurSite());
-			}
-			r.l("</div>");
-		}
 	}
 
 	//////////////////////////////////
@@ -824,47 +545,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		return utilisateurRecevoirCourriels == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurRecevoirCourriels());
 	}
 
-	public void htmUtilisateurRecevoirCourriels(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurRecevoirCourriels\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurRecevoirCourriels() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setUtilisateurRecevoirCourriels\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurRecevoirCourriels()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"utilisateurRecevoirCourriels\"");
-							r.s(" value=\"", htmUtilisateurRecevoirCourriels(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmUtilisateurRecevoirCourriels());
-			}
-			r.l("</div>");
-		}
-	}
-
 	/////////////////
 	// voirArchive //
 	/////////////////
@@ -924,47 +604,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 
 	public String htmVoirArchive() {
 		return voirArchive == null ? "" : StringEscapeUtils.escapeHtml4(strVoirArchive());
-	}
-
-	public void htmVoirArchive(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "VoirArchive\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "VoirArchive() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setVoirArchive\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageVoirArchive()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"voirArchive\"");
-							r.s(" value=\"", htmVoirArchive(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmVoirArchive());
-			}
-			r.l("</div>");
-		}
 	}
 
 	//////////////////
@@ -1028,47 +667,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		return voirSupprime == null ? "" : StringEscapeUtils.escapeHtml4(strVoirSupprime());
 	}
 
-	public void htmVoirSupprime(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "VoirSupprime\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "VoirSupprime() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setVoirSupprime\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageVoirSupprime()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"voirSupprime\"");
-							r.s(" value=\"", htmVoirSupprime(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmVoirSupprime());
-			}
-			r.l("</div>");
-		}
-	}
-
 	//////////////
 	// initLoin //
 	//////////////
@@ -1116,118 +714,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
 		requeteSiteUtilisateurSite(requeteSite_);
-	}
-
-	/////////////
-	// indexer //
-	/////////////
-
-	public static void indexer() {
-		try {
-			RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-			requeteSite.initLoinRequeteSiteEnUS();
-			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
-			siteContexte.initLoinSiteContexteEnUS();
-			siteContexte.setRequeteSite_(requeteSite);
-			requeteSite.setSiteContexte_(siteContexte);
-			UtilisateurSite o = new UtilisateurSite();
-			o.requeteSiteUtilisateurSite(requeteSite);
-			o.initLoinUtilisateurSite(requeteSite);
-			o.indexerUtilisateurSite();
-		} catch(Exception e) {
-			ExceptionUtils.rethrow(e);
-		}
-	}
-
-
-	@Override public void indexerPourClasse() throws Exception {
-		indexerUtilisateurSite();
-	}
-
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
-		indexerUtilisateurSite(document);
-	}
-
-	public void indexerUtilisateurSite(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerUtilisateurSite(document);
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerUtilisateurSite() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerUtilisateurSite(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
-	}
-
-	public void indexerUtilisateurSite(SolrInputDocument document) throws Exception {
-		if(sauvegardesUtilisateurSite != null)
-			document.addField("sauvegardesUtilisateurSite_stored_strings", sauvegardesUtilisateurSite);
-
-		if(calculInrPks != null) {
-			for(java.lang.Long o : calculInrPks) {
-				document.addField("calculInrPks_indexed_longs", o);
-			}
-			for(java.lang.Long o : calculInrPks) {
-				document.addField("calculInrPks_stored_longs", o);
-			}
-		}
-		if(utilisateurNom != null) {
-			document.addField("utilisateurNom_indexed_string", utilisateurNom);
-			document.addField("utilisateurNom_stored_string", utilisateurNom);
-		}
-		if(utilisateurMail != null) {
-			document.addField("utilisateurMail_indexed_string", utilisateurMail);
-			document.addField("utilisateurMail_stored_string", utilisateurMail);
-		}
-		if(utilisateurPrenom != null) {
-			document.addField("utilisateurPrenom_indexed_string", utilisateurPrenom);
-			document.addField("utilisateurPrenom_stored_string", utilisateurPrenom);
-		}
-		if(utilisateurNomFamille != null) {
-			document.addField("utilisateurNomFamille_indexed_string", utilisateurNomFamille);
-			document.addField("utilisateurNomFamille_stored_string", utilisateurNomFamille);
-		}
-		if(utilisateurNomComplet != null) {
-			document.addField("utilisateurNomComplet_indexed_string", utilisateurNomComplet);
-			document.addField("utilisateurNomComplet_stored_string", utilisateurNomComplet);
-		}
-		if(utilisateurSite != null) {
-			document.addField("utilisateurSite_indexed_string", utilisateurSite);
-			document.addField("utilisateurSite_stored_string", utilisateurSite);
-		}
-		if(utilisateurRecevoirCourriels != null) {
-			document.addField("utilisateurRecevoirCourriels_indexed_boolean", utilisateurRecevoirCourriels);
-			document.addField("utilisateurRecevoirCourriels_stored_boolean", utilisateurRecevoirCourriels);
-		}
-		if(voirArchive != null) {
-			document.addField("voirArchive_indexed_boolean", voirArchive);
-			document.addField("voirArchive_stored_boolean", voirArchive);
-		}
-		if(voirSupprime != null) {
-			document.addField("voirSupprime_indexed_boolean", voirSupprime);
-			document.addField("voirSupprime_stored_boolean", voirSupprime);
-		}
-		super.indexerCluster(document);
-
-	}
-
-	public void desindexerUtilisateurSite() throws Exception {
-		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinUtilisateurSite(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
 	}
 
 	/////////////
@@ -1323,132 +809,153 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 	public Object definirUtilisateurSite(String var, String val) {
 		switch(var) {
-			case "calculInrPks":
-				addCalculInrPks(val);
-				if(!sauvegardesUtilisateurSite.contains(var))
-					sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "utilisateurNom":
-				setUtilisateurNom(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "utilisateurMail":
-				setUtilisateurMail(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "utilisateurPrenom":
-				setUtilisateurPrenom(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "utilisateurNomFamille":
-				setUtilisateurNomFamille(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "utilisateurNomComplet":
-				setUtilisateurNomComplet(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "utilisateurSite":
-				setUtilisateurSite(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "utilisateurRecevoirCourriels":
-				setUtilisateurRecevoirCourriels(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "voirArchive":
-				setVoirArchive(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
-			case "voirSupprime":
-				setVoirSupprime(val);
-				sauvegardesUtilisateurSite.add(var);
-				return val;
 			default:
 				return super.definirCluster(var, val);
 		}
 	}
 
-	/////////////////
-	// sauvegardes //
-	/////////////////
+	///////////
+	// image //
+	///////////
 
-	protected List<String> sauvegardesUtilisateurSite = new ArrayList<String>();
-
-	/////////////
-	// peupler //
-	/////////////
-
-	@Override public void peuplerPourClasse(SolrDocument solrDocument) {
-		peuplerUtilisateurSite(solrDocument);
+	public static void image() {
+		try {
+			DefaultExecutor executeur = new DefaultExecutor();
+			{
+				new File("/usr/local/src/computate.org-static/png/frFR").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/utilisateur?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/utilisateur-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR/utilisateur-999.png"));
+				System.out.println("UtilisateurSiteFrFRPage");
+				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
+				System.out.println(" * ImageHauteur.frFR: " + img.getHeight());
+			}
+			{
+				new File("/usr/local/src/computate.org-static/png/enUS").mkdirs();
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/user?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/user-999.png"));
+				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/enUS/user-999.png"));
+				System.out.println("UtilisateurSiteEnUSPage");
+				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
+				System.out.println(" * ImageHauteur.enUS: " + img.getHeight());
+			}
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
-	public void peuplerUtilisateurSite(SolrDocument solrDocument) {
-		UtilisateurSite oUtilisateurSite = (UtilisateurSite)this;
-		sauvegardesUtilisateurSite = (List<String>)solrDocument.get("sauvegardesUtilisateurSite_stored_strings");
-		if(sauvegardesUtilisateurSite != null) {
 
-			if(sauvegardesUtilisateurSite.contains("calculInrPks")) {
-				List<Long> calculInrPks = (List<Long>)solrDocument.get("calculInrPks_stored_longs");
-				if(calculInrPks != null)
-					oUtilisateurSite.calculInrPks.addAll(calculInrPks);
+	/////////////
+	// indexer //
+	/////////////
+
+	public static void indexer() {
+		try {
+			RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.getConfigSite().setConfigChemin("/usr/local/src/computate.org/config/computate.org.config");
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			SolrQuery rechercheSolr = new SolrQuery();
+			rechercheSolr.setQuery("*:*");
+			rechercheSolr.setRows(1);
+			rechercheSolr.addFilterQuery("id:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.utilisateur.UtilisateurSite"));
+			QueryResponse reponseRecherche = requeteSite.getSiteContexte_().getClientSolr().query(rechercheSolr);
+			if(reponseRecherche.getResults().size() > 0)
+				requeteSite.setDocumentSolr(reponseRecherche.getResults().get(0));
+			UtilisateurSite o = new UtilisateurSite();
+			o.requeteSiteUtilisateurSite(requeteSite);
+			o.initLoinUtilisateurSite(requeteSite);
+			o.indexerUtilisateurSite();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
+	}
+
+
+	@Override public void indexerPourClasse() throws Exception {
+		indexerUtilisateurSite();
+	}
+
+	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+		indexerUtilisateurSite(document);
+	}
+
+	public void indexerUtilisateurSite(SolrClient clientSolr) throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerUtilisateurSite(document);
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerUtilisateurSite() throws Exception {
+		SolrInputDocument document = new SolrInputDocument();
+		indexerUtilisateurSite(document);
+		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+		clientSolr.add(document);
+		clientSolr.commit();
+	}
+
+	public void indexerUtilisateurSite(SolrInputDocument document) throws Exception {
+		if(calculInrPks != null) {
+			for(java.lang.Long o : calculInrPks) {
+				document.addField("calculInrPks_indexed_longs", o);
 			}
-
-			if(sauvegardesUtilisateurSite.contains("utilisateurNom")) {
-				String utilisateurNom = (String)solrDocument.get("utilisateurNom_stored_string");
-				if(utilisateurNom != null)
-					oUtilisateurSite.setUtilisateurNom(utilisateurNom);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("utilisateurMail")) {
-				String utilisateurMail = (String)solrDocument.get("utilisateurMail_stored_string");
-				if(utilisateurMail != null)
-					oUtilisateurSite.setUtilisateurMail(utilisateurMail);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("utilisateurPrenom")) {
-				String utilisateurPrenom = (String)solrDocument.get("utilisateurPrenom_stored_string");
-				if(utilisateurPrenom != null)
-					oUtilisateurSite.setUtilisateurPrenom(utilisateurPrenom);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("utilisateurNomFamille")) {
-				String utilisateurNomFamille = (String)solrDocument.get("utilisateurNomFamille_stored_string");
-				if(utilisateurNomFamille != null)
-					oUtilisateurSite.setUtilisateurNomFamille(utilisateurNomFamille);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("utilisateurNomComplet")) {
-				String utilisateurNomComplet = (String)solrDocument.get("utilisateurNomComplet_stored_string");
-				if(utilisateurNomComplet != null)
-					oUtilisateurSite.setUtilisateurNomComplet(utilisateurNomComplet);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("utilisateurSite")) {
-				String utilisateurSite = (String)solrDocument.get("utilisateurSite_stored_string");
-				if(utilisateurSite != null)
-					oUtilisateurSite.setUtilisateurSite(utilisateurSite);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("utilisateurRecevoirCourriels")) {
-				Boolean utilisateurRecevoirCourriels = (Boolean)solrDocument.get("utilisateurRecevoirCourriels_stored_boolean");
-				if(utilisateurRecevoirCourriels != null)
-					oUtilisateurSite.setUtilisateurRecevoirCourriels(utilisateurRecevoirCourriels);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("voirArchive")) {
-				Boolean voirArchive = (Boolean)solrDocument.get("voirArchive_stored_boolean");
-				if(voirArchive != null)
-					oUtilisateurSite.setVoirArchive(voirArchive);
-			}
-
-			if(sauvegardesUtilisateurSite.contains("voirSupprime")) {
-				Boolean voirSupprime = (Boolean)solrDocument.get("voirSupprime_stored_boolean");
-				if(voirSupprime != null)
-					oUtilisateurSite.setVoirSupprime(voirSupprime);
+			for(java.lang.Long o : calculInrPks) {
+				document.addField("calculInrPks_stored_longs", o);
 			}
 		}
+		if(utilisateurNom != null) {
+			document.addField("utilisateurNom_indexed_string", utilisateurNom);
+			document.addField("utilisateurNom_stored_string", utilisateurNom);
+		}
+		if(utilisateurMail != null) {
+			document.addField("utilisateurMail_indexed_string", utilisateurMail);
+			document.addField("utilisateurMail_stored_string", utilisateurMail);
+		}
+		if(utilisateurPrenom != null) {
+			document.addField("utilisateurPrenom_indexed_string", utilisateurPrenom);
+			document.addField("utilisateurPrenom_stored_string", utilisateurPrenom);
+		}
+		if(utilisateurNomFamille != null) {
+			document.addField("utilisateurNomFamille_indexed_string", utilisateurNomFamille);
+			document.addField("utilisateurNomFamille_stored_string", utilisateurNomFamille);
+		}
+		if(utilisateurNomComplet != null) {
+			document.addField("utilisateurNomComplet_indexed_string", utilisateurNomComplet);
+			document.addField("utilisateurNomComplet_stored_string", utilisateurNomComplet);
+		}
+		if(utilisateurSite != null) {
+			document.addField("utilisateurSite_indexed_string", utilisateurSite);
+			document.addField("utilisateurSite_stored_string", utilisateurSite);
+		}
+		if(utilisateurRecevoirCourriels != null) {
+			document.addField("utilisateurRecevoirCourriels_indexed_boolean", utilisateurRecevoirCourriels);
+			document.addField("utilisateurRecevoirCourriels_stored_boolean", utilisateurRecevoirCourriels);
+		}
+		if(voirArchive != null) {
+			document.addField("voirArchive_indexed_boolean", voirArchive);
+			document.addField("voirArchive_stored_boolean", voirArchive);
+		}
+		if(voirSupprime != null) {
+			document.addField("voirSupprime_indexed_boolean", voirSupprime);
+			document.addField("voirSupprime_stored_boolean", voirSupprime);
+		}
+		super.indexerCluster(document);
 
-		super.peuplerCluster(solrDocument);
+	}
+
+	public void desindexerUtilisateurSite() throws Exception {
+		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
+		requeteSite.initLoinRequeteSiteEnUS();
+		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+		siteContexte.initLoinSiteContexteEnUS();
+		siteContexte.setRequeteSite_(requeteSite);
+		requeteSite.setSiteContexte_(siteContexte);
+		requeteSite.setConfigSite_(siteContexte.getConfigSite());
+		initLoinUtilisateurSite(siteContexte.getRequeteSite_());
+		SolrClient clientSolr = siteContexte.getClientSolr();
+		clientSolr.deleteById(id.toString());
+		clientSolr.commit();
 	}
 
 	/////////////

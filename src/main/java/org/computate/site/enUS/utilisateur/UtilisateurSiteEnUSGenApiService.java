@@ -34,4 +34,6 @@ public interface UtilisateurSiteEnUSGenApiService {
 		return new UtilisateurSiteEnUSGenApiServiceVertxEBProxy(vertx, addresse);
 	}
 
+	public void rechercheenuspageUtilisateurSiteId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements);
+	public void rechercheenuspageUtilisateurSite(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements);
 }

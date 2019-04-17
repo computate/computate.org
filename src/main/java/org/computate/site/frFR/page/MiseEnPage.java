@@ -240,7 +240,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * Stocke: true
 	 */
 	protected void _pageImageUrl(Couverture<String> c)  {
-		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), requeteSite_.getConfigSite_().getSiteUrlBase() + pageImageUri));
+		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), "https://computate.neocities.org" + pageImageUri));
 	}
 
 	/**
@@ -402,10 +402,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	protected void _pageAccueilUri(Couverture<String> c)  {
 		c.o("/frFR");
 	}
-//
-//	protected void _pageBlogUri(Couverture<String> c)  {
-//		c.o("/blog");
-//	}
 
 	/**
 	 * r.enUS: apropos
@@ -415,8 +411,11 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		c.o("/apropos");
 	}
 
+	/**
+	 * String.enUS: /enUS/blog
+	 */
 	protected void _pageBlogUri(Couverture<String> c)  {
-		c.o("/blog");
+		c.o("/frFR/blog");
 	}
 
 	/**
@@ -433,24 +432,25 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		c.o("/frFR/cours");
 	}
 
+	/**
+	 * String.enUS: /enUS/faq
+	 */
 	protected void _pageFaqUri(Couverture<String> c)  {
-		c.o("/faq");
+		c.o("/frFR/faq");
 	}
 
 	/**
-	 * r.enUS: utilisateur
-	 * user
+	 * String.enUS: /enUS/user
 	 */
 	protected void _pageUtilisateurUri(Couverture<String> c)  {
-		c.o("/utilisateur");
+		c.o("/frFR/utilisateur");
 	}
 
 	/**
-	 * r.enUS: deconnexion
-	 * logout
+	 * String.enUS: /enUS/logout
 	 */
 	protected void _pageDeconnexionUri(Couverture<String> c)  {
-		c.o("/deconnexion");
+		c.o("/frFR/deconnexion");
 	}
 //
 //	protected void _pageCoursUri(Couverture<String> c)  {
@@ -572,6 +572,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	@Override public void htmlStylesMiseEnPage() {
 		if("site.computate.org".equals(requeteSite_.getConfigSite_().getSiteNomHote())) {
 			e("link").a("rel", "stylesheet").a("href", "/static/css/w3.css").fg();
+			e("link").a("rel", "stylesheet").a("href", "/static/css/w3-theme-blue.css").fg();
 			e("link").a("rel", "stylesheet").a("href", "/static/css/site.css").fg();
 			e("link").a("rel", "stylesheet").a("href", "/static/css/datePicker.css").fg();
 		}
@@ -625,7 +626,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				e("body").a("class", "w3-light-grey ").f(); 
 					e("a").a("name", "top").f().g("a");
 					JsonObject params = requeteSite_.getOperationRequete().getParams();
-					if(params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+					if(StringUtils.equals("*:*", params.getJsonObject("query").getString("q")) && params.getJsonObject("query").getJsonArray("fq") == null) {
 						e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
 						e("div").a("id", "fb-root").f().g("div");
 						e("script").f().l("/*<![CDATA[*/");
@@ -758,7 +759,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * r: "Se déconnecter"
 	 * r.enUS: "Logout"
 	 * r: "Cours"
-	 * r.enUS: "Course"
+	 * r.enUS: "Courses"
 	 * r: "Leçons"
 	 * r.enUS: "Lessons"
 	 * r:"English").a("href", pageUriEnUS)
@@ -768,7 +769,16 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 */
 	public void menu()  {
 		e("div").a("class", "w3-bar w3-text-white w3-padding-bottom-8 w3-padding-top-8 ").a("style", "padding-left: 16px; padding-right: 16px; ").f();
-			e("div").a("class", "w3-bar-item ").f();
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
+				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
+					e("img").a("src", "https://computate.neocities.org/svg/c-key.svg").a("style", "height: 50px; ").fg();
+					e("br").fg();
+					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+						sx("computate");
+					g("span");
+				g("a");
+			g("div");
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("span").a("class", "header-icon-a grow-30 w3-center ").f();
 					e("a").a("class", "w3-hover-opacity").a("title", "English").a("href", pageUriEnUS).f();
 						e("img").a("src", "https://computate.neocities.org/svg/flag-US.svg").a("style", "height: 50px; ").fg();
@@ -782,16 +792,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					g("span");
 				g("span");
 			g("div");
-			e("div").a("class", "w3-bar-item ").f();
-				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
-					e("img").a("src", "https://computate.neocities.org/svg/computate.org.svg").a("style", "height: 50px; ").fg();
-					e("br").fg();
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
-						sx("Accueil");
-					g("span");
-				g("a");
-			g("div");
-			e("div").a("class", "w3-bar-item ").f();
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageBlogUri).f();
 					e("img").a("src", "https://computate.neocities.org/svg/full-moon.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
@@ -800,7 +801,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					g("span");
 				g("a");
 			g("div");
-			e("div").a("class", "w3-bar-item ").f();
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
 					e("img").a("src", "https://computate.neocities.org/svg/cluster.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
@@ -809,7 +810,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					g("span");
 				g("a");
 			g("div");
-//			e("div").a("class", "w3-bar-item ").f();
+//			e("div").a("class", "site-bar-item w3-bar-item ").f();
 //				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
 //					e("img").a("src", "https://computate.neocities.org/svg/full-moon.svg").a("style", "height: 50px; ").fg();
 //					e("br").fg();
@@ -818,7 +819,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //					g("span");
 //				g("a");
 //			g("div");
-			e("div").a("class", "w3-bar-item ").f();
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAProposUri).f();
 					e("img").a("src", "https://computate.neocities.org/png/computate.png").a("style", "height: 50px; ").fg();
 					e("br").fg();
@@ -827,7 +828,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					g("span");
 				g("a");
 			g("div");
-			e("div").a("class", "w3-bar-item ").f();
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageFaqUri).f();
 					e("img").a("src", "https://computate.neocities.org/svg/ufo.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
@@ -837,7 +838,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				g("a");
 			g("div");
 			if(requeteSite_.getUtilisateurId() == null) {
-				e("div").a("class", "w3-bar-item ").f();
+				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageUtilisateurUri).f(); 
 						e("img").a("src", "https://computate.neocities.org/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
@@ -848,7 +849,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				g("div");
 			}
 			if(requeteSite_.getUtilisateurId() != null) {
-				e("div").a("class", "w3-bar-item ").f();
+				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageDeconnexionUri).f();
 						e("img").a("src", "https://computate.neocities.org/svg/light-speed.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
@@ -882,7 +883,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 */
 	public void partagerPage() {
 		JsonObject params = requeteSite_.getOperationRequete().getParams();
-		if(params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(StringUtils.equals("*:*", params.getJsonObject("query").getString("q")) && params.getJsonObject("query").getJsonArray("fq") == null) {
 			{ e("div").a("class", "w3-content w3-center w3-margin w3-padding-top-32 ").f();
 				e("h3").f().sx("Partager cette page. ").g("h3");
 				{ e("div").a("class", "w3-cell-row ").f();
