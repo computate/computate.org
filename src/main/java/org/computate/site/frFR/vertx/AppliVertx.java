@@ -12,7 +12,9 @@ import org.computate.site.enUS.cours.c001.C001LeconEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaineEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l002.C001L002ChoisirSystemeExploitationEnUSGenApiService;
 import org.computate.site.enUS.page.accueil.PageAccueilEnUSGenApiService;
+import org.computate.site.enUS.page.apropos.PageAProposEnUSGenApiService;
 import org.computate.site.enUS.page.blog.PageBlogEnUSGenApiService;
+import org.computate.site.enUS.page.faq.PageFaqEnUSGenApiService;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.utilisateur.UtilisateurSiteEnUSGenApiService;
 import org.computate.site.frFR.article.ArticleFrFRGenApiService;
@@ -24,7 +26,9 @@ import org.computate.site.frFR.cours.c001.C001LeconFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaineFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l002.C001L002ChoisirSystemeExploitationFrFRGenApiService;
 import org.computate.site.frFR.page.accueil.PageAccueilFrFRGenApiService;
+import org.computate.site.frFR.page.apropos.PageAProposFrFRGenApiService;
 import org.computate.site.frFR.page.blog.PageBlogFrFRGenApiService;
+import org.computate.site.frFR.page.faq.PageFaqFrFRGenApiService;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.computate.site.frFR.utilisateur.UtilisateurSiteFrFRGenApiService;
 
@@ -247,7 +251,7 @@ public class AppliVertx extends AbstractVerticle {
 						session.destroy();
 					}
 					rc.clearUser();
-					rc.reroute("/mission");
+					rc.reroute("/");
 				});
 
 				usineRouteur.addSecurityHandler("openIdConnect", gestionnaireAuth);
@@ -350,6 +354,12 @@ public class AppliVertx extends AbstractVerticle {
 
 		PageAccueilFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		PageAccueilEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		PageAProposFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		PageAProposEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		PageFaqFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		PageFaqEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		UtilisateurSiteFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		UtilisateurSiteEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);

@@ -1,58 +1,58 @@
-package org.computate.site.enUS.page.apropos;
+package org.computate.site.enUS.page.faq;
 
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
+import org.computate.site.enUS.page.faq.PageFaqEnUSGenPage;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.cluster.Cluster;
-import org.computate.site.enUS.page.apropos.PageAProposEnUSGenPage;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.apropos.PageAProposEnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.faq.PageFaqEnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage {
+public abstract class PageFaqEnUSPageGen<DEV> extends PageFaqEnUSGenPage {
 
 	//////////////
 	// initLoin //
 	//////////////
 
-	protected boolean dejaInitialisePageAProposEnUSPage = false;
+	protected boolean dejaInitialisePageFaqEnUSPage = false;
 
-	public PageAProposEnUSPage initLoinPageAProposEnUSPage(RequeteSiteEnUS requeteSite_) {
+	public PageFaqEnUSPage initLoinPageFaqEnUSPage(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
-		if(!dejaInitialisePageAProposEnUSPage) {
-			dejaInitialisePageAProposEnUSPage = true;
-			initLoinPageAProposEnUSPage();
+		if(!dejaInitialisePageFaqEnUSPage) {
+			dejaInitialisePageFaqEnUSPage = true;
+			initLoinPageFaqEnUSPage();
 		}
-		return (PageAProposEnUSPage)this;
+		return (PageFaqEnUSPage)this;
 	}
 
-	public void initLoinPageAProposEnUSPage() {
-		super.initLoinPageAProposEnUSGenPage(requeteSite_);
-		initPageAProposEnUSPage();
+	public void initLoinPageFaqEnUSPage() {
+		super.initLoinPageFaqEnUSGenPage(requeteSite_);
+		initPageFaqEnUSPage();
 	}
 
-	public void initPageAProposEnUSPage() {
+	public void initPageFaqEnUSPage() {
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
-		initLoinPageAProposEnUSPage(requeteSite_);
+		initLoinPageFaqEnUSPage(requeteSite_);
 	}
 
 	/////////////////
 	// requeteSite //
 	/////////////////
 
-	public void requeteSitePageAProposEnUSPage(RequeteSiteEnUS requeteSite_) {
-			super.requeteSitePageAProposEnUSGenPage(requeteSite_);
+	public void requeteSitePageFaqEnUSPage(RequeteSiteEnUS requeteSite_) {
+			super.requeteSitePageFaqEnUSGenPage(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
-		requeteSitePageAProposEnUSPage(requeteSite_);
+		requeteSitePageFaqEnUSPage(requeteSite_);
 	}
 
 	/////////////
@@ -64,7 +64,7 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = obtenirPageAProposEnUSPage(v);
+				o = obtenirPageFaqEnUSPage(v);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.obtenirPourClasse(v);
@@ -72,11 +72,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 		}
 		return o;
 	}
-	public Object obtenirPageAProposEnUSPage(String var) throws Exception {
-		PageAProposEnUSPage oPageAProposEnUSPage = (PageAProposEnUSPage)this;
+	public Object obtenirPageFaqEnUSPage(String var) throws Exception {
+		PageFaqEnUSPage oPageFaqEnUSPage = (PageFaqEnUSPage)this;
 		switch(var) {
 			default:
-				return super.obtenirPageAProposEnUSGenPage(var);
+				return super.obtenirPageFaqEnUSGenPage(var);
 		}
 	}
 
@@ -89,7 +89,7 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = attribuerPageAProposEnUSPage(v, val);
+				o = attribuerPageFaqEnUSPage(v, val);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.attribuerPourClasse(v, val);
@@ -97,11 +97,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 		}
 		return o != null;
 	}
-	public Object attribuerPageAProposEnUSPage(String var, Object val) {
-		PageAProposEnUSPage oPageAProposEnUSPage = (PageAProposEnUSPage)this;
+	public Object attribuerPageFaqEnUSPage(String var, Object val) {
+		PageFaqEnUSPage oPageFaqEnUSPage = (PageFaqEnUSPage)this;
 		switch(var) {
 			default:
-				return super.attribuerPageAProposEnUSGenPage(var, val);
+				return super.attribuerPageFaqEnUSGenPage(var, val);
 		}
 	}
 
@@ -115,7 +115,7 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 		if(val != null) {
 			for(String v : vars) {
 				if(o == null)
-					o = definirPageAProposEnUSPage(v, val);
+					o = definirPageFaqEnUSPage(v, val);
 				else if(o instanceof Cluster) {
 					Cluster cluster = (Cluster)o;
 					o = cluster.definirPourClasse(v, val);
@@ -124,23 +124,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 		}
 		return o != null;
 	}
-	public Object definirPageAProposEnUSPage(String var, String val) {
+	public Object definirPageFaqEnUSPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirPageAProposEnUSGenPage(var, val);
+				return super.definirPageFaqEnUSGenPage(var, val);
 		}
-	}
-
-	//////////////
-	// htmlBody //
-	//////////////
-
-	@Override public void htmlBody() {
-		htmlBodyPageAProposEnUSPage();
-		super.htmlBody();
-	}
-
-	public void htmlBodyPageAProposEnUSPage() {
 	}
 
 	/////////////////
@@ -148,11 +136,23 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	/////////////////
 
 	@Override public void htmlScripts() {
-		htmlScriptsPageAProposEnUSPage();
+		htmlScriptsPageFaqEnUSPage();
 		super.htmlScripts();
 	}
 
-	public void htmlScriptsPageAProposEnUSPage() {
+	public void htmlScriptsPageFaqEnUSPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyPageFaqEnUSPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyPageFaqEnUSPage() {
 	}
 
 	///////////////////
@@ -160,11 +160,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	///////////////////
 
 	@Override public void htmlBodyCourt() {
-		htmlBodyCourtPageAProposEnUSPage();
+		htmlBodyCourtPageFaqEnUSPage();
 		super.htmlBodyCourt();
 	}
 
-	public void htmlBodyCourtPageAProposEnUSPage() {
+	public void htmlBodyCourtPageFaqEnUSPage() {
 	}
 
 	////////////////
@@ -172,11 +172,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	////////////////
 
 	@Override public void htmlScript() {
-		htmlScriptPageAProposEnUSPage();
+		htmlScriptPageFaqEnUSPage();
 		super.htmlScript();
 	}
 
-	public void htmlScriptPageAProposEnUSPage() {
+	public void htmlScriptPageFaqEnUSPage() {
 	}
 
 	//////////
@@ -184,11 +184,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	//////////
 
 	@Override public void html() {
-		htmlPageAProposEnUSPage();
+		htmlPageFaqEnUSPage();
 		super.html();
 	}
 
-	public void htmlPageAProposEnUSPage() {
+	public void htmlPageFaqEnUSPage() {
 	}
 
 	//////////////
@@ -196,11 +196,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	//////////////
 
 	@Override public void htmlMeta() {
-		htmlMetaPageAProposEnUSPage();
+		htmlMetaPageFaqEnUSPage();
 		super.htmlMeta();
 	}
 
-	public void htmlMetaPageAProposEnUSPage() {
+	public void htmlMetaPageFaqEnUSPage() {
 	}
 
 	////////////////
@@ -208,11 +208,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	////////////////
 
 	@Override public void htmlStyles() {
-		htmlStylesPageAProposEnUSPage();
+		htmlStylesPageFaqEnUSPage();
 		super.htmlStyles();
 	}
 
-	public void htmlStylesPageAProposEnUSPage() {
+	public void htmlStylesPageFaqEnUSPage() {
 	}
 
 	///////////////
@@ -220,11 +220,11 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	///////////////
 
 	@Override public void htmlStyle() {
-		htmlStylePageAProposEnUSPage();
+		htmlStylePageFaqEnUSPage();
 		super.htmlStyle();
 	}
 
-	public void htmlStylePageAProposEnUSPage() {
+	public void htmlStylePageFaqEnUSPage() {
 	}
 
 	//////////////
@@ -242,9 +242,9 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	@Override public boolean equals(Object o) {
 		if(this == o)
 			return true;
-		if(!(o instanceof PageAProposEnUSPage))
+		if(!(o instanceof PageFaqEnUSPage))
 			return false;
-		PageAProposEnUSPage that = (PageAProposEnUSPage)o;
+		PageFaqEnUSPage that = (PageFaqEnUSPage)o;
 		return super.equals(o);
 	}
 
@@ -255,7 +255,7 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
-		sb.append("PageAProposEnUSPage {");
+		sb.append("PageFaqEnUSPage {");
 		sb.append(" }");
 		return sb.toString();
 	}

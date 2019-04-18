@@ -59,15 +59,15 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/frFR");
+		c.o("/frFR/apropos");
 	}
 
 	@Override protected void _pageUriEnUS(Couverture<String> c) {
-		c.o("/");
+		c.o("/enUS/about");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/frFR-999.png");
+			c.o("/png/frFR/apropos-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {

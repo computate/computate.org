@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.apropos;
+package org.computate.site.frFR.page.apropos; 
 
 import java.net.URLDecoder;
 import java.util.List;
@@ -20,8 +20,8 @@ import io.vertx.ext.web.api.OperationRequest;
  * Api: true
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
- * ApiUriRechercheFrFRPage: /frFR
- * ApiUriRechercheEnUSPage: /
+ * ApiUriRechercheFrFRPage: /frFR/apropos
+ * ApiUriRechercheEnUSPage: /enUS/about
  * PageRechercheFrFRPage: PageAProposFrFRPage
  * PageRechercheEnUSPage: PageAProposEnUSPage
  * PageSuperRechercheFrFRPage: ArticleFrFRPage
@@ -129,79 +129,6 @@ public class PageAPropos extends PageAProposGen<Article> {
 	 */
 	public void htmlBody() {  
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
-
-		{ e("div").a("class", "").f();
-			{ e("form").a("id", "ArticleForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/frFR/article").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_frFR')); return false; ").f();
-				{ e("div").a("class", "w3-bar ").f();
-					e("input").a("type", "text")
-						.a("placeholder", "rechercher articles")
-						.a("title", "")
-						.a("class", "recherchePageRecherche_frFR w3-input w3-border w3-bar-item ")
-						.a("name", "pageRecherche_frFR")
-						.a("id", "recherchePageRecherche_frFR");
-					operationRequete.getParams().getJsonObject("query").forEach(paramRequete -> {
-						String entiteVar = null;
-						String valeurIndexe = null;
-						String paramNom = paramRequete.getKey();
-						Object paramValeursObjet = paramRequete.getValue();
-						JsonArray paramObjets = paramValeursObjet instanceof JsonArray ? (JsonArray)paramValeursObjet : new JsonArray().add(paramValeursObjet);
-
-						try {
-							for(Object paramObjet : paramObjets) {
-								switch(paramNom) {
-									case "q":
-										entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-										valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
-										if("pageRecherche_frFR".equals(entiteVar))
-											a("value", URLDecoder.decode(valeurIndexe, "UTF-8"));
-								}
-							}
-						} catch(Exception e) {
-							ExceptionUtils.rethrow(e);
-						}
-					});
-					fg();
-					{ e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-green ")
-						.f();
-						e("i").a("class", "fas fa-search ").f().g("i");
-					} g("button");
-				} g("div");
-			} g("form");
-		} g("div");
-
-		{ e("h1").f();
-				e("i").a("class", Article.Article_IconeGroupe, " ", Article.Article_IconeNom, " site-menu-icon ").f().g("i");
-			e("span").a("class", " ").f().sx("articles").g("span");
-		} g("h1");
-		{ e("div").a("class", "w3-row ").f();
-			Map<String, Map<String, List<String>>> highlighting = listeArticle.getQueryResponse().getHighlighting();
-			for(int i = 0; i < listeArticle.size(); i++) {
-				Article o = listeArticle.getList().get(i);
-				Map<String, List<String>> highlights = highlighting == null ? null : highlighting.get(o.getId());
-				List<String> highlightList = highlights == null ? null : highlights.get(highlights.keySet().stream().findFirst().orElse(null));
-				String uri = o.getPageUri();
-				{ e("div").a("class", "w3-half w3-mobile ").f();
-					{ e("div").a("class", "w3-card-4 w3-margin w3-white ").f();
-						{ e("a").a("href", uri).f();
-							{ e("span").a("class", "w3-container w3-responsive ").f();
-								{ e("h3").a("class", "w3-margin-top ").f();
-									sx(o.getArticleH1());
-								} g("h3");
-								{ e("div").a("class", "site-highlight w3-opacity ").f();
-									sx(requeteSite_.getConfigSite_().getSiteUrlBase(), o.getPageUri());
-								} g("div");
-								{ e("h4").a("class", "w3-margin-top w3-margin-bottom ").f();
-									sx(o.getArticleH2());
-								} g("h4");
-							} g("span");
-							if(o.getPageImageUri() != null)
-								e("img").a("src", "https://computate.neocities.org/", o.getPageImageUri()).a("class", "w3-image ").fg();
-						} g("a");
-					} g("div");
-				} g("div");
-			}
-		} g("div");
 	}
 
 	public void htmlBodyCourt() {

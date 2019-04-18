@@ -1,9 +1,9 @@
-package org.computate.site.enUS.page.apropos;
+package org.computate.site.enUS.page.faq;
 
 import java.lang.String;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.article.Article;
-import org.computate.site.enUS.page.parti.PageParagraphe;
+import org.computate.site.enUS.page.parti.QuestionReponse;
 import org.computate.site.frFR.article.ArticleFrFRPage;
 import org.computate.site.enUS.article.ArticleEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
@@ -33,21 +33,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnUSPage> {
+public class PageFaqEnUSGenPage extends PageFaqEnUSGenPageGen<ArticleEnUSPage> {
 
-	protected void _pageAPropos(Couverture<PageAPropos> c) {
-		c.o(new PageAPropos());
+	protected void _pageFaq(Couverture<PageFaq> c) {
+		c.o(new PageFaq());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(pageAPropos != null)
-			c.o("Who is Christopher Tate and computate.org? ");
+		if(pageFaq != null)
+			c.o("Have some questions about computate.org? ");
 		else
-			c.o("Who is Christopher Tate and computate.org? ");
+			c.o("Have some questions about computate.org? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("All about me and my web site. ");
+		c.o("computate.org frequently asked questions (FAQ). ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -55,20 +55,20 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(pageAPropos != null)
+		if(pageFaq != null)
 			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/enUS/about");
+		c.o("/enUS/faq");
 	}
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
-		c.o("/frFR/apropos");
+		c.o("/frFR/faq");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/enUS/about-999.png");
+			c.o("/png/enUS/faq-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -87,17 +87,17 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 			c.o("book");
 	}
 
-	@Override public void initLoinPageAProposEnUSGenPage() {
-		initPageAProposEnUSGenPage();
+	@Override public void initLoinPageFaqEnUSGenPage() {
+		initPageFaqEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsPageAProposEnUSGenPage() {
-		e("script").a("src", "/static/js/PageAProposEnUSGenPage.js").f().g("script");
+	@Override public void htmlScriptsPageFaqEnUSGenPage() {
+		e("script").a("src", "/static/js/PageFaqEnUSGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyPageAProposEnUSGenPage() {
+	@Override public void htmlBodyPageFaqEnUSGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -117,12 +117,12 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 			} g("h3");
 		}
 
-		pageAPropos.htmlBody();
+		pageFaq.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtPageAProposEnUSGenPage() {
+	@Override public void htmlBodyCourtPageFaqEnUSGenPage() {
 
-		pageAPropos.htmlBodyCourt();
+		pageFaq.htmlBodyCourt();
 	}
 }

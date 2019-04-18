@@ -101,7 +101,7 @@ public class PageAProposFrFRGenApiServiceImpl implements PageAProposFrFRGenApiSe
 				if(a.succeeded()) {
 					utilisateurPageAPropos(requeteSite, b -> {
 						if(b.succeeded()) {
-							recherchePageAPropos(requeteSite, false, true, "/frFR", c -> {
+							recherchePageAPropos(requeteSite, false, true, "/frFR/apropos", c -> {
 								if(c.succeeded()) {
 									ListeRecherche<PageAPropos> listePageAPropos = c.result();
 									reponse200RechercheFrFRPagePageAPropos(listePageAPropos, d -> {
@@ -154,7 +154,7 @@ public class PageAProposFrFRGenApiServiceImpl implements PageAProposFrFRGenApiSe
 			PageAProposFrFRPage page = new PageAProposFrFRPage();
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR");
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/apropos");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
 			page.initLoinPageAProposFrFRPage(requeteSite);

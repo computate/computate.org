@@ -131,18 +131,6 @@ public abstract class PageAProposFrFRPageGen<DEV> extends PageAProposFrFRGenPage
 		}
 	}
 
-	/////////////////
-	// htmlScripts //
-	/////////////////
-
-	@Override public void htmlScripts() {
-		htmlScriptsPageAProposFrFRPage();
-		super.htmlScripts();
-	}
-
-	public void htmlScriptsPageAProposFrFRPage() {
-	}
-
 	//////////////
 	// htmlBody //
 	//////////////
@@ -153,6 +141,18 @@ public abstract class PageAProposFrFRPageGen<DEV> extends PageAProposFrFRGenPage
 	}
 
 	public void htmlBodyPageAProposFrFRPage() {
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsPageAProposFrFRPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsPageAProposFrFRPage() {
 	}
 
 	///////////////////

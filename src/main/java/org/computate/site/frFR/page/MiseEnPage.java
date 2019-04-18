@@ -1,5 +1,7 @@
 package org.computate.site.frFR.page;    
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -11,8 +13,10 @@ import java.util.Locale;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.solr.common.SolrDocument;
 import org.computate.site.frFR.chaine.Chaine;
+import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import org.computate.site.frFR.page.parti.PagePart;
@@ -404,11 +408,10 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * r.enUS: apropos
-	 * about
+	 * String.enUS: /enUS/about
 	 */
 	protected void _pageAProposUri(Couverture<String> c)  {
-		c.o("/apropos");
+		c.o("/frFR/apropos");
 	}
 
 	/**
@@ -447,10 +450,15 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	}
 
 	/**
-	 * String.enUS: /enUS/logout
 	 */
 	protected void _pageDeconnexionUri(Couverture<String> c)  {
-		c.o("/frFR/deconnexion");
+		try {
+			ConfigSite configSite = requeteSite_.getConfigSite_();
+			String o = configSite.getAuthUrl() + "/realms/" + configSite.getAuthRessource() + "/protocol/openid-connect/logout?redirect_uri=" + URLEncoder.encode(configSite.getSiteUrlBase() + "/deconnexion", "UTF-8");
+			c.o(o);
+		} catch (UnsupportedEncodingException e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 //
 //	protected void _pageCoursUri(Couverture<String> c)  {

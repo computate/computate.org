@@ -39,7 +39,7 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * ImageHauteur.frFR: 616
  * ImageLargeur.enUS: 800
  * ImageHauteur.enUS: 616
- * VideoId.frFR: sBcDnQj9_QM
+ * VideoId.frFR: ZJTDpIpan8M
  * VideoId.enUS: sBcDnQj9_QM
 */ 
 public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {      
