@@ -2,6 +2,8 @@ package org.computate.site.frFR.vertx;
 
 import java.io.File;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.computate.site.enUS.article.ArticleEnUSGenApiService;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import org.computate.site.enUS.cours.CoursEnUSGenApiService;
@@ -42,6 +44,7 @@ import io.vertx.ext.auth.oauth2.OAuth2Auth;
 import io.vertx.ext.auth.oauth2.OAuth2FlowType;
 import io.vertx.ext.auth.oauth2.providers.KeycloakAuth;
 import io.vertx.ext.jdbc.JDBCClient;
+import io.vertx.ext.sql.SQLConnection;
 import io.vertx.ext.web.Route;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.Session;
@@ -94,69 +97,72 @@ public class AppliVertx extends AbstractVerticle {
 		requeteSiteEnUS.initLoinRequeteSiteEnUS();
 		siteContexteEnUS.initLoinSiteContexteEnUS();
 
-//		Future<Void> etapesFutures = preparerDonnees(siteContexteFrFR).compose(a -> 
-//			configurerCluster(siteContexteFrFR).compose(b -> 
-//				configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
-//					demarrerServeur(siteContexteFrFR, siteContexteEnUS)
-//				)
-//			)
-//		);
-		Future<Void> etapesFutures = configurerCluster(siteContexteFrFR).compose(b -> 
-			configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
-				demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+		Future<Void> etapesFutures = preparerDonnees(siteContexteFrFR, siteContexteEnUS).compose(a -> 
+			configurerCluster(siteContexteFrFR).compose(b -> 
+				configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
+					demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+				)
 			)
 		);
+//		Future<Void> etapesFutures = configurerCluster(siteContexteFrFR).compose(b -> 
+//			configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
+//				demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+//			)
+//		);
 		etapesFutures.setHandler(demarrerFuture.completer());
 	}
-//
-//	private Future<Void> preparerDonnees(SiteContexteFrFR siteContexteFrFR) {
-//		ConfigSite configSite = siteContexteFrFR.getConfigSite();
-//		Future<Void> future = Future.future();
-//
-//		JsonObject jdbcConfig = new JsonObject();
-//		if (StringUtils.isNotEmpty(configSite.getJdbcUrl()))
-//			jdbcConfig.put("url", configSite.getJdbcUrl());
-//		if (StringUtils.isNotEmpty(configSite.getJdbcClassePilote()))
-//			jdbcConfig.put("driver_class", configSite.getJdbcClassePilote());
-//		if (StringUtils.isNotEmpty(configSite.getJdbcUtilisateur()))
-//			jdbcConfig.put("user", configSite.getJdbcUtilisateur());
-//		if (StringUtils.isNotEmpty(configSite.getJdbcMotDePasse()))
-//			jdbcConfig.put("password", configSite.getJdbcMotDePasse());
-//		if (configSite.getJdbcTailleMaxPiscine() != null)
-//			jdbcConfig.put("max_pool_size", configSite.getJdbcTailleMaxPiscine());
-//		if (configSite.getJdbcTailleInitialePiscine() != null)
-//			jdbcConfig.put("initial_pool_size", configSite.getJdbcTailleInitialePiscine());
-//		if (configSite.getJdbcTailleMinPiscine() != null)
-//			jdbcConfig.put("min_pool_size", configSite.getJdbcTailleMinPiscine());
-//		if (configSite.getJdbcMaxDeclarations() != null)
-//			jdbcConfig.put("max_statements", configSite.getJdbcMaxDeclarations());
-//		if (configSite.getJdbcMaxDeclarationsParConnexion() != null)
-//			jdbcConfig.put("max_statements_per_connection", configSite.getJdbcMaxDeclarationsParConnexion());
-//		if (configSite.getJdbcTempsInactiviteMax() != null)
-//			jdbcConfig.put("max_idle_time", configSite.getJdbcTempsInactiviteMax());
-//		jdbcClient = JDBCClient.createShared(vertx, jdbcConfig);
-//
-//		jdbcClient.getConnection(ar -> {
-//			if (ar.failed()) {
-//				System.err.println("Could not open a database connection. ");
-//				ExceptionUtils.printRootCauseStackTrace(ar.cause());
-//				future.fail(ar.cause());
-//			} else {
-//				SQLConnection connection = ar.result();
-//				connection.execute(SQL_initTout, create -> {
-//					connection.close();
-//					if (create.failed()) {
-//						LOGGER.error("Database preparation error", create.cause());
-//						future.fail(create.cause());
-//					} else {
-//						future.complete();
-//					}
-//				});
-//			}
-//		});
-//
-//		return future;
-//	}
+
+	private Future<Void> preparerDonnees(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
+		ConfigSite configSite = siteContexteFrFR.getConfigSite();
+		Future<Void> future = Future.future();
+
+		JsonObject jdbcConfig = new JsonObject();
+		if (StringUtils.isNotEmpty(configSite.getJdbcUrl()))
+			jdbcConfig.put("url", configSite.getJdbcUrl());
+		if (StringUtils.isNotEmpty(configSite.getJdbcClassePilote()))
+			jdbcConfig.put("driver_class", configSite.getJdbcClassePilote());
+		if (StringUtils.isNotEmpty(configSite.getJdbcUtilisateur()))
+			jdbcConfig.put("user", configSite.getJdbcUtilisateur());
+		if (StringUtils.isNotEmpty(configSite.getJdbcMotDePasse()))
+			jdbcConfig.put("password", configSite.getJdbcMotDePasse());
+		if (configSite.getJdbcTailleMaxPiscine() != null)
+			jdbcConfig.put("max_pool_size", configSite.getJdbcTailleMaxPiscine());
+		if (configSite.getJdbcTailleInitialePiscine() != null)
+			jdbcConfig.put("initial_pool_size", configSite.getJdbcTailleInitialePiscine());
+		if (configSite.getJdbcTailleMinPiscine() != null)
+			jdbcConfig.put("min_pool_size", configSite.getJdbcTailleMinPiscine());
+		if (configSite.getJdbcMaxDeclarations() != null)
+			jdbcConfig.put("max_statements", configSite.getJdbcMaxDeclarations());
+		if (configSite.getJdbcMaxDeclarationsParConnexion() != null)
+			jdbcConfig.put("max_statements_per_connection", configSite.getJdbcMaxDeclarationsParConnexion());
+		if (configSite.getJdbcTempsInactiviteMax() != null)
+			jdbcConfig.put("max_idle_time", configSite.getJdbcTempsInactiviteMax());
+		jdbcClient = JDBCClient.createShared(vertx, jdbcConfig);
+
+		siteContexteFrFR.setClientSql(jdbcClient);
+		siteContexteEnUS.setClientSql(jdbcClient);
+
+		jdbcClient.getConnection(ar -> {
+			if (ar.failed()) {
+				System.err.println("Could not open a database connection. ");
+				ExceptionUtils.printRootCauseStackTrace(ar.cause());
+				future.fail(ar.cause());
+			} else {
+				SQLConnection connection = ar.result();
+				connection.execute(SQL_initTout, create -> {
+					connection.close();
+					if (create.failed()) {
+						LOGGER.error("Database preparation error", create.cause());
+						future.fail(create.cause());
+					} else {
+						future.complete();
+					}
+				});
+			}
+		});
+
+		return future;
+	}
 
 	private Future<Void> configurerCluster(SiteContexteFrFR siteContexte) {
 		ConfigSite configSite = siteContexte.getConfigSite();
@@ -334,7 +340,7 @@ public class AppliVertx extends AbstractVerticle {
 	/**
 	 * r: FrFR
 	 * r.enUS: EnUS
-	 */
+	 */ 
 	private Future<Void> demarrerServeur(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
 		ConfigSite configSite = siteContexteFrFR.getConfigSite();
 		Future<Void> future = Future.future();

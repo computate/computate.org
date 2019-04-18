@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.accueil;
+package org.computate.site.frFR.page.apropos;
 
 import java.lang.String;
 import org.computate.site.frFR.recherche.ListeRecherche;
@@ -32,21 +32,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class PageAccueilFrFRGenPage extends PageAccueilFrFRGenPageGen<ArticleFrFRPage> {
+public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrFRPage> {
 
-	protected void _pageAccueil(Couverture<PageAccueil> c) {
-		c.o(new PageAccueil());
+	protected void _pageAPropos(Couverture<PageAPropos> c) {
+		c.o(new PageAPropos());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(pageAccueil != null)
-			c.o("Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. ");
+		if(pageAPropos != null)
+			c.o("Qui est Christopher Tate et computate.org ? ");
 		else
-			c.o("Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. ");
+			c.o("Qui est Christopher Tate et computate.org ? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Base de données PostgreSQL flexible, intégration de la recherche Solr, normes OpenAPI 3, code Vert.x totalement asynchrone, déployé sur Red Hat OpenShift, pour les meilleures solutions 100% open sources.");
+		c.o("Tout à propos de moi et mon site Web. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -54,10 +54,8 @@ public class PageAccueilFrFRGenPage extends PageAccueilFrFRGenPageGen<ArticleFrF
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(pageAccueil != null)
-			c.o("Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. ");
-		else
-			c.o("Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. ");
+		if(pageAPropos != null)
+			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -88,17 +86,17 @@ public class PageAccueilFrFRGenPage extends PageAccueilFrFRGenPageGen<ArticleFrF
 			c.o("book");
 	}
 
-	@Override public void initLoinPageAccueilFrFRGenPage() {
-		initPageAccueilFrFRGenPage();
+	@Override public void initLoinPageAProposFrFRGenPage() {
+		initPageAProposFrFRGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsPageAccueilFrFRGenPage() {
-		e("script").a("src", "/static/js/PageAccueilFrFRGenPage.js").f().g("script");
+	@Override public void htmlScriptsPageAProposFrFRGenPage() {
+		e("script").a("src", "/static/js/PageAProposFrFRGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyPageAccueilFrFRGenPage() {
+	@Override public void htmlBodyPageAProposFrFRGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -118,12 +116,12 @@ public class PageAccueilFrFRGenPage extends PageAccueilFrFRGenPageGen<ArticleFrF
 			} g("h3");
 		}
 
-		pageAccueil.htmlBody();
+		pageAPropos.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtPageAccueilFrFRGenPage() {
+	@Override public void htmlBodyCourtPageAProposFrFRGenPage() {
 
-		pageAccueil.htmlBodyCourt();
+		pageAPropos.htmlBodyCourt();
 	}
 }

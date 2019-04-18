@@ -119,7 +119,8 @@ public class RequeteSiteEnUS extends RequeteSiteEnUSGen<Object> implements Seria
 
 	protected void _utilisateurId(Couverture<String> c) {
 		if(principalJson != null) {
-			String o = KeycloakHelper.rawIdToken(principalJson);
+//			String o = KeycloakHelper.rawIdToken(principalJson);
+			String o = principalJson.getString("sub");
 //			String o = jetonAcces.getSubject();
 			c.o(o);
 		}

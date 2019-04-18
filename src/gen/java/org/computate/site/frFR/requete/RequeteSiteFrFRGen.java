@@ -1550,8 +1550,10 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 	/////////////////
 
 	public void requeteSiteRequeteSiteFrFR(RequeteSiteFrFR requeteSite_) {
-		w.setRequeteSite_(requeteSite_);
-		utilisateurSite.setRequeteSite_(requeteSite_);
+		if(w != null)
+			w.setRequeteSite_(requeteSite_);
+		if(utilisateurSite != null)
+			utilisateurSite.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {

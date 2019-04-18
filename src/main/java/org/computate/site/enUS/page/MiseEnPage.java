@@ -463,15 +463,15 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 
 	public void  menu() {
 		e("div").a("class", "w3-bar w3-text-white w3-padding-bottom-8 w3-padding-top-8 ").a("style", "padding-left: 16px; padding-right: 16px; ").f();
-			e("div").a("class", "site-bar-item w3-bar-item ").f();
-				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
-					e("img").a("src", "https://computate.neocities.org/svg/c-key.svg").a("style", "height: 50px; ").fg();
-					e("br").fg();
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
-						sx("computate");
-					g("span");
-				g("a");
-			g("div");
+//			e("div").a("class", "site-bar-item w3-bar-item ").f();
+//				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
+//					e("img").a("src", "https://computate.neocities.org/svg/computate-keys.svg").a("style", "width: 250px; ").fg();
+//					e("br").fg();
+////					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+////						sx("computate");
+////					g("span");
+//				g("a");
+//			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("span").a("class", "header-icon-a grow-30 w3-center ").f();
 					e("a").a("class", "w3-hover-opacity").a("title", "English").a("href", pageUri).f();
@@ -487,8 +487,17 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				g("span");
 			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
+				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
+//					e("img").a("src", "https://computate.neocities.org/svg/computate-keys.svg").a("style", "width: 250px; ").fg();
+					e("br").fg();
+					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+						sx("Home");
+					g("span");
+				g("a");
+			g("div");
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageBlogUri).f();
-					e("img").a("src", "https://computate.neocities.org/svg/full-moon.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("src", "https://computate.neocities.org/svg/full-moon.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("Blog");
@@ -497,7 +506,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
-					e("img").a("src", "https://computate.neocities.org/svg/cluster.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("src", "https://computate.neocities.org/svg/cluster.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("Courses");
@@ -515,7 +524,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAProposUri).f();
-					e("img").a("src", "https://computate.neocities.org/png/computate.png").a("style", "height: 50px; ").fg();
+//					e("img").a("src", "https://computate.neocities.org/png/computate.png").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("About");
@@ -524,7 +533,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageFaqUri).f();
-					e("img").a("src", "https://computate.neocities.org/svg/ufo.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("src", "https://computate.neocities.org/svg/ufo.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
 					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 						sx("FAQ");
@@ -534,7 +543,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() == null) {
 				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageUtilisateurUri).f(); 
-						e("img").a("src", "https://computate.neocities.org/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
+//						e("img").a("src", "https://computate.neocities.org/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
 						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
 							sx("Login");
@@ -545,10 +554,9 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() != null) {
 				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageDeconnexionUri).f();
-						e("img").a("src", "https://computate.neocities.org/svg/light-speed.svg").a("style", "height: 50px; ").fg();
+//						e("img").a("src", "https://computate.neocities.org/svg/light-speed.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
 						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
-							sx("Logout");
 							sx("Logout");
 						g("span");
 					g("a");

@@ -1,4 +1,4 @@
-package org.computate.site.enUS.page.accueil;
+package org.computate.site.enUS.page.apropos;
 
 import java.lang.String;
 import org.computate.site.enUS.recherche.ListeRecherche;
@@ -33,21 +33,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnUSPage> {
+public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnUSPage> {
 
-	protected void _pageAccueil(Couverture<PageAccueil> c) {
-		c.o(new PageAccueil());
+	protected void _pageAPropos(Couverture<PageAPropos> c) {
+		c.o(new PageAPropos());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(pageAccueil != null)
-			c.o("Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ");
+		if(pageAPropos != null)
+			c.o("Who is Christopher Tate and computate.org? ");
 		else
-			c.o("Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ");
+			c.o("Who is Christopher Tate and computate.org? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Flexible PostgreSQL database, Solr search integration, OpenAPI 3 standards, completely asynchronous Vert.x code, deployed on Red Hat OpenShift, for the very best, 100% open source solutions. ");
+		c.o("All about me and my web site. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -55,10 +55,8 @@ public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnU
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(pageAccueil != null)
-			c.o("Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ");
-		else
-			c.o("Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ");
+		if(pageAPropos != null)
+			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -89,17 +87,17 @@ public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnU
 			c.o("book");
 	}
 
-	@Override public void initLoinPageAccueilEnUSGenPage() {
-		initPageAccueilEnUSGenPage();
+	@Override public void initLoinPageAProposEnUSGenPage() {
+		initPageAProposEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsPageAccueilEnUSGenPage() {
-		e("script").a("src", "/static/js/PageAccueilEnUSGenPage.js").f().g("script");
+	@Override public void htmlScriptsPageAProposEnUSGenPage() {
+		e("script").a("src", "/static/js/PageAProposEnUSGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyPageAccueilEnUSGenPage() {
+	@Override public void htmlBodyPageAProposEnUSGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -119,12 +117,12 @@ public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnU
 			} g("h3");
 		}
 
-		pageAccueil.htmlBody();
+		pageAPropos.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtPageAccueilEnUSGenPage() {
+	@Override public void htmlBodyCourtPageAProposEnUSGenPage() {
 
-		pageAccueil.htmlBodyCourt();
+		pageAPropos.htmlBodyCourt();
 	}
 }

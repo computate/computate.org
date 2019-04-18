@@ -1,4 +1,4 @@
-package org.computate.site.frFR.utilisateur;
+package org.computate.site.frFR.page.apropos;
 
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
@@ -67,44 +67,44 @@ import java.util.stream.Stream;
 import java.net.URLDecoder;
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
-import org.computate.site.frFR.utilisateur.UtilisateurSiteFrFRPage;
+import org.computate.site.frFR.page.apropos.PageAProposFrFRPage;
 
 
 /**
  * Traduire: false
  **/
-public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFRGenApiService {
+public class PageAProposFrFRGenApiServiceImpl implements PageAProposFrFRGenApiService {
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(UtilisateurSiteFrFRGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(PageAProposFrFRGenApiServiceImpl.class);
 
-	protected static final String SERVICE_ADDRESS = "UtilisateurSiteFrFRApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "PageAProposFrFRApiServiceImpl";
 
 	protected SiteContexteFrFR siteContexte;
 
-	public UtilisateurSiteFrFRGenApiServiceImpl(SiteContexteFrFR siteContexte) {
+	public PageAProposFrFRGenApiServiceImpl(SiteContexteFrFR siteContexte) {
 		this.siteContexte = siteContexte;
-		UtilisateurSiteFrFRGenApiService service = UtilisateurSiteFrFRGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
+		PageAProposFrFRGenApiService service = PageAProposFrFRGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
 	// RechercheFrFRPage //
 
 	@Override
-	public void recherchefrfrpageUtilisateurSiteId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		recherchefrfrpageUtilisateurSite(operationRequete, gestionnaireEvenements);
+	public void recherchefrfrpagePageAProposId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		recherchefrfrpagePageAPropos(operationRequete, gestionnaireEvenements);
 	}
 
 	@Override
-	public void recherchefrfrpageUtilisateurSite(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void recherchefrfrpagePageAPropos(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
-			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourUtilisateurSite(siteContexte, operationRequete);
-			sqlUtilisateurSite(requeteSite, a -> {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourPageAPropos(siteContexte, operationRequete);
+			sqlPageAPropos(requeteSite, a -> {
 				if(a.succeeded()) {
-					utilisateurUtilisateurSite(requeteSite, b -> {
+					utilisateurPageAPropos(requeteSite, b -> {
 						if(b.succeeded()) {
-							rechercheUtilisateurSite(requeteSite, false, true, "/frFR/utilisateur", c -> {
+							recherchePageAPropos(requeteSite, false, true, "/frFR", c -> {
 								if(c.succeeded()) {
-									ListeRecherche<UtilisateurSite> listeUtilisateurSite = c.result();
-									reponse200RechercheFrFRPageUtilisateurSite(listeUtilisateurSite, d -> {
+									ListeRecherche<PageAPropos> listePageAPropos = c.result();
+									reponse200RechercheFrFRPagePageAPropos(listePageAPropos, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
 											if(connexionSql == null) {
@@ -116,49 +116,48 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 															if(f.succeeded()) {
 																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
 															} else {
-																erreurUtilisateurSite(requeteSite, gestionnaireEvenements, f);
+																erreurPageAPropos(requeteSite, gestionnaireEvenements, f);
 															}
 														});
 													} else {
-														erreurUtilisateurSite(requeteSite, gestionnaireEvenements, e);
+														erreurPageAPropos(requeteSite, gestionnaireEvenements, e);
 													}
 												});
 											}
 										} else {
-											erreurUtilisateurSite(requeteSite, gestionnaireEvenements, d);
+											erreurPageAPropos(requeteSite, gestionnaireEvenements, d);
 										}
 									});
 								} else {
-									erreurUtilisateurSite(requeteSite, gestionnaireEvenements, c);
+									erreurPageAPropos(requeteSite, gestionnaireEvenements, c);
 								}
 							});
 						} else {
-							erreurUtilisateurSite(requeteSite, gestionnaireEvenements, b);
+							erreurPageAPropos(requeteSite, gestionnaireEvenements, b);
 						}
 					});
 				} else {
-					erreurUtilisateurSite(requeteSite, gestionnaireEvenements, a);
+					erreurPageAPropos(requeteSite, gestionnaireEvenements, a);
 				}
 			});
 		} catch(Exception e) {
-			erreurUtilisateurSite(null, gestionnaireEvenements, Future.failedFuture(e));
+			erreurPageAPropos(null, gestionnaireEvenements, Future.failedFuture(e));
 		}
 	}
 
-	public void reponse200RechercheFrFRPageUtilisateurSite(ListeRecherche<UtilisateurSite> listeUtilisateurSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void reponse200RechercheFrFRPagePageAPropos(ListeRecherche<PageAPropos> listePageAPropos, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			Buffer buffer = Buffer.buffer();
-			RequeteSiteFrFR requeteSite = listeUtilisateurSite.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeUtilisateurSite.getRequeteSite_(), buffer);
+			RequeteSiteFrFR requeteSite = listePageAPropos.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listePageAPropos.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
-			UtilisateurSiteFrFRPage page = new UtilisateurSiteFrFRPage();
+			PageAProposFrFRPage page = new PageAProposFrFRPage();
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/utilisateur");
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
-			page.setListeUtilisateurSite(listeUtilisateurSite);
-			page.initLoinUtilisateurSiteFrFRPage(requeteSite);
+			page.initLoinPageAProposFrFRPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
 		} catch(Exception e) {
@@ -166,7 +165,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public String varIndexeUtilisateurSite(String entiteVar) {
+	public String varIndexePageAPropos(String entiteVar) {
 		switch(entiteVar) {
 			case "pk":
 				return "pk_indexed_long";
@@ -184,39 +183,61 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "calculInrPks":
-				return "calculInrPks_indexed_longs";
-			case "utilisateurNom":
-				return "utilisateurNom_indexed_string";
-			case "utilisateurMail":
-				return "utilisateurMail_indexed_string";
-			case "utilisateurPrenom":
-				return "utilisateurPrenom_indexed_string";
-			case "utilisateurNomFamille":
-				return "utilisateurNomFamille_indexed_string";
-			case "utilisateurNomComplet":
-				return "utilisateurNomComplet_indexed_string";
-			case "utilisateurSite":
-				return "utilisateurSite_indexed_string";
-			case "utilisateurRecevoirCourriels":
-				return "utilisateurRecevoirCourriels_indexed_boolean";
-			case "voirArchive":
-				return "voirArchive_indexed_boolean";
-			case "voirSupprime":
-				return "voirSupprime_indexed_boolean";
+			case "estCours":
+				return "estCours_indexed_boolean";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
+			case "articleH1_enUS":
+				return "articleH1_enUS_indexed_string";
+			case "articleH1_frFR":
+				return "articleH1_frFR_indexed_string";
+			case "articleH2_enUS":
+				return "articleH2_enUS_indexed_string";
+			case "articleH2_frFR":
+				return "articleH2_frFR_indexed_string";
+			case "articleCree":
+				return "articleCree_indexed_date";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
+			case "pageImageUri_enUS":
+				return "pageImageUri_enUS_indexed_string";
+			case "pageImageUri_frFR":
+				return "pageImageUri_frFR_indexed_string";
+			case "pageCree":
+				return "pageCree_indexed_date";
+			case "pageH1":
+				return "pageH1_indexed_string";
+			case "pageH2":
+				return "pageH2_indexed_string";
+			case "pageH3":
+				return "pageH3_indexed_string";
+			case "pageTitre":
+				return "pageTitre_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
 	}
 
-	public String varRechercheUtilisateurSite(String entiteVar) {
+	public String varRecherchePageAPropos(String entiteVar) {
 		switch(entiteVar) {
+			case "pageRecherche_enUS":
+				return "pageRecherche_enUS_text_enUS";
+			case "pageRecherche_frFR":
+				return "pageRecherche_frFR_text_frFR";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
 	}
 
-	public String varSuggereUtilisateurSite(String entiteVar) {
+	public String varSuggerePageAPropos(String entiteVar) {
 		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
@@ -225,7 +246,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 
 	// Partagé //
 
-	public void erreurUtilisateurSite(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
+	public void erreurPageAPropos(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
 		Throwable e = resultatAsync.cause();
 		ExceptionUtils.printRootCauseStackTrace(e);
 		OperationResponse reponseOperation = new OperationResponse(400, "BAD REQUEST", 
@@ -262,7 +283,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public void sqlUtilisateurSite(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void sqlPageAPropos(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
@@ -290,11 +311,11 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public RequeteSiteFrFR genererRequeteSiteFrFRPourUtilisateurSite(SiteContexteFrFR siteContexte, OperationRequest operationRequete) {
-		return genererRequeteSiteFrFRPourUtilisateurSite(siteContexte, operationRequete, null);
+	public RequeteSiteFrFR genererRequeteSiteFrFRPourPageAPropos(SiteContexteFrFR siteContexte, OperationRequest operationRequete) {
+		return genererRequeteSiteFrFRPourPageAPropos(siteContexte, operationRequete, null);
 	}
 
-	public RequeteSiteFrFR genererRequeteSiteFrFRPourUtilisateurSite(SiteContexteFrFR siteContexte, OperationRequest operationRequete, JsonObject body) {
+	public RequeteSiteFrFR genererRequeteSiteFrFRPourPageAPropos(SiteContexteFrFR siteContexte, OperationRequest operationRequete, JsonObject body) {
 		Vertx vertx = siteContexte.getVertx();
 		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
 		requeteSite.setObjetJson(body);
@@ -307,7 +328,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		return requeteSite;
 	}
 
-	public void utilisateurUtilisateurSite(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void utilisateurPageAPropos(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
 			String utilisateurId = requeteSite.getUtilisateurId();
@@ -398,21 +419,21 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public void rechercheUtilisateurSite(RequeteSiteFrFR requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<UtilisateurSite>>> gestionnaireEvenements) {
+	public void recherchePageAPropos(RequeteSiteFrFR requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<PageAPropos>>> gestionnaireEvenements) {
 		try {
 			OperationRequest operationRequete = requeteSite.getOperationRequete();
 			String entiteListeStr = requeteSite.getOperationRequete().getParams().getJsonObject("query").getString("fl");
 			String[] entiteListe = entiteListeStr == null ? null : entiteListeStr.split(",\\s*");
-			ListeRecherche<UtilisateurSite> listeRecherche = new ListeRecherche<UtilisateurSite>();
+			ListeRecherche<PageAPropos> listeRecherche = new ListeRecherche<PageAPropos>();
 			listeRecherche.setPeupler(peupler);
 			listeRecherche.setStocker(stocker);
 			listeRecherche.setQuery("*:*");
-			listeRecherche.setC(UtilisateurSite.class);
+			listeRecherche.setC(PageAPropos.class);
 			if(entiteListe != null)
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.utilisateur.UtilisateurSite"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.page.apropos.PageAPropos"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
@@ -442,7 +463,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 						switch(paramNom) {
 							case "q":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheUtilisateurSite(entiteVar);
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRecherchePageAPropos(entiteVar);
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
 								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
 								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
@@ -456,18 +477,18 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 							case "fq":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
-								varIndexe = varIndexeUtilisateurSite(entiteVar);
+								varIndexe = varIndexePageAPropos(entiteVar);
 								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
 								break;
 							case "sort":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
 								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-								varIndexe = varIndexeUtilisateurSite(entiteVar);
+								varIndexe = varIndexePageAPropos(entiteVar);
 								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
 								break;
 							case "fl":
 								entiteVar = StringUtils.trim((String)paramObjet);
-								varIndexe = varIndexeUtilisateurSite(entiteVar);
+								varIndexe = varIndexePageAPropos(entiteVar);
 								listeRecherche.addField(varIndexe);
 								break;
 							case "start":
@@ -491,7 +512,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public void definirUtilisateurSite(UtilisateurSite o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void definirPageAPropos(PageAPropos o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -515,7 +536,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public void attribuerUtilisateurSite(UtilisateurSite o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void attribuerPageAPropos(PageAPropos o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -541,7 +562,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public void indexerUtilisateurSite(UtilisateurSite o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void indexerPageAPropos(PageAPropos o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 		try {
 			o.initLoinPourClasse(requeteSite);

@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.blog;
+package org.computate.site.frFR.page.blog; 
 
 import java.net.URLDecoder;
 import java.util.List;
@@ -46,7 +46,7 @@ import io.vertx.ext.web.api.OperationRequest;
  * ImageHauteur.frFR: 616
  * ImageLargeur.enUS: 800
  * ImageHauteur.enUS: 616
-*/   
+*/  
 public class PageBlog extends PageBlogGen<Article> {
 
 	public static void main(String[] args) {  
@@ -116,6 +116,7 @@ public class PageBlog extends PageBlogGen<Article> {
 		o.addSort("archive_indexed_boolean", ORDER.asc);
 		o.addSort("supprime_indexed_boolean", ORDER.asc);
 		o.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.article.Article"));
+		o.addFilterQuery("estLecon_indexed_boolean:true");
 	}
 
 	/**

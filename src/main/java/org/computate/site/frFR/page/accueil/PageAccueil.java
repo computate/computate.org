@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.accueil;  
+package org.computate.site.frFR.page.accueil;   
 
 import java.net.URLDecoder;
 import java.util.List;

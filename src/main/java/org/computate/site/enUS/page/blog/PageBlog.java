@@ -89,6 +89,7 @@ public class PageBlog extends PageBlogGen<Article> {
 		o.addSort("archive_indexed_boolean", ORDER.asc);
 		o.addSort("supprime_indexed_boolean", ORDER.asc);
 		o.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.article.Article"));
+		o.addFilterQuery("estLecon_indexed_boolean:true");
 	}
 
 	public void  htmlBody() {  

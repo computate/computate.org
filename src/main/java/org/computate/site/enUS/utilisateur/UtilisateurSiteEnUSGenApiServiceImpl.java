@@ -158,6 +158,7 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/user");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
+			page.setListeUtilisateurSite(listeUtilisateurSite);
 			page.initLoinUtilisateurSiteEnUSPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));

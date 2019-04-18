@@ -148,7 +148,8 @@ public class RequeteSiteFrFR extends RequeteSiteFrFRGen<Object> implements Seria
 	 \*	Aussi l'ID d'utilisateur cle primaire dans la base de donnees Keycloak. **/
 	protected void _utilisateurId(Couverture<String> c) {
 		if(principalJson != null) {
-			String o = KeycloakHelper.rawIdToken(principalJson);
+//			String o = KeycloakHelper.rawIdToken(principalJson);
+			String o = principalJson.getString("sub");
 //			String o = jetonAcces.getSubject();
 			c.o(o);
 		}

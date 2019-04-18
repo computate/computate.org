@@ -1,4 +1,4 @@
-package org.computate.site.frFR.utilisateur;             
+package org.computate.site.frFR.utilisateur;              
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -22,7 +22,6 @@ import org.computate.site.frFR.requete.RequeteSiteFrFR;
  * ApiUri.frFR: /api/site/utilisateur
  * Role.frFR: SiteAdmin
  * 
- * PageSimple: true
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: book
