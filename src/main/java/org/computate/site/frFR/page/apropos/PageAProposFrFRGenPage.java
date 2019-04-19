@@ -40,13 +40,13 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(pageAPropos != null)
-			c.o("Qui est Christopher Tate et computate.org ? ");
+			c.o("Qui est Christopher Tate ? ");
 		else
-			c.o("Qui est Christopher Tate et computate.org ? ");
+			c.o("Qui est Christopher Tate ? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Tout à propos de moi et mon site Web. ");
+		c.o("Tout à propos de moi. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -55,9 +55,9 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(pageAPropos != null)
-			c.o("Qui est Christopher Tate et computate.org ? Tout à propos de moi et mon site Web. ");
+			c.o("Qui est Christopher Tate ? Tout à propos de moi. ");
 		else
-			c.o("Qui est Christopher Tate et computate.org ? Tout à propos de moi et mon site Web. ");
+			c.o("Qui est Christopher Tate ? Tout à propos de moi. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {

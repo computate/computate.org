@@ -20,14 +20,14 @@ import org.computate.site.frFR.recherche.ListeRecherche;
  * PageSuperRechercheFrFRPage: ArticleFrFRPage
  * PageSuperRechercheEnUSPage: ArticleEnUSPage
  * 
- * Titre.frFR: Qui est Christopher Tate et computate.org ? Tout à propos de moi et mon site Web. 
- * Titre.enUS: Who is Christopher Tate and computate.org? All about me and my web site. 
+ * Titre.frFR: Qui est Christopher Tate ? Tout à propos de moi. 
+ * Titre.enUS: Who is Christopher Tate? All about me. 
  * 
- * H1.frFR: Qui est Christopher Tate et computate.org ? 
- * H1.enUS: Who is Christopher Tate and computate.org? 
+ * H1.frFR: Qui est Christopher Tate ? 
+ * H1.enUS: Who is Christopher Tate? 
  * 
- * H2.frFR: Tout à propos de moi et mon site Web. 
- * H2.enUS: All about me and my web site. 
+ * H2.frFR: Tout à propos de moi. 
+ * H2.enUS: All about me. 
  * 
  * PageSimple: true
  * Couleur: green
@@ -125,21 +125,17 @@ public class PageAPropos extends PageAProposGen<Article> {
 	 * Val.QuestionCourt.frFR:D'où venez-vous ? 
 	 * Val.QuestionCourt.enUS:Where are you from? 
 	 * Val.Reponse.frFR:Je suis un Américain d'Utah qui adore se balader. 
-	 * Val.Reponse.enUS:I am an American from Utah that loves to wander. 
+	 * Val.Reponse.enUS:I am from Utah and a wanderer at heart. 
 	 * Val.ReponseCourt.frFR:Je suis un Américain d'Utah qui adore se balader. 
-	 * Val.ReponseCourt.enUS:I am an American from Utah that loves to wander. 
-	 * Val.P.frFR:Je suis né en Utah où il fait chaud comme le désert en été et il neige en hiver. 
-	 * Val.P.frFR:Je ne suis pas un skieur, malgré la renommée de l'Utah pour les montagnes enneigées, mais j'adore faire de la luge. 
-	 * Val.P.frFR:Je préfère faire du vélo, crossfit et faire de la randonnée dans des montagnes avec ma famille. 
+	 * Val.ReponseCourt.enUS:I am from Utah and a wanderer at heart. 
+	 * Val.P.frFR:J'aime faire de la randonnée dans des montagnes avec ma famille. 
 	 * Val.P.frFR:J'ai aussi vécu en Floride, en Idaho, en Ontario, au Québec et en France.
 	 * Val.P.frFR:J'aime les français et les années que j'ai passé en France, j'aime les Québécois et les années que j'ai passé au Québec. 
 	 * Val.P.frFR:Je connais les défis à créer de bons systèmes logiciels où le pays parle une autre langue que l'anglais. 
-	 * Val.P.enUS:I was born in Utah where it's pretty hot and desert-like in the summer, and snowy in the winter. 
-	 * Val.P.enUS:I'm not much of a skier, despite Utah's fame for snowy mountains, but I love sledding. 
-	 * Val.P.enUS:I prefer riding my bike, crossfit and hiking in the mountains with my family. 
+	 * Val.P.enUS:I love spending time in the great outdoors with my family. 
 	 * Val.P.enUS:I've also lived in Florida, Idaho, Ontario, Quebec and France. 
-	 * Val.P.enUS:I love the French and the time I spent in France, and I love the Québécois and the time I spent in Québec. 
-	 * Val.P.enUS:I know the challenges of building good software systems where the non English speaking countries. 
+	 * Val.P.enUS:I love the time I lived and worked in other countries, and the ways open source software brings the world together. 
+	 * Val.P.enUS:I know the challenges of building good software systems in non-English speaking countries. 
 	 */ 
 	protected void _ouVenezVous(QuestionReponse o) {
 
@@ -182,28 +178,20 @@ public class PageAPropos extends PageAProposGen<Article> {
 				g("div");
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-temperature-hot site-menu-icon ").f().g("i");
+				e("i").a("class", "fas fa-mountains site-menu-icon ").f().g("i");
 				sx(ouVenezVousP1);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-sledding site-menu-icon ").f().g("i");
+				e("i").a("class", "fas fa-globe-africa site-menu-icon ").f().g("i");
 				sx(ouVenezVousP2);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-mountains site-menu-icon ").f().g("i");
+				e("i").a("class", "fas fa-heart-square site-menu-icon ").f().g("i");
 				sx(ouVenezVousP3);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-globe-africa site-menu-icon ").f().g("i");
-				sx(ouVenezVousP4);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-heart-square site-menu-icon ").f().g("i");
-				sx(ouVenezVousP5);
-			g("div");
-			e("div").f();
 				e("i").a("class", "fas fa-robot site-menu-icon ").f().g("i");
-				sx(ouVenezVousP6);
+				sx(ouVenezVousP4);
 			g("div");
 		g("p");
 	}
@@ -225,12 +213,12 @@ public class PageAPropos extends PageAProposGen<Article> {
 	 * Val.P.frFR:Chaque appli, chaque répertoire, chaque fichier, chaque élément de menu, chaque raccourci clavier, je les connais bien.
 	 * Val.P.frFR:J'ai posé à mon père de nombreuses questions importantes, comme comment écrire du code? Comment créer une base de données?
 	 * Val.P.frFR:J'ai reçu un grand manuel Visual Basic et il m'a indiqué Microsoft Access.
-	 * Val.P.enUS:As long as I've known my dad, he was a Lotus Notes database programmer. 
+	 * Val.P.enUS:My dad has been a Lotus Notes database programmer as long as I can remember. 
 	 * Val.P.enUS:He always had a nice computer with the latest Microsoft suite at home for the family to use. 
 	 * Val.P.enUS:I spent hours every day figuring out everything I could possibly do on the computer. 
-	 * Val.P.enUS:Every application, every directory, every file, every menu item, every keyboard shortcut I became familiar with. 
-	 * Val.P.enUS:I asked my dad many important questions, like how do I write code? How do I make a database? 
-	 * Val.P.enUS:I received a large Visual Basic manual, and he pointed me to Microsoft Access. 
+	 * Val.P.enUS:I became familiar with every application, every directory, every file, every menu item, every keyboard shortcut. 
+	 * Val.P.enUS:I asked my dad many important questions, like: "how do I write code?" "How do I make a database?" 
+	 * Val.P.enUS:I was then gifted a large Visual Basic manual, and he pointed me to Microsoft Access. 
 	 */ 
 	protected void _informatique(QuestionReponse o) {
 
@@ -282,22 +270,20 @@ public class PageAPropos extends PageAProposGen<Article> {
 	 * Val.Reponse.enUS:The drive to finish each project, and be at the next opportunity to grow my career. 
 	 * Val.ReponseCourt.frFR:La poussée de terminer chaque projet et d’être à la prochaine occasion de faire évoluer ma carrière. 
 	 * Val.ReponseCourt.enUS:The drive to finish each project, and be at the next opportunity to grow my career. 
-	 * Val.P.frFR:Depuis là, j'ai commencé à écrire des programmes et des jeux sur ma calculatrice TI-86.
+	 * Val.P.frFR:J'ai commencé à écrire des programmes et des jeux sur ma calculatrice TI-86.
 	 * Val.P.frFR:Je savais, à partir de l'université, que j'étudierais l'informatique.
-	 * Val.P.frFR:Au même temps, je suis devenu informaticien à temps partiel pour une société humanitaire locale CHOICE Humanitarian, j'ai aidé à résoudre des problèmes mondiaux avec une bases de données.
+	 * Val.P.frFR:Au même temps, je suis devenu informaticien à temps partiel pour une société humanitaire locale, faisant mon mieux à résoudre des problèmes mondiaux avec une bases de données.
 	 * Val.P.frFR:Après avoir obtenu mon diplôme en Informatique, j'ai commencé en tant que consultant en logiciels; j'ai travaillé sur de nombreux projets passionnants dans de grandes entreprises.
-	 * Val.P.frFR:Après 5 ans, j'ai chercher un travail en France, avec mon expérience de la langue française.
-	 * Val.P.frFR:Mon expérience en bases de données et la recherche m'a également conduit en France, où j'ai travaillé avec une très petite société spécialisée dans les technologies de recherche open source, notamment Lucene.
+	 * Val.P.frFR:Après 5 ans, j'ai chercher un travail en France, où j'ai travaillé avec une très petite société spécialisée dans les technologies de recherche open source, notamment Lucene.
 	 * Val.P.frFR:Et ensuite, dans une entreprise de formation Linux en Utah, où je me suis familiarisé avec les principes de l'origine de Linux.
 	 * Val.P.frFR:Mon amour pour le conseil, mon expérience, et le fait d'être au bon endroit au bon moment m'ont ensuite conduit à Red Hat.
 	 * Val.P.frFR:J'ai enfin trouvé mes collegues similaires ici chez Red Hat, et je suis là pour rester.
-	 * Val.P.enUS:From there I started writing calculator programs and games on my TI-86 calculator. 
-	 * Val.P.enUS:I knew, starting at university, that I would study Computer Science. 
-	 * Val.P.enUS:At the same time, I became the part time computer guy for a local CHOICE Humanitarian organization, helping to solve world problems with databases. 
-	 * Val.P.enUS:After graduation with my BS in CS, I started as a Software Consultant and worked on many exciting projects at large companies. 
-	 * Val.P.enUS:After 5 years, I looked for a job in France, with my experience in speaking French. 
-	 * Val.P.enUS:My database and search experience also led me to France, where I worked with a très petite société, which specialized in open source search technology, specifically Lucene. 
-	 * Val.P.enUS:And then to a Linux training company in Utah where I became very familiar with the whys of the origin of Linux. 
+	 * Val.P.enUS:I started writing calculator programs and games on my TI-86 calculator. 
+	 * Val.P.enUS:I went on to study Computer Science at University. 
+	 * Val.P.enUS:At the same time, I became the part time computer guy for a local humanitarian organization, doing my best to solve world problems with databases. 
+	 * Val.P.enUS:After graduation, I started as a Software Consultant and worked on many exciting projects at large companies. 
+	 * Val.P.enUS:After 5 years, I had the opportunity to take a job in France, where I worked with a très petite société, which specialized in open source search technology, specifically Lucene. 
+	 * Val.P.enUS:I then worked with a Linux training company in Utah where I became very familiar with the whys of the origin of Linux. 
 	 * Val.P.enUS:My love for consulting, my experience, and being at the right place at the right time then led me to Red Hat. 
 	 * Val.P.enUS:I have found my people, at long last, here at Red Hat and I am here to stay. 
 	 */ 
@@ -334,20 +320,16 @@ public class PageAPropos extends PageAProposGen<Article> {
 				sx(emploiP5);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-search site-menu-icon ").f().g("i");
+				e("i").a("class", "fab fa-linux site-menu-icon ").f().g("i");
 				sx(emploiP6);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fab fa-linux site-menu-icon ").f().g("i");
+				e("i").a("class", "fab fa-redhat site-menu-icon ").f().g("i");
 				sx(emploiP7);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fab fa-redhat site-menu-icon ").f().g("i");
-				sx(emploiP8);
-			g("div");
-			e("div").f();
 				e("i").a("class", "fas fa-laugh-beam site-menu-icon ").f().g("i");
-				sx(emploiP9);
+				sx(emploiP8);
 			g("div");
 		g("p");
 	}
@@ -364,16 +346,14 @@ public class PageAPropos extends PageAProposGen<Article> {
 	 * Val.ReponseCourt.frFR:La liberté de construire sur la merveille. 
 	 * Val.ReponseCourt.enUS:The freedom to build upon greatness. 
 	 * Val.P.frFR:J'ai rencontré mon premier ordinateur Linux au laboratoire d'informatique Linux à l'Université, où je pensais que seuls les nobles magiciens de la programmation informatique vivaient et dormaient. 
-	 * Val.P.frFR:Vers la même époque, mon cousin lointain est venu dans la même école et était mon colocataire. 
-	 * Val.P.frFR:Il a lui-même utilisé Linux et m'a encouragé à l'essayer moi-même. 
-	 * Val.P.frFR:Une nuit, après avoir réalisé que Microsoft et le .NET Framework m'abandonnaient après l'obtention de mon diplôme, avec des frais exorbitants, j'ai opéré le changement. 
+	 * Val.P.frFR:Au même temps, mon cousin utilisé Linux et m'a encouragé à l'essayer moi-même. 
+	 * Val.P.frFR:Une nuit, après avoir réalisé que Microsoft et le .NET Framework m'abandonnaient après l'obtention de mon diplôme avec des frais exorbitants, j'ai changé. 
 	 * Val.P.frFR:J'ai sauvegardé ma vie numérique sur un disque zip coûteux de la librairie, installé Ubuntu Linux et effacé Microsoft de ma vie personnelle pour toujours. 
 	 * Val.P.frFR:Je n'ai jamais regardé en arrière et jamais regretté cette décision. 
 	 * Val.P.enUS:I met my first Linux computer at the University Linux computer lab, where I figured only the noble wizards of computer programming lived and slept. 
-	 * Val.P.enUS:Around the same time, my far away cousin, came to the same school and was my roomate. 
-	 * Val.P.enUS:He used Linux himself and gave me some encouragement to try it myself. 
-	 * Val.P.enUS:One night, after realizing that Microsoft and the .NET Framework would forsake me after graduation, with exorbitant fees, I made the switch. 
-	 * Val.P.enUS:I backed up my digital life on an expensive zip disk from the bookstore and installed Ubuntu Linux, and wiped Microsoft out of my personal life forever more. 
+	 * Val.P.enUS:Around the same time, my cousin introduced me to Linux, and gave me some encouragement to try it myself. 
+	 * Val.P.enUS:One night, after realizing that Microsoft and the .NET Framework would forsake me after graduation with exorbitant fees, I made the switch. 
+	 * Val.P.enUS:I backed up my digital life on an expensive zip disk from the bookstore and installed Ubuntu Linux, wiping Microsoft out of my personal life forever. 
 	 * Val.P.enUS:I never looked back, and never regretted that decision. 
 	 */ 
 	protected void _opensource(QuestionReponse o) {
@@ -393,24 +373,20 @@ public class PageAPropos extends PageAProposGen<Article> {
 				sx(opensourceP1);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-people-carry site-menu-icon ").f().g("i");
+				e("i").a("class", "fas fa-laptop site-menu-icon ").f().g("i");
 				sx(opensourceP2);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-laptop site-menu-icon ").f().g("i");
+				e("i").a("class", "fas fa-strikethrough site-menu-icon ").f().g("i");
 				sx(opensourceP3);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-strikethrough site-menu-icon ").f().g("i");
+				e("i").a("class", "fas fa-save site-menu-icon ").f().g("i");
 				sx(opensourceP4);
 			g("div");
 			e("div").f();
-				e("i").a("class", "fas fa-save site-menu-icon ").f().g("i");
-				sx(opensourceP5);
-			g("div");
-			e("div").f();
 				e("i").a("class", "fas fa-arrow-alt-square-right site-menu-icon ").f().g("i");
-				sx(opensourceP6);
+				sx(opensourceP5);
 			g("div");
 		g("p");
 	}

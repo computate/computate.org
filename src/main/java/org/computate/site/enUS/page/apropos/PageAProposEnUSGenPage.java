@@ -41,13 +41,13 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(pageAPropos != null)
-			c.o("Who is Christopher Tate and computate.org? ");
+			c.o("Who is Christopher Tate? ");
 		else
-			c.o("Who is Christopher Tate and computate.org? ");
+			c.o("Who is Christopher Tate? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("All about me and my web site. ");
+		c.o("All about me. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -56,9 +56,9 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(pageAPropos != null)
-			c.o("Who is Christopher Tate and computate.org? All about me and my web site. ");
+			c.o("Who is Christopher Tate? All about me. ");
 		else
-			c.o("Who is Christopher Tate and computate.org? All about me and my web site. ");
+			c.o("Who is Christopher Tate? All about me. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {

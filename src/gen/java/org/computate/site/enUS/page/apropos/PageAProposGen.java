@@ -35,9 +35,9 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class PageAProposGen<DEV> extends Article {
 
-	public static final String PageAPropos_H1 = "Who is Christopher Tate and computate.org? ";
-	public static final String PageAPropos_H2 = "All about me and my web site. ";
-	public static final String PageAPropos_Titre = "Who is Christopher Tate and computate.org? All about me and my web site. ";
+	public static final String PageAPropos_H1 = "Who is Christopher Tate? ";
+	public static final String PageAPropos_H2 = "All about me. ";
+	public static final String PageAPropos_Titre = "Who is Christopher Tate? All about me. ";
 	public static final String PageAPropos_Couleur = "green";
 	public static final String PageAPropos_IconeGroupe = "regular";
 	public static final String PageAPropos_IconeNom = "book";
@@ -201,17 +201,15 @@ public abstract class PageAProposGen<DEV> extends Article {
 	public static final String ouVenezVousQuestion = ouVenezVousQuestion1;
 	public static final String ouVenezVousQuestionCourt1 = "Where are you from? ";
 	public static final String ouVenezVousQuestionCourt = ouVenezVousQuestionCourt1;
-	public static final String ouVenezVousReponse1 = "I am an American from Utah that loves to wander. ";
+	public static final String ouVenezVousReponse1 = "I am from Utah and a wanderer at heart. ";
 	public static final String ouVenezVousReponse = ouVenezVousReponse1;
-	public static final String ouVenezVousReponseCourt1 = "I am an American from Utah that loves to wander. ";
+	public static final String ouVenezVousReponseCourt1 = "I am from Utah and a wanderer at heart. ";
 	public static final String ouVenezVousReponseCourt = ouVenezVousReponseCourt1;
-	public static final String ouVenezVousP1 = "I was born in Utah where it's pretty hot and desert-like in the summer, and snowy in the winter. ";
-	public static final String ouVenezVousP2 = "I'm not much of a skier, despite Utah's fame for snowy mountains, but I love sledding. ";
-	public static final String ouVenezVousP3 = "I prefer riding my bike, crossfit and hiking in the mountains with my family. ";
-	public static final String ouVenezVousP4 = "I've also lived in Florida, Idaho, Ontario, Quebec and France. ";
-	public static final String ouVenezVousP5 = "I love the French and the time I spent in France, and I love the Québécois and the time I spent in Québec. ";
-	public static final String ouVenezVousP6 = "I know the challenges of building good software systems where the non English speaking countries. ";
-	public static final String ouVenezVousP = ouVenezVousP1 + ouVenezVousP2 + ouVenezVousP3 + ouVenezVousP4 + ouVenezVousP5 + ouVenezVousP6;
+	public static final String ouVenezVousP1 = "I love spending time in the great outdoors with my family. ";
+	public static final String ouVenezVousP2 = "I've also lived in Florida, Idaho, Ontario, Quebec and France. ";
+	public static final String ouVenezVousP3 = "I love the time I lived and worked in other countries, and the ways open source software brings the world together. ";
+	public static final String ouVenezVousP4 = "I know the challenges of building good software systems in non-English speaking countries. ";
+	public static final String ouVenezVousP = ouVenezVousP1 + ouVenezVousP2 + ouVenezVousP3 + ouVenezVousP4;
 
 	/**	L'entité « ouVenezVous »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
@@ -267,12 +265,12 @@ public abstract class PageAProposGen<DEV> extends Article {
 	public static final String informatiqueReponse = informatiqueReponse1;
 	public static final String informatiqueReponseCourt1 = "A love for computers all my life. ";
 	public static final String informatiqueReponseCourt = informatiqueReponseCourt1;
-	public static final String informatiqueP1 = "As long as I've known my dad, he was a Lotus Notes database programmer. ";
+	public static final String informatiqueP1 = "My dad has been a Lotus Notes database programmer as long as I can remember. ";
 	public static final String informatiqueP2 = "He always had a nice computer with the latest Microsoft suite at home for the family to use. ";
 	public static final String informatiqueP3 = "I spent hours every day figuring out everything I could possibly do on the computer. ";
-	public static final String informatiqueP4 = "Every application, every directory, every file, every menu item, every keyboard shortcut I became familiar with. ";
-	public static final String informatiqueP5 = "I asked my dad many important questions, like how do I write code? How do I make a database? ";
-	public static final String informatiqueP6 = "I received a large Visual Basic manual, and he pointed me to Microsoft Access. ";
+	public static final String informatiqueP4 = "I became familiar with every application, every directory, every file, every menu item, every keyboard shortcut. ";
+	public static final String informatiqueP5 = "I asked my dad many important questions, like: \"how do I write code?\" \"How do I make a database?\" ";
+	public static final String informatiqueP6 = "I was then gifted a large Visual Basic manual, and he pointed me to Microsoft Access. ";
 	public static final String informatiqueP = informatiqueP1 + informatiqueP2 + informatiqueP3 + informatiqueP4 + informatiqueP5 + informatiqueP6;
 
 	/**	L'entité « informatique »
@@ -329,16 +327,15 @@ public abstract class PageAProposGen<DEV> extends Article {
 	public static final String emploiReponse = emploiReponse1;
 	public static final String emploiReponseCourt1 = "The drive to finish each project, and be at the next opportunity to grow my career. ";
 	public static final String emploiReponseCourt = emploiReponseCourt1;
-	public static final String emploiP1 = "From there I started writing calculator programs and games on my TI-86 calculator. ";
-	public static final String emploiP2 = "I knew, starting at university, that I would study Computer Science. ";
-	public static final String emploiP3 = "At the same time, I became the part time computer guy for a local CHOICE Humanitarian organization, helping to solve world problems with databases. ";
-	public static final String emploiP4 = "After graduation with my BS in CS, I started as a Software Consultant and worked on many exciting projects at large companies. ";
-	public static final String emploiP5 = "After 5 years, I looked for a job in France, with my experience in speaking French. ";
-	public static final String emploiP6 = "My database and search experience also led me to France, where I worked with a très petite société, which specialized in open source search technology, specifically Lucene. ";
-	public static final String emploiP7 = "And then to a Linux training company in Utah where I became very familiar with the whys of the origin of Linux. ";
-	public static final String emploiP8 = "My love for consulting, my experience, and being at the right place at the right time then led me to Red Hat. ";
-	public static final String emploiP9 = "I have found my people, at long last, here at Red Hat and I am here to stay. ";
-	public static final String emploiP = emploiP1 + emploiP2 + emploiP3 + emploiP4 + emploiP5 + emploiP6 + emploiP7 + emploiP8 + emploiP9;
+	public static final String emploiP1 = "I started writing calculator programs and games on my TI-86 calculator. ";
+	public static final String emploiP2 = "I went on to study Computer Science at University. ";
+	public static final String emploiP3 = "At the same time, I became the part time computer guy for a local humanitarian organization, doing my best to solve world problems with databases. ";
+	public static final String emploiP4 = "After graduation, I started as a Software Consultant and worked on many exciting projects at large companies. ";
+	public static final String emploiP5 = "After 5 years, I had the opportunity to take a job in France, where I worked with a très petite société, which specialized in open source search technology, specifically Lucene. ";
+	public static final String emploiP6 = "I then worked with a Linux training company in Utah where I became very familiar with the whys of the origin of Linux. ";
+	public static final String emploiP7 = "My love for consulting, my experience, and being at the right place at the right time then led me to Red Hat. ";
+	public static final String emploiP8 = "I have found my people, at long last, here at Red Hat and I am here to stay. ";
+	public static final String emploiP = emploiP1 + emploiP2 + emploiP3 + emploiP4 + emploiP5 + emploiP6 + emploiP7 + emploiP8;
 
 	/**	L'entité « emploi »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
@@ -395,12 +392,11 @@ public abstract class PageAProposGen<DEV> extends Article {
 	public static final String opensourceReponseCourt1 = "The freedom to build upon greatness. ";
 	public static final String opensourceReponseCourt = opensourceReponseCourt1;
 	public static final String opensourceP1 = "I met my first Linux computer at the University Linux computer lab, where I figured only the noble wizards of computer programming lived and slept. ";
-	public static final String opensourceP2 = "Around the same time, my far away cousin, came to the same school and was my roomate. ";
-	public static final String opensourceP3 = "He used Linux himself and gave me some encouragement to try it myself. ";
-	public static final String opensourceP4 = "One night, after realizing that Microsoft and the .NET Framework would forsake me after graduation, with exorbitant fees, I made the switch. ";
-	public static final String opensourceP5 = "I backed up my digital life on an expensive zip disk from the bookstore and installed Ubuntu Linux, and wiped Microsoft out of my personal life forever more. ";
-	public static final String opensourceP6 = "I never looked back, and never regretted that decision. ";
-	public static final String opensourceP = opensourceP1 + opensourceP2 + opensourceP3 + opensourceP4 + opensourceP5 + opensourceP6;
+	public static final String opensourceP2 = "Around the same time, my cousin introduced me to Linux, and gave me some encouragement to try it myself. ";
+	public static final String opensourceP3 = "One night, after realizing that Microsoft and the .NET Framework would forsake me after graduation with exorbitant fees, I made the switch. ";
+	public static final String opensourceP4 = "I backed up my digital life on an expensive zip disk from the bookstore and installed Ubuntu Linux, wiping Microsoft out of my personal life forever. ";
+	public static final String opensourceP5 = "I never looked back, and never regretted that decision. ";
+	public static final String opensourceP = opensourceP1 + opensourceP2 + opensourceP3 + opensourceP4 + opensourceP5;
 
 	/**	L'entité « opensource »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
@@ -775,5 +771,5 @@ public abstract class PageAProposGen<DEV> extends Article {
 		return sb.toString();
 	}
 
-	public static final String[] PageAProposVals = new String[] { ouVenezVousQuestion1, ouVenezVousQuestionCourt1, ouVenezVousReponse1, ouVenezVousReponseCourt1, ouVenezVousP1, ouVenezVousP2, ouVenezVousP3, ouVenezVousP4, ouVenezVousP5, ouVenezVousP6, informatiqueQuestion1, informatiqueQuestionCourt1, informatiqueReponse1, informatiqueReponseCourt1, informatiqueP1, informatiqueP2, informatiqueP3, informatiqueP4, informatiqueP5, informatiqueP6, emploiQuestion1, emploiQuestionCourt1, emploiReponse1, emploiReponseCourt1, emploiP1, emploiP2, emploiP3, emploiP4, emploiP5, emploiP6, emploiP7, emploiP8, emploiP9, opensourceQuestion1, opensourceQuestionCourt1, opensourceReponse1, opensourceReponseCourt1, opensourceP1, opensourceP2, opensourceP3, opensourceP4, opensourceP5, opensourceP6 };
+	public static final String[] PageAProposVals = new String[] { ouVenezVousQuestion1, ouVenezVousQuestionCourt1, ouVenezVousReponse1, ouVenezVousReponseCourt1, ouVenezVousP1, ouVenezVousP2, ouVenezVousP3, ouVenezVousP4, informatiqueQuestion1, informatiqueQuestionCourt1, informatiqueReponse1, informatiqueReponseCourt1, informatiqueP1, informatiqueP2, informatiqueP3, informatiqueP4, informatiqueP5, informatiqueP6, emploiQuestion1, emploiQuestionCourt1, emploiReponse1, emploiReponseCourt1, emploiP1, emploiP2, emploiP3, emploiP4, emploiP5, emploiP6, emploiP7, emploiP8, opensourceQuestion1, opensourceQuestionCourt1, opensourceReponse1, opensourceReponseCourt1, opensourceP1, opensourceP2, opensourceP3, opensourceP4, opensourceP5 };
 }
