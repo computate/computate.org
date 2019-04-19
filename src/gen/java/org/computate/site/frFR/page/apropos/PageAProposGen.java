@@ -207,7 +207,7 @@ public abstract class PageAProposGen<DEV> extends Article {
 	public static final String ouVenezVousReponseCourt = ouVenezVousReponseCourt1;
 	public static final String ouVenezVousP1 = "J'aime faire de la randonnée dans des montagnes avec ma famille. ";
 	public static final String ouVenezVousP2 = "J'ai aussi vécu en Floride, en Idaho, en Ontario, au Québec et en France.";
-	public static final String ouVenezVousP3 = "J'aime les français et les années que j'ai passé en France, j'aime les Québécois et les années que j'ai passé au Québec. ";
+	public static final String ouVenezVousP3 = "J'adore le temps que j'ai vécu et travaillé dans d'autres pays et la manière dont les logiciels open source rapprochent le monde.";
 	public static final String ouVenezVousP4 = "Je connais les défis à créer de bons systèmes logiciels où le pays parle une autre langue que l'anglais. ";
 	public static final String ouVenezVousP = ouVenezVousP1 + ouVenezVousP2 + ouVenezVousP3 + ouVenezVousP4;
 

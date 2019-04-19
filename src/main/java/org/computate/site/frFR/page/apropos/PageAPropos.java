@@ -130,7 +130,7 @@ public class PageAPropos extends PageAProposGen<Article> {
 	 * Val.ReponseCourt.enUS:I am from Utah and a wanderer at heart. 
 	 * Val.P.frFR:J'aime faire de la randonnée dans des montagnes avec ma famille. 
 	 * Val.P.frFR:J'ai aussi vécu en Floride, en Idaho, en Ontario, au Québec et en France.
-	 * Val.P.frFR:J'aime les français et les années que j'ai passé en France, j'aime les Québécois et les années que j'ai passé au Québec. 
+	 * Val.P.frFR:J'adore le temps que j'ai vécu et travaillé dans d'autres pays et la manière dont les logiciels open source rapprochent le monde.
 	 * Val.P.frFR:Je connais les défis à créer de bons systèmes logiciels où le pays parle une autre langue que l'anglais. 
 	 * Val.P.enUS:I love spending time in the great outdoors with my family. 
 	 * Val.P.enUS:I've also lived in Florida, Idaho, Ontario, Quebec and France. 
