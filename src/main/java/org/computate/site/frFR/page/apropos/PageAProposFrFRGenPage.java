@@ -3,7 +3,7 @@ package org.computate.site.frFR.page.apropos;
 import java.lang.String;
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.article.Article;
-import org.computate.site.frFR.page.parti.PageParagraphe;
+import org.computate.site.frFR.page.parti.QuestionReponse;
 import org.computate.site.frFR.article.ArticleFrFRPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
@@ -55,7 +55,9 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(pageAPropos != null)
-			c.o("");
+			c.o("Qui est Christopher Tate et computate.org ? Tout à propos de moi et mon site Web. ");
+		else
+			c.o("Qui est Christopher Tate et computate.org ? Tout à propos de moi et mon site Web. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {

@@ -20,9 +20,9 @@ import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
 import java.util.Objects;
+import org.computate.site.enUS.page.parti.QuestionReponse;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
-import org.computate.site.enUS.page.parti.PageParagraphe;
 import java.util.List;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.util.ClientUtils;
@@ -37,6 +37,7 @@ public abstract class PageAProposGen<DEV> extends Article {
 
 	public static final String PageAPropos_H1 = "Who is Christopher Tate and computate.org? ";
 	public static final String PageAPropos_H2 = "All about me and my web site. ";
+	public static final String PageAPropos_Titre = "Who is Christopher Tate and computate.org? All about me and my web site. ";
 	public static final String PageAPropos_Couleur = "green";
 	public static final String PageAPropos_IconeGroupe = "regular";
 	public static final String PageAPropos_IconeNom = "book";
@@ -192,104 +193,255 @@ public abstract class PageAProposGen<DEV> extends Article {
 		return (PageAPropos)this;
 	}
 
-	///////////
-	// intro //
-	///////////
+	/////////////////
+	// ouVenezVous //
+	/////////////////
 
-	public static final String introP1 = "Are you thinking about launching your own website? ";
-	public static final String introP2 = "Learn with me, how to create your very own web site the open source way. ";
-	public static final String introP = introP1 + introP2;
+	public static final String ouVenezVousQuestion1 = "Where are you from? ";
+	public static final String ouVenezVousQuestion = ouVenezVousQuestion1;
+	public static final String ouVenezVousQuestionCourt1 = "Where are you from? ";
+	public static final String ouVenezVousQuestionCourt = ouVenezVousQuestionCourt1;
+	public static final String ouVenezVousReponse1 = "I am an American from Utah that loves to wander. ";
+	public static final String ouVenezVousReponse = ouVenezVousReponse1;
+	public static final String ouVenezVousReponseCourt1 = "I am an American from Utah that loves to wander. ";
+	public static final String ouVenezVousReponseCourt = ouVenezVousReponseCourt1;
+	public static final String ouVenezVousP1 = "I was born in Utah where it's pretty hot and desert-like in the summer, and snowy in the winter. ";
+	public static final String ouVenezVousP2 = "I'm not much of a skier, despite Utah's fame for snowy mountains, but I love sledding. ";
+	public static final String ouVenezVousP3 = "I prefer riding my bike, crossfit and hiking in the mountains with my family. ";
+	public static final String ouVenezVousP4 = "I've also lived in Florida, Idaho, Ontario, Quebec and France. ";
+	public static final String ouVenezVousP5 = "I love the French and the time I spent in France, and I love the Québécois and the time I spent in Québec. ";
+	public static final String ouVenezVousP6 = "I know the challenges of building good software systems where the non English speaking countries. ";
+	public static final String ouVenezVousP = ouVenezVousP1 + ouVenezVousP2 + ouVenezVousP3 + ouVenezVousP4 + ouVenezVousP5 + ouVenezVousP6;
 
-	/**	L'entité « intro »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageParagraphe(). 
+	/**	L'entité « ouVenezVous »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
 	 */
-	protected PageParagraphe intro = new PageParagraphe();
-	public Couverture<PageParagraphe> introCouverture = new Couverture<PageParagraphe>().p(this).c(PageParagraphe.class).var("intro").o(intro);
+	protected QuestionReponse ouVenezVous = new QuestionReponse();
+	public Couverture<QuestionReponse> ouVenezVousCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("ouVenezVous").o(ouVenezVous);
 
-	/**	<br/>L'entité « intro »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageParagraphe(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:intro">Trouver l'entité intro dans Solr</a>
+	/**	<br/>L'entité « ouVenezVous »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:ouVenezVous">Trouver l'entité ouVenezVous dans Solr</a>
 	 * <br/>
-	 * @param intro est l'entité déjà construit. 
+	 * @param ouVenezVous est l'entité déjà construit. 
 	 **/
-	protected abstract void _intro(PageParagraphe o);
+	protected abstract void _ouVenezVous(QuestionReponse o);
 
-	public PageParagraphe getIntro() {
-		return intro;
+	public QuestionReponse getOuVenezVous() {
+		return ouVenezVous;
 	}
 
-	public void setIntro(PageParagraphe intro) {
-		this.intro = intro;
-		this.introCouverture.dejaInitialise = true;
+	public void setOuVenezVous(QuestionReponse ouVenezVous) {
+		this.ouVenezVous = ouVenezVous;
+		this.ouVenezVousCouverture.dejaInitialise = true;
 	}
-	protected PageAPropos introInit() {
-		if(intro != null) {
-			((PageAPropos)this).avantPagePart(intro, "intro");
-			((PageAPropos)this).avantPagePart(intro, "intro");
+	protected PageAPropos ouVenezVousInit() {
+		if(ouVenezVous != null) {
+			((PageAPropos)this).avantPagePart(ouVenezVous, "ouVenezVous");
+			((PageAPropos)this).avantPagePart(ouVenezVous, "ouVenezVous");
 		}
-		if(!introCouverture.dejaInitialise) {
-			_intro(intro);
+		if(!ouVenezVousCouverture.dejaInitialise) {
+			_ouVenezVous(ouVenezVous);
 		}
-		intro.initLoinPourClasse(requeteSite_);
-		introCouverture.dejaInitialise(true);
+		ouVenezVous.initLoinPourClasse(requeteSite_);
+		ouVenezVousCouverture.dejaInitialise(true);
 		return (PageAPropos)this;
 	}
-	public void htmlBodyIntro(PageParagraphe o) {
+	public void htmlBodyOuVenezVous(QuestionReponse o) {
 	}
-	public void htmlBodyIntro() {
-		intro.htmlAvant();
-		htmlBodyIntro(intro);
-		intro.htmlApres();
+	public void htmlBodyOuVenezVous() {
+		ouVenezVous.htmlAvant();
+		htmlBodyOuVenezVous(ouVenezVous);
+		ouVenezVous.htmlApres();
 	}
 
-	/////////
-	// moi //
-	/////////
+	//////////////////
+	// informatique //
+	//////////////////
 
-	public static final String moiP1 = "Hello, my name is Christopher Tate. I am a Red Hat consultant and I love open source software. ";
-	public static final String moiP2 = "I will help you create your own successful website, on your own computer, using open-source software. ";
-	public static final String moiP = moiP1 + moiP2;
+	public static final String informatiqueQuestion1 = "How did you learn computer programming? ";
+	public static final String informatiqueQuestion = informatiqueQuestion1;
+	public static final String informatiqueQuestionCourt1 = "How did you learn computer programming? ";
+	public static final String informatiqueQuestionCourt = informatiqueQuestionCourt1;
+	public static final String informatiqueReponse1 = "A love for computers all my life. ";
+	public static final String informatiqueReponse = informatiqueReponse1;
+	public static final String informatiqueReponseCourt1 = "A love for computers all my life. ";
+	public static final String informatiqueReponseCourt = informatiqueReponseCourt1;
+	public static final String informatiqueP1 = "As long as I've known my dad, he was a Lotus Notes database programmer. ";
+	public static final String informatiqueP2 = "He always had a nice computer with the latest Microsoft suite at home for the family to use. ";
+	public static final String informatiqueP3 = "I spent hours every day figuring out everything I could possibly do on the computer. ";
+	public static final String informatiqueP4 = "Every application, every directory, every file, every menu item, every keyboard shortcut I became familiar with. ";
+	public static final String informatiqueP5 = "I asked my dad many important questions, like how do I write code? How do I make a database? ";
+	public static final String informatiqueP6 = "I received a large Visual Basic manual, and he pointed me to Microsoft Access. ";
+	public static final String informatiqueP = informatiqueP1 + informatiqueP2 + informatiqueP3 + informatiqueP4 + informatiqueP5 + informatiqueP6;
 
-	/**	L'entité « moi »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageParagraphe(). 
+	/**	L'entité « informatique »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
 	 */
-	protected PageParagraphe moi = new PageParagraphe();
-	public Couverture<PageParagraphe> moiCouverture = new Couverture<PageParagraphe>().p(this).c(PageParagraphe.class).var("moi").o(moi);
+	protected QuestionReponse informatique = new QuestionReponse();
+	public Couverture<QuestionReponse> informatiqueCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("informatique").o(informatique);
 
-	/**	<br/>L'entité « moi »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageParagraphe(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:moi">Trouver l'entité moi dans Solr</a>
+	/**	<br/>L'entité « informatique »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:informatique">Trouver l'entité informatique dans Solr</a>
 	 * <br/>
-	 * @param moi est l'entité déjà construit. 
+	 * @param informatique est l'entité déjà construit. 
 	 **/
-	protected abstract void _moi(PageParagraphe o);
+	protected abstract void _informatique(QuestionReponse o);
 
-	public PageParagraphe getMoi() {
-		return moi;
+	public QuestionReponse getInformatique() {
+		return informatique;
 	}
 
-	public void setMoi(PageParagraphe moi) {
-		this.moi = moi;
-		this.moiCouverture.dejaInitialise = true;
+	public void setInformatique(QuestionReponse informatique) {
+		this.informatique = informatique;
+		this.informatiqueCouverture.dejaInitialise = true;
 	}
-	protected PageAPropos moiInit() {
-		if(moi != null) {
-			((PageAPropos)this).avantPagePart(moi, "moi");
-			((PageAPropos)this).avantPagePart(moi, "moi");
+	protected PageAPropos informatiqueInit() {
+		if(informatique != null) {
+			((PageAPropos)this).avantPagePart(informatique, "informatique");
+			((PageAPropos)this).avantPagePart(informatique, "informatique");
 		}
-		if(!moiCouverture.dejaInitialise) {
-			_moi(moi);
+		if(!informatiqueCouverture.dejaInitialise) {
+			_informatique(informatique);
 		}
-		moi.initLoinPourClasse(requeteSite_);
-		moiCouverture.dejaInitialise(true);
+		informatique.initLoinPourClasse(requeteSite_);
+		informatiqueCouverture.dejaInitialise(true);
 		return (PageAPropos)this;
 	}
-	public void htmlBodyMoi(PageParagraphe o) {
+	public void htmlBodyInformatique(QuestionReponse o) {
 	}
-	public void htmlBodyMoi() {
-		moi.htmlAvant();
-		htmlBodyMoi(moi);
-		moi.htmlApres();
+	public void htmlBodyInformatique() {
+		informatique.htmlAvant();
+		htmlBodyInformatique(informatique);
+		informatique.htmlApres();
+	}
+
+	////////////
+	// emploi //
+	////////////
+
+	public static final String emploiQuestion1 = "How did you start working as a computer programmer? ";
+	public static final String emploiQuestion = emploiQuestion1;
+	public static final String emploiQuestionCourt1 = "How did you start working as a computer programmer? ";
+	public static final String emploiQuestionCourt = emploiQuestionCourt1;
+	public static final String emploiReponse1 = "The drive to finish each project, and be at the next opportunity to grow my career. ";
+	public static final String emploiReponse = emploiReponse1;
+	public static final String emploiReponseCourt1 = "The drive to finish each project, and be at the next opportunity to grow my career. ";
+	public static final String emploiReponseCourt = emploiReponseCourt1;
+	public static final String emploiP1 = "From there I started writing calculator programs and games on my TI-86 calculator. ";
+	public static final String emploiP2 = "I knew, starting at university, that I would study Computer Science. ";
+	public static final String emploiP3 = "At the same time, I became the part time computer guy for a local CHOICE Humanitarian organization, helping to solve world problems with databases. ";
+	public static final String emploiP4 = "After graduation with my BS in CS, I started as a Software Consultant and worked on many exciting projects at large companies. ";
+	public static final String emploiP5 = "After 5 years, I looked for a job in France, with my experience in speaking French. ";
+	public static final String emploiP6 = "My database and search experience also led me to France, where I worked with a très petite société, which specialized in open source search technology, specifically Lucene. ";
+	public static final String emploiP7 = "And then to a Linux training company in Utah where I became very familiar with the whys of the origin of Linux. ";
+	public static final String emploiP8 = "My love for consulting, my experience, and being at the right place at the right time then led me to Red Hat. ";
+	public static final String emploiP9 = "I have found my people, at long last, here at Red Hat and I am here to stay. ";
+	public static final String emploiP = emploiP1 + emploiP2 + emploiP3 + emploiP4 + emploiP5 + emploiP6 + emploiP7 + emploiP8 + emploiP9;
+
+	/**	L'entité « emploi »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 */
+	protected QuestionReponse emploi = new QuestionReponse();
+	public Couverture<QuestionReponse> emploiCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("emploi").o(emploi);
+
+	/**	<br/>L'entité « emploi »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:emploi">Trouver l'entité emploi dans Solr</a>
+	 * <br/>
+	 * @param emploi est l'entité déjà construit. 
+	 **/
+	protected abstract void _emploi(QuestionReponse o);
+
+	public QuestionReponse getEmploi() {
+		return emploi;
+	}
+
+	public void setEmploi(QuestionReponse emploi) {
+		this.emploi = emploi;
+		this.emploiCouverture.dejaInitialise = true;
+	}
+	protected PageAPropos emploiInit() {
+		if(emploi != null) {
+			((PageAPropos)this).avantPagePart(emploi, "emploi");
+			((PageAPropos)this).avantPagePart(emploi, "emploi");
+		}
+		if(!emploiCouverture.dejaInitialise) {
+			_emploi(emploi);
+		}
+		emploi.initLoinPourClasse(requeteSite_);
+		emploiCouverture.dejaInitialise(true);
+		return (PageAPropos)this;
+	}
+	public void htmlBodyEmploi(QuestionReponse o) {
+	}
+	public void htmlBodyEmploi() {
+		emploi.htmlAvant();
+		htmlBodyEmploi(emploi);
+		emploi.htmlApres();
+	}
+
+	////////////////
+	// opensource //
+	////////////////
+
+	public static final String opensourceQuestion1 = "How did you become so passionate about open source? ";
+	public static final String opensourceQuestion = opensourceQuestion1;
+	public static final String opensourceQuestionCourt1 = "How did you become so passionate about open source? ";
+	public static final String opensourceQuestionCourt = opensourceQuestionCourt1;
+	public static final String opensourceReponse1 = "The freedom to build upon greatness. ";
+	public static final String opensourceReponse = opensourceReponse1;
+	public static final String opensourceReponseCourt1 = "The freedom to build upon greatness. ";
+	public static final String opensourceReponseCourt = opensourceReponseCourt1;
+	public static final String opensourceP1 = "I met my first Linux computer at the University Linux computer lab, where I figured only the noble wizards of computer programming lived and slept. ";
+	public static final String opensourceP2 = "Around the same time, my far away cousin, came to the same school and was my roomate. ";
+	public static final String opensourceP3 = "He used Linux himself and gave me some encouragement to try it myself. ";
+	public static final String opensourceP4 = "One night, after realizing that Microsoft and the .NET Framework would forsake me after graduation, with exorbitant fees, I made the switch. ";
+	public static final String opensourceP5 = "I backed up my digital life on an expensive zip disk from the bookstore and installed Ubuntu Linux, and wiped Microsoft out of my personal life forever more. ";
+	public static final String opensourceP6 = "I never looked back, and never regretted that decision. ";
+	public static final String opensourceP = opensourceP1 + opensourceP2 + opensourceP3 + opensourceP4 + opensourceP5 + opensourceP6;
+
+	/**	L'entité « opensource »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 */
+	protected QuestionReponse opensource = new QuestionReponse();
+	public Couverture<QuestionReponse> opensourceCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("opensource").o(opensource);
+
+	/**	<br/>L'entité « opensource »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:opensource">Trouver l'entité opensource dans Solr</a>
+	 * <br/>
+	 * @param opensource est l'entité déjà construit. 
+	 **/
+	protected abstract void _opensource(QuestionReponse o);
+
+	public QuestionReponse getOpensource() {
+		return opensource;
+	}
+
+	public void setOpensource(QuestionReponse opensource) {
+		this.opensource = opensource;
+		this.opensourceCouverture.dejaInitialise = true;
+	}
+	protected PageAPropos opensourceInit() {
+		if(opensource != null) {
+			((PageAPropos)this).avantPagePart(opensource, "opensource");
+			((PageAPropos)this).avantPagePart(opensource, "opensource");
+		}
+		if(!opensourceCouverture.dejaInitialise) {
+			_opensource(opensource);
+		}
+		opensource.initLoinPourClasse(requeteSite_);
+		opensourceCouverture.dejaInitialise(true);
+		return (PageAPropos)this;
+	}
+	public void htmlBodyOpensource(QuestionReponse o) {
+	}
+	public void htmlBodyOpensource() {
+		opensource.htmlAvant();
+		htmlBodyOpensource(opensource);
+		opensource.htmlApres();
 	}
 
 	//////////////
@@ -316,8 +468,10 @@ public abstract class PageAProposGen<DEV> extends Article {
 		pageUri_enUSInit();
 		pageUri_frFRInit();
 		listeArticleInit();
-		introInit();
-		moiInit();
+		ouVenezVousInit();
+		informatiqueInit();
+		emploiInit();
+		opensourceInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -332,10 +486,14 @@ public abstract class PageAProposGen<DEV> extends Article {
 			super.requeteSiteArticle(requeteSite_);
 		if(listeArticle != null)
 			listeArticle.setRequeteSite_(requeteSite_);
-		if(intro != null)
-			intro.setRequeteSite_(requeteSite_);
-		if(moi != null)
-			moi.setRequeteSite_(requeteSite_);
+		if(ouVenezVous != null)
+			ouVenezVous.setRequeteSite_(requeteSite_);
+		if(informatique != null)
+			informatique.setRequeteSite_(requeteSite_);
+		if(emploi != null)
+			emploi.setRequeteSite_(requeteSite_);
+		if(opensource != null)
+			opensource.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -368,10 +526,14 @@ public abstract class PageAProposGen<DEV> extends Article {
 				return oPageAPropos.pageUri_frFR;
 			case "listeArticle":
 				return oPageAPropos.listeArticle;
-			case "intro":
-				return oPageAPropos.intro;
-			case "moi":
-				return oPageAPropos.moi;
+			case "ouVenezVous":
+				return oPageAPropos.ouVenezVous;
+			case "informatique":
+				return oPageAPropos.informatique;
+			case "emploi":
+				return oPageAPropos.emploi;
+			case "opensource":
+				return oPageAPropos.opensource;
 			default:
 				return super.obtenirArticle(var);
 		}
@@ -541,6 +703,25 @@ public abstract class PageAProposGen<DEV> extends Article {
 		super.stockerArticle(solrDocument);
 	}
 
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	public void htmlBodyCourt() {
+		htmlBodyCourtPageAPropos();
+	}
+
+	public void htmlBodyCourtPageAPropos() {
+		if(ouVenezVous != null)
+			ouVenezVous.htmlBodyCourt();
+		if(informatique != null)
+			informatique.htmlBodyCourt();
+		if(emploi != null)
+			emploi.htmlBodyCourt();
+		if(opensource != null)
+			opensource.htmlBodyCourt();
+	}
+
 	//////////////
 	// htmlBody //
 	//////////////
@@ -551,25 +732,10 @@ public abstract class PageAProposGen<DEV> extends Article {
 	}
 
 	public void htmlBodyPageAPropos() {
-		if(intro != null)
-			intro.htmlBody();
-		if(moi != null)
-			moi.htmlBody();
-	}
-
-	///////////////////
-	// htmlBodyCourt //
-	///////////////////
-
-	public void htmlBodyCourt() {
-		htmlBodyCourtPageAPropos();
-	}
-
-	public void htmlBodyCourtPageAPropos() {
-		if(intro != null)
-			intro.htmlBodyCourt();
-		if(moi != null)
-			moi.htmlBodyCourt();
+		((PageAPropos)this).htmlBodyOuVenezVous();
+		((PageAPropos)this).htmlBodyInformatique();
+		((PageAPropos)this).htmlBodyEmploi();
+		((PageAPropos)this).htmlBodyOpensource();
 	}
 
 	//////////////
@@ -609,5 +775,5 @@ public abstract class PageAProposGen<DEV> extends Article {
 		return sb.toString();
 	}
 
-	public static final String[] PageAProposVals = new String[] { introP1, introP2, moiP1, moiP2 };
+	public static final String[] PageAProposVals = new String[] { ouVenezVousQuestion1, ouVenezVousQuestionCourt1, ouVenezVousReponse1, ouVenezVousReponseCourt1, ouVenezVousP1, ouVenezVousP2, ouVenezVousP3, ouVenezVousP4, ouVenezVousP5, ouVenezVousP6, informatiqueQuestion1, informatiqueQuestionCourt1, informatiqueReponse1, informatiqueReponseCourt1, informatiqueP1, informatiqueP2, informatiqueP3, informatiqueP4, informatiqueP5, informatiqueP6, emploiQuestion1, emploiQuestionCourt1, emploiReponse1, emploiReponseCourt1, emploiP1, emploiP2, emploiP3, emploiP4, emploiP5, emploiP6, emploiP7, emploiP8, emploiP9, opensourceQuestion1, opensourceQuestionCourt1, opensourceReponse1, opensourceReponseCourt1, opensourceP1, opensourceP2, opensourceP3, opensourceP4, opensourceP5, opensourceP6 };
 }

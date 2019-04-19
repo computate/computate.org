@@ -114,7 +114,7 @@ public class PageFaq extends PageFaqGen<Article> {
 		super.htmlBodyCourt();
 	}
 
-	/**
+	/** 
 	 * {@inheritDoc}
 	 * 
 	 * Val.Question.frFR:Pourquoi est votre site traduit en français ? 

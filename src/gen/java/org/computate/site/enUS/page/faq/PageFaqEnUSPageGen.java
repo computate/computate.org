@@ -131,18 +131,6 @@ public abstract class PageFaqEnUSPageGen<DEV> extends PageFaqEnUSGenPage {
 		}
 	}
 
-	/////////////////
-	// htmlScripts //
-	/////////////////
-
-	@Override public void htmlScripts() {
-		htmlScriptsPageFaqEnUSPage();
-		super.htmlScripts();
-	}
-
-	public void htmlScriptsPageFaqEnUSPage() {
-	}
-
 	//////////////
 	// htmlBody //
 	//////////////
@@ -153,6 +141,18 @@ public abstract class PageFaqEnUSPageGen<DEV> extends PageFaqEnUSGenPage {
 	}
 
 	public void htmlBodyPageFaqEnUSPage() {
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsPageFaqEnUSPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsPageFaqEnUSPage() {
 	}
 
 	///////////////////

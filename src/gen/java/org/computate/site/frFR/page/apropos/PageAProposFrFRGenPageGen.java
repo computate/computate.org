@@ -197,8 +197,6 @@ public abstract class PageAProposFrFRGenPageGen<DEV> extends ArticleFrFRPage {
 	}
 
 	public void htmlBodyPageAProposFrFRGenPage() {
-		if(pageAPropos != null)
-			pageAPropos.htmlBody();
 	}
 
 	///////////////////

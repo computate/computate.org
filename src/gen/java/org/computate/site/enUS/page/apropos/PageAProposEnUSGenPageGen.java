@@ -197,8 +197,6 @@ public abstract class PageAProposEnUSGenPageGen<DEV> extends ArticleEnUSPage {
 	}
 
 	public void htmlBodyPageAProposEnUSGenPage() {
-		if(pageAPropos != null)
-			pageAPropos.htmlBody();
 	}
 
 	///////////////////
