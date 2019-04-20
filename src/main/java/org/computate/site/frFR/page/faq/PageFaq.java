@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.faq;
+package org.computate.site.frFR.page.faq; 
 
 import java.util.List;
 

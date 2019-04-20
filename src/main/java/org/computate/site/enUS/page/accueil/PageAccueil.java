@@ -163,7 +163,7 @@ public class PageAccueil extends PageAccueilGen<Article> {
 								} g("h4");
 							} g("span");
 							if(o.getPageImageUri() != null)
-								e("img").a("src", "https://computate.neocities.org/", o.getPageImageUri()).a("class", "w3-image ").fg();
+								e("img").a("src", statiqueUrlBase, "/", o.getPageImageUri()).a("class", "w3-image ").fg();
 						} g("a");
 					} g("div");
 				} g("div");

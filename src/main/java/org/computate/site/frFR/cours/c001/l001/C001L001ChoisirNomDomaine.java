@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours.c001.l001;           
+package org.computate.site.frFR.cours.c001.l001;            
 
 import java.util.List;
 
@@ -167,11 +167,9 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		o.setReponseCourt(aLAvanceReponseCourt);
 	}
 	public void htmlBodyALAvance() {
-		aLAvance.htmlAvant();
 		e("p").f();
 			sx(aLAvanceP);
 		g("p");
-		aLAvance.htmlApres();
 	}
 
 	/**  
@@ -206,7 +204,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		o.setReponseCourt(acheterReponseCourt);
 	}
 	public void htmlBodyAcheter() { 
-		acheter.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(acheterP1, acheterP2);
@@ -224,7 +221,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 				sx(acheterP5);
 			g("span");
 		g("p");
-		acheter.htmlApres();
 	}
 
 	/**  
@@ -257,13 +253,11 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		o.setReponseCourt(appelerReponseCourt);
 	}
 	public void htmlBodyAppeler() { 
-		appeler.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(appelerP);
 			g("span");
 		g("p");
-		appeler.htmlApres();
 	}
 
 	/**  
@@ -294,7 +288,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		o.setReponseCourt(apres1ReponseCourt);
 	}
 	public void htmlBodyApres1() { 
-		apres1.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(apres1P1, apres1P2);
@@ -306,7 +299,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 				sx(apres1P3);
 			g("span");
 		g("p");
-		apres1.htmlApres();
 	}
 
 	/**  
@@ -444,13 +436,11 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		o.setReponseCourt(plusTardReponseCourt);
 	}
 	public void htmlBodyPlusTard() { 
-		plusTard.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(plusTardP);
 			g("span");
 		g("p");
-		plusTard.htmlApres();
 	}
 
 	/**

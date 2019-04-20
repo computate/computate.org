@@ -108,11 +108,9 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	}
 
 	public void  htmlBodyALAvance() {
-		aLAvance.htmlAvant();
 		e("p").f();
 			sx(aLAvanceP);
 		g("p");
-		aLAvance.htmlApres();
 	}
 
 	protected void _acheter(QuestionReponse o) {      
@@ -127,7 +125,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	}
 
 	public void  htmlBodyAcheter() { 
-		acheter.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(acheterP1, acheterP2);
@@ -145,7 +142,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 				sx(acheterP5);
 			g("span");
 		g("p");
-		acheter.htmlApres();
 	}
 
 	protected void _appeler(QuestionReponse o) {      
@@ -160,13 +156,11 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	}
 
 	public void  htmlBodyAppeler() { 
-		appeler.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(appelerP);
 			g("span");
 		g("p");
-		appeler.htmlApres();
 	}
 
 	protected void _apres1(QuestionReponse o) {      
@@ -181,7 +175,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	}
 
 	public void  htmlBodyApres1() { 
-		apres1.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(apres1P1, apres1P2);
@@ -193,7 +186,6 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 				sx(apres1P3);
 			g("span");
 		g("p");
-		apres1.htmlApres();
 	}
 
 	protected void _apres2(PageHtml o) {      
@@ -275,13 +267,11 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	}
 
 	public void  htmlBodyPlusTard() { 
-		plusTard.htmlAvant();
 		e("p").f();
 			e("span").f();
 				sx(plusTardP);
 			g("span");
 		g("p");
-		plusTard.htmlApres();
 	}
 
 	protected void _leconRecherche_frFR(List<String> l) {

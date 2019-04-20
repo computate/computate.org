@@ -36,6 +36,14 @@ public class Article extends ArticleGen<Cluster> {
 		super._classeNomsCanoniques(l);
 	}
 
+	/**
+	 * 
+	 * {@inheritDoc}
+	 **/ 
+	protected void _statiqueUrlBase(Couverture<String> c) {
+		c.o(requeteSite_.getConfigSite_().getStatiqueUrlBase()); 
+	}
+
 	protected void _documentSolr(Couverture<SolrDocument> c) {  
 		c.o(requeteSite_.getDocumentSolr());
 	}

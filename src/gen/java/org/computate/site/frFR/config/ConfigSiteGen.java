@@ -3413,6 +3413,62 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 		return vertxServiceAddresse == null ? "" : StringEscapeUtils.escapeHtml4(strVertxServiceAddresse());
 	}
 
+	/////////////////////
+	// statiqueUrlBase //
+	/////////////////////
+
+	/**	L'entité « statiqueUrlBase »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String statiqueUrlBase;
+	public Couverture<String> statiqueUrlBaseCouverture = new Couverture<String>().p(this).c(String.class).var("statiqueUrlBase").o(statiqueUrlBase);
+
+	/**	<br/>L'entité « statiqueUrlBase »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.config.ConfigSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:statiqueUrlBase">Trouver l'entité statiqueUrlBase dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _statiqueUrlBase(Couverture<String> c);
+
+	public String getStatiqueUrlBase() {
+		return statiqueUrlBase;
+	}
+
+	public void setStatiqueUrlBase(String statiqueUrlBase) {
+		this.statiqueUrlBase = statiqueUrlBase;
+		this.statiqueUrlBaseCouverture.dejaInitialise = true;
+	}
+	protected ConfigSite statiqueUrlBaseInit() {
+		if(!statiqueUrlBaseCouverture.dejaInitialise) {
+			_statiqueUrlBase(statiqueUrlBaseCouverture);
+			if(statiqueUrlBase == null)
+				setStatiqueUrlBase(statiqueUrlBaseCouverture.o);
+		}
+		statiqueUrlBaseCouverture.dejaInitialise(true);
+		return (ConfigSite)this;
+	}
+
+	public String solrStatiqueUrlBase() {
+		return statiqueUrlBase;
+	}
+
+	public String strStatiqueUrlBase() {
+		return statiqueUrlBase == null ? "" : statiqueUrlBase;
+	}
+
+	public String nomAffichageStatiqueUrlBase() {
+		return null;
+	}
+
+	public String htmTooltipStatiqueUrlBase() {
+		return null;
+	}
+
+	public String htmStatiqueUrlBase() {
+		return statiqueUrlBase == null ? "" : StringEscapeUtils.escapeHtml4(strStatiqueUrlBase());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -3492,6 +3548,7 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 		apiNomHoteInit();
 		apiCheminBaseInit();
 		vertxServiceAddresseInit();
+		statiqueUrlBaseInit();
 	}
 
 	public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -3651,6 +3708,8 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 				return oConfigSite.apiCheminBase;
 			case "vertxServiceAddresse":
 				return oConfigSite.vertxServiceAddresse;
+			case "statiqueUrlBase":
+				return oConfigSite.statiqueUrlBase;
 			default:
 				return null;
 		}
@@ -3712,7 +3771,7 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(configChemin, identifiantSite, prefixeEchappe, appliChemin, racineDocument, nomEntreprise, nomDomaine, zookeeperNomHote, zookeeperPort, siteNomHote, sitePort, authRoyaume, authRessource, authSecret, authSslRequis, sslJksChemin, sslJksMotDePasse, authUrl, selCryptage, motDePasseCryptage, siteUrlBase, siteNomAffichage, jdbcClassePilote, jdbcUtilisateur, jdbcMotDePasse, jdbcTailleMaxPiscine, jdbcTailleInitialePiscine, jdbcTailleMinPiscine, jdbcMaxDeclarations, jdbcMaxDeclarationsParConnexion, jdbcTempsInactiviteMax, jdbcUrl, solrUrl, solrUrlComputate, jetonIdentitePaypal, compteFacebook, compteTwitter, compteGooglePlus, compteInstagram, compteYoutube, identifiantCanalYoutube, comptePinterest, compteOpenclipart, compteMail, roleAdmin, mailAdmin, nombreExecuteurs, openApiVersion, apiDescription, apiTitre, apiTermsService, apiVersion, apiContactMail, apiLicenceNom, apiLicenceUrl, apiNomHote, apiCheminBase, vertxServiceAddresse);
+		return Objects.hash(configChemin, identifiantSite, prefixeEchappe, appliChemin, racineDocument, nomEntreprise, nomDomaine, zookeeperNomHote, zookeeperPort, siteNomHote, sitePort, authRoyaume, authRessource, authSecret, authSslRequis, sslJksChemin, sslJksMotDePasse, authUrl, selCryptage, motDePasseCryptage, siteUrlBase, siteNomAffichage, jdbcClassePilote, jdbcUtilisateur, jdbcMotDePasse, jdbcTailleMaxPiscine, jdbcTailleInitialePiscine, jdbcTailleMinPiscine, jdbcMaxDeclarations, jdbcMaxDeclarationsParConnexion, jdbcTempsInactiviteMax, jdbcUrl, solrUrl, solrUrlComputate, jetonIdentitePaypal, compteFacebook, compteTwitter, compteGooglePlus, compteInstagram, compteYoutube, identifiantCanalYoutube, comptePinterest, compteOpenclipart, compteMail, roleAdmin, mailAdmin, nombreExecuteurs, openApiVersion, apiDescription, apiTitre, apiTermsService, apiVersion, apiContactMail, apiLicenceNom, apiLicenceUrl, apiNomHote, apiCheminBase, vertxServiceAddresse, statiqueUrlBase);
 	}
 
 	////////////
@@ -3782,7 +3841,8 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 				&& Objects.equals( apiLicenceUrl, that.apiLicenceUrl )
 				&& Objects.equals( apiNomHote, that.apiNomHote )
 				&& Objects.equals( apiCheminBase, that.apiCheminBase )
-				&& Objects.equals( vertxServiceAddresse, that.vertxServiceAddresse );
+				&& Objects.equals( vertxServiceAddresse, that.vertxServiceAddresse )
+				&& Objects.equals( statiqueUrlBase, that.statiqueUrlBase );
 	}
 
 	//////////////
@@ -3850,6 +3910,7 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 		sb.append( ", apiNomHote: \"" ).append(apiNomHote).append( "\"" );
 		sb.append( ", apiCheminBase: \"" ).append(apiCheminBase).append( "\"" );
 		sb.append( ", vertxServiceAddresse: \"" ).append(vertxServiceAddresse).append( "\"" );
+		sb.append( ", statiqueUrlBase: \"" ).append(statiqueUrlBase).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

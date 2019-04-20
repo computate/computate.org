@@ -1,7 +1,7 @@
 package org.computate.site.frFR.article;
 
-import org.apache.solr.common.SolrDocument;
 import java.lang.String;
+import org.apache.solr.common.SolrDocument;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.time.LocalDateTime;
@@ -78,7 +78,7 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/static/png/frFR/article-999.png");
+			c.o("/png/frFR/article-999.png");
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {

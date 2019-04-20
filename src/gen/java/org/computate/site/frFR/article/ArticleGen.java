@@ -59,6 +59,62 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	public static final String ArticleEnUSPage_Uri = "/enUS/article";
 	public static final String ArticleEnUSPage_ImageUri = "/png/enUS/article-999.png";
 
+	/////////////////////
+	// statiqueUrlBase //
+	/////////////////////
+
+	/**	L'entité « statiqueUrlBase »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String statiqueUrlBase;
+	public Couverture<String> statiqueUrlBaseCouverture = new Couverture<String>().p(this).c(String.class).var("statiqueUrlBase").o(statiqueUrlBase);
+
+	/**	<br/>L'entité « statiqueUrlBase »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.article.Article&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:statiqueUrlBase">Trouver l'entité statiqueUrlBase dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _statiqueUrlBase(Couverture<String> c);
+
+	public String getStatiqueUrlBase() {
+		return statiqueUrlBase;
+	}
+
+	public void setStatiqueUrlBase(String statiqueUrlBase) {
+		this.statiqueUrlBase = statiqueUrlBase;
+		this.statiqueUrlBaseCouverture.dejaInitialise = true;
+	}
+	protected Article statiqueUrlBaseInit() {
+		if(!statiqueUrlBaseCouverture.dejaInitialise) {
+			_statiqueUrlBase(statiqueUrlBaseCouverture);
+			if(statiqueUrlBase == null)
+				setStatiqueUrlBase(statiqueUrlBaseCouverture.o);
+		}
+		statiqueUrlBaseCouverture.dejaInitialise(true);
+		return (Article)this;
+	}
+
+	public String solrStatiqueUrlBase() {
+		return statiqueUrlBase;
+	}
+
+	public String strStatiqueUrlBase() {
+		return statiqueUrlBase == null ? "" : statiqueUrlBase;
+	}
+
+	public String nomAffichageStatiqueUrlBase() {
+		return null;
+	}
+
+	public String htmTooltipStatiqueUrlBase() {
+		return null;
+	}
+
+	public String htmStatiqueUrlBase() {
+		return statiqueUrlBase == null ? "" : StringEscapeUtils.escapeHtml4(strStatiqueUrlBase());
+	}
+
 	//////////////////
 	// documentSolr //
 	//////////////////
@@ -2270,6 +2326,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	}
 
 	public void initArticle() {
+		statiqueUrlBaseInit();
 		documentSolrInit();
 		nomDomaineInit();
 		nomSiteInit();
@@ -2346,6 +2403,8 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	public Object obtenirArticle(String var) throws Exception {
 		Article oArticle = (Article)this;
 		switch(var) {
+			case "statiqueUrlBase":
+				return oArticle.statiqueUrlBase;
 			case "documentSolr":
 				return oArticle.documentSolr;
 			case "nomDomaine":
@@ -2749,7 +2808,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleH1, articleH2, articleDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
+		return Objects.hash(super.hashCode(), statiqueUrlBase, nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleH1, articleH2, articleDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
 	}
 
 	////////////
@@ -2763,6 +2822,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 			return false;
 		Article that = (Article)o;
 		return super.equals(o)
+				&& Objects.equals( statiqueUrlBase, that.statiqueUrlBase )
 				&& Objects.equals( nomDomaine, that.nomDomaine )
 				&& Objects.equals( nomSite, that.nomSite )
 				&& Objects.equals( nomHoteSite, that.nomHoteSite )
@@ -2809,7 +2869,8 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("Article {");
-		sb.append( "nomDomaine: \"" ).append(nomDomaine).append( "\"" );
+		sb.append( "statiqueUrlBase: \"" ).append(statiqueUrlBase).append( "\"" );
+		sb.append( ", nomDomaine: \"" ).append(nomDomaine).append( "\"" );
 		sb.append( ", nomSite: \"" ).append(nomSite).append( "\"" );
 		sb.append( ", nomHoteSite: \"" ).append(nomHoteSite).append( "\"" );
 		sb.append( ", nomEnsembleSite: \"" ).append(nomEnsembleSite).append( "\"" );

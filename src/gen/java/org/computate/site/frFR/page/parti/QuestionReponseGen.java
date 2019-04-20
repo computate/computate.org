@@ -523,10 +523,14 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 
 	public void requeteSiteQuestionReponse(RequeteSiteFrFR requeteSite_) {
 			super.requeteSitePagePart(requeteSite_);
-		question.setRequeteSite_(requeteSite_);
-		questionCourt.setRequeteSite_(requeteSite_);
-		reponse.setRequeteSite_(requeteSite_);
-		reponseCourt.setRequeteSite_(requeteSite_);
+		if(question != null)
+			question.setRequeteSite_(requeteSite_);
+		if(questionCourt != null)
+			questionCourt.setRequeteSite_(requeteSite_);
+		if(reponse != null)
+			reponse.setRequeteSite_(requeteSite_);
+		if(reponseCourt != null)
+			reponseCourt.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -631,7 +635,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 
 	@Override public void htmlBody() {
 		htmlBodyQuestionReponse();
-		super.htmlBodyPagePart();
+		super.htmlBody();
 	}
 
 	public void htmlBodyQuestionReponse() {
@@ -643,7 +647,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 
 	@Override public void htmlBodyCourt() {
 		htmlBodyCourtQuestionReponse();
-		super.htmlBodyCourtPagePart();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtQuestionReponse() {

@@ -558,4 +558,13 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 			o = config.getString(prefixeEchappe + c.var, "addresse");
 		c.o(o);
 	}
+
+	protected void _statiqueUrlBase(Couverture<String> c) {
+		String o;
+		if(config == null)
+			o = System.getenv(c.var);
+		else
+			o = StringUtils.defaultIfBlank(config.getString(prefixeEchappe + c.var), "/static");
+		c.o(o);
+	}
 }

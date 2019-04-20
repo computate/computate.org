@@ -102,6 +102,62 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
 
+	/////////////////////
+	// statiqueUrlBase //
+	/////////////////////
+
+	/**	L'entité « statiqueUrlBase »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String statiqueUrlBase;
+	public Couverture<String> statiqueUrlBaseCouverture = new Couverture<String>().p(this).c(String.class).var("statiqueUrlBase").o(statiqueUrlBase);
+
+	/**	<br/>L'entité « statiqueUrlBase »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.page.MiseEnPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:statiqueUrlBase">Trouver l'entité statiqueUrlBase dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _statiqueUrlBase(Couverture<String> c);
+
+	public String getStatiqueUrlBase() {
+		return statiqueUrlBase;
+	}
+
+	public void setStatiqueUrlBase(String statiqueUrlBase) {
+		this.statiqueUrlBase = statiqueUrlBase;
+		this.statiqueUrlBaseCouverture.dejaInitialise = true;
+	}
+	protected MiseEnPage statiqueUrlBaseInit() {
+		if(!statiqueUrlBaseCouverture.dejaInitialise) {
+			_statiqueUrlBase(statiqueUrlBaseCouverture);
+			if(statiqueUrlBase == null)
+				setStatiqueUrlBase(statiqueUrlBaseCouverture.o);
+		}
+		statiqueUrlBaseCouverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
+
+	public String solrStatiqueUrlBase() {
+		return statiqueUrlBase;
+	}
+
+	public String strStatiqueUrlBase() {
+		return statiqueUrlBase == null ? "" : statiqueUrlBase;
+	}
+
+	public String nomAffichageStatiqueUrlBase() {
+		return null;
+	}
+
+	public String htmTooltipStatiqueUrlBase() {
+		return null;
+	}
+
+	public String htmStatiqueUrlBase() {
+		return statiqueUrlBase == null ? "" : StringEscapeUtils.escapeHtml4(strStatiqueUrlBase());
+	}
+
 	//////////////////////
 	// pageDocumentSolr //
 	//////////////////////
@@ -2391,6 +2447,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 
 	public void initMiseEnPage() {
 		pagePartsInit();
+		statiqueUrlBaseInit();
 		pageDocumentSolrInit();
 		wInit();
 		contexteIconeGroupeInit();
@@ -2474,6 +2531,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 				return oMiseEnPage.pageParts;
 			case "requeteSite_":
 				return oMiseEnPage.requeteSite_;
+			case "statiqueUrlBase":
+				return oMiseEnPage.statiqueUrlBase;
 			case "pageDocumentSolr":
 				return oMiseEnPage.pageDocumentSolr;
 			case "w":
@@ -2703,7 +2762,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUriEnUS, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageBlogUri, pageLeconUri, pageCoursUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
+		return Objects.hash(statiqueUrlBase, contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUriEnUS, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageBlogUri, pageLeconUri, pageCoursUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
 	}
 
 	////////////
@@ -2716,7 +2775,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		if(!(o instanceof MiseEnPage))
 			return false;
 		MiseEnPage that = (MiseEnPage)o;
-		return Objects.equals( contexteIconeGroupe, that.contexteIconeGroupe )
+		return Objects.equals( statiqueUrlBase, that.statiqueUrlBase )
+				&& Objects.equals( contexteIconeGroupe, that.contexteIconeGroupe )
 				&& Objects.equals( contexteIconeNom, that.contexteIconeNom )
 				&& Objects.equals( contexteIconeClassesCss, that.contexteIconeClassesCss )
 				&& Objects.equals( pageVisibleAuxBots, that.pageVisibleAuxBots )
@@ -2763,7 +2823,8 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("MiseEnPage {");
-		sb.append( "contexteIconeGroupe: \"" ).append(contexteIconeGroupe).append( "\"" );
+		sb.append( "statiqueUrlBase: \"" ).append(statiqueUrlBase).append( "\"" );
+		sb.append( ", contexteIconeGroupe: \"" ).append(contexteIconeGroupe).append( "\"" );
 		sb.append( ", contexteIconeNom: \"" ).append(contexteIconeNom).append( "\"" );
 		sb.append( ", contexteIconeClassesCss: \"" ).append(contexteIconeClassesCss).append( "\"" );
 		sb.append( ", pageVisibleAuxBots: " ).append(pageVisibleAuxBots);

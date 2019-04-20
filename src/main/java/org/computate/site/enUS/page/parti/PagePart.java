@@ -9,8 +9,14 @@ public abstract class PagePart extends PagePartGen<Cluster> {
 
 	protected void _page_(Couverture<MiseEnPage> c) {}
 
-	public abstract void  htmlBody();
-	public abstract void  htmlBodyCourt();
+	public void  htmlBody() {
+		
+	}
+
+	public void  htmlBodyCourt() {
+		
+	}
+
 	protected void _partiVar(Couverture<String> c) {}
 
 	public void  shAvantClasseJavaChamp() {
