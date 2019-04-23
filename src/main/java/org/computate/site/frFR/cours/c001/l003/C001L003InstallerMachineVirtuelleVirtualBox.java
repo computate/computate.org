@@ -5,7 +5,7 @@ import java.util.List;
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.parti.Cmd;
-import org.computate.site.frFR.page.parti.PageParagraphe;
+import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.page.parti.QuestionReponse;
 
 /**  
@@ -112,176 +112,133 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * Val.P.frFR:Je vous aiderai à créer votre propre site Web avec succès, sur votre propre ordinateur, avec des logiciels open-source. 
 	 * Val.P.enUS:Hello, my name is Christopher Tate. I am a Red Hat consultant and I love open source software. 
 	 * Val.P.enUS:I will help you create your own successful website, on your own computer, using open-source software. 
-	 */ 
-	protected void _moi(PageParagraphe o) {
-		o.getTexte().s(moiP);
+	 */    
+	protected void _moi(PageHtml o) {
+	}
+	@Override public void htmlBodyMoi(PageHtml o) {
+		// TODO Auto-generated method stub
+		super.htmlBodyMoi(o);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.Question.frFR:Est-t-il possible d'essayer Linux sans écraser mon système d'exploitation ? 
-	 * Val.Question.enUS:Is it possible to try Linux without destroying my operating system? 
-	 * Val.QuestionCourt.frFR:Linux va-t-il détruire mon système d'exploitation ? 
-	 * Val.QuestionCourt.enUS:Will Linux destroy my operating system? 
-	 * Val.Reponse.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
-	 * Val.Reponse.enUS:Virtualization can run Linux on any operating system. 
-	 * Val.ReponseCourt.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
-	 * Val.ReponseCourt.enUS:Virtualization can run Linux on any operating system. 
-	 * Val.P.frFR:Grâce à la virtualisation, c'est simple à essayer les systèmes d'exploitation sur votre propre ordinateur ! 
-	 * Val.P.frFR:La virtualisation vous permet de démarrer des machines virtuelles. 
-	 * Val.P.frFR:Les machines virtuelles sont des systèmes d'exploitation entiers s'exécutant sous votre propre système d'exploitation via un logiciel. 
-	 * Val.P.frFR:La virtualisation est gratuite, grâce à des nombreux logiciels fantastiques ! 
-	 * Val.P.frFR:Pour Linux, je recommande Libvirt pour plus de puissance, mais pour une solution multi-plateforme, nous allons utiliser VirtualBox dans cette leçon. 
-	 * Val.P.frFR:Je vais vous apprendre comment faire fonctionner une machine virtuelle CentOS 7 sur votre système. 
-	 * Val.P.enUS:Thanks to virtualization, trying out operating systems on your own computer is simple! 
-	 * Val.P.enUS:Virtualization allows you to run virtual machines. 
-	 * Val.P.enUS:Virtual machines are entire operating systems running under your own operating system through software. 
-	 * Val.P.enUS:Virtualization is free, thanks to many good software packages! 
-	 * Val.P.enUS:For Linux I recommend Libvirt for more power, but for a cross-platform solution, we will be using VirtualBox in this lesson. 
-	 * Val.P.enUS:I'll teach you how to get a CentOS 7 virtual machine running on your system. 
-	 */   
-	protected void _ecraser(QuestionReponse o) {      
-
-		o.questionIcone("fas", "eraser");
-		o.setQuestion(ecraserQuestion);
-		o.setQuestionCourt(ecraserQuestionCourt);
-
-		o.reponseIcone("fab", "linux");
-		o.setReponse(ecraserReponse);
-		o.setReponseCourt(ecraserReponseCourt);
-	}
-	public void htmlBodyEcraser(QuestionReponse o) { 
-		e("p").f();
-			e("div").f();
-				sx(ecraserP);
-			g("div");
-		g("p");
+	 * Val.H3I.frFR:fas fa-eraser
+	 * Val.H3Span.frFR:Est-t-il possible d'essayer Linux sans écraser mon système d'exploitation ? 
+	 * Val.H3Span.enUS:Is it possible to try Linux without destroying my operating system? 
+	 * Val.CourtH3Span.frFR:Linux va-t-il détruire mon système d'exploitation ? 
+	 * Val.CourtH3Span.enUS:Will Linux destroy my operating system? 
+	 * Val.H4I.frFR:fab fa-linux
+	 * Val.H4Span.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
+	 * Val.H4Span.enUS:Virtualization can run Linux on any operating system. 
+	 * Val.CourtH4Span.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
+	 * Val.CourtH4Span.enUS:Virtualization can run Linux on any operating system. 
+	 * Val.PDiv.frFR:Grâce à la virtualisation, c'est simple à essayer les systèmes d'exploitation sur votre propre ordinateur ! 
+	 * Val.PDiv.frFR:La virtualisation vous permet de démarrer des machines virtuelles. 
+	 * Val.PDiv.frFR:Les machines virtuelles sont des systèmes d'exploitation entiers s'exécutant sous votre propre système d'exploitation via un logiciel. 
+	 * Val.PDiv.frFR:La virtualisation est gratuite, grâce à des nombreux logiciels fantastiques ! 
+	 * Val.PDiv.frFR:Pour Linux, je recommande Libvirt pour plus de puissance, mais pour une solution multi-plateforme, nous allons utiliser VirtualBox dans cette leçon. 
+	 * Val.PDiv.frFR:Je vais vous apprendre comment faire fonctionner une machine virtuelle CentOS 7 sur votre système. 
+	 * Val.PDiv.enUS:Thanks to virtualization, trying out operating systems on your own computer is simple! 
+	 * Val.PDiv.enUS:Virtualization allows you to run virtual machines. 
+	 * Val.PDiv.enUS:Virtual machines are entire operating systems running under your own operating system through software. 
+	 * Val.PDiv.enUS:Virtualization is free, thanks to many good software packages! 
+	 * Val.PDiv.enUS:For Linux I recommend Libvirt for more power, but for a cross-platform solution, we will be using VirtualBox in this lesson. 
+	 * Val.PDiv.enUS:I'll teach you how to get a CentOS 7 virtual machine running on your system. 
+	 */  
+	protected void _ecraser(PageHtml o) {      
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.Question.frFR:Comment installer VirtualBox pour la virtualisation ? 
-	 * Val.Question.enUS:How do I install VirtualBox for virtualization? 
-	 * Val.QuestionCourt.frFR:Comment installer VirtualBox ? 
-	 * Val.QuestionCourt.enUS:How do I install VirtualBox? 
-	 * Val.Reponse.frFR:Téléchargez-le simplement depuis virtualbox.org. 
-	 * Val.Reponse.enUS:Simply download it from virtualbox.org. 
-	 * Val.ReponseCourt.frFR:Téléchargez-le depuis virtualbox.org
-	 * Val.ReponseCourt.enUS:Download it from virtualbox.org
-	 * Val.P.frFR:VirtualBox est facile à télécharger et à installer. 
-	 * Val.P.frFR:Visitez cette URL : 
-	 * Val.P.frFR:https://www.virtualbox.org/wiki/Downloads
-	 * Val.P.frFR:Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. 
-	 * Val.P.frFR:Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. 
-	 * Val.P.enUS:VirtualBox is easy to download and install. 
-	 * Val.P.enUS:Visit this url: 
-	 * Val.P.enUS:https://www.virtualbox.org/wiki/Downloads
-	 * Val.P.enUS:You can download it on a Windows host, an OS X host, a Linux or Solaris host. 
-	 * Val.P.enUS:Because I am running CentOS 7, which is similar to RHEL, I will use the RHEL instructions at the very bottom of the page. 
-	 */ 
+	 * Val.H3I.frFR:fas fa-person-carry
+	 * Val.H3Span.frFR:Comment installer VirtualBox pour la virtualisation ? 
+	 * Val.H3Span.enUS:How do I install VirtualBox for virtualization? 
+	 * Val.CourtH3Span.frFR:Comment installer VirtualBox ? 
+	 * Val.CourtH3Span.enUS:How do I install VirtualBox? 
+	 * Val.H4I.frFR:fab fa-cloud-download-alt
+	 * Val.H4Span.frFR:Téléchargez-le simplement depuis virtualbox.org. 
+	 * Val.H4Span.enUS:Simply download it from virtualbox.org. 
+	 * Val.CourtH4Span.frFR:Téléchargez-le depuis virtualbox.org
+	 * Val.CourtH4Span.enUS:Download it from virtualbox.org
+	 * Val.PUlLi1Span.frFR:VirtualBox est facile à télécharger et à installer. 
+	 * Val.PUlLi1Span.enUS:VirtualBox is easy to download and install. 
+	 * Val.PUlLi2Span.frFR:Visitez cette URL : 
+	 * Val.PUlLi2Span.enUS:Visit this url: 
+	 * Val.PUlLi2A.frFR:https://www.virtualbox.org/wiki/Downloads
+	 * Val.PUlLi2A.enUS:https://www.virtualbox.org/wiki/Downloads
+	 * Val.PUlLi3Span.frFR:Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. 
+	 * Val.PUlLi3Span.enUS:You can download it on a Windows host, an OS X host, a Linux or Solaris host. 
+	 * Val.PUlLi4Span.frFR:Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. 
+	 * Val.PUlLi4Span.enUS:Because I am running CentOS 7, which is similar to RHEL, I will use the RHEL instructions at the very bottom of the page. 
+	 */  
 	protected void _commentInstaller(QuestionReponse o) {
-
-		o.questionIcone("fas", "person-carry");
-		o.setQuestion(commentInstallerQuestion);
-		o.setQuestionCourt(commentInstallerQuestionCourt);
-
-		o.reponseIcone("fab", "cloud-download-alt");
-		o.setReponse(commentInstallerReponse);
-		o.setReponseCourt(commentInstallerReponseCourt);
 	}
-	public void htmlBodyCommentInstaller(QuestionReponse o) {
-		{ e("p").f();
-			{ e("ul").f();
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP1);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP2);
-					} g("span");
-					{ e("a").a("href", commentInstallerP3).f();
-						sx(commentInstallerP3);
-					} g("a");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP4);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP5);
-					} g("span");
-				} g("li");
-			} g("ul");
-		} g("p");
-	} 
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * Val.Question.frFR:Comment puis-je préparer CentOS 7 pour installer VirtualBox ? 
-	 * Val.Question.enUS:How can I prepare CentOS 7 to install VirtualBox? 
-	 * Val.QuestionCourt.frFR:Préparer CentOS 7 pour installer VirtualBox
-	 * Val.QuestionCourt.enUS:Prepare CentOS 7 to install VirtualBox
-	 * Val.Reponse.frFR:Installer le dépot yum virtualbox
-	 * Val.Reponse.enUS:Install the virtualbox yum repo
-	 * Val.ReponseCourt.frFR:Installer le dépot yum virtualbox
-	 * Val.ReponseCourt.enUS:Install the virtualbox yum repo
-	 * Val.Param:wget
-	 * Val.Param: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
-	 * Val.Param: -O
-	 * Val.Param: /tmp/virtualbox.repo
-	 * Val.Param1P.frFR:La commande pour télécharger des fichiers. 
-	 * Val.Param1P.enUS:The command to download files. 
-	 * Val.Param2P.frFR:L'URL vers le téléchargement dépôt yum VirtualBox. 
-	 * Val.Param2P.enUS:The URL to the VirtualBox yum repository download file. 
-	 * Val.Param3P.frFR:Pour spécifier le chemin de sortie pour le téléchargement. 
-	 * Val.Param3P.enUS:For specifying the output path for the downloaded file. 
-	 * Val.Param4P.frFR:Le chemin de sortie pour le téléchargement dépôt yum. 
-	 * Val.Param4P.enUS:The output path for the downloaded yum repository file. 
-	 */   
-	protected void _telecharger(Cmd o) {
-
-		o.questionIcone("fas", "play-circle");
-		o.setQuestion(telechargerQuestion);
-		o.setQuestionCourt(telechargerQuestionCourt);
-
-		o.reponseIcone("fab", "download");
-		o.setReponse(telechargerReponse);
-		o.setReponseCourt(telechargerReponseCourt);
-	}
-	public void htmlBodyTelecharger(Cmd o) {
-		{ e("p").f();
-			{ e("ul").f();
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP1);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP2);
-					} g("span");
-					{ e("a").a("href", telechargerP3).f();
-						sx(telechargerP3);
-					} g("a");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP4);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP5);
-					} g("span");
-				} g("li");
-			} g("ul");
-		} g("p");
-	}
+//
+//	/**
+//	 * {@inheritDoc}
+//	 * 
+//	 * Val.H3I.frFR:fas fa-play-circle
+//	 * Val.H3Span.frFR:Comment puis-je préparer CentOS 7 pour installer VirtualBox ? 
+//	 * Val.H3Span.enUS:How can I prepare CentOS 7 to install VirtualBox? 
+//	 * Val.CourtH3Span.frFR:Préparer CentOS 7 pour installer VirtualBox
+//	 * Val.CourtH3Span.enUS:Prepare CentOS 7 to install VirtualBox
+//	 * Val.H4I.frFR:fas fa-download
+//	 * Val.H4Span.frFR:Installer le dépot yum virtualbox
+//	 * Val.H4Span.enUS:Install the virtualbox yum repo
+//	 * Val.CourtH4Span.frFR:Installer le dépot yum virtualbox
+//	 * Val.CourtH4Span.enUS:Install the virtualbox yum repo
+//	 * Val.Param:wget
+//	 * Val.Param: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
+//	 * Val.Param: -O
+//	 * Val.Param: /tmp/virtualbox.repo
+//	 * Val.Param1P.frFR:La commande pour télécharger des fichiers. 
+//	 * Val.Param1P.enUS:The command to download files. 
+//	 * Val.Param2P.frFR:L'URL vers le téléchargement dépôt yum VirtualBox. 
+//	 * Val.Param2P.enUS:The URL to the VirtualBox yum repository download file. 
+//	 * Val.Param3P.frFR:Pour spécifier le chemin de sortie pour le téléchargement. 
+//	 * Val.Param3P.enUS:For specifying the output path for the downloaded file. 
+//	 * Val.Param4P.frFR:Le chemin de sortie pour le téléchargement dépôt yum. 
+//	 * Val.Param4P.enUS:The output path for the downloaded yum repository file. 
+//	 */   
+//	protected void _telecharger(Cmd o) {
+//
+//		o.questionIcone("fas", "play-circle");
+//		o.setQuestion(telechargerQuestion);
+//		o.setQuestionCourt(telechargerQuestionCourt);
+//
+//		o.reponseIcone("fab", "download");
+//		o.setReponse(telechargerReponse);
+//		o.setReponseCourt(telechargerReponseCourt);
+//	}
+//	public void htmlBodyTelecharger(Cmd o) {
+//		{ e("p").f();
+//			{ e("ul").f();
+//				{ e("li").f();
+//					{ e("span").f();
+//						sx(telechargerP1);
+//					} g("span");
+//				} g("li");
+//				{ e("li").f();
+//					{ e("span").f();
+//						sx(telechargerP2);
+//					} g("span");
+//					{ e("a").a("href", telechargerP3).f();
+//						sx(telechargerP3);
+//					} g("a");
+//				} g("li");
+//				{ e("li").f();
+//					{ e("span").f();
+//						sx(telechargerP4);
+//					} g("span");
+//				} g("li");
+//				{ e("li").f();
+//					{ e("span").f();
+//						sx(telechargerP5);
+//					} g("span");
+//				} g("li");
+//			} g("ul");
+//		} g("p");
+//	}
 }

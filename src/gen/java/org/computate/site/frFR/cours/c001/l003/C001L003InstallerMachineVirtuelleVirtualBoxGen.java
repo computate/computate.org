@@ -2,6 +2,7 @@ package org.computate.site.frFR.cours.c001.l003;
 
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import org.computate.site.frFR.couverture.Couverture;
+import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +14,6 @@ import org.apache.commons.exec.DefaultExecutor;
 import java.awt.image.BufferedImage;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.computate.site.frFR.cours.c001.C001Lecon;
-import org.computate.site.frFR.page.parti.Cmd;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
 import java.io.File;
@@ -22,7 +22,6 @@ import java.util.Objects;
 import org.computate.site.frFR.page.parti.QuestionReponse;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
-import org.computate.site.frFR.page.parti.PageParagraphe;
 import java.util.List;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.util.ClientUtils;
@@ -30,7 +29,7 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true">Trouver la classe telecharger dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true">Trouver la classe commentInstaller dans Solr</a>
  * <br/>
  **/
 public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extends C001Lecon {
@@ -59,24 +58,24 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	public static final String moiP = moiP1 + moiP2;
 
 	/**	L'entité « moi »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageParagraphe(). 
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 */
-	protected PageParagraphe moi = new PageParagraphe();
-	public Couverture<PageParagraphe> moiCouverture = new Couverture<PageParagraphe>().p(this).c(PageParagraphe.class).var("moi").o(moi);
+	protected PageHtml moi = new PageHtml();
+	public Couverture<PageHtml> moiCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("moi").o(moi);
 
 	/**	<br/>L'entité « moi »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageParagraphe(). 
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:moi">Trouver l'entité moi dans Solr</a>
 	 * <br/>
 	 * @param moi est l'entité déjà construit. 
 	 **/
-	protected abstract void _moi(PageParagraphe o);
+	protected abstract void _moi(PageHtml o);
 
-	public PageParagraphe getMoi() {
+	public PageHtml getMoi() {
 		return moi;
 	}
 
-	public void setMoi(PageParagraphe moi) {
+	public void setMoi(PageHtml moi) {
 		this.moi = moi;
 		this.moiCouverture.dejaInitialise = true;
 	}
@@ -92,7 +91,11 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		moiCouverture.dejaInitialise(true);
 		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
 	}
-	public void htmlBodyMoi(PageParagraphe o) {
+	public void htmlBodyMoi(PageHtml o) {
+		{ e("p").a("class", "").f();
+				sx(moiP1);
+				sx(moiP2);
+		} g("p");
 	}
 	public void htmlBodyMoi() {
 		moi.htmlAvant();
@@ -104,41 +107,45 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	// ecraser //
 	/////////////
 
-	public static final String ecraserQuestion1 = "Est-t-il possible d'essayer Linux sans écraser mon système d'exploitation ? ";
-	public static final String ecraserQuestion = ecraserQuestion1;
-	public static final String ecraserQuestionCourt1 = "Linux va-t-il détruire mon système d'exploitation ? ";
-	public static final String ecraserQuestionCourt = ecraserQuestionCourt1;
-	public static final String ecraserReponse1 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
-	public static final String ecraserReponse = ecraserReponse1;
-	public static final String ecraserReponseCourt1 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
-	public static final String ecraserReponseCourt = ecraserReponseCourt1;
-	public static final String ecraserP1 = "Grâce à la virtualisation, c'est simple à essayer les systèmes d'exploitation sur votre propre ordinateur ! ";
-	public static final String ecraserP2 = "La virtualisation vous permet de démarrer des machines virtuelles. ";
-	public static final String ecraserP3 = "Les machines virtuelles sont des systèmes d'exploitation entiers s'exécutant sous votre propre système d'exploitation via un logiciel. ";
-	public static final String ecraserP4 = "La virtualisation est gratuite, grâce à des nombreux logiciels fantastiques ! ";
-	public static final String ecraserP5 = "Pour Linux, je recommande Libvirt pour plus de puissance, mais pour une solution multi-plateforme, nous allons utiliser VirtualBox dans cette leçon. ";
-	public static final String ecraserP6 = "Je vais vous apprendre comment faire fonctionner une machine virtuelle CentOS 7 sur votre système. ";
-	public static final String ecraserP = ecraserP1 + ecraserP2 + ecraserP3 + ecraserP4 + ecraserP5 + ecraserP6;
+	public static final String ecraserH3I1 = "fas fa-eraser";
+	public static final String ecraserH3I = ecraserH3I1;
+	public static final String ecraserH3Span1 = "Est-t-il possible d'essayer Linux sans écraser mon système d'exploitation ? ";
+	public static final String ecraserH3Span = ecraserH3Span1;
+	public static final String ecraserCourtH3Span1 = "Linux va-t-il détruire mon système d'exploitation ? ";
+	public static final String ecraserCourtH3Span = ecraserCourtH3Span1;
+	public static final String ecraserH4I1 = "fab fa-linux";
+	public static final String ecraserH4I = ecraserH4I1;
+	public static final String ecraserH4Span1 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
+	public static final String ecraserH4Span = ecraserH4Span1;
+	public static final String ecraserCourtH4Span1 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
+	public static final String ecraserCourtH4Span = ecraserCourtH4Span1;
+	public static final String ecraserPDiv1 = "Grâce à la virtualisation, c'est simple à essayer les systèmes d'exploitation sur votre propre ordinateur ! ";
+	public static final String ecraserPDiv2 = "La virtualisation vous permet de démarrer des machines virtuelles. ";
+	public static final String ecraserPDiv3 = "Les machines virtuelles sont des systèmes d'exploitation entiers s'exécutant sous votre propre système d'exploitation via un logiciel. ";
+	public static final String ecraserPDiv4 = "La virtualisation est gratuite, grâce à des nombreux logiciels fantastiques ! ";
+	public static final String ecraserPDiv5 = "Pour Linux, je recommande Libvirt pour plus de puissance, mais pour une solution multi-plateforme, nous allons utiliser VirtualBox dans cette leçon. ";
+	public static final String ecraserPDiv6 = "Je vais vous apprendre comment faire fonctionner une machine virtuelle CentOS 7 sur votre système. ";
+	public static final String ecraserPDiv = ecraserPDiv1 + ecraserPDiv2 + ecraserPDiv3 + ecraserPDiv4 + ecraserPDiv5 + ecraserPDiv6;
 
 	/**	L'entité « ecraser »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 */
-	protected QuestionReponse ecraser = new QuestionReponse();
-	public Couverture<QuestionReponse> ecraserCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("ecraser").o(ecraser);
+	protected PageHtml ecraser = new PageHtml();
+	public Couverture<PageHtml> ecraserCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("ecraser").o(ecraser);
 
 	/**	<br/>L'entité « ecraser »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:ecraser">Trouver l'entité ecraser dans Solr</a>
 	 * <br/>
 	 * @param ecraser est l'entité déjà construit. 
 	 **/
-	protected abstract void _ecraser(QuestionReponse o);
+	protected abstract void _ecraser(PageHtml o);
 
-	public QuestionReponse getEcraser() {
+	public PageHtml getEcraser() {
 		return ecraser;
 	}
 
-	public void setEcraser(QuestionReponse ecraser) {
+	public void setEcraser(PageHtml ecraser) {
 		this.ecraser = ecraser;
 		this.ecraserCouverture.dejaInitialise = true;
 	}
@@ -154,7 +161,33 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		ecraserCouverture.dejaInitialise(true);
 		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
 	}
-	public void htmlBodyEcraser(QuestionReponse o) {
+	public void htmlBodyEcraser(PageHtml o) {
+		{ e("h3").a("class", "").f();
+			{ e("i").a("class", ecraserH3I1, " site-menu-icon ").f();
+			} g("i");
+			{ e("span").a("class", "").f();
+					sx(ecraserH3Span1);
+					sx(ecraserCourtH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", "").f();
+			{ e("i").a("class", ecraserH4I1, " site-menu-icon ").f();
+			} g("i");
+			{ e("span").a("class", "").f();
+					sx(ecraserH4Span1);
+					sx(ecraserCourtH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("p").a("class", "").f();
+			{ e("div").a("class", "").f();
+					sx(ecraserPDiv1);
+					sx(ecraserPDiv2);
+					sx(ecraserPDiv3);
+					sx(ecraserPDiv4);
+					sx(ecraserPDiv5);
+					sx(ecraserPDiv6);
+			} g("div");
+		} g("p");
 	}
 	public void htmlBodyEcraser() {
 		ecraser.htmlAvant();
@@ -166,20 +199,28 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	// commentInstaller //
 	//////////////////////
 
-	public static final String commentInstallerQuestion1 = "Comment installer VirtualBox pour la virtualisation ? ";
-	public static final String commentInstallerQuestion = commentInstallerQuestion1;
-	public static final String commentInstallerQuestionCourt1 = "Comment installer VirtualBox ? ";
-	public static final String commentInstallerQuestionCourt = commentInstallerQuestionCourt1;
-	public static final String commentInstallerReponse1 = "Téléchargez-le simplement depuis virtualbox.org. ";
-	public static final String commentInstallerReponse = commentInstallerReponse1;
-	public static final String commentInstallerReponseCourt1 = "Téléchargez-le depuis virtualbox.org";
-	public static final String commentInstallerReponseCourt = commentInstallerReponseCourt1;
-	public static final String commentInstallerP1 = "VirtualBox est facile à télécharger et à installer. ";
-	public static final String commentInstallerP2 = "Visitez cette URL : ";
-	public static final String commentInstallerP3 = "https://www.virtualbox.org/wiki/Downloads";
-	public static final String commentInstallerP4 = "Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. ";
-	public static final String commentInstallerP5 = "Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. ";
-	public static final String commentInstallerP = commentInstallerP1 + commentInstallerP2 + commentInstallerP3 + commentInstallerP4 + commentInstallerP5;
+	public static final String commentInstallerH3I1 = "fas fa-person-carry";
+	public static final String commentInstallerH3I = commentInstallerH3I1;
+	public static final String commentInstallerH3Span1 = "Comment installer VirtualBox pour la virtualisation ? ";
+	public static final String commentInstallerH3Span = commentInstallerH3Span1;
+	public static final String commentInstallerCourtH3Span1 = "Comment installer VirtualBox ? ";
+	public static final String commentInstallerCourtH3Span = commentInstallerCourtH3Span1;
+	public static final String commentInstallerH4I1 = "fab fa-cloud-download-alt";
+	public static final String commentInstallerH4I = commentInstallerH4I1;
+	public static final String commentInstallerH4Span1 = "Téléchargez-le simplement depuis virtualbox.org. ";
+	public static final String commentInstallerH4Span = commentInstallerH4Span1;
+	public static final String commentInstallerCourtH4Span1 = "Téléchargez-le depuis virtualbox.org";
+	public static final String commentInstallerCourtH4Span = commentInstallerCourtH4Span1;
+	public static final String commentInstallerPUlLi1Span1 = "VirtualBox est facile à télécharger et à installer. ";
+	public static final String commentInstallerPUlLi1Span = commentInstallerPUlLi1Span1;
+	public static final String commentInstallerPUlLi2Span1 = "Visitez cette URL : ";
+	public static final String commentInstallerPUlLi2Span = commentInstallerPUlLi2Span1;
+	public static final String commentInstallerPUlLi2A1 = "https://www.virtualbox.org/wiki/Downloads";
+	public static final String commentInstallerPUlLi2A = commentInstallerPUlLi2A1;
+	public static final String commentInstallerPUlLi3Span1 = "Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. ";
+	public static final String commentInstallerPUlLi3Span = commentInstallerPUlLi3Span1;
+	public static final String commentInstallerPUlLi4Span1 = "Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. ";
+	public static final String commentInstallerPUlLi4Span = commentInstallerPUlLi4Span1;
 
 	/**	L'entité « commentInstaller »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
@@ -216,79 +257,54 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
 	}
 	public void htmlBodyCommentInstaller(QuestionReponse o) {
+		{ e("h3").a("class", "").f();
+			{ e("i").a("class", commentInstallerH3I1, " site-menu-icon ").f();
+			} g("i");
+			{ e("span").a("class", "").f();
+					sx(commentInstallerH3Span1);
+					sx(commentInstallerCourtH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", "").f();
+			{ e("i").a("class", commentInstallerH4I1, " site-menu-icon ").f();
+			} g("i");
+			{ e("span").a("class", "").f();
+					sx(commentInstallerH4Span1);
+					sx(commentInstallerCourtH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("p").a("class", "").f();
+			{ e("ul").a("class", "").f();
+				{ e("li").a("class", "").f();
+					{ e("span").a("class", "").f();
+							sx(commentInstallerPUlLi1Span1);
+					} g("span");
+				} g("li");
+				{ e("li").a("class", "").f();
+					{ e("span").a("class", "").f();
+							sx(commentInstallerPUlLi2Span1);
+					} g("span");
+					{ e("a").a("class", "").f();
+							sx(commentInstallerPUlLi2A1);
+					} g("a");
+				} g("li");
+				{ e("li").a("class", "").f();
+					{ e("span").a("class", "").f();
+							sx(commentInstallerPUlLi3Span1);
+					} g("span");
+				} g("li");
+				{ e("li").a("class", "").f();
+					{ e("span").a("class", "").f();
+							sx(commentInstallerPUlLi4Span1);
+					} g("span");
+				} g("li");
+			} g("ul");
+		} g("p");
 	}
 	public void htmlBodyCommentInstaller() {
 		commentInstaller.htmlAvant();
 		htmlBodyCommentInstaller(commentInstaller);
 		commentInstaller.htmlApres();
-	}
-
-	/////////////////
-	// telecharger //
-	/////////////////
-
-	public static final String telechargerQuestion1 = "Comment puis-je préparer CentOS 7 pour installer VirtualBox ? ";
-	public static final String telechargerQuestion = telechargerQuestion1;
-	public static final String telechargerQuestionCourt1 = "Préparer CentOS 7 pour installer VirtualBox";
-	public static final String telechargerQuestionCourt = telechargerQuestionCourt1;
-	public static final String telechargerReponse1 = "Installer le dépot yum virtualbox";
-	public static final String telechargerReponse = telechargerReponse1;
-	public static final String telechargerReponseCourt1 = "Installer le dépot yum virtualbox";
-	public static final String telechargerReponseCourt = telechargerReponseCourt1;
-	public static final String telechargerParam1 = "wget";
-	public static final String telechargerParam2 = " https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo";
-	public static final String telechargerParam3 = " -O";
-	public static final String telechargerParam4 = " /tmp/virtualbox.repo";
-	public static final String telechargerParam = telechargerParam1 + telechargerParam2 + telechargerParam3 + telechargerParam4;
-	public static final String telechargerParam1P1 = "La commande pour télécharger des fichiers. ";
-	public static final String telechargerParam1P = telechargerParam1P1;
-	public static final String telechargerParam2P1 = "L'URL vers le téléchargement dépôt yum VirtualBox. ";
-	public static final String telechargerParam2P = telechargerParam2P1;
-	public static final String telechargerParam3P1 = "Pour spécifier le chemin de sortie pour le téléchargement. ";
-	public static final String telechargerParam3P = telechargerParam3P1;
-	public static final String telechargerParam4P1 = "Le chemin de sortie pour le téléchargement dépôt yum. ";
-	public static final String telechargerParam4P = telechargerParam4P1;
-
-	/**	L'entité « telecharger »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut Cmd(). 
-	 */
-	protected Cmd telecharger = new Cmd();
-	public Couverture<Cmd> telechargerCouverture = new Couverture<Cmd>().p(this).c(Cmd.class).var("telecharger").o(telecharger);
-
-	/**	<br/>L'entité « telecharger »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut Cmd(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:telecharger">Trouver l'entité telecharger dans Solr</a>
-	 * <br/>
-	 * @param telecharger est l'entité déjà construit. 
-	 **/
-	protected abstract void _telecharger(Cmd o);
-
-	public Cmd getTelecharger() {
-		return telecharger;
-	}
-
-	public void setTelecharger(Cmd telecharger) {
-		this.telecharger = telecharger;
-		this.telechargerCouverture.dejaInitialise = true;
-	}
-	protected C001L003InstallerMachineVirtuelleVirtualBox telechargerInit() {
-		if(telecharger != null) {
-			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(telecharger, "telecharger");
-			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(telecharger, "telecharger");
-		}
-		if(!telechargerCouverture.dejaInitialise) {
-			_telecharger(telecharger);
-		}
-		telecharger.initLoinPourClasse(requeteSite_);
-		telechargerCouverture.dejaInitialise(true);
-		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
-	}
-	public void htmlBodyTelecharger(Cmd o) {
-	}
-	public void htmlBodyTelecharger() {
-		telecharger.htmlAvant();
-		htmlBodyTelecharger(telecharger);
-		telecharger.htmlApres();
 	}
 
 	//////////////
@@ -315,7 +331,6 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		moiInit();
 		ecraserInit();
 		commentInstallerInit();
-		telechargerInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -334,8 +349,6 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			ecraser.setRequeteSite_(requeteSite_);
 		if(commentInstaller != null)
 			commentInstaller.setRequeteSite_(requeteSite_);
-		if(telecharger != null)
-			telecharger.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -368,8 +381,6 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 				return oC001L003InstallerMachineVirtuelleVirtualBox.ecraser;
 			case "commentInstaller":
 				return oC001L003InstallerMachineVirtuelleVirtualBox.commentInstaller;
-			case "telecharger":
-				return oC001L003InstallerMachineVirtuelleVirtualBox.telecharger;
 			default:
 				return super.obtenirC001Lecon(var);
 		}
@@ -554,8 +565,6 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			ecraser.htmlBodyCourt();
 		if(commentInstaller != null)
 			commentInstaller.htmlBodyCourt();
-		if(telecharger != null)
-			telecharger.htmlBodyCourt();
 	}
 
 	//////////////
@@ -568,11 +577,9 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	}
 
 	public void htmlBodyC001L003InstallerMachineVirtuelleVirtualBox() {
-		if(moi != null)
-			moi.htmlBody();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyMoi();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyEcraser();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyCommentInstaller();
-		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyTelecharger();
 	}
 
 	//////////////
@@ -608,5 +615,5 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		return sb.toString();
 	}
 
-	public static final String[] C001L003InstallerMachineVirtuelleVirtualBoxVals = new String[] { moiP1, moiP2, ecraserQuestion1, ecraserQuestionCourt1, ecraserReponse1, ecraserReponseCourt1, ecraserP1, ecraserP2, ecraserP3, ecraserP4, ecraserP5, ecraserP6, commentInstallerQuestion1, commentInstallerQuestionCourt1, commentInstallerReponse1, commentInstallerReponseCourt1, commentInstallerP1, commentInstallerP2, commentInstallerP3, commentInstallerP4, commentInstallerP5, telechargerQuestion1, telechargerQuestionCourt1, telechargerReponse1, telechargerReponseCourt1, telechargerParam1, telechargerParam2, telechargerParam3, telechargerParam4, telechargerParam1P1, telechargerParam2P1, telechargerParam3P1, telechargerParam4P1 };
+	public static final String[] C001L003InstallerMachineVirtuelleVirtualBoxVals = new String[] { moiP1, moiP2, ecraserH3I1, ecraserH3Span1, ecraserCourtH3Span1, ecraserH4I1, ecraserH4Span1, ecraserCourtH4Span1, ecraserPDiv1, ecraserPDiv2, ecraserPDiv3, ecraserPDiv4, ecraserPDiv5, ecraserPDiv6, commentInstallerH3I1, commentInstallerH3Span1, commentInstallerCourtH3Span1, commentInstallerH4I1, commentInstallerH4Span1, commentInstallerCourtH4Span1, commentInstallerPUlLi1Span1, commentInstallerPUlLi2Span1, commentInstallerPUlLi2A1, commentInstallerPUlLi3Span1, commentInstallerPUlLi4Span1 };
 }

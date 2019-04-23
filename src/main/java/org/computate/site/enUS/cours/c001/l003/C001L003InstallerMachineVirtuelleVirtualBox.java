@@ -4,7 +4,7 @@ import java.util.List;
 import org.computate.site.enUS.cours.c001.C001Lecon;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.parti.Cmd;
-import org.computate.site.enUS.page.parti.PageParagraphe;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.enUS.page.parti.QuestionReponse;
 
 public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003InstallerMachineVirtuelleVirtualBoxGen<C001Lecon> {
@@ -84,108 +84,18 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 		super.htmlBodyCourt();
 	}
 
-	protected void _moi(PageParagraphe o) {
-		o.getTexte().s(moiP);
+	protected void _moi(PageHtml o) {
 	}
 
-	protected void _ecraser(QuestionReponse o) {      
-
-		o.questionIcone("fas", "eraser");
-		o.setQuestion(ecraserQuestion);
-		o.setQuestionCourt(ecraserQuestionCourt);
-
-		o.reponseIcone("fab", "linux");
-		o.setReponse(ecraserReponse);
-		o.setReponseCourt(ecraserReponseCourt);
+	@Override()
+	public void  htmlBodyMoi(PageHtml o) {
+		// TODO Auto-generated method stub
+		super.htmlBodyMoi(o);
 	}
 
-	public void  htmlBodyEcraser(QuestionReponse o) { 
-		e("p").f();
-			e("div").f();
-				sx(ecraserP);
-			g("div");
-		g("p");
+	protected void _ecraser(PageHtml o) {      
 	}
 
 	protected void _commentInstaller(QuestionReponse o) {
-
-		o.questionIcone("fas", "person-carry");
-		o.setQuestion(commentInstallerQuestion);
-		o.setQuestionCourt(commentInstallerQuestionCourt);
-
-		o.reponseIcone("fab", "cloud-download-alt");
-		o.setReponse(commentInstallerReponse);
-		o.setReponseCourt(commentInstallerReponseCourt);
-	}
-
-	public void  htmlBodyCommentInstaller(QuestionReponse o) {
-		{ e("p").f();
-			{ e("ul").f();
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP1);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP2);
-					} g("span");
-					{ e("a").a("href", commentInstallerP3).f();
-						sx(commentInstallerP3);
-					} g("a");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP4);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(commentInstallerP5);
-					} g("span");
-				} g("li");
-			} g("ul");
-		} g("p");
-	}
-
-	protected void _telecharger(Cmd o) {
-
-		o.questionIcone("fas", "play-circle");
-		o.setQuestion(telechargerQuestion);
-		o.setQuestionCourt(telechargerQuestionCourt);
-
-		o.reponseIcone("fab", "download");
-		o.setReponse(telechargerReponse);
-		o.setReponseCourt(telechargerReponseCourt);
-	}
-
-	public void  htmlBodyTelecharger(Cmd o) {
-		{ e("p").f();
-			{ e("ul").f();
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP1);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP2);
-					} g("span");
-					{ e("a").a("href", telechargerP3).f();
-						sx(telechargerP3);
-					} g("a");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP4);
-					} g("span");
-				} g("li");
-				{ e("li").f();
-					{ e("span").f();
-						sx(telechargerP5);
-					} g("span");
-				} g("li");
-			} g("ul");
-		} g("p");
 	}
 }
