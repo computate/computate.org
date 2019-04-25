@@ -81,7 +81,8 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	}
 
 	public void  htmlBodyCourt() {
-		super.htmlBodyCourt();
+		htmlBodyRecapituler2();
+		htmlBodyRecapituler3();
 	}
 
 	protected void _moi(PageHtml o) {
@@ -97,5 +98,14 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	}
 
 	protected void _commentInstaller(QuestionReponse o) {
+	}
+
+	protected void _recapituler1(PageHtml o) {      
+	}
+
+	protected void _recapituler2(PageHtml o) {      
+	}
+
+	protected void _recapituler3(PageHtml o) {      
 	}
 }

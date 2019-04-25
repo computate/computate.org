@@ -1,8 +1,7 @@
 package org.computate.site.frFR.cours.c001.l001;
 
-import org.computate.site.frFR.page.parti.PageParagraphe;
-import org.computate.site.frFR.page.parti.QuestionReponse;
 import org.computate.site.frFR.page.parti.PageHtml;
+import org.computate.site.frFR.page.parti.QuestionReponse;
 import java.util.List;
 import java.lang.String;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;

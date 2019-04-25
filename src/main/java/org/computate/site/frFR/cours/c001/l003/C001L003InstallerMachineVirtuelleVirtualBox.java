@@ -39,7 +39,7 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * ImageHauteur.enUS: 616
  * VideoId.frFR: g61yXjXCUGU
  * VideoId.enUS: taA73wkea6Q
-*/     
+*/    
 public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003InstallerMachineVirtuelleVirtualBoxGen<C001Lecon> {
 
 	public static void main(String[] args) {  
@@ -102,7 +102,8 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	}
 
 	public void htmlBodyCourt() {
-		super.htmlBodyCourt();
+		htmlBodyRecapituler2();
+		htmlBodyRecapituler3();
 	}
 
 	/**
@@ -123,16 +124,12 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I.frFR:fas fa-eraser
+	 * Val.H3I:fas fa-eraser
 	 * Val.H3Span.frFR:Est-t-il possible d'essayer Linux sans écraser mon système d'exploitation ? 
 	 * Val.H3Span.enUS:Is it possible to try Linux without destroying my operating system? 
-	 * Val.CourtH3Span.frFR:Linux va-t-il détruire mon système d'exploitation ? 
-	 * Val.CourtH3Span.enUS:Will Linux destroy my operating system? 
-	 * Val.H4I.frFR:fab fa-linux
+	 * Val.H4I:fab fa-linux
 	 * Val.H4Span.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
 	 * Val.H4Span.enUS:Virtualization can run Linux on any operating system. 
-	 * Val.CourtH4Span.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
-	 * Val.CourtH4Span.enUS:Virtualization can run Linux on any operating system. 
 	 * Val.PDiv.frFR:Grâce à la virtualisation, c'est simple à essayer les systèmes d'exploitation sur votre propre ordinateur ! 
 	 * Val.PDiv.frFR:La virtualisation vous permet de démarrer des machines virtuelles. 
 	 * Val.PDiv.frFR:Les machines virtuelles sont des systèmes d'exploitation entiers s'exécutant sous votre propre système d'exploitation via un logiciel. 
@@ -155,13 +152,9 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * Val.H3I.frFR:fas fa-person-carry
 	 * Val.H3Span.frFR:Comment installer VirtualBox pour la virtualisation ? 
 	 * Val.H3Span.enUS:How do I install VirtualBox for virtualization? 
-	 * Val.CourtH3Span.frFR:Comment installer VirtualBox ? 
-	 * Val.CourtH3Span.enUS:How do I install VirtualBox? 
-	 * Val.H4I.frFR:fab fa-cloud-download-alt
+	 * Val.H4I.frFR:fas fa-cloud-download-alt
 	 * Val.H4Span.frFR:Téléchargez-le simplement depuis virtualbox.org. 
 	 * Val.H4Span.enUS:Simply download it from virtualbox.org. 
-	 * Val.CourtH4Span.frFR:Téléchargez-le depuis virtualbox.org
-	 * Val.CourtH4Span.enUS:Download it from virtualbox.org
 	 * Val.PUlLi1Span.frFR:VirtualBox est facile à télécharger et à installer. 
 	 * Val.PUlLi1Span.enUS:VirtualBox is easy to download and install. 
 	 * Val.PUlLi2Span.frFR:Visitez cette URL : 
@@ -182,13 +175,9 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 //	 * Val.H3I.frFR:fas fa-play-circle
 //	 * Val.H3Span.frFR:Comment puis-je préparer CentOS 7 pour installer VirtualBox ? 
 //	 * Val.H3Span.enUS:How can I prepare CentOS 7 to install VirtualBox? 
-//	 * Val.CourtH3Span.frFR:Préparer CentOS 7 pour installer VirtualBox
-//	 * Val.CourtH3Span.enUS:Prepare CentOS 7 to install VirtualBox
 //	 * Val.H4I.frFR:fas fa-download
 //	 * Val.H4Span.frFR:Installer le dépot yum virtualbox
 //	 * Val.H4Span.enUS:Install the virtualbox yum repo
-//	 * Val.CourtH4Span.frFR:Installer le dépot yum virtualbox
-//	 * Val.CourtH4Span.enUS:Install the virtualbox yum repo
 //	 * Val.Param:wget
 //	 * Val.Param: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
 //	 * Val.Param: -O
@@ -201,7 +190,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 //	 * Val.Param3P.enUS:For specifying the output path for the downloaded file. 
 //	 * Val.Param4P.frFR:Le chemin de sortie pour le téléchargement dépôt yum. 
 //	 * Val.Param4P.enUS:The output path for the downloaded yum repository file. 
-//	 */   
+//	 */ 
 //	protected void _telecharger(Cmd o) {
 //
 //		o.questionIcone("fas", "play-circle");
@@ -241,4 +230,54 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 //			} g("ul");
 //		} g("p");
 //	}
+
+	/**
+	 * Val.H3.frFR:À récapituler : 
+	 * Val.H3.enUS:To review: 
+	 */
+	protected void _recapituler1(PageHtml o) {      
+	}
+
+	/**
+	 * Val.TableTr1Td1.frFR:Mardi 
+	 * Val.TableTr1Td1.enUS:Tuesday 
+	 * Val.TableTr1Td2I:fab fa-linux
+	 * Val.TableTr1Td3I:fas fa-network-wired
+	 * Val.TableTr1Td4I:fas fa-pen-nib
+	 * Val.TableTr2Td1.frFR:23 Avril 2019
+	 * Val.TableTr2Td1.enUS:April 23 2019
+	 * Val.TableTr2Td2.frFR:Comment essayer CentOS 7
+	 * Val.TableTr2Td2.enUS:How to try CentOS 7
+	 * Val.TableTr2Td3.frFR:Sur une machine virtuelle
+	 * Val.TableTr2Td3.enUS:On a virtual machine
+	 * Val.TableTr2Td4.frFR:Par Christophe Tate
+	 * Val.TableTr2Td4.enUS:By Christopher Tate
+	 */  
+	protected void _recapituler2(PageHtml o) {      
+	}
+
+	/**
+	 * Val.TableTr1Td1I:fas fa-eraser
+	 * Val.TableTr1Td2.frFR:Linux va-t-il détruire mon système d'exploitation ? 
+	 * Val.TableTr1Td2.enUS:Will Linux destroy my operating system? 
+	 * Val.TableTr1Td3I:fab fa-linux
+	 * Val.TableTr1Td4.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
+	 * Val.TableTr1Td4.enUS:Virtualization can run Linux on any operating system. 
+	 * 
+	 * Val.TableTr2Td1I:fas fa-person-carry
+	 * Val.TableTr2Td2.frFR:Comment installer VirtualBox ? 
+	 * Val.TableTr2Td2.enUS:How do I install VirtualBox? 
+	 * Val.TableTr2Td3I:fas fa-cloud-download-alt
+	 * Val.TableTr2Td4.frFR:Téléchargez-le depuis virtualbox.org
+	 * Val.TableTr2Td4.enUS:Download it from virtualbox.org
+	 * 
+	 * Val.TableTr3Td1I:fas fa-play-circle
+	 * Val.TableTr3Td2.frFR:Préparer CentOS 7 pour installer VirtualBox
+	 * Val.TableTr3Td2.enUS:Prepare CentOS 7 to install VirtualBox
+	 * Val.TableTr3Td3I:fas fa-download
+	 * Val.TableTr3Td4.frFR:Installer le dépot yum virtualbox
+	 * Val.TableTr3Td4.enUS:Install the virtualbox yum repo
+	 */  
+	protected void _recapituler3(PageHtml o) {      
+	}
 }

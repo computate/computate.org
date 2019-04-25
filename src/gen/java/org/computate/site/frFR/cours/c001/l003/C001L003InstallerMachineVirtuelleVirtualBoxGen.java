@@ -29,7 +29,7 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true">Trouver la classe commentInstaller dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true">Trouver la classe recapituler3 dans Solr</a>
  * <br/>
  **/
 public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extends C001Lecon {
@@ -92,9 +92,9 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
 	}
 	public void htmlBodyMoi(PageHtml o) {
-		{ e("p").a("class", "").f();
-				sx(moiP1);
-				sx(moiP2);
+		{ e("p").a("class", " moiP ").f();
+			sx(moiP1);
+			sx(moiP2);
 		} g("p");
 	}
 	public void htmlBodyMoi() {
@@ -111,14 +111,10 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	public static final String ecraserH3I = ecraserH3I1;
 	public static final String ecraserH3Span1 = "Est-t-il possible d'essayer Linux sans écraser mon système d'exploitation ? ";
 	public static final String ecraserH3Span = ecraserH3Span1;
-	public static final String ecraserCourtH3Span1 = "Linux va-t-il détruire mon système d'exploitation ? ";
-	public static final String ecraserCourtH3Span = ecraserCourtH3Span1;
 	public static final String ecraserH4I1 = "fab fa-linux";
 	public static final String ecraserH4I = ecraserH4I1;
 	public static final String ecraserH4Span1 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
 	public static final String ecraserH4Span = ecraserH4Span1;
-	public static final String ecraserCourtH4Span1 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
-	public static final String ecraserCourtH4Span = ecraserCourtH4Span1;
 	public static final String ecraserPDiv1 = "Grâce à la virtualisation, c'est simple à essayer les systèmes d'exploitation sur votre propre ordinateur ! ";
 	public static final String ecraserPDiv2 = "La virtualisation vous permet de démarrer des machines virtuelles. ";
 	public static final String ecraserPDiv3 = "Les machines virtuelles sont des systèmes d'exploitation entiers s'exécutant sous votre propre système d'exploitation via un logiciel. ";
@@ -162,30 +158,28 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
 	}
 	public void htmlBodyEcraser(PageHtml o) {
-		{ e("h3").a("class", "").f();
-			{ e("i").a("class", ecraserH3I1, " site-menu-icon ").f();
+		{ e("h3").a("class", " ecraserH3 ").f();
+			{ e("i").a("class", ecraserH3I1, " site-menu-icon ecraserH3I ").f();
 			} g("i");
-			{ e("span").a("class", "").f();
-					sx(ecraserH3Span1);
-					sx(ecraserCourtH3Span1);
+			{ e("span").a("class", " ecraserH3Span ").f();
+				sx(ecraserH3Span1);
 			} g("span");
 		} g("h3");
-		{ e("h4").a("class", "").f();
-			{ e("i").a("class", ecraserH4I1, " site-menu-icon ").f();
+		{ e("h4").a("class", " ecraserH4 ").f();
+			{ e("i").a("class", ecraserH4I1, " site-menu-icon ecraserH4I ").f();
 			} g("i");
-			{ e("span").a("class", "").f();
-					sx(ecraserH4Span1);
-					sx(ecraserCourtH4Span1);
+			{ e("span").a("class", " ecraserH4Span ").f();
+				sx(ecraserH4Span1);
 			} g("span");
 		} g("h4");
-		{ e("p").a("class", "").f();
-			{ e("div").a("class", "").f();
-					sx(ecraserPDiv1);
-					sx(ecraserPDiv2);
-					sx(ecraserPDiv3);
-					sx(ecraserPDiv4);
-					sx(ecraserPDiv5);
-					sx(ecraserPDiv6);
+		{ e("p").a("class", " ecraserP ").f();
+			{ e("div").a("class", " ecraserPDiv ").f();
+				sx(ecraserPDiv1);
+				sx(ecraserPDiv2);
+				sx(ecraserPDiv3);
+				sx(ecraserPDiv4);
+				sx(ecraserPDiv5);
+				sx(ecraserPDiv6);
 			} g("div");
 		} g("p");
 	}
@@ -203,14 +197,10 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	public static final String commentInstallerH3I = commentInstallerH3I1;
 	public static final String commentInstallerH3Span1 = "Comment installer VirtualBox pour la virtualisation ? ";
 	public static final String commentInstallerH3Span = commentInstallerH3Span1;
-	public static final String commentInstallerCourtH3Span1 = "Comment installer VirtualBox ? ";
-	public static final String commentInstallerCourtH3Span = commentInstallerCourtH3Span1;
-	public static final String commentInstallerH4I1 = "fab fa-cloud-download-alt";
+	public static final String commentInstallerH4I1 = "fas fa-cloud-download-alt";
 	public static final String commentInstallerH4I = commentInstallerH4I1;
 	public static final String commentInstallerH4Span1 = "Téléchargez-le simplement depuis virtualbox.org. ";
 	public static final String commentInstallerH4Span = commentInstallerH4Span1;
-	public static final String commentInstallerCourtH4Span1 = "Téléchargez-le depuis virtualbox.org";
-	public static final String commentInstallerCourtH4Span = commentInstallerCourtH4Span1;
 	public static final String commentInstallerPUlLi1Span1 = "VirtualBox est facile à télécharger et à installer. ";
 	public static final String commentInstallerPUlLi1Span = commentInstallerPUlLi1Span1;
 	public static final String commentInstallerPUlLi2Span1 = "Visitez cette URL : ";
@@ -257,45 +247,43 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
 	}
 	public void htmlBodyCommentInstaller(QuestionReponse o) {
-		{ e("h3").a("class", "").f();
-			{ e("i").a("class", commentInstallerH3I1, " site-menu-icon ").f();
+		{ e("h3").a("class", " commentInstallerH3 ").f();
+			{ e("i").a("class", commentInstallerH3I1, " site-menu-icon commentInstallerH3I ").f();
 			} g("i");
-			{ e("span").a("class", "").f();
-					sx(commentInstallerH3Span1);
-					sx(commentInstallerCourtH3Span1);
+			{ e("span").a("class", " commentInstallerH3Span ").f();
+				sx(commentInstallerH3Span1);
 			} g("span");
 		} g("h3");
-		{ e("h4").a("class", "").f();
-			{ e("i").a("class", commentInstallerH4I1, " site-menu-icon ").f();
+		{ e("h4").a("class", " commentInstallerH4 ").f();
+			{ e("i").a("class", commentInstallerH4I1, " site-menu-icon commentInstallerH4I ").f();
 			} g("i");
-			{ e("span").a("class", "").f();
-					sx(commentInstallerH4Span1);
-					sx(commentInstallerCourtH4Span1);
+			{ e("span").a("class", " commentInstallerH4Span ").f();
+				sx(commentInstallerH4Span1);
 			} g("span");
 		} g("h4");
-		{ e("p").a("class", "").f();
-			{ e("ul").a("class", "").f();
-				{ e("li").a("class", "").f();
-					{ e("span").a("class", "").f();
-							sx(commentInstallerPUlLi1Span1);
+		{ e("p").a("class", " commentInstallerP ").f();
+			{ e("ul").a("class", " commentInstallerPUl ").f();
+				{ e("li").a("class", " commentInstallerPUlLi1 commentInstallerPUlLi odd ").f();
+					{ e("span").a("class", " commentInstallerPUlLi1Span ").f();
+						sx(commentInstallerPUlLi1Span1);
 					} g("span");
 				} g("li");
-				{ e("li").a("class", "").f();
-					{ e("span").a("class", "").f();
-							sx(commentInstallerPUlLi2Span1);
+				{ e("li").a("class", " commentInstallerPUlLi2 commentInstallerPUlLi even ").f();
+					{ e("span").a("class", " commentInstallerPUlLi2Span ").f();
+						sx(commentInstallerPUlLi2Span1);
 					} g("span");
-					{ e("a").a("class", "").f();
-							sx(commentInstallerPUlLi2A1);
+					{ e("a").a("class", " commentInstallerPUlLi2A ").f();
+						sx(commentInstallerPUlLi2A1);
 					} g("a");
 				} g("li");
-				{ e("li").a("class", "").f();
-					{ e("span").a("class", "").f();
-							sx(commentInstallerPUlLi3Span1);
+				{ e("li").a("class", " commentInstallerPUlLi3 commentInstallerPUlLi odd ").f();
+					{ e("span").a("class", " commentInstallerPUlLi3Span ").f();
+						sx(commentInstallerPUlLi3Span1);
 					} g("span");
 				} g("li");
-				{ e("li").a("class", "").f();
-					{ e("span").a("class", "").f();
-							sx(commentInstallerPUlLi4Span1);
+				{ e("li").a("class", " commentInstallerPUlLi4 commentInstallerPUlLi even ").f();
+					{ e("span").a("class", " commentInstallerPUlLi4Span ").f();
+						sx(commentInstallerPUlLi4Span1);
 					} g("span");
 				} g("li");
 			} g("ul");
@@ -305,6 +293,275 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		commentInstaller.htmlAvant();
 		htmlBodyCommentInstaller(commentInstaller);
 		commentInstaller.htmlApres();
+	}
+
+	//////////////////
+	// recapituler1 //
+	//////////////////
+
+	public static final String recapituler1H31 = "À récapituler : ";
+	public static final String recapituler1H3 = recapituler1H31;
+
+	/**	L'entité « recapituler1 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml recapituler1 = new PageHtml();
+	public Couverture<PageHtml> recapituler1Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("recapituler1").o(recapituler1);
+
+	/**	<br/>L'entité « recapituler1 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:recapituler1">Trouver l'entité recapituler1 dans Solr</a>
+	 * <br/>
+	 * @param recapituler1 est l'entité déjà construit. 
+	 **/
+	protected abstract void _recapituler1(PageHtml o);
+
+	public PageHtml getRecapituler1() {
+		return recapituler1;
+	}
+
+	public void setRecapituler1(PageHtml recapituler1) {
+		this.recapituler1 = recapituler1;
+		this.recapituler1Couverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox recapituler1Init() {
+		if(recapituler1 != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(recapituler1, "recapituler1");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(recapituler1, "recapituler1");
+		}
+		if(!recapituler1Couverture.dejaInitialise) {
+			_recapituler1(recapituler1);
+		}
+		recapituler1.initLoinPourClasse(requeteSite_);
+		recapituler1Couverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyRecapituler1(PageHtml o) {
+		{ e("h3").a("class", " recapituler1H3 ").f();
+			sx(recapituler1H31);
+		} g("h3");
+	}
+	public void htmlBodyRecapituler1() {
+		recapituler1.htmlAvant();
+		htmlBodyRecapituler1(recapituler1);
+		recapituler1.htmlApres();
+	}
+
+	//////////////////
+	// recapituler2 //
+	//////////////////
+
+	public static final String recapituler2TableTr1Td11 = "Mardi ";
+	public static final String recapituler2TableTr1Td1 = recapituler2TableTr1Td11;
+	public static final String recapituler2TableTr1Td2I1 = "fab fa-linux";
+	public static final String recapituler2TableTr1Td2I = recapituler2TableTr1Td2I1;
+	public static final String recapituler2TableTr1Td3I1 = "fas fa-network-wired";
+	public static final String recapituler2TableTr1Td3I = recapituler2TableTr1Td3I1;
+	public static final String recapituler2TableTr1Td4I1 = "fas fa-pen-nib";
+	public static final String recapituler2TableTr1Td4I = recapituler2TableTr1Td4I1;
+	public static final String recapituler2TableTr2Td11 = "23 Avril 2019";
+	public static final String recapituler2TableTr2Td1 = recapituler2TableTr2Td11;
+	public static final String recapituler2TableTr2Td21 = "Comment essayer CentOS 7";
+	public static final String recapituler2TableTr2Td2 = recapituler2TableTr2Td21;
+	public static final String recapituler2TableTr2Td31 = "Sur une machine virtuelle";
+	public static final String recapituler2TableTr2Td3 = recapituler2TableTr2Td31;
+	public static final String recapituler2TableTr2Td41 = "Par Christophe Tate";
+	public static final String recapituler2TableTr2Td4 = recapituler2TableTr2Td41;
+
+	/**	L'entité « recapituler2 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml recapituler2 = new PageHtml();
+	public Couverture<PageHtml> recapituler2Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("recapituler2").o(recapituler2);
+
+	/**	<br/>L'entité « recapituler2 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:recapituler2">Trouver l'entité recapituler2 dans Solr</a>
+	 * <br/>
+	 * @param recapituler2 est l'entité déjà construit. 
+	 **/
+	protected abstract void _recapituler2(PageHtml o);
+
+	public PageHtml getRecapituler2() {
+		return recapituler2;
+	}
+
+	public void setRecapituler2(PageHtml recapituler2) {
+		this.recapituler2 = recapituler2;
+		this.recapituler2Couverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox recapituler2Init() {
+		if(recapituler2 != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(recapituler2, "recapituler2");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(recapituler2, "recapituler2");
+		}
+		if(!recapituler2Couverture.dejaInitialise) {
+			_recapituler2(recapituler2);
+		}
+		recapituler2.initLoinPourClasse(requeteSite_);
+		recapituler2Couverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyRecapituler2(PageHtml o) {
+		{ e("table").a("class", " recapituler2Table ").f();
+			{ e("tr").a("class", " recapituler2TableTr1 recapituler2TableTr odd ").f();
+				{ e("td").a("class", " recapituler2TableTr1Td1 recapituler2TableTr1Td odd ").f();
+					sx(recapituler2TableTr1Td11);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr1Td2 recapituler2TableTr1Td even ").f();
+					{ e("i").a("class", recapituler2TableTr1Td2I1, " site-menu-icon recapituler2TableTr1Td2I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr1Td3 recapituler2TableTr1Td odd ").f();
+					{ e("i").a("class", recapituler2TableTr1Td3I1, " site-menu-icon recapituler2TableTr1Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr1Td4 recapituler2TableTr1Td even ").f();
+					{ e("i").a("class", recapituler2TableTr1Td4I1, " site-menu-icon recapituler2TableTr1Td4I ").f();
+					} g("i");
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler2TableTr2 recapituler2TableTr even ").f();
+				{ e("td").a("class", " recapituler2TableTr2Td1 recapituler2TableTr2Td odd ").f();
+					sx(recapituler2TableTr2Td11);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr2Td2 recapituler2TableTr2Td even ").f();
+					sx(recapituler2TableTr2Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr2Td3 recapituler2TableTr2Td odd ").f();
+					sx(recapituler2TableTr2Td31);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr2Td4 recapituler2TableTr2Td even ").f();
+					sx(recapituler2TableTr2Td41);
+				} g("td");
+			} g("tr");
+		} g("table");
+	}
+	public void htmlBodyRecapituler2() {
+		recapituler2.htmlAvant();
+		htmlBodyRecapituler2(recapituler2);
+		recapituler2.htmlApres();
+	}
+
+	//////////////////
+	// recapituler3 //
+	//////////////////
+
+	public static final String recapituler3TableTr1Td1I1 = "fas fa-eraser";
+	public static final String recapituler3TableTr1Td1I = recapituler3TableTr1Td1I1;
+	public static final String recapituler3TableTr1Td21 = "Linux va-t-il détruire mon système d'exploitation ? ";
+	public static final String recapituler3TableTr1Td2 = recapituler3TableTr1Td21;
+	public static final String recapituler3TableTr1Td3I1 = "fab fa-linux";
+	public static final String recapituler3TableTr1Td3I = recapituler3TableTr1Td3I1;
+	public static final String recapituler3TableTr1Td41 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
+	public static final String recapituler3TableTr1Td4 = recapituler3TableTr1Td41;
+	public static final String recapituler3TableTr2Td1I1 = "fas fa-person-carry";
+	public static final String recapituler3TableTr2Td1I = recapituler3TableTr2Td1I1;
+	public static final String recapituler3TableTr2Td21 = "Comment installer VirtualBox ? ";
+	public static final String recapituler3TableTr2Td2 = recapituler3TableTr2Td21;
+	public static final String recapituler3TableTr2Td3I1 = "fas fa-cloud-download-alt";
+	public static final String recapituler3TableTr2Td3I = recapituler3TableTr2Td3I1;
+	public static final String recapituler3TableTr2Td41 = "Téléchargez-le depuis virtualbox.org";
+	public static final String recapituler3TableTr2Td4 = recapituler3TableTr2Td41;
+	public static final String recapituler3TableTr3Td1I1 = "fas fa-play-circle";
+	public static final String recapituler3TableTr3Td1I = recapituler3TableTr3Td1I1;
+	public static final String recapituler3TableTr3Td21 = "Préparer CentOS 7 pour installer VirtualBox";
+	public static final String recapituler3TableTr3Td2 = recapituler3TableTr3Td21;
+	public static final String recapituler3TableTr3Td3I1 = "fas fa-download";
+	public static final String recapituler3TableTr3Td3I = recapituler3TableTr3Td3I1;
+	public static final String recapituler3TableTr3Td41 = "Installer le dépot yum virtualbox";
+	public static final String recapituler3TableTr3Td4 = recapituler3TableTr3Td41;
+
+	/**	L'entité « recapituler3 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml recapituler3 = new PageHtml();
+	public Couverture<PageHtml> recapituler3Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("recapituler3").o(recapituler3);
+
+	/**	<br/>L'entité « recapituler3 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:recapituler3">Trouver l'entité recapituler3 dans Solr</a>
+	 * <br/>
+	 * @param recapituler3 est l'entité déjà construit. 
+	 **/
+	protected abstract void _recapituler3(PageHtml o);
+
+	public PageHtml getRecapituler3() {
+		return recapituler3;
+	}
+
+	public void setRecapituler3(PageHtml recapituler3) {
+		this.recapituler3 = recapituler3;
+		this.recapituler3Couverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox recapituler3Init() {
+		if(recapituler3 != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(recapituler3, "recapituler3");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(recapituler3, "recapituler3");
+		}
+		if(!recapituler3Couverture.dejaInitialise) {
+			_recapituler3(recapituler3);
+		}
+		recapituler3.initLoinPourClasse(requeteSite_);
+		recapituler3Couverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyRecapituler3(PageHtml o) {
+		{ e("table").a("class", " recapituler3Table ").f();
+			{ e("tr").a("class", " recapituler3TableTr1 recapituler3TableTr odd ").f();
+				{ e("td").a("class", " recapituler3TableTr1Td1 recapituler3TableTr1Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr1Td1I1, " site-menu-icon recapituler3TableTr1Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr1Td2 recapituler3TableTr1Td even ").f();
+					sx(recapituler3TableTr1Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr1Td3 recapituler3TableTr1Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr1Td3I1, " site-menu-icon recapituler3TableTr1Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr1Td4 recapituler3TableTr1Td even ").f();
+					sx(recapituler3TableTr1Td41);
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr2 recapituler3TableTr even ").f();
+				{ e("td").a("class", " recapituler3TableTr2Td1 recapituler3TableTr2Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr2Td1I1, " site-menu-icon recapituler3TableTr2Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr2Td2 recapituler3TableTr2Td even ").f();
+					sx(recapituler3TableTr2Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr2Td3 recapituler3TableTr2Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr2Td3I1, " site-menu-icon recapituler3TableTr2Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr2Td4 recapituler3TableTr2Td even ").f();
+					sx(recapituler3TableTr2Td41);
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr3 recapituler3TableTr odd ").f();
+				{ e("td").a("class", " recapituler3TableTr3Td1 recapituler3TableTr3Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr3Td1I1, " site-menu-icon recapituler3TableTr3Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr3Td2 recapituler3TableTr3Td even ").f();
+					sx(recapituler3TableTr3Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr3Td3 recapituler3TableTr3Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr3Td3I1, " site-menu-icon recapituler3TableTr3Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr3Td4 recapituler3TableTr3Td even ").f();
+					sx(recapituler3TableTr3Td41);
+				} g("td");
+			} g("tr");
+		} g("table");
+	}
+	public void htmlBodyRecapituler3() {
+		recapituler3.htmlAvant();
+		htmlBodyRecapituler3(recapituler3);
+		recapituler3.htmlApres();
 	}
 
 	//////////////
@@ -331,6 +588,9 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		moiInit();
 		ecraserInit();
 		commentInstallerInit();
+		recapituler1Init();
+		recapituler2Init();
+		recapituler3Init();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -349,6 +609,12 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			ecraser.setRequeteSite_(requeteSite_);
 		if(commentInstaller != null)
 			commentInstaller.setRequeteSite_(requeteSite_);
+		if(recapituler1 != null)
+			recapituler1.setRequeteSite_(requeteSite_);
+		if(recapituler2 != null)
+			recapituler2.setRequeteSite_(requeteSite_);
+		if(recapituler3 != null)
+			recapituler3.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -381,6 +647,12 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 				return oC001L003InstallerMachineVirtuelleVirtualBox.ecraser;
 			case "commentInstaller":
 				return oC001L003InstallerMachineVirtuelleVirtualBox.commentInstaller;
+			case "recapituler1":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.recapituler1;
+			case "recapituler2":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.recapituler2;
+			case "recapituler3":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.recapituler3;
 			default:
 				return super.obtenirC001Lecon(var);
 		}
@@ -565,6 +837,12 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			ecraser.htmlBodyCourt();
 		if(commentInstaller != null)
 			commentInstaller.htmlBodyCourt();
+		if(recapituler1 != null)
+			recapituler1.htmlBodyCourt();
+		if(recapituler2 != null)
+			recapituler2.htmlBodyCourt();
+		if(recapituler3 != null)
+			recapituler3.htmlBodyCourt();
 	}
 
 	//////////////
@@ -580,6 +858,9 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyMoi();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyEcraser();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyCommentInstaller();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyRecapituler1();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyRecapituler2();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyRecapituler3();
 	}
 
 	//////////////
@@ -615,5 +896,5 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		return sb.toString();
 	}
 
-	public static final String[] C001L003InstallerMachineVirtuelleVirtualBoxVals = new String[] { moiP1, moiP2, ecraserH3I1, ecraserH3Span1, ecraserCourtH3Span1, ecraserH4I1, ecraserH4Span1, ecraserCourtH4Span1, ecraserPDiv1, ecraserPDiv2, ecraserPDiv3, ecraserPDiv4, ecraserPDiv5, ecraserPDiv6, commentInstallerH3I1, commentInstallerH3Span1, commentInstallerCourtH3Span1, commentInstallerH4I1, commentInstallerH4Span1, commentInstallerCourtH4Span1, commentInstallerPUlLi1Span1, commentInstallerPUlLi2Span1, commentInstallerPUlLi2A1, commentInstallerPUlLi3Span1, commentInstallerPUlLi4Span1 };
+	public static final String[] C001L003InstallerMachineVirtuelleVirtualBoxVals = new String[] { moiP1, moiP2, ecraserH3I1, ecraserH3Span1, ecraserH4I1, ecraserH4Span1, ecraserPDiv1, ecraserPDiv2, ecraserPDiv3, ecraserPDiv4, ecraserPDiv5, ecraserPDiv6, commentInstallerH3I1, commentInstallerH3Span1, commentInstallerH4I1, commentInstallerH4Span1, commentInstallerPUlLi1Span1, commentInstallerPUlLi2Span1, commentInstallerPUlLi2A1, commentInstallerPUlLi3Span1, commentInstallerPUlLi4Span1, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41, recapituler3TableTr2Td1I1, recapituler3TableTr2Td21, recapituler3TableTr2Td3I1, recapituler3TableTr2Td41, recapituler3TableTr3Td1I1, recapituler3TableTr3Td21, recapituler3TableTr3Td3I1, recapituler3TableTr3Td41 };
 }

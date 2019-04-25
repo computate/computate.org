@@ -245,12 +245,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				s("/*]]>*/").g("style");
 	
 			} g("head");
-			{ e("body").a("class", "w3-light-grey ").f(); 
-				{ e("div").a("class", "w3-margin-top ").f();
-					{ e("div").a("class", "w3-row w3-margin-left ").f();
+			{ e("body").a("class", "").f(); 
 						htmlBodyCourt();
-					} g("div");
-				} g("div");
 			} g("body");
 		} g("html");
 	}
@@ -310,6 +306,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/w3.css").fg();
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/site.css").fg();
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/datePicker.css").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Anton").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Khand").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Raleway").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.7.1/css/all.css").a("integrity", "sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev").a("crossorigin", "anonymous").fg();
@@ -393,10 +390,10 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 									{ t(3).e("div").a("class", "w3-card w3-padding w3-margin-top w3-show w3-white ").f();
 										htmlBody();
 									} t(3).g("div");
-	
-									{ t(3).e("div").a("class", "w3-row ").f();
-										htmlBodyCourt();
-									} t(3).g("div");
+//	
+//									{ t(3).e("div").a("class", "w3-row ").f();
+//										htmlBodyCourt();
+//									} t(3).g("div");
 		
 									abondonnezPas();
 		

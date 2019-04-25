@@ -103,6 +103,15 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 		addPageRecherche_frFR(C001L001ChoisirNomDomaineVals);
 	}
 
+	public void htmlBody() {
+		super.htmlBody();
+	}
+
+	public void htmlBodyCourt() {
+		htmlBodyRecapituler2();
+		htmlBodyRecapituler3();
+	}
+
 	/**
 	 * 
 	 * Val.P.frFR:Envisagez-vous de créer votre propre site Web ? 
@@ -110,16 +119,7 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	 * Val.P.enUS:Are you thinking about launching your own website? 
 	 * Val.P.enUS:Are you wondering what the very first step is to creating your own website? 
 	 */
-	protected void _intro(PageParagraphe o) {
-		o.getTexte().s(introP);
-	}
-
-	public void htmlBody() {
-		super.htmlBody();
-	}
-
-	public void htmlBodyCourt() {
-		super.htmlBodyCourt();
+	protected void _intro(PageHtml o) {
 	}
 
 	/**
@@ -131,20 +131,16 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	 * Val.P.enUS:I will help you create your own successful website, on your own computer, using open-source software. 
 	 * Val.P.enUS:The first thing you should do is choose your domain name so you can get started in the right direction. 
 	 */
-	protected void _moi(PageParagraphe o) {
-		o.getTexte().s(moiP);
+	protected void _moi(PageHtml o) {
 	}
 
 	/**
-	 * 
-	 * Val.Question.frFR:Est-t-il important d'acheter un nom de domaine à l'avance ? 
-	 * Val.Question.enUS:Is it important to purchase a domain name ahead of time? 
-	 * Val.QuestionCourt.frFR:Devrais je l'acheter à l'avance ? 
-	 * Val.QuestionCourt.enUS:Should I buy it ahead of time? 
-	 * Val.Reponse.frFR:Vous devez savoir maintenant comment vous appelez votre site, afin que vous ne seriez pas perdu. 
-	 * Val.Reponse.enUS:You need to know now what your site will be called so you don't get lost. 
-	 * Val.ReponseCourt.frFR:Savoir maintenant comment vous appelez votre site
-	 * Val.ReponseCourt.enUS:Know what your site will be called
+	 * Val.H3I:fas fa-history
+	 * Val.H3Span.frFR:Est-t-il important d'acheter un nom de domaine à l'avance ? 
+	 * Val.H3Span.enUS:Is it important to purchase a domain name ahead of time? 
+	 * Val.H4I:fas fa-map-pin
+	 * Val.H4Span.frFR:Vous devez savoir maintenant comment vous appelez votre site, afin que vous ne seriez pas perdu. 
+	 * Val.H4Span.enUS:You need to know now what your site will be called so you don't get lost. 
 	 * Val.P.frFR:Vous pouvez commencer aujourd'hui avec votre propre ordinateur à construire votre propre site Web, mais vous devez comprendre ce que le site s'appele. 
 	 * Val.P.frFR:Le destin du nom de votre ordinateur en dépend. 
 	 * Val.P.frFR:Les répertoires où vous mettez votre site Web l'attendent. 
@@ -156,83 +152,42 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	 * Val.P.enUS:All the applications that are part of the website will need to know it. 
 	 * Val.P.enUS:So go take some time and think of the perfect .com, .org or .whatever that will represent your vision, and then come back here and I'll help you from there. 
 	 */  
-	protected void _aLAvance(QuestionReponse o) {      
-
-		o.questionIcone("fas", "history");
-		o.setQuestion(aLAvanceQuestion);
-		o.setQuestionCourt(aLAvanceQuestionCourt);
-
-		o.reponseIcone("fas", "map-pin");
-		o.setReponse(aLAvanceReponse);
-		o.setReponseCourt(aLAvanceReponseCourt);
+	protected void _aLAvance(PageHtml o) {      
 	}
-	public void htmlBodyALAvance() {
-		e("p").f();
-			sx(aLAvanceP);
-		g("p");
+
+	/**  
+	 * Val.H3I:fas fa-credit-card
+	 * Val.H3Span.frFR:Où puis-je acheter un nom de domaine ? 
+	 * Val.H3Span.enUS:Where can I purchase a domain name? 
+	 * Val.H4I:fas fa-building
+	 * Val.H4Span.frFR:Il y a tellement d'enregistreurs de noms de domaine à choisir, mais vous pouvez essayer brinkster.com ou gandi.net. 
+	 * Val.H4Span.enUS:There are so many domain name registrars to choose from, but you might try brinkster.com or gandi.net. 
+	 * Val.PSpan1.frFR:Je ne peux pas vous dire où l'endroit le moins cher ou le lieu le plus digne de confiance est d'acheter le nom de domaine de votre site. 
+	 * Val.PSpan1.frFR:Mais je peux vous dire où j'ai acheté le mien il y a 12 ans, c'est 
+	 * Val.PSpan1A.frFR:https://secure.brinkster.com/Domains/
+	 * Val.PSpan2.frFR:. Mais brinkster.com n'est pas le moins chèr ($ 19.83 cette année). 
+	 * Val.PSpan2.frFR:Peut-être vous voulez essayer 
+	 * Val.PSpan2A.frFR:https://www.gandi.net/fr
+	 * Val.PSpan3.frFR:. Leurs prix varient, mais ils ont des noms de domaine publicitaire à un bon prix, et beaucoup d'autres options à choisir. 
+	 * Val.PSpan1.enUS:I can't tell you where the cheapest place or most trustworthy place is to purchase your site's domain name. 
+	 * Val.PSpan1.enUS:But I can tell you where I purchased mine 12 years ago, which is 
+	 * Val.PSpan1A1.enUS:https://secure.brinkster.com/Domains/
+	 * Val.PSpan2.enUS:. But brinkster.com is not the cheapest ($19.83 this year). 
+	 * Val.PSpan2.enUS:You may also want to try 
+	 * Val.PSpan2A2.enUS:https://www.gandi.net/en
+	 * Val.PSpan3.enUS:. Their prices vary, but they have very cheap promotional domain names, and many more options to choose from. 
+	 */   
+	protected void _acheter(PageHtml o) {      
 	}
 
 	/**  
 	 * 
-	 * Val.Question.frFR:Où puis-je acheter un nom de domaine ? 
-	 * Val.Question.enUS:Where can I purchase a domain name? 
-	 * Val.QuestionCourt.frFR:Où puis-je acheter un nom de domaine ? 
-	 * Val.QuestionCourt.enUS:Where can I purchase a domain name? 
-	 * Val.Reponse.frFR:Il y a tellement d'enregistreurs de noms de domaine à choisir, mais vous pouvez essayer brinkster.com ou gandi.net. 
-	 * Val.Reponse.enUS:There are so many domain name registrars to choose from, but you might try brinkster.com or gandi.net. 
-	 * Val.ReponseCourt.frFR:Essayez brinkster.com ou gandi.net
-	 * Val.ReponseCourt.enUS:Try brinkster.com or gandi.net
-	 * Val.P.frFR:Je ne peux pas vous dire où l'endroit le moins cher ou le lieu le plus digne de confiance est d'acheter le nom de domaine de votre site. 
-	 * Val.P.frFR:Mais je peux vous dire où j'ai acheté le mien il y a 12 ans, c'est 
-	 * Val.P.frFR:. Mais brinkster.com n'est pas le moins chèr ($ 19.83 cette année). 
-	 * Val.P.frFR:Peut-être vous voulez essayer 
-	 * Val.P.frFR:. Leurs prix varient, mais ils ont des noms de domaine publicitaire à un bon prix, et beaucoup d'autres options à choisir. 
-	 * Val.P.enUS:I can't tell you where the cheapest place or most trustworthy place is to purchase your site's domain name. 
-	 * Val.P.enUS:But I can tell you where I purchased mine 12 years ago, which is 
-	 * Val.P.enUS:. But brinkster.com is not the cheapest ($19.83 this year). 
-	 * Val.P.enUS:You may also want to try 
-	 * Val.P.enUS:. Their prices vary, but they have very cheap promotional domain names, and many more options to choose from. 
-	 */     
-	protected void _acheter(QuestionReponse o) {      
-
-		o.questionIcone("fas", "credit-card");
-		o.setQuestion(acheterQuestion);
-		o.setQuestionCourt(acheterQuestionCourt);
-
-		o.reponseIcone("fas", "building");
-		o.setReponse(acheterReponse);
-		o.setReponseCourt(acheterReponseCourt);
-	}
-	public void htmlBodyAcheter() { 
-		e("p").f();
-			e("span").f();
-				sx(acheterP1, acheterP2);
-			g("span");
-			e("a").a("href", "https://secure.brinkster.com/Domains/").f();
-				sx("brinkster.com");
-			g("a");
-			e("span").f();
-				sx(acheterP3, acheterP4);
-			g("span");
-			e("a").a("href", "https://secure.brinkster.com/Domains/").f();
-				sx("gandi.net");
-			g("a");
-			e("span").f();
-				sx(acheterP5);
-			g("span");
-		g("p");
-	}
-
-	/**  
-	 * 
-	 * Val.Question.frFR:Qu'est-ce que je choisis comme un nom de domaine ? 
-	 * Val.Question.enUS:What do I choose for a domain name? 
-	 * Val.QuestionCourt.frFR:Qu'est-ce que je choisis comme un nom de domaine ? 
-	 * Val.QuestionCourt.enUS:What do I choose for a domain name? 
-	 * Val.Reponse.frFR:Trouver un nom de domaine qui atteindra votre public. 
-	 * Val.Reponse.enUS:Find a domain name that will reach your audience. 
-	 * Val.ReponseCourt.frFR:Atteindra votre public
-	 * Val.ReponseCourt.enUS:Reach your audience
+	 * Val.H3I:fab fa-wpforms
+	 * Val.H3Span.frFR:Qu'est-ce que je choisis comme un nom de domaine ? 
+	 * Val.H3Span.enUS:What do I choose for a domain name? 
+	 * Val.H4I:fas fa-bullhorn
+	 * Val.H4Span.frFR:Trouver un nom de domaine qui atteindra votre public. 
+	 * Val.H4Span.enUS:Find a domain name that will reach your audience. 
 	 * Val.P.frFR:Je ne connais pas votre passion, mais trouvez un nom de domaine qui atteindra votre public. 
 	 * Val.P.frFR:C'est bon si c'est court. 
 	 * Val.P.frFR:Que ce soit un .com, ou .org, ou .fr, tout dépend de vous aussi. 
@@ -242,176 +197,89 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	 * Val.P.enUS:Whether it is a .com, or .org, or .net or whatever is up to you too. 
 	 * Val.P.enUS:Just make it a place you will be proud of someday! 
 	 */     
-	protected void _appeler(QuestionReponse o) {      
-
-		o.questionIcone("fab", "wpforms");
-		o.setQuestion(appelerQuestion);
-		o.setQuestionCourt(appelerQuestionCourt);
-
-		o.reponseIcone("fas", "bullhorn");
-		o.setReponse(appelerReponse);
-		o.setReponseCourt(appelerReponseCourt);
-	}
-	public void htmlBodyAppeler() { 
-		e("p").f();
-			e("span").f();
-				sx(appelerP);
-			g("span");
-		g("p");
+	protected void _appeler(PageHtml o) {      
 	}
 
 	/**  
 	 * 
-	 * Val.Question.frFR:Qu'est-ce que je fais après j'ai acheté un nom de domaine ? 
-	 * Val.Question.enUS:What do I do after I bought a domain name? 
-	 * Val.QuestionCourt.frFR:Quoi faire après j'ai acheté un nom de domaine ? 
-	 * Val.QuestionCourt.enUS:What do I do after I bought a domain name? 
-	 * Val.Reponse.frFR:Gérer votre domaine. 
-	 * Val.Reponse.enUS:Manage your domain. 
-	 * Val.ReponseCourt.frFR:Gérer votre domaine
-	 * Val.ReponseCourt.enUS:Manage your domain
-	 * Val.P.frFR:Laissez-moi vous montrer comment gérer un nom de domaine. 
-	 * Val.P.frFR:Je vais me connecter au site de mon propre enregistreur, 
-	 * Val.P.frFR:. 
-	 * Val.P.enUS:Let me show you what it's like to manage a domain name. 
-	 * Val.P.enUS:I will log into my own registrar's site, 
-	 * Val.P.enUS:. 
+	 * Val.H3I:fas fa-cart-plus
+	 * Val.H3Span.frFR:Qu'est-ce que je fais après j'ai acheté un nom de domaine ? 
+	 * Val.H3Span.enUS:What do I do after I bought a domain name? 
+	 * Val.H4I:fas fa-clipboard-check
+	 * Val.H4Span.frFR:Gérer votre domaine. 
+	 * Val.H4Span.enUS:Manage your domain. 
+	 * Val.PSpan1.frFR:Laissez-moi vous montrer comment gérer un nom de domaine. 
+	 * Val.PSpan1.frFR:Je vais me connecter au site de mon propre enregistreur, 
+	 * Val.PSpan1A.frFR:https://secure.brinkster.com/
+	 * Val.PSpan2.frFR:. 
+	 * Val.PSpan1.enUS:Let me show you what it's like to manage a domain name. 
+	 * Val.PSpan1.enUS:I will log into my own registrar's site, 
+	 * Val.PSpan1A.enUS:https://secure.brinkster.com/
+	 * Val.PSpan2.enUS:. 
 	 */     
-	protected void _apres1(QuestionReponse o) {      
-
-		o.questionIcone("fas", "cart-plus");
-		o.setQuestion(apres1Question);
-		o.setQuestionCourt(apres1QuestionCourt);
-
-		o.reponseIcone("fas", "clipboard-check");
-		o.setReponse(apres1Reponse);
-		o.setReponseCourt(apres1ReponseCourt);
-	}
-	public void htmlBodyApres1() { 
-		e("p").f();
-			e("span").f();
-				sx(apres1P1, apres1P2);
-			g("span");
-			e("a").a("href", "https://www.brinkster.com").f();
-				sx("brinkster.com");
-			g("a");
-			e("span").f();
-				sx(apres1P3);
-			g("span");
-		g("p");
+	protected void _apres1(PageHtml o) {      
 	}
 
 	/**  
-	 * Val.P.frFR:Je clique sur « Login ». 
-	 * Val.P.frFR:Je clique encore sur « Login ». 
-	 * Val.P.frFR:Je clique sur « DOMAIN NAMES ». 
-	 * Val.P.frFR:Et là vous pouvez voir mes noms de domaine qui sont encore vivants, et ceux qui sont morts. 
-	 * Val.P.frFR:Ainsi, les domaines expirent chaque année et peuvent être renouvelés chaque année. 
-	 * Val.P.frFR:Je peux également gérer mon site, je clique sur « Manage ». 
-	 * Val.P.enUS:I click on "Login". 
-	 * Val.P.enUS:I click again on "Login". 
-	 * Val.P.enUS:I click on "DOMAIN NAMES". 
-	 * Val.P.enUS:And there you can see my domain names that are still alive, and those that are dead. 
-	 * Val.P.enUS:So domains expire yearly, and they can be renewed each year. 
-	 * Val.P.enUS:I can also manage my site, so I will click on "Manage". 
+	 * Val.UlLi1.frFR:Je clique sur « Login ». 
+	 * Val.UlLi2.frFR:Je clique encore sur « Login ». 
+	 * Val.UlLi3.frFR:Je clique sur « DOMAIN NAMES ». 
+	 * Val.UlLi3.frFR:Et là vous pouvez voir mes noms de domaine qui sont encore vivants, et ceux qui sont morts. 
+	 * Val.UlLi3.frFR:Ainsi, les domaines expirent chaque année et peuvent être renouvelés chaque année. 
+	 * Val.UlLi4.frFR:Je peux également gérer mon site, je clique sur « Manage ». 
+	 * Val.UlLi1.enUS:I click on "Login". 
+	 * Val.UlLi2.enUS:I click again on "Login". 
+	 * Val.UlLi3.enUS:I click on "DOMAIN NAMES". 
+	 * Val.UlLi3.enUS:And there you can see my domain names that are still alive, and those that are dead. 
+	 * Val.UlLi3.enUS:So domains expire yearly, and they can be renewed each year. 
+	 * Val.UlLi4.enUS:I can also manage my site, so I will click on "Manage". 
 	 */     
 	protected void _apres2(PageHtml o) {      
 	}
 	public void htmlBodyApres2() { 
-		e("ul").f();
-			e("li").f();
-				e("span").f();
-					sx(apres2P1);
-				g("span");
-			g("li");
-			e("li").f();
-				e("span").f();
-					sx(apres2P2);
-				g("span");
-			g("li");
-			e("li").f();
-				e("span").f();
-					sx(apres2P3, apres2P4, apres2P5);
-				g("span");
-			g("li");
-			e("li").f();
-				e("span").f();
-					sx(apres2P6);
-				g("span");
-			g("li");
-		g("ul");
 	}
 
 	/**  
-	 * Val.P.frFR:Si je clique sur « Update Domain Registrant Information », je peux mettre à jour mon nom et mon adresse pour m'assurer que je reçois du spam de tous les internautes qui ont remarqué que j'ai créé un nouveau domaine. 
-	 * Val.P.frFR:Je recommanderais un Boîte à la poste pour votre entreprise, plutôt que votre adresse personnelle, pour plus d'intimité. 
-	 * Val.P.enUS:If I click on "Update Domain Registrant Information" I can update my name and address information to make sure I receive spam from everyone on the Web who noticed I created a new domain. 
-	 * Val.P.enUS:I would recommend a P.O. Box for your business, rather than your home address, for more privacy. 
+	 * Val.UlLi1.frFR:Si je clique sur « Update Domain Registrant Information », je peux mettre à jour mon nom et mon adresse pour m'assurer que je reçois du spam de tous les internautes qui ont remarqué que j'ai créé un nouveau domaine. 
+	 * Val.UlLi1.frFR:Je recommanderais un Boîte à la poste pour votre entreprise, plutôt que votre adresse personnelle, pour plus d'intimité. 
+	 * Val.UlLi1.enUS:If I click on "Update Domain Registrant Information" I can update my name and address information to make sure I receive spam from everyone on the Web who noticed I created a new domain. 
+	 * Val.UlLi1.enUS:I would recommend a P.O. Box for your business, rather than your home address, for more privacy. 
 	 */     
 	protected void _apres3(PageHtml o) {      
 	}
-	public void htmlBodyApres3() { 
-		e("ul").f();
-			e("li").f();
-				e("span").f();
-					sx(apres3P);
-				g("span");
-			g("li");
-		g("ul");
-	}
 
 	/**  
-	 * Val.P.frFR:Si je reviens et clique sur « Update Name Servers », je peux rediriger mon site vers une autre société DNS que mon registraire, brinkster.com. 
-	 * Val.P.frFR:C'est pratique pour moi, car j'utilise en fait mon fournisseur de messagerie SMTP fastmail.com comme fournisseur DNS, donc j'ai mis les serveurs de noms de mon fournisseur DNS là-bas. 
-	 * Val.P.frFR:Vous n'avez pas besoin d'un fournisseur de DNS différent, vous pouvez également utiliser votre bureau d'enregistrement pour le courrier électronique, mais j'ai choisi Fastmail pour leur confidentialité et leur excellente interface de messagerie. 
-	 * Val.P.enUS:If I go back and click on "Update Name Servers" I can point my website to a different DNS company than my registrar, brinkster.com. 
-	 * Val.P.enUS:This is handy for me, because I actually use my email SMTP provider fastmail.com as my DNS provider, so I put in the name servers of my DNS provider there. 
-	 * Val.P.enUS:You don't need a different DNS provider, you can usually use your registrar for email as well, but I choose fastmail for their privacy and excellent email interface. 
+	 * Val.UlLi1.frFR:Si je reviens et clique sur « Update Name Servers », je peux rediriger mon site vers une autre société DNS que mon registraire, brinkster.com. 
+	 * Val.UlLi1.frFR:C'est pratique pour moi, car j'utilise en fait mon fournisseur de messagerie SMTP fastmail.com comme fournisseur DNS, donc j'ai mis les serveurs de noms de mon fournisseur DNS là-bas. 
+	 * Val.UlLi1.frFR:Vous n'avez pas besoin d'un fournisseur de DNS différent, vous pouvez également utiliser votre bureau d'enregistrement pour le courrier électronique, mais j'ai choisi Fastmail pour leur confidentialité et leur excellente interface de messagerie. 
+	 * Val.UlLi1.enUS:If I go back and click on "Update Name Servers" I can point my website to a different DNS company than my registrar, brinkster.com. 
+	 * Val.UlLi1.enUS:This is handy for me, because I actually use my email SMTP provider fastmail.com as my DNS provider, so I put in the name servers of my DNS provider there. 
+	 * Val.UlLi1.enUS:You don't need a different DNS provider, you can usually use your registrar for email as well, but I choose fastmail for their privacy and excellent email interface. 
 	 */     
 	protected void _apres4(PageHtml o) {      
 	}
-	public void htmlBodyApres4() { 
-		e("ul").f();
-			e("li").f();
-				e("span").f();
-					sx(apres4P);
-				g("span");
-			g("li");
-		g("ul");
-	}
 
 	/**  
-	 * Val.P.frFR:Dans un futur leçon, nous parlerons de la création d'une adresse IP statique afin que les utilisateurs puissent trouver votre serveur Web, sur votre ordinateur, sur votre domaine. 
-	 * Val.P.frFR:Lorsque vous avez cela, vous pouvez demander à l'équipe de support de votre enregistreur, de créer pour vous des « enregistrements A » sur votre adresse IP statique. 
-	 * Val.P.frFR:Par exemple, je demanderais que deux enregistrements A soient créés pour « computate.org » et « *.computate.org » sur mon adresse IP statique. 
-	 * Val.P.frFR:Mais comme j'utilise fastmail pour mon DNS, je peux créer mes propres enregistrements A pour chacun de mes domaines dans mon compte, ce qui est utile. 
-	 * Val.P.enUS:In a future lesson, we'll talk about creating a static IP address so that users can find your web server, on your computer, at your domain. 
-	 * Val.P.enUS:When you have this, you can ask the support team at your registrar, to create for you some "A records" at your static IP. 
-	 * Val.P.enUS:For example, I would ask for two A records to be created for "computate.org" and "*.computate.org" to my static IP address. 
-	 * Val.P.enUS:But since I use fastmail for my DNS, I can actually create my own A records for any of my domains in my account, which is nice. 
+	 * Val.UlLi1.frFR:Dans un futur leçon, nous parlerons de la création d'une adresse IP statique afin que les utilisateurs puissent trouver votre serveur Web, sur votre ordinateur, sur votre domaine. 
+	 * Val.UlLi1.frFR:Lorsque vous avez cela, vous pouvez demander à l'équipe de support de votre enregistreur, de créer pour vous des « enregistrements A » sur votre adresse IP statique. 
+	 * Val.UlLi1.frFR:Par exemple, je demanderais que deux enregistrements A soient créés pour « computate.org » et « *.computate.org » sur mon adresse IP statique. 
+	 * Val.UlLi1.frFR:Mais comme j'utilise fastmail pour mon DNS, je peux créer mes propres enregistrements A pour chacun de mes domaines dans mon compte, ce qui est utile. 
+	 * Val.UlLi1.enUS:In a future lesson, we'll talk about creating a static IP address so that users can find your web server, on your computer, at your domain. 
+	 * Val.UlLi1.enUS:When you have this, you can ask the support team at your registrar, to create for you some "A records" at your static IP. 
+	 * Val.UlLi1.enUS:For example, I would ask for two A records to be created for "computate.org" and "*.computate.org" to my static IP address. 
+	 * Val.UlLi1.enUS:But since I use fastmail for my DNS, I can actually create my own A records for any of my domains in my account, which is nice. 
 	 */     
 	protected void _apres5(PageHtml o) {      
-	}
-	public void htmlBodyApres5() { 
-		e("ul").f();
-			e("li").f();
-				e("span").f();
-					sx(apres5P);
-				g("span");
-			g("li");
-		g("ul");
 	}
 
 	/**  
 	 * 
-	 * Val.Question.frFR:Puis-je commencer à développer mon site localement avant de choisir mon nom de domaine ? 
-	 * Val.Question.enUS:Can I start developing my website locally before deciding on my domain name? 
-	 * Val.QuestionCourt.frFR:Puis-je choisir un nom de domaine plus tard ? 
-	 * Val.QuestionCourt.enUS:Can I pick a domain name later? 
-	 * Val.Reponse.frFR:Le nom d'hôte de votre ordinateur dépendra de votre nom de domaine. 
-	 * Val.Reponse.enUS:The hostname of your computer will depend on your domain name. 
-	 * Val.ReponseCourt.frFR:Le nom d'hôte de votre ordinateur le dépendra
-	 * Val.ReponseCourt.enUS:Your computer hostname depends on it
+	 * Val.H3I:fas fa-fast-forward
+	 * Val.H3Span.frFR:Puis-je commencer à développer mon site localement avant de choisir mon nom de domaine ? 
+	 * Val.H3Span.enUS:Can I start developing my website locally before deciding on my domain name? 
+	 * Val.H4I:fas fa-list-ol
+	 * Val.H4Span.frFR:Le nom d'hôte de votre ordinateur dépendra de votre nom de domaine. 
+	 * Val.H4Span.enUS:The hostname of your computer will depend on your domain name. 
 	 * Val.P.frFR:Si vous ne connaissez pas votre nom de domaine, cela vous gâchera plus tard. 
 	 * Val.P.frFR:Avoir un nom d'hôte qui est un sous-domaine de votre nom de domaine facilite le développement et la mise en ligne de votre site. 
 	 * Val.P.frFR:Vous pouvez attribuer à vos ordinateurs des noms d'hôtes qui sont des sous-domaines de votre propre nom de domaine afin de faciliter le développement et l'affichage local et public de votre site à partir de la même URL. 
@@ -426,21 +294,70 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	 * Val.P.enUS:Now you can continue to launch your own successful website on your own computer. 
 	 */     
 	protected void _plusTard(QuestionReponse o) {      
-
-		o.questionIcone("fas", "fast-forward");
-		o.setQuestion(plusTardQuestion);
-		o.setQuestionCourt(plusTardQuestionCourt);
-
-		o.reponseIcone("fas", "list-ol");
-		o.setReponse(plusTardReponse);
-		o.setReponseCourt(plusTardReponseCourt);
 	}
-	public void htmlBodyPlusTard() { 
-		e("p").f();
-			e("span").f();
-				sx(plusTardP);
-			g("span");
-		g("p");
+
+	/**
+	 * Val.H3.frFR:À récapituler : 
+	 * Val.H3.enUS:To review: 
+	 */
+	protected void _recapituler1(PageHtml o) {      
+	}
+
+	/**
+	 * Val.TableTr1Td1.frFR:Mardi 
+	 * Val.TableTr1Td1.enUS:Tuesday 
+	 * Val.TableTr1Td2I:fas fa-question
+	 * Val.TableTr1Td3I:fas fa-hand-receiving
+	 * Val.TableTr1Td4I:fas fa-pen-nib
+	 * Val.TableTr2Td1.frFR:23 Avril 2019
+	 * Val.TableTr2Td1.enUS:April 23 2019
+	 * Val.TableTr2Td2.frFR:Première étape pour créer un site web ? 
+	 * Val.TableTr2Td2.enUS:First step to create a website? 
+	 * Val.TableTr2Td3.frFR:Choisir un nom de domaine. 
+	 * Val.TableTr2Td3.enUS:Choose a domain name. 
+	 * Val.TableTr2Td4.frFR:Par Christophe Tate
+	 * Val.TableTr2Td4.enUS:By Christopher Tate
+	 */  
+	protected void _recapituler2(PageHtml o) {      
+	}
+
+	/**
+	 * Val.TableTr1Td1I:fas fa-history
+	 * Val.TableTr1Td2.frFR:Devrais je l'acheter à l'avance ? 
+	 * Val.TableTr1Td2.enUS:Should I buy it ahead of time? 
+	 * Val.TableTr1Td3I:fas fa-map-pin
+	 * Val.TableTr1Td4.frFR:Savoir maintenant comment vous appelez votre site. 
+	 * Val.TableTr1Td4.enUS:Know what your site will be called. 
+	 * 
+	 * Val.TableTr2Td1I:fas fa-credit-card
+	 * Val.TableTr2Td2.frFR:Où puis-je acheter un nom de domaine ? 
+	 * Val.TableTr2Td2.enUS:Where can I purchase a domain name? 
+	 * Val.TableTr2Td3I:fas fa-building
+	 * Val.TableTr2Td4.frFR:Essayez brinkster.com ou gandi.net. 
+	 * Val.TableTr2Td4.enUS:Try brinkster.com or gandi.net. 
+	 * 
+	 * Val.TableTr3Td1I:fab fa-wpforms
+	 * Val.TableTr3Td2.frFR:Qu'est-ce que je choisis comme un nom de domaine ? 
+	 * Val.TableTr3Td2.enUS:What do I choose for a domain name? 
+	 * Val.TableTr3Td3I:fas fa-bullhorn
+	 * Val.TableTr3Td4.frFR:Atteindra votre public. 
+	 * Val.TableTr3Td4.enUS:Reach your audience. 
+	 * 
+	 * Val.TableTr4Td1I:fas fa-cart-plus
+	 * Val.TableTr4Td2.frFR:Quoi faire après j'ai acheté un nom de domaine ? 
+	 * Val.TableTr4Td2.enUS:What do I do after I've bought a domain name? 
+	 * Val.TableTr4Td3I:fas fa-clipboard-check
+	 * Val.TableTr4Td4.frFR:Gérer votre domaine. 
+	 * Val.TableTr4Td4.enUS:Manage your domain. 
+	 * 
+	 * Val.TableTr5Td1I:fas fa-fast-forward
+	 * Val.TableTr5Td2.frFR:Puis-je choisir un nom de domaine plus tard ? 
+	 * Val.TableTr5Td2.enUS:Can I pick a domain name later? 
+	 * Val.TableTr5Td3I:fas fa-list-ol
+	 * Val.TableTr5Td4.frFR:Le nom d'hôte de votre ordinateur le dépendra. 
+	 * Val.TableTr5Td4.enUS:Your computer hostname will depend on it. 
+	 */  
+	protected void _recapituler3(PageHtml o) {      
 	}
 
 	/**
