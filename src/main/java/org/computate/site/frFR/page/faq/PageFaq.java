@@ -34,9 +34,9 @@ import org.computate.site.frFR.recherche.ListeRecherche;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 200
+ * ImageHauteur.frFR: 313
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 200
+ * ImageHauteur.enUS: 321
  **/
 public class PageFaq extends PageFaqGen<Article> {
 

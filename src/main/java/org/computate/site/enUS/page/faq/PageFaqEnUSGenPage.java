@@ -75,7 +75,7 @@ public class PageFaqEnUSGenPage extends PageFaqEnUSGenPageGen<ArticleEnUSPage> {
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(200);
+			c.o(321);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
