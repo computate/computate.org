@@ -1,6 +1,5 @@
 package org.computate.site.enUS.page.blog;
 
-import java.lang.String;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.article.Article;
 import org.computate.site.frFR.article.ArticleFrFRPage;

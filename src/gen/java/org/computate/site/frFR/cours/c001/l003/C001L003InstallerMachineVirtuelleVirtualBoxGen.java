@@ -718,7 +718,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			DefaultExecutor executeur = new DefaultExecutor();
 			{
 				new File("/usr/local/src/computate.org-static/png/frFR/cours/001").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box-999.png"));
 				System.out.println("C001L003InstallerMachineVirtuelleVirtualBoxFrFRPage");
 				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
@@ -726,7 +726,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			}
 			{
 				new File("/usr/local/src/computate.org-static/png/enUS/course/001").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box-999.png"));
 				System.out.println("C001L003InstallerMachineVirtuelleVirtualBoxEnUSPage");
 				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
@@ -750,6 +750,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			siteContexte.initLoinSiteContexteFrFR();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);

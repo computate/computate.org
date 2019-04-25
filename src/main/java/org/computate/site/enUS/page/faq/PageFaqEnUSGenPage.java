@@ -1,9 +1,8 @@
 package org.computate.site.enUS.page.faq;
 
-import java.lang.String;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.article.Article;
-import org.computate.site.enUS.page.parti.QuestionReponse;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.frFR.article.ArticleFrFRPage;
 import org.computate.site.enUS.article.ArticleEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
@@ -76,7 +75,7 @@ public class PageFaqEnUSGenPage extends PageFaqEnUSGenPageGen<ArticleEnUSPage> {
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(616);
+			c.o(200);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -84,7 +83,7 @@ public class PageFaqEnUSGenPage extends PageFaqEnUSGenPageGen<ArticleEnUSPage> {
 	}
 
 	@Override protected void _contexteIconeNom(Couverture<String> c) {
-			c.o("book");
+			c.o("question");
 	}
 
 	@Override public void initLoinPageFaqEnUSGenPage() {

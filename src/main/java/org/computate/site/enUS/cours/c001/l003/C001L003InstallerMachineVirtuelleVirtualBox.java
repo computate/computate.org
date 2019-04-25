@@ -88,12 +88,6 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	protected void _moi(PageHtml o) {
 	}
 
-	@Override()
-	public void  htmlBodyMoi(PageHtml o) {
-		// TODO Auto-generated method stub
-		super.htmlBodyMoi(o);
-	}
-
 	protected void _ecraser(PageHtml o) {      
 	}
 

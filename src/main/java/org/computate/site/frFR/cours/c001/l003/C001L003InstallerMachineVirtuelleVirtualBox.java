@@ -34,12 +34,12 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 616
+ * ImageHauteur.frFR: 542
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 616
+ * ImageHauteur.enUS: 457
  * VideoId.frFR: g61yXjXCUGU
  * VideoId.enUS: taA73wkea6Q
-*/    
+*/     
 public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003InstallerMachineVirtuelleVirtualBoxGen<C001Lecon> {
 
 	public static void main(String[] args) {  
@@ -115,10 +115,6 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * Val.P.enUS:I will help you create your own successful website, on your own computer, using open-source software. 
 	 */    
 	protected void _moi(PageHtml o) {
-	}
-	@Override public void htmlBodyMoi(PageHtml o) {
-		// TODO Auto-generated method stub
-		super.htmlBodyMoi(o);
 	}
 
 	/**

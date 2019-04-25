@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.faq; 
+package org.computate.site.frFR.page.faq;  
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import org.apache.solr.client.solrj.util.ClientUtils;
 import org.computate.site.frFR.article.Article;
 import org.computate.site.frFR.couverture.Couverture;
+import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.page.parti.QuestionReponse;
 import org.computate.site.frFR.recherche.ListeRecherche;
 
@@ -29,14 +30,14 @@ import org.computate.site.frFR.recherche.ListeRecherche;
  * PageSimple: true
  * Couleur: green
  * IconeGroupe: regular
- * IconeNom: book
+ * IconeNom: question
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 616
+ * ImageHauteur.frFR: 200
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 616
-*/ 
+ * ImageHauteur.enUS: 200
+ **/
 public class PageFaq extends PageFaqGen<Article> {
 
 	public static void main(String[] args) {  
@@ -66,12 +67,20 @@ public class PageFaq extends PageFaqGen<Article> {
 		c.o(org.computate.site.enUS.page.faq.PageFaq.PageFaq_H2);
 	}
 
-	protected void _pageUri_enUS(Couverture<String> c) {
+	@Override protected void _pageUri_enUS(Couverture<String> c) {
 		c.o(PageFaqEnUSPage_Uri);
 	}
 
-	protected void _pageUri_frFR(Couverture<String> c) {
+	@Override protected void _pageUri_frFR(Couverture<String> c) {
 		c.o(PageFaqFrFRPage_Uri);
+	}
+
+	@Override protected void _pageImageUri_enUS(Couverture<String> c) {
+		c.o(PageFaqEnUSPage_ImageUri);
+	}
+
+	@Override protected void _pageImageUri_frFR(Couverture<String> c) {
+		c.o(PageFaqFrFRPage_ImageUri);
 	}
 
 	@Override protected void _pageRecherche_enUS(List<String> l) {
@@ -111,63 +120,62 @@ public class PageFaq extends PageFaqGen<Article> {
 	}
 
 	public void htmlBodyCourt() {
-		super.htmlBodyCourt();
+		htmlBodyRecapituler2();
+		htmlBodyRecapituler3();
 	}
 
 	/** 
 	 * {@inheritDoc}
 	 * 
-	 * Val.Question.frFR:Pourquoi est votre site traduit en français ? 
-	 * Val.Question.enUS:Why is your site in French? 
-	 * Val.QuestionCourt.frFR:Pourquoi est votre site traduit en français ? 
-	 * Val.QuestionCourt.enUS:Why is your site in French? 
-	 * Val.Reponse.frFR:L'internationalisation est importante et le monde mérite la bonne documentation logicielle. 
-	 * Val.Reponse.enUS:Internationalization is important and the world deserves good software documentation. 
-	 * Val.ReponseCourt.frFR:L'internationalisation est importante et le monde mérite la bonne documentation logicielle. 
-	 * Val.ReponseCourt.enUS:Internationalization is important and the world deserves good software documentation. 
-	 * Val.P.frFR:L'internationalisation est importante et le monde mérite la bonne documentation logicielle. 
-	 * Val.P.frFR:J'ai passé quatre ans et demi dans les pays francophones et c'est important pour moi de pratiquer mon français. 
-	 * Val.P.frFR:J'aime les français et les années que j'ai passé en France, j'aime les Québécois et les années que j'ai passé au Québec. 
-	 * Val.P.frFR:Je connais les défis à créer de bons systèmes logiciels où le pays parle une autre langue que l'anglais. 
-	 * Val.P.frFR:Computate.org brise ces barrières et fournit une documentation cohérente en français et en anglais et dans d'autres langues à l'avenir. 
-	 * Val.P.enUS:Internationalization is important and the world deserves good software documentation. 
-	 * Val.P.enUS:I've spent four and a half years in French speaking countries and it's important for me to practice my French. 
-	 * Val.P.enUS:I love the French and the time I spent in France, and I love the Québécois and the time I spent in Québec. 
-	 * Val.P.enUS:I know the challenges building good software systems where the country speaks another language besides English. 
-	 * Val.P.enUS:Computate.org breaks those barriers and provides a consistent documentation in French and English and other languages in the future. 
+	 * Val.H3I.frFR:fas fa-archway
+	 * Val.H3Span.frFR:Pourquoi est votre site traduit en français ? 
+	 * Val.H3Span.enUS:Why is your site in French? 
+	 * Val.H4I.frFR:fas fa-globe-africa
+	 * Val.H4Span.frFR:L'internationalisation est importante et le monde mérite la bonne documentation logicielle. 
+	 * Val.H4Span.enUS:Internationalization is important and the world deserves good software documentation. 
+	 * Val.PDiv1I:fas fa-comments
+	 * Val.PDiv1Span.frFR:J'ai passé quatre ans et demi dans les pays francophones et c'est important pour moi de pratiquer mon français. 
+	 * Val.PDiv1Span.enUS:I've spent four and a half years in French speaking countries and it's important for me to practice my French. 
+	 * Val.PDiv2I:fas fa-heart-square
+	 * Val.PDiv2Span.frFR:J'aime les français et les années que j'ai passé en France, j'aime les Québécois et les années que j'ai passé au Québec. 
+	 * Val.PDiv2Span.enUS:I love the French and the time I spent in France, and I love the Québécois and the time I spent in Québec. 
+	 * Val.PDiv3I:fas fa-robot
+	 * Val.PDiv3Span.frFR:Je connais les défis à créer de bons systèmes logiciels où le pays parle une autre langue que l'anglais. 
+	 * Val.PDiv3Span.enUS:I know the challenges building good software systems where the country speaks another language besides English. 
+	 * Val.PDiv4I:fas fa-window-restore
+	 * Val.PDiv4Span.frFR:Computate.org brise ces barrières et fournit une documentation cohérente en français et en anglais et dans d'autres langues à l'avenir. 
+	 * Val.PDiv4Span.enUS:Computate.org breaks those barriers and provides a consistent documentation in French and English and other languages in the future. 
 	 */ 
-	protected void _i18n(QuestionReponse o) {
-
-		o.questionIcone("fas", "archway");
-		o.setQuestion(i18nQuestion);
-		o.setQuestionCourt(i18nQuestionCourt);
-
-		o.reponseIcone("fas", "book-spells");
-		o.setReponse(i18nReponse);
-		o.setReponseCourt(i18nReponseCourt);
+	protected void _i18n(PageHtml o) {
 	}
-	public void htmlBodyI18n(QuestionReponse o) { 
-		e("p").f();
-			e("div").f();
-				e("i").a("class", "fas fa-globe-africa site-menu-icon ").f().g("i");
-				sx(i18nP1);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-comments site-menu-icon ").f().g("i");
-				sx(i18nP2);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-heart-square site-menu-icon ").f().g("i");
-				sx(i18nP3);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-robot site-menu-icon ").f().g("i");
-				sx(i18nP4);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-window-restore site-menu-icon ").f().g("i");
-				sx(i18nP5);
-			g("div");
-		g("p");
+
+	/**
+	 * Val.TableTr1Td1.frFR:Mardi 
+	 * Val.TableTr1Td1.enUS:Tuesday 
+	 * Val.TableTr1Td2I:fas fa-question
+	 * Val.TableTr1Td3I:fas fa-megaphone
+	 * Val.TableTr1Td4I:fas fa-pen-nib
+	 * Val.TableTr2Td1.frFR:23 Avril 2019
+	 * Val.TableTr2Td1.enUS:April 23 2019
+	 * Val.TableTr2Td2.frFR:FAQ
+	 * Val.TableTr2Td2.enUS:FAQ
+	 * Val.TableTr2Td3.frFR:computate.org foire aux questions
+	 * Val.TableTr2Td3.enUS:computate.org frequently asked questions
+	 * Val.TableTr2Td4.frFR:Par Christophe Tate
+	 * Val.TableTr2Td4.enUS:By Christopher Tate
+	 */  
+	protected void _recapituler2(PageHtml o) {     
+	}
+
+	/**
+	 * 
+	 * Val.TableTr1Td1I:fas fa-archway
+	 * Val.TableTr1Td2.frFR:Pourquoi est votre site traduit en français ? 
+	 * Val.TableTr1Td2.enUS:Why is your site in French? 
+	 * Val.TableTr1Td3I:fas fa-book-spells
+	 * Val.TableTr1Td4.frFR:L'internationalisation est importante. 
+	 * Val.TableTr1Td4.enUS:Internationalization is important. 
+	 */  
+	protected void _recapituler3(PageHtml o) {      
 	}
 }

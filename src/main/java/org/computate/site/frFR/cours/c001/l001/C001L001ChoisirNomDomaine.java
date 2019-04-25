@@ -36,12 +36,12 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 616
+ * ImageHauteur.frFR: 729
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 616
+ * ImageHauteur.enUS: 774
  * VideoId.frFR: ZJTDpIpan8M
  * VideoId.enUS: sBcDnQj9_QM
-*/ 
+*/  
 public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001Lecon> {      
 
 	public static void main(String[] args) {  

@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page;    
+package org.computate.site.frFR.page;   
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

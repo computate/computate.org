@@ -1,6 +1,5 @@
 package org.computate.site.frFR.page.apropos;
 
-import java.lang.String;
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.article.Article;
 import org.computate.site.frFR.page.parti.QuestionReponse;

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import org.computate.site.frFR.cluster.Cluster;
 import javax.imageio.ImageIO;
 import org.computate.site.frFR.page.parti.PagePart;
-import java.lang.String;
 import org.apache.commons.exec.DefaultExecutor;
 import java.awt.image.BufferedImage;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -45,118 +44,6 @@ public abstract class PageAProposGen<DEV> extends Article {
 	public static final String PageAProposFrFRPage_ImageUri = "/png/frFR/apropos-999.png";
 	public static final String PageAProposEnUSPage_Uri = "/enUS/about";
 	public static final String PageAProposEnUSPage_ImageUri = "/png/enUS/about-999.png";
-
-	//////////////////
-	// pageUri_enUS //
-	//////////////////
-
-	/**	L'entité « pageUri_enUS »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageUri_enUS;
-	public Couverture<String> pageUri_enUSCouverture = new Couverture<String>().p(this).c(String.class).var("pageUri_enUS").o(pageUri_enUS);
-
-	/**	<br/>L'entité « pageUri_enUS »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageUri_enUS">Trouver l'entité pageUri_enUS dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageUri_enUS(Couverture<String> c);
-
-	public String getPageUri_enUS() {
-		return pageUri_enUS;
-	}
-
-	public void setPageUri_enUS(String pageUri_enUS) {
-		this.pageUri_enUS = pageUri_enUS;
-		this.pageUri_enUSCouverture.dejaInitialise = true;
-	}
-	protected PageAPropos pageUri_enUSInit() {
-		if(!pageUri_enUSCouverture.dejaInitialise) {
-			_pageUri_enUS(pageUri_enUSCouverture);
-			if(pageUri_enUS == null)
-				setPageUri_enUS(pageUri_enUSCouverture.o);
-		}
-		pageUri_enUSCouverture.dejaInitialise(true);
-		return (PageAPropos)this;
-	}
-
-	public String solrPageUri_enUS() {
-		return pageUri_enUS;
-	}
-
-	public String strPageUri_enUS() {
-		return pageUri_enUS == null ? "" : pageUri_enUS;
-	}
-
-	public String nomAffichagePageUri_enUS() {
-		return null;
-	}
-
-	public String htmTooltipPageUri_enUS() {
-		return null;
-	}
-
-	public String htmPageUri_enUS() {
-		return pageUri_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri_enUS());
-	}
-
-	//////////////////
-	// pageUri_frFR //
-	//////////////////
-
-	/**	L'entité « pageUri_frFR »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageUri_frFR;
-	public Couverture<String> pageUri_frFRCouverture = new Couverture<String>().p(this).c(String.class).var("pageUri_frFR").o(pageUri_frFR);
-
-	/**	<br/>L'entité « pageUri_frFR »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.page.apropos.PageAPropos&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageUri_frFR">Trouver l'entité pageUri_frFR dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageUri_frFR(Couverture<String> c);
-
-	public String getPageUri_frFR() {
-		return pageUri_frFR;
-	}
-
-	public void setPageUri_frFR(String pageUri_frFR) {
-		this.pageUri_frFR = pageUri_frFR;
-		this.pageUri_frFRCouverture.dejaInitialise = true;
-	}
-	protected PageAPropos pageUri_frFRInit() {
-		if(!pageUri_frFRCouverture.dejaInitialise) {
-			_pageUri_frFR(pageUri_frFRCouverture);
-			if(pageUri_frFR == null)
-				setPageUri_frFR(pageUri_frFRCouverture.o);
-		}
-		pageUri_frFRCouverture.dejaInitialise(true);
-		return (PageAPropos)this;
-	}
-
-	public String solrPageUri_frFR() {
-		return pageUri_frFR;
-	}
-
-	public String strPageUri_frFR() {
-		return pageUri_frFR == null ? "" : pageUri_frFR;
-	}
-
-	public String nomAffichagePageUri_frFR() {
-		return null;
-	}
-
-	public String htmTooltipPageUri_frFR() {
-		return null;
-	}
-
-	public String htmPageUri_frFR() {
-		return pageUri_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri_frFR());
-	}
 
 	//////////////////
 	// listeArticle //
@@ -246,6 +133,12 @@ public abstract class PageAProposGen<DEV> extends Article {
 		return (PageAPropos)this;
 	}
 	public void htmlBodyOuVenezVous(QuestionReponse o) {
+		{ e("p").a("class", " ouVenezVousP ").f();
+			sx(ouVenezVousP1);
+			sx(ouVenezVousP2);
+			sx(ouVenezVousP3);
+			sx(ouVenezVousP4);
+		} g("p");
 	}
 	public void htmlBodyOuVenezVous() {
 		ouVenezVous.htmlAvant();
@@ -308,6 +201,14 @@ public abstract class PageAProposGen<DEV> extends Article {
 		return (PageAPropos)this;
 	}
 	public void htmlBodyInformatique(QuestionReponse o) {
+		{ e("p").a("class", " informatiqueP ").f();
+			sx(informatiqueP1);
+			sx(informatiqueP2);
+			sx(informatiqueP3);
+			sx(informatiqueP4);
+			sx(informatiqueP5);
+			sx(informatiqueP6);
+		} g("p");
 	}
 	public void htmlBodyInformatique() {
 		informatique.htmlAvant();
@@ -372,6 +273,16 @@ public abstract class PageAProposGen<DEV> extends Article {
 		return (PageAPropos)this;
 	}
 	public void htmlBodyEmploi(QuestionReponse o) {
+		{ e("p").a("class", " emploiP ").f();
+			sx(emploiP1);
+			sx(emploiP2);
+			sx(emploiP3);
+			sx(emploiP4);
+			sx(emploiP5);
+			sx(emploiP6);
+			sx(emploiP7);
+			sx(emploiP8);
+		} g("p");
 	}
 	public void htmlBodyEmploi() {
 		emploi.htmlAvant();
@@ -433,6 +344,13 @@ public abstract class PageAProposGen<DEV> extends Article {
 		return (PageAPropos)this;
 	}
 	public void htmlBodyOpensource(QuestionReponse o) {
+		{ e("p").a("class", " opensourceP ").f();
+			sx(opensourceP1);
+			sx(opensourceP2);
+			sx(opensourceP3);
+			sx(opensourceP4);
+			sx(opensourceP5);
+		} g("p");
 	}
 	public void htmlBodyOpensource() {
 		opensource.htmlAvant();
@@ -461,8 +379,6 @@ public abstract class PageAProposGen<DEV> extends Article {
 	}
 
 	public void initPageAPropos() {
-		pageUri_enUSInit();
-		pageUri_frFRInit();
 		listeArticleInit();
 		ouVenezVousInit();
 		informatiqueInit();
@@ -516,10 +432,6 @@ public abstract class PageAProposGen<DEV> extends Article {
 	public Object obtenirPageAPropos(String var) throws Exception {
 		PageAPropos oPageAPropos = (PageAPropos)this;
 		switch(var) {
-			case "pageUri_enUS":
-				return oPageAPropos.pageUri_enUS;
-			case "pageUri_frFR":
-				return oPageAPropos.pageUri_frFR;
 			case "listeArticle":
 				return oPageAPropos.listeArticle;
 			case "ouVenezVous":
@@ -595,7 +507,7 @@ public abstract class PageAProposGen<DEV> extends Article {
 			DefaultExecutor executeur = new DefaultExecutor();
 			{
 				new File("/usr/local/src/computate.org-static/png/frFR").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/apropos?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/apropos-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/frFR/apropos?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/apropos-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR/apropos-999.png"));
 				System.out.println("PageAProposFrFRPage");
 				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
@@ -603,7 +515,7 @@ public abstract class PageAProposGen<DEV> extends Article {
 			}
 			{
 				new File("/usr/local/src/computate.org-static/png/enUS").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/about?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/about-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/enUS/about?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/about-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/enUS/about-999.png"));
 				System.out.println("PageAProposEnUSPage");
 				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
@@ -627,6 +539,7 @@ public abstract class PageAProposGen<DEV> extends Article {
 			siteContexte.initLoinSiteContexteFrFR();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -739,7 +652,7 @@ public abstract class PageAProposGen<DEV> extends Article {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), pageUri_enUS, pageUri_frFR);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -752,9 +665,7 @@ public abstract class PageAProposGen<DEV> extends Article {
 		if(!(o instanceof PageAPropos))
 			return false;
 		PageAPropos that = (PageAPropos)o;
-		return super.equals(o)
-				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
-				&& Objects.equals( pageUri_frFR, that.pageUri_frFR );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -765,8 +676,6 @@ public abstract class PageAProposGen<DEV> extends Article {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("PageAPropos {");
-		sb.append( "pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
-		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

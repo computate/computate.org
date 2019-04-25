@@ -5,6 +5,7 @@ import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import org.apache.solr.client.solrj.util.ClientUtils;
 import org.computate.site.enUS.article.Article;
 import org.computate.site.enUS.couverture.Couverture;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.enUS.page.parti.QuestionReponse;
 import org.computate.site.enUS.recherche.ListeRecherche;
 
@@ -42,12 +43,24 @@ public class PageFaq extends PageFaqGen<Article> {
 		c.o(org.computate.site.enUS.page.faq.PageFaq.PageFaq_H2);
 	}
 
-	protected void _pageUri_enUS(Couverture<String> c) {
+	@Override()
+	protected void  _pageUri_enUS(Couverture<String> c) {
 		c.o(PageFaqEnUSPage_Uri);
 	}
 
-	protected void _pageUri_frFR(Couverture<String> c) {
+	@Override()
+	protected void  _pageUri_frFR(Couverture<String> c) {
 		c.o(PageFaqFrFRPage_Uri);
+	}
+
+	@Override()
+	protected void  _pageImageUri_enUS(Couverture<String> c) {
+		c.o(PageFaqEnUSPage_ImageUri);
+	}
+
+	@Override()
+	protected void  _pageImageUri_frFR(Couverture<String> c) {
+		c.o(PageFaqFrFRPage_ImageUri);
 	}
 
 	@Override()
@@ -88,42 +101,16 @@ public class PageFaq extends PageFaqGen<Article> {
 	}
 
 	public void  htmlBodyCourt() {
-		super.htmlBodyCourt();
+		htmlBodyRecapituler2();
+		htmlBodyRecapituler3();
 	}
 
-	protected void _i18n(QuestionReponse o) {
-
-		o.questionIcone("fas", "archway");
-		o.setQuestion(i18nQuestion);
-		o.setQuestionCourt(i18nQuestionCourt);
-
-		o.reponseIcone("fas", "book-spells");
-		o.setReponse(i18nReponse);
-		o.setReponseCourt(i18nReponseCourt);
+	protected void _i18n(PageHtml o) {
 	}
 
-	public void  htmlBodyI18n(QuestionReponse o) { 
-		e("p").f();
-			e("div").f();
-				e("i").a("class", "fas fa-globe-africa site-menu-icon ").f().g("i");
-				sx(i18nP1);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-comments site-menu-icon ").f().g("i");
-				sx(i18nP2);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-heart-square site-menu-icon ").f().g("i");
-				sx(i18nP3);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-robot site-menu-icon ").f().g("i");
-				sx(i18nP4);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-window-restore site-menu-icon ").f().g("i");
-				sx(i18nP5);
-			g("div");
-		g("p");
+	protected void _recapituler2(PageHtml o) {     
+	}
+
+	protected void _recapituler3(PageHtml o) {      
 	}
 }

@@ -57,6 +57,14 @@ public class PageAccueil extends PageAccueilGen<Article> {
 		c.o(PageAccueilFrFRPage_Uri);
 	}
 
+	protected void _pageImageUri_enUS(Couverture<String> c) {
+		c.o(PageAccueilEnUSPage_ImageUri);
+	}
+
+	protected void _pageImageUri_frFR(Couverture<String> c) {
+		c.o(PageAccueilFrFRPage_ImageUri);
+	}
+
 	@Override()
 	protected void  _pageRecherche_enUS(List<String> l) {
 		addPageRecherche_enUS(org.computate.site.enUS.page.accueil.PageAccueil.PageAccueil_H1);

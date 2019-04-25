@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.accueil;   
+package org.computate.site.frFR.page.accueil;    
 
 import java.net.URLDecoder;
 import java.util.List;
@@ -84,6 +84,14 @@ public class PageAccueil extends PageAccueilGen<Article> {
 
 	protected void _pageUri_frFR(Couverture<String> c) {
 		c.o(PageAccueilFrFRPage_Uri);
+	}
+
+	protected void _pageImageUri_enUS(Couverture<String> c) {
+		c.o(PageAccueilEnUSPage_ImageUri);
+	}
+
+	protected void _pageImageUri_frFR(Couverture<String> c) {
+		c.o(PageAccueilFrFRPage_ImageUri);
 	}
 
 	@Override protected void _pageRecherche_enUS(List<String> l) {

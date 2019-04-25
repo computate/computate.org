@@ -3,6 +3,7 @@ package org.computate.site.enUS.page.faq;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.couverture.Couverture;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.lang3.StringUtils;
@@ -10,7 +11,6 @@ import java.util.ArrayList;
 import org.computate.site.enUS.cluster.Cluster;
 import javax.imageio.ImageIO;
 import org.computate.site.enUS.page.parti.PagePart;
-import java.lang.String;
 import org.apache.commons.exec.DefaultExecutor;
 import java.awt.image.BufferedImage;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -20,7 +20,6 @@ import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
 import java.util.Objects;
-import org.computate.site.enUS.page.parti.QuestionReponse;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
@@ -39,123 +38,11 @@ public abstract class PageFaqGen<DEV> extends Article {
 	public static final String PageFaq_H2 = "computate.org frequently asked questions (FAQ). ";
 	public static final String PageFaq_Couleur = "green";
 	public static final String PageFaq_IconeGroupe = "regular";
-	public static final String PageFaq_IconeNom = "book";
+	public static final String PageFaq_IconeNom = "question";
 	public static final String PageFaqFrFRPage_Uri = "/frFR/faq";
 	public static final String PageFaqFrFRPage_ImageUri = "/png/frFR/faq-999.png";
 	public static final String PageFaqEnUSPage_Uri = "/enUS/faq";
 	public static final String PageFaqEnUSPage_ImageUri = "/png/enUS/faq-999.png";
-
-	//////////////////
-	// pageUri_enUS //
-	//////////////////
-
-	/**	L'entité « pageUri_enUS »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageUri_enUS;
-	public Couverture<String> pageUri_enUSCouverture = new Couverture<String>().p(this).c(String.class).var("pageUri_enUS").o(pageUri_enUS);
-
-	/**	<br/>L'entité « pageUri_enUS »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.faq.PageFaq&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUri_enUS">Trouver l'entité pageUri_enUS dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageUri_enUS(Couverture<String> c);
-
-	public String getPageUri_enUS() {
-		return pageUri_enUS;
-	}
-
-	public void setPageUri_enUS(String pageUri_enUS) {
-		this.pageUri_enUS = pageUri_enUS;
-		this.pageUri_enUSCouverture.dejaInitialise = true;
-	}
-	protected PageFaq pageUri_enUSInit() {
-		if(!pageUri_enUSCouverture.dejaInitialise) {
-			_pageUri_enUS(pageUri_enUSCouverture);
-			if(pageUri_enUS == null)
-				setPageUri_enUS(pageUri_enUSCouverture.o);
-		}
-		pageUri_enUSCouverture.dejaInitialise(true);
-		return (PageFaq)this;
-	}
-
-	public String solrPageUri_enUS() {
-		return pageUri_enUS;
-	}
-
-	public String strPageUri_enUS() {
-		return pageUri_enUS == null ? "" : pageUri_enUS;
-	}
-
-	public String nomAffichagePageUri_enUS() {
-		return null;
-	}
-
-	public String htmTooltipPageUri_enUS() {
-		return null;
-	}
-
-	public String htmPageUri_enUS() {
-		return pageUri_enUS == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri_enUS());
-	}
-
-	//////////////////
-	// pageUri_frFR //
-	//////////////////
-
-	/**	L'entité « pageUri_frFR »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageUri_frFR;
-	public Couverture<String> pageUri_frFRCouverture = new Couverture<String>().p(this).c(String.class).var("pageUri_frFR").o(pageUri_frFR);
-
-	/**	<br/>L'entité « pageUri_frFR »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.faq.PageFaq&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUri_frFR">Trouver l'entité pageUri_frFR dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageUri_frFR(Couverture<String> c);
-
-	public String getPageUri_frFR() {
-		return pageUri_frFR;
-	}
-
-	public void setPageUri_frFR(String pageUri_frFR) {
-		this.pageUri_frFR = pageUri_frFR;
-		this.pageUri_frFRCouverture.dejaInitialise = true;
-	}
-	protected PageFaq pageUri_frFRInit() {
-		if(!pageUri_frFRCouverture.dejaInitialise) {
-			_pageUri_frFR(pageUri_frFRCouverture);
-			if(pageUri_frFR == null)
-				setPageUri_frFR(pageUri_frFRCouverture.o);
-		}
-		pageUri_frFRCouverture.dejaInitialise(true);
-		return (PageFaq)this;
-	}
-
-	public String solrPageUri_frFR() {
-		return pageUri_frFR;
-	}
-
-	public String strPageUri_frFR() {
-		return pageUri_frFR == null ? "" : pageUri_frFR;
-	}
-
-	public String nomAffichagePageUri_frFR() {
-		return null;
-	}
-
-	public String htmTooltipPageUri_frFR() {
-		return null;
-	}
-
-	public String htmPageUri_frFR() {
-		return pageUri_frFR == null ? "" : StringEscapeUtils.escapeHtml4(strPageUri_frFR());
-	}
 
 	//////////////////
 	// listeArticle //
@@ -196,40 +83,46 @@ public abstract class PageFaqGen<DEV> extends Article {
 	// i18n //
 	//////////
 
-	public static final String i18nQuestion1 = "Why is your site in French? ";
-	public static final String i18nQuestion = i18nQuestion1;
-	public static final String i18nQuestionCourt1 = "Why is your site in French? ";
-	public static final String i18nQuestionCourt = i18nQuestionCourt1;
-	public static final String i18nReponse1 = "Internationalization is important and the world deserves good software documentation. ";
-	public static final String i18nReponse = i18nReponse1;
-	public static final String i18nReponseCourt1 = "Internationalization is important and the world deserves good software documentation. ";
-	public static final String i18nReponseCourt = i18nReponseCourt1;
-	public static final String i18nP1 = "Internationalization is important and the world deserves good software documentation. ";
-	public static final String i18nP2 = "I've spent four and a half years in French speaking countries and it's important for me to practice my French. ";
-	public static final String i18nP3 = "I love the French and the time I spent in France, and I love the Québécois and the time I spent in Québec. ";
-	public static final String i18nP4 = "I know the challenges building good software systems where the country speaks another language besides English. ";
-	public static final String i18nP5 = "Computate.org breaks those barriers and provides a consistent documentation in French and English and other languages in the future. ";
-	public static final String i18nP = i18nP1 + i18nP2 + i18nP3 + i18nP4 + i18nP5;
+	public static final String i18nH3Span1 = "Why is your site in French? ";
+	public static final String i18nH3Span = i18nH3Span1;
+	public static final String i18nH4Span1 = "Internationalization is important and the world deserves good software documentation. ";
+	public static final String i18nH4Span = i18nH4Span1;
+	public static final String i18nPDiv1I1 = "fas fa-comments";
+	public static final String i18nPDiv1I = i18nPDiv1I1;
+	public static final String i18nPDiv1Span1 = "I've spent four and a half years in French speaking countries and it's important for me to practice my French. ";
+	public static final String i18nPDiv1Span = i18nPDiv1Span1;
+	public static final String i18nPDiv2I1 = "fas fa-heart-square";
+	public static final String i18nPDiv2I = i18nPDiv2I1;
+	public static final String i18nPDiv2Span1 = "I love the French and the time I spent in France, and I love the Québécois and the time I spent in Québec. ";
+	public static final String i18nPDiv2Span = i18nPDiv2Span1;
+	public static final String i18nPDiv3I1 = "fas fa-robot";
+	public static final String i18nPDiv3I = i18nPDiv3I1;
+	public static final String i18nPDiv3Span1 = "I know the challenges building good software systems where the country speaks another language besides English. ";
+	public static final String i18nPDiv3Span = i18nPDiv3Span1;
+	public static final String i18nPDiv4I1 = "fas fa-window-restore";
+	public static final String i18nPDiv4I = i18nPDiv4I1;
+	public static final String i18nPDiv4Span1 = "Computate.org breaks those barriers and provides a consistent documentation in French and English and other languages in the future. ";
+	public static final String i18nPDiv4Span = i18nPDiv4Span1;
 
 	/**	L'entité « i18n »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 */
-	protected QuestionReponse i18n = new QuestionReponse();
-	public Couverture<QuestionReponse> i18nCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("i18n").o(i18n);
+	protected PageHtml i18n = new PageHtml();
+	public Couverture<PageHtml> i18nCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("i18n").o(i18n);
 
 	/**	<br/>L'entité « i18n »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.faq.PageFaq&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:i18n">Trouver l'entité i18n dans Solr</a>
 	 * <br/>
 	 * @param i18n est l'entité déjà construit. 
 	 **/
-	protected abstract void _i18n(QuestionReponse o);
+	protected abstract void _i18n(PageHtml o);
 
-	public QuestionReponse getI18n() {
+	public PageHtml getI18n() {
 		return i18n;
 	}
 
-	public void setI18n(QuestionReponse i18n) {
+	public void setI18n(PageHtml i18n) {
 		this.i18n = i18n;
 		this.i18nCouverture.dejaInitialise = true;
 	}
@@ -245,12 +138,221 @@ public abstract class PageFaqGen<DEV> extends Article {
 		i18nCouverture.dejaInitialise(true);
 		return (PageFaq)this;
 	}
-	public void htmlBodyI18n(QuestionReponse o) {
+	public void htmlBodyI18n(PageHtml o) {
+		{ e("h3").a("class", " i18nH3 ").f();
+			{ e("span").a("class", " i18nH3Span ").f();
+				sx(i18nH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " i18nH4 ").f();
+			{ e("span").a("class", " i18nH4Span ").f();
+				sx(i18nH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("p").a("class", " i18nP ").f();
+			{ e("div").a("class", " i18nPDiv1 i18nPDiv odd ").f();
+				{ e("i").a("class", i18nPDiv1I1, " site-menu-icon i18nPDiv1I ").f();
+				} g("i");
+				{ e("span").a("class", " i18nPDiv1Span ").f();
+					sx(i18nPDiv1Span1);
+				} g("span");
+			} g("div");
+			{ e("div").a("class", " i18nPDiv2 i18nPDiv even ").f();
+				{ e("i").a("class", i18nPDiv2I1, " site-menu-icon i18nPDiv2I ").f();
+				} g("i");
+				{ e("span").a("class", " i18nPDiv2Span ").f();
+					sx(i18nPDiv2Span1);
+				} g("span");
+			} g("div");
+			{ e("div").a("class", " i18nPDiv3 i18nPDiv odd ").f();
+				{ e("i").a("class", i18nPDiv3I1, " site-menu-icon i18nPDiv3I ").f();
+				} g("i");
+				{ e("span").a("class", " i18nPDiv3Span ").f();
+					sx(i18nPDiv3Span1);
+				} g("span");
+			} g("div");
+			{ e("div").a("class", " i18nPDiv4 i18nPDiv even ").f();
+				{ e("i").a("class", i18nPDiv4I1, " site-menu-icon i18nPDiv4I ").f();
+				} g("i");
+				{ e("span").a("class", " i18nPDiv4Span ").f();
+					sx(i18nPDiv4Span1);
+				} g("span");
+			} g("div");
+		} g("p");
 	}
 	public void htmlBodyI18n() {
 		i18n.htmlAvant();
 		htmlBodyI18n(i18n);
 		i18n.htmlApres();
+	}
+
+	//////////////////
+	// recapituler2 //
+	//////////////////
+
+	public static final String recapituler2TableTr1Td11 = "Tuesday ";
+	public static final String recapituler2TableTr1Td1 = recapituler2TableTr1Td11;
+	public static final String recapituler2TableTr1Td2I1 = "fas fa-question";
+	public static final String recapituler2TableTr1Td2I = recapituler2TableTr1Td2I1;
+	public static final String recapituler2TableTr1Td3I1 = "fas fa-megaphone";
+	public static final String recapituler2TableTr1Td3I = recapituler2TableTr1Td3I1;
+	public static final String recapituler2TableTr1Td4I1 = "fas fa-pen-nib";
+	public static final String recapituler2TableTr1Td4I = recapituler2TableTr1Td4I1;
+	public static final String recapituler2TableTr2Td11 = "April 23 2019";
+	public static final String recapituler2TableTr2Td1 = recapituler2TableTr2Td11;
+	public static final String recapituler2TableTr2Td21 = "FAQ";
+	public static final String recapituler2TableTr2Td2 = recapituler2TableTr2Td21;
+	public static final String recapituler2TableTr2Td31 = "computate.org frequently asked questions";
+	public static final String recapituler2TableTr2Td3 = recapituler2TableTr2Td31;
+	public static final String recapituler2TableTr2Td41 = "By Christopher Tate";
+	public static final String recapituler2TableTr2Td4 = recapituler2TableTr2Td41;
+
+	/**	L'entité « recapituler2 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml recapituler2 = new PageHtml();
+	public Couverture<PageHtml> recapituler2Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("recapituler2").o(recapituler2);
+
+	/**	<br/>L'entité « recapituler2 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.faq.PageFaq&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:recapituler2">Trouver l'entité recapituler2 dans Solr</a>
+	 * <br/>
+	 * @param recapituler2 est l'entité déjà construit. 
+	 **/
+	protected abstract void _recapituler2(PageHtml o);
+
+	public PageHtml getRecapituler2() {
+		return recapituler2;
+	}
+
+	public void setRecapituler2(PageHtml recapituler2) {
+		this.recapituler2 = recapituler2;
+		this.recapituler2Couverture.dejaInitialise = true;
+	}
+	protected PageFaq recapituler2Init() {
+		if(recapituler2 != null) {
+			((PageFaq)this).avantPagePart(recapituler2, "recapituler2");
+			((PageFaq)this).avantPagePart(recapituler2, "recapituler2");
+		}
+		if(!recapituler2Couverture.dejaInitialise) {
+			_recapituler2(recapituler2);
+		}
+		recapituler2.initLoinPourClasse(requeteSite_);
+		recapituler2Couverture.dejaInitialise(true);
+		return (PageFaq)this;
+	}
+	public void htmlBodyRecapituler2(PageHtml o) {
+		{ e("table").a("class", " recapituler2Table ").f();
+			{ e("tr").a("class", " recapituler2TableTr1 recapituler2TableTr odd ").f();
+				{ e("td").a("class", " recapituler2TableTr1Td1 recapituler2TableTr1Td odd ").f();
+					sx(recapituler2TableTr1Td11);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr1Td2 recapituler2TableTr1Td even ").f();
+					{ e("i").a("class", recapituler2TableTr1Td2I1, " site-menu-icon recapituler2TableTr1Td2I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr1Td3 recapituler2TableTr1Td odd ").f();
+					{ e("i").a("class", recapituler2TableTr1Td3I1, " site-menu-icon recapituler2TableTr1Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr1Td4 recapituler2TableTr1Td even ").f();
+					{ e("i").a("class", recapituler2TableTr1Td4I1, " site-menu-icon recapituler2TableTr1Td4I ").f();
+					} g("i");
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler2TableTr2 recapituler2TableTr even ").f();
+				{ e("td").a("class", " recapituler2TableTr2Td1 recapituler2TableTr2Td odd ").f();
+					sx(recapituler2TableTr2Td11);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr2Td2 recapituler2TableTr2Td even ").f();
+					sx(recapituler2TableTr2Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr2Td3 recapituler2TableTr2Td odd ").f();
+					sx(recapituler2TableTr2Td31);
+				} g("td");
+				{ e("td").a("class", " recapituler2TableTr2Td4 recapituler2TableTr2Td even ").f();
+					sx(recapituler2TableTr2Td41);
+				} g("td");
+			} g("tr");
+		} g("table");
+	}
+	public void htmlBodyRecapituler2() {
+		recapituler2.htmlAvant();
+		htmlBodyRecapituler2(recapituler2);
+		recapituler2.htmlApres();
+	}
+
+	//////////////////
+	// recapituler3 //
+	//////////////////
+
+	public static final String recapituler3TableTr1Td1I1 = "fas fa-archway";
+	public static final String recapituler3TableTr1Td1I = recapituler3TableTr1Td1I1;
+	public static final String recapituler3TableTr1Td21 = "Why is your site in French? ";
+	public static final String recapituler3TableTr1Td2 = recapituler3TableTr1Td21;
+	public static final String recapituler3TableTr1Td3I1 = "fas fa-book-spells";
+	public static final String recapituler3TableTr1Td3I = recapituler3TableTr1Td3I1;
+	public static final String recapituler3TableTr1Td41 = "Internationalization is important. ";
+	public static final String recapituler3TableTr1Td4 = recapituler3TableTr1Td41;
+
+	/**	L'entité « recapituler3 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml recapituler3 = new PageHtml();
+	public Couverture<PageHtml> recapituler3Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("recapituler3").o(recapituler3);
+
+	/**	<br/>L'entité « recapituler3 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.page.faq.PageFaq&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:recapituler3">Trouver l'entité recapituler3 dans Solr</a>
+	 * <br/>
+	 * @param recapituler3 est l'entité déjà construit. 
+	 **/
+	protected abstract void _recapituler3(PageHtml o);
+
+	public PageHtml getRecapituler3() {
+		return recapituler3;
+	}
+
+	public void setRecapituler3(PageHtml recapituler3) {
+		this.recapituler3 = recapituler3;
+		this.recapituler3Couverture.dejaInitialise = true;
+	}
+	protected PageFaq recapituler3Init() {
+		if(recapituler3 != null) {
+			((PageFaq)this).avantPagePart(recapituler3, "recapituler3");
+			((PageFaq)this).avantPagePart(recapituler3, "recapituler3");
+		}
+		if(!recapituler3Couverture.dejaInitialise) {
+			_recapituler3(recapituler3);
+		}
+		recapituler3.initLoinPourClasse(requeteSite_);
+		recapituler3Couverture.dejaInitialise(true);
+		return (PageFaq)this;
+	}
+	public void htmlBodyRecapituler3(PageHtml o) {
+		{ e("table").a("class", " recapituler3Table ").f();
+			{ e("tr").a("class", " recapituler3TableTr1 recapituler3TableTr odd ").f();
+				{ e("td").a("class", " recapituler3TableTr1Td1 recapituler3TableTr1Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr1Td1I1, " site-menu-icon recapituler3TableTr1Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr1Td2 recapituler3TableTr1Td even ").f();
+					sx(recapituler3TableTr1Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr1Td3 recapituler3TableTr1Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr1Td3I1, " site-menu-icon recapituler3TableTr1Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr1Td4 recapituler3TableTr1Td even ").f();
+					sx(recapituler3TableTr1Td41);
+				} g("td");
+			} g("tr");
+		} g("table");
+	}
+	public void htmlBodyRecapituler3() {
+		recapituler3.htmlAvant();
+		htmlBodyRecapituler3(recapituler3);
+		recapituler3.htmlApres();
 	}
 
 	//////////////
@@ -274,10 +376,10 @@ public abstract class PageFaqGen<DEV> extends Article {
 	}
 
 	public void initPageFaq() {
-		pageUri_enUSInit();
-		pageUri_frFRInit();
 		listeArticleInit();
 		i18nInit();
+		recapituler2Init();
+		recapituler3Init();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -294,6 +396,10 @@ public abstract class PageFaqGen<DEV> extends Article {
 			listeArticle.setRequeteSite_(requeteSite_);
 		if(i18n != null)
 			i18n.setRequeteSite_(requeteSite_);
+		if(recapituler2 != null)
+			recapituler2.setRequeteSite_(requeteSite_);
+		if(recapituler3 != null)
+			recapituler3.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -320,14 +426,14 @@ public abstract class PageFaqGen<DEV> extends Article {
 	public Object obtenirPageFaq(String var) throws Exception {
 		PageFaq oPageFaq = (PageFaq)this;
 		switch(var) {
-			case "pageUri_enUS":
-				return oPageFaq.pageUri_enUS;
-			case "pageUri_frFR":
-				return oPageFaq.pageUri_frFR;
 			case "listeArticle":
 				return oPageFaq.listeArticle;
 			case "i18n":
 				return oPageFaq.i18n;
+			case "recapituler2":
+				return oPageFaq.recapituler2;
+			case "recapituler3":
+				return oPageFaq.recapituler3;
 			default:
 				return super.obtenirArticle(var);
 		}
@@ -393,7 +499,7 @@ public abstract class PageFaqGen<DEV> extends Article {
 			DefaultExecutor executeur = new DefaultExecutor();
 			{
 				new File("/usr/local/src/computate.org-static/png/frFR").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/faq?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/faq-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/frFR/faq?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/faq-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR/faq-999.png"));
 				System.out.println("PageFaqFrFRPage");
 				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
@@ -401,7 +507,7 @@ public abstract class PageFaqGen<DEV> extends Article {
 			}
 			{
 				new File("/usr/local/src/computate.org-static/png/enUS").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/faq?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/faq-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/enUS/faq?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/faq-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/enUS/faq-999.png"));
 				System.out.println("PageFaqEnUSPage");
 				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
@@ -425,6 +531,7 @@ public abstract class PageFaqGen<DEV> extends Article {
 			siteContexte.initLoinSiteContexteEnUS();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -508,6 +615,10 @@ public abstract class PageFaqGen<DEV> extends Article {
 	public void htmlBodyCourtPageFaq() {
 		if(i18n != null)
 			i18n.htmlBodyCourt();
+		if(recapituler2 != null)
+			recapituler2.htmlBodyCourt();
+		if(recapituler3 != null)
+			recapituler3.htmlBodyCourt();
 	}
 
 	//////////////
@@ -521,6 +632,8 @@ public abstract class PageFaqGen<DEV> extends Article {
 
 	public void htmlBodyPageFaq() {
 		((PageFaq)this).htmlBodyI18n();
+		((PageFaq)this).htmlBodyRecapituler2();
+		((PageFaq)this).htmlBodyRecapituler3();
 	}
 
 	//////////////
@@ -528,7 +641,7 @@ public abstract class PageFaqGen<DEV> extends Article {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), pageUri_enUS, pageUri_frFR);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -541,9 +654,7 @@ public abstract class PageFaqGen<DEV> extends Article {
 		if(!(o instanceof PageFaq))
 			return false;
 		PageFaq that = (PageFaq)o;
-		return super.equals(o)
-				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
-				&& Objects.equals( pageUri_frFR, that.pageUri_frFR );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -554,11 +665,9 @@ public abstract class PageFaqGen<DEV> extends Article {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("PageFaq {");
-		sb.append( "pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
-		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}
 
-	public static final String[] PageFaqVals = new String[] { i18nQuestion1, i18nQuestionCourt1, i18nReponse1, i18nReponseCourt1, i18nP1, i18nP2, i18nP3, i18nP4, i18nP5 };
+	public static final String[] PageFaqVals = new String[] { i18nH3Span1, i18nH4Span1, i18nPDiv1I1, i18nPDiv1Span1, i18nPDiv2I1, i18nPDiv2Span1, i18nPDiv3I1, i18nPDiv3Span1, i18nPDiv4I1, i18nPDiv4Span1, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41 };
 }

@@ -1,4 +1,4 @@
-package org.computate.site.frFR.page.blog; 
+package org.computate.site.frFR.page.blog;  
 
 import java.net.URLDecoder;
 import java.util.List;
@@ -76,12 +76,20 @@ public class PageBlog extends PageBlogGen<Article> {
 		c.o(org.computate.site.enUS.page.blog.PageBlog.PageBlog_H2);
 	}
 
-	protected void _pageUri_enUS(Couverture<String> c) {
+	@Override protected void _pageUri_enUS(Couverture<String> c) {
 		c.o(PageBlogEnUSPage_Uri);
 	}
 
-	protected void _pageUri_frFR(Couverture<String> c) {
+	@Override protected void _pageUri_frFR(Couverture<String> c) {
 		c.o(PageBlogFrFRPage_Uri);
+	}
+
+	@Override protected void _pageImageUri_enUS(Couverture<String> c) {
+		c.o(PageBlogEnUSPage_ImageUri);
+	}
+
+	@Override protected void _pageImageUri_frFR(Couverture<String> c) {
+		c.o(PageBlogFrFRPage_ImageUri);
 	}
 
 	@Override protected void _pageRecherche_enUS(List<String> l) {

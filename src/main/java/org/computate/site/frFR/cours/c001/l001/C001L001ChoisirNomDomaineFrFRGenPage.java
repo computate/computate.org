@@ -75,7 +75,7 @@ public class C001L001ChoisirNomDomaineFrFRGenPage extends C001L001ChoisirNomDoma
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(616);
+			c.o(729);
 	}
 
 	@Override protected void _pageVideoId(Couverture<String> c) {

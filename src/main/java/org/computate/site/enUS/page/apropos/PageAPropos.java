@@ -42,12 +42,24 @@ public class PageAPropos extends PageAProposGen<Article> {
 		c.o(org.computate.site.enUS.page.apropos.PageAPropos.PageAPropos_H2);
 	}
 
-	protected void _pageUri_enUS(Couverture<String> c) {
+	@Override()
+	protected void  _pageUri_enUS(Couverture<String> c) {
 		c.o(PageAProposEnUSPage_Uri);
 	}
 
-	protected void _pageUri_frFR(Couverture<String> c) {
+	@Override()
+	protected void  _pageUri_frFR(Couverture<String> c) {
 		c.o(PageAProposFrFRPage_Uri);
+	}
+
+	@Override()
+	protected void  _pageImageUri_enUS(Couverture<String> c) {
+		c.o(PageAProposEnUSPage_ImageUri);
+	}
+
+	@Override()
+	protected void  _pageImageUri_frFR(Couverture<String> c) {
+		c.o(PageAProposFrFRPage_ImageUri);
 	}
 
 	@Override()
