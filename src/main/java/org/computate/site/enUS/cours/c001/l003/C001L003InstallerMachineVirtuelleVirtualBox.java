@@ -91,7 +91,22 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	protected void _ecraser(PageHtml o) {      
 	}
 
-	protected void _commentInstaller(QuestionReponse o) {
+	protected void _commentInstaller(PageHtml o) {
+	}
+
+	protected void _telecharger(PageHtml o) {
+	}
+
+	protected void _deplacerDepot(PageHtml o) {
+	}
+
+	protected void _yumSearch(PageHtml o) {
+	}
+
+	protected void _yumInstallPaquets(PageHtml o) {
+	}
+
+	protected void _telechargerIso(PageHtml o) {
 	}
 
 	protected void _recapituler1(PageHtml o) {      

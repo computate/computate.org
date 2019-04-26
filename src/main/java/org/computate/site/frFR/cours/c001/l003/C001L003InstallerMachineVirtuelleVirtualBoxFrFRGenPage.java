@@ -1,7 +1,6 @@
 package org.computate.site.frFR.cours.c001.l003;
 
 import org.computate.site.frFR.page.parti.PageHtml;
-import org.computate.site.frFR.page.parti.QuestionReponse;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;

@@ -4,27 +4,22 @@ import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
-import org.apache.commons.exec.CommandLine;
-import org.apache.commons.lang3.StringUtils;
-import java.util.ArrayList;
-import org.computate.site.enUS.cluster.Cluster;
-import javax.imageio.ImageIO;
-import org.computate.site.enUS.page.parti.PagePart;
-import java.lang.String;
-import org.apache.commons.exec.DefaultExecutor;
-import java.awt.image.BufferedImage;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.enUS.article.Article;
+import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
-import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
+import java.util.ArrayList;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
+import org.computate.site.enUS.cluster.Cluster;
 import org.computate.site.enUS.page.parti.PageParagraphe;
 import java.util.List;
 import org.apache.solr.client.solrj.SolrQuery;
+import org.computate.site.enUS.page.parti.PagePart;
+import java.lang.String;
 import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -552,34 +547,6 @@ public abstract class PageAccueilGen<DEV> extends Article {
 		switch(var) {
 			default:
 				return super.definirArticle(var, val);
-		}
-	}
-
-	///////////
-	// image //
-	///////////
-
-	public static void image() {
-		try {
-			DefaultExecutor executeur = new DefaultExecutor();
-			{
-				new File("/usr/local/src/computate.org-static/png").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/frFR?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR-999.png"));
-				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR-999.png"));
-				System.out.println("PageAccueilFrFRPage");
-				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
-				System.out.println(" * ImageHauteur.frFR: " + img.getHeight());
-			}
-			{
-				new File("/usr/local/src/computate.org-static/png").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/-999.png"));
-				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/-999.png"));
-				System.out.println("PageAccueilEnUSPage");
-				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
-				System.out.println(" * ImageHauteur.enUS: " + img.getHeight());
-			}
-		} catch(Exception e) {
-			ExceptionUtils.rethrow(e);
 		}
 	}
 

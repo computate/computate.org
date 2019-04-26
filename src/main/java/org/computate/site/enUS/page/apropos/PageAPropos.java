@@ -5,6 +5,7 @@ import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import org.apache.solr.client.solrj.util.ClientUtils;
 import org.computate.site.enUS.article.Article;
 import org.computate.site.enUS.couverture.Couverture;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.enUS.page.parti.QuestionReponse;
 import org.computate.site.enUS.recherche.ListeRecherche;
 
@@ -100,21 +101,14 @@ public class PageAPropos extends PageAProposGen<Article> {
 	}
 
 	public void  htmlBodyCourt() {
-		super.htmlBodyCourt();
+		htmlBodyRecapituler2();
+		htmlBodyRecapituler3();
 	}
 
-	protected void _ouVenezVous(QuestionReponse o) {
-
-		o.questionIcone("fas", "location");
-		o.setQuestion(ouVenezVousQuestion);
-		o.setQuestionCourt(ouVenezVousQuestionCourt);
-
-		o.reponseIcone("fas", "globe-americas");
-		o.setReponse(ouVenezVousReponse);
-		o.setReponseCourt(ouVenezVousReponseCourt);
+	protected void _ouVenezVous(PageHtml o) {
 	}
 
-	public void  htmlBodyOuVenezVous(QuestionReponse o) { 
+	public void  htmlBodyOuVenezVous(PageHtml o) { 
 		e("p").f();
 			e("div").a("class", "w3-row w3-mobile ").f();
 				e("div").a("class", "w3-quarter w3-mobile ").f();
@@ -144,146 +138,22 @@ public class PageAPropos extends PageAProposGen<Article> {
 					g("a");
 				g("div");
 			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-mountains site-menu-icon ").f().g("i");
-				sx(ouVenezVousP1);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-globe-africa site-menu-icon ").f().g("i");
-				sx(ouVenezVousP2);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-heart-square site-menu-icon ").f().g("i");
-				sx(ouVenezVousP3);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-robot site-menu-icon ").f().g("i");
-				sx(ouVenezVousP4);
-			g("div");
 		g("p");
+		super.htmlBodyOuVenezVous(o);
 	}
 
-	protected void _informatique(QuestionReponse o) {
-
-		o.questionIcone("fas", "book");
-		o.setQuestion(informatiqueQuestion);
-		o.setQuestionCourt(informatiqueQuestionCourt);
-
-		o.reponseIcone("fas", "save");
-		o.setReponse(informatiqueReponse);
-		o.setReponseCourt(informatiqueReponseCourt);
+	protected void _informatique(PageHtml o) {
 	}
 
-	public void  htmlBodyInformatique(QuestionReponse o) { 
-		e("p").f();
-			e("div").f();
-				e("i").a("class", "fas fa-male site-menu-icon ").f().g("i");
-				sx(informatiqueP1);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-window-alt site-menu-icon ").f().g("i");
-				sx(informatiqueP2);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-keyboard site-menu-icon ").f().g("i");
-				sx(informatiqueP3);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-folders site-menu-icon ").f().g("i");
-				sx(informatiqueP4);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-database site-menu-icon ").f().g("i");
-				sx(informatiqueP5);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-book-spells site-menu-icon ").f().g("i");
-				sx(informatiqueP6);
-			g("div");
-		g("p");
+	protected void _emploi(PageHtml o) {
 	}
 
-	protected void _emploi(QuestionReponse o) {
-
-		o.questionIcone("fas", "briefcase");
-		o.setQuestion(emploiQuestion);
-		o.setQuestionCourt(emploiQuestionCourt);
-
-		o.reponseIcone("fas", "rocket");
-		o.setReponse(emploiReponse);
-		o.setReponseCourt(emploiReponseCourt);
+	protected void _opensource(PageHtml o) {
 	}
 
-	public void  htmlBodyEmploi(QuestionReponse o) { 
-		e("p").f();
-			e("div").f();
-				e("i").a("class", "fas fa-calculator site-menu-icon ").f().g("i");
-				sx(emploiP1);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-university site-menu-icon ").f().g("i");
-				sx(emploiP2);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-hands-helping site-menu-icon ").f().g("i");
-				sx(emploiP3);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-building site-menu-icon ").f().g("i");
-				sx(emploiP4);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-flag-alt site-menu-icon ").f().g("i");
-				sx(emploiP5);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fab fa-linux site-menu-icon ").f().g("i");
-				sx(emploiP6);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fab fa-redhat site-menu-icon ").f().g("i");
-				sx(emploiP7);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-laugh-beam site-menu-icon ").f().g("i");
-				sx(emploiP8);
-			g("div");
-		g("p");
+	protected void _recapituler2(PageHtml o) {      
 	}
 
-	protected void _opensource(QuestionReponse o) {
-
-		o.questionIcone("fas", "heart");
-		o.setQuestion(opensourceQuestion);
-		o.setQuestionCourt(opensourceQuestionCourt);
-
-		o.reponseIcone("fas", "dove");
-		o.setReponse(opensourceReponse);
-		o.setReponseCourt(opensourceReponseCourt);
-	}
-
-	public void  htmlBodyOpensource(QuestionReponse o) { 
-		e("p").f();
-			e("div").f();
-				e("i").a("class", "fas fa-hat-wizard site-menu-icon ").f().g("i");
-				sx(opensourceP1);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-laptop site-menu-icon ").f().g("i");
-				sx(opensourceP2);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-strikethrough site-menu-icon ").f().g("i");
-				sx(opensourceP3);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-save site-menu-icon ").f().g("i");
-				sx(opensourceP4);
-			g("div");
-			e("div").f();
-				e("i").a("class", "fas fa-arrow-alt-square-right site-menu-icon ").f().g("i");
-				sx(opensourceP5);
-			g("div");
-		g("p");
+	protected void _recapituler3(PageHtml o) {      
 	}
 }

@@ -145,87 +145,170 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I.frFR:fas fa-person-carry
+	 * Val.H3I:fas fa-person-carry
 	 * Val.H3Span.frFR:Comment installer VirtualBox pour la virtualisation ? 
 	 * Val.H3Span.enUS:How do I install VirtualBox for virtualization? 
-	 * Val.H4I.frFR:fas fa-cloud-download-alt
+	 * Val.H4I:fas fa-cloud-download-alt
 	 * Val.H4Span.frFR:Téléchargez-le simplement depuis virtualbox.org. 
 	 * Val.H4Span.enUS:Simply download it from virtualbox.org. 
-	 * Val.PUlLi1Span.frFR:VirtualBox est facile à télécharger et à installer. 
-	 * Val.PUlLi1Span.enUS:VirtualBox is easy to download and install. 
-	 * Val.PUlLi2Span.frFR:Visitez cette URL : 
-	 * Val.PUlLi2Span.enUS:Visit this url: 
-	 * Val.PUlLi2A.frFR:https://www.virtualbox.org/wiki/Downloads
-	 * Val.PUlLi2A.enUS:https://www.virtualbox.org/wiki/Downloads
-	 * Val.PUlLi3Span.frFR:Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. 
-	 * Val.PUlLi3Span.enUS:You can download it on a Windows host, an OS X host, a Linux or Solaris host. 
-	 * Val.PUlLi4Span.frFR:Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. 
-	 * Val.PUlLi4Span.enUS:Because I am running CentOS 7, which is similar to RHEL, I will use the RHEL instructions at the very bottom of the page. 
+	 * Val.POlLi1Span.frFR:VirtualBox est facile à télécharger et à installer. 
+	 * Val.POlLi1Span.enUS:VirtualBox is easy to download and install. 
+	 * Val.POlLi2Span.frFR:Visitez cette URL : 
+	 * Val.POlLi2Span.enUS:Visit this url: 
+	 * Val.POlLi2A.frFR:https://www.virtualbox.org/wiki/Downloads
+	 * Val.POlLi2A.enUS:https://www.virtualbox.org/wiki/Downloads
+	 * Val.POlLi3Span.frFR:Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. 
+	 * Val.POlLi3Span.enUS:You can download it on a Windows host, an OS X host, a Linux or Solaris host. 
+	 * Val.POlLi4Span.frFR:Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. 
+	 * Val.POlLi4Span.enUS:Because I am running CentOS 7, which is similar to RHEL, I will use the RHEL instructions at the very bottom of the page. 
 	 */  
-	protected void _commentInstaller(QuestionReponse o) {
+	protected void _commentInstaller(PageHtml o) {
 	}
-//
-//	/**
-//	 * {@inheritDoc}
-//	 * 
-//	 * Val.H3I.frFR:fas fa-play-circle
-//	 * Val.H3Span.frFR:Comment puis-je préparer CentOS 7 pour installer VirtualBox ? 
-//	 * Val.H3Span.enUS:How can I prepare CentOS 7 to install VirtualBox? 
-//	 * Val.H4I.frFR:fas fa-download
-//	 * Val.H4Span.frFR:Installer le dépot yum virtualbox
-//	 * Val.H4Span.enUS:Install the virtualbox yum repo
-//	 * Val.Param:wget
-//	 * Val.Param: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
-//	 * Val.Param: -O
-//	 * Val.Param: /tmp/virtualbox.repo
-//	 * Val.Param1P.frFR:La commande pour télécharger des fichiers. 
-//	 * Val.Param1P.enUS:The command to download files. 
-//	 * Val.Param2P.frFR:L'URL vers le téléchargement dépôt yum VirtualBox. 
-//	 * Val.Param2P.enUS:The URL to the VirtualBox yum repository download file. 
-//	 * Val.Param3P.frFR:Pour spécifier le chemin de sortie pour le téléchargement. 
-//	 * Val.Param3P.enUS:For specifying the output path for the downloaded file. 
-//	 * Val.Param4P.frFR:Le chemin de sortie pour le téléchargement dépôt yum. 
-//	 * Val.Param4P.enUS:The output path for the downloaded yum repository file. 
-//	 */ 
-//	protected void _telecharger(Cmd o) {
-//
-//		o.questionIcone("fas", "play-circle");
-//		o.setQuestion(telechargerQuestion);
-//		o.setQuestionCourt(telechargerQuestionCourt);
-//
-//		o.reponseIcone("fab", "download");
-//		o.setReponse(telechargerReponse);
-//		o.setReponseCourt(telechargerReponseCourt);
-//	}
-//	public void htmlBodyTelecharger(Cmd o) {
-//		{ e("p").f();
-//			{ e("ul").f();
-//				{ e("li").f();
-//					{ e("span").f();
-//						sx(telechargerP1);
-//					} g("span");
-//				} g("li");
-//				{ e("li").f();
-//					{ e("span").f();
-//						sx(telechargerP2);
-//					} g("span");
-//					{ e("a").a("href", telechargerP3).f();
-//						sx(telechargerP3);
-//					} g("a");
-//				} g("li");
-//				{ e("li").f();
-//					{ e("span").f();
-//						sx(telechargerP4);
-//					} g("span");
-//				} g("li");
-//				{ e("li").f();
-//					{ e("span").f();
-//						sx(telechargerP5);
-//					} g("span");
-//				} g("li");
-//			} g("ul");
-//		} g("p");
-//	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-play-circle
+	 * Val.H3Span.frFR:Comment puis-je préparer CentOS 7 pour installer VirtualBox ? 
+	 * Val.H3Span.enUS:How can I prepare CentOS 7 to install VirtualBox? 
+	 * Val.H4I:fas fa-download
+	 * Val.H4Span.frFR:Installer le dépot yum virtualbox
+	 * Val.H4Span.enUS:Install the virtualbox yum repo
+	 * Val.PreSpan1:wget
+	 * Val.PreSpan2: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
+	 * Val.PreSpan3: -O
+	 * Val.PreSpan4: /tmp/virtualbox.repo
+	 * Val.OlLi1.frFR:La commande pour télécharger des fichiers. 
+	 * Val.OlLi1.enUS:The command to download files. 
+	 * Val.OlLi2.frFR:L'URL vers le téléchargement dépôt yum VirtualBox. 
+	 * Val.OlLi2.enUS:The URL to the VirtualBox yum repository download file. 
+	 * Val.OlLi3.frFR:Pour spécifier le chemin de sortie pour le téléchargement. 
+	 * Val.OlLi3.enUS:For specifying the output path for the downloaded file. 
+	 * Val.OlLi4.frFR:Le chemin de sortie pour le téléchargement dépôt yum. 
+	 * Val.OlLi4.enUS:The output path for the downloaded yum repository file. 
+	 */ 
+	protected void _telecharger(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-box-check
+	 * Val.H3Span.frFR:Comment puis-je installer le dépôt yum virtualbox ? 
+	 * Val.H3Span.enUS:How can I install the virtualbox yum repository? 
+	 * Val.H4I:fas fa-person-dolly
+	 * Val.H4Span.frFR:Mettre virtualbox.repo dans /etc/yum.repos.d/. 
+	 * Val.H4Span.enUS:Put virtualbox.repo in /etc/yum.repos.d/. 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: mv
+	 * Val.PreSpan3: /tmp/virtualbox.repo
+	 * Val.PreSpan4: /etc/yum.repos.d/
+	 * Val.OlLi1.frFR:La commande pour installer des dépots yum commence par la commande sudo. 
+	 * Val.OlLi1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
+	 * Val.OlLi1.frFR:L'installation des dépots yum nécessite toujours les privilèges root. 
+	 * Val.OlLi1.enUS:The command to install yum repositories begins with the command sudo. 
+	 * Val.OlLi1.enUS:The "sudo" command allows your current user to have root privileges for a few minutes after entering your password. 
+	 * Val.OlLi1.enUS:Installing yum repositories always requires root privileges. 
+	 * Val.OlLi2.frFR:Pour déplacer des fichiers vers de nouveaux emplacements dans le système de fichiers. 
+	 * Val.OlLi2.enUS:For moving files to new locations in the filesystem. 
+	 * Val.OlLi3.frFR:Le chemin vers le téléchargement dépôt yum. 
+	 * Val.OlLi3.enUS:The path to the downloaded yum repository file. 
+	 * Val.OlLi4.frFR:Le répertoire pour les dépôts yum configurés. 
+	 * Val.OlLi4.enUS:The directory for configured yum repositories. 
+	 */ 
+	protected void _deplacerDepot(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-question
+	 * Val.H3Span.frFR:Comment puis-je installer le dépôt yum virtualbox ? 
+	 * Val.H3Span.enUS:How can I install the virtualbox yum repository? 
+	 * Val.H4I:fas fa-search
+	 * Val.H4Span.frFR:Mettre virtualbox.repo dans /etc/yum.repos.d/. 
+	 * Val.H4Span.enUS:Put virtualbox.repo in /etc/yum.repos.d/. 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: yum
+	 * Val.PreSpan3: search
+	 * Val.PreSpan4: virtualbox
+	 * Val.OlLi1.frFR:sudo
+	 * Val.OlLi1.enUS:sudo
+	 * Val.OlLi2.frFR:Ce qui signifie "Yellowdog Updater Modified", mais personne ne le connait comme yellowdog, juste yum. 
+	 * Val.OlLi2.frFR:CentOS gère les paquets de logiciel et les fichiers d'application RPM avec yum. 
+	 * Val.OlLi2.enUS:Which stands for "Yellowdog Updater Modified", but nobody knows it as yellowdog, just yum. 
+	 * Val.OlLi2.enUS:CentOS manages software packages and RPM application files with yum. 
+	 * Val.OlLi3.frFR:Pour rechercher les paquets yum disponibles. 
+	 * Val.OlLi3.enUS:For searching for available yum packages. 
+	 * Val.OlLi4.frFR:Une phrase à rechercher dans les dépôts yum, comme « virtualbox ». 
+	 * Val.OlLi4.enUS:A phrase to search for in the yum repositories, like "virtualbox". 
+	 */ 
+	protected void _yumSearch(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-box
+	 * Val.H3Span.frFR:Comment puis-je maintenant installer l'application VirtualBox ? 
+	 * Val.H3Span.enUS:How do I now install the VirtualBox application? 
+	 * Val.H4I:fas fa-box-full
+	 * Val.H4Span.frFR:Installer le paquet avec yum. 
+	 * Val.H4Span.enUS:Install the package with yum. 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: yum
+	 * Val.PreSpan3: install
+	 * Val.PreSpan4: -y
+	 * Val.PreSpan5: VirtualBox-5.2
+	 * Val.OlLi1.frFR:sudo
+	 * Val.OlLi1.enUS:sudo
+	 * Val.OlLi2.frFR:yum
+	 * Val.OlLi2.enUS:yum
+	 * Val.OlLi3.frFR:Pour installer des nouveaux paquets yum. 
+	 * Val.OlLi3.enUS:For installing new yum packages. 
+	 * Val.OlLi4.frFR:Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
+	 * Val.OlLi4.enUS:Suppress messages asking to confirm if you want to install the software. 
+	 * Val.OlLi5.frFR:Le nom du paquet de VirtualBox que vous souhaitez installer. 
+	 * Val.OlLi5.frFR:Vous pouvez utiliser le nom du paquet avant le « .x86_64 » de la recherche yum que vous avez effectuée précédemment. 
+	 * Val.OlLi5.frFR:Pour moi c'est « VirtualBox-5.2 ». 
+	 * Val.OlLi5.enUS:The package name of VirtualBox you wish to install. 
+	 * Val.OlLi5.enUS:You can use the package name before the ".x86_64" from the yum search you did earlier. 
+	 * Val.OlLi5.enUS:For me it is "VirtualBox-5.2". 
+	 */ 
+	protected void _yumInstallPaquets(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-clipboard-list
+	 * Val.H3Span.frFR:Comment mettre un système d'exploitation sur une machine virtuelle VirtualBox ? 
+	 * Val.H3Span.enUS:How do I put an operating system on a VirtualBox virtual machine? 
+	 * Val.H4I:fas fa-arrow-alt-to-bottom
+	 * Val.H4Span.frFR:Télécharger un fichier ISO. 
+	 * Val.H4Span.enUS:Download an ISO file. 
+	 * Val.PreSpan1:wget
+	 * Val.PreSpan2: http://mirrors.xmission.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+	 * Val.PreSpan3: -O
+	 * Val.PreSpan4: ~/Downloads/CentOS-7-x86_64-DVD-1810.iso
+	 * Val.OlLi1:wget
+	 * Val.OlLi2.frFR:L'URL vers le téléchargement ISO de CentOS 7. 
+	 * Val.OlLi2.enUS:The URL to the CentOS 7 ISO file to download. 
+	 * Val.OlLi3:-O
+	 * Val.OlLi4.frFR:Le chemin de sortie pour le téléchargement ISO CentOS 7. 
+	 * Val.OlLi4.enUS:The output path for the downloaded CentOS 7 ISO file. 
+	 * Val.PSpan1.frFR:Vous pouvez télécharger le fichier ISO CentOS 7 le plus récent pour installer sur une nouvelle machine virtuelle ici 
+	 * Val.PSpan1.enUS:You can download the latest CentOS 7 ISO file to install on a new virtual machine here 
+	 * Val.PSpan2A:https://www.centos.org/download/
+	 * Val.PSpan3.frFR:. Cliquez sur le bouton [ DVD ISO ]. 
+	 * Val.PSpan3.frFR:Vous pouvez choisir parmi  l'un des miroirs, vous pourriez en trouver un près de chez vous. 
+	 * Val.PSpan3.frFR:Vous pouvez également télécharger le fichier en utilisant la commande wget dans le terminal comme ça. 
+	 * Val.PSpan3.enUS:. Click on the [ DVD ISO ] button. 
+	 * Val.PSpan3.enUS:You can choose from any of the mirrors, you might find one close to you. 
+	 * Val.PSpan3.enUS:You can also download the file using the wget command in the terminal like that. 
+	 */ 
+	protected void _telechargerIso(PageHtml o) {
+	}
 
 	/**
 	 * Val.H3.frFR:À récapituler : 
@@ -253,26 +336,34 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	}
 
 	/**
-	 * Val.TableTr1Td1I:fas fa-eraser
-	 * Val.TableTr1Td2.frFR:Linux va-t-il détruire mon système d'exploitation ? 
-	 * Val.TableTr1Td2.enUS:Will Linux destroy my operating system? 
-	 * Val.TableTr1Td3I:fab fa-linux
-	 * Val.TableTr1Td4.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
-	 * Val.TableTr1Td4.enUS:Virtualization can run Linux on any operating system. 
 	 * 
-	 * Val.TableTr2Td1I:fas fa-person-carry
-	 * Val.TableTr2Td2.frFR:Comment installer VirtualBox ? 
-	 * Val.TableTr2Td2.enUS:How do I install VirtualBox? 
-	 * Val.TableTr2Td3I:fas fa-cloud-download-alt
-	 * Val.TableTr2Td4.frFR:Téléchargez-le depuis virtualbox.org
-	 * Val.TableTr2Td4.enUS:Download it from virtualbox.org
+	 * Val.TableTr1Td1I:fas fa-question
+	 * Val.TableTr1Td2.frFR:Questions
+	 * Val.TableTr1Td2.enUS:Questions
+	 * Val.TableTr1Td3I:fas fa-bullhorn
+	 * Val.TableTr1Td4.frFR:Reponses
+	 * Val.TableTr1Td4.enUS:Answers
 	 * 
-	 * Val.TableTr3Td1I:fas fa-play-circle
-	 * Val.TableTr3Td2.frFR:Préparer CentOS 7 pour installer VirtualBox
-	 * Val.TableTr3Td2.enUS:Prepare CentOS 7 to install VirtualBox
-	 * Val.TableTr3Td3I:fas fa-download
-	 * Val.TableTr3Td4.frFR:Installer le dépot yum virtualbox
-	 * Val.TableTr3Td4.enUS:Install the virtualbox yum repo
+	 * Val.TableTr2Td1I:fas fa-eraser
+	 * Val.TableTr2Td2.frFR:Linux va-t-il détruire mon système d'exploitation ? 
+	 * Val.TableTr2Td2.enUS:Will Linux destroy my operating system? 
+	 * Val.TableTr2Td3I:fab fa-linux
+	 * Val.TableTr2Td4.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
+	 * Val.TableTr2Td4.enUS:Virtualization can run Linux on any operating system. 
+	 * 
+	 * Val.TableTr3Td1I:fas fa-person-carry
+	 * Val.TableTr3Td2.frFR:Comment installer VirtualBox ? 
+	 * Val.TableTr3Td2.enUS:How do I install VirtualBox? 
+	 * Val.TableTr3Td3I:fas fa-cloud-download-alt
+	 * Val.TableTr3Td4.frFR:Téléchargez-le depuis virtualbox.org
+	 * Val.TableTr3Td4.enUS:Download it from virtualbox.org
+	 * 
+	 * Val.TableTr4Td1I:fas fa-play-circle
+	 * Val.TableTr4Td2.frFR:Préparer CentOS 7 pour installer VirtualBox
+	 * Val.TableTr4Td2.enUS:Prepare CentOS 7 to install VirtualBox
+	 * Val.TableTr4Td3I:fas fa-download
+	 * Val.TableTr4Td4.frFR:Installer le dépot yum virtualbox
+	 * Val.TableTr4Td4.enUS:Install the virtualbox yum repo
 	 */  
 	protected void _recapituler3(PageHtml o) {      
 	}

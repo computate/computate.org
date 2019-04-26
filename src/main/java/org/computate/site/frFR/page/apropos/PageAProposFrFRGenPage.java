@@ -2,7 +2,7 @@ package org.computate.site.frFR.page.apropos;
 
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.article.Article;
-import org.computate.site.frFR.page.parti.QuestionReponse;
+import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.article.ArticleFrFRPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
@@ -76,7 +76,7 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(616);
+			c.o(820);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -84,7 +84,7 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 	}
 
 	@Override protected void _contexteIconeNom(Couverture<String> c) {
-			c.o("book");
+			c.o("male");
 	}
 
 	@Override public void initLoinPageAProposFrFRGenPage() {

@@ -72,14 +72,6 @@ public class PageAccueilFrFRGenPage extends PageAccueilFrFRGenPageGen<ArticleFrF
 			c.o("/png/frFR-999.png");
 	}
 
-	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
-			c.o(800);
-	}
-
-	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(616);
-	}
-
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
 			c.o("regular");
 	}

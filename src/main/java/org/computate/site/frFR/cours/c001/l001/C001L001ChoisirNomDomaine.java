@@ -36,9 +36,9 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 729
+ * ImageHauteur.frFR: 781
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 774
+ * ImageHauteur.enUS: 781
  * VideoId.frFR: ZJTDpIpan8M
  * VideoId.enUS: sBcDnQj9_QM
 */  
@@ -322,40 +322,48 @@ public class C001L001ChoisirNomDomaine extends C001L001ChoisirNomDomaineGen<C001
 	}
 
 	/**
-	 * Val.TableTr1Td1I:fas fa-history
-	 * Val.TableTr1Td2.frFR:Devrais je l'acheter à l'avance ? 
-	 * Val.TableTr1Td2.enUS:Should I buy it ahead of time? 
-	 * Val.TableTr1Td3I:fas fa-map-pin
-	 * Val.TableTr1Td4.frFR:Savoir maintenant comment vous appelez votre site. 
-	 * Val.TableTr1Td4.enUS:Know what your site will be called. 
 	 * 
-	 * Val.TableTr2Td1I:fas fa-credit-card
-	 * Val.TableTr2Td2.frFR:Où puis-je acheter un nom de domaine ? 
-	 * Val.TableTr2Td2.enUS:Where can I purchase a domain name? 
-	 * Val.TableTr2Td3I:fas fa-building
-	 * Val.TableTr2Td4.frFR:Essayez brinkster.com ou gandi.net. 
-	 * Val.TableTr2Td4.enUS:Try brinkster.com or gandi.net. 
+	 * Val.TableTr1Td1I:fas fa-question
+	 * Val.TableTr1Td2.frFR:Questions
+	 * Val.TableTr1Td2.enUS:Questions
+	 * Val.TableTr1Td3I:fas fa-bullhorn
+	 * Val.TableTr1Td4.frFR:Reponses
+	 * Val.TableTr1Td4.enUS:Answers
 	 * 
-	 * Val.TableTr3Td1I:fab fa-wpforms
-	 * Val.TableTr3Td2.frFR:Qu'est-ce que je choisis comme un nom de domaine ? 
-	 * Val.TableTr3Td2.enUS:What do I choose for a domain name? 
-	 * Val.TableTr3Td3I:fas fa-bullhorn
-	 * Val.TableTr3Td4.frFR:Atteindra votre public. 
-	 * Val.TableTr3Td4.enUS:Reach your audience. 
+	 * Val.TableTr2Td1I:fas fa-history
+	 * Val.TableTr2Td2.frFR:Devrais je l'acheter à l'avance ? 
+	 * Val.TableTr2Td2.enUS:Should I buy it ahead of time? 
+	 * Val.TableTr2Td3I:fas fa-map-pin
+	 * Val.TableTr2Td4.frFR:Savoir maintenant comment vous appelez votre site. 
+	 * Val.TableTr2Td4.enUS:Know what your site will be called. 
 	 * 
-	 * Val.TableTr4Td1I:fas fa-cart-plus
-	 * Val.TableTr4Td2.frFR:Quoi faire après j'ai acheté un nom de domaine ? 
-	 * Val.TableTr4Td2.enUS:What do I do after I've bought a domain name? 
-	 * Val.TableTr4Td3I:fas fa-clipboard-check
-	 * Val.TableTr4Td4.frFR:Gérer votre domaine. 
-	 * Val.TableTr4Td4.enUS:Manage your domain. 
+	 * Val.TableTr3Td1I:fas fa-credit-card
+	 * Val.TableTr3Td2.frFR:Où puis-je acheter un nom de domaine ? 
+	 * Val.TableTr3Td2.enUS:Where can I purchase a domain name? 
+	 * Val.TableTr3Td3I:fas fa-building
+	 * Val.TableTr3Td4.frFR:Essayez brinkster.com ou gandi.net. 
+	 * Val.TableTr3Td4.enUS:Try brinkster.com or gandi.net. 
 	 * 
-	 * Val.TableTr5Td1I:fas fa-fast-forward
-	 * Val.TableTr5Td2.frFR:Puis-je choisir un nom de domaine plus tard ? 
-	 * Val.TableTr5Td2.enUS:Can I pick a domain name later? 
-	 * Val.TableTr5Td3I:fas fa-list-ol
-	 * Val.TableTr5Td4.frFR:Le nom d'hôte de votre ordinateur le dépendra. 
-	 * Val.TableTr5Td4.enUS:Your computer hostname will depend on it. 
+	 * Val.TableTr4Td1I:fab fa-wpforms
+	 * Val.TableTr4Td2.frFR:Qu'est-ce que je choisis comme un nom de domaine ? 
+	 * Val.TableTr4Td2.enUS:What do I choose for a domain name? 
+	 * Val.TableTr4Td3I:fas fa-bullhorn
+	 * Val.TableTr4Td4.frFR:Atteindra votre public. 
+	 * Val.TableTr4Td4.enUS:Reach your audience. 
+	 * 
+	 * Val.TableTr5Td1I:fas fa-cart-plus
+	 * Val.TableTr5Td2.frFR:Quoi faire après j'ai acheté un nom de domaine ? 
+	 * Val.TableTr5Td2.enUS:What do I do after I've bought a domain name? 
+	 * Val.TableTr5Td3I:fas fa-clipboard-check
+	 * Val.TableTr5Td4.frFR:Gérer votre domaine. 
+	 * Val.TableTr5Td4.enUS:Manage your domain. 
+	 * 
+	 * Val.TableTr6Td1I:fas fa-fast-forward
+	 * Val.TableTr6Td2.frFR:Puis-je choisir un nom de domaine plus tard ? 
+	 * Val.TableTr6Td2.enUS:Can I pick a domain name later? 
+	 * Val.TableTr6Td3I:fas fa-list-ol
+	 * Val.TableTr6Td4.frFR:Le nom d'hôte de votre ordinateur le dépendra. 
+	 * Val.TableTr6Td4.enUS:Your computer hostname will depend on it. 
 	 */  
 	protected void _recapituler3(PageHtml o) {      
 	}

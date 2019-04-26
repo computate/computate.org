@@ -73,14 +73,6 @@ public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnU
 			c.o("/png/-999.png");
 	}
 
-	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
-			c.o(800);
-	}
-
-	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(616);
-	}
-
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
 			c.o("regular");
 	}

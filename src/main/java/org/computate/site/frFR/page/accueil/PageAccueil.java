@@ -43,17 +43,11 @@ import io.vertx.ext.web.api.OperationRequest;
  * IconeGroupe: regular
  * IconeNom: book
  * Indexe: true
- * Image: true
- * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 616
- * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 616
-*/ 
+//*/ 
 public class PageAccueil extends PageAccueilGen<Article> {   
 
 	public static void main(String[] args) {  
 		indexer(); 
-		image();
 	} 
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {

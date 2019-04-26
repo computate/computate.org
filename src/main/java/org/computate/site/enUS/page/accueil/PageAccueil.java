@@ -19,7 +19,6 @@ public class PageAccueil extends PageAccueilGen<Article> {
 
 	public static void  main(String[] args) {  
 		indexer(); 
-		image();
 	}
 
 	@Override()

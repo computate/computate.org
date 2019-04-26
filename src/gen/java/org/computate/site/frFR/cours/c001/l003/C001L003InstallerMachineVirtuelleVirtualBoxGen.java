@@ -19,7 +19,6 @@ import org.computate.site.frFR.contexte.SiteContexteFrFR;
 import java.io.File;
 import org.apache.solr.client.solrj.SolrClient;
 import java.util.Objects;
-import org.computate.site.frFR.page.parti.QuestionReponse;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import java.util.List;
@@ -201,36 +200,36 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	public static final String commentInstallerH4I = commentInstallerH4I1;
 	public static final String commentInstallerH4Span1 = "Téléchargez-le simplement depuis virtualbox.org. ";
 	public static final String commentInstallerH4Span = commentInstallerH4Span1;
-	public static final String commentInstallerPUlLi1Span1 = "VirtualBox est facile à télécharger et à installer. ";
-	public static final String commentInstallerPUlLi1Span = commentInstallerPUlLi1Span1;
-	public static final String commentInstallerPUlLi2Span1 = "Visitez cette URL : ";
-	public static final String commentInstallerPUlLi2Span = commentInstallerPUlLi2Span1;
-	public static final String commentInstallerPUlLi2A1 = "https://www.virtualbox.org/wiki/Downloads";
-	public static final String commentInstallerPUlLi2A = commentInstallerPUlLi2A1;
-	public static final String commentInstallerPUlLi3Span1 = "Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. ";
-	public static final String commentInstallerPUlLi3Span = commentInstallerPUlLi3Span1;
-	public static final String commentInstallerPUlLi4Span1 = "Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. ";
-	public static final String commentInstallerPUlLi4Span = commentInstallerPUlLi4Span1;
+	public static final String commentInstallerPOlLi1Span1 = "VirtualBox est facile à télécharger et à installer. ";
+	public static final String commentInstallerPOlLi1Span = commentInstallerPOlLi1Span1;
+	public static final String commentInstallerPOlLi2Span1 = "Visitez cette URL : ";
+	public static final String commentInstallerPOlLi2Span = commentInstallerPOlLi2Span1;
+	public static final String commentInstallerPOlLi2A1 = "https://www.virtualbox.org/wiki/Downloads";
+	public static final String commentInstallerPOlLi2A = commentInstallerPOlLi2A1;
+	public static final String commentInstallerPOlLi3Span1 = "Vous pouvez le télécharger sur un hôte Windows, un hôte OS X, un hôte Linux ou Solaris. ";
+	public static final String commentInstallerPOlLi3Span = commentInstallerPOlLi3Span1;
+	public static final String commentInstallerPOlLi4Span1 = "Parce que j'utilise CentOS 7, qui est similaire à RHEL, j'utiliserai les instructions RHEL tout en bas de la page. ";
+	public static final String commentInstallerPOlLi4Span = commentInstallerPOlLi4Span1;
 
 	/**	L'entité « commentInstaller »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 */
-	protected QuestionReponse commentInstaller = new QuestionReponse();
-	public Couverture<QuestionReponse> commentInstallerCouverture = new Couverture<QuestionReponse>().p(this).c(QuestionReponse.class).var("commentInstaller").o(commentInstaller);
+	protected PageHtml commentInstaller = new PageHtml();
+	public Couverture<PageHtml> commentInstallerCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("commentInstaller").o(commentInstaller);
 
 	/**	<br/>L'entité « commentInstaller »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut QuestionReponse(). 
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:commentInstaller">Trouver l'entité commentInstaller dans Solr</a>
 	 * <br/>
 	 * @param commentInstaller est l'entité déjà construit. 
 	 **/
-	protected abstract void _commentInstaller(QuestionReponse o);
+	protected abstract void _commentInstaller(PageHtml o);
 
-	public QuestionReponse getCommentInstaller() {
+	public PageHtml getCommentInstaller() {
 		return commentInstaller;
 	}
 
-	public void setCommentInstaller(QuestionReponse commentInstaller) {
+	public void setCommentInstaller(PageHtml commentInstaller) {
 		this.commentInstaller = commentInstaller;
 		this.commentInstallerCouverture.dejaInitialise = true;
 	}
@@ -246,7 +245,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		commentInstallerCouverture.dejaInitialise(true);
 		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
 	}
-	public void htmlBodyCommentInstaller(QuestionReponse o) {
+	public void htmlBodyCommentInstaller(PageHtml o) {
 		{ e("h3").a("class", " commentInstallerH3 ").f();
 			{ e("i").a("class", commentInstallerH3I1, " site-menu-icon commentInstallerH3I ").f();
 			} g("i");
@@ -262,37 +261,645 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			} g("span");
 		} g("h4");
 		{ e("p").a("class", " commentInstallerP ").f();
-			{ e("ul").a("class", " commentInstallerPUl ").f();
-				{ e("li").a("class", " commentInstallerPUlLi1 commentInstallerPUlLi odd ").f();
-					{ e("span").a("class", " commentInstallerPUlLi1Span ").f();
-						sx(commentInstallerPUlLi1Span1);
+			{ e("ol").a("class", " commentInstallerPOl ").f();
+				{ e("li").a("class", " commentInstallerPOlLi1 commentInstallerPOlLi odd ").f();
+					{ e("span").a("class", " commentInstallerPOlLi1Span ").f();
+						sx(commentInstallerPOlLi1Span1);
 					} g("span");
 				} g("li");
-				{ e("li").a("class", " commentInstallerPUlLi2 commentInstallerPUlLi even ").f();
-					{ e("span").a("class", " commentInstallerPUlLi2Span ").f();
-						sx(commentInstallerPUlLi2Span1);
+				{ e("li").a("class", " commentInstallerPOlLi2 commentInstallerPOlLi even ").f();
+					{ e("span").a("class", " commentInstallerPOlLi2Span ").f();
+						sx(commentInstallerPOlLi2Span1);
 					} g("span");
-					{ e("a").a("class", " commentInstallerPUlLi2A ").f();
-						sx(commentInstallerPUlLi2A1);
+					{ e("a").a("class", " commentInstallerPOlLi2A ").f();
+						sx(commentInstallerPOlLi2A1);
 					} g("a");
 				} g("li");
-				{ e("li").a("class", " commentInstallerPUlLi3 commentInstallerPUlLi odd ").f();
-					{ e("span").a("class", " commentInstallerPUlLi3Span ").f();
-						sx(commentInstallerPUlLi3Span1);
+				{ e("li").a("class", " commentInstallerPOlLi3 commentInstallerPOlLi odd ").f();
+					{ e("span").a("class", " commentInstallerPOlLi3Span ").f();
+						sx(commentInstallerPOlLi3Span1);
 					} g("span");
 				} g("li");
-				{ e("li").a("class", " commentInstallerPUlLi4 commentInstallerPUlLi even ").f();
-					{ e("span").a("class", " commentInstallerPUlLi4Span ").f();
-						sx(commentInstallerPUlLi4Span1);
+				{ e("li").a("class", " commentInstallerPOlLi4 commentInstallerPOlLi even ").f();
+					{ e("span").a("class", " commentInstallerPOlLi4Span ").f();
+						sx(commentInstallerPOlLi4Span1);
 					} g("span");
 				} g("li");
-			} g("ul");
+			} g("ol");
 		} g("p");
 	}
 	public void htmlBodyCommentInstaller() {
 		commentInstaller.htmlAvant();
 		htmlBodyCommentInstaller(commentInstaller);
 		commentInstaller.htmlApres();
+	}
+
+	/////////////////
+	// telecharger //
+	/////////////////
+
+	public static final String telechargerH3I1 = "fas fa-play-circle";
+	public static final String telechargerH3I = telechargerH3I1;
+	public static final String telechargerH3Span1 = "Comment puis-je préparer CentOS 7 pour installer VirtualBox ? ";
+	public static final String telechargerH3Span = telechargerH3Span1;
+	public static final String telechargerH4I1 = "fas fa-download";
+	public static final String telechargerH4I = telechargerH4I1;
+	public static final String telechargerH4Span1 = "Installer le dépot yum virtualbox";
+	public static final String telechargerH4Span = telechargerH4Span1;
+	public static final String telechargerPreSpan11 = "wget";
+	public static final String telechargerPreSpan1 = telechargerPreSpan11;
+	public static final String telechargerPreSpan21 = " https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo";
+	public static final String telechargerPreSpan2 = telechargerPreSpan21;
+	public static final String telechargerPreSpan31 = " -O";
+	public static final String telechargerPreSpan3 = telechargerPreSpan31;
+	public static final String telechargerPreSpan41 = " /tmp/virtualbox.repo";
+	public static final String telechargerPreSpan4 = telechargerPreSpan41;
+	public static final String telechargerOlLi11 = "La commande pour télécharger des fichiers. ";
+	public static final String telechargerOlLi1 = telechargerOlLi11;
+	public static final String telechargerOlLi21 = "L'URL vers le téléchargement dépôt yum VirtualBox. ";
+	public static final String telechargerOlLi2 = telechargerOlLi21;
+	public static final String telechargerOlLi31 = "Pour spécifier le chemin de sortie pour le téléchargement. ";
+	public static final String telechargerOlLi3 = telechargerOlLi31;
+	public static final String telechargerOlLi41 = "Le chemin de sortie pour le téléchargement dépôt yum. ";
+	public static final String telechargerOlLi4 = telechargerOlLi41;
+
+	/**	L'entité « telecharger »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml telecharger = new PageHtml();
+	public Couverture<PageHtml> telechargerCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("telecharger").o(telecharger);
+
+	/**	<br/>L'entité « telecharger »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:telecharger">Trouver l'entité telecharger dans Solr</a>
+	 * <br/>
+	 * @param telecharger est l'entité déjà construit. 
+	 **/
+	protected abstract void _telecharger(PageHtml o);
+
+	public PageHtml getTelecharger() {
+		return telecharger;
+	}
+
+	public void setTelecharger(PageHtml telecharger) {
+		this.telecharger = telecharger;
+		this.telechargerCouverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox telechargerInit() {
+		if(telecharger != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(telecharger, "telecharger");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(telecharger, "telecharger");
+		}
+		if(!telechargerCouverture.dejaInitialise) {
+			_telecharger(telecharger);
+		}
+		telecharger.initLoinPourClasse(requeteSite_);
+		telechargerCouverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyTelecharger(PageHtml o) {
+		{ e("h3").a("class", " telechargerH3 ").f();
+			{ e("i").a("class", telechargerH3I1, " site-menu-icon telechargerH3I ").f();
+			} g("i");
+			{ e("span").a("class", " telechargerH3Span ").f();
+				sx(telechargerH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " telechargerH4 ").f();
+			{ e("i").a("class", telechargerH4I1, " site-menu-icon telechargerH4I ").f();
+			} g("i");
+			{ e("span").a("class", " telechargerH4Span ").f();
+				sx(telechargerH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " telechargerPre ").f();
+			{ e("span").a("class", " telechargerPreSpan1 telechargerPreSpan odd ").f();
+				sx(telechargerPreSpan11);
+			} g("span");
+			{ e("span").a("class", " telechargerPreSpan2 telechargerPreSpan even ").f();
+				sx(telechargerPreSpan21);
+			} g("span");
+			{ e("span").a("class", " telechargerPreSpan3 telechargerPreSpan odd ").f();
+				sx(telechargerPreSpan31);
+			} g("span");
+			{ e("span").a("class", " telechargerPreSpan4 telechargerPreSpan even ").f();
+				sx(telechargerPreSpan41);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " telechargerOl ").f();
+			{ e("li").a("class", " telechargerOlLi1 telechargerOlLi odd ").f();
+				sx(telechargerOlLi11);
+			} g("li");
+			{ e("li").a("class", " telechargerOlLi2 telechargerOlLi even ").f();
+				sx(telechargerOlLi21);
+			} g("li");
+			{ e("li").a("class", " telechargerOlLi3 telechargerOlLi odd ").f();
+				sx(telechargerOlLi31);
+			} g("li");
+			{ e("li").a("class", " telechargerOlLi4 telechargerOlLi even ").f();
+				sx(telechargerOlLi41);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyTelecharger() {
+		telecharger.htmlAvant();
+		htmlBodyTelecharger(telecharger);
+		telecharger.htmlApres();
+	}
+
+	///////////////////
+	// deplacerDepot //
+	///////////////////
+
+	public static final String deplacerDepotH3I1 = "fas fa-box-check";
+	public static final String deplacerDepotH3I = deplacerDepotH3I1;
+	public static final String deplacerDepotH3Span1 = "Comment puis-je installer le dépôt yum virtualbox ? ";
+	public static final String deplacerDepotH3Span = deplacerDepotH3Span1;
+	public static final String deplacerDepotH4I1 = "fas fa-person-dolly";
+	public static final String deplacerDepotH4I = deplacerDepotH4I1;
+	public static final String deplacerDepotH4Span1 = "Mettre virtualbox.repo dans /etc/yum.repos.d/. ";
+	public static final String deplacerDepotH4Span = deplacerDepotH4Span1;
+	public static final String deplacerDepotPreSpan11 = "sudo";
+	public static final String deplacerDepotPreSpan1 = deplacerDepotPreSpan11;
+	public static final String deplacerDepotPreSpan21 = " mv";
+	public static final String deplacerDepotPreSpan2 = deplacerDepotPreSpan21;
+	public static final String deplacerDepotPreSpan31 = " /tmp/virtualbox.repo";
+	public static final String deplacerDepotPreSpan3 = deplacerDepotPreSpan31;
+	public static final String deplacerDepotPreSpan41 = " /etc/yum.repos.d/";
+	public static final String deplacerDepotPreSpan4 = deplacerDepotPreSpan41;
+	public static final String deplacerDepotOlLi11 = "La commande pour installer des dépots yum commence par la commande sudo. ";
+	public static final String deplacerDepotOlLi12 = "La commande \"sudo\" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. ";
+	public static final String deplacerDepotOlLi13 = "L'installation des dépots yum nécessite toujours les privilèges root. ";
+	public static final String deplacerDepotOlLi1 = deplacerDepotOlLi11 + deplacerDepotOlLi12 + deplacerDepotOlLi13;
+	public static final String deplacerDepotOlLi21 = "Pour déplacer des fichiers vers de nouveaux emplacements dans le système de fichiers. ";
+	public static final String deplacerDepotOlLi2 = deplacerDepotOlLi21;
+	public static final String deplacerDepotOlLi31 = "Le chemin vers le téléchargement dépôt yum. ";
+	public static final String deplacerDepotOlLi3 = deplacerDepotOlLi31;
+	public static final String deplacerDepotOlLi41 = "Le répertoire pour les dépôts yum configurés. ";
+	public static final String deplacerDepotOlLi4 = deplacerDepotOlLi41;
+
+	/**	L'entité « deplacerDepot »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml deplacerDepot = new PageHtml();
+	public Couverture<PageHtml> deplacerDepotCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("deplacerDepot").o(deplacerDepot);
+
+	/**	<br/>L'entité « deplacerDepot »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:deplacerDepot">Trouver l'entité deplacerDepot dans Solr</a>
+	 * <br/>
+	 * @param deplacerDepot est l'entité déjà construit. 
+	 **/
+	protected abstract void _deplacerDepot(PageHtml o);
+
+	public PageHtml getDeplacerDepot() {
+		return deplacerDepot;
+	}
+
+	public void setDeplacerDepot(PageHtml deplacerDepot) {
+		this.deplacerDepot = deplacerDepot;
+		this.deplacerDepotCouverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox deplacerDepotInit() {
+		if(deplacerDepot != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(deplacerDepot, "deplacerDepot");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(deplacerDepot, "deplacerDepot");
+		}
+		if(!deplacerDepotCouverture.dejaInitialise) {
+			_deplacerDepot(deplacerDepot);
+		}
+		deplacerDepot.initLoinPourClasse(requeteSite_);
+		deplacerDepotCouverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyDeplacerDepot(PageHtml o) {
+		{ e("h3").a("class", " deplacerDepotH3 ").f();
+			{ e("i").a("class", deplacerDepotH3I1, " site-menu-icon deplacerDepotH3I ").f();
+			} g("i");
+			{ e("span").a("class", " deplacerDepotH3Span ").f();
+				sx(deplacerDepotH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " deplacerDepotH4 ").f();
+			{ e("i").a("class", deplacerDepotH4I1, " site-menu-icon deplacerDepotH4I ").f();
+			} g("i");
+			{ e("span").a("class", " deplacerDepotH4Span ").f();
+				sx(deplacerDepotH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " deplacerDepotPre ").f();
+			{ e("span").a("class", " deplacerDepotPreSpan1 deplacerDepotPreSpan odd ").f();
+				sx(deplacerDepotPreSpan11);
+			} g("span");
+			{ e("span").a("class", " deplacerDepotPreSpan2 deplacerDepotPreSpan even ").f();
+				sx(deplacerDepotPreSpan21);
+			} g("span");
+			{ e("span").a("class", " deplacerDepotPreSpan3 deplacerDepotPreSpan odd ").f();
+				sx(deplacerDepotPreSpan31);
+			} g("span");
+			{ e("span").a("class", " deplacerDepotPreSpan4 deplacerDepotPreSpan even ").f();
+				sx(deplacerDepotPreSpan41);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " deplacerDepotOl ").f();
+			{ e("li").a("class", " deplacerDepotOlLi1 deplacerDepotOlLi odd ").f();
+				sx(deplacerDepotOlLi11);
+				sx(deplacerDepotOlLi12);
+				sx(deplacerDepotOlLi13);
+			} g("li");
+			{ e("li").a("class", " deplacerDepotOlLi2 deplacerDepotOlLi even ").f();
+				sx(deplacerDepotOlLi21);
+			} g("li");
+			{ e("li").a("class", " deplacerDepotOlLi3 deplacerDepotOlLi odd ").f();
+				sx(deplacerDepotOlLi31);
+			} g("li");
+			{ e("li").a("class", " deplacerDepotOlLi4 deplacerDepotOlLi even ").f();
+				sx(deplacerDepotOlLi41);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyDeplacerDepot() {
+		deplacerDepot.htmlAvant();
+		htmlBodyDeplacerDepot(deplacerDepot);
+		deplacerDepot.htmlApres();
+	}
+
+	///////////////
+	// yumSearch //
+	///////////////
+
+	public static final String yumSearchH3I1 = "fas fa-question";
+	public static final String yumSearchH3I = yumSearchH3I1;
+	public static final String yumSearchH3Span1 = "Comment puis-je installer le dépôt yum virtualbox ? ";
+	public static final String yumSearchH3Span = yumSearchH3Span1;
+	public static final String yumSearchH4I1 = "fas fa-search";
+	public static final String yumSearchH4I = yumSearchH4I1;
+	public static final String yumSearchH4Span1 = "Mettre virtualbox.repo dans /etc/yum.repos.d/. ";
+	public static final String yumSearchH4Span = yumSearchH4Span1;
+	public static final String yumSearchPreSpan11 = "sudo";
+	public static final String yumSearchPreSpan1 = yumSearchPreSpan11;
+	public static final String yumSearchPreSpan21 = " yum";
+	public static final String yumSearchPreSpan2 = yumSearchPreSpan21;
+	public static final String yumSearchPreSpan31 = " search";
+	public static final String yumSearchPreSpan3 = yumSearchPreSpan31;
+	public static final String yumSearchPreSpan41 = " virtualbox";
+	public static final String yumSearchPreSpan4 = yumSearchPreSpan41;
+	public static final String yumSearchOlLi11 = "sudo";
+	public static final String yumSearchOlLi1 = yumSearchOlLi11;
+	public static final String yumSearchOlLi21 = "Ce qui signifie \"Yellowdog Updater Modified\", mais personne ne le connait comme yellowdog, juste yum. ";
+	public static final String yumSearchOlLi22 = "CentOS gère les paquets de logiciel et les fichiers d'application RPM avec yum. ";
+	public static final String yumSearchOlLi2 = yumSearchOlLi21 + yumSearchOlLi22;
+	public static final String yumSearchOlLi31 = "Pour rechercher les paquets yum disponibles. ";
+	public static final String yumSearchOlLi3 = yumSearchOlLi31;
+	public static final String yumSearchOlLi41 = "Une phrase à rechercher dans les dépôts yum, comme « virtualbox ». ";
+	public static final String yumSearchOlLi4 = yumSearchOlLi41;
+
+	/**	L'entité « yumSearch »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml yumSearch = new PageHtml();
+	public Couverture<PageHtml> yumSearchCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("yumSearch").o(yumSearch);
+
+	/**	<br/>L'entité « yumSearch »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:yumSearch">Trouver l'entité yumSearch dans Solr</a>
+	 * <br/>
+	 * @param yumSearch est l'entité déjà construit. 
+	 **/
+	protected abstract void _yumSearch(PageHtml o);
+
+	public PageHtml getYumSearch() {
+		return yumSearch;
+	}
+
+	public void setYumSearch(PageHtml yumSearch) {
+		this.yumSearch = yumSearch;
+		this.yumSearchCouverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox yumSearchInit() {
+		if(yumSearch != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(yumSearch, "yumSearch");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(yumSearch, "yumSearch");
+		}
+		if(!yumSearchCouverture.dejaInitialise) {
+			_yumSearch(yumSearch);
+		}
+		yumSearch.initLoinPourClasse(requeteSite_);
+		yumSearchCouverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyYumSearch(PageHtml o) {
+		{ e("h3").a("class", " yumSearchH3 ").f();
+			{ e("i").a("class", yumSearchH3I1, " site-menu-icon yumSearchH3I ").f();
+			} g("i");
+			{ e("span").a("class", " yumSearchH3Span ").f();
+				sx(yumSearchH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " yumSearchH4 ").f();
+			{ e("i").a("class", yumSearchH4I1, " site-menu-icon yumSearchH4I ").f();
+			} g("i");
+			{ e("span").a("class", " yumSearchH4Span ").f();
+				sx(yumSearchH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " yumSearchPre ").f();
+			{ e("span").a("class", " yumSearchPreSpan1 yumSearchPreSpan odd ").f();
+				sx(yumSearchPreSpan11);
+			} g("span");
+			{ e("span").a("class", " yumSearchPreSpan2 yumSearchPreSpan even ").f();
+				sx(yumSearchPreSpan21);
+			} g("span");
+			{ e("span").a("class", " yumSearchPreSpan3 yumSearchPreSpan odd ").f();
+				sx(yumSearchPreSpan31);
+			} g("span");
+			{ e("span").a("class", " yumSearchPreSpan4 yumSearchPreSpan even ").f();
+				sx(yumSearchPreSpan41);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " yumSearchOl ").f();
+			{ e("li").a("class", " yumSearchOlLi1 yumSearchOlLi odd ").f();
+				sx(yumSearchOlLi11);
+			} g("li");
+			{ e("li").a("class", " yumSearchOlLi2 yumSearchOlLi even ").f();
+				sx(yumSearchOlLi21);
+				sx(yumSearchOlLi22);
+			} g("li");
+			{ e("li").a("class", " yumSearchOlLi3 yumSearchOlLi odd ").f();
+				sx(yumSearchOlLi31);
+			} g("li");
+			{ e("li").a("class", " yumSearchOlLi4 yumSearchOlLi even ").f();
+				sx(yumSearchOlLi41);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyYumSearch() {
+		yumSearch.htmlAvant();
+		htmlBodyYumSearch(yumSearch);
+		yumSearch.htmlApres();
+	}
+
+	///////////////////////
+	// yumInstallPaquets //
+	///////////////////////
+
+	public static final String yumInstallPaquetsH3I1 = "fas fa-box";
+	public static final String yumInstallPaquetsH3I = yumInstallPaquetsH3I1;
+	public static final String yumInstallPaquetsH3Span1 = "Comment puis-je maintenant installer l'application VirtualBox ? ";
+	public static final String yumInstallPaquetsH3Span = yumInstallPaquetsH3Span1;
+	public static final String yumInstallPaquetsH4I1 = "fas fa-box-full";
+	public static final String yumInstallPaquetsH4I = yumInstallPaquetsH4I1;
+	public static final String yumInstallPaquetsH4Span1 = "Installer le paquet avec yum. ";
+	public static final String yumInstallPaquetsH4Span = yumInstallPaquetsH4Span1;
+	public static final String yumInstallPaquetsPreSpan11 = "sudo";
+	public static final String yumInstallPaquetsPreSpan1 = yumInstallPaquetsPreSpan11;
+	public static final String yumInstallPaquetsPreSpan21 = " yum";
+	public static final String yumInstallPaquetsPreSpan2 = yumInstallPaquetsPreSpan21;
+	public static final String yumInstallPaquetsPreSpan31 = " install";
+	public static final String yumInstallPaquetsPreSpan3 = yumInstallPaquetsPreSpan31;
+	public static final String yumInstallPaquetsPreSpan41 = " -y";
+	public static final String yumInstallPaquetsPreSpan4 = yumInstallPaquetsPreSpan41;
+	public static final String yumInstallPaquetsPreSpan51 = " VirtualBox-5.2";
+	public static final String yumInstallPaquetsPreSpan5 = yumInstallPaquetsPreSpan51;
+	public static final String yumInstallPaquetsOlLi11 = "sudo";
+	public static final String yumInstallPaquetsOlLi1 = yumInstallPaquetsOlLi11;
+	public static final String yumInstallPaquetsOlLi21 = "yum";
+	public static final String yumInstallPaquetsOlLi2 = yumInstallPaquetsOlLi21;
+	public static final String yumInstallPaquetsOlLi31 = "Pour installer des nouveaux paquets yum. ";
+	public static final String yumInstallPaquetsOlLi3 = yumInstallPaquetsOlLi31;
+	public static final String yumInstallPaquetsOlLi41 = "Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. ";
+	public static final String yumInstallPaquetsOlLi4 = yumInstallPaquetsOlLi41;
+	public static final String yumInstallPaquetsOlLi51 = "Le nom du paquet de VirtualBox que vous souhaitez installer. ";
+	public static final String yumInstallPaquetsOlLi52 = "Vous pouvez utiliser le nom du paquet avant le « .x86_64 » de la recherche yum que vous avez effectuée précédemment. ";
+	public static final String yumInstallPaquetsOlLi53 = "Pour moi c'est « VirtualBox-5.2 ». ";
+	public static final String yumInstallPaquetsOlLi5 = yumInstallPaquetsOlLi51 + yumInstallPaquetsOlLi52 + yumInstallPaquetsOlLi53;
+
+	/**	L'entité « yumInstallPaquets »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml yumInstallPaquets = new PageHtml();
+	public Couverture<PageHtml> yumInstallPaquetsCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("yumInstallPaquets").o(yumInstallPaquets);
+
+	/**	<br/>L'entité « yumInstallPaquets »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:yumInstallPaquets">Trouver l'entité yumInstallPaquets dans Solr</a>
+	 * <br/>
+	 * @param yumInstallPaquets est l'entité déjà construit. 
+	 **/
+	protected abstract void _yumInstallPaquets(PageHtml o);
+
+	public PageHtml getYumInstallPaquets() {
+		return yumInstallPaquets;
+	}
+
+	public void setYumInstallPaquets(PageHtml yumInstallPaquets) {
+		this.yumInstallPaquets = yumInstallPaquets;
+		this.yumInstallPaquetsCouverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox yumInstallPaquetsInit() {
+		if(yumInstallPaquets != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(yumInstallPaquets, "yumInstallPaquets");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(yumInstallPaquets, "yumInstallPaquets");
+		}
+		if(!yumInstallPaquetsCouverture.dejaInitialise) {
+			_yumInstallPaquets(yumInstallPaquets);
+		}
+		yumInstallPaquets.initLoinPourClasse(requeteSite_);
+		yumInstallPaquetsCouverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyYumInstallPaquets(PageHtml o) {
+		{ e("h3").a("class", " yumInstallPaquetsH3 ").f();
+			{ e("i").a("class", yumInstallPaquetsH3I1, " site-menu-icon yumInstallPaquetsH3I ").f();
+			} g("i");
+			{ e("span").a("class", " yumInstallPaquetsH3Span ").f();
+				sx(yumInstallPaquetsH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " yumInstallPaquetsH4 ").f();
+			{ e("i").a("class", yumInstallPaquetsH4I1, " site-menu-icon yumInstallPaquetsH4I ").f();
+			} g("i");
+			{ e("span").a("class", " yumInstallPaquetsH4Span ").f();
+				sx(yumInstallPaquetsH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " yumInstallPaquetsPre ").f();
+			{ e("span").a("class", " yumInstallPaquetsPreSpan1 yumInstallPaquetsPreSpan odd ").f();
+				sx(yumInstallPaquetsPreSpan11);
+			} g("span");
+			{ e("span").a("class", " yumInstallPaquetsPreSpan2 yumInstallPaquetsPreSpan even ").f();
+				sx(yumInstallPaquetsPreSpan21);
+			} g("span");
+			{ e("span").a("class", " yumInstallPaquetsPreSpan3 yumInstallPaquetsPreSpan odd ").f();
+				sx(yumInstallPaquetsPreSpan31);
+			} g("span");
+			{ e("span").a("class", " yumInstallPaquetsPreSpan4 yumInstallPaquetsPreSpan even ").f();
+				sx(yumInstallPaquetsPreSpan41);
+			} g("span");
+			{ e("span").a("class", " yumInstallPaquetsPreSpan5 yumInstallPaquetsPreSpan odd ").f();
+				sx(yumInstallPaquetsPreSpan51);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " yumInstallPaquetsOl ").f();
+			{ e("li").a("class", " yumInstallPaquetsOlLi1 yumInstallPaquetsOlLi odd ").f();
+				sx(yumInstallPaquetsOlLi11);
+			} g("li");
+			{ e("li").a("class", " yumInstallPaquetsOlLi2 yumInstallPaquetsOlLi even ").f();
+				sx(yumInstallPaquetsOlLi21);
+			} g("li");
+			{ e("li").a("class", " yumInstallPaquetsOlLi3 yumInstallPaquetsOlLi odd ").f();
+				sx(yumInstallPaquetsOlLi31);
+			} g("li");
+			{ e("li").a("class", " yumInstallPaquetsOlLi4 yumInstallPaquetsOlLi even ").f();
+				sx(yumInstallPaquetsOlLi41);
+			} g("li");
+			{ e("li").a("class", " yumInstallPaquetsOlLi5 yumInstallPaquetsOlLi odd ").f();
+				sx(yumInstallPaquetsOlLi51);
+				sx(yumInstallPaquetsOlLi52);
+				sx(yumInstallPaquetsOlLi53);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyYumInstallPaquets() {
+		yumInstallPaquets.htmlAvant();
+		htmlBodyYumInstallPaquets(yumInstallPaquets);
+		yumInstallPaquets.htmlApres();
+	}
+
+	////////////////////
+	// telechargerIso //
+	////////////////////
+
+	public static final String telechargerIsoH3I1 = "fas fa-clipboard-list";
+	public static final String telechargerIsoH3I = telechargerIsoH3I1;
+	public static final String telechargerIsoH3Span1 = "Comment mettre un système d'exploitation sur une machine virtuelle VirtualBox ? ";
+	public static final String telechargerIsoH3Span = telechargerIsoH3Span1;
+	public static final String telechargerIsoH4I1 = "fas fa-arrow-alt-to-bottom";
+	public static final String telechargerIsoH4I = telechargerIsoH4I1;
+	public static final String telechargerIsoH4Span1 = "Télécharger un fichier ISO. ";
+	public static final String telechargerIsoH4Span = telechargerIsoH4Span1;
+	public static final String telechargerIsoPreSpan11 = "wget";
+	public static final String telechargerIsoPreSpan1 = telechargerIsoPreSpan11;
+	public static final String telechargerIsoPreSpan21 = " http://mirrors.xmission.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso";
+	public static final String telechargerIsoPreSpan2 = telechargerIsoPreSpan21;
+	public static final String telechargerIsoPreSpan31 = " -O";
+	public static final String telechargerIsoPreSpan3 = telechargerIsoPreSpan31;
+	public static final String telechargerIsoPreSpan41 = " ~/Downloads/CentOS-7-x86_64-DVD-1810.iso";
+	public static final String telechargerIsoPreSpan4 = telechargerIsoPreSpan41;
+	public static final String telechargerIsoOlLi11 = "wget";
+	public static final String telechargerIsoOlLi1 = telechargerIsoOlLi11;
+	public static final String telechargerIsoOlLi21 = "L'URL vers le téléchargement ISO de CentOS 7. ";
+	public static final String telechargerIsoOlLi2 = telechargerIsoOlLi21;
+	public static final String telechargerIsoOlLi31 = "-O";
+	public static final String telechargerIsoOlLi3 = telechargerIsoOlLi31;
+	public static final String telechargerIsoOlLi41 = "Le chemin de sortie pour le téléchargement ISO CentOS 7. ";
+	public static final String telechargerIsoOlLi4 = telechargerIsoOlLi41;
+	public static final String telechargerIsoPSpan11 = "Vous pouvez télécharger le fichier ISO CentOS 7 le plus récent pour installer sur une nouvelle machine virtuelle ici ";
+	public static final String telechargerIsoPSpan1 = telechargerIsoPSpan11;
+	public static final String telechargerIsoPSpan2A1 = "https://www.centos.org/download/";
+	public static final String telechargerIsoPSpan2A = telechargerIsoPSpan2A1;
+	public static final String telechargerIsoPSpan31 = ". Cliquez sur le bouton [ DVD ISO ]. ";
+	public static final String telechargerIsoPSpan32 = "Vous pouvez choisir parmi  l'un des miroirs, vous pourriez en trouver un près de chez vous. ";
+	public static final String telechargerIsoPSpan33 = "Vous pouvez également télécharger le fichier en utilisant la commande wget dans le terminal comme ça. ";
+	public static final String telechargerIsoPSpan3 = telechargerIsoPSpan31 + telechargerIsoPSpan32 + telechargerIsoPSpan33;
+
+	/**	L'entité « telechargerIso »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml telechargerIso = new PageHtml();
+	public Couverture<PageHtml> telechargerIsoCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("telechargerIso").o(telechargerIso);
+
+	/**	<br/>L'entité « telechargerIso »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:telechargerIso">Trouver l'entité telechargerIso dans Solr</a>
+	 * <br/>
+	 * @param telechargerIso est l'entité déjà construit. 
+	 **/
+	protected abstract void _telechargerIso(PageHtml o);
+
+	public PageHtml getTelechargerIso() {
+		return telechargerIso;
+	}
+
+	public void setTelechargerIso(PageHtml telechargerIso) {
+		this.telechargerIso = telechargerIso;
+		this.telechargerIsoCouverture.dejaInitialise = true;
+	}
+	protected C001L003InstallerMachineVirtuelleVirtualBox telechargerIsoInit() {
+		if(telechargerIso != null) {
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(telechargerIso, "telechargerIso");
+			((C001L003InstallerMachineVirtuelleVirtualBox)this).avantPagePart(telechargerIso, "telechargerIso");
+		}
+		if(!telechargerIsoCouverture.dejaInitialise) {
+			_telechargerIso(telechargerIso);
+		}
+		telechargerIso.initLoinPourClasse(requeteSite_);
+		telechargerIsoCouverture.dejaInitialise(true);
+		return (C001L003InstallerMachineVirtuelleVirtualBox)this;
+	}
+	public void htmlBodyTelechargerIso(PageHtml o) {
+		{ e("h3").a("class", " telechargerIsoH3 ").f();
+			{ e("i").a("class", telechargerIsoH3I1, " site-menu-icon telechargerIsoH3I ").f();
+			} g("i");
+			{ e("span").a("class", " telechargerIsoH3Span ").f();
+				sx(telechargerIsoH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " telechargerIsoH4 ").f();
+			{ e("i").a("class", telechargerIsoH4I1, " site-menu-icon telechargerIsoH4I ").f();
+			} g("i");
+			{ e("span").a("class", " telechargerIsoH4Span ").f();
+				sx(telechargerIsoH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " telechargerIsoPre ").f();
+			{ e("span").a("class", " telechargerIsoPreSpan1 telechargerIsoPreSpan odd ").f();
+				sx(telechargerIsoPreSpan11);
+			} g("span");
+			{ e("span").a("class", " telechargerIsoPreSpan2 telechargerIsoPreSpan even ").f();
+				sx(telechargerIsoPreSpan21);
+			} g("span");
+			{ e("span").a("class", " telechargerIsoPreSpan3 telechargerIsoPreSpan odd ").f();
+				sx(telechargerIsoPreSpan31);
+			} g("span");
+			{ e("span").a("class", " telechargerIsoPreSpan4 telechargerIsoPreSpan even ").f();
+				sx(telechargerIsoPreSpan41);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " telechargerIsoOl ").f();
+			{ e("li").a("class", " telechargerIsoOlLi1 telechargerIsoOlLi odd ").f();
+				sx(telechargerIsoOlLi11);
+			} g("li");
+			{ e("li").a("class", " telechargerIsoOlLi2 telechargerIsoOlLi even ").f();
+				sx(telechargerIsoOlLi21);
+			} g("li");
+			{ e("li").a("class", " telechargerIsoOlLi3 telechargerIsoOlLi odd ").f();
+				sx(telechargerIsoOlLi31);
+			} g("li");
+			{ e("li").a("class", " telechargerIsoOlLi4 telechargerIsoOlLi even ").f();
+				sx(telechargerIsoOlLi41);
+			} g("li");
+		} g("ol");
+		{ e("p").a("class", " telechargerIsoP ").f();
+			{ e("span").a("class", " telechargerIsoPSpan1 telechargerIsoPSpan odd ").f();
+				sx(telechargerIsoPSpan11);
+			} g("span");
+			{ e("span").a("class", " telechargerIsoPSpan2 telechargerIsoPSpan even ").f();
+				{ e("a").a("class", " telechargerIsoPSpan2A ").a("href", telechargerIsoPSpan2A1).f();
+					sx(telechargerIsoPSpan2A1);
+				} g("a");
+			} g("span");
+			{ e("span").a("class", " telechargerIsoPSpan3 telechargerIsoPSpan odd ").f();
+				sx(telechargerIsoPSpan31);
+				sx(telechargerIsoPSpan32);
+				sx(telechargerIsoPSpan33);
+			} g("span");
+		} g("p");
+	}
+	public void htmlBodyTelechargerIso() {
+		telechargerIso.htmlAvant();
+		htmlBodyTelechargerIso(telechargerIso);
+		telechargerIso.htmlApres();
 	}
 
 	//////////////////
@@ -447,30 +1054,38 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	// recapituler3 //
 	//////////////////
 
-	public static final String recapituler3TableTr1Td1I1 = "fas fa-eraser";
+	public static final String recapituler3TableTr1Td1I1 = "fas fa-question";
 	public static final String recapituler3TableTr1Td1I = recapituler3TableTr1Td1I1;
-	public static final String recapituler3TableTr1Td21 = "Linux va-t-il détruire mon système d'exploitation ? ";
+	public static final String recapituler3TableTr1Td21 = "Questions";
 	public static final String recapituler3TableTr1Td2 = recapituler3TableTr1Td21;
-	public static final String recapituler3TableTr1Td3I1 = "fab fa-linux";
+	public static final String recapituler3TableTr1Td3I1 = "fas fa-bullhorn";
 	public static final String recapituler3TableTr1Td3I = recapituler3TableTr1Td3I1;
-	public static final String recapituler3TableTr1Td41 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
+	public static final String recapituler3TableTr1Td41 = "Reponses";
 	public static final String recapituler3TableTr1Td4 = recapituler3TableTr1Td41;
-	public static final String recapituler3TableTr2Td1I1 = "fas fa-person-carry";
+	public static final String recapituler3TableTr2Td1I1 = "fas fa-eraser";
 	public static final String recapituler3TableTr2Td1I = recapituler3TableTr2Td1I1;
-	public static final String recapituler3TableTr2Td21 = "Comment installer VirtualBox ? ";
+	public static final String recapituler3TableTr2Td21 = "Linux va-t-il détruire mon système d'exploitation ? ";
 	public static final String recapituler3TableTr2Td2 = recapituler3TableTr2Td21;
-	public static final String recapituler3TableTr2Td3I1 = "fas fa-cloud-download-alt";
+	public static final String recapituler3TableTr2Td3I1 = "fab fa-linux";
 	public static final String recapituler3TableTr2Td3I = recapituler3TableTr2Td3I1;
-	public static final String recapituler3TableTr2Td41 = "Téléchargez-le depuis virtualbox.org";
+	public static final String recapituler3TableTr2Td41 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
 	public static final String recapituler3TableTr2Td4 = recapituler3TableTr2Td41;
-	public static final String recapituler3TableTr3Td1I1 = "fas fa-play-circle";
+	public static final String recapituler3TableTr3Td1I1 = "fas fa-person-carry";
 	public static final String recapituler3TableTr3Td1I = recapituler3TableTr3Td1I1;
-	public static final String recapituler3TableTr3Td21 = "Préparer CentOS 7 pour installer VirtualBox";
+	public static final String recapituler3TableTr3Td21 = "Comment installer VirtualBox ? ";
 	public static final String recapituler3TableTr3Td2 = recapituler3TableTr3Td21;
-	public static final String recapituler3TableTr3Td3I1 = "fas fa-download";
+	public static final String recapituler3TableTr3Td3I1 = "fas fa-cloud-download-alt";
 	public static final String recapituler3TableTr3Td3I = recapituler3TableTr3Td3I1;
-	public static final String recapituler3TableTr3Td41 = "Installer le dépot yum virtualbox";
+	public static final String recapituler3TableTr3Td41 = "Téléchargez-le depuis virtualbox.org";
 	public static final String recapituler3TableTr3Td4 = recapituler3TableTr3Td41;
+	public static final String recapituler3TableTr4Td1I1 = "fas fa-play-circle";
+	public static final String recapituler3TableTr4Td1I = recapituler3TableTr4Td1I1;
+	public static final String recapituler3TableTr4Td21 = "Préparer CentOS 7 pour installer VirtualBox";
+	public static final String recapituler3TableTr4Td2 = recapituler3TableTr4Td21;
+	public static final String recapituler3TableTr4Td3I1 = "fas fa-download";
+	public static final String recapituler3TableTr4Td3I = recapituler3TableTr4Td3I1;
+	public static final String recapituler3TableTr4Td41 = "Installer le dépot yum virtualbox";
+	public static final String recapituler3TableTr4Td4 = recapituler3TableTr4Td41;
 
 	/**	L'entité « recapituler3 »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -556,6 +1171,22 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 					sx(recapituler3TableTr3Td41);
 				} g("td");
 			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr4 recapituler3TableTr even ").f();
+				{ e("td").a("class", " recapituler3TableTr4Td1 recapituler3TableTr4Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr4Td1I1, " site-menu-icon recapituler3TableTr4Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr4Td2 recapituler3TableTr4Td even ").f();
+					sx(recapituler3TableTr4Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr4Td3 recapituler3TableTr4Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr4Td3I1, " site-menu-icon recapituler3TableTr4Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr4Td4 recapituler3TableTr4Td even ").f();
+					sx(recapituler3TableTr4Td41);
+				} g("td");
+			} g("tr");
 		} g("table");
 	}
 	public void htmlBodyRecapituler3() {
@@ -588,6 +1219,11 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		moiInit();
 		ecraserInit();
 		commentInstallerInit();
+		telechargerInit();
+		deplacerDepotInit();
+		yumSearchInit();
+		yumInstallPaquetsInit();
+		telechargerIsoInit();
 		recapituler1Init();
 		recapituler2Init();
 		recapituler3Init();
@@ -609,6 +1245,16 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			ecraser.setRequeteSite_(requeteSite_);
 		if(commentInstaller != null)
 			commentInstaller.setRequeteSite_(requeteSite_);
+		if(telecharger != null)
+			telecharger.setRequeteSite_(requeteSite_);
+		if(deplacerDepot != null)
+			deplacerDepot.setRequeteSite_(requeteSite_);
+		if(yumSearch != null)
+			yumSearch.setRequeteSite_(requeteSite_);
+		if(yumInstallPaquets != null)
+			yumInstallPaquets.setRequeteSite_(requeteSite_);
+		if(telechargerIso != null)
+			telechargerIso.setRequeteSite_(requeteSite_);
 		if(recapituler1 != null)
 			recapituler1.setRequeteSite_(requeteSite_);
 		if(recapituler2 != null)
@@ -647,6 +1293,16 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 				return oC001L003InstallerMachineVirtuelleVirtualBox.ecraser;
 			case "commentInstaller":
 				return oC001L003InstallerMachineVirtuelleVirtualBox.commentInstaller;
+			case "telecharger":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.telecharger;
+			case "deplacerDepot":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.deplacerDepot;
+			case "yumSearch":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.yumSearch;
+			case "yumInstallPaquets":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.yumInstallPaquets;
+			case "telechargerIso":
+				return oC001L003InstallerMachineVirtuelleVirtualBox.telechargerIso;
 			case "recapituler1":
 				return oC001L003InstallerMachineVirtuelleVirtualBox.recapituler1;
 			case "recapituler2":
@@ -838,6 +1494,16 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 			ecraser.htmlBodyCourt();
 		if(commentInstaller != null)
 			commentInstaller.htmlBodyCourt();
+		if(telecharger != null)
+			telecharger.htmlBodyCourt();
+		if(deplacerDepot != null)
+			deplacerDepot.htmlBodyCourt();
+		if(yumSearch != null)
+			yumSearch.htmlBodyCourt();
+		if(yumInstallPaquets != null)
+			yumInstallPaquets.htmlBodyCourt();
+		if(telechargerIso != null)
+			telechargerIso.htmlBodyCourt();
 		if(recapituler1 != null)
 			recapituler1.htmlBodyCourt();
 		if(recapituler2 != null)
@@ -859,6 +1525,11 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyMoi();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyEcraser();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyCommentInstaller();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyTelecharger();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyDeplacerDepot();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyYumSearch();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyYumInstallPaquets();
+		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyTelechargerIso();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyRecapituler1();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyRecapituler2();
 		((C001L003InstallerMachineVirtuelleVirtualBox)this).htmlBodyRecapituler3();
@@ -897,5 +1568,5 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		return sb.toString();
 	}
 
-	public static final String[] C001L003InstallerMachineVirtuelleVirtualBoxVals = new String[] { moiP1, moiP2, ecraserH3I1, ecraserH3Span1, ecraserH4I1, ecraserH4Span1, ecraserPDiv1, ecraserPDiv2, ecraserPDiv3, ecraserPDiv4, ecraserPDiv5, ecraserPDiv6, commentInstallerH3I1, commentInstallerH3Span1, commentInstallerH4I1, commentInstallerH4Span1, commentInstallerPUlLi1Span1, commentInstallerPUlLi2Span1, commentInstallerPUlLi2A1, commentInstallerPUlLi3Span1, commentInstallerPUlLi4Span1, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41, recapituler3TableTr2Td1I1, recapituler3TableTr2Td21, recapituler3TableTr2Td3I1, recapituler3TableTr2Td41, recapituler3TableTr3Td1I1, recapituler3TableTr3Td21, recapituler3TableTr3Td3I1, recapituler3TableTr3Td41 };
+	public static final String[] C001L003InstallerMachineVirtuelleVirtualBoxVals = new String[] { moiP1, moiP2, ecraserH3I1, ecraserH3Span1, ecraserH4I1, ecraserH4Span1, ecraserPDiv1, ecraserPDiv2, ecraserPDiv3, ecraserPDiv4, ecraserPDiv5, ecraserPDiv6, commentInstallerH3I1, commentInstallerH3Span1, commentInstallerH4I1, commentInstallerH4Span1, commentInstallerPOlLi1Span1, commentInstallerPOlLi2Span1, commentInstallerPOlLi2A1, commentInstallerPOlLi3Span1, commentInstallerPOlLi4Span1, telechargerH3I1, telechargerH3Span1, telechargerH4I1, telechargerH4Span1, telechargerPreSpan11, telechargerPreSpan21, telechargerPreSpan31, telechargerPreSpan41, telechargerOlLi11, telechargerOlLi21, telechargerOlLi31, telechargerOlLi41, deplacerDepotH3I1, deplacerDepotH3Span1, deplacerDepotH4I1, deplacerDepotH4Span1, deplacerDepotPreSpan11, deplacerDepotPreSpan21, deplacerDepotPreSpan31, deplacerDepotPreSpan41, deplacerDepotOlLi11, deplacerDepotOlLi12, deplacerDepotOlLi13, deplacerDepotOlLi21, deplacerDepotOlLi31, deplacerDepotOlLi41, yumSearchH3I1, yumSearchH3Span1, yumSearchH4I1, yumSearchH4Span1, yumSearchPreSpan11, yumSearchPreSpan21, yumSearchPreSpan31, yumSearchPreSpan41, yumSearchOlLi11, yumSearchOlLi21, yumSearchOlLi22, yumSearchOlLi31, yumSearchOlLi41, yumInstallPaquetsH3I1, yumInstallPaquetsH3Span1, yumInstallPaquetsH4I1, yumInstallPaquetsH4Span1, yumInstallPaquetsPreSpan11, yumInstallPaquetsPreSpan21, yumInstallPaquetsPreSpan31, yumInstallPaquetsPreSpan41, yumInstallPaquetsPreSpan51, yumInstallPaquetsOlLi11, yumInstallPaquetsOlLi21, yumInstallPaquetsOlLi31, yumInstallPaquetsOlLi41, yumInstallPaquetsOlLi51, yumInstallPaquetsOlLi52, yumInstallPaquetsOlLi53, telechargerIsoH3I1, telechargerIsoH3Span1, telechargerIsoH4I1, telechargerIsoH4Span1, telechargerIsoPreSpan11, telechargerIsoPreSpan21, telechargerIsoPreSpan31, telechargerIsoPreSpan41, telechargerIsoOlLi11, telechargerIsoOlLi21, telechargerIsoOlLi31, telechargerIsoOlLi41, telechargerIsoPSpan11, telechargerIsoPSpan2A1, telechargerIsoPSpan31, telechargerIsoPSpan32, telechargerIsoPSpan33, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41, recapituler3TableTr2Td1I1, recapituler3TableTr2Td21, recapituler3TableTr2Td3I1, recapituler3TableTr2Td41, recapituler3TableTr3Td1I1, recapituler3TableTr3Td21, recapituler3TableTr3Td3I1, recapituler3TableTr3Td41, recapituler3TableTr4Td1I1, recapituler3TableTr4Td21, recapituler3TableTr4Td3I1, recapituler3TableTr4Td41 };
 }

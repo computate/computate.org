@@ -85,7 +85,7 @@ public abstract class PageFaqGen<DEV> extends Article {
 
 	public static final String i18nH3I1 = "fas fa-archway";
 	public static final String i18nH3I = i18nH3I1;
-	public static final String i18nH3Span1 = "Pourquoi est votre site traduit en français ? ";
+	public static final String i18nH3Span1 = "Pourquoi est votre site traduit en français et anglais ? ";
 	public static final String i18nH3Span = i18nH3Span1;
 	public static final String i18nH4I1 = "fas fa-globe-africa";
 	public static final String i18nH4I = i18nH4I1;
@@ -294,14 +294,22 @@ public abstract class PageFaqGen<DEV> extends Article {
 	// recapituler3 //
 	//////////////////
 
-	public static final String recapituler3TableTr1Td1I1 = "fas fa-archway";
+	public static final String recapituler3TableTr1Td1I1 = "fas fa-question";
 	public static final String recapituler3TableTr1Td1I = recapituler3TableTr1Td1I1;
-	public static final String recapituler3TableTr1Td21 = "Pourquoi est votre site traduit en français ? ";
+	public static final String recapituler3TableTr1Td21 = "Questions";
 	public static final String recapituler3TableTr1Td2 = recapituler3TableTr1Td21;
-	public static final String recapituler3TableTr1Td3I1 = "fas fa-book-spells";
+	public static final String recapituler3TableTr1Td3I1 = "fas fa-bullhorn";
 	public static final String recapituler3TableTr1Td3I = recapituler3TableTr1Td3I1;
-	public static final String recapituler3TableTr1Td41 = "L'internationalisation est importante. ";
+	public static final String recapituler3TableTr1Td41 = "Reponses";
 	public static final String recapituler3TableTr1Td4 = recapituler3TableTr1Td41;
+	public static final String recapituler3TableTr2Td1I1 = "fas fa-archway";
+	public static final String recapituler3TableTr2Td1I = recapituler3TableTr2Td1I1;
+	public static final String recapituler3TableTr2Td21 = "Pourquoi est votre site traduit en français ? ";
+	public static final String recapituler3TableTr2Td2 = recapituler3TableTr2Td21;
+	public static final String recapituler3TableTr2Td3I1 = "fas fa-book-spells";
+	public static final String recapituler3TableTr2Td3I = recapituler3TableTr2Td3I1;
+	public static final String recapituler3TableTr2Td41 = "L'internationalisation est importante. ";
+	public static final String recapituler3TableTr2Td4 = recapituler3TableTr2Td41;
 
 	/**	L'entité « recapituler3 »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -353,6 +361,22 @@ public abstract class PageFaqGen<DEV> extends Article {
 				} g("td");
 				{ e("td").a("class", " recapituler3TableTr1Td4 recapituler3TableTr1Td even ").f();
 					sx(recapituler3TableTr1Td41);
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr2 recapituler3TableTr even ").f();
+				{ e("td").a("class", " recapituler3TableTr2Td1 recapituler3TableTr2Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr2Td1I1, " site-menu-icon recapituler3TableTr2Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr2Td2 recapituler3TableTr2Td even ").f();
+					sx(recapituler3TableTr2Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr2Td3 recapituler3TableTr2Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr2Td3I1, " site-menu-icon recapituler3TableTr2Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr2Td4 recapituler3TableTr2Td even ").f();
+					sx(recapituler3TableTr2Td41);
 				} g("td");
 			} g("tr");
 		} g("table");
@@ -677,5 +701,5 @@ public abstract class PageFaqGen<DEV> extends Article {
 		return sb.toString();
 	}
 
-	public static final String[] PageFaqVals = new String[] { i18nH3I1, i18nH3Span1, i18nH4I1, i18nH4Span1, i18nPDiv1I1, i18nPDiv1Span1, i18nPDiv2I1, i18nPDiv2Span1, i18nPDiv3I1, i18nPDiv3Span1, i18nPDiv4I1, i18nPDiv4Span1, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41 };
+	public static final String[] PageFaqVals = new String[] { i18nH3I1, i18nH3Span1, i18nH4I1, i18nH4Span1, i18nPDiv1I1, i18nPDiv1Span1, i18nPDiv2I1, i18nPDiv2Span1, i18nPDiv3I1, i18nPDiv3Span1, i18nPDiv4I1, i18nPDiv4Span1, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41, recapituler3TableTr2Td1I1, recapituler3TableTr2Td21, recapituler3TableTr2Td3I1, recapituler3TableTr2Td41 };
 }

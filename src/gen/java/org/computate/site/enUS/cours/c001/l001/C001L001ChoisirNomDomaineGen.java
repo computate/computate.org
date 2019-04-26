@@ -1002,46 +1002,54 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	// recapituler3 //
 	//////////////////
 
-	public static final String recapituler3TableTr1Td1I1 = "fas fa-history";
+	public static final String recapituler3TableTr1Td1I1 = "fas fa-question";
 	public static final String recapituler3TableTr1Td1I = recapituler3TableTr1Td1I1;
-	public static final String recapituler3TableTr1Td21 = "Should I buy it ahead of time? ";
+	public static final String recapituler3TableTr1Td21 = "Questions";
 	public static final String recapituler3TableTr1Td2 = recapituler3TableTr1Td21;
-	public static final String recapituler3TableTr1Td3I1 = "fas fa-map-pin";
+	public static final String recapituler3TableTr1Td3I1 = "fas fa-bullhorn";
 	public static final String recapituler3TableTr1Td3I = recapituler3TableTr1Td3I1;
-	public static final String recapituler3TableTr1Td41 = "Know what your site will be called. ";
+	public static final String recapituler3TableTr1Td41 = "Answers";
 	public static final String recapituler3TableTr1Td4 = recapituler3TableTr1Td41;
-	public static final String recapituler3TableTr2Td1I1 = "fas fa-credit-card";
+	public static final String recapituler3TableTr2Td1I1 = "fas fa-history";
 	public static final String recapituler3TableTr2Td1I = recapituler3TableTr2Td1I1;
-	public static final String recapituler3TableTr2Td21 = "Where can I purchase a domain name? ";
+	public static final String recapituler3TableTr2Td21 = "Should I buy it ahead of time? ";
 	public static final String recapituler3TableTr2Td2 = recapituler3TableTr2Td21;
-	public static final String recapituler3TableTr2Td3I1 = "fas fa-building";
+	public static final String recapituler3TableTr2Td3I1 = "fas fa-map-pin";
 	public static final String recapituler3TableTr2Td3I = recapituler3TableTr2Td3I1;
-	public static final String recapituler3TableTr2Td41 = "Try brinkster.com or gandi.net. ";
+	public static final String recapituler3TableTr2Td41 = "Know what your site will be called. ";
 	public static final String recapituler3TableTr2Td4 = recapituler3TableTr2Td41;
-	public static final String recapituler3TableTr3Td1I1 = "fab fa-wpforms";
+	public static final String recapituler3TableTr3Td1I1 = "fas fa-credit-card";
 	public static final String recapituler3TableTr3Td1I = recapituler3TableTr3Td1I1;
-	public static final String recapituler3TableTr3Td21 = "What do I choose for a domain name? ";
+	public static final String recapituler3TableTr3Td21 = "Where can I purchase a domain name? ";
 	public static final String recapituler3TableTr3Td2 = recapituler3TableTr3Td21;
-	public static final String recapituler3TableTr3Td3I1 = "fas fa-bullhorn";
+	public static final String recapituler3TableTr3Td3I1 = "fas fa-building";
 	public static final String recapituler3TableTr3Td3I = recapituler3TableTr3Td3I1;
-	public static final String recapituler3TableTr3Td41 = "Reach your audience. ";
+	public static final String recapituler3TableTr3Td41 = "Try brinkster.com or gandi.net. ";
 	public static final String recapituler3TableTr3Td4 = recapituler3TableTr3Td41;
-	public static final String recapituler3TableTr4Td1I1 = "fas fa-cart-plus";
+	public static final String recapituler3TableTr4Td1I1 = "fab fa-wpforms";
 	public static final String recapituler3TableTr4Td1I = recapituler3TableTr4Td1I1;
-	public static final String recapituler3TableTr4Td21 = "What do I do after I've bought a domain name? ";
+	public static final String recapituler3TableTr4Td21 = "What do I choose for a domain name? ";
 	public static final String recapituler3TableTr4Td2 = recapituler3TableTr4Td21;
-	public static final String recapituler3TableTr4Td3I1 = "fas fa-clipboard-check";
+	public static final String recapituler3TableTr4Td3I1 = "fas fa-bullhorn";
 	public static final String recapituler3TableTr4Td3I = recapituler3TableTr4Td3I1;
-	public static final String recapituler3TableTr4Td41 = "Manage your domain. ";
+	public static final String recapituler3TableTr4Td41 = "Reach your audience. ";
 	public static final String recapituler3TableTr4Td4 = recapituler3TableTr4Td41;
-	public static final String recapituler3TableTr5Td1I1 = "fas fa-fast-forward";
+	public static final String recapituler3TableTr5Td1I1 = "fas fa-cart-plus";
 	public static final String recapituler3TableTr5Td1I = recapituler3TableTr5Td1I1;
-	public static final String recapituler3TableTr5Td21 = "Can I pick a domain name later? ";
+	public static final String recapituler3TableTr5Td21 = "What do I do after I've bought a domain name? ";
 	public static final String recapituler3TableTr5Td2 = recapituler3TableTr5Td21;
-	public static final String recapituler3TableTr5Td3I1 = "fas fa-list-ol";
+	public static final String recapituler3TableTr5Td3I1 = "fas fa-clipboard-check";
 	public static final String recapituler3TableTr5Td3I = recapituler3TableTr5Td3I1;
-	public static final String recapituler3TableTr5Td41 = "Your computer hostname will depend on it. ";
+	public static final String recapituler3TableTr5Td41 = "Manage your domain. ";
 	public static final String recapituler3TableTr5Td4 = recapituler3TableTr5Td41;
+	public static final String recapituler3TableTr6Td1I1 = "fas fa-fast-forward";
+	public static final String recapituler3TableTr6Td1I = recapituler3TableTr6Td1I1;
+	public static final String recapituler3TableTr6Td21 = "Can I pick a domain name later? ";
+	public static final String recapituler3TableTr6Td2 = recapituler3TableTr6Td21;
+	public static final String recapituler3TableTr6Td3I1 = "fas fa-list-ol";
+	public static final String recapituler3TableTr6Td3I = recapituler3TableTr6Td3I1;
+	public static final String recapituler3TableTr6Td41 = "Your computer hostname will depend on it. ";
+	public static final String recapituler3TableTr6Td4 = recapituler3TableTr6Td41;
 
 	/**	L'entité « recapituler3 »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -1157,6 +1165,22 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 				} g("td");
 				{ e("td").a("class", " recapituler3TableTr5Td4 recapituler3TableTr5Td even ").f();
 					sx(recapituler3TableTr5Td41);
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr6 recapituler3TableTr even ").f();
+				{ e("td").a("class", " recapituler3TableTr6Td1 recapituler3TableTr6Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr6Td1I1, " site-menu-icon recapituler3TableTr6Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr6Td2 recapituler3TableTr6Td even ").f();
+					sx(recapituler3TableTr6Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr6Td3 recapituler3TableTr6Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr6Td3I1, " site-menu-icon recapituler3TableTr6Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr6Td4 recapituler3TableTr6Td even ").f();
+					sx(recapituler3TableTr6Td41);
 				} g("td");
 			} g("tr");
 		} g("table");
@@ -1738,5 +1762,5 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L001ChoisirNomDomaineVals = new String[] { introP1, introP2, moiP1, moiP2, moiP3, aLAvanceH3I1, aLAvanceH3Span1, aLAvanceH4I1, aLAvanceH4Span1, aLAvanceP1, aLAvanceP2, aLAvanceP3, aLAvanceP4, aLAvanceP5, acheterH3I1, acheterH3Span1, acheterH4I1, acheterH4Span1, acheterPSpan11, acheterPSpan12, acheterPSpan1A11, acheterPSpan21, acheterPSpan22, acheterPSpan2A21, acheterPSpan31, appelerH3I1, appelerH3Span1, appelerH4I1, appelerH4Span1, appelerP1, appelerP2, appelerP3, appelerP4, apres1H3I1, apres1H3Span1, apres1H4I1, apres1H4Span1, apres1PSpan11, apres1PSpan12, apres1PSpan1A1, apres1PSpan21, apres2UlLi11, apres2UlLi21, apres2UlLi31, apres2UlLi32, apres2UlLi33, apres2UlLi41, apres3UlLi11, apres3UlLi12, apres4UlLi11, apres4UlLi12, apres4UlLi13, apres5UlLi11, apres5UlLi12, apres5UlLi13, apres5UlLi14, plusTardH3I1, plusTardH3Span1, plusTardH4I1, plusTardH4Span1, plusTardP1, plusTardP2, plusTardP3, plusTardP4, plusTardP5, plusTardP6, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41, recapituler3TableTr2Td1I1, recapituler3TableTr2Td21, recapituler3TableTr2Td3I1, recapituler3TableTr2Td41, recapituler3TableTr3Td1I1, recapituler3TableTr3Td21, recapituler3TableTr3Td3I1, recapituler3TableTr3Td41, recapituler3TableTr4Td1I1, recapituler3TableTr4Td21, recapituler3TableTr4Td3I1, recapituler3TableTr4Td41, recapituler3TableTr5Td1I1, recapituler3TableTr5Td21, recapituler3TableTr5Td3I1, recapituler3TableTr5Td41 };
+	public static final String[] C001L001ChoisirNomDomaineVals = new String[] { introP1, introP2, moiP1, moiP2, moiP3, aLAvanceH3I1, aLAvanceH3Span1, aLAvanceH4I1, aLAvanceH4Span1, aLAvanceP1, aLAvanceP2, aLAvanceP3, aLAvanceP4, aLAvanceP5, acheterH3I1, acheterH3Span1, acheterH4I1, acheterH4Span1, acheterPSpan11, acheterPSpan12, acheterPSpan1A11, acheterPSpan21, acheterPSpan22, acheterPSpan2A21, acheterPSpan31, appelerH3I1, appelerH3Span1, appelerH4I1, appelerH4Span1, appelerP1, appelerP2, appelerP3, appelerP4, apres1H3I1, apres1H3Span1, apres1H4I1, apres1H4Span1, apres1PSpan11, apres1PSpan12, apres1PSpan1A1, apres1PSpan21, apres2UlLi11, apres2UlLi21, apres2UlLi31, apres2UlLi32, apres2UlLi33, apres2UlLi41, apres3UlLi11, apres3UlLi12, apres4UlLi11, apres4UlLi12, apres4UlLi13, apres5UlLi11, apres5UlLi12, apres5UlLi13, apres5UlLi14, plusTardH3I1, plusTardH3Span1, plusTardH4I1, plusTardH4Span1, plusTardP1, plusTardP2, plusTardP3, plusTardP4, plusTardP5, plusTardP6, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr1Td1I1, recapituler3TableTr1Td21, recapituler3TableTr1Td3I1, recapituler3TableTr1Td41, recapituler3TableTr2Td1I1, recapituler3TableTr2Td21, recapituler3TableTr2Td3I1, recapituler3TableTr2Td41, recapituler3TableTr3Td1I1, recapituler3TableTr3Td21, recapituler3TableTr3Td3I1, recapituler3TableTr3Td41, recapituler3TableTr4Td1I1, recapituler3TableTr4Td21, recapituler3TableTr4Td3I1, recapituler3TableTr4Td41, recapituler3TableTr5Td1I1, recapituler3TableTr5Td21, recapituler3TableTr5Td3I1, recapituler3TableTr5Td41, recapituler3TableTr6Td1I1, recapituler3TableTr6Td21, recapituler3TableTr6Td3I1, recapituler3TableTr6Td41 };
 }

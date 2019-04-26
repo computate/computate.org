@@ -34,9 +34,9 @@ import org.computate.site.frFR.recherche.ListeRecherche;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 313
+ * ImageHauteur.frFR: 365
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 321
+ * ImageHauteur.enUS: 373
  **/
 public class PageFaq extends PageFaqGen<Article> {
 
@@ -128,8 +128,8 @@ public class PageFaq extends PageFaqGen<Article> {
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I.frFR:fas fa-archway
-	 * Val.H3Span.frFR:Pourquoi est votre site traduit en français ? 
-	 * Val.H3Span.enUS:Why is your site in French? 
+	 * Val.H3Span.frFR:Pourquoi est votre site traduit en français et anglais ? 
+	 * Val.H3Span.enUS:Why is your site in French and English? 
 	 * Val.H4I.frFR:fas fa-globe-africa
 	 * Val.H4Span.frFR:L'internationalisation est importante et le monde mérite la bonne documentation logicielle. 
 	 * Val.H4Span.enUS:Internationalization is important and the world deserves good software documentation. 
@@ -169,12 +169,19 @@ public class PageFaq extends PageFaqGen<Article> {
 
 	/**
 	 * 
-	 * Val.TableTr1Td1I:fas fa-archway
-	 * Val.TableTr1Td2.frFR:Pourquoi est votre site traduit en français ? 
-	 * Val.TableTr1Td2.enUS:Why is your site in French? 
-	 * Val.TableTr1Td3I:fas fa-book-spells
-	 * Val.TableTr1Td4.frFR:L'internationalisation est importante. 
-	 * Val.TableTr1Td4.enUS:Internationalization is important. 
+	 * Val.TableTr1Td1I:fas fa-question
+	 * Val.TableTr1Td2.frFR:Questions
+	 * Val.TableTr1Td2.enUS:Questions
+	 * Val.TableTr1Td3I:fas fa-bullhorn
+	 * Val.TableTr1Td4.frFR:Reponses
+	 * Val.TableTr1Td4.enUS:Answers
+	 * 
+	 * Val.TableTr2Td1I:fas fa-archway
+	 * Val.TableTr2Td2.frFR:Pourquoi est votre site traduit en français ? 
+	 * Val.TableTr2Td2.enUS:Why is your site in French? 
+	 * Val.TableTr2Td3I:fas fa-book-spells
+	 * Val.TableTr2Td4.frFR:L'internationalisation est importante. 
+	 * Val.TableTr2Td4.enUS:Internationalization is important. 
 	 */  
 	protected void _recapituler3(PageHtml o) {      
 	}
