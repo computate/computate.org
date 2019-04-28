@@ -109,6 +109,67 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	protected void _telechargerIso(PageHtml o) {
 	}
 
+	protected void _verifierIso(PageHtml o) {
+	}
+
+	protected void _creerMachineVirtuelle(PageHtml o) {
+	}
+
+	protected void _erreurKernel(PageHtml o) {
+	}
+
+	@Override()
+	public void  htmlBodyErreurKernel(PageHtml o) {
+		{ e("h3").a("class", " erreurKernelH3 ").f();
+			{ e("i").a("class", erreurKernelH3I1, " site-menu-icon erreurKernelH3I ").f();
+			} g("i");
+			{ e("span").a("class", " erreurKernelH3Span ").f();
+				sx(erreurKernelH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " erreurKernelH4 ").f();
+			{ e("i").a("class", erreurKernelH4I1, " site-menu-icon erreurKernelH4I ").f();
+			} g("i");
+			{ e("span").a("class", " erreurKernelH4Span ").f();
+				sx(erreurKernelH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("p").a("class", " erreurKernelP ").f();
+			{ e("span").a("class", " erreurKernelPSpan1 erreurKernelPSpan odd ").f();
+				sx(erreurKernelPSpan11);
+			} g("span");
+		} g("p");
+		{ e("div").a("class", " erreurKernelDiv ").a("style", "background-color: #efebe7; padding: 10px; margin: 5px; border: 1px #efebe7; solid; color: black; font-family: arial; font-size: 12px; ").f();
+			{ e("p").a("class", " erreurKernelDivP1 erreurKernelDivP odd ").a("style", "font-weight: bold; ").f();
+				sx(erreurKernelDivP11);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP2 erreurKernelDivP even ").a("style", "font-weight: bold; ").f();
+				sx(erreurKernelDivP21);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP3 erreurKernelDivP odd ").f();
+				sx(erreurKernelDivP31);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP4 erreurKernelDivP even ").a("style", "color: #0000ff; ").f();
+				sx(erreurKernelDivP41);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP5 erreurKernelDivP odd ").f();
+				sx(erreurKernelDivP51);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP6 erreurKernelDivP even ").f();
+				sx(erreurKernelDivP61);
+			} g("p");
+		} g("div");
+	}
+
+	protected void _cmdSbinVboxconfig1(PageHtml o) {
+	}
+
+	protected void _cmdErreurKernel(PageHtml o) {
+	}
+
+	protected void _cmdSbinVboxconfig2(PageHtml o) {
+	}
+
 	protected void _recapituler1(PageHtml o) {      
 	}
 

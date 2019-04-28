@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours.c001.l003;
+package org.computate.site.frFR.cours.c001.l003; 
 
 import java.util.List;
 
@@ -34,11 +34,9 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 542
+ * ImageHauteur.frFR: 1258
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 457
- * VideoId.frFR: g61yXjXCUGU
- * VideoId.enUS: taA73wkea6Q
+ * ImageHauteur.enUS: 1173
 */     
 public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003InstallerMachineVirtuelleVirtualBoxGen<C001Lecon> {
 
@@ -123,7 +121,9 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * Val.H3I:fas fa-eraser
 	 * Val.H3Span.frFR:Est-t-il possible d'essayer Linux sans écraser mon système d'exploitation ? 
 	 * Val.H3Span.enUS:Is it possible to try Linux without destroying my operating system? 
-	 * Val.H4I:fab fa-linux
+	 * Val.H4Span1I:fab fa-windows
+	 * Val.H4Span2I:fab fa-apple
+	 * Val.H4Span3I:fab fa-linux
 	 * Val.H4Span.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
 	 * Val.H4Span.enUS:Virtualization can run Linux on any operating system. 
 	 * Val.PDiv.frFR:Grâce à la virtualisation, c'est simple à essayer les systèmes d'exploitation sur votre propre ordinateur ! 
@@ -138,7 +138,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * Val.PDiv.enUS:Virtualization is free, thanks to many good software packages! 
 	 * Val.PDiv.enUS:For Linux I recommend Libvirt for more power, but for a cross-platform solution, we will be using VirtualBox in this lesson. 
 	 * Val.PDiv.enUS:I'll teach you how to get a CentOS 7 virtual machine running on your system. 
-	 */  
+	 */ 
 	protected void _ecraser(PageHtml o) {      
 	}
 
@@ -223,11 +223,11 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:fas fa-question
-	 * Val.H3Span.frFR:Comment puis-je installer le dépôt yum virtualbox ? 
-	 * Val.H3Span.enUS:How can I install the virtualbox yum repository? 
+	 * Val.H3Span.frFR:Comment savoir comment le paquet VirtualBox est appelé ? 
+	 * Val.H3Span.enUS:How do I know what the VirtualBox package is called? 
 	 * Val.H4I:fas fa-search
-	 * Val.H4Span.frFR:Mettre virtualbox.repo dans /etc/yum.repos.d/. 
-	 * Val.H4Span.enUS:Put virtualbox.repo in /etc/yum.repos.d/. 
+	 * Val.H4Span.frFR:Rechercher « virtualbox » dans yum. 
+	 * Val.H4Span.enUS:Search for \"virtualbox\" in yum. 
 	 * Val.PreSpan1:sudo
 	 * Val.PreSpan2: yum
 	 * Val.PreSpan3: search
@@ -311,6 +311,244 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	}
 
 	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-clipboard-check
+	 * Val.H3Span.frFR:Comment savoir que mon téléchargement ISO est correct ? 
+	 * Val.H3Span.enUS:How do I know that my ISO download is complete? 
+	 * Val.H4I:fas fa-box-check
+	 * Val.H4Span.frFR:Vérifier le sha256sum. 
+	 * Val.H4Span.enUS:Check the sha256sum. 
+	 * Val.PreSpan1:sha256sum
+	 * Val.PreSpan2: ~/Downloads/CentOS-7-x86_64-DVD-1810.iso
+	 * Val.OlLi1.frFR:L'URL vers le téléchargement ISO de CentOS 7. 
+	 * Val.OlLi1.enUS:Compute and check the SHA256 message digest for a file. 
+	 * Val.OlLi2.frFR:Le chemin vers le téléchargement ISO CentOS 7. 
+	 * Val.OlLi2.enUS:The path to the downloaded CentOS 7 ISO file. 
+	 * Val.PSpan1.frFR:Vous pouvez voir la sha256sum du téléchargement dans les documents de publication pour votre version de CentOS 7, voir 
+	 * Val.PSpan1.enUS:You can see the documented sha256sum of the download in the release notes for your version of CentOS 7, see 
+	 * Val.PSpan2A:https://wiki.centos.org/Manuals/ReleaseNotes
+	 * Val.PSpan3.frFR:. Si la vôtre est la dernière version, cliquez sur « Release notes for CentOS 7 ». 
+	 * Val.PSpan3.frFR:Sinon, trouvez votre version dans les liens dans les documents de publication. 
+	 * Val.PSpan3.frFR:Où il est indiqué « Verifying Downloaded Installation Images », vous verrez également les sha256sums pour toutes les versions. 
+	 * Val.PSpan3.frFR:Notez le sha256sum pour CentOS-7-x86_64-DVD-1708.iso, puis exécutez la commande et comparez. 
+	 * Val.PSpan3.enUS:. If yours is the latest version, then click on "Release Notes for CentOS 7". 
+	 * Val.PSpan3.enUS:Otherwise, find your version in the links in the release notes. 
+	 * Val.PSpan3.enUS:Where it says "Verifying Downloaded Installation Images", you will also see the sha256sums for all versions. 
+	 * Val.PSpan3.enUS:Notice the sha256sum for CentOS-7-x86_64-DVD-1708.iso, and then perform the command and compare. 
+	 */ 
+	protected void _verifierIso(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-plus-square
+	 * Val.H3Span.frFR:Comment créer une machine virtuelle CentOS 7 dans VirtualBox ? 
+	 * Val.H3Span.enUS:How do I create a CentOS 7 virtual machine in VirtualBox? 
+	 * Val.H4I:fas fa-window
+	 * Val.H4Span.frFR:Ouvrir VirtualBox et cliquer [ New ]. 
+	 * Val.H4Span.enUS:Open up VirtualBox and click [ New ]. 
+	 * Val.OlLi01.frFR:Ouvrir VirtualBox dans vos applications installées. 
+	 * Val.OlLi01.enUS:Open VirtualBox in your installed applications. 
+	 * Val.OlLi02.frFR:Cliquer [ New ]. 
+	 * Val.OlLi02.enUS:Click [ New ]. 
+	 * Val.OlLi03.frFR:Give your virtual machine a name, like "vm1". 
+	 * Val.OlLi03.enUS:Donnez un nom à votre machine virtuelle, comme « mv1 ». 
+	 * Val.OlLi04.frFR:Type: Linux
+	 * Val.OlLi04.enUS:Type: Linux
+	 * Val.OlLi05.frFR:Version: Other Linux (64-bit)
+	 * Val.OlLi05.enUS:Version: Other Linux (64-bit)
+	 * Val.OlLi06.frFR:Cliquez [ Next > ]. 
+	 * Val.OlLi06.enUS:Click [ Next > ]. 
+	 * Val.OlLi07.frFR:Vous pouvez maintenant donner à votre machine virtuelle autant de RAM que vous le souhaitez. 
+	 * Val.OlLi07.frFR:Cela peut être changé plus tard. 
+	 * Val.OlLi07.frFR:Je recommande au moins 4096 MiB. 
+	 * Val.OlLi07.enUS:Now you can give your virtual machine as much RAM as you want. 
+	 * Val.OlLi07.enUS:This can be changed later. 
+	 * Val.OlLi07.enUS:I would recommend at least 4096 MiB. 
+	 * Val.OlLi08.frFR:Cliquez [ Next > ]. 
+	 * Val.OlLi08.enUS:Click [ Next > ]. 
+	 * Val.OlLi09.frFR:Vous allez maintenant créer un fichier disque pour votre machine virtuelle. 
+	 * Val.OlLi09.frFR:Vous pouvez sélectionner l'option par défaut « Créer un disque dur virtuel maintenant ». 
+	 * Val.OlLi09.enUS:Now you will create a disk file for your virtual machine. 
+	 * Val.OlLi09.enUS:You can select the default option "Create a virtual hard disk now". 
+	 * Val.OlLi10.frFR:Cliquez [ Create ]. 
+	 * Val.OlLi10.enUS:Click [ Create ]. 
+	 * Val.OlLi11.frFR:Maintenant, vous pouvez choisir parmi quelques types de disques différents. 
+	 * Val.OlLi11.frFR:Je recommanderais « VMDK (Virtual Machine Disk) » qui est plus portable à d'autres logiciels d'hyperviseur comme libvirt. 
+	 * Val.OlLi11.enUS:Now you can choose from a few different disk types. 
+	 * Val.OlLi11.enUS:I would recommend "VMDK (Virtual Machine Disk)" which is more portable to other hypervisor software like libvirt. 
+	 * Val.OlLi12.frFR:Ici, je recommanderais un disque « Dynamically allocated », qui commencera comme un petit fichier et se développera lorsqu'il est utilisé. 
+	 * Val.OlLi12.enUS:Here I would recommend a "Dynamically allocated" disk, that will will start out as a small file and will grow as it is used. 
+	 * Val.OlLi13.frFR:Ici, vous pouvez garder le nom du disque comme nom d'hôte que vous avez donné à la machine virtuelle. 
+	 * Val.OlLi13.frFR:Vous pouvez également choisir la taille du disque de la machine virtuelle. 
+	 * Val.OlLi13.frFR:Je recommande au moins 50 Go, car le fichier disque ne prend pas beaucoup d'espace, à moins qu'il ne devienne si grand s'il est alloué dynamiquement. 
+	 * Val.OlLi13.enUS:Here you can leave the name of the disk as the hostname you gave to the virtual machine. 
+	 * Val.OlLi13.enUS:You can also choose the size of the virtual machine disk. 
+	 * Val.OlLi13.enUS:I would recommend at least 108 GB, since the disk file does not take up that much space, unless it grows to be that big if it is dynamically allocated. 
+	 * Val.OlLi14.frFR:Cliquez [ Create ]. 
+	 * Val.OlLi14.enUS:Click [ Create ]. 
+	 * Val.OlLi15.frFR:Voilà, votre machine virtuelle est créée ! 
+	 * Val.OlLi15.frFR:L'étape suivante consiste à lui attribuer un ISO comme disque optique. 
+	 * Val.OlLi15.frFR:Cliquez-droit sur la machine virtuelle dans VirtualBox.
+	 * Val.OlLi15.enUS:Now your virtual machine is created! 
+	 * Val.OlLi15.enUS:The next step is to assign and ISO to it as an optical disk drive. 
+	 * Val.OlLi15.enUS:Right-click on the virtual machine in VirtualBox. 
+	 * Val.OlLi16.frFR:Cliquer « Settings... ». 
+	 * Val.OlLi16.enUS:Click "Settings..." 
+	 * Val.OlLi17.frFR:Cliquer [ Storage ]. 
+	 * Val.OlLi17.enUS:Click [ Storage ]. 
+	 * Val.OlLi18.frFR:Cliquez sur le lecteur optique nommé « Empty ». 
+	 * Val.OlLi18.enUS:Click the optical drive named "Empty". 
+	 * Val.OlLi19.frFR:Dans les attributs du lecteur optique, cliquez sur le bouton du disque avec la flèche déroulante.
+	 * Val.OlLi19.enUS:In the optical drive attributes, click the disk button with the dropdown arrow. 
+	 * Val.OlLi20.frFR:Cliquez « Choose Virtual Optical Disk File... ». 
+	 * Val.OlLi20.enUS:Click "Choose Virtual Optical Disk File...". 
+	 * Val.OlLi21.frFR:Recherchez le fichier ISO CentOS 7 dans vos téléchargements : ~/Downloads/CentOS-7-x86_64-DVD-1810.iso
+	 * Val.OlLi21.enUS:Browse to the CentOS 7 ISO file in your downloads: ~/Downloads/CentOS-7-x86_64-DVD-1810.iso
+	 * Val.OlLi22.frFR:Cliquez [ OK ]. 
+	 * Val.OlLi22.enUS:Click [ OK ]. 
+	 * Val.OlLi23.frFR:Et cliquez [ Start ]. 
+	 * Val.OlLi23.enUS:Now click [ Start ]. 
+	 */ 
+	protected void _creerMachineVirtuelle(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-exclamation-circle
+	 * Val.H3Span.frFR:Que faire si j'ai une erreur? Kernel driver not installed (rc=-1908)
+	 * Val.H3Span.enUS:What if I get an error? Kernel driver not installed (rc=-1908)
+	 * Val.H4I:fas fa-clipboard-list
+	 * Val.H4Span.frFR:Installez les prérequis du kernel Linux. 
+	 * Val.H4Span.enUS:Install the right linux kernel prerequisites. 
+	 * Val.PSpan1.frFR:Si vous utilisez CentOS 7, une erreur peut survenir lors du démarrage de votre machine virtuelle : 
+	 * Val.PSpan1.enUS:If you are running CentOS 7, you may get an error when starting your virtual machine: 
+	 * Val.DivP1:VirtualBox - Error In suplibOsInit
+	 * Val.DivP2:Kernel driver not installed (rc=-1908) 
+	 * Val.DivP3:The VirtualBox Linux kernel driver (vboxdrv) is either not loaded or there is a permission problem with /dev/vboxdrv. Please reinstall the kernel module by executing
+	 * Val.DivP4:'/sbin/vboxconfig'
+	 * Val.DivP5:as root.
+	 * Val.DivP6:where: suplib0slnit what: 3 VERR_VM_DRIVER_NOT_INSTALLED (-1908) - The support driver is not installed. On linux, open returned EN0ENT.
+	 */ 
+	protected void _erreurKernel(PageHtml o) {
+	}
+	@Override public void htmlBodyErreurKernel(PageHtml o) {
+		{ e("h3").a("class", " erreurKernelH3 ").f();
+			{ e("i").a("class", erreurKernelH3I1, " site-menu-icon erreurKernelH3I ").f();
+			} g("i");
+			{ e("span").a("class", " erreurKernelH3Span ").f();
+				sx(erreurKernelH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " erreurKernelH4 ").f();
+			{ e("i").a("class", erreurKernelH4I1, " site-menu-icon erreurKernelH4I ").f();
+			} g("i");
+			{ e("span").a("class", " erreurKernelH4Span ").f();
+				sx(erreurKernelH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("p").a("class", " erreurKernelP ").f();
+			{ e("span").a("class", " erreurKernelPSpan1 erreurKernelPSpan odd ").f();
+				sx(erreurKernelPSpan11);
+			} g("span");
+		} g("p");
+		{ e("div").a("class", " erreurKernelDiv ").a("style", "background-color: #efebe7; padding: 10px; margin: 5px; border: 1px #efebe7; solid; color: black; font-family: arial; font-size: 12px; ").f();
+			{ e("p").a("class", " erreurKernelDivP1 erreurKernelDivP odd ").a("style", "font-weight: bold; ").f();
+				sx(erreurKernelDivP11);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP2 erreurKernelDivP even ").a("style", "font-weight: bold; ").f();
+				sx(erreurKernelDivP21);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP3 erreurKernelDivP odd ").f();
+				sx(erreurKernelDivP31);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP4 erreurKernelDivP even ").a("style", "color: #0000ff; ").f();
+				sx(erreurKernelDivP41);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP5 erreurKernelDivP odd ").f();
+				sx(erreurKernelDivP51);
+			} g("p");
+			{ e("p").a("class", " erreurKernelDivP6 erreurKernelDivP even ").f();
+				sx(erreurKernelDivP61);
+			} g("p");
+		} g("div");
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: /sbin/vboxconfig
+	 * Val.OlLi1:sudo
+	 * Val.OlLi2.frFR:Linux post-installateur pour la construction de modules kernel VirtualBox. 
+	 * Val.OlLi2.frFR:Cela échouera si les prérequis du kernel n'ont pas été installés. 
+	 * Val.OlLi2.enUS:Linux post-installer for building VirtualBox kernel modules. 
+	 * Val.OlLi2.enUS:This will fail if the kernel-devel prerequisites have not been installed. 
+	 * 
+	 * Val.P1.frFR:Une autre erreur se produira lors de l'exécution de cette commande ici. 
+	 * Val.P1.enUS:Another error will occur when running this command here. 
+	 * Val.PreDiv01:vboxdrv.sh: Stopping VirtualBox services.
+	 * Val.PreDiv02:vboxdrv.sh: Building VirtualBox kernel modules.
+	 * Val.PreDiv03:This system is currently not set up to build kernel modules.
+	 * Val.PreDiv04:Please install the Linux kernel "header" files matching the current kernel
+	 * Val.PreDiv05:for adding new hardware support to the system.
+	 * Val.PreDiv06:The distribution packages containing the headers are probably:
+	 * Val.PreDiv07:    kernel-devel kernel-devel-3.10.0-693.el7.x86_64
+	 * Val.PreDiv08:This system is currently not set up to build kernel modules.
+	 * Val.PreDiv09:Please install the Linux kernel "header" files matching the current kernel
+	 * Val.PreDiv10:for adding new hardware support to the system.
+	 * Val.PreDiv11:The distribution packages containing the headers are probably:
+	 * Val.PreDiv12:    kernel-devel kernel-devel-3.10.0-693.el7.x86_64
+	 * Val.P2.frFR:Alors, vous voudrez lire attentivement le message d'erreur que vous recevez pour les paquets spécifiques que vous devez installer pour résoudre le problème ci-dessous. 
+	 * Val.P2.enUS:So you will want to read carefully in the error message you receive for the specific packages you need to install to fix the problem as below. 
+	 */ 
+	protected void _cmdSbinVboxconfig1(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: yum
+	 * Val.PreSpan3: install
+	 * Val.PreSpan4: -y
+	 * Val.PreSpan5: kernel-devel
+	 * Val.PreSpan5: kernel-devel-3.10.0-693.el7.x86_64
+	 * Val.OlLi1:sudo
+	 * Val.OlLi2:yum
+	 * Val.OlLi3:install
+	 * Val.OlLi4:-y
+	 * Val.OlLi5.frFR:Package de développement pour construire des modules du kernel pour faire correspondre le kernel. 
+	 * Val.OlLi5.enUS:The development package for building kernel modules to match the kernel. 
+	 * Val.OlLi6.frFR:Sachez que cette version peut être différente pour votre système. 
+	 * Val.OlLi6.frFR:Vous voudrez installer la version que cette commande a recommandé plus tôt: sudo /sbin/vboxconfig
+	 * Val.OlLi6.enUS:Be aware that this version may be different for your system. 
+	 * Val.OlLi6.enUS:You will want to install the version that this command recommended earlier: sudo /sbin/vboxconfig
+	 */ 
+	protected void _cmdErreurKernel(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: /sbin/vboxconfig
+	 * Val.OlLi1:sudo
+	 * Val.OlLi2.frFR:Exécutez à nouveau avec les prérequis kernel-devel installés. 
+	 * Val.OlLi2.enUS:Run this again with the kernel-devel prerequisites installed. 
+	 * 
+	 * Val.P1.frFR:Ici, lorsque vous exécutez à nouveau cette commande, vous ne devriez plus avoir un message d'erreur. 
+	 * Val.P1.enUS:Here, when you run this command again, you should no longer have an error message. 
+	 * Val.P2.frFR:Maintenant, retournez à VirtualBox et cliquez [ Start ]. 
+	 * Val.P2.enUS:Now, return to VirtualBox and click [ Start ]. 
+	 */ 
+	protected void _cmdSbinVboxconfig2(PageHtml o) {
+	}
+
+	/**
 	 * Val.H3.frFR:À récapituler : 
 	 * Val.H3.enUS:To review: 
 	 */
@@ -337,34 +575,85 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 
 	/**
 	 * 
-	 * Val.TableTr1Td1I:fas fa-question
-	 * Val.TableTr1Td2.frFR:Questions
-	 * Val.TableTr1Td2.enUS:Questions
-	 * Val.TableTr1Td3I:fas fa-bullhorn
-	 * Val.TableTr1Td4.frFR:Reponses
-	 * Val.TableTr1Td4.enUS:Answers
+	 * Val.TableTr01Td1I:fas fa-question
+	 * Val.TableTr01Td2.frFR:Questions
+	 * Val.TableTr01Td2.enUS:Questions
+	 * Val.TableTr01Td3I:fas fa-bullhorn
+	 * Val.TableTr01Td4.frFR:Reponses
+	 * Val.TableTr01Td4.enUS:Answers
 	 * 
-	 * Val.TableTr2Td1I:fas fa-eraser
-	 * Val.TableTr2Td2.frFR:Linux va-t-il détruire mon système d'exploitation ? 
-	 * Val.TableTr2Td2.enUS:Will Linux destroy my operating system? 
-	 * Val.TableTr2Td3I:fab fa-linux
-	 * Val.TableTr2Td4.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
-	 * Val.TableTr2Td4.enUS:Virtualization can run Linux on any operating system. 
+	 * Val.TableTr02Td1I:fas fa-eraser
+	 * Val.TableTr02Td2.frFR:Linux va-t-il détruire mon système d'exploitation ? 
+	 * Val.TableTr02Td2.enUS:Will Linux destroy my operating system? 
+	 * Val.TableTr02Td3Span1I:fab fa-microsoft
+	 * Val.TableTr02Td3Span2I:fab fa-apple
+	 * Val.TableTr02Td3Span3I:fab fa-linux
+	 * Val.TableTr02Td4.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
+	 * Val.TableTr02Td4.enUS:Virtualization can run Linux on any operating system. 
 	 * 
-	 * Val.TableTr3Td1I:fas fa-person-carry
-	 * Val.TableTr3Td2.frFR:Comment installer VirtualBox ? 
-	 * Val.TableTr3Td2.enUS:How do I install VirtualBox? 
-	 * Val.TableTr3Td3I:fas fa-cloud-download-alt
-	 * Val.TableTr3Td4.frFR:Téléchargez-le depuis virtualbox.org
-	 * Val.TableTr3Td4.enUS:Download it from virtualbox.org
+	 * Val.TableTr03Td1I:fas fa-person-carry
+	 * Val.TableTr03Td2.frFR:Comment installer VirtualBox ? 
+	 * Val.TableTr03Td2.enUS:How do I install VirtualBox? 
+	 * Val.TableTr03Td3I:fas fa-cloud-download-alt
+	 * Val.TableTr03Td4.frFR:Téléchargez-le depuis virtualbox.org
+	 * Val.TableTr03Td4.enUS:Download it from virtualbox.org
 	 * 
-	 * Val.TableTr4Td1I:fas fa-play-circle
-	 * Val.TableTr4Td2.frFR:Préparer CentOS 7 pour installer VirtualBox
-	 * Val.TableTr4Td2.enUS:Prepare CentOS 7 to install VirtualBox
-	 * Val.TableTr4Td3I:fas fa-download
-	 * Val.TableTr4Td4.frFR:Installer le dépot yum virtualbox
-	 * Val.TableTr4Td4.enUS:Install the virtualbox yum repo
-	 */  
+	 * Val.TableTr04Td1I:fas fa-play-circle
+	 * Val.TableTr04Td2.frFR:Préparer CentOS 7 pour installer VirtualBox
+	 * Val.TableTr04Td2.enUS:Prepare CentOS 7 to install VirtualBox
+	 * Val.TableTr04Td3I:fas fa-download
+	 * Val.TableTr04Td4.frFR:Installer le dépot yum virtualbox
+	 * Val.TableTr04Td4.enUS:Install the virtualbox yum repo
+	 * 
+	 * Val.TableTr05Td1I:fas fa-box-check
+	 * Val.TableTr05Td2.frFR:Installer le dépôt yum virtualbox
+	 * Val.TableTr05Td2.enUS:Install the virtualbox yum repository
+	 * Val.TableTr05Td3I:fas fa-person-dolly
+	 * Val.TableTr05Td4.frFR:Mettre virtualbox.repo dans /etc/yum.repos.d/
+	 * Val.TableTr05Td4.enUS:Put virtualbox.repo in /etc/yum.repos.d/
+	 * 
+	 * Val.TableTr06Td1I:fas fa-question
+	 * Val.TableTr06Td2.frFR:Quel est le nom du paquet VirtualBox ? 
+	 * Val.TableTr06Td2.enUS:What is the VirtualBox package called? 
+	 * Val.TableTr06Td3I:fas fa-search
+	 * Val.TableTr06Td4.frFR:Rechercher « virtualbox » dans yum
+	 * Val.TableTr06Td4.enUS:Search for "virtualbox" in yum
+	 * 
+	 * Val.TableTr07Td1I:fas fa-box
+	 * Val.TableTr07Td2.frFR:Installer VirtualBox
+	 * Val.TableTr07Td2.enUS:Installing VirtualBox
+	 * Val.TableTr07Td3I:fas fa-box-full
+	 * Val.TableTr07Td4.frFR:Installer le paquet avec yum
+	 * Val.TableTr07Td4.enUS:Install the package with yum
+	 * 
+	 * Val.TableTr08Td1I:fas fa-clipboard-list
+	 * Val.TableTr08Td2.frFR:Comment mettre un système d'exploitation sur une machine virtuelle
+	 * Val.TableTr08Td2.enUS:How to put an operating system on a virtual machine
+	 * Val.TableTr08Td3I:fas fa-arrow-alt-to-bottom
+	 * Val.TableTr08Td4.frFR:Télécharger un fichier ISO
+	 * Val.TableTr08Td4.enUS:Download an ISO file
+	 * 
+	 * Val.TableTr09Td1I:fas fa-clipboard-check
+	 * Val.TableTr09Td2.frFR:Vérifier un téléchargement ISO
+	 * Val.TableTr09Td2.enUS:Verify ISO download
+	 * Val.TableTr09Td3I:fas fa-box-check
+	 * Val.TableTr09Td4.frFR:Vérifier le sha256sum
+	 * Val.TableTr09Td4.enUS:Check the sha256sum
+	 * 
+	 * Val.TableTr10Td1I:fas fa-plus-square
+	 * Val.TableTr10Td2.frFR:Comment créer la machine virtuelle ?
+	 * Val.TableTr10Td2.enUS:How do I create the virtual machine?
+	 * Val.TableTr10Td3I:fas fa-window
+	 * Val.TableTr10Td4.frFR:Ouvrir VirtualBox et cliquer New
+	 * Val.TableTr10Td4.enUS:Open up VirtualBox and click New
+	 * 
+	 * Val.TableTr11Td1I:fas fa-exclamation-circle
+	 * Val.TableTr11Td2.frFR:Erreur Kernel driver not installed
+	 * Val.TableTr11Td2.enUS:Kernel driver not installed error
+	 * Val.TableTr11Td3I:fas fa-clipboard-list
+	 * Val.TableTr11Td4.frFR:Installez les prérequis du kernel
+	 * Val.TableTr11Td4.enUS:Install kernel prerequisites
+	 */   
 	protected void _recapituler3(PageHtml o) {      
 	}
 }

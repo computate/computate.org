@@ -73,11 +73,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage extends C001
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(542);
-	}
-
-	@Override protected void _pageVideoId(Couverture<String> c) {
-			c.o("g61yXjXCUGU");
+			c.o(1258);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -117,9 +113,6 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage extends C001
 				e("span").a("class", " ").f().sx(pageH3).g("span");
 			} g("h3");
 		}
-		{ e("div").a("class", "site-video-box ").f();
-			e("iframe").a("class", "site-video-embed ").a("width", "560").a("height", "315").a("src", pageVideoUrlEmbed).a("frameborder", "0").a("allow", "autoplay; encrypted-media").a("allowfullscreen", "").f().g("iframe");
-		} g("div");
 
 		c001L003InstallerMachineVirtuelleVirtualBox.htmlBody();
 

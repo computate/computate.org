@@ -14,10 +14,10 @@ public class SiteImages {
 
 	public static void main(String[] args) {  
 //		C001.indexer();
-		C001L001ChoisirNomDomaine.image();
-		C001L002ChoisirSystemeExploitation.image();
+//		C001L001ChoisirNomDomaine.image();
+//		C001L002ChoisirSystemeExploitation.image();
 		C001L003InstallerMachineVirtuelleVirtualBox.image();
-		PageFaq.image();
-		PageAPropos.image();
+//		PageFaq.image();
+//		PageAPropos.image();
 	} 
 }
