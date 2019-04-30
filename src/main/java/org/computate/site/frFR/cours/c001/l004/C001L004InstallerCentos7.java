@@ -282,6 +282,99 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	}
 
 	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-clock
+	 * Val.H3Span.frFR:Comment configurer la date et l'heure d'une installation de CentOS 7 ? 
+	 * Val.H3Span.enUS:How do I setup the date and time for a CentOS 7 installation? 
+	 * Val.H4I:fas fa-city
+	 * Val.H4Span.frFR:Choisissez la grande ville près de chez vous. 
+	 * Val.H4Span.enUS:Choose the big city near you. 
+	 * Val.OlLi1.frFR:Sur la page "INSTALLATION SUMMARY", plusieurs options sont à compléter. 
+	 * Val.OlLi1.enUS:On the "INSTALLATION SUMMARY" page, there are several options to complete. 
+	 * Val.OlLi2.frFR:Commencez dans la section "LOCALIZATION", cliquez sur "DATE & TIME". 
+	 * Val.OlLi2.enUS:Start in the "LOCALIZATION" section, click "DATE & TIME". 
+	 * Val.OlLi3.frFR:Cliquez sur la ville dans la carte qui est le plus proche de chez vous (pour moi c'est Region: Americas, City: Denver). 
+	 * Val.OlLi3.enUS:Click on the city on the map that is the closest match to your timezone (for me it's Region: Americas, City: Denver). 
+	 * Val.OlLi4.frFR:Choisissez si vous préférez l'heure "24-hour" ou l'heure "AM/PM". 
+	 * Val.OlLi4.enUS:Select whether you prefer "24-hour" time or "AM/PM" time. 
+	 * Val.OlLi5.frFR:Au supérieur gauche, cliquez sur [ Done ]. 
+	 * Val.OlLi5.enUS:In the top-left corner, click [ Done ]. 
+	 */ 
+	protected void _questionDateHeure(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-network-wired
+	 * Val.H3Span.frFR:Comment configurer le réseau et le nom d'hôte ? 
+	 * Val.H3Span.enUS:How do I setup the network and host name? 
+	 * Val.H4I:fas fa-ethernet
+	 * Val.H4Span.frFR:Choisissez un nom unique sur votre réseau et branchez votre câble Ethernet. 
+	 * Val.H4Span.enUS:Pick a unique name on your network and plug in your Ethernet cable. 
+	 * Val.OlLi1.frFR:C'est une bonne étape préliminaire de configurer le réseau afin que les packages nécessaires puissent être trouvés avant de choisir d'autres options. 
+	 * Val.OlLi1.frFR:Dans la section SYSTEM, sélectionnez « NETWORK & HOST NAME ». 
+	 * Val.OlLi1.enUS:This is a good early step in the install process to configure the network so that necessary packages can be found before choosing other options. 
+	 * Val.OlLi1.enUS:In the SYSTEM section, select "NETWORK & HOST NAME". 
+	 * Val.OlLi2.frFR:Je m'attends à ce que votre machine soit connectée à un câble Ethernet plutôt qu'à un réseau sans fil. 
+	 * Val.OlLi2.frFR:Assurez-vous donc que votre carte "Ethernet (...)" est sélectionnée à gauche. 
+	 * Val.OlLi2.enUS:I'm expecting your machine to be connected to an Ethernet cable, rather than a wireless network. 
+	 * Val.OlLi2.enUS:So make sure your "Ethernet (...)" card is selected on the left. 
+	 * Val.OlLi3.frFR:Sur le côté droit, allumez la carte Ethernet. 
+	 * Val.OlLi3.frFR:Notez que votre routeur attribue à la machine une adresse IP basée sur l'adresse matérielle. 
+	 * Val.OlLi3.enUS:On the right side, switch the Ethernet card to on. 
+	 * Val.OlLi3.enUS:Notice that your router assigns the machine an IP Address based on the Hardware Address. 
+	 * Val.OlLi4.frFR:Un autre élément important à modifier est le "Host name". 
+	 * Val.OlLi4.frFR:Attribuez à votre ordinateur un nom unique sur votre réseau ("tour1" pour moi), mais n'incluez pas de nom de domaine complet (suivi d'un point). 
+	 * Val.OlLi4.frFR:Si vous donnez un nom de domaine complet comme "tower1.computate.org", le réseau (/etc/resolve.conf) configurera votre nom de domaine "computate.org" en tant que domaine de recherche. 
+	 * Val.OlLi4.frFR:J'ai rencontrai des problèmes avec un tel nom d'hôte me rendant le réseau plus lente. 
+	 * Val.OlLi4.frFR:J'ai donc configuré des noms de domaine pleinement qualifiés sur un serveur IPA ou dans le fichier /etc/hosts. 
+	 * Val.OlLi4.enUS:Another important item to change is the "Host name". 
+	 * Val.OlLi4.enUS:Give your computer a unique name on your network ("tower1" for me), but do not include a fully qualified domain name (followed by a dot). 
+	 * Val.OlLi4.enUS:If you give a fully qualified domain name like "tower1.computate.org", then networking (/etc/resolve.conf) will configure your domain name "computate.org" as a search domain. 
+	 * Val.OlLi4.enUS:I've found that to cause me problems in the past, making networking slower for me. 
+	 * Val.OlLi4.enUS:I setup fully qualified domain names in an IPA server or in the /etc/hosts file instead. 
+	 * Val.OlLi5.frFR:À côté du nom d'hôte, cliquez sur [ Apply ]. 
+	 * Val.OlLi5.enUS:Next to the host name, click [ Apply ]. 
+	 * Val.OlLi6.frFR:Maintenant, cliquez sur [ Done ]. 
+	 * Val.OlLi6.enUS:Now click [ Done ]. 
+	 */ 
+	protected void _questionReseau(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-save
+	 * Val.H3Span.frFR:Que dois-je choisir pour la sélection de logiciel dans une installation CentOS 7 ? 
+	 * Val.H3Span.enUS:What should I choose for the software selection in a CentOS 7 installation? 
+	 * Val.H4I:fas fa-browser
+	 * Val.H4Span.frFR:Assurez-vous de choisir un environnement de bureau. 
+	 * Val.H4Span.enUS:Make sure to pick a desktop environment. 
+	 * Val.OlLi1.frFR:Dans la section "SOFTWARE", cliquez sur "SOFTWARE SELECTION". 
+	 * Val.OlLi1.enUS:In the "SOFTWARE" section, click "SOFTWARE SELECTION". 
+	 * Val.OlLi2.frFR:Je recommanderais toujours un environnement de bureau sur vos ordinateurs. 
+	 * Val.OlLi2.frFR:Vos ordinateurs sont pour développement et votre site Web actuel est recommandé pour le cloud OpenShift sur le site openshift.com de Red Hat. 
+	 * Val.OlLi2.frFR:OpenShift est open source et Red Hat est une société open source, le véritable chef de la technologie open source pour entreprises. 
+	 * Val.OlLi2.frFR:Je vous guiderai tout au long du voyage, depuis le développement de votre site sur votre propre ordinateur jusqu'au déploiement sur le cloud OpenShift. 
+	 * Val.OlLi2.enUS:I would always recommend a Desktop environment on your computers. 
+	 * Val.OlLi2.enUS:Your computers are for development, and your actual website I recommend running on an OpenShift cloud at Red Hat's openshift.com. 
+	 * Val.OlLi2.enUS:OpenShift is open source, and Red Hat is an open source company, the true leader in enterprise open source technology. 
+	 * Val.OlLi2.enUS:I'll take you through the whole journey from developing your site on your own computer, to deployment on the OpenShift cloud. 
+	 * Val.OlLi3.frFR:Dans la section "Base Environment", sélectionnez "GNOME Desktop". 
+	 * Val.OlLi3.frFR:Phonétiquement, GNOME se prononce nɔ̃m et non pas ʒi-nɔ̃m. 
+	 * Val.OlLi3.enUS:So in the "Base Environment" section, select "GNOME Desktop". 
+	 * Val.OlLi3.enUS:Phonetically, GNOME is pronounced nɔ̃m, not ʒi-nɔ̃m. 
+	 * Val.OlLi4.frFR:Vous pouvez également choisir "KDE PLasma Workspaces", mais je trouve que KDE a des problèmes et je préfère un simple bureau GNOME. 
+	 * Val.OlLi4.enUS:You could also choose "KDE PLasma Workspaces", but I find KDE to be buggy, and I prefer a simple GNOME Desktop. 
+	 * Val.OlLi5.frFR:Au supérieur gauche, cliquez sur [ Done ].
+	 * Val.OlLi5.enUS:In the top-left corner, click [ Done ]. 
+	 */ 
+	protected void _questionSelectionLogiciel(PageHtml o) {
+	}
+
+	/**
 	 * Val.H3.frFR:À récapituler : 
 	 * Val.H3.enUS:To review: 
 	 */

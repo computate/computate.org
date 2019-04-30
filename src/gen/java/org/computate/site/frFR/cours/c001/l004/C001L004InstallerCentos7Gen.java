@@ -693,6 +693,321 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		questionChoisirLangue.htmlApres();
 	}
 
+	///////////////////////
+	// questionDateHeure //
+	///////////////////////
+
+	public static final String questionDateHeureH3I1 = "fas fa-clock";
+	public static final String questionDateHeureH3I = questionDateHeureH3I1;
+	public static final String questionDateHeureH3Span1 = "Comment configurer la date et l'heure d'une installation de CentOS 7 ? ";
+	public static final String questionDateHeureH3Span = questionDateHeureH3Span1;
+	public static final String questionDateHeureH4I1 = "fas fa-city";
+	public static final String questionDateHeureH4I = questionDateHeureH4I1;
+	public static final String questionDateHeureH4Span1 = "Choisissez la grande ville près de chez vous. ";
+	public static final String questionDateHeureH4Span = questionDateHeureH4Span1;
+	public static final String questionDateHeureOlLi11 = "Sur la page \"INSTALLATION SUMMARY\", plusieurs options sont à compléter. ";
+	public static final String questionDateHeureOlLi1 = questionDateHeureOlLi11;
+	public static final String questionDateHeureOlLi21 = "Commencez dans la section \"LOCALIZATION\", cliquez sur \"DATE & TIME\". ";
+	public static final String questionDateHeureOlLi2 = questionDateHeureOlLi21;
+	public static final String questionDateHeureOlLi31 = "Cliquez sur la ville dans la carte qui est le plus proche de chez vous (pour moi c'est Region: Americas, City: Denver). ";
+	public static final String questionDateHeureOlLi3 = questionDateHeureOlLi31;
+	public static final String questionDateHeureOlLi41 = "Choisissez si vous préférez l'heure \"24-hour\" ou l'heure \"AM/PM\". ";
+	public static final String questionDateHeureOlLi4 = questionDateHeureOlLi41;
+	public static final String questionDateHeureOlLi51 = "Au supérieur gauche, cliquez sur [ Done ]. ";
+	public static final String questionDateHeureOlLi5 = questionDateHeureOlLi51;
+
+	/**	L'entité « questionDateHeure »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionDateHeure = new PageHtml();
+	public Couverture<PageHtml> questionDateHeureCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionDateHeure").o(questionDateHeure);
+
+	/**	<br/>L'entité « questionDateHeure »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionDateHeure">Trouver l'entité questionDateHeure dans Solr</a>
+	 * <br/>
+	 * @param questionDateHeure est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionDateHeure(PageHtml o);
+
+	public PageHtml getQuestionDateHeure() {
+		return questionDateHeure;
+	}
+
+	public void setQuestionDateHeure(PageHtml questionDateHeure) {
+		this.questionDateHeure = questionDateHeure;
+		this.questionDateHeureCouverture.dejaInitialise = true;
+	}
+	protected C001L004InstallerCentos7 questionDateHeureInit() {
+		if(questionDateHeure != null) {
+			((C001L004InstallerCentos7)this).avantPagePart(questionDateHeure, "questionDateHeure");
+			((C001L004InstallerCentos7)this).avantPagePart(questionDateHeure, "questionDateHeure");
+		}
+		if(!questionDateHeureCouverture.dejaInitialise) {
+			_questionDateHeure(questionDateHeure);
+		}
+		questionDateHeure.initLoinPourClasse(requeteSite_);
+		questionDateHeureCouverture.dejaInitialise(true);
+		return (C001L004InstallerCentos7)this;
+	}
+	public void htmlBodyQuestionDateHeure(PageHtml o) {
+		{ e("h3").a("class", " questionDateHeureH3 ").f();
+			{ e("i").a("class", questionDateHeureH3I1, " site-menu-icon questionDateHeureH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionDateHeureH3Span ").f();
+				sx(questionDateHeureH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionDateHeureH4 ").f();
+			{ e("i").a("class", questionDateHeureH4I1, " site-menu-icon questionDateHeureH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionDateHeureH4Span ").f();
+				sx(questionDateHeureH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("ol").a("class", " questionDateHeureOl ").f();
+			{ e("li").a("class", " questionDateHeureOlLi1 questionDateHeureOlLi odd ").f();
+				sx(questionDateHeureOlLi11);
+			} g("li");
+			{ e("li").a("class", " questionDateHeureOlLi2 questionDateHeureOlLi even ").f();
+				sx(questionDateHeureOlLi21);
+			} g("li");
+			{ e("li").a("class", " questionDateHeureOlLi3 questionDateHeureOlLi odd ").f();
+				sx(questionDateHeureOlLi31);
+			} g("li");
+			{ e("li").a("class", " questionDateHeureOlLi4 questionDateHeureOlLi even ").f();
+				sx(questionDateHeureOlLi41);
+			} g("li");
+			{ e("li").a("class", " questionDateHeureOlLi5 questionDateHeureOlLi odd ").f();
+				sx(questionDateHeureOlLi51);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionDateHeure() {
+		questionDateHeure.htmlAvant();
+		htmlBodyQuestionDateHeure(questionDateHeure);
+		questionDateHeure.htmlApres();
+	}
+
+	////////////////////
+	// questionReseau //
+	////////////////////
+
+	public static final String questionReseauH3I1 = "fas fa-network-wired";
+	public static final String questionReseauH3I = questionReseauH3I1;
+	public static final String questionReseauH3Span1 = "Comment configurer le réseau et le nom d'hôte ? ";
+	public static final String questionReseauH3Span = questionReseauH3Span1;
+	public static final String questionReseauH4I1 = "fas fa-ethernet";
+	public static final String questionReseauH4I = questionReseauH4I1;
+	public static final String questionReseauH4Span1 = "Choisissez un nom unique sur votre réseau et branchez votre câble Ethernet. ";
+	public static final String questionReseauH4Span = questionReseauH4Span1;
+	public static final String questionReseauOlLi11 = "C'est une bonne étape préliminaire de configurer le réseau afin que les packages nécessaires puissent être trouvés avant de choisir d'autres options. ";
+	public static final String questionReseauOlLi12 = "Dans la section SYSTEM, sélectionnez « NETWORK & HOST NAME ». ";
+	public static final String questionReseauOlLi1 = questionReseauOlLi11 + questionReseauOlLi12;
+	public static final String questionReseauOlLi21 = "Je m'attends à ce que votre machine soit connectée à un câble Ethernet plutôt qu'à un réseau sans fil. ";
+	public static final String questionReseauOlLi22 = "Assurez-vous donc que votre carte \"Ethernet (...)\" est sélectionnée à gauche. ";
+	public static final String questionReseauOlLi2 = questionReseauOlLi21 + questionReseauOlLi22;
+	public static final String questionReseauOlLi31 = "Sur le côté droit, allumez la carte Ethernet. ";
+	public static final String questionReseauOlLi32 = "Notez que votre routeur attribue à la machine une adresse IP basée sur l'adresse matérielle. ";
+	public static final String questionReseauOlLi3 = questionReseauOlLi31 + questionReseauOlLi32;
+	public static final String questionReseauOlLi41 = "Un autre élément important à modifier est le \"Host name\". ";
+	public static final String questionReseauOlLi42 = "Attribuez à votre ordinateur un nom unique sur votre réseau (\"tour1\" pour moi), mais n'incluez pas de nom de domaine complet (suivi d'un point). ";
+	public static final String questionReseauOlLi43 = "Si vous donnez un nom de domaine complet comme \"tower1.computate.org\", le réseau (/etc/resolve.conf) configurera votre nom de domaine \"computate.org\" en tant que domaine de recherche. ";
+	public static final String questionReseauOlLi44 = "J'ai rencontrai des problèmes avec un tel nom d'hôte me rendant le réseau plus lente. ";
+	public static final String questionReseauOlLi45 = "J'ai donc configuré des noms de domaine pleinement qualifiés sur un serveur IPA ou dans le fichier /etc/hosts. ";
+	public static final String questionReseauOlLi4 = questionReseauOlLi41 + questionReseauOlLi42 + questionReseauOlLi43 + questionReseauOlLi44 + questionReseauOlLi45;
+	public static final String questionReseauOlLi51 = "À côté du nom d'hôte, cliquez sur [ Apply ]. ";
+	public static final String questionReseauOlLi5 = questionReseauOlLi51;
+	public static final String questionReseauOlLi61 = "Maintenant, cliquez sur [ Done ]. ";
+	public static final String questionReseauOlLi6 = questionReseauOlLi61;
+
+	/**	L'entité « questionReseau »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionReseau = new PageHtml();
+	public Couverture<PageHtml> questionReseauCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionReseau").o(questionReseau);
+
+	/**	<br/>L'entité « questionReseau »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionReseau">Trouver l'entité questionReseau dans Solr</a>
+	 * <br/>
+	 * @param questionReseau est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionReseau(PageHtml o);
+
+	public PageHtml getQuestionReseau() {
+		return questionReseau;
+	}
+
+	public void setQuestionReseau(PageHtml questionReseau) {
+		this.questionReseau = questionReseau;
+		this.questionReseauCouverture.dejaInitialise = true;
+	}
+	protected C001L004InstallerCentos7 questionReseauInit() {
+		if(questionReseau != null) {
+			((C001L004InstallerCentos7)this).avantPagePart(questionReseau, "questionReseau");
+			((C001L004InstallerCentos7)this).avantPagePart(questionReseau, "questionReseau");
+		}
+		if(!questionReseauCouverture.dejaInitialise) {
+			_questionReseau(questionReseau);
+		}
+		questionReseau.initLoinPourClasse(requeteSite_);
+		questionReseauCouverture.dejaInitialise(true);
+		return (C001L004InstallerCentos7)this;
+	}
+	public void htmlBodyQuestionReseau(PageHtml o) {
+		{ e("h3").a("class", " questionReseauH3 ").f();
+			{ e("i").a("class", questionReseauH3I1, " site-menu-icon questionReseauH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionReseauH3Span ").f();
+				sx(questionReseauH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionReseauH4 ").f();
+			{ e("i").a("class", questionReseauH4I1, " site-menu-icon questionReseauH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionReseauH4Span ").f();
+				sx(questionReseauH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("ol").a("class", " questionReseauOl ").f();
+			{ e("li").a("class", " questionReseauOlLi1 questionReseauOlLi odd ").f();
+				sx(questionReseauOlLi11);
+				sx(questionReseauOlLi12);
+			} g("li");
+			{ e("li").a("class", " questionReseauOlLi2 questionReseauOlLi even ").f();
+				sx(questionReseauOlLi21);
+				sx(questionReseauOlLi22);
+			} g("li");
+			{ e("li").a("class", " questionReseauOlLi3 questionReseauOlLi odd ").f();
+				sx(questionReseauOlLi31);
+				sx(questionReseauOlLi32);
+			} g("li");
+			{ e("li").a("class", " questionReseauOlLi4 questionReseauOlLi even ").f();
+				sx(questionReseauOlLi41);
+				sx(questionReseauOlLi42);
+				sx(questionReseauOlLi43);
+				sx(questionReseauOlLi44);
+				sx(questionReseauOlLi45);
+			} g("li");
+			{ e("li").a("class", " questionReseauOlLi5 questionReseauOlLi odd ").f();
+				sx(questionReseauOlLi51);
+			} g("li");
+			{ e("li").a("class", " questionReseauOlLi6 questionReseauOlLi even ").f();
+				sx(questionReseauOlLi61);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionReseau() {
+		questionReseau.htmlAvant();
+		htmlBodyQuestionReseau(questionReseau);
+		questionReseau.htmlApres();
+	}
+
+	///////////////////////////////
+	// questionSelectionLogiciel //
+	///////////////////////////////
+
+	public static final String questionSelectionLogicielH3I1 = "fas fa-save";
+	public static final String questionSelectionLogicielH3I = questionSelectionLogicielH3I1;
+	public static final String questionSelectionLogicielH3Span1 = "Que dois-je choisir pour la sélection de logiciel dans une installation CentOS 7 ? ";
+	public static final String questionSelectionLogicielH3Span = questionSelectionLogicielH3Span1;
+	public static final String questionSelectionLogicielH4I1 = "fas fa-browser";
+	public static final String questionSelectionLogicielH4I = questionSelectionLogicielH4I1;
+	public static final String questionSelectionLogicielH4Span1 = "Assurez-vous de choisir un environnement de bureau. ";
+	public static final String questionSelectionLogicielH4Span = questionSelectionLogicielH4Span1;
+	public static final String questionSelectionLogicielOlLi11 = "Dans la section \"SOFTWARE\", cliquez sur \"SOFTWARE SELECTION\". ";
+	public static final String questionSelectionLogicielOlLi1 = questionSelectionLogicielOlLi11;
+	public static final String questionSelectionLogicielOlLi21 = "Je recommanderais toujours un environnement de bureau sur vos ordinateurs. ";
+	public static final String questionSelectionLogicielOlLi22 = "Vos ordinateurs sont pour développement et votre site Web actuel est recommandé pour le cloud OpenShift sur le site openshift.com de Red Hat. ";
+	public static final String questionSelectionLogicielOlLi23 = "OpenShift est open source et Red Hat est une société open source, le véritable chef de la technologie open source pour entreprises. ";
+	public static final String questionSelectionLogicielOlLi24 = "Je vous guiderai tout au long du voyage, depuis le développement de votre site sur votre propre ordinateur jusqu'au déploiement sur le cloud OpenShift. ";
+	public static final String questionSelectionLogicielOlLi2 = questionSelectionLogicielOlLi21 + questionSelectionLogicielOlLi22 + questionSelectionLogicielOlLi23 + questionSelectionLogicielOlLi24;
+	public static final String questionSelectionLogicielOlLi31 = "Dans la section \"Base Environment\", sélectionnez \"GNOME Desktop\". ";
+	public static final String questionSelectionLogicielOlLi32 = "Phonétiquement, GNOME se prononce nɔ̃m et non pas ʒi-nɔ̃m. ";
+	public static final String questionSelectionLogicielOlLi3 = questionSelectionLogicielOlLi31 + questionSelectionLogicielOlLi32;
+	public static final String questionSelectionLogicielOlLi41 = "Vous pouvez également choisir \"KDE PLasma Workspaces\", mais je trouve que KDE a des problèmes et je préfère un simple bureau GNOME. ";
+	public static final String questionSelectionLogicielOlLi4 = questionSelectionLogicielOlLi41;
+	public static final String questionSelectionLogicielOlLi51 = "Au supérieur gauche, cliquez sur [ Done ].";
+	public static final String questionSelectionLogicielOlLi5 = questionSelectionLogicielOlLi51;
+
+	/**	L'entité « questionSelectionLogiciel »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionSelectionLogiciel = new PageHtml();
+	public Couverture<PageHtml> questionSelectionLogicielCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionSelectionLogiciel").o(questionSelectionLogiciel);
+
+	/**	<br/>L'entité « questionSelectionLogiciel »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionSelectionLogiciel">Trouver l'entité questionSelectionLogiciel dans Solr</a>
+	 * <br/>
+	 * @param questionSelectionLogiciel est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionSelectionLogiciel(PageHtml o);
+
+	public PageHtml getQuestionSelectionLogiciel() {
+		return questionSelectionLogiciel;
+	}
+
+	public void setQuestionSelectionLogiciel(PageHtml questionSelectionLogiciel) {
+		this.questionSelectionLogiciel = questionSelectionLogiciel;
+		this.questionSelectionLogicielCouverture.dejaInitialise = true;
+	}
+	protected C001L004InstallerCentos7 questionSelectionLogicielInit() {
+		if(questionSelectionLogiciel != null) {
+			((C001L004InstallerCentos7)this).avantPagePart(questionSelectionLogiciel, "questionSelectionLogiciel");
+			((C001L004InstallerCentos7)this).avantPagePart(questionSelectionLogiciel, "questionSelectionLogiciel");
+		}
+		if(!questionSelectionLogicielCouverture.dejaInitialise) {
+			_questionSelectionLogiciel(questionSelectionLogiciel);
+		}
+		questionSelectionLogiciel.initLoinPourClasse(requeteSite_);
+		questionSelectionLogicielCouverture.dejaInitialise(true);
+		return (C001L004InstallerCentos7)this;
+	}
+	public void htmlBodyQuestionSelectionLogiciel(PageHtml o) {
+		{ e("h3").a("class", " questionSelectionLogicielH3 ").f();
+			{ e("i").a("class", questionSelectionLogicielH3I1, " site-menu-icon questionSelectionLogicielH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionSelectionLogicielH3Span ").f();
+				sx(questionSelectionLogicielH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionSelectionLogicielH4 ").f();
+			{ e("i").a("class", questionSelectionLogicielH4I1, " site-menu-icon questionSelectionLogicielH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionSelectionLogicielH4Span ").f();
+				sx(questionSelectionLogicielH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("ol").a("class", " questionSelectionLogicielOl ").f();
+			{ e("li").a("class", " questionSelectionLogicielOlLi1 questionSelectionLogicielOlLi odd ").f();
+				sx(questionSelectionLogicielOlLi11);
+			} g("li");
+			{ e("li").a("class", " questionSelectionLogicielOlLi2 questionSelectionLogicielOlLi even ").f();
+				sx(questionSelectionLogicielOlLi21);
+				sx(questionSelectionLogicielOlLi22);
+				sx(questionSelectionLogicielOlLi23);
+				sx(questionSelectionLogicielOlLi24);
+			} g("li");
+			{ e("li").a("class", " questionSelectionLogicielOlLi3 questionSelectionLogicielOlLi odd ").f();
+				sx(questionSelectionLogicielOlLi31);
+				sx(questionSelectionLogicielOlLi32);
+			} g("li");
+			{ e("li").a("class", " questionSelectionLogicielOlLi4 questionSelectionLogicielOlLi even ").f();
+				sx(questionSelectionLogicielOlLi41);
+			} g("li");
+			{ e("li").a("class", " questionSelectionLogicielOlLi5 questionSelectionLogicielOlLi odd ").f();
+				sx(questionSelectionLogicielOlLi51);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionSelectionLogiciel() {
+		questionSelectionLogiciel.htmlAvant();
+		htmlBodyQuestionSelectionLogiciel(questionSelectionLogiciel);
+		questionSelectionLogiciel.htmlApres();
+	}
+
 	//////////////////
 	// recapituler1 //
 	//////////////////
@@ -1194,6 +1509,9 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		questionCreerUneCleUsbInit();
 		questionDemarrerSystemSurCleUsbInit();
 		questionChoisirLangueInit();
+		questionDateHeureInit();
+		questionReseauInit();
+		questionSelectionLogicielInit();
 		recapituler1Init();
 		recapituler2Init();
 		recapituler3Init();
@@ -1219,6 +1537,12 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 			questionDemarrerSystemSurCleUsb.setRequeteSite_(requeteSite_);
 		if(questionChoisirLangue != null)
 			questionChoisirLangue.setRequeteSite_(requeteSite_);
+		if(questionDateHeure != null)
+			questionDateHeure.setRequeteSite_(requeteSite_);
+		if(questionReseau != null)
+			questionReseau.setRequeteSite_(requeteSite_);
+		if(questionSelectionLogiciel != null)
+			questionSelectionLogiciel.setRequeteSite_(requeteSite_);
 		if(recapituler1 != null)
 			recapituler1.setRequeteSite_(requeteSite_);
 		if(recapituler2 != null)
@@ -1261,6 +1585,12 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 				return oC001L004InstallerCentos7.questionDemarrerSystemSurCleUsb;
 			case "questionChoisirLangue":
 				return oC001L004InstallerCentos7.questionChoisirLangue;
+			case "questionDateHeure":
+				return oC001L004InstallerCentos7.questionDateHeure;
+			case "questionReseau":
+				return oC001L004InstallerCentos7.questionReseau;
+			case "questionSelectionLogiciel":
+				return oC001L004InstallerCentos7.questionSelectionLogiciel;
 			case "recapituler1":
 				return oC001L004InstallerCentos7.recapituler1;
 			case "recapituler2":
@@ -1456,6 +1786,12 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 			questionDemarrerSystemSurCleUsb.htmlBodyCourt();
 		if(questionChoisirLangue != null)
 			questionChoisirLangue.htmlBodyCourt();
+		if(questionDateHeure != null)
+			questionDateHeure.htmlBodyCourt();
+		if(questionReseau != null)
+			questionReseau.htmlBodyCourt();
+		if(questionSelectionLogiciel != null)
+			questionSelectionLogiciel.htmlBodyCourt();
 		if(recapituler1 != null)
 			recapituler1.htmlBodyCourt();
 		if(recapituler2 != null)
@@ -1479,6 +1815,9 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		((C001L004InstallerCentos7)this).htmlBodyQuestionCreerUneCleUsb();
 		((C001L004InstallerCentos7)this).htmlBodyQuestionDemarrerSystemSurCleUsb();
 		((C001L004InstallerCentos7)this).htmlBodyQuestionChoisirLangue();
+		((C001L004InstallerCentos7)this).htmlBodyQuestionDateHeure();
+		((C001L004InstallerCentos7)this).htmlBodyQuestionReseau();
+		((C001L004InstallerCentos7)this).htmlBodyQuestionSelectionLogiciel();
 		((C001L004InstallerCentos7)this).htmlBodyRecapituler1();
 		((C001L004InstallerCentos7)this).htmlBodyRecapituler2();
 		((C001L004InstallerCentos7)this).htmlBodyRecapituler3();
@@ -1517,5 +1856,5 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L004InstallerCentos7Vals = new String[] { moiP1, moiP2, questionTelechargerCentos7H3I1, questionTelechargerCentos7H3Span1, questionTelechargerCentos7H4I1, questionTelechargerCentos7H4Span1, questionTelechargerCentos7PreSpan11, questionTelechargerCentos7PreSpan21, questionTelechargerCentos7PreSpan31, questionTelechargerCentos7PreSpan41, questionTelechargerCentos7OlLi11, questionTelechargerCentos7OlLi21, questionTelechargerCentos7OlLi31, questionTelechargerCentos7OlLi41, questionTelechargerCentos7PSpan11, questionTelechargerCentos7PSpan2A1, questionTelechargerCentos7PSpan31, questionTelechargerCentos7PSpan32, questionTelechargerCentos7PSpan33, questionCreerUneCleUsbH3I1, questionCreerUneCleUsbH3Span1, questionCreerUneCleUsbH4I1, questionCreerUneCleUsbH4Span1, questionCreerUneCleUsbOl1Li11, questionCreerUneCleUsbOl1Li2Span11, questionCreerUneCleUsbOl1Li2A1, questionCreerUneCleUsbOl1Li2Span21, questionCreerUneCleUsbOl1Li31, questionCreerUneCleUsbOl1Li32, questionCreerUneCleUsbDiv2H51, questionCreerUneCleUsbPre2Span11, questionCreerUneCleUsbPre2Span21, questionCreerUneCleUsbPre2Span31, questionCreerUneCleUsbPre2Span41, questionCreerUneCleUsbPre2Span42, questionCreerUneCleUsbOl2Li11, questionCreerUneCleUsbOl2Li12, questionCreerUneCleUsbOl2Li13, questionCreerUneCleUsbOl2Li21, questionCreerUneCleUsbOl2Li22, questionCreerUneCleUsbOl2Li31, questionCreerUneCleUsbOl2Li41, questionCreerUneCleUsbOl2Li51, questionCreerUneCleUsbDiv3H51, questionCreerUneCleUsbDiv3P1, questionCreerUneCleUsbPre31, questionCreerUneCleUsbOl3Li11, questionCreerUneCleUsbP41, questionCreerUneCleUsbP42, questionCreerUneCleUsbP43, questionCreerUneCleUsbPre51, questionCreerUneCleUsbPre5Br1, questionCreerUneCleUsbPre5Br2, questionCreerUneCleUsbPre5Br3, questionCreerUneCleUsbDiv6H51, questionCreerUneCleUsbP61, questionCreerUneCleUsbP62, questionCreerUneCleUsbPre61, questionCreerUneCleUsbOl6Li11, questionCreerUneCleUsbOl6Li21, questionCreerUneCleUsbOl6Li31, questionCreerUneCleUsbOl6Li41, questionCreerUneCleUsbOl6Li51, questionCreerUneCleUsbOl6Li61, questionCreerUneCleUsbP71, questionDemarrerSystemSurCleUsbH3I1, questionDemarrerSystemSurCleUsbH3Span1, questionDemarrerSystemSurCleUsbH4Span1I1, questionDemarrerSystemSurCleUsbH4Span2I1, questionDemarrerSystemSurCleUsbH4Span31, questionDemarrerSystemSurCleUsbP11, questionDemarrerSystemSurCleUsbP12, questionDemarrerSystemSurCleUsbP13, questionDemarrerSystemSurCleUsbP14, questionDemarrerSystemSurCleUsbP15, questionDemarrerSystemSurCleUsbP16, questionDemarrerSystemSurCleUsbP21, questionChoisirLangueH3I1, questionChoisirLangueH3Span1, questionChoisirLangueH4I1, questionChoisirLangueH4Span1, questionChoisirLangueOlLi11, questionChoisirLangueOlLi12, questionChoisirLangueOlLi21, questionChoisirLangueOlLi22, questionChoisirLangueOlLi31, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td3Span2I1, recapituler3TableTr02Td3Span3I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41 };
+	public static final String[] C001L004InstallerCentos7Vals = new String[] { moiP1, moiP2, questionTelechargerCentos7H3I1, questionTelechargerCentos7H3Span1, questionTelechargerCentos7H4I1, questionTelechargerCentos7H4Span1, questionTelechargerCentos7PreSpan11, questionTelechargerCentos7PreSpan21, questionTelechargerCentos7PreSpan31, questionTelechargerCentos7PreSpan41, questionTelechargerCentos7OlLi11, questionTelechargerCentos7OlLi21, questionTelechargerCentos7OlLi31, questionTelechargerCentos7OlLi41, questionTelechargerCentos7PSpan11, questionTelechargerCentos7PSpan2A1, questionTelechargerCentos7PSpan31, questionTelechargerCentos7PSpan32, questionTelechargerCentos7PSpan33, questionCreerUneCleUsbH3I1, questionCreerUneCleUsbH3Span1, questionCreerUneCleUsbH4I1, questionCreerUneCleUsbH4Span1, questionCreerUneCleUsbOl1Li11, questionCreerUneCleUsbOl1Li2Span11, questionCreerUneCleUsbOl1Li2A1, questionCreerUneCleUsbOl1Li2Span21, questionCreerUneCleUsbOl1Li31, questionCreerUneCleUsbOl1Li32, questionCreerUneCleUsbDiv2H51, questionCreerUneCleUsbPre2Span11, questionCreerUneCleUsbPre2Span21, questionCreerUneCleUsbPre2Span31, questionCreerUneCleUsbPre2Span41, questionCreerUneCleUsbPre2Span42, questionCreerUneCleUsbOl2Li11, questionCreerUneCleUsbOl2Li12, questionCreerUneCleUsbOl2Li13, questionCreerUneCleUsbOl2Li21, questionCreerUneCleUsbOl2Li22, questionCreerUneCleUsbOl2Li31, questionCreerUneCleUsbOl2Li41, questionCreerUneCleUsbOl2Li51, questionCreerUneCleUsbDiv3H51, questionCreerUneCleUsbDiv3P1, questionCreerUneCleUsbPre31, questionCreerUneCleUsbOl3Li11, questionCreerUneCleUsbP41, questionCreerUneCleUsbP42, questionCreerUneCleUsbP43, questionCreerUneCleUsbPre51, questionCreerUneCleUsbPre5Br1, questionCreerUneCleUsbPre5Br2, questionCreerUneCleUsbPre5Br3, questionCreerUneCleUsbDiv6H51, questionCreerUneCleUsbP61, questionCreerUneCleUsbP62, questionCreerUneCleUsbPre61, questionCreerUneCleUsbOl6Li11, questionCreerUneCleUsbOl6Li21, questionCreerUneCleUsbOl6Li31, questionCreerUneCleUsbOl6Li41, questionCreerUneCleUsbOl6Li51, questionCreerUneCleUsbOl6Li61, questionCreerUneCleUsbP71, questionDemarrerSystemSurCleUsbH3I1, questionDemarrerSystemSurCleUsbH3Span1, questionDemarrerSystemSurCleUsbH4Span1I1, questionDemarrerSystemSurCleUsbH4Span2I1, questionDemarrerSystemSurCleUsbH4Span31, questionDemarrerSystemSurCleUsbP11, questionDemarrerSystemSurCleUsbP12, questionDemarrerSystemSurCleUsbP13, questionDemarrerSystemSurCleUsbP14, questionDemarrerSystemSurCleUsbP15, questionDemarrerSystemSurCleUsbP16, questionDemarrerSystemSurCleUsbP21, questionChoisirLangueH3I1, questionChoisirLangueH3Span1, questionChoisirLangueH4I1, questionChoisirLangueH4Span1, questionChoisirLangueOlLi11, questionChoisirLangueOlLi12, questionChoisirLangueOlLi21, questionChoisirLangueOlLi22, questionChoisirLangueOlLi31, questionDateHeureH3I1, questionDateHeureH3Span1, questionDateHeureH4I1, questionDateHeureH4Span1, questionDateHeureOlLi11, questionDateHeureOlLi21, questionDateHeureOlLi31, questionDateHeureOlLi41, questionDateHeureOlLi51, questionReseauH3I1, questionReseauH3Span1, questionReseauH4I1, questionReseauH4Span1, questionReseauOlLi11, questionReseauOlLi12, questionReseauOlLi21, questionReseauOlLi22, questionReseauOlLi31, questionReseauOlLi32, questionReseauOlLi41, questionReseauOlLi42, questionReseauOlLi43, questionReseauOlLi44, questionReseauOlLi45, questionReseauOlLi51, questionReseauOlLi61, questionSelectionLogicielH3I1, questionSelectionLogicielH3Span1, questionSelectionLogicielH4I1, questionSelectionLogicielH4Span1, questionSelectionLogicielOlLi11, questionSelectionLogicielOlLi21, questionSelectionLogicielOlLi22, questionSelectionLogicielOlLi23, questionSelectionLogicielOlLi24, questionSelectionLogicielOlLi31, questionSelectionLogicielOlLi32, questionSelectionLogicielOlLi41, questionSelectionLogicielOlLi51, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td3Span2I1, recapituler3TableTr02Td3Span3I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41 };
 }
