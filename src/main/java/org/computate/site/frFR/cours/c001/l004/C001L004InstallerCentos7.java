@@ -1,3 +1,7 @@
+package org.computate.site.frFR.cours.c001.l004;
+
+
+import java.util.List;
 
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.computate.site.frFR.couverture.Couverture;
@@ -113,20 +117,23 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I:fas fa-person-carry
+	 * Val.H3I:far fa-person-carry
 	 * Val.H3Span.frFR:Comment télecharger CentOS 7 ? 
 	 * Val.H3Span.enUS:How do I download CentOS 7?
-	 * Val.H4I:fas fa-cloud-download-alt
+	 * Val.H4I:far fa-cloud-download-alt
 	 * Val.H4Span.frFR:Télécharger un fichier ISO. 
 	 * Val.H4Span.enUS:Download an ISO file. 
 	 * Val.PreSpan1:wget
 	 * Val.PreSpan2: http://mirrors.xmission.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
 	 * Val.PreSpan3: -O
 	 * Val.PreSpan4: ~/Downloads/CentOS-7-x86_64-DVD-1810.iso
-	 * Val.OlLi1:wget
+	 * 
+	 * Val.OlLi1.frFR:wget : La commande pour télécharger des fichiers. 
+	 * Val.OlLi1.enUS:wget: The command to download files. 
 	 * Val.OlLi2.frFR:L'URL vers le téléchargement ISO de CentOS 7. 
 	 * Val.OlLi2.enUS:The URL to the CentOS 7 ISO file to download. 
-	 * Val.OlLi3:-O
+	 * Val.OlLi3.frFR:-O : Pour spécifier le chemin de sortie pour le téléchargement. 
+	 * Val.OlLi3.enUS:-O: For specifying the output path for the downloaded file. 
 	 * Val.OlLi4.frFR:Le chemin de sortie pour le téléchargement ISO CentOS 7. 
 	 * Val.OlLi4.enUS:The output path for the downloaded CentOS 7 ISO file. 
 	 * Val.PSpan1.frFR:Vous pouvez télécharger le fichier ISO CentOS 7 le plus récent pour installer sur votre ordinateur ici 
@@ -145,10 +152,10 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I:fas fa-play-circle
+	 * Val.H3I:fab fa-usb
 	 * Val.H3Span.frFR:Comment puis-je créer une clé USB avec CentOS 7 ? 
 	 * Val.H3Span.enUS:How can I create a USB key with CentOS 7? 
-	 * Val.H4I:fas fa-download
+	 * Val.H4I:far fa-compact-disc
 	 * Val.H4Span.frFR:Utilizez la commande dd. 
 	 * Val.H4Span.enUS:Use the dd command. 
 	 * Val.Ol1Li1.frFR:Des que vous avez téléchargé votre image ISO, placez votre clé USB dans un port USB de votre ordinateur. 
@@ -162,62 +169,116 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol1Li3.frFR:Installez d’abord l’application « pv » requise pour surveiller la progression des données dans un tube. 
 	 * Val.Ol1Li3.enUS:If you are on Linux already, I'll teach you a way to load CentOS onto a USB key from the terminal that shows a progress bar. 
 	 * Val.Ol1Li3.enUS:First install the prerequisite "pv" application to monitor the progress of data through a pipe. 
-	 * Val.Div1H1.frFR:
-	 * Val.Div1H1.enUS:Install the pv application. 
-	 * Val.Pre1Span1:sudo
-	 * Val.Pre1Span2: yum
-	 * Val.Pre1Span3: install
-	 * Val.Pre1Span4: -y
-	 * Val.Pre1Span4: pv
-	 * Val.Ol2Li1.frFR:La commande pour installer des dépots yum commence par la commande sudo. 
+	 * Val.Div2H5.frFR:Installer l'application « pv ». 
+	 * Val.Div2H5.enUS:Install the "pv" application. 
+	 * Val.Pre2Span1:sudo
+	 * Val.Pre2Span2: yum
+	 * Val.Pre2Span3: install
+	 * Val.Pre2Span4: -y
+	 * Val.Pre2Span4: pv
+	 * Val.Ol2Li1.frFR:sudo: La commande pour installer des dépots yum commence par la commande sudo. 
 	 * Val.Ol2Li1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
 	 * Val.Ol2Li1.frFR:L'installation des dépots yum nécessite toujours les privilèges root. 
-	 * Val.Ol2Li1.enUS:The command to install yum repositories begins with the command sudo. 
+	 * Val.Ol2Li1.enUS:sudo: The command to install yum repositories begins with the command sudo. 
 	 * Val.Ol2Li1.enUS:The "sudo" command allows your current user to have root privileges for a few minutes after entering your password. 
-	 * Val.Ol2Li2.frFR:Ce qui signifie "Yellowdog Updater Modified", mais personne ne le connait comme yellowdog, juste yum. 
+	 * Val.Ol2Li2.frFR:yum : Signifie "Yellowdog Updater Modified", mais personne ne le connait comme yellowdog, juste yum. 
 	 * Val.Ol2Li2.frFR:CentOS gère les paquets de logiciel et les fichiers d'application RPM avec yum. 
-	 * Val.Ol2Li2.enUS:Which stands for "Yellowdog Updater Modified", but nobody knows it as yellowdog, just yum. 
+	 * Val.Ol2Li2.enUS:yum : Stands for "Yellowdog Updater Modified", but nobody knows it as yellowdog, just yum. 
 	 * Val.Ol2Li2.enUS:CentOS manages software packages and RPM application files with yum. 
-	 * Val.Ol2Li3.frFR:Pour installer des nouveaux paquets yum. 
-	 * Val.Ol2Li3.enUS:For installing new yum packages. 
-	 * Val.Ol2Li4.frFR:Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
-	 * Val.Ol2Li4.enUS:Suppress messages asking to confirm if you want to install the software. 
-	 * Val.Ol2Li5.frFR:Le nom du paquet de VirtualBox que vous souhaitez installer. 
-	 * Val.Ol2Li5.enUS:The package name of VirtualBox you wish to install. 
-	 * Val.Div2H1.frFR:
-	 * Val.Div2H1.enUS:Find the path to the USB storage device. 
-	 * Val.Pre2Span1:lsblk
-	 * Val.Ol3Li1.frFR:La commande pour montrer tous les périphériques de stockage en mode bloc sur l'ordinateur. 
-	 * Val.Ol3Li1.enUS:The command to list all block storage devices on the computer. 
-	 * Val.Div3H1.frFR:
-	 * Val.Div3H1.enUS:Write the ISO image to the USB key and watch the progress. 
+	 * Val.Ol2Li3.frFR:install : Pour installer des nouveaux paquets yum. 
+	 * Val.Ol2Li3.enUS:install: For installing new yum packages. 
+	 * Val.Ol2Li4.frFR:-y: Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
+	 * Val.Ol2Li4.enUS:-y: Suppress messages asking to confirm if you want to install the software. 
+	 * Val.Ol2Li5.frFR:pv: Le nom du paquet de VirtualBox que vous souhaitez installer. 
+	 * Val.Ol2Li5.enUS:pv: The package name of VirtualBox you wish to install. 
+	 * Val.Div3H5.frFR:Trouvez le chemin vers le périphérique de stockage USB. 
+	 * Val.Div3H5.enUS:Find the path to the USB storage device. 
+	 * Val.Div3P.frFR:Éxecuter la commande intégrée dans Linux pour afficher les disques sur l'ordinateur : 
+	 * Val.Div3P.enUS:Run the built in command in linux to view the disks on the computer: 
+	 * Val.Pre3:lsblk
+	 * Val.Ol3Li1.frFR:lsblk : La commande pour montrer tous les périphériques de stockage en mode bloc sur l'ordinateur. 
+	 * Val.Ol3Li1.enUS:lsblk: The command to list all block storage devices on the computer. 
+	 * Val.P4.frFR:Vous voudrez examiner très attentivement la liste des disques. 
+	 * Val.P4.frFR:Recherchez le nom du disque qui correspond à la taille et au point de montage de votre clé USB. 
+	 * Val.P4.frFR:Voici à quoi ressemble mon périphérique USB sous /dev/sdb : 
+	 * Val.P4.enUS:You will want to very carefully review the list of disks. 
+	 * Val.P4.enUS:Find the disk name that matches the size and mount point of your USB key. 
+	 * Val.P4.enUS:Here is what my USB device at /dev/sdb looks like: 
+	 * Val.Pre5:NAME                                          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+	 * Val.Pre5Br:sdb                                             8:16   1   7.2G  0 disk
+	 * Val.Pre5Br:├─sdb1                                          8:17   1   4.3G  0 part  /run/media/ctate/CentOS 7 x86_64
+	 * Val.Pre5Br:└─sdb2                                          8:18   1   8.5M  0 part
+	 * Val.Div6H5.frFR:Écrivez l'image ISO sur la clé USB et observez le progrès. 
+	 * Val.Div6H5.enUS:Write the ISO image to the USB key and watch the progress. 
+	 * Val.P6.frFR:Si la commande lsblk affiche sdb, sdb1, sdb2, etc., le chemin d'accès à votre périphérique USB serait /dev/sdb. 
+	 * Val.P6.frFR:Avec ces infos, vous pouvez exécuter une commande pour écrire l'image ISO sur le périphérique USB et voir la progression. 
+	 * Val.P6.enUS:If the lsblk command shows sdb, sdb1, sdb2, etc, the path to your USB device would be /dev/sdb. 
+	 * Val.P6.enUS:With that information, you can run a command to write the ISO image to the USB device and see the progress. 
+	 * Val.Pre6:pv ~/Downloads/CentOS-7-x86_64-DVD-1810.iso | sudo dd of=/dev/sdb
+	 * Val.Ol6Li1.frFR:pv : Pour surveiller la progression des données dans un tube. 
+	 * Val.Ol6Li1.enUS:pv: To monitor the progress of data through a pipe. 
+	 * Val.Ol6Li2.frFR:Le chemin vers le fichier ISO. 
+	 * Val.Ol6Li2.enUS:The path to the ISO file. 
+	 * Val.Ol6Li3.frFR:| : Prend la sortie de la commande pv et l'utilise comme entrée de la commande dd. 
+	 * Val.Ol6Li3.enUS:|: Takes the output from the pv command and uses it as the input to the dd command. 
+	 * Val.Ol6Li4:sudo 
+	 * Val.Ol6Li5.frFR:dd : Copie un fichier sur un périphérique. 
+	 * Val.Ol6Li5.enUS:dd: Copies a file to a device. 
+	 * Val.Ol6Li6.frFR:of=... : Le chemin vers le périphérique USB. 
+	 * Val.Ol6Li6.enUS:of=... The path to the USB device. 
+	 * Val.P7.frFR:Profitez de la barre de progression pendant que votre image ISO est lentement et soigneusement chargée sur votre clé USB. 
+	 * Val.P7.enUS:Enjoy the progress bar as your ISO is slowly and carefully loaded onto your USB key. 
 	 */ 
 	protected void _questionCreerUneCleUsb(PageHtml o) {
 	}
 
 	/**
+	 * Val.H3I:far fa-play-circle
+	 * Val.H3Span.frFR:Lorsque je redémarre avec la clé USB, quel mode de démarrage choisir? 
+	 * Val.H3Span.enUS:When I reboot with the USB key, which boot mode do I choose? 
+	 * Val.H4Span1I:fab fa-windows
+	 * Val.H4Span2I:fab fa-centos
+	 * Val.H4Span3.frFR:Évitez de démarrer en mode de démarrage UEFI.
+	 * Val.H4Span3.enUS:Avoid booting in UEFI boot mode. 
+	 * Val.P1.frFR:Lorsque vous redémarrez votre ordinateur, vous voudrez appuyer sur la clé pour accéder au menu de démarrage. 
+	 * Val.P1.frFR:Sinon, c'est possible que vous entriez dans un mode de démarrage sur l'USB qui poserait des problèmes après l'installation de votre système d'exploitation. 
+	 * Val.P1.frFR:Pour moi, je vais ignorer les options UEFI, telles que "UEFI: TOSHIBA TransMemory 1.00" et choisir "TOSHIBA TransMemory 1.00". 
+	 * Val.P1.frFR:Je ne suis pas un expert en UEFI, mais je sais que je regrettais de l'avoir installé une fois avec UEFI et que mon système était instable. 
+	 * Val.P1.frFR:Une des raisons d'utiliser le mode UEFI est que si d'autres systèmes (Windows Vista / 7/8, GNU / Linux ...) de votre ordinateur sont installés en mode UEFI et que vous souhaitez effectuer un double démarrage, vous devez également installer en mode UEFI. 
+	 * Val.P1.frFR:Je n'ai jamais effectué de double démarrage, car j'avais choisi il y a longtemps de garder Microsoft pour toujours hors de ma vie personnelle, comme ça, je n'utilise jamais le mode UEFI. 
+	 * Val.P1.enUS:When you reboot your computer, you will want to press the right key to enter the boot menu. 
+	 * Val.P1.enUS:If not, it's possible that you enter a boot mode on the USB that will cause problems after installing your operating system. 
+	 * Val.P1.enUS:For me, I will ignore the UEFI options, like "UEFI: TOSHIBA TransMemory 1.00", and choose "TOSHIBA TransMemory 1.00". 
+	 * Val.P1.enUS:I'm not an expert on UEFI, but I know I regretted installing it with UEFI once and it made my system unstable. 
+	 * Val.P1.enUS:One reason to use UEFI mode is if other systems (Windows Vista/7/8, GNU/Linux...) of your computer are installed in UEFI mode, and you wish to dual boot, then you must install in UEFI mode too. 
+	 * Val.P1.enUS:I never dual boot, since I chose a long time ago to keep Microsoft out of my personal life forever, so I never use UEFI mode. 
+	 * Val.P2.frFR:Maintenant, laissez-le démarrer dans votre image USB, laissez-le vérifier le disque pour détecter des erreurs, et comme ça, vous êtes sur la bonne voie ! 
+	 * Val.P2.enUS:Now let it boot into your USB image, let it check the disk for errors and you're on your way! 
+	 */
+	protected void _questionDemarrerSystemSurCleUsb(PageHtml o) {
+	}
+
+	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I:fas fa-play-circle
-	 * Val.H3Span.frFR:Comment puis-je préparer CentOS 7 pour installer VirtualBox ? 
-	 * Val.H3Span.enUS:How can I prepare CentOS 7 to install VirtualBox? 
-	 * Val.H4I:fas fa-download
-	 * Val.H4Span.frFR:Installer le dépot yum virtualbox
-	 * Val.H4Span.enUS:Install the virtualbox yum repo
-	 * Val.PreSpan1:wget
-	 * Val.PreSpan2: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
-	 * Val.PreSpan3: -O
-	 * Val.PreSpan4: /tmp/virtualbox.repo
-	 * Val.OlLi1.frFR:La commande pour télécharger des fichiers. 
-	 * Val.OlLi1.enUS:The command to download files. 
-	 * Val.OlLi2.frFR:L'URL vers le téléchargement dépôt yum VirtualBox. 
-	 * Val.OlLi2.enUS:The URL to the VirtualBox yum repository download file. 
-	 * Val.OlLi3.frFR:Pour spécifier le chemin de sortie pour le téléchargement. 
-	 * Val.OlLi3.enUS:For specifying the output path for the downloaded file. 
-	 * Val.OlLi4.frFR:Le chemin de sortie pour le téléchargement dépôt yum. 
-	 * Val.OlLi4.enUS:The output path for the downloaded yum repository file. 
+	 * Val.H3I:fas fa-flag-alt
+	 * Val.H3Span.frFR:Quelle langue j'utilise pendant le processus d'installation? 
+	 * Val.H3Span.enUS:What language would I use during the install process? 
+	 * Val.H4I:far fa-language
+	 * Val.H4Span.frFR:Choisissez la langue avec laquelle vous êtes à l'aise. 
+	 * Val.H4Span.enUS:Choose the language you are comfortable with. 
+	 * Val.OlLi1.frFR:Sur le côté gauche, vous trouverez les choix de langue pour le système d'exploitation. 
+	 * Val.OlLi1.frFR:Sélectionnez la langue que vous préférez. 
+	 * Val.OlLi1.enUS:On the left hand side, you will find the choices of language for the operating system. 
+	 * Val.OlLi1.enUS:Select the language that you prefer. 
+	 * Val.OlLi2.frFR:Sur le côté droit, vous trouverez les choix de disposition du clavier. 
+	 * Val.OlLi2.frFR:Sélectionnez la disposition du clavier pour votre clavier. 
+	 * Val.OlLi2.enUS:On the right hand side, you will find the choices of keyboard layout. 
+	 * Val.OlLi2.enUS:Select the keyboard layout for your keyboard. 
+	 * Val.OlLi3.frFR:Appuyez sur [ Continue ]. 
+	 * Val.OlLi3.enUS:Press [ Continue ]. 
 	 */ 
-	protected void _telecharger(PageHtml o) {
+	protected void _questionChoisirLangue(PageHtml o) {
 	}
 
 	/**
@@ -231,8 +292,8 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr1Td1.frFR:Mardi 
 	 * Val.TableTr1Td1.enUS:Tuesday 
 	 * Val.TableTr1Td2I:fab fa-linux
-	 * Val.TableTr1Td3I:fas fa-network-wired
-	 * Val.TableTr1Td4I:fas fa-pen-nib
+	 * Val.TableTr1Td3I:far fa-network-wired
+	 * Val.TableTr1Td4I:far fa-pen-nib
 	 * Val.TableTr2Td1.frFR:23 Avril 2019
 	 * Val.TableTr2Td1.enUS:April 23 2019
 	 * Val.TableTr2Td2.frFR:Comment essayer CentOS 7
@@ -242,19 +303,19 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr2Td4.frFR:Par Christophe Tate
 	 * Val.TableTr2Td4.enUS:By Christopher Tate
 	 */  
-	protected void _recapituler2(PageHtml o) {      
+	protected void _recapituler2(PageHtml o) {     
 	}
 
 	/**
 	 * 
-	 * Val.TableTr01Td1I:fas fa-question
+	 * Val.TableTr01Td1I:far fa-question
 	 * Val.TableTr01Td2.frFR:Questions
 	 * Val.TableTr01Td2.enUS:Questions
-	 * Val.TableTr01Td3I:fas fa-bullhorn
+	 * Val.TableTr01Td3I:far fa-bullhorn
 	 * Val.TableTr01Td4.frFR:Reponses
 	 * Val.TableTr01Td4.enUS:Answers
 	 * 
-	 * Val.TableTr02Td1I:fas fa-eraser
+	 * Val.TableTr02Td1I:far fa-eraser
 	 * Val.TableTr02Td2.frFR:Linux va-t-il détruire mon système d'exploitation ? 
 	 * Val.TableTr02Td2.enUS:Will Linux destroy my operating system? 
 	 * Val.TableTr02Td3Span1I:fab fa-microsoft
@@ -263,66 +324,66 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr02Td4.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
 	 * Val.TableTr02Td4.enUS:Virtualization can run Linux on any operating system. 
 	 * 
-	 * Val.TableTr03Td1I:fas fa-person-carry
+	 * Val.TableTr03Td1I:far fa-person-carry
 	 * Val.TableTr03Td2.frFR:Comment installer VirtualBox ? 
 	 * Val.TableTr03Td2.enUS:How do I install VirtualBox? 
-	 * Val.TableTr03Td3I:fas fa-cloud-download-alt
+	 * Val.TableTr03Td3I:far fa-cloud-download-alt
 	 * Val.TableTr03Td4.frFR:Téléchargez-le depuis virtualbox.org
 	 * Val.TableTr03Td4.enUS:Download it from virtualbox.org
 	 * 
-	 * Val.TableTr04Td1I:fas fa-play-circle
+	 * Val.TableTr04Td1I:far fa-play-circle
 	 * Val.TableTr04Td2.frFR:Préparer CentOS 7 pour installer VirtualBox
 	 * Val.TableTr04Td2.enUS:Prepare CentOS 7 to install VirtualBox
-	 * Val.TableTr04Td3I:fas fa-download
+	 * Val.TableTr04Td3I:far fa-download
 	 * Val.TableTr04Td4.frFR:Installer le dépot yum virtualbox
 	 * Val.TableTr04Td4.enUS:Install the virtualbox yum repo
 	 * 
-	 * Val.TableTr05Td1I:fas fa-box-check
+	 * Val.TableTr05Td1I:far fa-box-check
 	 * Val.TableTr05Td2.frFR:Installer le dépôt yum virtualbox
 	 * Val.TableTr05Td2.enUS:Install the virtualbox yum repository
-	 * Val.TableTr05Td3I:fas fa-person-dolly
+	 * Val.TableTr05Td3I:far fa-person-dolly
 	 * Val.TableTr05Td4.frFR:Mettre virtualbox.repo dans /etc/yum.repos.d/
 	 * Val.TableTr05Td4.enUS:Put virtualbox.repo in /etc/yum.repos.d/
 	 * 
-	 * Val.TableTr06Td1I:fas fa-question
+	 * Val.TableTr06Td1I:far fa-question
 	 * Val.TableTr06Td2.frFR:Quel est le nom du paquet VirtualBox ? 
 	 * Val.TableTr06Td2.enUS:What is the VirtualBox package called? 
-	 * Val.TableTr06Td3I:fas fa-search
+	 * Val.TableTr06Td3I:far fa-search
 	 * Val.TableTr06Td4.frFR:Rechercher « virtualbox » dans yum
 	 * Val.TableTr06Td4.enUS:Search for "virtualbox" in yum
 	 * 
-	 * Val.TableTr07Td1I:fas fa-box
+	 * Val.TableTr07Td1I:far fa-box
 	 * Val.TableTr07Td2.frFR:Installer VirtualBox
 	 * Val.TableTr07Td2.enUS:Installing VirtualBox
-	 * Val.TableTr07Td3I:fas fa-box-full
+	 * Val.TableTr07Td3I:far fa-box-full
 	 * Val.TableTr07Td4.frFR:Installer le paquet avec yum
 	 * Val.TableTr07Td4.enUS:Install the package with yum
 	 * 
-	 * Val.TableTr08Td1I:fas fa-clipboard-list
+	 * Val.TableTr08Td1I:far fa-clipboard-list
 	 * Val.TableTr08Td2.frFR:Comment mettre un système d'exploitation sur une machine virtuelle
 	 * Val.TableTr08Td2.enUS:How to put an operating system on a virtual machine
-	 * Val.TableTr08Td3I:fas fa-arrow-alt-to-bottom
+	 * Val.TableTr08Td3I:far fa-arrow-alt-to-bottom
 	 * Val.TableTr08Td4.frFR:Télécharger un fichier ISO
 	 * Val.TableTr08Td4.enUS:Download an ISO file
 	 * 
-	 * Val.TableTr09Td1I:fas fa-clipboard-check
+	 * Val.TableTr09Td1I:far fa-clipboard-check
 	 * Val.TableTr09Td2.frFR:Vérifier un téléchargement ISO
 	 * Val.TableTr09Td2.enUS:Verify ISO download
-	 * Val.TableTr09Td3I:fas fa-box-check
+	 * Val.TableTr09Td3I:far fa-box-check
 	 * Val.TableTr09Td4.frFR:Vérifier le sha256sum
 	 * Val.TableTr09Td4.enUS:Check the sha256sum
 	 * 
-	 * Val.TableTr10Td1I:fas fa-plus-square
+	 * Val.TableTr10Td1I:far fa-plus-square
 	 * Val.TableTr10Td2.frFR:Comment créer la machine virtuelle ?
 	 * Val.TableTr10Td2.enUS:How do I create the virtual machine?
-	 * Val.TableTr10Td3I:fas fa-window
+	 * Val.TableTr10Td3I:far fa-window
 	 * Val.TableTr10Td4.frFR:Ouvrir VirtualBox et cliquer New
 	 * Val.TableTr10Td4.enUS:Open up VirtualBox and click New
 	 * 
-	 * Val.TableTr11Td1I:fas fa-exclamation-circle
+	 * Val.TableTr11Td1I:far fa-exclamation-circle
 	 * Val.TableTr11Td2.frFR:Erreur Kernel driver not installed
 	 * Val.TableTr11Td2.enUS:Kernel driver not installed error
-	 * Val.TableTr11Td3I:fas fa-clipboard-list
+	 * Val.TableTr11Td3I:far fa-clipboard-list
 	 * Val.TableTr11Td4.frFR:Installez les prérequis du kernel
 	 * Val.TableTr11Td4.enUS:Install kernel prerequisites
 	 */   
