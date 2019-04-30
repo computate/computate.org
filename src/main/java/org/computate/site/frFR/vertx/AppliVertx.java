@@ -12,6 +12,7 @@ import org.computate.site.enUS.cours.c001.C001LeconEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l001.C001L001ChoisirNomDomaineEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l002.C001L002ChoisirSystemeExploitationEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiService;
+import org.computate.site.enUS.cours.c001.l004.C001L004InstallerCentos7EnUSGenApiService;
 import org.computate.site.enUS.page.accueil.PageAccueilEnUSGenApiService;
 import org.computate.site.enUS.page.apropos.PageAProposEnUSGenApiService;
 import org.computate.site.enUS.page.blog.PageBlogEnUSGenApiService;
@@ -27,6 +28,7 @@ import org.computate.site.frFR.cours.c001.C001LeconFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaineFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l002.C001L002ChoisirSystemeExploitationFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenApiService;
+import org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7FrFRGenApiService;
 import org.computate.site.frFR.page.accueil.PageAccueilFrFRGenApiService;
 import org.computate.site.frFR.page.apropos.PageAProposFrFRGenApiService;
 import org.computate.site.frFR.page.blog.PageBlogFrFRGenApiService;
@@ -374,6 +376,9 @@ public class AppliVertx extends AbstractVerticle {
 
 		C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		C001L004InstallerCentos7FrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001L004InstallerCentos7EnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		C001LeconFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001LeconEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);

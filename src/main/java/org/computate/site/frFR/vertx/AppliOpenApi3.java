@@ -6,7 +6,7 @@ import org.computate.site.frFR.requete.RequeteSiteFrFR;
 /**
  * Traduire: false
  */
-public class AppliOpenApi3 extends AppliOpenApi3Gen<AppliSwagger2> { 
+public class AppliOpenApi3 extends AppliOpenApi3Gen<AppliSwagger2> {  
 
 	@Override protected void _apiVersion(Couverture<String> c) {
 		c.o("3.0.0");

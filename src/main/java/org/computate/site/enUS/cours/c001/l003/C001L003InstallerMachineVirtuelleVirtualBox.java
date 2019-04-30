@@ -16,7 +16,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 
 	@Override()
 	protected void  _leconNumero(Couverture<Integer> c) { 
-		c.o(2);
+		c.o(3);
 	}
 
 	@Override()
