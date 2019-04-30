@@ -1,6 +1,3 @@
-package org.computate.site.frFR.cours.c001.l004;
-
-import java.util.List;
 
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.computate.site.frFR.couverture.Couverture;
@@ -165,6 +162,8 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol1Li3.frFR:Installez d’abord l’application « pv » requise pour surveiller la progression des données dans un tube. 
 	 * Val.Ol1Li3.enUS:If you are on Linux already, I'll teach you a way to load CentOS onto a USB key from the terminal that shows a progress bar. 
 	 * Val.Ol1Li3.enUS:First install the prerequisite "pv" application to monitor the progress of data through a pipe. 
+	 * Val.Div1H1.frFR:
+	 * Val.Div1H1.enUS:Install the pv application. 
 	 * Val.Pre1Span1:sudo
 	 * Val.Pre1Span2: yum
 	 * Val.Pre1Span3: install
@@ -185,9 +184,13 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol2Li4.enUS:Suppress messages asking to confirm if you want to install the software. 
 	 * Val.Ol2Li5.frFR:Le nom du paquet de VirtualBox que vous souhaitez installer. 
 	 * Val.Ol2Li5.enUS:The package name of VirtualBox you wish to install. 
+	 * Val.Div2H1.frFR:
+	 * Val.Div2H1.enUS:Find the path to the USB storage device. 
 	 * Val.Pre2Span1:lsblk
 	 * Val.Ol3Li1.frFR:La commande pour montrer tous les périphériques de stockage en mode bloc sur l'ordinateur. 
 	 * Val.Ol3Li1.enUS:The command to list all block storage devices on the computer. 
+	 * Val.Div3H1.frFR:
+	 * Val.Div3H1.enUS:Write the ISO image to the USB key and watch the progress. 
 	 */ 
 	protected void _questionCreerUneCleUsb(PageHtml o) {
 	}
