@@ -389,10 +389,10 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr1Td4I:far fa-pen-nib
 	 * Val.TableTr2Td1.frFR:23 Avril 2019
 	 * Val.TableTr2Td1.enUS:April 23 2019
-	 * Val.TableTr2Td2.frFR:Comment essayer CentOS 7
-	 * Val.TableTr2Td2.enUS:How to try CentOS 7
-	 * Val.TableTr2Td3.frFR:Sur une machine virtuelle
-	 * Val.TableTr2Td3.enUS:On a virtual machine
+	 * Val.TableTr2Td2.frFR:Comment installer le système d'exploitation pour développer mon site Web ? 
+	 * Val.TableTr2Td2.enUS:How do I install the operating system to start developing my website? 
+	 * Val.TableTr2Td3.frFR:Chaque étape pour installer le système d'exploitation CentOS 7. 
+	 * Val.TableTr2Td3.enUS:Every step to install the CentOS 7 operating system. 
 	 * Val.TableTr2Td4.frFR:Par Christophe Tate
 	 * Val.TableTr2Td4.enUS:By Christopher Tate
 	 */  
@@ -408,25 +408,25 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr01Td4.frFR:Reponses
 	 * Val.TableTr01Td4.enUS:Answers
 	 * 
-	 * Val.TableTr02Td1I:far fa-eraser
-	 * Val.TableTr02Td2.frFR:Linux va-t-il détruire mon système d'exploitation ? 
-	 * Val.TableTr02Td2.enUS:Will Linux destroy my operating system? 
-	 * Val.TableTr02Td3Span1I:fab fa-microsoft
-	 * Val.TableTr02Td3Span2I:fab fa-apple
-	 * Val.TableTr02Td3Span3I:fab fa-linux
-	 * Val.TableTr02Td4.frFR:La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. 
-	 * Val.TableTr02Td4.enUS:Virtualization can run Linux on any operating system. 
+	 * Val.TableTr02Td1I:far fa-person-carry
+	 * Val.TableTr02Td2.frFR:Comment télecharger CentOS 7 ? 
+	 * Val.TableTr02Td2.enUS:How do I download CentOS 7? 
+	 * Val.TableTr02Td3Span1I:far fa-cloud-download-alt
+	 * Val.TableTr02Td4.frFR:Télécharger un fichier ISO. 
+	 * Val.TableTr02Td4.enUS:Download an ISO file. 
 	 * 
-	 * Val.TableTr03Td1I:far fa-person-carry
-	 * Val.TableTr03Td2.frFR:Comment installer VirtualBox ? 
-	 * Val.TableTr03Td2.enUS:How do I install VirtualBox? 
-	 * Val.TableTr03Td3I:far fa-cloud-download-alt
-	 * Val.TableTr03Td4.frFR:Téléchargez-le depuis virtualbox.org
-	 * Val.TableTr03Td4.enUS:Download it from virtualbox.org
+	 * Val.TableTr03Td1I:fab fa-usb
+	 * Val.TableTr03Td2.frFR:Comment puis-je créer une clé USB avec CentOS 7 ? 
+	 * Val.TableTr03Td2.enUS:How can I create a USB key with CentOS 7? 
+	 * Val.TableTr03Td3I:far fa-compact-disc
+	 * Val.TableTr03Td4.frFR:Utilizez la commande dd. 
+	 * Val.TableTr03Td4.enUS:Use the dd command. 
 	 * 
 	 * Val.TableTr04Td1I:far fa-play-circle
-	 * Val.TableTr04Td2.frFR:Préparer CentOS 7 pour installer VirtualBox
-	 * Val.TableTr04Td2.enUS:Prepare CentOS 7 to install VirtualBox
+	 * Val.TableTr04Td2.frFR:Lorsque je redémarre avec la clé USB, quel mode de démarrage choisir? 
+	 * Val.TableTr04Td2.enUS:When I reboot with the USB key, which boot mode do I choose? 
+	 * Val.H4Span1I:fab fa-windows
+	 * Val.H4Span1I:fab fa-centos
 	 * Val.TableTr04Td3I:far fa-download
 	 * Val.TableTr04Td4.frFR:Installer le dépot yum virtualbox
 	 * Val.TableTr04Td4.enUS:Install the virtualbox yum repo
