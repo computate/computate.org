@@ -425,18 +425,17 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr04Td1I:far fa-play-circle
 	 * Val.TableTr04Td2.frFR:Lorsque je redémarre avec la clé USB, quel mode de démarrage choisir? 
 	 * Val.TableTr04Td2.enUS:When I reboot with the USB key, which boot mode do I choose? 
-	 * Val.H4Span1I:fab fa-windows
-	 * Val.H4Span1I:fab fa-centos
-	 * Val.TableTr04Td3I:far fa-download
-	 * Val.TableTr04Td4.frFR:Installer le dépot yum virtualbox
-	 * Val.TableTr04Td4.enUS:Install the virtualbox yum repo
+	 * Val.TableTr04Td3Span1I:fab fa-windows
+	 * Val.TableTr04Td3Span1I:fab fa-centos
+	 * Val.TableTr04Td4.frFR:Évitez de démarrer en mode de démarrage UEFI. 
+	 * Val.TableTr04Td4.enUS:Avoid booting in UEFI boot mode. 
 	 * 
-	 * Val.TableTr05Td1I:far fa-box-check
-	 * Val.TableTr05Td2.frFR:Installer le dépôt yum virtualbox
-	 * Val.TableTr05Td2.enUS:Install the virtualbox yum repository
-	 * Val.TableTr05Td3I:far fa-person-dolly
-	 * Val.TableTr05Td4.frFR:Mettre virtualbox.repo dans /etc/yum.repos.d/
-	 * Val.TableTr05Td4.enUS:Put virtualbox.repo in /etc/yum.repos.d/
+	 * Val.TableTr05Td1I:fas fa-flag-alt
+	 * Val.TableTr05Td2.frFR:Quelle langue j'utilise pendant le processus d'installation? 
+	 * Val.TableTr05Td2.enUS:What language would I use during the install process? 
+	 * Val.TableTr05Td3I:far fa-language
+	 * Val.TableTr05Td4.frFR:Choisissez la langue avec laquelle vous êtes à l'aise. 
+	 * Val.TableTr05Td4.enUS:Choose the language you are comfortable with. 
 	 * 
 	 * Val.TableTr06Td1I:far fa-question
 	 * Val.TableTr06Td2.frFR:Quel est le nom du paquet VirtualBox ? 
