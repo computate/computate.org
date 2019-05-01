@@ -1008,6 +1008,558 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		questionSelectionLogiciel.htmlApres();
 	}
 
+	/////////////////////////////////////
+	// questionInstallationDestination //
+	/////////////////////////////////////
+
+	public static final String questionInstallationDestinationH3I1 = "fas fa-hdd";
+	public static final String questionInstallationDestinationH3I = questionInstallationDestinationH3I1;
+	public static final String questionInstallationDestinationH3Span1 = "Comment configurer le disque pour la destination d'installation ? ";
+	public static final String questionInstallationDestinationH3Span = questionInstallationDestinationH3Span1;
+	public static final String questionInstallationDestinationH4I1 = "fas fa-pallet-alt";
+	public static final String questionInstallationDestinationH4I = questionInstallationDestinationH4I1;
+	public static final String questionInstallationDestinationH4Span1 = "Configurez votre propre partitionnement. ";
+	public static final String questionInstallationDestinationH4Span = questionInstallationDestinationH4Span1;
+	public static final String questionInstallationDestinationOl1Li11 = "C'est temps de configurer le disque principal pour le système d'exploitation. ";
+	public static final String questionInstallationDestinationOl1Li12 = "Dans la section \"SYSTEM\", cliquez sur \"INSTALLATION DESTINATION\". ";
+	public static final String questionInstallationDestinationOl1Li1 = questionInstallationDestinationOl1Li11 + questionInstallationDestinationOl1Li12;
+	public static final String questionInstallationDestinationOl1Li21 = "Si votre disque principal n'a pas d'icône en forme de coche en noir et blanc, vous devrez sélectionner le disque principal correct. ";
+	public static final String questionInstallationDestinationOl1Li2 = questionInstallationDestinationOl1Li21;
+	public static final String questionInstallationDestinationOl1Li31 = "Sélectionnez \"I will configure partitioning.\". ";
+	public static final String questionInstallationDestinationOl1Li32 = "Vous pouvez également sélectionner d'autres options telles que \"Encrypt my data\", mais ce n'est pas nécessaire. ";
+	public static final String questionInstallationDestinationOl1Li3 = questionInstallationDestinationOl1Li31 + questionInstallationDestinationOl1Li32;
+	public static final String questionInstallationDestinationOl1Li41 = "Cliquez sur [ Done ] pour configurer vous-même le partitionnement. ";
+	public static final String questionInstallationDestinationOl1Li4 = questionInstallationDestinationOl1Li41;
+	public static final String questionInstallationDestinationDiv2H51 = "Instructions pour un système d'exploitation existant sur votre disque. ";
+	public static final String questionInstallationDestinationDiv2H5 = questionInstallationDestinationDiv2H51;
+	public static final String questionInstallationDestinationOl2Li11 = "Si vous avez un système d'exploitation existant sur votre disque, vous ouvrez la liste déroulante pour que votre système d'exploitation puisse rétablir le système de fichiers. ";
+	public static final String questionInstallationDestinationOl2Li1 = questionInstallationDestinationOl2Li11;
+	public static final String questionInstallationDestinationOl2Li21 = "Cliquez sur la première partition SYSTEM et cliquez sur le bouton [ - ].";
+	public static final String questionInstallationDestinationOl2Li2 = questionInstallationDestinationOl2Li21;
+	public static final String questionInstallationDestinationOl2Li31 = "Vous pouvez sélectionner \"Delete all file systems which are only used by ....\". ";
+	public static final String questionInstallationDestinationOl2Li3 = questionInstallationDestinationOl2Li31;
+	public static final String questionInstallationDestinationOl2Li41 = "Cliquez sur [ Delete It ]. ";
+	public static final String questionInstallationDestinationOl2Li4 = questionInstallationDestinationOl2Li41;
+	public static final String questionInstallationDestinationDiv3H51 = "La meilleure façon de configurer votre disque pour la plupart des situations. ";
+	public static final String questionInstallationDestinationDiv3H5 = questionInstallationDestinationDiv3H51;
+	public static final String questionInstallationDestinationOl3Li011 = "Le plus simple est de cliquer sur \"Click here to create them automatically.\".";
+	public static final String questionInstallationDestinationOl3Li012 = "Si vous êtes un expert en disques, vous pouvez ignorer cette section et le faire à votre façon. ";
+	public static final String questionInstallationDestinationOl3Li013 = "Mais je vous recommanderai le meilleur façon de configurer votre disque pour la plupart des situations. ";
+	public static final String questionInstallationDestinationOl3Li01 = questionInstallationDestinationOl3Li011 + questionInstallationDestinationOl3Li012 + questionInstallationDestinationOl3Li013;
+	public static final String questionInstallationDestinationOl3Li021 = "La configuration automatique du disque créera 4 partitions (/home, /boot, / et swap). ";
+	public static final String questionInstallationDestinationOl3Li022 = "Vous n'avez pas besoin d'une partition séparée entre / et /home, je supprimerais donc la partition /home. ";
+	public static final String questionInstallationDestinationOl3Li023 = "Cliquez sur la partition /home. ";
+	public static final String questionInstallationDestinationOl3Li02 = questionInstallationDestinationOl3Li021 + questionInstallationDestinationOl3Li022 + questionInstallationDestinationOl3Li023;
+	public static final String questionInstallationDestinationOl3Li031 = "Cliquez sur le bouton [ - ]. ";
+	public static final String questionInstallationDestinationOl3Li03 = questionInstallationDestinationOl3Li031;
+	public static final String questionInstallationDestinationOl3Li041 = "Maintenant, la taille de la partition /boot dépend de vous. ";
+	public static final String questionInstallationDestinationOl3Li042 = "Cependant, je recommande au moins 2 Gio pour votre partition /boot. ";
+	public static final String questionInstallationDestinationOl3Li043 = "Ainsi, lorsque vous recevez des packages mis à jour et des correctifs de sécurité, votre partition /boot ne manquera pas d'espace, du moins pas avant de nombreuses années, je crois. ";
+	public static final String questionInstallationDestinationOl3Li044 = "Alors cliquez sur la partition /boot. ";
+	public static final String questionInstallationDestinationOl3Li04 = questionInstallationDestinationOl3Li041 + questionInstallationDestinationOl3Li042 + questionInstallationDestinationOl3Li043 + questionInstallationDestinationOl3Li044;
+	public static final String questionInstallationDestinationOl3Li051 = "Changez la partition /boot \"Desired Capacity\" en \"2 GiB\". ";
+	public static final String questionInstallationDestinationOl3Li05 = questionInstallationDestinationOl3Li051;
+	public static final String questionInstallationDestinationOl3Li061 = "Maintenant, décidez combien d’espace de swap à réserver pour la mémoire. ";
+	public static final String questionInstallationDestinationOl3Li062 = "L'espace de swap est lié à la quantité de RAM installée sur votre système. ";
+	public static final String questionInstallationDestinationOl3Li063 = "C'est généralement admis que vous n'avez pas besoin de plus d'espace de swap que de doubler la quantité de RAM de votre système. ";
+	public static final String questionInstallationDestinationOl3Li064 = "Toutefois, prenez en compte la quantité de RAM avec laquelle vous effectuerez un jour dans votre système afin de déterminer la quantité d'espace de swap à réserver. ";
+	public static final String questionInstallationDestinationOl3Li065 = "En effet, vous ne pourrez pas le changer plus tard sans réinstaller le système d'exploitation. ";
+	public static final String questionInstallationDestinationOl3Li066 = "Ce n'est pas la fin du monde de réinstaller votre système d'exploitation, je le fais assez souvent. ";
+	public static final String questionInstallationDestinationOl3Li067 = "Pour définir l’espace de swap, cliquez sur la partition de swap. ";
+	public static final String questionInstallationDestinationOl3Li06 = questionInstallationDestinationOl3Li061 + questionInstallationDestinationOl3Li062 + questionInstallationDestinationOl3Li063 + questionInstallationDestinationOl3Li064 + questionInstallationDestinationOl3Li065 + questionInstallationDestinationOl3Li066 + questionInstallationDestinationOl3Li067;
+	public static final String questionInstallationDestinationOl3Li071 = "Si j'ai 32 Go de RAM dans mon système, je définirai la quantité d'espace de swap de manière à doubler cette quantité dans \"Desired Capacity\": \"64 GiB\". ";
+	public static final String questionInstallationDestinationOl3Li07 = questionInstallationDestinationOl3Li071;
+	public static final String questionInstallationDestinationOl3Li081 = "Maintenant, maximisez la quantité d’espace disponible sur la partition /. ";
+	public static final String questionInstallationDestinationOl3Li08 = questionInstallationDestinationOl3Li081;
+	public static final String questionInstallationDestinationOl3Li091 = "Cliquez sur la partition /. ";
+	public static final String questionInstallationDestinationOl3Li09 = questionInstallationDestinationOl3Li091;
+	public static final String questionInstallationDestinationOl3Li101 = "Effacez la valeur de la \"Desired Capacity\" de la partition /.";
+	public static final String questionInstallationDestinationOl3Li10 = questionInstallationDestinationOl3Li101;
+	public static final String questionInstallationDestinationOl3Li111 = "Cliquez maintenant sur la partition /boot pour voir toutes les valeurs des trois partitions mises à jour. ";
+	public static final String questionInstallationDestinationOl3Li112 = "Les montants peuvent avoir été convertis en MiB au lieu de GiB, mais vous devriez voir les bonnes valeurs que vous attendez, avec la partition / maximum. ";
+	public static final String questionInstallationDestinationOl3Li11 = questionInstallationDestinationOl3Li111 + questionInstallationDestinationOl3Li112;
+	public static final String questionInstallationDestinationDiv4H51 = "Si vous êtes accidentellement démarré en mode \"UEFI\". ";
+	public static final String questionInstallationDestinationDiv4H5 = questionInstallationDestinationDiv4H51;
+	public static final String questionInstallationDestinationOl4Li11 = "Si vous êtes accidentallement dans votre programme d’installation USB Centos 7 en mode \"UEFI\", vous verrez une partition /boot/efi supplémentaire. ";
+	public static final String questionInstallationDestinationOl4Li12 = "Le programme d'installation supposera que vous avez besoin d'une partition /boot/efi, mais vous n'avez pas besoin de ça. ";
+	public static final String questionInstallationDestinationOl4Li13 = "Si vous continuez avec la partition /boot/efi et retirez le clé USB d'installation CentOS, il rendra votre système instable et il plantera. ";
+	public static final String questionInstallationDestinationOl4Li14 = "Alors, évitez d'installer le système d'exploitation en mode UEFI. ";
+	public static final String questionInstallationDestinationOl4Li1 = questionInstallationDestinationOl4Li11 + questionInstallationDestinationOl4Li12 + questionInstallationDestinationOl4Li13 + questionInstallationDestinationOl4Li14;
+	public static final String questionInstallationDestinationOl4Li21 = "Cliquez sur [ Done ]. ";
+	public static final String questionInstallationDestinationOl4Li2 = questionInstallationDestinationOl4Li21;
+
+	/**	L'entité « questionInstallationDestination »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionInstallationDestination = new PageHtml();
+	public Couverture<PageHtml> questionInstallationDestinationCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionInstallationDestination").o(questionInstallationDestination);
+
+	/**	<br/>L'entité « questionInstallationDestination »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionInstallationDestination">Trouver l'entité questionInstallationDestination dans Solr</a>
+	 * <br/>
+	 * @param questionInstallationDestination est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionInstallationDestination(PageHtml o);
+
+	public PageHtml getQuestionInstallationDestination() {
+		return questionInstallationDestination;
+	}
+
+	public void setQuestionInstallationDestination(PageHtml questionInstallationDestination) {
+		this.questionInstallationDestination = questionInstallationDestination;
+		this.questionInstallationDestinationCouverture.dejaInitialise = true;
+	}
+	protected C001L004InstallerCentos7 questionInstallationDestinationInit() {
+		if(questionInstallationDestination != null) {
+			((C001L004InstallerCentos7)this).avantPagePart(questionInstallationDestination, "questionInstallationDestination");
+			((C001L004InstallerCentos7)this).avantPagePart(questionInstallationDestination, "questionInstallationDestination");
+		}
+		if(!questionInstallationDestinationCouverture.dejaInitialise) {
+			_questionInstallationDestination(questionInstallationDestination);
+		}
+		questionInstallationDestination.initLoinPourClasse(requeteSite_);
+		questionInstallationDestinationCouverture.dejaInitialise(true);
+		return (C001L004InstallerCentos7)this;
+	}
+	public void htmlBodyQuestionInstallationDestination(PageHtml o) {
+		{ e("h3").a("class", " questionInstallationDestinationH3 ").f();
+			{ e("i").a("class", questionInstallationDestinationH3I1, " site-menu-icon questionInstallationDestinationH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionInstallationDestinationH3Span ").f();
+				sx(questionInstallationDestinationH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionInstallationDestinationH4 ").f();
+			{ e("i").a("class", questionInstallationDestinationH4I1, " site-menu-icon questionInstallationDestinationH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionInstallationDestinationH4Span ").f();
+				sx(questionInstallationDestinationH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("ol").a("class", " questionInstallationDestinationOl1 questionInstallationDestinationOl odd ").f();
+			{ e("li").a("class", " questionInstallationDestinationOl1Li1 questionInstallationDestinationOl1Li odd ").f();
+				sx(questionInstallationDestinationOl1Li11);
+				sx(questionInstallationDestinationOl1Li12);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl1Li2 questionInstallationDestinationOl1Li even ").f();
+				sx(questionInstallationDestinationOl1Li21);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl1Li3 questionInstallationDestinationOl1Li odd ").f();
+				sx(questionInstallationDestinationOl1Li31);
+				sx(questionInstallationDestinationOl1Li32);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl1Li4 questionInstallationDestinationOl1Li even ").f();
+				sx(questionInstallationDestinationOl1Li41);
+			} g("li");
+		} g("ol");
+		{ e("div").a("class", " questionInstallationDestinationDiv2 questionInstallationDestinationDiv even ").f();
+			{ e("h5").a("class", " questionInstallationDestinationDiv2H5 ").f();
+				sx(questionInstallationDestinationDiv2H51);
+			} g("h5");
+		} g("div");
+		{ e("ol").a("class", " questionInstallationDestinationOl2 questionInstallationDestinationOl even ").f();
+			{ e("li").a("class", " questionInstallationDestinationOl2Li1 questionInstallationDestinationOl2Li odd ").f();
+				sx(questionInstallationDestinationOl2Li11);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl2Li2 questionInstallationDestinationOl2Li even ").f();
+				sx(questionInstallationDestinationOl2Li21);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl2Li3 questionInstallationDestinationOl2Li odd ").f();
+				sx(questionInstallationDestinationOl2Li31);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl2Li4 questionInstallationDestinationOl2Li even ").f();
+				sx(questionInstallationDestinationOl2Li41);
+			} g("li");
+		} g("ol");
+		{ e("div").a("class", " questionInstallationDestinationDiv3 questionInstallationDestinationDiv odd ").f();
+			{ e("h5").a("class", " questionInstallationDestinationDiv3H5 ").f();
+				sx(questionInstallationDestinationDiv3H51);
+			} g("h5");
+		} g("div");
+		{ e("ol").a("class", " questionInstallationDestinationOl3 questionInstallationDestinationOl odd ").f();
+			{ e("li").a("class", " questionInstallationDestinationOl3Li01 questionInstallationDestinationOl3Li odd ").f();
+				sx(questionInstallationDestinationOl3Li011);
+				sx(questionInstallationDestinationOl3Li012);
+				sx(questionInstallationDestinationOl3Li013);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li02 questionInstallationDestinationOl3Li even ").f();
+				sx(questionInstallationDestinationOl3Li021);
+				sx(questionInstallationDestinationOl3Li022);
+				sx(questionInstallationDestinationOl3Li023);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li03 questionInstallationDestinationOl3Li odd ").f();
+				sx(questionInstallationDestinationOl3Li031);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li04 questionInstallationDestinationOl3Li even ").f();
+				sx(questionInstallationDestinationOl3Li041);
+				sx(questionInstallationDestinationOl3Li042);
+				sx(questionInstallationDestinationOl3Li043);
+				sx(questionInstallationDestinationOl3Li044);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li05 questionInstallationDestinationOl3Li odd ").f();
+				sx(questionInstallationDestinationOl3Li051);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li06 questionInstallationDestinationOl3Li even ").f();
+				sx(questionInstallationDestinationOl3Li061);
+				sx(questionInstallationDestinationOl3Li062);
+				sx(questionInstallationDestinationOl3Li063);
+				sx(questionInstallationDestinationOl3Li064);
+				sx(questionInstallationDestinationOl3Li065);
+				sx(questionInstallationDestinationOl3Li066);
+				sx(questionInstallationDestinationOl3Li067);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li07 questionInstallationDestinationOl3Li odd ").f();
+				sx(questionInstallationDestinationOl3Li071);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li08 questionInstallationDestinationOl3Li even ").f();
+				sx(questionInstallationDestinationOl3Li081);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li09 questionInstallationDestinationOl3Li odd ").f();
+				sx(questionInstallationDestinationOl3Li091);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li10 questionInstallationDestinationOl3Li even ").f();
+				sx(questionInstallationDestinationOl3Li101);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl3Li11 questionInstallationDestinationOl3Li odd ").f();
+				sx(questionInstallationDestinationOl3Li111);
+				sx(questionInstallationDestinationOl3Li112);
+			} g("li");
+		} g("ol");
+		{ e("div").a("class", " questionInstallationDestinationDiv4 questionInstallationDestinationDiv even ").f();
+			{ e("h5").a("class", " questionInstallationDestinationDiv4H5 ").f();
+				sx(questionInstallationDestinationDiv4H51);
+			} g("h5");
+		} g("div");
+		{ e("ol").a("class", " questionInstallationDestinationOl4 questionInstallationDestinationOl even ").f();
+			{ e("li").a("class", " questionInstallationDestinationOl4Li1 questionInstallationDestinationOl4Li odd ").f();
+				sx(questionInstallationDestinationOl4Li11);
+				sx(questionInstallationDestinationOl4Li12);
+				sx(questionInstallationDestinationOl4Li13);
+				sx(questionInstallationDestinationOl4Li14);
+			} g("li");
+			{ e("li").a("class", " questionInstallationDestinationOl4Li2 questionInstallationDestinationOl4Li even ").f();
+				sx(questionInstallationDestinationOl4Li21);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionInstallationDestination() {
+		questionInstallationDestination.htmlAvant();
+		htmlBodyQuestionInstallationDestination(questionInstallationDestination);
+		questionInstallationDestination.htmlApres();
+	}
+
+	///////////////////////
+	// questionInstaller //
+	///////////////////////
+
+	public static final String questionInstallerH3I1 = "fas fa-exclamation-triangle";
+	public static final String questionInstallerH3I = questionInstallerH3I1;
+	public static final String questionInstallerH3Span1 = "Suis-je prêt à appuyer sur le bouton [ Begin Installation ] ? ";
+	public static final String questionInstallerH3Span = questionInstallerH3Span1;
+	public static final String questionInstallerH4I1 = "fab fa-centos";
+	public static final String questionInstallerH4I = questionInstallerH4I1;
+	public static final String questionInstallerH4Span1 = "Bienvenu au monde merveilleux de CentOS 7. ";
+	public static final String questionInstallerH4Span = questionInstallerH4Span1;
+	public static final String questionInstallerOlLi11 = "Vous êtes sur le point d'installer le monde merveilleux de CentOS 7. ";
+	public static final String questionInstallerOlLi12 = "À l'aise, vous allez l'adorer, tout comme des milliers d'autres dans le monde. ";
+	public static final String questionInstallerOlLi13 = "Allez-y, appuyez sur le bouton [ Begin Installation ]. ";
+	public static final String questionInstallerOlLi1 = questionInstallerOlLi11 + questionInstallerOlLi12 + questionInstallerOlLi13;
+
+	/**	L'entité « questionInstaller »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionInstaller = new PageHtml();
+	public Couverture<PageHtml> questionInstallerCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionInstaller").o(questionInstaller);
+
+	/**	<br/>L'entité « questionInstaller »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionInstaller">Trouver l'entité questionInstaller dans Solr</a>
+	 * <br/>
+	 * @param questionInstaller est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionInstaller(PageHtml o);
+
+	public PageHtml getQuestionInstaller() {
+		return questionInstaller;
+	}
+
+	public void setQuestionInstaller(PageHtml questionInstaller) {
+		this.questionInstaller = questionInstaller;
+		this.questionInstallerCouverture.dejaInitialise = true;
+	}
+	protected C001L004InstallerCentos7 questionInstallerInit() {
+		if(questionInstaller != null) {
+			((C001L004InstallerCentos7)this).avantPagePart(questionInstaller, "questionInstaller");
+			((C001L004InstallerCentos7)this).avantPagePart(questionInstaller, "questionInstaller");
+		}
+		if(!questionInstallerCouverture.dejaInitialise) {
+			_questionInstaller(questionInstaller);
+		}
+		questionInstaller.initLoinPourClasse(requeteSite_);
+		questionInstallerCouverture.dejaInitialise(true);
+		return (C001L004InstallerCentos7)this;
+	}
+	public void htmlBodyQuestionInstaller(PageHtml o) {
+		{ e("h3").a("class", " questionInstallerH3 ").f();
+			{ e("i").a("class", questionInstallerH3I1, " site-menu-icon questionInstallerH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionInstallerH3Span ").f();
+				sx(questionInstallerH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionInstallerH4 ").f();
+			{ e("i").a("class", questionInstallerH4I1, " site-menu-icon questionInstallerH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionInstallerH4Span ").f();
+				sx(questionInstallerH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("ol").a("class", " questionInstallerOl ").f();
+			{ e("li").a("class", " questionInstallerOlLi1 questionInstallerOlLi odd ").f();
+				sx(questionInstallerOlLi11);
+				sx(questionInstallerOlLi12);
+				sx(questionInstallerOlLi13);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionInstaller() {
+		questionInstaller.htmlAvant();
+		htmlBodyQuestionInstaller(questionInstaller);
+		questionInstaller.htmlApres();
+	}
+
+	/////////////////////////
+	// questionMotsDePasse //
+	/////////////////////////
+
+	public static final String questionMotsDePasseH3I1 = "fas fa-user-cog";
+	public static final String questionMotsDePasseH3I = questionMotsDePasseH3I1;
+	public static final String questionMotsDePasseH3Span1 = "Ai-je besoin d'un mot de passe root et d'un mot de passe utilisateur ? ";
+	public static final String questionMotsDePasseH3Span = questionMotsDePasseH3Span1;
+	public static final String questionMotsDePasseH4I1 = "fas fa-lock-alt";
+	public static final String questionMotsDePasseH4I = questionMotsDePasseH4I1;
+	public static final String questionMotsDePasseH4Span1 = "Choisisez un mot de passe root fort. ";
+	public static final String questionMotsDePasseH4Span = questionMotsDePasseH4Span1;
+	public static final String questionMotsDePasseOlLi11 = "C'est important de choisir un mot de passe root fort. ";
+	public static final String questionMotsDePasseOlLi12 = "Ce sera un compte administratif sur lequel vous pourrez vous connecter pour tout faire. ";
+	public static final String questionMotsDePasseOlLi13 = "Je ne recommande pas d'utiliser ce compte root. ";
+	public static final String questionMotsDePasseOlLi14 = "Cliquez sur \"ROOT PASSWORD\". ";
+	public static final String questionMotsDePasseOlLi1 = questionMotsDePasseOlLi11 + questionMotsDePasseOlLi12 + questionMotsDePasseOlLi13 + questionMotsDePasseOlLi14;
+	public static final String questionMotsDePasseOlLi21 = "Donc, créez ou générez un mot de passe root fort et tapez-le deux fois dans les champs. ";
+	public static final String questionMotsDePasseOlLi22 = "Ecrivez-le soigneusement pour plus tard ou stockez-le dans un coffre-fort crypté si possible. ";
+	public static final String questionMotsDePasseOlLi23 = "Je vais vous en dire plus sur les coffres-forts de mots de passe dans une autre leçon. ";
+	public static final String questionMotsDePasseOlLi24 = "Cliquez sur [ Done ]. ";
+	public static final String questionMotsDePasseOlLi2 = questionMotsDePasseOlLi21 + questionMotsDePasseOlLi22 + questionMotsDePasseOlLi23 + questionMotsDePasseOlLi24;
+
+	/**	L'entité « questionMotsDePasse »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionMotsDePasse = new PageHtml();
+	public Couverture<PageHtml> questionMotsDePasseCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionMotsDePasse").o(questionMotsDePasse);
+
+	/**	<br/>L'entité « questionMotsDePasse »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionMotsDePasse">Trouver l'entité questionMotsDePasse dans Solr</a>
+	 * <br/>
+	 * @param questionMotsDePasse est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionMotsDePasse(PageHtml o);
+
+	public PageHtml getQuestionMotsDePasse() {
+		return questionMotsDePasse;
+	}
+
+	public void setQuestionMotsDePasse(PageHtml questionMotsDePasse) {
+		this.questionMotsDePasse = questionMotsDePasse;
+		this.questionMotsDePasseCouverture.dejaInitialise = true;
+	}
+	protected C001L004InstallerCentos7 questionMotsDePasseInit() {
+		if(questionMotsDePasse != null) {
+			((C001L004InstallerCentos7)this).avantPagePart(questionMotsDePasse, "questionMotsDePasse");
+			((C001L004InstallerCentos7)this).avantPagePart(questionMotsDePasse, "questionMotsDePasse");
+		}
+		if(!questionMotsDePasseCouverture.dejaInitialise) {
+			_questionMotsDePasse(questionMotsDePasse);
+		}
+		questionMotsDePasse.initLoinPourClasse(requeteSite_);
+		questionMotsDePasseCouverture.dejaInitialise(true);
+		return (C001L004InstallerCentos7)this;
+	}
+	public void htmlBodyQuestionMotsDePasse(PageHtml o) {
+		{ e("h3").a("class", " questionMotsDePasseH3 ").f();
+			{ e("i").a("class", questionMotsDePasseH3I1, " site-menu-icon questionMotsDePasseH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionMotsDePasseH3Span ").f();
+				sx(questionMotsDePasseH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionMotsDePasseH4 ").f();
+			{ e("i").a("class", questionMotsDePasseH4I1, " site-menu-icon questionMotsDePasseH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionMotsDePasseH4Span ").f();
+				sx(questionMotsDePasseH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("ol").a("class", " questionMotsDePasseOl ").f();
+			{ e("li").a("class", " questionMotsDePasseOlLi1 questionMotsDePasseOlLi odd ").f();
+				sx(questionMotsDePasseOlLi11);
+				sx(questionMotsDePasseOlLi12);
+				sx(questionMotsDePasseOlLi13);
+				sx(questionMotsDePasseOlLi14);
+			} g("li");
+			{ e("li").a("class", " questionMotsDePasseOlLi2 questionMotsDePasseOlLi even ").f();
+				sx(questionMotsDePasseOlLi21);
+				sx(questionMotsDePasseOlLi22);
+				sx(questionMotsDePasseOlLi23);
+				sx(questionMotsDePasseOlLi24);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionMotsDePasse() {
+		questionMotsDePasse.htmlAvant();
+		htmlBodyQuestionMotsDePasse(questionMotsDePasse);
+		questionMotsDePasse.htmlApres();
+	}
+
+	///////////////////////////////////
+	// questionConfigurationInitiale //
+	///////////////////////////////////
+
+	public static final String questionConfigurationInitialeH3I1 = "fas fa-fast-forward";
+	public static final String questionConfigurationInitialeH3I = questionConfigurationInitialeH3I1;
+	public static final String questionConfigurationInitialeH3Span1 = "Comment terminer l'installation de CentOS 7 ? ";
+	public static final String questionConfigurationInitialeH3Span = questionConfigurationInitialeH3Span1;
+	public static final String questionConfigurationInitialeH4I1 = "fab fa-linux";
+	public static final String questionConfigurationInitialeH4I = questionConfigurationInitialeH4I1;
+	public static final String questionConfigurationInitialeH4Span1 = "Quelques étapes supplémentaires pour profiter de votre nouvel ordinateur. ";
+	public static final String questionConfigurationInitialeH4Span = questionConfigurationInitialeH4Span1;
+	public static final String questionConfigurationInitialeOlLi011 = "Lorsque l'installation est fait, vous pouvez cliquer sur [ Reboot ]. ";
+	public static final String questionConfigurationInitialeOlLi01 = questionConfigurationInitialeOlLi011;
+	public static final String questionConfigurationInitialeOlLi021 = "N'oubliez pas de retirer le disque USB en même temps, sinon vous redémarrez dans le programme d'installation. ";
+	public static final String questionConfigurationInitialeOlLi02 = questionConfigurationInitialeOlLi021;
+	public static final String questionConfigurationInitialeOlLi031 = "Lorsque vous démarrez CentOS 7 pour la première fois, il vous sera demandé d'accepter les informations de licence. ";
+	public static final String questionConfigurationInitialeOlLi032 = "Cliquez sur \"License Agreement\". ";
+	public static final String questionConfigurationInitialeOlLi03 = questionConfigurationInitialeOlLi031 + questionConfigurationInitialeOlLi032;
+	public static final String questionConfigurationInitialeOlLi041 = "Passez en revue le contrat de licence, puis cochez la case « I accept the license agreement ». ";
+	public static final String questionConfigurationInitialeOlLi04 = questionConfigurationInitialeOlLi041;
+	public static final String questionConfigurationInitialeOlLi051 = "Cliquez sur [ Done ]. ";
+	public static final String questionConfigurationInitialeOlLi05 = questionConfigurationInitialeOlLi051;
+	public static final String questionConfigurationInitialeOlLi061 = "Cliquez maintenant sur [ FINISH CONFIGURATION ] dans le coin inférieur droit. ";
+	public static final String questionConfigurationInitialeOlLi06 = questionConfigurationInitialeOlLi061;
+	public static final String questionConfigurationInitialeOlLi071 = "Vous pouvez vous connecter à votre compte d'utilisateur en cliquant sur votre nom d'utilisateur et en entrant votre mot de passe. ";
+	public static final String questionConfigurationInitialeOlLi07 = questionConfigurationInitialeOlLi071;
+	public static final String questionConfigurationInitialeOlLi081 = "Suivez l'écran de bienvenue en cliquant sur [ Next ] pour votre langue. ";
+	public static final String questionConfigurationInitialeOlLi08 = questionConfigurationInitialeOlLi081;
+	public static final String questionConfigurationInitialeOlLi091 = "Cliquez sur [ Next ] pour votre disposition de clavier. ";
+	public static final String questionConfigurationInitialeOlLi09 = questionConfigurationInitialeOlLi091;
+	public static final String questionConfigurationInitialeOlLi101 = "Désactivez \"Location Services\", car vous n'avez besoin de personne pour suivre votre position. ";
+	public static final String questionConfigurationInitialeOlLi10 = questionConfigurationInitialeOlLi101;
+	public static final String questionConfigurationInitialeOlLi111 = "Cliquez sur [ Next ] pour désactiver les services de localisation. ";
+	public static final String questionConfigurationInitialeOlLi11 = questionConfigurationInitialeOlLi111;
+	public static final String questionConfigurationInitialeOlLi121 = "Et je n'utilise pas les comptes en ligne en cliquant sur [Skip]. ";
+	public static final String questionConfigurationInitialeOlLi12 = questionConfigurationInitialeOlLi121;
+	public static final String questionConfigurationInitialeOlLi131 = "Maintenant, cliquez sur [ Start using CentOS Linux ] pour profiter de votre nouvel ordinateur ! ";
+	public static final String questionConfigurationInitialeOlLi13 = questionConfigurationInitialeOlLi131;
+
+	/**	L'entité « questionConfigurationInitiale »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionConfigurationInitiale = new PageHtml();
+	public Couverture<PageHtml> questionConfigurationInitialeCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionConfigurationInitiale").o(questionConfigurationInitiale);
+
+	/**	<br/>L'entité « questionConfigurationInitiale »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionConfigurationInitiale">Trouver l'entité questionConfigurationInitiale dans Solr</a>
+	 * <br/>
+	 * @param questionConfigurationInitiale est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionConfigurationInitiale(PageHtml o);
+
+	public PageHtml getQuestionConfigurationInitiale() {
+		return questionConfigurationInitiale;
+	}
+
+	public void setQuestionConfigurationInitiale(PageHtml questionConfigurationInitiale) {
+		this.questionConfigurationInitiale = questionConfigurationInitiale;
+		this.questionConfigurationInitialeCouverture.dejaInitialise = true;
+	}
+	protected C001L004InstallerCentos7 questionConfigurationInitialeInit() {
+		if(questionConfigurationInitiale != null) {
+			((C001L004InstallerCentos7)this).avantPagePart(questionConfigurationInitiale, "questionConfigurationInitiale");
+			((C001L004InstallerCentos7)this).avantPagePart(questionConfigurationInitiale, "questionConfigurationInitiale");
+		}
+		if(!questionConfigurationInitialeCouverture.dejaInitialise) {
+			_questionConfigurationInitiale(questionConfigurationInitiale);
+		}
+		questionConfigurationInitiale.initLoinPourClasse(requeteSite_);
+		questionConfigurationInitialeCouverture.dejaInitialise(true);
+		return (C001L004InstallerCentos7)this;
+	}
+	public void htmlBodyQuestionConfigurationInitiale(PageHtml o) {
+		{ e("h3").a("class", " questionConfigurationInitialeH3 ").f();
+			{ e("i").a("class", questionConfigurationInitialeH3I1, " site-menu-icon questionConfigurationInitialeH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionConfigurationInitialeH3Span ").f();
+				sx(questionConfigurationInitialeH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionConfigurationInitialeH4 ").f();
+			{ e("i").a("class", questionConfigurationInitialeH4I1, " site-menu-icon questionConfigurationInitialeH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionConfigurationInitialeH4Span ").f();
+				sx(questionConfigurationInitialeH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("ol").a("class", " questionConfigurationInitialeOl ").f();
+			{ e("li").a("class", " questionConfigurationInitialeOlLi01 questionConfigurationInitialeOlLi odd ").f();
+				sx(questionConfigurationInitialeOlLi011);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi02 questionConfigurationInitialeOlLi even ").f();
+				sx(questionConfigurationInitialeOlLi021);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi03 questionConfigurationInitialeOlLi odd ").f();
+				sx(questionConfigurationInitialeOlLi031);
+				sx(questionConfigurationInitialeOlLi032);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi04 questionConfigurationInitialeOlLi even ").f();
+				sx(questionConfigurationInitialeOlLi041);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi05 questionConfigurationInitialeOlLi odd ").f();
+				sx(questionConfigurationInitialeOlLi051);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi06 questionConfigurationInitialeOlLi even ").f();
+				sx(questionConfigurationInitialeOlLi061);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi07 questionConfigurationInitialeOlLi odd ").f();
+				sx(questionConfigurationInitialeOlLi071);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi08 questionConfigurationInitialeOlLi even ").f();
+				sx(questionConfigurationInitialeOlLi081);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi09 questionConfigurationInitialeOlLi odd ").f();
+				sx(questionConfigurationInitialeOlLi091);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi10 questionConfigurationInitialeOlLi even ").f();
+				sx(questionConfigurationInitialeOlLi101);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi11 questionConfigurationInitialeOlLi odd ").f();
+				sx(questionConfigurationInitialeOlLi111);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi12 questionConfigurationInitialeOlLi even ").f();
+				sx(questionConfigurationInitialeOlLi121);
+			} g("li");
+			{ e("li").a("class", " questionConfigurationInitialeOlLi13 questionConfigurationInitialeOlLi odd ").f();
+				sx(questionConfigurationInitialeOlLi131);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionConfigurationInitiale() {
+		questionConfigurationInitiale.htmlAvant();
+		htmlBodyQuestionConfigurationInitiale(questionConfigurationInitiale);
+		questionConfigurationInitiale.htmlApres();
+	}
+
 	//////////////////
 	// recapituler1 //
 	//////////////////
@@ -1072,11 +1624,11 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	public static final String recapituler2TableTr1Td3I = recapituler2TableTr1Td3I1;
 	public static final String recapituler2TableTr1Td4I1 = "far fa-pen-nib";
 	public static final String recapituler2TableTr1Td4I = recapituler2TableTr1Td4I1;
-	public static final String recapituler2TableTr2Td11 = "23 Avril 2019";
+	public static final String recapituler2TableTr2Td11 = "30 Avril 2019";
 	public static final String recapituler2TableTr2Td1 = recapituler2TableTr2Td11;
-	public static final String recapituler2TableTr2Td21 = "Comment essayer CentOS 7";
+	public static final String recapituler2TableTr2Td21 = "Comment installer le système d'exploitation pour développer mon site Web ? ";
 	public static final String recapituler2TableTr2Td2 = recapituler2TableTr2Td21;
-	public static final String recapituler2TableTr2Td31 = "Sur une machine virtuelle";
+	public static final String recapituler2TableTr2Td31 = "Chaque étape pour installer le système d'exploitation CentOS 7. ";
 	public static final String recapituler2TableTr2Td3 = recapituler2TableTr2Td31;
 	public static final String recapituler2TableTr2Td41 = "Par Christophe Tate";
 	public static final String recapituler2TableTr2Td4 = recapituler2TableTr2Td41;
@@ -1168,90 +1720,95 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	public static final String recapituler3TableTr01Td3I = recapituler3TableTr01Td3I1;
 	public static final String recapituler3TableTr01Td41 = "Reponses";
 	public static final String recapituler3TableTr01Td4 = recapituler3TableTr01Td41;
-	public static final String recapituler3TableTr02Td1I1 = "far fa-eraser";
+	public static final String recapituler3TableTr02Td1I1 = "far fa-person-carry";
 	public static final String recapituler3TableTr02Td1I = recapituler3TableTr02Td1I1;
-	public static final String recapituler3TableTr02Td21 = "Linux va-t-il détruire mon système d'exploitation ? ";
+	public static final String recapituler3TableTr02Td21 = "Comment télecharger CentOS 7 ? ";
 	public static final String recapituler3TableTr02Td2 = recapituler3TableTr02Td21;
-	public static final String recapituler3TableTr02Td3Span1I1 = "fab fa-microsoft";
+	public static final String recapituler3TableTr02Td3Span1I1 = "far fa-cloud-download-alt";
 	public static final String recapituler3TableTr02Td3Span1I = recapituler3TableTr02Td3Span1I1;
-	public static final String recapituler3TableTr02Td3Span2I1 = "fab fa-apple";
-	public static final String recapituler3TableTr02Td3Span2I = recapituler3TableTr02Td3Span2I1;
-	public static final String recapituler3TableTr02Td3Span3I1 = "fab fa-linux";
-	public static final String recapituler3TableTr02Td3Span3I = recapituler3TableTr02Td3Span3I1;
-	public static final String recapituler3TableTr02Td41 = "La virtualisation peut exécuter Linux sous tous les systèmes d'exploitation. ";
+	public static final String recapituler3TableTr02Td41 = "Télécharger un fichier ISO. ";
 	public static final String recapituler3TableTr02Td4 = recapituler3TableTr02Td41;
-	public static final String recapituler3TableTr03Td1I1 = "far fa-person-carry";
+	public static final String recapituler3TableTr03Td1I1 = "fab fa-usb";
 	public static final String recapituler3TableTr03Td1I = recapituler3TableTr03Td1I1;
-	public static final String recapituler3TableTr03Td21 = "Comment installer VirtualBox ? ";
+	public static final String recapituler3TableTr03Td21 = "Comment puis-je créer une clé USB avec CentOS 7 ? ";
 	public static final String recapituler3TableTr03Td2 = recapituler3TableTr03Td21;
-	public static final String recapituler3TableTr03Td3I1 = "far fa-cloud-download-alt";
+	public static final String recapituler3TableTr03Td3I1 = "far fa-compact-disc";
 	public static final String recapituler3TableTr03Td3I = recapituler3TableTr03Td3I1;
-	public static final String recapituler3TableTr03Td41 = "Téléchargez-le depuis virtualbox.org";
+	public static final String recapituler3TableTr03Td41 = "Utilizez la commande dd. ";
 	public static final String recapituler3TableTr03Td4 = recapituler3TableTr03Td41;
 	public static final String recapituler3TableTr04Td1I1 = "far fa-play-circle";
 	public static final String recapituler3TableTr04Td1I = recapituler3TableTr04Td1I1;
-	public static final String recapituler3TableTr04Td21 = "Préparer CentOS 7 pour installer VirtualBox";
+	public static final String recapituler3TableTr04Td21 = "Lorsque je redémarre avec la clé USB, quel mode de démarrage choisir? ";
 	public static final String recapituler3TableTr04Td2 = recapituler3TableTr04Td21;
-	public static final String recapituler3TableTr04Td3I1 = "far fa-download";
-	public static final String recapituler3TableTr04Td3I = recapituler3TableTr04Td3I1;
-	public static final String recapituler3TableTr04Td41 = "Installer le dépot yum virtualbox";
+	public static final String recapituler3TableTr04Td3Span1I1 = "fab fa-windows";
+	public static final String recapituler3TableTr04Td3Span1I2 = "fab fa-centos";
+	public static final String recapituler3TableTr04Td3Span1I = recapituler3TableTr04Td3Span1I1 + recapituler3TableTr04Td3Span1I2;
+	public static final String recapituler3TableTr04Td41 = "Évitez de démarrer en mode de démarrage UEFI. ";
 	public static final String recapituler3TableTr04Td4 = recapituler3TableTr04Td41;
-	public static final String recapituler3TableTr05Td1I1 = "far fa-box-check";
+	public static final String recapituler3TableTr05Td1I1 = "fas fa-flag-alt";
 	public static final String recapituler3TableTr05Td1I = recapituler3TableTr05Td1I1;
-	public static final String recapituler3TableTr05Td21 = "Installer le dépôt yum virtualbox";
+	public static final String recapituler3TableTr05Td21 = "Quelle langue j'utilise pendant le processus d'installation? ";
 	public static final String recapituler3TableTr05Td2 = recapituler3TableTr05Td21;
-	public static final String recapituler3TableTr05Td3I1 = "far fa-person-dolly";
+	public static final String recapituler3TableTr05Td3I1 = "far fa-language";
 	public static final String recapituler3TableTr05Td3I = recapituler3TableTr05Td3I1;
-	public static final String recapituler3TableTr05Td41 = "Mettre virtualbox.repo dans /etc/yum.repos.d/";
+	public static final String recapituler3TableTr05Td41 = "Choisissez la langue avec laquelle vous êtes à l'aise. ";
 	public static final String recapituler3TableTr05Td4 = recapituler3TableTr05Td41;
-	public static final String recapituler3TableTr06Td1I1 = "far fa-question";
+	public static final String recapituler3TableTr06Td1I1 = "fas fa-clock";
 	public static final String recapituler3TableTr06Td1I = recapituler3TableTr06Td1I1;
-	public static final String recapituler3TableTr06Td21 = "Quel est le nom du paquet VirtualBox ? ";
+	public static final String recapituler3TableTr06Td21 = "Comment configurer la date et l'heure d'une installation de CentOS 7 ? ";
 	public static final String recapituler3TableTr06Td2 = recapituler3TableTr06Td21;
-	public static final String recapituler3TableTr06Td3I1 = "far fa-search";
+	public static final String recapituler3TableTr06Td3I1 = "fas fa-city";
 	public static final String recapituler3TableTr06Td3I = recapituler3TableTr06Td3I1;
-	public static final String recapituler3TableTr06Td41 = "Rechercher « virtualbox » dans yum";
+	public static final String recapituler3TableTr06Td41 = "Choisissez la grande ville près de chez vous. ";
 	public static final String recapituler3TableTr06Td4 = recapituler3TableTr06Td41;
-	public static final String recapituler3TableTr07Td1I1 = "far fa-box";
+	public static final String recapituler3TableTr07Td1I1 = "fas fa-network-wired";
 	public static final String recapituler3TableTr07Td1I = recapituler3TableTr07Td1I1;
-	public static final String recapituler3TableTr07Td21 = "Installer VirtualBox";
+	public static final String recapituler3TableTr07Td21 = "Comment configurer le réseau et le nom d'hôte ? ";
 	public static final String recapituler3TableTr07Td2 = recapituler3TableTr07Td21;
-	public static final String recapituler3TableTr07Td3I1 = "far fa-box-full";
+	public static final String recapituler3TableTr07Td3I1 = "fas fa-ethernet";
 	public static final String recapituler3TableTr07Td3I = recapituler3TableTr07Td3I1;
-	public static final String recapituler3TableTr07Td41 = "Installer le paquet avec yum";
+	public static final String recapituler3TableTr07Td41 = "Choisissez un nom unique sur votre réseau et branchez votre câble Ethernet. ";
 	public static final String recapituler3TableTr07Td4 = recapituler3TableTr07Td41;
-	public static final String recapituler3TableTr08Td1I1 = "far fa-clipboard-list";
+	public static final String recapituler3TableTr08Td1I1 = "fas fa-save";
 	public static final String recapituler3TableTr08Td1I = recapituler3TableTr08Td1I1;
-	public static final String recapituler3TableTr08Td21 = "Comment mettre un système d'exploitation sur une machine virtuelle";
+	public static final String recapituler3TableTr08Td21 = "Que dois-je choisir pour la sélection de logiciel dans une installation CentOS 7 ? ";
 	public static final String recapituler3TableTr08Td2 = recapituler3TableTr08Td21;
-	public static final String recapituler3TableTr08Td3I1 = "far fa-arrow-alt-to-bottom";
+	public static final String recapituler3TableTr08Td3I1 = "fas fa-browser";
 	public static final String recapituler3TableTr08Td3I = recapituler3TableTr08Td3I1;
-	public static final String recapituler3TableTr08Td41 = "Télécharger un fichier ISO";
+	public static final String recapituler3TableTr08Td41 = "Assurez-vous de choisir un environnement de bureau. ";
 	public static final String recapituler3TableTr08Td4 = recapituler3TableTr08Td41;
-	public static final String recapituler3TableTr09Td1I1 = "far fa-clipboard-check";
+	public static final String recapituler3TableTr09Td1I1 = "fas fa-hdd";
 	public static final String recapituler3TableTr09Td1I = recapituler3TableTr09Td1I1;
-	public static final String recapituler3TableTr09Td21 = "Vérifier un téléchargement ISO";
+	public static final String recapituler3TableTr09Td21 = "Comment configurer le disque pour la destination d'installation ? ";
 	public static final String recapituler3TableTr09Td2 = recapituler3TableTr09Td21;
-	public static final String recapituler3TableTr09Td3I1 = "far fa-box-check";
+	public static final String recapituler3TableTr09Td3I1 = "fas fa-pallet-alt";
 	public static final String recapituler3TableTr09Td3I = recapituler3TableTr09Td3I1;
-	public static final String recapituler3TableTr09Td41 = "Vérifier le sha256sum";
+	public static final String recapituler3TableTr09Td41 = "Configurez votre propre partitionnement. ";
 	public static final String recapituler3TableTr09Td4 = recapituler3TableTr09Td41;
-	public static final String recapituler3TableTr10Td1I1 = "far fa-plus-square";
+	public static final String recapituler3TableTr10Td1I1 = "fas fa-exclamation-triangle";
 	public static final String recapituler3TableTr10Td1I = recapituler3TableTr10Td1I1;
-	public static final String recapituler3TableTr10Td21 = "Comment créer la machine virtuelle ?";
+	public static final String recapituler3TableTr10Td21 = "Suis-je prêt à appuyer sur le bouton [ Begin Installation ] ? ";
 	public static final String recapituler3TableTr10Td2 = recapituler3TableTr10Td21;
-	public static final String recapituler3TableTr10Td3I1 = "far fa-window";
+	public static final String recapituler3TableTr10Td3I1 = "fab fa-centos";
 	public static final String recapituler3TableTr10Td3I = recapituler3TableTr10Td3I1;
-	public static final String recapituler3TableTr10Td41 = "Ouvrir VirtualBox et cliquer New";
+	public static final String recapituler3TableTr10Td41 = "Bienvenu au monde merveilleux de CentOS 7. ";
 	public static final String recapituler3TableTr10Td4 = recapituler3TableTr10Td41;
-	public static final String recapituler3TableTr11Td1I1 = "far fa-exclamation-circle";
+	public static final String recapituler3TableTr11Td1I1 = "fas fa-user-cog";
 	public static final String recapituler3TableTr11Td1I = recapituler3TableTr11Td1I1;
-	public static final String recapituler3TableTr11Td21 = "Erreur Kernel driver not installed";
+	public static final String recapituler3TableTr11Td21 = "Ai-je besoin d'un mot de passe root et d'un mot de passe utilisateur ? ";
 	public static final String recapituler3TableTr11Td2 = recapituler3TableTr11Td21;
-	public static final String recapituler3TableTr11Td3I1 = "far fa-clipboard-list";
+	public static final String recapituler3TableTr11Td3I1 = "fas fa-lock-alt";
 	public static final String recapituler3TableTr11Td3I = recapituler3TableTr11Td3I1;
-	public static final String recapituler3TableTr11Td41 = "Installez les prérequis du kernel";
+	public static final String recapituler3TableTr11Td41 = "Choisisez un mot de passe root fort. ";
 	public static final String recapituler3TableTr11Td4 = recapituler3TableTr11Td41;
+	public static final String recapituler3TableTr12Td1I1 = "fas fa-fast-forward";
+	public static final String recapituler3TableTr12Td1I = recapituler3TableTr12Td1I1;
+	public static final String recapituler3TableTr12Td21 = "Comment terminer l'installation de CentOS 7 ? ";
+	public static final String recapituler3TableTr12Td2 = recapituler3TableTr12Td21;
+	public static final String recapituler3TableTr12Td3I1 = "fab fa-linux";
+	public static final String recapituler3TableTr12Td3I = recapituler3TableTr12Td3I1;
+	public static final String recapituler3TableTr12Td41 = "Quelques étapes supplémentaires pour profiter de votre nouvel ordinateur. ";
+	public static final String recapituler3TableTr12Td4 = recapituler3TableTr12Td41;
 
 	/**	L'entité « recapituler3 »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -1318,14 +1875,6 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 						{ e("i").a("class", recapituler3TableTr02Td3Span1I1, " site-menu-icon recapituler3TableTr02Td3Span1I ").f();
 						} g("i");
 					} g("span");
-					{ e("span").a("class", " recapituler3TableTr02Td3Span2 recapituler3TableTr even ").f();
-						{ e("i").a("class", recapituler3TableTr02Td3Span2I1, " site-menu-icon recapituler3TableTr02Td3Span2I ").f();
-						} g("i");
-					} g("span");
-					{ e("span").a("class", " recapituler3TableTr02Td3Span3 recapituler3TableTr odd ").f();
-						{ e("i").a("class", recapituler3TableTr02Td3Span3I1, " site-menu-icon recapituler3TableTr02Td3Span3I ").f();
-						} g("i");
-					} g("span");
 				} g("td");
 				{ e("td").a("class", " recapituler3TableTr02Td4 recapituler3TableTr even ").f();
 					sx(recapituler3TableTr02Td41);
@@ -1356,8 +1905,10 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 					sx(recapituler3TableTr04Td21);
 				} g("td");
 				{ e("td").a("class", " recapituler3TableTr04Td3 recapituler3TableTr odd ").f();
-					{ e("i").a("class", recapituler3TableTr04Td3I1, " site-menu-icon recapituler3TableTr04Td3I ").f();
-					} g("i");
+					{ e("span").a("class", " recapituler3TableTr04Td3Span1 recapituler3TableTr odd ").f();
+						{ e("i").a("class", recapituler3TableTr04Td3Span1I1, " site-menu-icon recapituler3TableTr04Td3Span1I ").f();
+						} g("i");
+					} g("span");
 				} g("td");
 				{ e("td").a("class", " recapituler3TableTr04Td4 recapituler3TableTr even ").f();
 					sx(recapituler3TableTr04Td41);
@@ -1475,6 +2026,22 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 					sx(recapituler3TableTr11Td41);
 				} g("td");
 			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr12 recapituler3TableTr even ").f();
+				{ e("td").a("class", " recapituler3TableTr12Td1 recapituler3TableTr12Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr12Td1I1, " site-menu-icon recapituler3TableTr12Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr12Td2 recapituler3TableTr12Td even ").f();
+					sx(recapituler3TableTr12Td21);
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr12Td3 recapituler3TableTr12Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr12Td3I1, " site-menu-icon recapituler3TableTr12Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " recapituler3TableTr12Td4 recapituler3TableTr12Td even ").f();
+					sx(recapituler3TableTr12Td41);
+				} g("td");
+			} g("tr");
 		} g("table");
 	}
 	public void htmlBodyRecapituler3() {
@@ -1512,6 +2079,10 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		questionDateHeureInit();
 		questionReseauInit();
 		questionSelectionLogicielInit();
+		questionInstallationDestinationInit();
+		questionInstallerInit();
+		questionMotsDePasseInit();
+		questionConfigurationInitialeInit();
 		recapituler1Init();
 		recapituler2Init();
 		recapituler3Init();
@@ -1543,6 +2114,14 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 			questionReseau.setRequeteSite_(requeteSite_);
 		if(questionSelectionLogiciel != null)
 			questionSelectionLogiciel.setRequeteSite_(requeteSite_);
+		if(questionInstallationDestination != null)
+			questionInstallationDestination.setRequeteSite_(requeteSite_);
+		if(questionInstaller != null)
+			questionInstaller.setRequeteSite_(requeteSite_);
+		if(questionMotsDePasse != null)
+			questionMotsDePasse.setRequeteSite_(requeteSite_);
+		if(questionConfigurationInitiale != null)
+			questionConfigurationInitiale.setRequeteSite_(requeteSite_);
 		if(recapituler1 != null)
 			recapituler1.setRequeteSite_(requeteSite_);
 		if(recapituler2 != null)
@@ -1591,6 +2170,14 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 				return oC001L004InstallerCentos7.questionReseau;
 			case "questionSelectionLogiciel":
 				return oC001L004InstallerCentos7.questionSelectionLogiciel;
+			case "questionInstallationDestination":
+				return oC001L004InstallerCentos7.questionInstallationDestination;
+			case "questionInstaller":
+				return oC001L004InstallerCentos7.questionInstaller;
+			case "questionMotsDePasse":
+				return oC001L004InstallerCentos7.questionMotsDePasse;
+			case "questionConfigurationInitiale":
+				return oC001L004InstallerCentos7.questionConfigurationInitiale;
 			case "recapituler1":
 				return oC001L004InstallerCentos7.recapituler1;
 			case "recapituler2":
@@ -1792,6 +2379,14 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 			questionReseau.htmlBodyCourt();
 		if(questionSelectionLogiciel != null)
 			questionSelectionLogiciel.htmlBodyCourt();
+		if(questionInstallationDestination != null)
+			questionInstallationDestination.htmlBodyCourt();
+		if(questionInstaller != null)
+			questionInstaller.htmlBodyCourt();
+		if(questionMotsDePasse != null)
+			questionMotsDePasse.htmlBodyCourt();
+		if(questionConfigurationInitiale != null)
+			questionConfigurationInitiale.htmlBodyCourt();
 		if(recapituler1 != null)
 			recapituler1.htmlBodyCourt();
 		if(recapituler2 != null)
@@ -1818,6 +2413,10 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		((C001L004InstallerCentos7)this).htmlBodyQuestionDateHeure();
 		((C001L004InstallerCentos7)this).htmlBodyQuestionReseau();
 		((C001L004InstallerCentos7)this).htmlBodyQuestionSelectionLogiciel();
+		((C001L004InstallerCentos7)this).htmlBodyQuestionInstallationDestination();
+		((C001L004InstallerCentos7)this).htmlBodyQuestionInstaller();
+		((C001L004InstallerCentos7)this).htmlBodyQuestionMotsDePasse();
+		((C001L004InstallerCentos7)this).htmlBodyQuestionConfigurationInitiale();
 		((C001L004InstallerCentos7)this).htmlBodyRecapituler1();
 		((C001L004InstallerCentos7)this).htmlBodyRecapituler2();
 		((C001L004InstallerCentos7)this).htmlBodyRecapituler3();
@@ -1856,5 +2455,5 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L004InstallerCentos7Vals = new String[] { moiP1, moiP2, questionTelechargerCentos7H3I1, questionTelechargerCentos7H3Span1, questionTelechargerCentos7H4I1, questionTelechargerCentos7H4Span1, questionTelechargerCentos7PreSpan11, questionTelechargerCentos7PreSpan21, questionTelechargerCentos7PreSpan31, questionTelechargerCentos7PreSpan41, questionTelechargerCentos7OlLi11, questionTelechargerCentos7OlLi21, questionTelechargerCentos7OlLi31, questionTelechargerCentos7OlLi41, questionTelechargerCentos7PSpan11, questionTelechargerCentos7PSpan2A1, questionTelechargerCentos7PSpan31, questionTelechargerCentos7PSpan32, questionTelechargerCentos7PSpan33, questionCreerUneCleUsbH3I1, questionCreerUneCleUsbH3Span1, questionCreerUneCleUsbH4I1, questionCreerUneCleUsbH4Span1, questionCreerUneCleUsbOl1Li11, questionCreerUneCleUsbOl1Li2Span11, questionCreerUneCleUsbOl1Li2A1, questionCreerUneCleUsbOl1Li2Span21, questionCreerUneCleUsbOl1Li31, questionCreerUneCleUsbOl1Li32, questionCreerUneCleUsbDiv2H51, questionCreerUneCleUsbPre2Span11, questionCreerUneCleUsbPre2Span21, questionCreerUneCleUsbPre2Span31, questionCreerUneCleUsbPre2Span41, questionCreerUneCleUsbPre2Span42, questionCreerUneCleUsbOl2Li11, questionCreerUneCleUsbOl2Li12, questionCreerUneCleUsbOl2Li13, questionCreerUneCleUsbOl2Li21, questionCreerUneCleUsbOl2Li22, questionCreerUneCleUsbOl2Li31, questionCreerUneCleUsbOl2Li41, questionCreerUneCleUsbOl2Li51, questionCreerUneCleUsbDiv3H51, questionCreerUneCleUsbDiv3P1, questionCreerUneCleUsbPre31, questionCreerUneCleUsbOl3Li11, questionCreerUneCleUsbP41, questionCreerUneCleUsbP42, questionCreerUneCleUsbP43, questionCreerUneCleUsbPre51, questionCreerUneCleUsbPre5Br1, questionCreerUneCleUsbPre5Br2, questionCreerUneCleUsbPre5Br3, questionCreerUneCleUsbDiv6H51, questionCreerUneCleUsbP61, questionCreerUneCleUsbP62, questionCreerUneCleUsbPre61, questionCreerUneCleUsbOl6Li11, questionCreerUneCleUsbOl6Li21, questionCreerUneCleUsbOl6Li31, questionCreerUneCleUsbOl6Li41, questionCreerUneCleUsbOl6Li51, questionCreerUneCleUsbOl6Li61, questionCreerUneCleUsbP71, questionDemarrerSystemSurCleUsbH3I1, questionDemarrerSystemSurCleUsbH3Span1, questionDemarrerSystemSurCleUsbH4Span1I1, questionDemarrerSystemSurCleUsbH4Span2I1, questionDemarrerSystemSurCleUsbH4Span31, questionDemarrerSystemSurCleUsbP11, questionDemarrerSystemSurCleUsbP12, questionDemarrerSystemSurCleUsbP13, questionDemarrerSystemSurCleUsbP14, questionDemarrerSystemSurCleUsbP15, questionDemarrerSystemSurCleUsbP16, questionDemarrerSystemSurCleUsbP21, questionChoisirLangueH3I1, questionChoisirLangueH3Span1, questionChoisirLangueH4I1, questionChoisirLangueH4Span1, questionChoisirLangueOlLi11, questionChoisirLangueOlLi12, questionChoisirLangueOlLi21, questionChoisirLangueOlLi22, questionChoisirLangueOlLi31, questionDateHeureH3I1, questionDateHeureH3Span1, questionDateHeureH4I1, questionDateHeureH4Span1, questionDateHeureOlLi11, questionDateHeureOlLi21, questionDateHeureOlLi31, questionDateHeureOlLi41, questionDateHeureOlLi51, questionReseauH3I1, questionReseauH3Span1, questionReseauH4I1, questionReseauH4Span1, questionReseauOlLi11, questionReseauOlLi12, questionReseauOlLi21, questionReseauOlLi22, questionReseauOlLi31, questionReseauOlLi32, questionReseauOlLi41, questionReseauOlLi42, questionReseauOlLi43, questionReseauOlLi44, questionReseauOlLi45, questionReseauOlLi51, questionReseauOlLi61, questionSelectionLogicielH3I1, questionSelectionLogicielH3Span1, questionSelectionLogicielH4I1, questionSelectionLogicielH4Span1, questionSelectionLogicielOlLi11, questionSelectionLogicielOlLi21, questionSelectionLogicielOlLi22, questionSelectionLogicielOlLi23, questionSelectionLogicielOlLi24, questionSelectionLogicielOlLi31, questionSelectionLogicielOlLi32, questionSelectionLogicielOlLi41, questionSelectionLogicielOlLi51, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td3Span2I1, recapituler3TableTr02Td3Span3I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41 };
+	public static final String[] C001L004InstallerCentos7Vals = new String[] { moiP1, moiP2, questionTelechargerCentos7H3I1, questionTelechargerCentos7H3Span1, questionTelechargerCentos7H4I1, questionTelechargerCentos7H4Span1, questionTelechargerCentos7PreSpan11, questionTelechargerCentos7PreSpan21, questionTelechargerCentos7PreSpan31, questionTelechargerCentos7PreSpan41, questionTelechargerCentos7OlLi11, questionTelechargerCentos7OlLi21, questionTelechargerCentos7OlLi31, questionTelechargerCentos7OlLi41, questionTelechargerCentos7PSpan11, questionTelechargerCentos7PSpan2A1, questionTelechargerCentos7PSpan31, questionTelechargerCentos7PSpan32, questionTelechargerCentos7PSpan33, questionCreerUneCleUsbH3I1, questionCreerUneCleUsbH3Span1, questionCreerUneCleUsbH4I1, questionCreerUneCleUsbH4Span1, questionCreerUneCleUsbOl1Li11, questionCreerUneCleUsbOl1Li2Span11, questionCreerUneCleUsbOl1Li2A1, questionCreerUneCleUsbOl1Li2Span21, questionCreerUneCleUsbOl1Li31, questionCreerUneCleUsbOl1Li32, questionCreerUneCleUsbDiv2H51, questionCreerUneCleUsbPre2Span11, questionCreerUneCleUsbPre2Span21, questionCreerUneCleUsbPre2Span31, questionCreerUneCleUsbPre2Span41, questionCreerUneCleUsbPre2Span42, questionCreerUneCleUsbOl2Li11, questionCreerUneCleUsbOl2Li12, questionCreerUneCleUsbOl2Li13, questionCreerUneCleUsbOl2Li21, questionCreerUneCleUsbOl2Li22, questionCreerUneCleUsbOl2Li31, questionCreerUneCleUsbOl2Li41, questionCreerUneCleUsbOl2Li51, questionCreerUneCleUsbDiv3H51, questionCreerUneCleUsbDiv3P1, questionCreerUneCleUsbPre31, questionCreerUneCleUsbOl3Li11, questionCreerUneCleUsbP41, questionCreerUneCleUsbP42, questionCreerUneCleUsbP43, questionCreerUneCleUsbPre51, questionCreerUneCleUsbPre5Br1, questionCreerUneCleUsbPre5Br2, questionCreerUneCleUsbPre5Br3, questionCreerUneCleUsbDiv6H51, questionCreerUneCleUsbP61, questionCreerUneCleUsbP62, questionCreerUneCleUsbPre61, questionCreerUneCleUsbOl6Li11, questionCreerUneCleUsbOl6Li21, questionCreerUneCleUsbOl6Li31, questionCreerUneCleUsbOl6Li41, questionCreerUneCleUsbOl6Li51, questionCreerUneCleUsbOl6Li61, questionCreerUneCleUsbP71, questionDemarrerSystemSurCleUsbH3I1, questionDemarrerSystemSurCleUsbH3Span1, questionDemarrerSystemSurCleUsbH4Span1I1, questionDemarrerSystemSurCleUsbH4Span2I1, questionDemarrerSystemSurCleUsbH4Span31, questionDemarrerSystemSurCleUsbP11, questionDemarrerSystemSurCleUsbP12, questionDemarrerSystemSurCleUsbP13, questionDemarrerSystemSurCleUsbP14, questionDemarrerSystemSurCleUsbP15, questionDemarrerSystemSurCleUsbP16, questionDemarrerSystemSurCleUsbP21, questionChoisirLangueH3I1, questionChoisirLangueH3Span1, questionChoisirLangueH4I1, questionChoisirLangueH4Span1, questionChoisirLangueOlLi11, questionChoisirLangueOlLi12, questionChoisirLangueOlLi21, questionChoisirLangueOlLi22, questionChoisirLangueOlLi31, questionDateHeureH3I1, questionDateHeureH3Span1, questionDateHeureH4I1, questionDateHeureH4Span1, questionDateHeureOlLi11, questionDateHeureOlLi21, questionDateHeureOlLi31, questionDateHeureOlLi41, questionDateHeureOlLi51, questionReseauH3I1, questionReseauH3Span1, questionReseauH4I1, questionReseauH4Span1, questionReseauOlLi11, questionReseauOlLi12, questionReseauOlLi21, questionReseauOlLi22, questionReseauOlLi31, questionReseauOlLi32, questionReseauOlLi41, questionReseauOlLi42, questionReseauOlLi43, questionReseauOlLi44, questionReseauOlLi45, questionReseauOlLi51, questionReseauOlLi61, questionSelectionLogicielH3I1, questionSelectionLogicielH3Span1, questionSelectionLogicielH4I1, questionSelectionLogicielH4Span1, questionSelectionLogicielOlLi11, questionSelectionLogicielOlLi21, questionSelectionLogicielOlLi22, questionSelectionLogicielOlLi23, questionSelectionLogicielOlLi24, questionSelectionLogicielOlLi31, questionSelectionLogicielOlLi32, questionSelectionLogicielOlLi41, questionSelectionLogicielOlLi51, questionInstallationDestinationH3I1, questionInstallationDestinationH3Span1, questionInstallationDestinationH4I1, questionInstallationDestinationH4Span1, questionInstallationDestinationOl1Li11, questionInstallationDestinationOl1Li12, questionInstallationDestinationOl1Li21, questionInstallationDestinationOl1Li31, questionInstallationDestinationOl1Li32, questionInstallationDestinationOl1Li41, questionInstallationDestinationDiv2H51, questionInstallationDestinationOl2Li11, questionInstallationDestinationOl2Li21, questionInstallationDestinationOl2Li31, questionInstallationDestinationOl2Li41, questionInstallationDestinationDiv3H51, questionInstallationDestinationOl3Li011, questionInstallationDestinationOl3Li012, questionInstallationDestinationOl3Li013, questionInstallationDestinationOl3Li021, questionInstallationDestinationOl3Li022, questionInstallationDestinationOl3Li023, questionInstallationDestinationOl3Li031, questionInstallationDestinationOl3Li041, questionInstallationDestinationOl3Li042, questionInstallationDestinationOl3Li043, questionInstallationDestinationOl3Li044, questionInstallationDestinationOl3Li051, questionInstallationDestinationOl3Li061, questionInstallationDestinationOl3Li062, questionInstallationDestinationOl3Li063, questionInstallationDestinationOl3Li064, questionInstallationDestinationOl3Li065, questionInstallationDestinationOl3Li066, questionInstallationDestinationOl3Li067, questionInstallationDestinationOl3Li071, questionInstallationDestinationOl3Li081, questionInstallationDestinationOl3Li091, questionInstallationDestinationOl3Li101, questionInstallationDestinationOl3Li111, questionInstallationDestinationOl3Li112, questionInstallationDestinationDiv4H51, questionInstallationDestinationOl4Li11, questionInstallationDestinationOl4Li12, questionInstallationDestinationOl4Li13, questionInstallationDestinationOl4Li14, questionInstallationDestinationOl4Li21, questionInstallerH3I1, questionInstallerH3Span1, questionInstallerH4I1, questionInstallerH4Span1, questionInstallerOlLi11, questionInstallerOlLi12, questionInstallerOlLi13, questionMotsDePasseH3I1, questionMotsDePasseH3Span1, questionMotsDePasseH4I1, questionMotsDePasseH4Span1, questionMotsDePasseOlLi11, questionMotsDePasseOlLi12, questionMotsDePasseOlLi13, questionMotsDePasseOlLi14, questionMotsDePasseOlLi21, questionMotsDePasseOlLi22, questionMotsDePasseOlLi23, questionMotsDePasseOlLi24, questionConfigurationInitialeH3I1, questionConfigurationInitialeH3Span1, questionConfigurationInitialeH4I1, questionConfigurationInitialeH4Span1, questionConfigurationInitialeOlLi011, questionConfigurationInitialeOlLi021, questionConfigurationInitialeOlLi031, questionConfigurationInitialeOlLi032, questionConfigurationInitialeOlLi041, questionConfigurationInitialeOlLi051, questionConfigurationInitialeOlLi061, questionConfigurationInitialeOlLi071, questionConfigurationInitialeOlLi081, questionConfigurationInitialeOlLi091, questionConfigurationInitialeOlLi101, questionConfigurationInitialeOlLi111, questionConfigurationInitialeOlLi121, questionConfigurationInitialeOlLi131, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td3Span1I2, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41 };
 }

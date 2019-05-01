@@ -73,7 +73,7 @@ public class C001L004InstallerCentos7FrFRGenPage extends C001L004InstallerCentos
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1258);
+			c.o(1749);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {

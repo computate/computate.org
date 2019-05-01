@@ -107,10 +107,22 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	protected void _questionSelectionLogiciel(PageHtml o) {
 	}
 
+	protected void _questionInstallationDestination(PageHtml o) {
+	}
+
+	protected void _questionInstaller(PageHtml o) {
+	}
+
+	protected void _questionMotsDePasse(PageHtml o) {
+	}
+
+	protected void _questionConfigurationInitiale(PageHtml o) {
+	}
+
 	protected void _recapituler1(PageHtml o) {      
 	}
 
-	protected void _recapituler2(PageHtml o) {     
+	protected void _recapituler2(PageHtml o) {    
 	}
 
 	protected void _recapituler3(PageHtml o) {      

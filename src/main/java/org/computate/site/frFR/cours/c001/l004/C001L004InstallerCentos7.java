@@ -33,9 +33,9 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 1258
+ * ImageHauteur.frFR: 1749
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 1173
+ * ImageHauteur.enUS: 1479
 */     
 public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Lecon> {
 
@@ -375,6 +375,194 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	}
 
 	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-hdd
+	 * Val.H3Span.frFR:Comment configurer le disque pour la destination d'installation ? 
+	 * Val.H3Span.enUS:How do I setup the disk for the installation destination? 
+	 * Val.H4I:fas fa-pallet-alt
+	 * Val.H4Span.frFR:Configurez votre propre partitionnement. 
+	 * Val.H4Span.enUS:Configure your own partitioning. 
+	 * Val.Ol1Li1.frFR:C'est temps de configurer le disque principal pour le système d'exploitation. 
+	 * Val.Ol1Li1.frFR:Dans la section "SYSTEM", cliquez sur "INSTALLATION DESTINATION". 
+	 * Val.Ol1Li1.enUS:Now it's time to configure the primary disk for the operating system. 
+	 * Val.Ol1Li1.enUS:In the "SYSTEM" section, click "INSTALLATION DESTINATION". 
+	 * Val.Ol1Li2.frFR:Si votre disque principal n'a pas d'icône en forme de coche en noir et blanc, vous devrez sélectionner le disque principal correct. 
+	 * Val.Ol1Li2.enUS:If your primary disk does not have a black and white checkmark icon, then you'll want to select the correct primary disk. 
+	 * Val.Ol1Li3.frFR:Sélectionnez "I will configure partitioning.". 
+	 * Val.Ol1Li3.frFR:Vous pouvez également sélectionner d'autres options telles que "Encrypt my data", mais ce n'est pas nécessaire. 
+	 * Val.Ol1Li3.enUS:Select "I will configure partitioning.". 
+	 * Val.Ol1Li3.enUS:You can also select other options like "Encrypt my data", but it's not necessary. 
+	 * Val.Ol1Li4.frFR:Cliquez sur [ Done ] pour configurer vous-même le partitionnement. 
+	 * Val.Ol1Li4.enUS:Click [ Done ] to configure partitioning yourself. 
+	 * Val.Div2H5.frFR:Instructions pour un système d'exploitation existant sur votre disque. 
+	 * Val.Div2H5.enUS:Instructions for an existing operating system on your disk. 
+	 * Val.Ol2Li1.frFR:Si vous avez un système d'exploitation existant sur votre disque, vous ouvrez la liste déroulante pour que votre système d'exploitation puisse rétablir le système de fichiers. 
+	 * Val.Ol2Li1.enUS:If you have an existing operating system on your disk, you will want to open the drop down for your operating system to redo the filesystem. 
+	 * Val.Ol2Li2.frFR:Cliquez sur la première partition SYSTEM et cliquez sur le bouton [ - ].
+	 * Val.Ol2Li2.enUS:Click on the first SYSTEM partition and click the [ - ] button. 
+	 * Val.Ol2Li3.frFR:Vous pouvez sélectionner "Delete all file systems which are only used by ....". 
+	 * Val.Ol2Li3.enUS:You can select "Delete all file systems which are only used by ....". 
+	 * Val.Ol2Li4.frFR:Cliquez sur [ Delete It ]. 
+	 * Val.Ol2Li4.enUS:Click [ Delete It ]. 
+	 * Val.Div3H5.frFR:La meilleure façon de configurer votre disque pour la plupart des situations. 
+	 * Val.Div3H5.enUS:The best way to setup your disk for most situations. 
+	 * Val.Ol3Li01.frFR:Le plus simple est de cliquer sur "Click here to create them automatically.".
+	 * Val.Ol3Li01.frFR:Si vous êtes un expert en disques, vous pouvez ignorer cette section et le faire à votre façon. 
+	 * Val.Ol3Li01.frFR:Mais je vous recommanderai le meilleur façon de configurer votre disque pour la plupart des situations. 
+	 * Val.Ol3Li01.enUS:The easiest way is to get started is to click "Click here to create them automatically.". 
+	 * Val.Ol3Li01.enUS:If you are a disk expert, than you can ignore this section and do it your way. 
+	 * Val.Ol3Li01.enUS:But I'll recommend the best way to setup your disk for most situations. 
+	 * Val.Ol3Li02.frFR:La configuration automatique du disque créera 4 partitions (/home, /boot, / et swap). 
+	 * Val.Ol3Li02.frFR:Vous n'avez pas besoin d'une partition séparée entre / et /home, je supprimerais donc la partition /home. 
+	 * Val.Ol3Li02.frFR:Cliquez sur la partition /home. 
+	 * Val.Ol3Li02.enUS:The automatic disk setup will create 4 partitions (/home, /boot, /, and swap). 
+	 * Val.Ol3Li02.enUS:You don't need a separate partition between / and /home, so I would delete the /home partition. 
+	 * Val.Ol3Li02.enUS:Click on the /home partition. 
+	 * Val.Ol3Li03.frFR:Cliquez sur le bouton [ - ]. 
+	 * Val.Ol3Li03.enUS:Click the [ - ] button. 
+	 * Val.Ol3Li04.frFR:Maintenant, la taille de la partition /boot dépend de vous. 
+	 * Val.Ol3Li04.frFR:Cependant, je recommande au moins 2 Gio pour votre partition /boot. 
+	 * Val.Ol3Li04.frFR:Ainsi, lorsque vous recevez des packages mis à jour et des correctifs de sécurité, votre partition /boot ne manquera pas d'espace, du moins pas avant de nombreuses années, je crois. 
+	 * Val.Ol3Li04.frFR:Alors cliquez sur la partition /boot. 
+	 * Val.Ol3Li04.enUS:Now the size of the /boot partition is up to you. 
+	 * Val.Ol3Li04.enUS:However, I recommend at least 2 GiB for your /boot partition. 
+	 * Val.Ol3Li04.enUS:This way, when you receive updated packages and security fixes, your /boot partition won't run out of space, at least not for many years I think. 
+	 * Val.Ol3Li04.enUS:So click on the /boot partition. 
+	 * Val.Ol3Li05.frFR:Changez la partition /boot "Desired Capacity" en "2 GiB". 
+	 * Val.Ol3Li05.enUS:Change the /boot partition "Desired Capacity" to "2 GiB". 
+	 * Val.Ol3Li06.frFR:Maintenant, décidez combien d’espace de swap à réserver pour la mémoire. 
+	 * Val.Ol3Li06.frFR:L'espace de swap est lié à la quantité de RAM installée sur votre système. 
+	 * Val.Ol3Li06.frFR:C'est généralement admis que vous n'avez pas besoin de plus d'espace de swap que de doubler la quantité de RAM de votre système. 
+	 * Val.Ol3Li06.frFR:Toutefois, prenez en compte la quantité de RAM avec laquelle vous effectuerez un jour dans votre système afin de déterminer la quantité d'espace de swap à réserver. 
+	 * Val.Ol3Li06.frFR:En effet, vous ne pourrez pas le changer plus tard sans réinstaller le système d'exploitation. 
+	 * Val.Ol3Li06.frFR:Ce n'est pas la fin du monde de réinstaller votre système d'exploitation, je le fais assez souvent. 
+	 * Val.Ol3Li06.frFR:Pour définir l’espace de swap, cliquez sur la partition de swap. 
+	 * Val.Ol3Li06.enUS:Now to decide how much swap space to reserve for memory. 
+	 * Val.Ol3Li06.enUS:Swap space is related to the amount of RAM you have installed in your system. 
+	 * Val.Ol3Li06.enUS:It's generally agreed that you don't need more swap space than double the amount of RAM in your system. 
+	 * Val.Ol3Li06.enUS:However, do consider the amount of RAM you will likely upgrade your system with someday to determine how much swap space to reserve. 
+	 * Val.Ol3Li06.enUS:This is because you won't be able to change it later without reinstalling the operating system either. 
+	 * Val.Ol3Li06.enUS:It's not the end of the world to reinstall your operating system, I seem to do it fairly often. 
+	 * Val.Ol3Li06.enUS:So to set the swap space, click on the swap partition. 
+	 * Val.Ol3Li07.frFR:Si j'ai 32 Go de RAM dans mon système, je définirai la quantité d'espace de swap de manière à doubler cette quantité dans "Desired Capacity": "64 GiB". 
+	 * Val.Ol3Li07.enUS:If I have 32 GiB of RAM in my system, I will set the amount of swap space to double that amount in "Desired Capacity": "64 GiB". 
+	 * Val.Ol3Li08.frFR:Maintenant, maximisez la quantité d’espace disponible sur la partition /. 
+	 * Val.Ol3Li08.enUS:Now let's max out the amount of space on the / partition. 
+	 * Val.Ol3Li09.frFR:Cliquez sur la partition /. 
+	 * Val.Ol3Li09.enUS:Click on the / partition. 
+	 * Val.Ol3Li10.frFR:Effacez la valeur de la "Desired Capacity" de la partition /.
+	 * Val.Ol3Li10.enUS:Clear any value from the "Desired Capacity" of the / partition. 
+	 * Val.Ol3Li11.frFR:Cliquez maintenant sur la partition /boot pour voir toutes les valeurs des trois partitions mises à jour. 
+	 * Val.Ol3Li11.frFR:Les montants peuvent avoir été convertis en MiB au lieu de GiB, mais vous devriez voir les bonnes valeurs que vous attendez, avec la partition / maximum. 
+	 * Val.Ol3Li11.enUS:Now click on the /boot partition to see all of the values of all three partitions updated. 
+	 * Val.Ol3Li11.enUS:The amounts may have been converted to MiB instead of GiB, but you should see the right values you are expecting, with the / partition maxed out. 
+	 * Val.Div4H5.frFR:Si vous êtes accidentellement démarré en mode "UEFI". 
+	 * Val.Div4H5.enUS:If you are accidentally booted into "UEFI" mode. 
+	 * Val.Ol4Li1.frFR:Si vous êtes accidentallement dans votre programme d’installation USB Centos 7 en mode "UEFI", vous verrez une partition /boot/efi supplémentaire. 
+	 * Val.Ol4Li1.frFR:Le programme d'installation supposera que vous avez besoin d'une partition /boot/efi, mais vous n'avez pas besoin de ça. 
+	 * Val.Ol4Li1.frFR:Si vous continuez avec la partition /boot/efi et retirez le clé USB d'installation CentOS, il rendra votre système instable et il plantera. 
+	 * Val.Ol4Li1.frFR:Alors, évitez d'installer le système d'exploitation en mode UEFI. 
+	 * Val.Ol4Li1.enUS:If you are accidentally booted into your USB Centos 7 Installer in "UEFI" mode, you will see an extra /boot/efi paritition. 
+	 * Val.Ol4Li1.enUS:The installer will assume that you need a /boot/efi partition, which you don't. 
+	 * Val.Ol4Li1.enUS:Proceeding with the /boot/efi paritition and removing the install media will make your system unstable and crash. 
+	 * Val.Ol4Li1.enUS:So avoid installing the operating system in UEFI mode. 
+	 * Val.Ol4Li2.frFR:Cliquez sur [ Done ]. 
+	 * Val.Ol4Li2.enUS:Click [ Done ]. 
+	 */ 
+	protected void _questionInstallationDestination(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-exclamation-triangle
+	 * Val.H3Span.frFR:Suis-je prêt à appuyer sur le bouton [ Begin Installation ] ? 
+	 * Val.H3Span.enUS:Am I ready to push the [ Begin Installation ] button? 
+	 * Val.H4I:fab fa-centos
+	 * Val.H4Span.frFR:Bienvenu au monde merveilleux de CentOS 7. 
+	 * Val.H4Span.enUS:Welcome the wonderful world of CentOS 7. 
+	 * Val.OlLi1.frFR:Vous êtes sur le point d'installer le monde merveilleux de CentOS 7. 
+	 * Val.OlLi1.frFR:À l'aise, vous allez l'adorer, tout comme des milliers d'autres dans le monde. 
+	 * Val.OlLi1.frFR:Allez-y, appuyez sur le bouton [ Begin Installation ]. 
+	 * Val.OlLi1.enUS:You are about to install the wonderful world of CentOS 7. 
+	 * Val.OlLi1.enUS:Relax, you're going to love it, just like thousands of others around the world. 
+	 * Val.OlLi1.enUS:So go ahead and push the [ Begin Installation ] button. 
+	 */ 
+	protected void _questionInstaller(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-user-cog
+	 * Val.H3Span.frFR:Ai-je besoin d'un mot de passe root et d'un mot de passe utilisateur ? 
+	 * Val.H3Span.enUS:Do I need a root password and a user password? 
+	 * Val.H4I:fas fa-lock-alt
+	 * Val.H4Span.frFR:Choisisez un mot de passe root fort. 
+	 * Val.H4Span.enUS:Choose a string root password. 
+	 * Val.OlLi1.frFR:C'est important de choisir un mot de passe root fort. 
+	 * Val.OlLi1.frFR:Ce sera un compte administratif sur lequel vous pourrez vous connecter pour tout faire. 
+	 * Val.OlLi1.frFR:Je ne recommande pas d'utiliser ce compte root. 
+	 * Val.OlLi1.frFR:Cliquez sur "ROOT PASSWORD". 
+	 * Val.OlLi1.enUS:It's important to choose a strong root password. 
+	 * Val.OlLi1.enUS:This will be an administrative account that can be logged into to do anything at all. 
+	 * Val.OlLi1.enUS:I can't recommend any time you should be using this root account. 
+	 * Val.OlLi1.enUS:Click on "ROOT PASSWORD". 
+	 * Val.OlLi2.frFR:Donc, créez ou générez un mot de passe root fort et tapez-le deux fois dans les champs. 
+	 * Val.OlLi2.frFR:Ecrivez-le soigneusement pour plus tard ou stockez-le dans un coffre-fort crypté si possible. 
+	 * Val.OlLi2.frFR:Je vais vous en dire plus sur les coffres-forts de mots de passe dans une autre leçon. 
+	 * Val.OlLi2.frFR:Cliquez sur [ Done ]. 
+	 * Val.OlLi2.enUS:So come up with, or generate a strong root password and type it twice in the boxes. 
+	 * Val.OlLi2.enUS:Write it down carefully for later, or store it in an encrypted password safe if possible. 
+	 * Val.OlLi2.enUS:I'll tell you more about password safes in another lesson. 
+	 * Val.OlLi2.enUS:Click [ Done ]. 
+	 */ 
+	protected void _questionMotsDePasse(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:fas fa-fast-forward
+	 * Val.H3Span.frFR:Comment terminer l'installation de CentOS 7 ? 
+	 * Val.H3Span.enUS:How do I finish the install of CentOS 7? 
+	 * Val.H4I:fab fa-linux
+	 * Val.H4Span.frFR:Quelques étapes supplémentaires pour profiter de votre nouvel ordinateur. 
+	 * Val.H4Span.enUS:A few more steps to enjoy your new computer. 
+	 * Val.OlLi01.frFR:Lorsque l'installation est fait, vous pouvez cliquer sur [ Reboot ]. 
+	 * Val.OlLi01.enUS:When it's done, you can click [ Reboot ]. 
+	 * Val.OlLi02.frFR:N'oubliez pas de retirer le disque USB en même temps, sinon vous redémarrez dans le programme d'installation. 
+	 * Val.OlLi02.enUS:Don't forget to take out the USB disk at the same time, or you will boot back into the installer. 
+	 * Val.OlLi03.frFR:Lorsque vous démarrez CentOS 7 pour la première fois, il vous sera demandé d'accepter les informations de licence. 
+	 * Val.OlLi03.frFR:Cliquez sur "License Agreement". 
+	 * Val.OlLi03.enUS:When you boot into CentOS 7 for the first time, you will be asked to accept the License Information. 
+	 * Val.OlLi03.enUS:Click on "License Agreement". 
+	 * Val.OlLi04.frFR:Passez en revue le contrat de licence, puis cochez la case « I accept the license agreement ». 
+	 * Val.OlLi04.enUS:Review the license agreement and then check "I accept the license agreement". 
+	 * Val.OlLi05.frFR:Cliquez sur [ Done ]. 
+	 * Val.OlLi05.enUS:Click [ Done ]. 
+	 * Val.OlLi06.frFR:Cliquez maintenant sur [ FINISH CONFIGURATION ] dans le coin inférieur droit. 
+	 * Val.OlLi06.enUS:Now click [ FINISH CONFIGURATION ] in the bottom-right corner. 
+	 * Val.OlLi07.frFR:Vous pouvez vous connecter à votre compte d'utilisateur en cliquant sur votre nom d'utilisateur et en entrant votre mot de passe. 
+	 * Val.OlLi07.enUS:You can now sign into your user account by clicking on your username and entering your password. 
+	 * Val.OlLi08.frFR:Suivez l'écran de bienvenue en cliquant sur [ Next ] pour votre langue. 
+	 * Val.OlLi08.enUS:Follow the welcome screen by clicking [ Next ] for your language. 
+	 * Val.OlLi09.frFR:Cliquez sur [ Next ] pour votre disposition de clavier. 
+	 * Val.OlLi09.enUS:Click [ Next ] for your keyboard layout. 
+	 * Val.OlLi10.frFR:Désactivez "Location Services", car vous n'avez besoin de personne pour suivre votre position. 
+	 * Val.OlLi10.enUS:Turn off "Location Services", since you don't need anybody tracking your location. 
+	 * Val.OlLi11.frFR:Cliquez sur [ Next ] pour désactiver les services de localisation. 
+	 * Val.OlLi11.enUS:Click [ Next ] to turn off location services. 
+	 * Val.OlLi12.frFR:Et je n'utilise pas les comptes en ligne en cliquant sur [Skip]. 
+	 * Val.OlLi12.enUS:And I skip the online accounts by clicking [ Skip ]. 
+	 * Val.OlLi13.frFR:Maintenant, cliquez sur [ Start using CentOS Linux ] pour profiter de votre nouvel ordinateur ! 
+	 * Val.OlLi13.enUS:Now click [ Start using CentOS Linux ] to enjoy your new computer! 
+	 */ 
+	protected void _questionConfigurationInitiale(PageHtml o) {
+	}
+
+	/**
 	 * Val.H3.frFR:À récapituler : 
 	 * Val.H3.enUS:To review: 
 	 */
@@ -387,8 +575,8 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr1Td2I:fab fa-linux
 	 * Val.TableTr1Td3I:far fa-network-wired
 	 * Val.TableTr1Td4I:far fa-pen-nib
-	 * Val.TableTr2Td1.frFR:23 Avril 2019
-	 * Val.TableTr2Td1.enUS:April 23 2019
+	 * Val.TableTr2Td1.frFR:30 Avril 2019
+	 * Val.TableTr2Td1.enUS:April 30 2019
 	 * Val.TableTr2Td2.frFR:Comment installer le système d'exploitation pour développer mon site Web ? 
 	 * Val.TableTr2Td2.enUS:How do I install the operating system to start developing my website? 
 	 * Val.TableTr2Td3.frFR:Chaque étape pour installer le système d'exploitation CentOS 7. 
@@ -396,7 +584,7 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr2Td4.frFR:Par Christophe Tate
 	 * Val.TableTr2Td4.enUS:By Christopher Tate
 	 */  
-	protected void _recapituler2(PageHtml o) {     
+	protected void _recapituler2(PageHtml o) {    
 	}
 
 	/**
@@ -437,47 +625,54 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.TableTr05Td4.frFR:Choisissez la langue avec laquelle vous êtes à l'aise. 
 	 * Val.TableTr05Td4.enUS:Choose the language you are comfortable with. 
 	 * 
-	 * Val.TableTr06Td1I:far fa-question
-	 * Val.TableTr06Td2.frFR:Quel est le nom du paquet VirtualBox ? 
-	 * Val.TableTr06Td2.enUS:What is the VirtualBox package called? 
-	 * Val.TableTr06Td3I:far fa-search
-	 * Val.TableTr06Td4.frFR:Rechercher « virtualbox » dans yum
-	 * Val.TableTr06Td4.enUS:Search for "virtualbox" in yum
+	 * Val.TableTr06Td1I:fas fa-clock
+	 * Val.TableTr06Td2.frFR:Comment configurer la date et l'heure d'une installation de CentOS 7 ? 
+	 * Val.TableTr06Td2.enUS:How do I setup the date and time for a CentOS 7 installation? 
+	 * Val.TableTr06Td3I:fas fa-city
+	 * Val.TableTr06Td4.frFR:Choisissez la grande ville près de chez vous. 
+	 * Val.TableTr06Td4.enUS:Choose the big city near you. 
 	 * 
-	 * Val.TableTr07Td1I:far fa-box
-	 * Val.TableTr07Td2.frFR:Installer VirtualBox
-	 * Val.TableTr07Td2.enUS:Installing VirtualBox
-	 * Val.TableTr07Td3I:far fa-box-full
-	 * Val.TableTr07Td4.frFR:Installer le paquet avec yum
-	 * Val.TableTr07Td4.enUS:Install the package with yum
+	 * Val.TableTr07Td1I:fas fa-network-wired
+	 * Val.TableTr07Td2.frFR:Comment configurer le réseau et le nom d'hôte ? 
+	 * Val.TableTr07Td2.enUS:How do I setup the network and host name? 
+	 * Val.TableTr07Td3I:fas fa-ethernet
+	 * Val.TableTr07Td4.frFR:Choisissez un nom unique sur votre réseau et branchez votre câble Ethernet. 
+	 * Val.TableTr07Td4.enUS:Pick a unique name on your network and plug in your Ethernet cable. 
 	 * 
-	 * Val.TableTr08Td1I:far fa-clipboard-list
-	 * Val.TableTr08Td2.frFR:Comment mettre un système d'exploitation sur une machine virtuelle
-	 * Val.TableTr08Td2.enUS:How to put an operating system on a virtual machine
-	 * Val.TableTr08Td3I:far fa-arrow-alt-to-bottom
-	 * Val.TableTr08Td4.frFR:Télécharger un fichier ISO
-	 * Val.TableTr08Td4.enUS:Download an ISO file
+	 * Val.TableTr08Td1I:fas fa-save
+	 * Val.TableTr08Td2.frFR:Que dois-je choisir pour la sélection de logiciel dans une installation CentOS 7 ? 
+	 * Val.TableTr08Td2.enUS:What should I choose for the software selection in a CentOS 7 installation? 
+	 * Val.TableTr08Td3I:fas fa-browser
+	 * Val.TableTr08Td4.frFR:Assurez-vous de choisir un environnement de bureau. 
+	 * Val.TableTr08Td4.enUS:Make sure to pick a desktop environment. 
 	 * 
-	 * Val.TableTr09Td1I:far fa-clipboard-check
-	 * Val.TableTr09Td2.frFR:Vérifier un téléchargement ISO
-	 * Val.TableTr09Td2.enUS:Verify ISO download
-	 * Val.TableTr09Td3I:far fa-box-check
-	 * Val.TableTr09Td4.frFR:Vérifier le sha256sum
-	 * Val.TableTr09Td4.enUS:Check the sha256sum
+	 * Val.TableTr09Td1I:fas fa-hdd
+	 * Val.TableTr09Td2.frFR:Comment configurer le disque pour la destination d'installation ? 
+	 * Val.TableTr09Td2.enUS:How do I setup the disk for the installation destination? 
+	 * Val.TableTr09Td3I:fas fa-pallet-alt
+	 * Val.TableTr09Td4.frFR:Configurez votre propre partitionnement. 
+	 * Val.TableTr09Td4.enUS:Configure your own partitioning. 
 	 * 
-	 * Val.TableTr10Td1I:far fa-plus-square
-	 * Val.TableTr10Td2.frFR:Comment créer la machine virtuelle ?
-	 * Val.TableTr10Td2.enUS:How do I create the virtual machine?
-	 * Val.TableTr10Td3I:far fa-window
-	 * Val.TableTr10Td4.frFR:Ouvrir VirtualBox et cliquer New
-	 * Val.TableTr10Td4.enUS:Open up VirtualBox and click New
+	 * Val.TableTr10Td1I:fas fa-exclamation-triangle
+	 * Val.TableTr10Td2.frFR:Suis-je prêt à appuyer sur le bouton [ Begin Installation ] ? 
+	 * Val.TableTr10Td2.enUS:Am I ready to push the [ Begin Installation ] button? 
+	 * Val.TableTr10Td3I:fab fa-centos
+	 * Val.TableTr10Td4.frFR:Bienvenu au monde merveilleux de CentOS 7. 
+	 * Val.TableTr10Td4.enUS:Welcome the wonderful world of CentOS 7. 
 	 * 
-	 * Val.TableTr11Td1I:far fa-exclamation-circle
-	 * Val.TableTr11Td2.frFR:Erreur Kernel driver not installed
-	 * Val.TableTr11Td2.enUS:Kernel driver not installed error
-	 * Val.TableTr11Td3I:far fa-clipboard-list
-	 * Val.TableTr11Td4.frFR:Installez les prérequis du kernel
-	 * Val.TableTr11Td4.enUS:Install kernel prerequisites
+	 * Val.TableTr11Td1I:fas fa-user-cog
+	 * Val.TableTr11Td2.frFR:Ai-je besoin d'un mot de passe root et d'un mot de passe utilisateur ? 
+	 * Val.TableTr11Td2.enUS:Do I need a root password and a user password? 
+	 * Val.TableTr11Td3I:fas fa-lock-alt
+	 * Val.TableTr11Td4.frFR:Choisisez un mot de passe root fort. 
+	 * Val.TableTr11Td4.enUS:Choose a string root password. 
+	 * 
+	 * Val.TableTr12Td1I:fas fa-fast-forward
+	 * Val.TableTr12Td2.frFR:Comment terminer l'installation de CentOS 7 ? 
+	 * Val.TableTr12Td2.enUS:How do I finish the install of CentOS 7? 
+	 * Val.TableTr12Td3I:fab fa-linux
+	 * Val.TableTr12Td4.frFR:Quelques étapes supplémentaires pour profiter de votre nouvel ordinateur. 
+	 * Val.TableTr12Td4.enUS:A few more steps to enjoy your new computer. 
 	 */   
 	protected void _recapituler3(PageHtml o) {      
 	}
