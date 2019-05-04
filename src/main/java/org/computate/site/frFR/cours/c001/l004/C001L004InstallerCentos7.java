@@ -268,14 +268,12 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.H4Span.frFR:Choisissez la langue avec laquelle vous êtes à l'aise. 
 	 * Val.H4Span.enUS:Choose the language you are comfortable with. 
 	 * Val.OlLi1.frFR:Sur le côté gauche, vous trouverez les choix de langue pour le système d'exploitation. 
-	 * Val.OlLi1.frFR:Sélectionnez la langue que vous préférez. 
+	 * Val.OlLi1.frFR:Sélectionnez la langue que vous préférez (Français). 
 	 * Val.OlLi1.enUS:On the left hand side, you will find the choices of language for the operating system. 
-	 * Val.OlLi1.enUS:Select the language that you prefer. 
-	 * Val.OlLi2.frFR:Sur le côté droit, vous trouverez les choix de disposition du clavier. 
-	 * Val.OlLi2.frFR:Sélectionnez la disposition du clavier pour votre clavier. 
-	 * Val.OlLi2.enUS:On the right hand side, you will find the choices of keyboard layout. 
-	 * Val.OlLi2.enUS:Select the keyboard layout for your keyboard. 
-	 * Val.OlLi3.frFR:Appuyez sur [ Continue ]. 
+	 * Val.OlLi1.enUS:Select the language that you prefer (English). 
+	 * Val.OlLi2.frFR:Sur le côté droit, vous trouverez les choix de locale (Français (France)). 
+	 * Val.OlLi2.enUS:On the right hand side, you will find the choices of locale (English (United States). 
+	 * Val.OlLi3.frFR:Appuyez sur [ Poursuivre ]. 
 	 * Val.OlLi3.enUS:Press [ Continue ]. 
 	 */ 
 	protected void _questionChoisirLangue(PageHtml o) {
@@ -290,15 +288,15 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.H4I:fas fa-city
 	 * Val.H4Span.frFR:Choisissez la grande ville près de chez vous. 
 	 * Val.H4Span.enUS:Choose the big city near you. 
-	 * Val.OlLi1.frFR:Sur la page "INSTALLATION SUMMARY", plusieurs options sont à compléter. 
+	 * Val.OlLi1.frFR:Sur la page "RÉSUMÉ DE L'INSTALLATION", plusieurs options sont à compléter. 
 	 * Val.OlLi1.enUS:On the "INSTALLATION SUMMARY" page, there are several options to complete. 
-	 * Val.OlLi2.frFR:Commencez dans la section "LOCALIZATION", cliquez sur "DATE & TIME". 
+	 * Val.OlLi2.frFR:Commencez dans la section "LOCALISATION", cliquez sur "DATE ET HEURE". 
 	 * Val.OlLi2.enUS:Start in the "LOCALIZATION" section, click "DATE & TIME". 
-	 * Val.OlLi3.frFR:Cliquez sur la ville dans la carte qui est le plus proche de chez vous (pour moi c'est Region: Americas, City: Denver). 
+	 * Val.OlLi3.frFR:Cliquez sur la ville dans la carte qui est le plus proche de chez vous (pour moi c'est Région: Amériques, City: Denver). 
 	 * Val.OlLi3.enUS:Click on the city on the map that is the closest match to your timezone (for me it's Region: Americas, City: Denver). 
-	 * Val.OlLi4.frFR:Choisissez si vous préférez l'heure "24-hour" ou l'heure "AM/PM". 
+	 * Val.OlLi4.frFR:Choisissez si vous préférez l'heure "24-heures" ou l'heure "AM/PM". 
 	 * Val.OlLi4.enUS:Select whether you prefer "24-hour" time or "AM/PM" time. 
-	 * Val.OlLi5.frFR:Au supérieur gauche, cliquez sur [ Done ]. 
+	 * Val.OlLi5.frFR:Au supérieur gauche, cliquez sur [ Terminé ]. 
 	 * Val.OlLi5.enUS:In the top-left corner, click [ Done ]. 
 	 */ 
 	protected void _questionDateHeure(PageHtml o) {
@@ -314,7 +312,7 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.H4Span.frFR:Choisissez un nom unique sur votre réseau et branchez votre câble Ethernet. 
 	 * Val.H4Span.enUS:Pick a unique name on your network and plug in your Ethernet cable. 
 	 * Val.OlLi1.frFR:C'est une bonne étape préliminaire de configurer le réseau afin que les packages nécessaires puissent être trouvés avant de choisir d'autres options. 
-	 * Val.OlLi1.frFR:Dans la section SYSTEM, sélectionnez « NETWORK & HOST NAME ». 
+	 * Val.OlLi1.frFR:Dans la section SYSTÈME, sélectionnez « NOM D'HÔTE ET RÉSEAU ». 
 	 * Val.OlLi1.enUS:This is a good early step in the install process to configure the network so that necessary packages can be found before choosing other options. 
 	 * Val.OlLi1.enUS:In the SYSTEM section, select "NETWORK & HOST NAME". 
 	 * Val.OlLi2.frFR:Je m'attends à ce que votre machine soit connectée à un câble Ethernet plutôt qu'à un réseau sans fil. 
@@ -335,9 +333,9 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.OlLi4.enUS:If you give a fully qualified domain name like "tower1.computate.org", then networking (/etc/resolve.conf) will configure your domain name "computate.org" as a search domain. 
 	 * Val.OlLi4.enUS:I've found that to cause me problems in the past, making networking slower for me. 
 	 * Val.OlLi4.enUS:I setup fully qualified domain names in an IPA server or in the /etc/hosts file instead. 
-	 * Val.OlLi5.frFR:À côté du nom d'hôte, cliquez sur [ Apply ]. 
+	 * Val.OlLi5.frFR:À côté du nom d'hôte, cliquez sur [ Appliquer ]. 
 	 * Val.OlLi5.enUS:Next to the host name, click [ Apply ]. 
-	 * Val.OlLi6.frFR:Maintenant, cliquez sur [ Done ]. 
+	 * Val.OlLi6.frFR:Maintenant, cliquez sur [ Terminé ]. 
 	 * Val.OlLi6.enUS:Now click [ Done ]. 
 	 */ 
 	protected void _questionReseau(PageHtml o) {
@@ -352,7 +350,7 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.H4I:fas fa-browser
 	 * Val.H4Span.frFR:Assurez-vous de choisir un environnement de bureau. 
 	 * Val.H4Span.enUS:Make sure to pick a desktop environment. 
-	 * Val.OlLi1.frFR:Dans la section "SOFTWARE", cliquez sur "SOFTWARE SELECTION". 
+	 * Val.OlLi1.frFR:Dans la section "LOGICIEL", cliquez sur « SÉLECTION DE LOGICIELS ». 
 	 * Val.OlLi1.enUS:In the "SOFTWARE" section, click "SOFTWARE SELECTION". 
 	 * Val.OlLi2.frFR:Je recommanderais toujours un environnement de bureau sur vos ordinateurs. 
 	 * Val.OlLi2.frFR:Vos ordinateurs sont pour développement et votre site Web actuel est recommandé pour le cloud OpenShift sur le site openshift.com de Red Hat. 
@@ -362,13 +360,13 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.OlLi2.enUS:Your computers are for development, and your actual website I recommend running on an OpenShift cloud at Red Hat's openshift.com. 
 	 * Val.OlLi2.enUS:OpenShift is open source, and Red Hat is an open source company, the true leader in enterprise open source technology. 
 	 * Val.OlLi2.enUS:I'll take you through the whole journey from developing your site on your own computer, to deployment on the OpenShift cloud. 
-	 * Val.OlLi3.frFR:Dans la section "Base Environment", sélectionnez "GNOME Desktop". 
+	 * Val.OlLi3.frFR:Dans la section « Environment de base », sélectionnez « Bureau GNOME ». 
 	 * Val.OlLi3.frFR:Phonétiquement, GNOME se prononce nɔ̃m et non pas ʒi-nɔ̃m. 
 	 * Val.OlLi3.enUS:So in the "Base Environment" section, select "GNOME Desktop". 
 	 * Val.OlLi3.enUS:Phonetically, GNOME is pronounced nɔ̃m, not ʒi-nɔ̃m. 
-	 * Val.OlLi4.frFR:Vous pouvez également choisir "KDE PLasma Workspaces", mais je trouve que KDE a des problèmes et je préfère un simple bureau GNOME. 
+	 * Val.OlLi4.frFR:Vous pouvez également choisir « KDE PLasma Workspaces », mais je trouve que KDE a des problèmes et je préfère un simple bureau GNOME. 
 	 * Val.OlLi4.enUS:You could also choose "KDE PLasma Workspaces", but I find KDE to be buggy, and I prefer a simple GNOME Desktop. 
-	 * Val.OlLi5.frFR:Au supérieur gauche, cliquez sur [ Done ].
+	 * Val.OlLi5.frFR:Au supérieur gauche, cliquez sur [ Terminé ].
 	 * Val.OlLi5.enUS:In the top-left corner, click [ Done ]. 
 	 */ 
 	protected void _questionSelectionLogiciel(PageHtml o) {
@@ -384,16 +382,16 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.H4Span.frFR:Configurez votre propre partitionnement. 
 	 * Val.H4Span.enUS:Configure your own partitioning. 
 	 * Val.Ol1Li1.frFR:C'est temps de configurer le disque principal pour le système d'exploitation. 
-	 * Val.Ol1Li1.frFR:Dans la section "SYSTEM", cliquez sur "INSTALLATION DESTINATION". 
+	 * Val.Ol1Li1.frFR:Dans la section "SYSTÈME", cliquez sur « DESTINATION DE L'INSTALLATION ». 
 	 * Val.Ol1Li1.enUS:Now it's time to configure the primary disk for the operating system. 
 	 * Val.Ol1Li1.enUS:In the "SYSTEM" section, click "INSTALLATION DESTINATION". 
 	 * Val.Ol1Li2.frFR:Si votre disque principal n'a pas d'icône en forme de coche en noir et blanc, vous devrez sélectionner le disque principal correct. 
 	 * Val.Ol1Li2.enUS:If your primary disk does not have a black and white checkmark icon, then you'll want to select the correct primary disk. 
-	 * Val.Ol1Li3.frFR:Sélectionnez "I will configure partitioning.". 
-	 * Val.Ol1Li3.frFR:Vous pouvez également sélectionner d'autres options telles que "Encrypt my data", mais ce n'est pas nécessaire. 
+	 * Val.Ol1Li3.frFR:Sélectionnez « Je vais configurer le partitionnement. ». 
+	 * Val.Ol1Li3.frFR:Vous pouvez également sélectionner d'autres options telles que "Chiffrer mes données.", mais ce n'est pas nécessaire. 
 	 * Val.Ol1Li3.enUS:Select "I will configure partitioning.". 
 	 * Val.Ol1Li3.enUS:You can also select other options like "Encrypt my data", but it's not necessary. 
-	 * Val.Ol1Li4.frFR:Cliquez sur [ Done ] pour configurer vous-même le partitionnement. 
+	 * Val.Ol1Li4.frFR:Cliquez sur [ Terminé ] pour configurer vous-même le partitionnement. 
 	 * Val.Ol1Li4.enUS:Click [ Done ] to configure partitioning yourself. 
 	 * Val.Div2H5.frFR:Instructions pour un système d'exploitation existant sur votre disque. 
 	 * Val.Div2H5.enUS:Instructions for an existing operating system on your disk. 
@@ -407,7 +405,7 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol2Li4.enUS:Click [ Delete It ]. 
 	 * Val.Div3H5.frFR:La meilleure façon de configurer votre disque pour la plupart des situations. 
 	 * Val.Div3H5.enUS:The best way to setup your disk for most situations. 
-	 * Val.Ol3Li01.frFR:Le plus simple est de cliquer sur "Click here to create them automatically.".
+	 * Val.Ol3Li01.frFR:Le plus simple est de cliquer sur « Cliquez ici pour les créer automatiquement. ».
 	 * Val.Ol3Li01.frFR:Si vous êtes un expert en disques, vous pouvez ignorer cette section et le faire à votre façon. 
 	 * Val.Ol3Li01.frFR:Mais je vous recommanderai le meilleur façon de configurer votre disque pour la plupart des situations. 
 	 * Val.Ol3Li01.enUS:The easiest way is to get started is to click "Click here to create them automatically.". 
@@ -422,14 +420,14 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol3Li03.frFR:Cliquez sur le bouton [ - ]. 
 	 * Val.Ol3Li03.enUS:Click the [ - ] button. 
 	 * Val.Ol3Li04.frFR:Maintenant, la taille de la partition /boot dépend de vous. 
-	 * Val.Ol3Li04.frFR:Cependant, je recommande au moins 2 Gio pour votre partition /boot. 
+	 * Val.Ol3Li04.frFR:Cependant, je recommande au moins 2 GiO pour votre partition /boot. 
 	 * Val.Ol3Li04.frFR:Ainsi, lorsque vous recevez des packages mis à jour et des correctifs de sécurité, votre partition /boot ne manquera pas d'espace, du moins pas avant de nombreuses années, je crois. 
 	 * Val.Ol3Li04.frFR:Alors cliquez sur la partition /boot. 
 	 * Val.Ol3Li04.enUS:Now the size of the /boot partition is up to you. 
 	 * Val.Ol3Li04.enUS:However, I recommend at least 2 GiB for your /boot partition. 
 	 * Val.Ol3Li04.enUS:This way, when you receive updated packages and security fixes, your /boot partition won't run out of space, at least not for many years I think. 
 	 * Val.Ol3Li04.enUS:So click on the /boot partition. 
-	 * Val.Ol3Li05.frFR:Changez la partition /boot "Desired Capacity" en "2 GiB". 
+	 * Val.Ol3Li05.frFR:Changez la partition /boot « Desired Capacity » en « 2 GiO ». 
 	 * Val.Ol3Li05.enUS:Change the /boot partition "Desired Capacity" to "2 GiB". 
 	 * Val.Ol3Li06.frFR:Maintenant, décidez combien d’espace de swap à réserver pour la mémoire. 
 	 * Val.Ol3Li06.frFR:L'espace de swap est lié à la quantité de RAM installée sur votre système. 
@@ -445,7 +443,7 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol3Li06.enUS:This is because you won't be able to change it later without reinstalling the operating system either. 
 	 * Val.Ol3Li06.enUS:It's not the end of the world to reinstall your operating system, I seem to do it fairly often. 
 	 * Val.Ol3Li06.enUS:So to set the swap space, click on the swap partition. 
-	 * Val.Ol3Li07.frFR:Si j'ai 32 Go de RAM dans mon système, je définirai la quantité d'espace de swap de manière à doubler cette quantité dans "Desired Capacity": "64 GiB". 
+	 * Val.Ol3Li07.frFR:Si j'ai 32 Go de RAM dans mon système, je définirai la quantité d'espace de swap de manière à doubler cette quantité dans "Desired Capacity": "64 GiO". 
 	 * Val.Ol3Li07.enUS:If I have 32 GiB of RAM in my system, I will set the amount of swap space to double that amount in "Desired Capacity": "64 GiB". 
 	 * Val.Ol3Li08.frFR:Maintenant, maximisez la quantité d’espace disponible sur la partition /. 
 	 * Val.Ol3Li08.enUS:Now let's max out the amount of space on the / partition. 
@@ -454,7 +452,7 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol3Li10.frFR:Effacez la valeur de la "Desired Capacity" de la partition /.
 	 * Val.Ol3Li10.enUS:Clear any value from the "Desired Capacity" of the / partition. 
 	 * Val.Ol3Li11.frFR:Cliquez maintenant sur la partition /boot pour voir toutes les valeurs des trois partitions mises à jour. 
-	 * Val.Ol3Li11.frFR:Les montants peuvent avoir été convertis en MiB au lieu de GiB, mais vous devriez voir les bonnes valeurs que vous attendez, avec la partition / maximum. 
+	 * Val.Ol3Li11.frFR:Les montants peuvent avoir été convertis en MiB au lieu de GiO, mais vous devriez voir les bonnes valeurs que vous attendez, avec la partition / maximum. 
 	 * Val.Ol3Li11.enUS:Now click on the /boot partition to see all of the values of all three partitions updated. 
 	 * Val.Ol3Li11.enUS:The amounts may have been converted to MiB instead of GiB, but you should see the right values you are expecting, with the / partition maxed out. 
 	 * Val.Div4H5.frFR:Si vous êtes accidentellement démarré en mode "UEFI". 
@@ -467,8 +465,10 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol4Li1.enUS:The installer will assume that you need a /boot/efi partition, which you don't. 
 	 * Val.Ol4Li1.enUS:Proceeding with the /boot/efi paritition and removing the install media will make your system unstable and crash. 
 	 * Val.Ol4Li1.enUS:So avoid installing the operating system in UEFI mode. 
-	 * Val.Ol4Li2.frFR:Cliquez sur [ Done ]. 
+	 * Val.Ol4Li2.frFR:Cliquez sur [ Terminé ]. 
 	 * Val.Ol4Li2.enUS:Click [ Done ]. 
+	 * Val.Ol4Li2.frFR:Cliquez sur [ Accepter les modifications ]. 
+	 * Val.Ol4Li2.enUS:Click [ Accept the changes ]. 
 	 */ 
 	protected void _questionInstallationDestination(PageHtml o) {
 	}
@@ -477,14 +477,14 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:fas fa-exclamation-triangle
-	 * Val.H3Span.frFR:Suis-je prêt à appuyer sur le bouton [ Begin Installation ] ? 
+	 * Val.H3Span.frFR:Suis-je prêt à appuyer sur le bouton [ Démarrer l'installation ] ? 
 	 * Val.H3Span.enUS:Am I ready to push the [ Begin Installation ] button? 
 	 * Val.H4I:fab fa-centos
 	 * Val.H4Span.frFR:Bienvenu au monde merveilleux de CentOS 7. 
 	 * Val.H4Span.enUS:Welcome the wonderful world of CentOS 7. 
 	 * Val.OlLi1.frFR:Vous êtes sur le point d'installer le monde merveilleux de CentOS 7. 
 	 * Val.OlLi1.frFR:À l'aise, vous allez l'adorer, tout comme des milliers d'autres dans le monde. 
-	 * Val.OlLi1.frFR:Allez-y, appuyez sur le bouton [ Begin Installation ]. 
+	 * Val.OlLi1.frFR:Allez-y, appuyez sur le bouton [ Démarrer l'installation ]. 
 	 * Val.OlLi1.enUS:You are about to install the wonderful world of CentOS 7. 
 	 * Val.OlLi1.enUS:Relax, you're going to love it, just like thousands of others around the world. 
 	 * Val.OlLi1.enUS:So go ahead and push the [ Begin Installation ] button. 
@@ -503,20 +503,28 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.H4Span.enUS:Choose a string root password. 
 	 * Val.OlLi1.frFR:C'est important de choisir un mot de passe root fort. 
 	 * Val.OlLi1.frFR:Ce sera un compte administratif sur lequel vous pourrez vous connecter pour tout faire. 
-	 * Val.OlLi1.frFR:Je ne recommande pas d'utiliser ce compte root. 
-	 * Val.OlLi1.frFR:Cliquez sur "ROOT PASSWORD". 
+	 * Val.OlLi1.frFR:Cliquez sur « MOT DE PASSE AMINISTRATEUR ». 
 	 * Val.OlLi1.enUS:It's important to choose a strong root password. 
 	 * Val.OlLi1.enUS:This will be an administrative account that can be logged into to do anything at all. 
-	 * Val.OlLi1.enUS:I can't recommend any time you should be using this root account. 
 	 * Val.OlLi1.enUS:Click on "ROOT PASSWORD". 
 	 * Val.OlLi2.frFR:Donc, créez ou générez un mot de passe root fort et tapez-le deux fois dans les champs. 
 	 * Val.OlLi2.frFR:Ecrivez-le soigneusement pour plus tard ou stockez-le dans un coffre-fort crypté si possible. 
 	 * Val.OlLi2.frFR:Je vais vous en dire plus sur les coffres-forts de mots de passe dans une autre leçon. 
-	 * Val.OlLi2.frFR:Cliquez sur [ Done ]. 
+	 * Val.OlLi2.frFR:Cliquez sur [ Terminé ]. 
 	 * Val.OlLi2.enUS:So come up with, or generate a strong root password and type it twice in the boxes. 
 	 * Val.OlLi2.enUS:Write it down carefully for later, or store it in an encrypted password safe if possible. 
 	 * Val.OlLi2.enUS:I'll tell you more about password safes in another lesson. 
 	 * Val.OlLi2.enUS:Click [ Done ]. 
+	 * Val.OlLi3.frFR:Cliquez sur « CRÉATION DE L'UTILISATEUR ». 
+	 * Val.OlLi3.frFR:Écrire le nom, prénom et nom d'utilisateur que vous souhaitez. 
+	 * Val.OlLi3.frFR:Cocher « Faire de cet utilisateur un administrateur ». 
+	 * Val.OlLi3.frFR:Choisisez un mot de passe d'utilisateur fort. 
+	 * Val.OlLi3.frFR:Cliquez sur [ Terminé ]. 
+	 * Val.OlLi3.enUS:Click on "USER CREATION". 
+	 * Val.OlLi3.enUS:Write the first name, last name and username that you want. 
+	 * Val.OlLi3.enUS:Check "Make this user an administrator". 
+	 * Val.OlLi3.enUS:It's important to choose a strong user password. 
+	 * Val.OlLi3.enUS:Click [ Done ]. 
 	 */ 
 	protected void _questionMotsDePasse(PageHtml o) {
 	}
@@ -540,7 +548,7 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.OlLi03.enUS:Click on "License Agreement". 
 	 * Val.OlLi04.frFR:Passez en revue le contrat de licence, puis cochez la case « I accept the license agreement ». 
 	 * Val.OlLi04.enUS:Review the license agreement and then check "I accept the license agreement". 
-	 * Val.OlLi05.frFR:Cliquez sur [ Done ]. 
+	 * Val.OlLi05.frFR:Cliquez sur [ Terminé ]. 
 	 * Val.OlLi05.enUS:Click [ Done ]. 
 	 * Val.OlLi06.frFR:Cliquez maintenant sur [ FINISH CONFIGURATION ] dans le coin inférieur droit. 
 	 * Val.OlLi06.enUS:Now click [ FINISH CONFIGURATION ] in the bottom-right corner. 
