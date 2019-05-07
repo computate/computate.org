@@ -1,10 +1,10 @@
-package org.computate.site.enUS.cours.c001.l005;
+package org.computate.site.frFR.cours.c001.l005;
 
-import org.computate.site.enUS.config.ConfigSite;
-import org.computate.site.enUS.requete.RequeteSiteEnUS;
-import org.computate.site.enUS.contexte.SiteContexteEnUS;
-import org.computate.site.enUS.utilisateur.UtilisateurSite;
-import org.computate.site.enUS.recherche.ResultatRecherche;
+import org.computate.site.frFR.config.ConfigSite;
+import org.computate.site.frFR.requete.RequeteSiteFrFR;
+import org.computate.site.frFR.contexte.SiteContexteFrFR;
+import org.computate.site.frFR.utilisateur.UtilisateurSite;
+import org.computate.site.frFR.recherche.ResultatRecherche;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
@@ -65,47 +65,46 @@ import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import java.util.Optional;
 import java.util.stream.Stream;
 import java.net.URLDecoder;
-import org.computate.site.enUS.recherche.ListeRecherche;
-import org.computate.site.enUS.ecrivain.ToutEcrivain;
-import org.computate.site.frFR.cours.c001.l005.C001L005InstallerEclipseFrFRPage;
-import org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipseEnUSPage;
+import org.computate.site.frFR.recherche.ListeRecherche;
+import org.computate.site.frFR.ecrivain.ToutEcrivain;
+import org.computate.site.frFR.cours.c001.l005.C001L005InstallerMavenFrFRPage;
 
 
 /**
  * Traduire: false
  **/
-public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005InstallerEclipseEnUSGenApiService {
+public class C001L005InstallerMavenFrFRGenApiServiceImpl implements C001L005InstallerMavenFrFRGenApiService {
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L005InstallerEclipseEnUSGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L005InstallerMavenFrFRGenApiServiceImpl.class);
 
-	protected static final String SERVICE_ADDRESS = "C001L005InstallerEclipseEnUSApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "C001L005InstallerMavenFrFRApiServiceImpl";
 
-	protected SiteContexteEnUS siteContexte;
+	protected SiteContexteFrFR siteContexte;
 
-	public C001L005InstallerEclipseEnUSGenApiServiceImpl(SiteContexteEnUS siteContexte) {
+	public C001L005InstallerMavenFrFRGenApiServiceImpl(SiteContexteFrFR siteContexte) {
 		this.siteContexte = siteContexte;
-		C001L005InstallerEclipseEnUSGenApiService service = C001L005InstallerEclipseEnUSGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
+		C001L005InstallerMavenFrFRGenApiService service = C001L005InstallerMavenFrFRGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
-	// RechercheEnUSPage //
+	// RechercheFrFRPage //
 
 	@Override
-	public void rechercheenuspageC001L005InstallerEclipseId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		rechercheenuspageC001L005InstallerEclipse(operationRequete, gestionnaireEvenements);
+	public void recherchefrfrpageC001L005InstallerMavenId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		recherchefrfrpageC001L005InstallerMaven(operationRequete, gestionnaireEvenements);
 	}
 
 	@Override
-	public void rechercheenuspageC001L005InstallerEclipse(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void recherchefrfrpageC001L005InstallerMaven(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
-			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001L005InstallerEclipse(siteContexte, operationRequete);
-			sqlC001L005InstallerEclipse(requeteSite, a -> {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourC001L005InstallerMaven(siteContexte, operationRequete);
+			sqlC001L005InstallerMaven(requeteSite, a -> {
 				if(a.succeeded()) {
-					utilisateurC001L005InstallerEclipse(requeteSite, b -> {
+					utilisateurC001L005InstallerMaven(requeteSite, b -> {
 						if(b.succeeded()) {
-							rechercheC001L005InstallerEclipse(requeteSite, false, true, "/enUS/course/001/004-how-to-install-eclipse", c -> {
+							rechercheC001L005InstallerMaven(requeteSite, false, true, "/frFR/cours/001/004-comment-installer-la-derniere-version-de-maven", c -> {
 								if(c.succeeded()) {
-									ListeRecherche<C001L005InstallerEclipse> listeC001L005InstallerEclipse = c.result();
-									reponse200RechercheEnUSPageC001L005InstallerEclipse(listeC001L005InstallerEclipse, d -> {
+									ListeRecherche<C001L005InstallerMaven> listeC001L005InstallerMaven = c.result();
+									reponse200RechercheFrFRPageC001L005InstallerMaven(listeC001L005InstallerMaven, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
 											if(connexionSql == null) {
@@ -117,48 +116,48 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 															if(f.succeeded()) {
 																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
 															} else {
-																erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, f);
+																erreurC001L005InstallerMaven(requeteSite, gestionnaireEvenements, f);
 															}
 														});
 													} else {
-														erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, e);
+														erreurC001L005InstallerMaven(requeteSite, gestionnaireEvenements, e);
 													}
 												});
 											}
 										} else {
-											erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, d);
+											erreurC001L005InstallerMaven(requeteSite, gestionnaireEvenements, d);
 										}
 									});
 								} else {
-									erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, c);
+									erreurC001L005InstallerMaven(requeteSite, gestionnaireEvenements, c);
 								}
 							});
 						} else {
-							erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, b);
+							erreurC001L005InstallerMaven(requeteSite, gestionnaireEvenements, b);
 						}
 					});
 				} else {
-					erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, a);
+					erreurC001L005InstallerMaven(requeteSite, gestionnaireEvenements, a);
 				}
 			});
 		} catch(Exception e) {
-			erreurC001L005InstallerEclipse(null, gestionnaireEvenements, Future.failedFuture(e));
+			erreurC001L005InstallerMaven(null, gestionnaireEvenements, Future.failedFuture(e));
 		}
 	}
 
-	public void reponse200RechercheEnUSPageC001L005InstallerEclipse(ListeRecherche<C001L005InstallerEclipse> listeC001L005InstallerEclipse, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void reponse200RechercheFrFRPageC001L005InstallerMaven(ListeRecherche<C001L005InstallerMaven> listeC001L005InstallerMaven, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			Buffer buffer = Buffer.buffer();
-			RequeteSiteEnUS requeteSite = listeC001L005InstallerEclipse.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeC001L005InstallerEclipse.getRequeteSite_(), buffer);
+			RequeteSiteFrFR requeteSite = listeC001L005InstallerMaven.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001L005InstallerMaven.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
-			C001L005InstallerEclipseEnUSPage page = new C001L005InstallerEclipseEnUSPage();
+			C001L005InstallerMavenFrFRPage page = new C001L005InstallerMavenFrFRPage();
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/004-how-to-install-eclipse");
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours/001/004-comment-installer-la-derniere-version-de-maven");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
-			page.initLoinC001L005InstallerEclipseEnUSPage(requeteSite);
+			page.initLoinC001L005InstallerMavenFrFRPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
 		} catch(Exception e) {
@@ -166,7 +165,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public String varIndexeC001L005InstallerEclipse(String entiteVar) {
+	public String varIndexeC001L005InstallerMaven(String entiteVar) {
 		switch(entiteVar) {
 			case "pk":
 				return "pk_indexed_long";
@@ -229,7 +228,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public String varRechercheC001L005InstallerEclipse(String entiteVar) {
+	public String varRechercheC001L005InstallerMaven(String entiteVar) {
 		switch(entiteVar) {
 			case "pageRecherche_enUS":
 				return "pageRecherche_enUS_text_enUS";
@@ -240,7 +239,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public String varSuggereC001L005InstallerEclipse(String entiteVar) {
+	public String varSuggereC001L005InstallerMaven(String entiteVar) {
 		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
@@ -249,7 +248,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 
 	// Partagé //
 
-	public void erreurC001L005InstallerEclipse(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
+	public void erreurC001L005InstallerMaven(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
 		Throwable e = resultatAsync.cause();
 		ExceptionUtils.printRootCauseStackTrace(e);
 		OperationResponse reponseOperation = new OperationResponse(400, "BAD REQUEST", 
@@ -286,7 +285,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void sqlC001L005InstallerEclipse(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void sqlC001L005InstallerMaven(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
@@ -314,24 +313,24 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L005InstallerEclipse(SiteContexteEnUS siteContexte, OperationRequest operationRequete) {
-		return genererRequeteSiteEnUSPourC001L005InstallerEclipse(siteContexte, operationRequete, null);
+	public RequeteSiteFrFR genererRequeteSiteFrFRPourC001L005InstallerMaven(SiteContexteFrFR siteContexte, OperationRequest operationRequete) {
+		return genererRequeteSiteFrFRPourC001L005InstallerMaven(siteContexte, operationRequete, null);
 	}
 
-	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L005InstallerEclipse(SiteContexteEnUS siteContexte, OperationRequest operationRequete, JsonObject body) {
+	public RequeteSiteFrFR genererRequeteSiteFrFRPourC001L005InstallerMaven(SiteContexteFrFR siteContexte, OperationRequest operationRequete, JsonObject body) {
 		Vertx vertx = siteContexte.getVertx();
-		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
+		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
 		requeteSite.setObjetJson(body);
 		requeteSite.setVertx(vertx);
 		requeteSite.setSiteContexte_(siteContexte);
 		requeteSite.setConfigSite_(siteContexte.getConfigSite());
 		requeteSite.setOperationRequete(operationRequete);
-		requeteSite.initLoinRequeteSiteEnUS(requeteSite);
+		requeteSite.initLoinRequeteSiteFrFR(requeteSite);
 
 		return requeteSite;
 	}
 
-	public void utilisateurC001L005InstallerEclipse(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void utilisateurC001L005InstallerMaven(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
 			String utilisateurId = requeteSite.getUtilisateurId();
@@ -339,7 +338,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 				gestionnaireEvenements.handle(Future.succeededFuture());
 			} else {
 				connexionSql.queryWithParams(
-						SiteContexteEnUS.SQL_selectC
+						SiteContexteFrFR.SQL_selectC
 						, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 						, selectCAsync
 				-> {
@@ -347,7 +346,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 						JsonArray utilisateurValeurs = selectCAsync.result().getResults().stream().findFirst().orElse(null);
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
-									SiteContexteEnUS.SQL_creer
+									SiteContexteFrFR.SQL_creer
 									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
 									, creerAsync
 							-> {
@@ -357,7 +356,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 								utilisateurSite.setPk(pkUtilisateur);
 
 								connexionSql.queryWithParams(
-										SiteContexteEnUS.SQL_definir
+										SiteContexteFrFR.SQL_definir
 										, new JsonArray(Arrays.asList(pkUtilisateur, pkUtilisateur, pkUtilisateur))
 										, definirAsync
 								-> {
@@ -390,7 +389,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 							utilisateurSite.setPk(pkUtilisateur);
 
 							connexionSql.queryWithParams(
-									SiteContexteEnUS.SQL_definir
+									SiteContexteFrFR.SQL_definir
 									, new JsonArray(Arrays.asList(pkUtilisateur, pkUtilisateur, pkUtilisateur))
 									, definirAsync
 							-> {
@@ -422,21 +421,21 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void rechercheC001L005InstallerEclipse(RequeteSiteEnUS requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L005InstallerEclipse>>> gestionnaireEvenements) {
+	public void rechercheC001L005InstallerMaven(RequeteSiteFrFR requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L005InstallerMaven>>> gestionnaireEvenements) {
 		try {
 			OperationRequest operationRequete = requeteSite.getOperationRequete();
 			String entiteListeStr = requeteSite.getOperationRequete().getParams().getJsonObject("query").getString("fl");
 			String[] entiteListe = entiteListeStr == null ? null : entiteListeStr.split(",\\s*");
-			ListeRecherche<C001L005InstallerEclipse> listeRecherche = new ListeRecherche<C001L005InstallerEclipse>();
+			ListeRecherche<C001L005InstallerMaven> listeRecherche = new ListeRecherche<C001L005InstallerMaven>();
 			listeRecherche.setPeupler(peupler);
 			listeRecherche.setStocker(stocker);
 			listeRecherche.setQuery("*:*");
-			listeRecherche.setC(C001L005InstallerEclipse.class);
+			listeRecherche.setC(C001L005InstallerMaven.class);
 			if(entiteListe != null)
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipse"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.l005.C001L005InstallerMaven"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
@@ -466,7 +465,7 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 						switch(paramNom) {
 							case "q":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L005InstallerEclipse(entiteVar);
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L005InstallerMaven(entiteVar);
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
 								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
 								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
@@ -480,18 +479,18 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 							case "fq":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
-								varIndexe = varIndexeC001L005InstallerEclipse(entiteVar);
+								varIndexe = varIndexeC001L005InstallerMaven(entiteVar);
 								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
 								break;
 							case "sort":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
 								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-								varIndexe = varIndexeC001L005InstallerEclipse(entiteVar);
+								varIndexe = varIndexeC001L005InstallerMaven(entiteVar);
 								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
 								break;
 							case "fl":
 								entiteVar = StringUtils.trim((String)paramObjet);
-								varIndexe = varIndexeC001L005InstallerEclipse(entiteVar);
+								varIndexe = varIndexeC001L005InstallerMaven(entiteVar);
 								listeRecherche.addField(varIndexe);
 								break;
 							case "start":
@@ -515,13 +514,13 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void definirC001L005InstallerEclipse(C001L005InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void definirC001L005InstallerMaven(C001L005InstallerMaven o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
-			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
+			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
 			Long pk = o.getPk();
 			connexionSql.queryWithParams(
-					SiteContexteEnUS.SQL_definir
+					SiteContexteFrFR.SQL_definir
 					, new JsonArray(Arrays.asList(pk, pk, pk))
 					, definirAsync
 			-> {
@@ -539,13 +538,13 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void attribuerC001L005InstallerEclipse(C001L005InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void attribuerC001L005InstallerMaven(C001L005InstallerMaven o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
-			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
+			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
 			Long pk = o.getPk();
 			connexionSql.queryWithParams(
-					SiteContexteEnUS.SQL_attribuer
+					SiteContexteFrFR.SQL_attribuer
 					, new JsonArray(Arrays.asList(pk, pk))
 					, attribuerAsync
 			-> {
@@ -565,8 +564,8 @@ public class C001L005InstallerEclipseEnUSGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void indexerC001L005InstallerEclipse(C001L005InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		RequeteSiteEnUS requeteSite = o.getRequeteSite_();
+	public void indexerC001L005InstallerMaven(C001L005InstallerMaven o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 		try {
 			o.initLoinPourClasse(requeteSite);
 			o.indexerPourClasse();

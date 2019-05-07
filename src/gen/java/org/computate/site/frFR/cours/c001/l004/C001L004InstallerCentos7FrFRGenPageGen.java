@@ -101,7 +101,7 @@ public abstract class C001L004InstallerCentos7FrFRGenPageGen<DEV> extends C001Le
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -114,7 +114,7 @@ public abstract class C001L004InstallerCentos7FrFRGenPageGen<DEV> extends C001Le
 		}
 		return o;
 	}
-	public Object obtenirC001L004InstallerCentos7FrFRGenPage(String var) throws Exception {
+	public Object obtenirC001L004InstallerCentos7FrFRGenPage(String var) {
 		C001L004InstallerCentos7FrFRGenPage oC001L004InstallerCentos7FrFRGenPage = (C001L004InstallerCentos7FrFRGenPage)this;
 		switch(var) {
 			case "c001L004InstallerCentos7":

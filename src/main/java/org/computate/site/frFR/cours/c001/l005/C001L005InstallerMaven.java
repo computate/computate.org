@@ -10,20 +10,20 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * Api: true
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
- * ApiUriRechercheFrFRPage: /frFR/cours/001/004-comment-installer-eclipse
- * ApiUriRechercheEnUSPage: /enUS/course/001/004-how-to-install-eclipse
- * PageRechercheFrFRPage: C001L005InstallerEclipseFrFRPage
- * PageRechercheEnUSPage: C001L005InstallerEclipseEnUSPage
+ * ApiUriRechercheFrFRPage: /frFR/cours/001/004-comment-installer-la-derniere-version-de-maven
+ * ApiUriRechercheEnUSPage: /enUS/course/001/004-how-to-install-the-latest-version-of-maven
+ * PageRechercheFrFRPage: C001L005InstallerMavenFrFRPage
+ * PageRechercheEnUSPage: C001L005InstallerMavenEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
  * UnNomMinuscule.frFR: le leçon
  * UnNomMinuscule.enUS: a lesson
  * 
- * H1.frFR: Comment installer des outils de développement pour développer mon site web ?
- * H1.enUS: How do I install development tools to develop my website? 
+ * H1.frFR: Comment installer la dernière version de maven ?
+ * H1.enUS: How do I install the latest version of maven. 
  * 
- * H2.frFR: Comment installer l'IDE Eclipse de manière open source. 
- * H2.enUS: How to install Eclipse IDE the open source way. 
+ * H2.frFR: Installer maven à partir du code source. 
+ * H2.enUS: Install maven from the source code. 
  * 
  * PageSimple: true
  * Couleur: green
@@ -36,7 +36,7 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * ImageLargeur.enUS: 800
  * ImageHauteur.enUS: 1479
 */    
-public class C001L005InstallerEclipse extends C001L005InstallerEclipseGen<C001Lecon> {
+public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon> {
 
 	public static void main(String[] args) {  
 		indexer(); 
@@ -48,53 +48,53 @@ public class C001L005InstallerEclipse extends C001L005InstallerEclipseGen<C001Le
 	}
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {
-		l.add(C001L005InstallerEclipse.class.getCanonicalName());
-		l.add(org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipse.class.getCanonicalName());
+		l.add(C001L005InstallerMaven.class.getCanonicalName());
+		l.add(org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven.class.getCanonicalName());
 		super._classeNomsCanoniques(l);
 	} 
 
 	@Override protected void _articleH1_frFR(Couverture<String> c) {
-		c.o(C001L005InstallerEclipse_H1);
+		c.o(C001L005InstallerMaven_H1);
 	}
 
 	@Override protected void _articleH1_enUS(Couverture<String> c) {
-		c.o(org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipse.C001L005InstallerEclipse_H1);
+		c.o(org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven.C001L005InstallerMaven_H1);
 	}
 
 	@Override protected void _articleH2_frFR(Couverture<String> c) {
-		c.o(C001L005InstallerEclipse_H2);
+		c.o(C001L005InstallerMaven_H2);
 	}
 
 	@Override protected void _articleH2_enUS(Couverture<String> c) {
-		c.o(org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipse.C001L005InstallerEclipse_H2);
+		c.o(org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven.C001L005InstallerMaven_H2);
 	}
 
 	@Override protected void _pageUri_enUS(Couverture<String> c) {
-		c.o(C001L005InstallerEclipseEnUSPage_Uri);
+		c.o(C001L005InstallerMavenEnUSPage_Uri);
 	}
 
 	@Override protected void _pageUri_frFR(Couverture<String> c) {
-		c.o(C001L005InstallerEclipseFrFRPage_Uri);
+		c.o(C001L005InstallerMavenFrFRPage_Uri);
 	}
 
 	@Override protected void _pageImageUri_enUS(Couverture<String> c) {
-		c.o(C001L005InstallerEclipseEnUSPage_ImageUri);
+		c.o(C001L005InstallerMavenEnUSPage_ImageUri);
 	}
 
 	@Override protected void _pageImageUri_frFR(Couverture<String> c) {
-		c.o(C001L005InstallerEclipseFrFRPage_ImageUri);
+		c.o(C001L005InstallerMavenFrFRPage_ImageUri);
 	}
 
 	@Override protected void _pageRecherche_enUS(List<String> l) {
-		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipse.C001L005InstallerEclipse_H1);
-		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipse.C001L005InstallerEclipse_H2);
-		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l005.C001L005InstallerEclipse.C001L005InstallerEclipseVals);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven.C001L005InstallerMaven_H1);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven.C001L005InstallerMaven_H2);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven.C001L005InstallerMavenVals);
 	}
 
 	@Override protected void _pageRecherche_frFR(List<String> l) {
-		addPageRecherche_frFR(C001L005InstallerEclipse_H1);
-		addPageRecherche_frFR(C001L005InstallerEclipse_H2);
-		addPageRecherche_frFR(C001L005InstallerEclipseVals);
+		addPageRecherche_frFR(C001L005InstallerMaven_H1);
+		addPageRecherche_frFR(C001L005InstallerMaven_H2);
+		addPageRecherche_frFR(C001L005InstallerMavenVals);
 	}
 
 	public void htmlBodyCourt() {
@@ -106,9 +106,13 @@ public class C001L005InstallerEclipse extends C001L005InstallerEclipseGen<C001Le
 	 * {@inheritDoc}
 	 * 
 	 * Val.P.frFR:Bonjour, je m'appelle Christophe Tate. Je suis un consultant pour Red Hat et j'adore les logiciels open source. 
-	 * Val.P.frFR:Je vous aiderai à commencer développer votre site web de manière open source. 
+	 * Val.P.frFR:La plupart des entreprises utilisent aujourd'hui Java pour créer leurs applications et microservices, y compris les gouvernements, les banques, la comptabilité et les entreprises. 
+	 * Val.P.frFR:La création d’applications Java commence par l’installation de Maven. 
+	 * Val.P.frFR:Je vous aiderai à installer la version la plus récente de Maven pour développer votre site Web de manière open source. 
 	 * Val.P.enUS:Hello, my name is Christopher Tate. I am a Red Hat consultant and I love open source software. 
-	 * Val.P.enUS:I will help you start developing your website the open source way. 
+	 * Val.P.enUS:Most enterprises use Java today to build their applications and microservices, including governments, banks, accounting and businesses. 
+	 * Val.P.enUS:Building java applications begins with installing Maven. 
+	 * Val.P.enUS:I will help you install the most recent version of Maven to develop your website the open source way. 
 	 */    
 	protected void _moi(PageHtml o) {
 	}
@@ -116,36 +120,108 @@ public class C001L005InstallerEclipse extends C001L005InstallerEclipseGen<C001Le
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I:far fa-person-carry
-	 * Val.H3Span.frFR:Comment télecharger CentOS 7 ? 
-	 * Val.H3Span.enUS:How do I download CentOS 7?
-	 * Val.H4I:far fa-cloud-download-alt
-	 * Val.H4Span.frFR:Télécharger un fichier ISO. 
-	 * Val.H4Span.enUS:Download an ISO file. 
-	 * Val.PreSpan1:wget
-	 * Val.PreSpan2: http://mirrors.xmission.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
-	 * Val.PreSpan3: -O
-	 * Val.PreSpan4: ~/Downloads/CentOS-7-x86_64-DVD-1810.iso
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Comment installer les dépendences pour Maven ? 
+	 * Val.H3Span.enUS:How do I install the dependencies for Maven? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
+	 * Val.H4Span.enUS:Build the dependencies with yum. 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: yum-builddep
+	 * Val.PreSpan3: -y
+	 * Val.PreSpan4: maven
 	 * 
-	 * Val.OlLi1.frFR:wget : La commande pour télécharger des fichiers. 
-	 * Val.OlLi1.enUS:wget: The command to download files. 
-	 * Val.OlLi2.frFR:L'URL vers le téléchargement ISO de CentOS 7. 
-	 * Val.OlLi2.enUS:The URL to the CentOS 7 ISO file to download. 
-	 * Val.OlLi3.frFR:-O : Pour spécifier le chemin de sortie pour le téléchargement. 
-	 * Val.OlLi3.enUS:-O: For specifying the output path for the downloaded file. 
-	 * Val.OlLi4.frFR:Le chemin de sortie pour le téléchargement ISO CentOS 7. 
-	 * Val.OlLi4.enUS:The output path for the downloaded CentOS 7 ISO file. 
-	 * Val.PSpan1.frFR:Vous pouvez télécharger le fichier ISO CentOS 7 le plus récent pour installer sur votre ordinateur ici 
-	 * Val.PSpan1.enUS:You can download the latest CentOS 7 ISO file to install on your computer here 
-	 * Val.PSpan2A:https://www.centos.org/download/
-	 * Val.PSpan3.frFR:. Cliquez sur le bouton [ DVD ISO ]. 
-	 * Val.PSpan3.frFR:Vous pouvez choisir parmi  l'un des miroirs, vous pourriez en trouver un près de chez vous. 
-	 * Val.PSpan3.frFR:Vous pouvez également télécharger le fichier en utilisant la commande wget dans le terminal comme ça. 
-	 * Val.PSpan3.enUS:. Click on the [ DVD ISO ] button. 
-	 * Val.PSpan3.enUS:You can choose from any of the mirrors, you might find one close to you. 
-	 * Val.PSpan3.enUS:You can also download the file using the wget command in the terminal like that. 
+	 * Val.Ol2Li1.frFR:sudo: La commande pour installer des dépots yum commence par la commande sudo. 
+	 * Val.Ol2Li1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
+	 * Val.Ol2Li1.frFR:L'installation des dépots yum nécessite toujours les privilèges root. 
+	 * Val.Ol2Li1.enUS:sudo: The command to install yum repositories begins with the command sudo. 
+	 * Val.Ol2Li1.enUS:The "sudo" command allows your current user to have root privileges for a few minutes after entering your password. 
+	 * Val.Ol2Li2.frFR:yum Signifie "Yellowdog Updater Modified", mais personne ne le connait comme yellowdog, juste yum. 
+	 * Val.Ol2Li2.frFR:yum-builddep installe les dépendances manquantes pour la construction d'un paquet RPM. 
+	 * Val.Ol2Li2.enUS:yum Stands for "Yellowdog Updater Modified", but nobody knows it as yellowdog, just yum. 
+	 * Val.Ol2Li2.enUS:yum-builddep installs missing dependencies for building an RPM package. 
+	 * Val.Ol2Li3.frFR:-y: Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
+	 * Val.Ol2Li3.enUS:-y: Suppress messages asking to confirm if you want to install the software. 
+	 * Val.Ol2Li4.frFR:maven: Le nom du paquet pour lequel vous vous souhaitez installer les dépendences. 
+	 * Val.Ol2Li4.enUS:maven: The package name you wish to install the dependencies for. 
 	 */  
-	protected void _questionTelechargerCentos7(PageHtml o) {
+	protected void _questionDependences(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Comment installer les dépendences pour Maven ? 
+	 * Val.H3Span.enUS:How do I install the dependencies for Maven? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
+	 * Val.H4Span.enUS:Build the dependencies with yum. 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: yum-builddep
+	 * Val.PreSpan3: -y
+	 * Val.PreSpan4: maven
+	 * 
+	 * Val.Ol2Li1:sudo
+	 * Val.Ol2Li2:yum
+	 * Val.Ol2Li3.frFR:install : Pour installer des nouveaux paquets yum. 
+	 * Val.Ol2Li3.enUS:install: For installing new yum packages. 
+	 * Val.Ol2Li4:-y
+	 * Val.Ol2Li5.frFR:pv: Le nom du paquet que vous souhaitez installer. 
+	 * Val.Ol2Li5.enUS:pv: The package name you wish to install. 
+	 */  
+	protected void _questionInstallerAncien(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Où est-ce que je place le code source Maven ? 
+	 * Val.H3Span.enUS:Where do I put the Maven source code? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Créez un répertoire maven dans /usr/local/src. 
+	 * Val.H4Span.enUS:Create a maven directory in /usr/local/src. 
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: mkdir
+	 * Val.PreSpan4: /usr/local/src/maven
+	 * 
+	 * Val.Ol2Li1:sudo
+	 * Val.Ol2Li2:mkdir
+	 * Val.Ol2Li3.frFR:/usr/local est un endroit pour des logiciels supplémentaires que vous installez sans le gestionnaire de paquets. 
+	 * Val.Ol2Li3.frFR:/usr/local/src est un bon endroit pour cloner vos référentiels de logiciels open source. 
+	 * Val.Ol2Li3.enUS:/usr/local is a place for extra software that you install without the package manager. 
+	 * Val.Ol2Li3.enUS:/usr/local/src is a good place to clone your open source software repositories. 
+	 */  
+	protected void _questionMkdirSrc(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Où puis-je installer Maven ? 
+	 * Val.H3Span.enUS:Where do I install Maven? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
+	 * Val.H4Span.enUS:C
+	 * Val.PreSpan1:sudo
+	 * Val.PreSpan2: yum-builddep
+	 * Val.PreSpan3: -y
+	 * Val.PreSpan4: maven
+	 * 
+	 * Val.Ol2Li1.frFR:sudo: La commande pour installer des dépots yum commence par la commande sudo. 
+	 * Val.Ol2Li1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
+	 * Val.Ol2Li1.frFR:L'installation des dépots yum nécessite toujours les privilèges root. 
+	 * Val.Ol2Li1:sudo
+	 * Val.Ol2Li2:yum
+	 * Val.Ol2Li3.frFR:install : Pour installer des nouveaux paquets yum. 
+	 * Val.Ol2Li3.enUS:install: For installing new yum packages. 
+	 * Val.Ol2Li4:-y
+	 * Val.Ol2Li5.frFR:pv: Le nom du paquet que vous souhaitez installer. 
+	 * Val.Ol2Li5.enUS:pv: The package name you wish to install. 
+	 */  
+	protected void _questionMkdirMaven(PageHtml o) {
 	}
 
 	/**

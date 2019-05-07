@@ -283,7 +283,7 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	public static final String questionCreerUneCleUsbOl2Li3 = questionCreerUneCleUsbOl2Li31;
 	public static final String questionCreerUneCleUsbOl2Li41 = "-y: Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. ";
 	public static final String questionCreerUneCleUsbOl2Li4 = questionCreerUneCleUsbOl2Li41;
-	public static final String questionCreerUneCleUsbOl2Li51 = "pv: Le nom du paquet de VirtualBox que vous souhaitez installer. ";
+	public static final String questionCreerUneCleUsbOl2Li51 = "pv: Le nom du paquet que vous souhaitez installer. ";
 	public static final String questionCreerUneCleUsbOl2Li5 = questionCreerUneCleUsbOl2Li51;
 	public static final String questionCreerUneCleUsbDiv3H51 = "Trouvez le chemin vers le périphérique de stockage USB. ";
 	public static final String questionCreerUneCleUsbDiv3H5 = questionCreerUneCleUsbDiv3H51;
@@ -1446,32 +1446,32 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	public static final String questionConfigurationInitialeH4I = questionConfigurationInitialeH4I1;
 	public static final String questionConfigurationInitialeH4Span1 = "Quelques étapes supplémentaires pour profiter de votre nouvel ordinateur. ";
 	public static final String questionConfigurationInitialeH4Span = questionConfigurationInitialeH4Span1;
-	public static final String questionConfigurationInitialeOlLi011 = "Lorsque l'installation est fait, vous pouvez cliquer sur [ Reboot ]. ";
+	public static final String questionConfigurationInitialeOlLi011 = "Lorsque l'installation est fait, vous pouvez cliquer sur [ Redémarrer ]. ";
 	public static final String questionConfigurationInitialeOlLi01 = questionConfigurationInitialeOlLi011;
 	public static final String questionConfigurationInitialeOlLi021 = "N'oubliez pas de retirer le disque USB en même temps, sinon vous redémarrez dans le programme d'installation. ";
 	public static final String questionConfigurationInitialeOlLi02 = questionConfigurationInitialeOlLi021;
 	public static final String questionConfigurationInitialeOlLi031 = "Lorsque vous démarrez CentOS 7 pour la première fois, il vous sera demandé d'accepter les informations de licence. ";
-	public static final String questionConfigurationInitialeOlLi032 = "Cliquez sur \"License Agreement\". ";
+	public static final String questionConfigurationInitialeOlLi032 = "Cliquez sur « LICENSE INFORMATION ». ";
 	public static final String questionConfigurationInitialeOlLi03 = questionConfigurationInitialeOlLi031 + questionConfigurationInitialeOlLi032;
-	public static final String questionConfigurationInitialeOlLi041 = "Passez en revue le contrat de licence, puis cochez la case « I accept the license agreement ». ";
+	public static final String questionConfigurationInitialeOlLi041 = "Passez en revue le contrat de licence, puis cochez la case « J'accepte le contrat de license. ». ";
 	public static final String questionConfigurationInitialeOlLi04 = questionConfigurationInitialeOlLi041;
 	public static final String questionConfigurationInitialeOlLi051 = "Cliquez sur [ Terminé ]. ";
 	public static final String questionConfigurationInitialeOlLi05 = questionConfigurationInitialeOlLi051;
-	public static final String questionConfigurationInitialeOlLi061 = "Cliquez maintenant sur [ FINISH CONFIGURATION ] dans le coin inférieur droit. ";
+	public static final String questionConfigurationInitialeOlLi061 = "Cliquez maintenant sur [ FINALISER LA CONFIGURATION ] dans le coin inférieur droit. ";
 	public static final String questionConfigurationInitialeOlLi06 = questionConfigurationInitialeOlLi061;
 	public static final String questionConfigurationInitialeOlLi071 = "Vous pouvez vous connecter à votre compte d'utilisateur en cliquant sur votre nom d'utilisateur et en entrant votre mot de passe. ";
 	public static final String questionConfigurationInitialeOlLi07 = questionConfigurationInitialeOlLi071;
-	public static final String questionConfigurationInitialeOlLi081 = "Suivez l'écran de bienvenue en cliquant sur [ Next ] pour votre langue. ";
+	public static final String questionConfigurationInitialeOlLi081 = "Suivez l'écran de bienvenue en cliquant sur [ Suivant ] pour votre langue. ";
 	public static final String questionConfigurationInitialeOlLi08 = questionConfigurationInitialeOlLi081;
-	public static final String questionConfigurationInitialeOlLi091 = "Cliquez sur [ Next ] pour votre disposition de clavier. ";
+	public static final String questionConfigurationInitialeOlLi091 = "Cliquez sur [ Suivant ] pour votre disposition de clavier. ";
 	public static final String questionConfigurationInitialeOlLi09 = questionConfigurationInitialeOlLi091;
 	public static final String questionConfigurationInitialeOlLi101 = "Désactivez \"Location Services\", car vous n'avez besoin de personne pour suivre votre position. ";
 	public static final String questionConfigurationInitialeOlLi10 = questionConfigurationInitialeOlLi101;
-	public static final String questionConfigurationInitialeOlLi111 = "Cliquez sur [ Next ] pour désactiver les services de localisation. ";
+	public static final String questionConfigurationInitialeOlLi111 = "Cliquez sur [ Suivant ] pour désactiver les services de localisation. ";
 	public static final String questionConfigurationInitialeOlLi11 = questionConfigurationInitialeOlLi111;
-	public static final String questionConfigurationInitialeOlLi121 = "Et je n'utilise pas les comptes en ligne en cliquant sur [Skip]. ";
+	public static final String questionConfigurationInitialeOlLi121 = "Et je n'utilise pas les comptes en ligne en cliquant sur [ Passer ]. ";
 	public static final String questionConfigurationInitialeOlLi12 = questionConfigurationInitialeOlLi121;
-	public static final String questionConfigurationInitialeOlLi131 = "Maintenant, cliquez sur [ Start using CentOS Linux ] pour profiter de votre nouvel ordinateur ! ";
+	public static final String questionConfigurationInitialeOlLi131 = "Maintenant, cliquez sur [ Commencer à utiliser CentOS Linux ] pour profiter de votre nouvel ordinateur ! ";
 	public static final String questionConfigurationInitialeOlLi13 = questionConfigurationInitialeOlLi131;
 
 	/**	L'entité « questionConfigurationInitiale »
@@ -2150,7 +2150,7 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -2163,7 +2163,7 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		}
 		return o;
 	}
-	public Object obtenirC001L004InstallerCentos7(String var) throws Exception {
+	public Object obtenirC001L004InstallerCentos7(String var) {
 		C001L004InstallerCentos7 oC001L004InstallerCentos7 = (C001L004InstallerCentos7)this;
 		switch(var) {
 			case "moi":
@@ -2311,22 +2311,22 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerC001L004InstallerCentos7();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerC001L004InstallerCentos7(document);
 	}
 
-	public void indexerC001L004InstallerCentos7(SolrClient clientSolr) throws Exception {
+	public void indexerC001L004InstallerCentos7(SolrClient clientSolr) {
 		SolrInputDocument document = new SolrInputDocument();
 		indexerC001L004InstallerCentos7(document);
 		clientSolr.add(document);
 		clientSolr.commit();
 	}
 
-	public void indexerC001L004InstallerCentos7() throws Exception {
+	public void indexerC001L004InstallerCentos7() {
 		SolrInputDocument document = new SolrInputDocument();
 		indexerC001L004InstallerCentos7(document);
 		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
@@ -2334,12 +2334,12 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		clientSolr.commit();
 	}
 
-	public void indexerC001L004InstallerCentos7(SolrInputDocument document) throws Exception {
+	public void indexerC001L004InstallerCentos7(SolrInputDocument document) {
 		super.indexerC001Lecon(document);
 
 	}
 
-	public void desindexerC001L004InstallerCentos7() throws Exception {
+	public void desindexerC001L004InstallerCentos7() {
 		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
 		requeteSite.initLoinRequeteSiteFrFR();
 		SiteContexteFrFR siteContexte = new SiteContexteFrFR();

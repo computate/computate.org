@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours.c001.l004;
+package org.computate.site.frFR.cours.c001.l006;
 
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import java.util.Objects;
@@ -8,51 +8,51 @@ import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7FrFRGenPage;
+import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseFrFRGenPage;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7FrFRPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseFrFRPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004InstallerCentos7FrFRGenPage {
+public abstract class C001L006InstallerEclipseFrFRPageGen<DEV> extends C001L006InstallerEclipseFrFRGenPage {
 
 	//////////////
 	// initLoin //
 	//////////////
 
-	protected boolean dejaInitialiseC001L004InstallerCentos7FrFRPage = false;
+	protected boolean dejaInitialiseC001L006InstallerEclipseFrFRPage = false;
 
-	public C001L004InstallerCentos7FrFRPage initLoinC001L004InstallerCentos7FrFRPage(RequeteSiteFrFR requeteSite_) {
+	public C001L006InstallerEclipseFrFRPage initLoinC001L006InstallerEclipseFrFRPage(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
-		if(!dejaInitialiseC001L004InstallerCentos7FrFRPage) {
-			dejaInitialiseC001L004InstallerCentos7FrFRPage = true;
-			initLoinC001L004InstallerCentos7FrFRPage();
+		if(!dejaInitialiseC001L006InstallerEclipseFrFRPage) {
+			dejaInitialiseC001L006InstallerEclipseFrFRPage = true;
+			initLoinC001L006InstallerEclipseFrFRPage();
 		}
-		return (C001L004InstallerCentos7FrFRPage)this;
+		return (C001L006InstallerEclipseFrFRPage)this;
 	}
 
-	public void initLoinC001L004InstallerCentos7FrFRPage() {
-		super.initLoinC001L004InstallerCentos7FrFRGenPage(requeteSite_);
-		initC001L004InstallerCentos7FrFRPage();
+	public void initLoinC001L006InstallerEclipseFrFRPage() {
+		super.initLoinC001L006InstallerEclipseFrFRGenPage(requeteSite_);
+		initC001L006InstallerEclipseFrFRPage();
 	}
 
-	public void initC001L004InstallerCentos7FrFRPage() {
+	public void initC001L006InstallerEclipseFrFRPage() {
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
-		initLoinC001L004InstallerCentos7FrFRPage(requeteSite_);
+		initLoinC001L006InstallerEclipseFrFRPage(requeteSite_);
 	}
 
 	/////////////////
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteC001L004InstallerCentos7FrFRPage(RequeteSiteFrFR requeteSite_) {
-			super.requeteSiteC001L004InstallerCentos7FrFRGenPage(requeteSite_);
+	public void requeteSiteC001L006InstallerEclipseFrFRPage(RequeteSiteFrFR requeteSite_) {
+			super.requeteSiteC001L006InstallerEclipseFrFRGenPage(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
-		requeteSiteC001L004InstallerCentos7FrFRPage(requeteSite_);
+		requeteSiteC001L006InstallerEclipseFrFRPage(requeteSite_);
 	}
 
 	/////////////
@@ -64,7 +64,7 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = obtenirC001L004InstallerCentos7FrFRPage(v);
+				o = obtenirC001L006InstallerEclipseFrFRPage(v);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.obtenirPourClasse(v);
@@ -72,11 +72,11 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 		}
 		return o;
 	}
-	public Object obtenirC001L004InstallerCentos7FrFRPage(String var) {
-		C001L004InstallerCentos7FrFRPage oC001L004InstallerCentos7FrFRPage = (C001L004InstallerCentos7FrFRPage)this;
+	public Object obtenirC001L006InstallerEclipseFrFRPage(String var) {
+		C001L006InstallerEclipseFrFRPage oC001L006InstallerEclipseFrFRPage = (C001L006InstallerEclipseFrFRPage)this;
 		switch(var) {
 			default:
-				return super.obtenirC001L004InstallerCentos7FrFRGenPage(var);
+				return super.obtenirC001L006InstallerEclipseFrFRGenPage(var);
 		}
 	}
 
@@ -89,7 +89,7 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = attribuerC001L004InstallerCentos7FrFRPage(v, val);
+				o = attribuerC001L006InstallerEclipseFrFRPage(v, val);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.attribuerPourClasse(v, val);
@@ -97,11 +97,11 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 		}
 		return o != null;
 	}
-	public Object attribuerC001L004InstallerCentos7FrFRPage(String var, Object val) {
-		C001L004InstallerCentos7FrFRPage oC001L004InstallerCentos7FrFRPage = (C001L004InstallerCentos7FrFRPage)this;
+	public Object attribuerC001L006InstallerEclipseFrFRPage(String var, Object val) {
+		C001L006InstallerEclipseFrFRPage oC001L006InstallerEclipseFrFRPage = (C001L006InstallerEclipseFrFRPage)this;
 		switch(var) {
 			default:
-				return super.attribuerC001L004InstallerCentos7FrFRGenPage(var, val);
+				return super.attribuerC001L006InstallerEclipseFrFRGenPage(var, val);
 		}
 	}
 
@@ -115,7 +115,7 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 		if(val != null) {
 			for(String v : vars) {
 				if(o == null)
-					o = definirC001L004InstallerCentos7FrFRPage(v, val);
+					o = definirC001L006InstallerEclipseFrFRPage(v, val);
 				else if(o instanceof Cluster) {
 					Cluster cluster = (Cluster)o;
 					o = cluster.definirPourClasse(v, val);
@@ -124,10 +124,10 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 		}
 		return o != null;
 	}
-	public Object definirC001L004InstallerCentos7FrFRPage(String var, String val) {
+	public Object definirC001L006InstallerEclipseFrFRPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirC001L004InstallerCentos7FrFRGenPage(var, val);
+				return super.definirC001L006InstallerEclipseFrFRGenPage(var, val);
 		}
 	}
 
@@ -136,11 +136,11 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 	/////////////////
 
 	@Override public void htmlScripts() {
-		htmlScriptsC001L004InstallerCentos7FrFRPage();
+		htmlScriptsC001L006InstallerEclipseFrFRPage();
 		super.htmlScripts();
 	}
 
-	public void htmlScriptsC001L004InstallerCentos7FrFRPage() {
+	public void htmlScriptsC001L006InstallerEclipseFrFRPage() {
 	}
 
 	//////////////
@@ -148,11 +148,11 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 	//////////////
 
 	@Override public void htmlBody() {
-		htmlBodyC001L004InstallerCentos7FrFRPage();
+		htmlBodyC001L006InstallerEclipseFrFRPage();
 		super.htmlBody();
 	}
 
-	public void htmlBodyC001L004InstallerCentos7FrFRPage() {
+	public void htmlBodyC001L006InstallerEclipseFrFRPage() {
 	}
 
 	///////////////////
@@ -160,11 +160,11 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 	///////////////////
 
 	@Override public void htmlBodyCourt() {
-		htmlBodyCourtC001L004InstallerCentos7FrFRPage();
+		htmlBodyCourtC001L006InstallerEclipseFrFRPage();
 		super.htmlBodyCourt();
 	}
 
-	public void htmlBodyCourtC001L004InstallerCentos7FrFRPage() {
+	public void htmlBodyCourtC001L006InstallerEclipseFrFRPage() {
 	}
 
 	//////////////
@@ -182,9 +182,9 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 	@Override public boolean equals(Object o) {
 		if(this == o)
 			return true;
-		if(!(o instanceof C001L004InstallerCentos7FrFRPage))
+		if(!(o instanceof C001L006InstallerEclipseFrFRPage))
 			return false;
-		C001L004InstallerCentos7FrFRPage that = (C001L004InstallerCentos7FrFRPage)o;
+		C001L006InstallerEclipseFrFRPage that = (C001L006InstallerEclipseFrFRPage)o;
 		return super.equals(o);
 	}
 
@@ -195,7 +195,7 @@ public abstract class C001L004InstallerCentos7FrFRPageGen<DEV> extends C001L004I
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
-		sb.append("C001L004InstallerCentos7FrFRPage {");
+		sb.append("C001L006InstallerEclipseFrFRPage {");
 		sb.append(" }");
 		return sb.toString();
 	}

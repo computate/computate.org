@@ -291,7 +291,7 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	public static final String questionCreerUneCleUsbOl2Li3 = questionCreerUneCleUsbOl2Li31;
 	public static final String questionCreerUneCleUsbOl2Li41 = "-y: Suppress messages asking to confirm if you want to install the software. ";
 	public static final String questionCreerUneCleUsbOl2Li4 = questionCreerUneCleUsbOl2Li41;
-	public static final String questionCreerUneCleUsbOl2Li51 = "pv: The package name of VirtualBox you wish to install. ";
+	public static final String questionCreerUneCleUsbOl2Li51 = "pv: The package name you wish to install. ";
 	public static final String questionCreerUneCleUsbOl2Li5 = questionCreerUneCleUsbOl2Li51;
 	public static final String questionCreerUneCleUsbDiv3H51 = "Find the path to the USB storage device. ";
 	public static final String questionCreerUneCleUsbDiv3H5 = questionCreerUneCleUsbDiv3H51;
@@ -1458,7 +1458,7 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	public static final String questionConfigurationInitialeOlLi021 = "Don't forget to take out the USB disk at the same time, or you will boot back into the installer. ";
 	public static final String questionConfigurationInitialeOlLi02 = questionConfigurationInitialeOlLi021;
 	public static final String questionConfigurationInitialeOlLi031 = "When you boot into CentOS 7 for the first time, you will be asked to accept the License Information. ";
-	public static final String questionConfigurationInitialeOlLi032 = "Click on \"License Agreement\". ";
+	public static final String questionConfigurationInitialeOlLi032 = "Click on \"LICENCE AGREEMENT\". ";
 	public static final String questionConfigurationInitialeOlLi03 = questionConfigurationInitialeOlLi031 + questionConfigurationInitialeOlLi032;
 	public static final String questionConfigurationInitialeOlLi041 = "Review the license agreement and then check \"I accept the license agreement\". ";
 	public static final String questionConfigurationInitialeOlLi04 = questionConfigurationInitialeOlLi041;
@@ -2157,7 +2157,7 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -2170,7 +2170,7 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		}
 		return o;
 	}
-	public Object obtenirC001L004InstallerCentos7(String var) throws Exception {
+	public Object obtenirC001L004InstallerCentos7(String var) {
 		C001L004InstallerCentos7 oC001L004InstallerCentos7 = (C001L004InstallerCentos7)this;
 		switch(var) {
 			case "moi":
@@ -2318,22 +2318,22 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerC001L004InstallerCentos7();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerC001L004InstallerCentos7(document);
 	}
 
-	public void indexerC001L004InstallerCentos7(SolrClient clientSolr) throws Exception {
+	public void indexerC001L004InstallerCentos7(SolrClient clientSolr) {
 		SolrInputDocument document = new SolrInputDocument();
 		indexerC001L004InstallerCentos7(document);
 		clientSolr.add(document);
 		clientSolr.commit();
 	}
 
-	public void indexerC001L004InstallerCentos7() throws Exception {
+	public void indexerC001L004InstallerCentos7() {
 		SolrInputDocument document = new SolrInputDocument();
 		indexerC001L004InstallerCentos7(document);
 		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
@@ -2341,12 +2341,12 @@ public abstract class C001L004InstallerCentos7Gen<DEV> extends C001Lecon {
 		clientSolr.commit();
 	}
 
-	public void indexerC001L004InstallerCentos7(SolrInputDocument document) throws Exception {
+	public void indexerC001L004InstallerCentos7(SolrInputDocument document) {
 		super.indexerC001Lecon(document);
 
 	}
 
-	public void desindexerC001L004InstallerCentos7() throws Exception {
+	public void desindexerC001L004InstallerCentos7() {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
 		requeteSite.initLoinRequeteSiteEnUS();
 		SiteContexteEnUS siteContexte = new SiteContexteEnUS();

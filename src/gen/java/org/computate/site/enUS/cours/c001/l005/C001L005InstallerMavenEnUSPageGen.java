@@ -1,8 +1,8 @@
-package org.computate.site.enUS.cours.c001.l004;
+package org.computate.site.enUS.cours.c001.l005;
 
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
-import org.computate.site.enUS.cours.c001.l004.C001L004InstallerCentos7EnUSGenPage;
+import org.computate.site.enUS.cours.c001.l005.C001L005InstallerMavenEnUSGenPage;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
@@ -11,48 +11,48 @@ import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.cluster.Cluster;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l004.C001L004InstallerCentos7EnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMavenEnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004InstallerCentos7EnUSGenPage {
+public abstract class C001L005InstallerMavenEnUSPageGen<DEV> extends C001L005InstallerMavenEnUSGenPage {
 
 	//////////////
 	// initLoin //
 	//////////////
 
-	protected boolean dejaInitialiseC001L004InstallerCentos7EnUSPage = false;
+	protected boolean dejaInitialiseC001L005InstallerMavenEnUSPage = false;
 
-	public C001L004InstallerCentos7EnUSPage initLoinC001L004InstallerCentos7EnUSPage(RequeteSiteEnUS requeteSite_) {
+	public C001L005InstallerMavenEnUSPage initLoinC001L005InstallerMavenEnUSPage(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
-		if(!dejaInitialiseC001L004InstallerCentos7EnUSPage) {
-			dejaInitialiseC001L004InstallerCentos7EnUSPage = true;
-			initLoinC001L004InstallerCentos7EnUSPage();
+		if(!dejaInitialiseC001L005InstallerMavenEnUSPage) {
+			dejaInitialiseC001L005InstallerMavenEnUSPage = true;
+			initLoinC001L005InstallerMavenEnUSPage();
 		}
-		return (C001L004InstallerCentos7EnUSPage)this;
+		return (C001L005InstallerMavenEnUSPage)this;
 	}
 
-	public void initLoinC001L004InstallerCentos7EnUSPage() {
-		super.initLoinC001L004InstallerCentos7EnUSGenPage(requeteSite_);
-		initC001L004InstallerCentos7EnUSPage();
+	public void initLoinC001L005InstallerMavenEnUSPage() {
+		super.initLoinC001L005InstallerMavenEnUSGenPage(requeteSite_);
+		initC001L005InstallerMavenEnUSPage();
 	}
 
-	public void initC001L004InstallerCentos7EnUSPage() {
+	public void initC001L005InstallerMavenEnUSPage() {
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
-		initLoinC001L004InstallerCentos7EnUSPage(requeteSite_);
+		initLoinC001L005InstallerMavenEnUSPage(requeteSite_);
 	}
 
 	/////////////////
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteC001L004InstallerCentos7EnUSPage(RequeteSiteEnUS requeteSite_) {
-			super.requeteSiteC001L004InstallerCentos7EnUSGenPage(requeteSite_);
+	public void requeteSiteC001L005InstallerMavenEnUSPage(RequeteSiteEnUS requeteSite_) {
+			super.requeteSiteC001L005InstallerMavenEnUSGenPage(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
-		requeteSiteC001L004InstallerCentos7EnUSPage(requeteSite_);
+		requeteSiteC001L005InstallerMavenEnUSPage(requeteSite_);
 	}
 
 	/////////////
@@ -64,7 +64,7 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = obtenirC001L004InstallerCentos7EnUSPage(v);
+				o = obtenirC001L005InstallerMavenEnUSPage(v);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.obtenirPourClasse(v);
@@ -72,11 +72,11 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 		}
 		return o;
 	}
-	public Object obtenirC001L004InstallerCentos7EnUSPage(String var) {
-		C001L004InstallerCentos7EnUSPage oC001L004InstallerCentos7EnUSPage = (C001L004InstallerCentos7EnUSPage)this;
+	public Object obtenirC001L005InstallerMavenEnUSPage(String var) {
+		C001L005InstallerMavenEnUSPage oC001L005InstallerMavenEnUSPage = (C001L005InstallerMavenEnUSPage)this;
 		switch(var) {
 			default:
-				return super.obtenirC001L004InstallerCentos7EnUSGenPage(var);
+				return super.obtenirC001L005InstallerMavenEnUSGenPage(var);
 		}
 	}
 
@@ -89,7 +89,7 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = attribuerC001L004InstallerCentos7EnUSPage(v, val);
+				o = attribuerC001L005InstallerMavenEnUSPage(v, val);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.attribuerPourClasse(v, val);
@@ -97,11 +97,11 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 		}
 		return o != null;
 	}
-	public Object attribuerC001L004InstallerCentos7EnUSPage(String var, Object val) {
-		C001L004InstallerCentos7EnUSPage oC001L004InstallerCentos7EnUSPage = (C001L004InstallerCentos7EnUSPage)this;
+	public Object attribuerC001L005InstallerMavenEnUSPage(String var, Object val) {
+		C001L005InstallerMavenEnUSPage oC001L005InstallerMavenEnUSPage = (C001L005InstallerMavenEnUSPage)this;
 		switch(var) {
 			default:
-				return super.attribuerC001L004InstallerCentos7EnUSGenPage(var, val);
+				return super.attribuerC001L005InstallerMavenEnUSGenPage(var, val);
 		}
 	}
 
@@ -115,7 +115,7 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 		if(val != null) {
 			for(String v : vars) {
 				if(o == null)
-					o = definirC001L004InstallerCentos7EnUSPage(v, val);
+					o = definirC001L005InstallerMavenEnUSPage(v, val);
 				else if(o instanceof Cluster) {
 					Cluster cluster = (Cluster)o;
 					o = cluster.definirPourClasse(v, val);
@@ -124,10 +124,10 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 		}
 		return o != null;
 	}
-	public Object definirC001L004InstallerCentos7EnUSPage(String var, String val) {
+	public Object definirC001L005InstallerMavenEnUSPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirC001L004InstallerCentos7EnUSGenPage(var, val);
+				return super.definirC001L005InstallerMavenEnUSGenPage(var, val);
 		}
 	}
 
@@ -136,11 +136,11 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 	/////////////////
 
 	@Override public void htmlScripts() {
-		htmlScriptsC001L004InstallerCentos7EnUSPage();
+		htmlScriptsC001L005InstallerMavenEnUSPage();
 		super.htmlScripts();
 	}
 
-	public void htmlScriptsC001L004InstallerCentos7EnUSPage() {
+	public void htmlScriptsC001L005InstallerMavenEnUSPage() {
 	}
 
 	//////////////
@@ -148,11 +148,11 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 	//////////////
 
 	@Override public void htmlBody() {
-		htmlBodyC001L004InstallerCentos7EnUSPage();
+		htmlBodyC001L005InstallerMavenEnUSPage();
 		super.htmlBody();
 	}
 
-	public void htmlBodyC001L004InstallerCentos7EnUSPage() {
+	public void htmlBodyC001L005InstallerMavenEnUSPage() {
 	}
 
 	///////////////////
@@ -160,11 +160,11 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 	///////////////////
 
 	@Override public void htmlBodyCourt() {
-		htmlBodyCourtC001L004InstallerCentos7EnUSPage();
+		htmlBodyCourtC001L005InstallerMavenEnUSPage();
 		super.htmlBodyCourt();
 	}
 
-	public void htmlBodyCourtC001L004InstallerCentos7EnUSPage() {
+	public void htmlBodyCourtC001L005InstallerMavenEnUSPage() {
 	}
 
 	//////////////
@@ -182,9 +182,9 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 	@Override public boolean equals(Object o) {
 		if(this == o)
 			return true;
-		if(!(o instanceof C001L004InstallerCentos7EnUSPage))
+		if(!(o instanceof C001L005InstallerMavenEnUSPage))
 			return false;
-		C001L004InstallerCentos7EnUSPage that = (C001L004InstallerCentos7EnUSPage)o;
+		C001L005InstallerMavenEnUSPage that = (C001L005InstallerMavenEnUSPage)o;
 		return super.equals(o);
 	}
 
@@ -195,7 +195,7 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
-		sb.append("C001L004InstallerCentos7EnUSPage {");
+		sb.append("C001L005InstallerMavenEnUSPage {");
 		sb.append(" }");
 		return sb.toString();
 	}

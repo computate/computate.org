@@ -1,17 +1,18 @@
-package org.computate.site.frFR.cours.c001.l005;
+package org.computate.site.enUS.cours.c001.l006;
 
-import org.computate.site.frFR.page.parti.PageHtml;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
-import org.computate.site.frFR.config.ConfigSite;
-import org.computate.site.frFR.requete.RequeteSiteFrFR;
-import org.computate.site.frFR.contexte.SiteContexteFrFR;
-import org.computate.site.frFR.utilisateur.UtilisateurSite;
+import org.computate.site.enUS.cours.c001.C001LeconEnUSPage;
+import org.computate.site.enUS.config.ConfigSite;
+import org.computate.site.enUS.requete.RequeteSiteEnUS;
+import org.computate.site.enUS.contexte.SiteContexteEnUS;
+import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import java.io.IOException;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
-import org.computate.site.frFR.recherche.ListeRecherche;
-import org.computate.site.frFR.couverture.Couverture;
-import org.computate.site.frFR.page.MiseEnPage;
+import org.computate.site.enUS.recherche.ListeRecherche;
+import org.computate.site.enUS.couverture.Couverture;
+import org.computate.site.enUS.page.MiseEnPage;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -30,21 +31,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class C001L005InstallerEclipseFrFRGenPage extends C001L005InstallerEclipseFrFRGenPageGen<C001LeconFrFRPage> {
+public class C001L006InstallerEclipseEnUSGenPage extends C001L006InstallerEclipseEnUSGenPageGen<C001LeconEnUSPage> {
 
-	protected void _c001L005InstallerEclipse(Couverture<C001L005InstallerEclipse> c) {
-		c.o(new C001L005InstallerEclipse());
+	protected void _c001L006InstallerEclipse(Couverture<C001L006InstallerEclipse> c) {
+		c.o(new C001L006InstallerEclipse());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L005InstallerEclipse != null)
-			c.o("Comment installer des outils de développement pour développer mon site web ?");
+		if(c001L006InstallerEclipse != null)
+			c.o("How do I install development tools to develop my website? ");
 		else
-			c.o("Comment installer des outils de développement pour développer mon site web ?");
+			c.o("How do I install development tools to develop my website? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Comment installer l'IDE Eclipse de manière open source. ");
+		c.o("How to install Eclipse IDE the open source way. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -52,20 +53,20 @@ public class C001L005InstallerEclipseFrFRGenPage extends C001L005InstallerEclips
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L005InstallerEclipse != null)
+		if(c001L006InstallerEclipse != null)
 			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/frFR/cours/001/004-comment-installer-eclipse");
-	}
-
-	@Override protected void _pageUriEnUS(Couverture<String> c) {
 		c.o("/enUS/course/001/004-how-to-install-eclipse");
 	}
 
+	@Override protected void _pageUriFrFR(Couverture<String> c) {
+		c.o("/frFR/cours/001/004-comment-installer-eclipse");
+	}
+
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/frFR/cours/001/004-comment-installer-eclipse-999.png");
+			c.o("/png/enUS/course/001/004-how-to-install-eclipse-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -73,7 +74,7 @@ public class C001L005InstallerEclipseFrFRGenPage extends C001L005InstallerEclips
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1749);
+			c.o(1479);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -84,17 +85,17 @@ public class C001L005InstallerEclipseFrFRGenPage extends C001L005InstallerEclips
 			c.o("question");
 	}
 
-	@Override public void initLoinC001L005InstallerEclipseFrFRGenPage() {
-		initC001L005InstallerEclipseFrFRGenPage();
+	@Override public void initLoinC001L006InstallerEclipseEnUSGenPage() {
+		initC001L006InstallerEclipseEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L005InstallerEclipseFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L005InstallerEclipseFrFRGenPage.js").f().g("script");
+	@Override public void htmlScriptsC001L006InstallerEclipseEnUSGenPage() {
+		e("script").a("src", "/static/js/C001L006InstallerEclipseEnUSGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyC001L005InstallerEclipseFrFRGenPage() {
+	@Override public void htmlBodyC001L006InstallerEclipseEnUSGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -114,12 +115,12 @@ public class C001L005InstallerEclipseFrFRGenPage extends C001L005InstallerEclips
 			} g("h3");
 		}
 
-		c001L005InstallerEclipse.htmlBody();
+		c001L006InstallerEclipse.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtC001L005InstallerEclipseFrFRGenPage() {
+	@Override public void htmlBodyCourtC001L006InstallerEclipseEnUSGenPage() {
 
-		c001L005InstallerEclipse.htmlBodyCourt();
+		c001L006InstallerEclipse.htmlBodyCourt();
 	}
 }

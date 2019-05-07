@@ -189,8 +189,8 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol2Li3.enUS:install: For installing new yum packages. 
 	 * Val.Ol2Li4.frFR:-y: Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
 	 * Val.Ol2Li4.enUS:-y: Suppress messages asking to confirm if you want to install the software. 
-	 * Val.Ol2Li5.frFR:pv: Le nom du paquet de VirtualBox que vous souhaitez installer. 
-	 * Val.Ol2Li5.enUS:pv: The package name of VirtualBox you wish to install. 
+	 * Val.Ol2Li5.frFR:pv: Le nom du paquet que vous souhaitez installer. 
+	 * Val.Ol2Li5.enUS:pv: The package name you wish to install. 
 	 * Val.Div3H5.frFR:Trouvez le chemin vers le périphérique de stockage USB. 
 	 * Val.Div3H5.enUS:Find the path to the USB storage device. 
 	 * Val.Div3P.frFR:Éxecuter la commande intégrée dans Linux pour afficher les disques sur l'ordinateur : 
@@ -538,33 +538,33 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.H4I:fab fa-linux
 	 * Val.H4Span.frFR:Quelques étapes supplémentaires pour profiter de votre nouvel ordinateur. 
 	 * Val.H4Span.enUS:A few more steps to enjoy your new computer. 
-	 * Val.OlLi01.frFR:Lorsque l'installation est fait, vous pouvez cliquer sur [ Reboot ]. 
+	 * Val.OlLi01.frFR:Lorsque l'installation est fait, vous pouvez cliquer sur [ Redémarrer ]. 
 	 * Val.OlLi01.enUS:When it's done, you can click [ Reboot ]. 
 	 * Val.OlLi02.frFR:N'oubliez pas de retirer le disque USB en même temps, sinon vous redémarrez dans le programme d'installation. 
 	 * Val.OlLi02.enUS:Don't forget to take out the USB disk at the same time, or you will boot back into the installer. 
 	 * Val.OlLi03.frFR:Lorsque vous démarrez CentOS 7 pour la première fois, il vous sera demandé d'accepter les informations de licence. 
-	 * Val.OlLi03.frFR:Cliquez sur "License Agreement". 
+	 * Val.OlLi03.frFR:Cliquez sur « LICENSE INFORMATION ». 
 	 * Val.OlLi03.enUS:When you boot into CentOS 7 for the first time, you will be asked to accept the License Information. 
-	 * Val.OlLi03.enUS:Click on "License Agreement". 
-	 * Val.OlLi04.frFR:Passez en revue le contrat de licence, puis cochez la case « I accept the license agreement ». 
+	 * Val.OlLi03.enUS:Click on "LICENCE AGREEMENT". 
+	 * Val.OlLi04.frFR:Passez en revue le contrat de licence, puis cochez la case « J'accepte le contrat de license. ». 
 	 * Val.OlLi04.enUS:Review the license agreement and then check "I accept the license agreement". 
 	 * Val.OlLi05.frFR:Cliquez sur [ Terminé ]. 
 	 * Val.OlLi05.enUS:Click [ Done ]. 
-	 * Val.OlLi06.frFR:Cliquez maintenant sur [ FINISH CONFIGURATION ] dans le coin inférieur droit. 
+	 * Val.OlLi06.frFR:Cliquez maintenant sur [ FINALISER LA CONFIGURATION ] dans le coin inférieur droit. 
 	 * Val.OlLi06.enUS:Now click [ FINISH CONFIGURATION ] in the bottom-right corner. 
 	 * Val.OlLi07.frFR:Vous pouvez vous connecter à votre compte d'utilisateur en cliquant sur votre nom d'utilisateur et en entrant votre mot de passe. 
 	 * Val.OlLi07.enUS:You can now sign into your user account by clicking on your username and entering your password. 
-	 * Val.OlLi08.frFR:Suivez l'écran de bienvenue en cliquant sur [ Next ] pour votre langue. 
+	 * Val.OlLi08.frFR:Suivez l'écran de bienvenue en cliquant sur [ Suivant ] pour votre langue. 
 	 * Val.OlLi08.enUS:Follow the welcome screen by clicking [ Next ] for your language. 
-	 * Val.OlLi09.frFR:Cliquez sur [ Next ] pour votre disposition de clavier. 
+	 * Val.OlLi09.frFR:Cliquez sur [ Suivant ] pour votre disposition de clavier. 
 	 * Val.OlLi09.enUS:Click [ Next ] for your keyboard layout. 
 	 * Val.OlLi10.frFR:Désactivez "Location Services", car vous n'avez besoin de personne pour suivre votre position. 
 	 * Val.OlLi10.enUS:Turn off "Location Services", since you don't need anybody tracking your location. 
-	 * Val.OlLi11.frFR:Cliquez sur [ Next ] pour désactiver les services de localisation. 
+	 * Val.OlLi11.frFR:Cliquez sur [ Suivant ] pour désactiver les services de localisation. 
 	 * Val.OlLi11.enUS:Click [ Next ] to turn off location services. 
-	 * Val.OlLi12.frFR:Et je n'utilise pas les comptes en ligne en cliquant sur [Skip]. 
+	 * Val.OlLi12.frFR:Et je n'utilise pas les comptes en ligne en cliquant sur [ Passer ]. 
 	 * Val.OlLi12.enUS:And I skip the online accounts by clicking [ Skip ]. 
-	 * Val.OlLi13.frFR:Maintenant, cliquez sur [ Start using CentOS Linux ] pour profiter de votre nouvel ordinateur ! 
+	 * Val.OlLi13.frFR:Maintenant, cliquez sur [ Commencer à utiliser CentOS Linux ] pour profiter de votre nouvel ordinateur ! 
 	 * Val.OlLi13.enUS:Now click [ Start using CentOS Linux ] to enjoy your new computer! 
 	 */ 
 	protected void _questionConfigurationInitiale(PageHtml o) {

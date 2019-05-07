@@ -31,21 +31,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class C001L005InstallerEclipseEnUSGenPage extends C001L005InstallerEclipseEnUSGenPageGen<C001LeconEnUSPage> {
+public class C001L005InstallerMavenEnUSGenPage extends C001L005InstallerMavenEnUSGenPageGen<C001LeconEnUSPage> {
 
-	protected void _c001L005InstallerEclipse(Couverture<C001L005InstallerEclipse> c) {
-		c.o(new C001L005InstallerEclipse());
+	protected void _c001L005InstallerMaven(Couverture<C001L005InstallerMaven> c) {
+		c.o(new C001L005InstallerMaven());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L005InstallerEclipse != null)
-			c.o("How do I install development tools to develop my website? ");
+		if(c001L005InstallerMaven != null)
+			c.o("How do I install the latest version of maven. ");
 		else
-			c.o("How do I install development tools to develop my website? ");
+			c.o("How do I install the latest version of maven. ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("How to install Eclipse IDE the open source way. ");
+		c.o("Install maven from the source code. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -53,20 +53,20 @@ public class C001L005InstallerEclipseEnUSGenPage extends C001L005InstallerEclips
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L005InstallerEclipse != null)
+		if(c001L005InstallerMaven != null)
 			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/enUS/course/001/004-how-to-install-eclipse");
+		c.o("/enUS/course/001/004-how-to-install-the-latest-version-of-maven");
 	}
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
-		c.o("/frFR/cours/001/004-comment-installer-eclipse");
+		c.o("/frFR/cours/001/004-comment-installer-la-derniere-version-de-maven");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/enUS/course/001/004-how-to-install-eclipse-999.png");
+			c.o("/png/enUS/course/001/004-how-to-install-the-latest-version-of-maven-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -85,17 +85,17 @@ public class C001L005InstallerEclipseEnUSGenPage extends C001L005InstallerEclips
 			c.o("question");
 	}
 
-	@Override public void initLoinC001L005InstallerEclipseEnUSGenPage() {
-		initC001L005InstallerEclipseEnUSGenPage();
+	@Override public void initLoinC001L005InstallerMavenEnUSGenPage() {
+		initC001L005InstallerMavenEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L005InstallerEclipseEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L005InstallerEclipseEnUSGenPage.js").f().g("script");
+	@Override public void htmlScriptsC001L005InstallerMavenEnUSGenPage() {
+		e("script").a("src", "/static/js/C001L005InstallerMavenEnUSGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyC001L005InstallerEclipseEnUSGenPage() {
+	@Override public void htmlBodyC001L005InstallerMavenEnUSGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -115,12 +115,12 @@ public class C001L005InstallerEclipseEnUSGenPage extends C001L005InstallerEclips
 			} g("h3");
 		}
 
-		c001L005InstallerEclipse.htmlBody();
+		c001L005InstallerMaven.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtC001L005InstallerEclipseEnUSGenPage() {
+	@Override public void htmlBodyCourtC001L005InstallerMavenEnUSGenPage() {
 
-		c001L005InstallerEclipse.htmlBodyCourt();
+		c001L005InstallerMaven.htmlBodyCourt();
 	}
 }

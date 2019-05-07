@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours.c001.l005;
+package org.computate.site.frFR.cours.c001.l006;
 
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
@@ -67,44 +67,45 @@ import java.util.stream.Stream;
 import java.net.URLDecoder;
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
-import org.computate.site.frFR.cours.c001.l005.C001L005InstallerEclipseFrFRPage;
+import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseFrFRPage;
+import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseEnUSPage;
 
 
 /**
  * Traduire: false
  **/
-public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005InstallerEclipseFrFRGenApiService {
+public class C001L006InstallerEclipseFrFRGenApiServiceImpl implements C001L006InstallerEclipseFrFRGenApiService {
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L005InstallerEclipseFrFRGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L006InstallerEclipseFrFRGenApiServiceImpl.class);
 
-	protected static final String SERVICE_ADDRESS = "C001L005InstallerEclipseFrFRApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "C001L006InstallerEclipseFrFRApiServiceImpl";
 
 	protected SiteContexteFrFR siteContexte;
 
-	public C001L005InstallerEclipseFrFRGenApiServiceImpl(SiteContexteFrFR siteContexte) {
+	public C001L006InstallerEclipseFrFRGenApiServiceImpl(SiteContexteFrFR siteContexte) {
 		this.siteContexte = siteContexte;
-		C001L005InstallerEclipseFrFRGenApiService service = C001L005InstallerEclipseFrFRGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
+		C001L006InstallerEclipseFrFRGenApiService service = C001L006InstallerEclipseFrFRGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
 	// RechercheFrFRPage //
 
 	@Override
-	public void recherchefrfrpageC001L005InstallerEclipseId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		recherchefrfrpageC001L005InstallerEclipse(operationRequete, gestionnaireEvenements);
+	public void recherchefrfrpageC001L006InstallerEclipseId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		recherchefrfrpageC001L006InstallerEclipse(operationRequete, gestionnaireEvenements);
 	}
 
 	@Override
-	public void recherchefrfrpageC001L005InstallerEclipse(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void recherchefrfrpageC001L006InstallerEclipse(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
-			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourC001L005InstallerEclipse(siteContexte, operationRequete);
-			sqlC001L005InstallerEclipse(requeteSite, a -> {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourC001L006InstallerEclipse(siteContexte, operationRequete);
+			sqlC001L006InstallerEclipse(requeteSite, a -> {
 				if(a.succeeded()) {
-					utilisateurC001L005InstallerEclipse(requeteSite, b -> {
+					utilisateurC001L006InstallerEclipse(requeteSite, b -> {
 						if(b.succeeded()) {
-							rechercheC001L005InstallerEclipse(requeteSite, false, true, "/frFR/cours/001/004-comment-installer-eclipse", c -> {
+							rechercheC001L006InstallerEclipse(requeteSite, false, true, "/frFR/cours/001/004-comment-installer-eclipse", c -> {
 								if(c.succeeded()) {
-									ListeRecherche<C001L005InstallerEclipse> listeC001L005InstallerEclipse = c.result();
-									reponse200RechercheFrFRPageC001L005InstallerEclipse(listeC001L005InstallerEclipse, d -> {
+									ListeRecherche<C001L006InstallerEclipse> listeC001L006InstallerEclipse = c.result();
+									reponse200RechercheFrFRPageC001L006InstallerEclipse(listeC001L006InstallerEclipse, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
 											if(connexionSql == null) {
@@ -116,48 +117,48 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 															if(f.succeeded()) {
 																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
 															} else {
-																erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, f);
+																erreurC001L006InstallerEclipse(requeteSite, gestionnaireEvenements, f);
 															}
 														});
 													} else {
-														erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, e);
+														erreurC001L006InstallerEclipse(requeteSite, gestionnaireEvenements, e);
 													}
 												});
 											}
 										} else {
-											erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, d);
+											erreurC001L006InstallerEclipse(requeteSite, gestionnaireEvenements, d);
 										}
 									});
 								} else {
-									erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, c);
+									erreurC001L006InstallerEclipse(requeteSite, gestionnaireEvenements, c);
 								}
 							});
 						} else {
-							erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, b);
+							erreurC001L006InstallerEclipse(requeteSite, gestionnaireEvenements, b);
 						}
 					});
 				} else {
-					erreurC001L005InstallerEclipse(requeteSite, gestionnaireEvenements, a);
+					erreurC001L006InstallerEclipse(requeteSite, gestionnaireEvenements, a);
 				}
 			});
 		} catch(Exception e) {
-			erreurC001L005InstallerEclipse(null, gestionnaireEvenements, Future.failedFuture(e));
+			erreurC001L006InstallerEclipse(null, gestionnaireEvenements, Future.failedFuture(e));
 		}
 	}
 
-	public void reponse200RechercheFrFRPageC001L005InstallerEclipse(ListeRecherche<C001L005InstallerEclipse> listeC001L005InstallerEclipse, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void reponse200RechercheFrFRPageC001L006InstallerEclipse(ListeRecherche<C001L006InstallerEclipse> listeC001L006InstallerEclipse, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			Buffer buffer = Buffer.buffer();
-			RequeteSiteFrFR requeteSite = listeC001L005InstallerEclipse.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeC001L005InstallerEclipse.getRequeteSite_(), buffer);
+			RequeteSiteFrFR requeteSite = listeC001L006InstallerEclipse.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001L006InstallerEclipse.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
-			C001L005InstallerEclipseFrFRPage page = new C001L005InstallerEclipseFrFRPage();
+			C001L006InstallerEclipseFrFRPage page = new C001L006InstallerEclipseFrFRPage();
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/frFR/cours/001/004-comment-installer-eclipse");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
-			page.initLoinC001L005InstallerEclipseFrFRPage(requeteSite);
+			page.initLoinC001L006InstallerEclipseFrFRPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
 		} catch(Exception e) {
@@ -165,7 +166,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public String varIndexeC001L005InstallerEclipse(String entiteVar) {
+	public String varIndexeC001L006InstallerEclipse(String entiteVar) {
 		switch(entiteVar) {
 			case "pk":
 				return "pk_indexed_long";
@@ -183,63 +184,19 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "leconCree":
-				return "leconCree_indexed_date";
-			case "estCours":
-				return "estCours_indexed_boolean";
-			case "estLecon":
-				return "estLecon_indexed_boolean";
-			case "estArticle":
-				return "estArticle_indexed_boolean";
-			case "coursNumero":
-				return "coursNumero_indexed_int";
-			case "leconNumero":
-				return "leconNumero_indexed_int";
-			case "articleH1_enUS":
-				return "articleH1_enUS_indexed_string";
-			case "articleH1_frFR":
-				return "articleH1_frFR_indexed_string";
-			case "articleH2_enUS":
-				return "articleH2_enUS_indexed_string";
-			case "articleH2_frFR":
-				return "articleH2_frFR_indexed_string";
-			case "articleCree":
-				return "articleCree_indexed_date";
-			case "pageUri_enUS":
-				return "pageUri_enUS_indexed_string";
-			case "pageUri_frFR":
-				return "pageUri_frFR_indexed_string";
-			case "pageImageUri_enUS":
-				return "pageImageUri_enUS_indexed_string";
-			case "pageImageUri_frFR":
-				return "pageImageUri_frFR_indexed_string";
-			case "pageCree":
-				return "pageCree_indexed_date";
-			case "pageH1":
-				return "pageH1_indexed_string";
-			case "pageH2":
-				return "pageH2_indexed_string";
-			case "pageH3":
-				return "pageH3_indexed_string";
-			case "pageTitre":
-				return "pageTitre_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
 	}
 
-	public String varRechercheC001L005InstallerEclipse(String entiteVar) {
+	public String varRechercheC001L006InstallerEclipse(String entiteVar) {
 		switch(entiteVar) {
-			case "pageRecherche_enUS":
-				return "pageRecherche_enUS_text_enUS";
-			case "pageRecherche_frFR":
-				return "pageRecherche_frFR_text_frFR";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
 	}
 
-	public String varSuggereC001L005InstallerEclipse(String entiteVar) {
+	public String varSuggereC001L006InstallerEclipse(String entiteVar) {
 		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
@@ -248,7 +205,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 
 	// Partagé //
 
-	public void erreurC001L005InstallerEclipse(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
+	public void erreurC001L006InstallerEclipse(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
 		Throwable e = resultatAsync.cause();
 		ExceptionUtils.printRootCauseStackTrace(e);
 		OperationResponse reponseOperation = new OperationResponse(400, "BAD REQUEST", 
@@ -285,7 +242,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void sqlC001L005InstallerEclipse(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void sqlC001L006InstallerEclipse(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
@@ -313,11 +270,11 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public RequeteSiteFrFR genererRequeteSiteFrFRPourC001L005InstallerEclipse(SiteContexteFrFR siteContexte, OperationRequest operationRequete) {
-		return genererRequeteSiteFrFRPourC001L005InstallerEclipse(siteContexte, operationRequete, null);
+	public RequeteSiteFrFR genererRequeteSiteFrFRPourC001L006InstallerEclipse(SiteContexteFrFR siteContexte, OperationRequest operationRequete) {
+		return genererRequeteSiteFrFRPourC001L006InstallerEclipse(siteContexte, operationRequete, null);
 	}
 
-	public RequeteSiteFrFR genererRequeteSiteFrFRPourC001L005InstallerEclipse(SiteContexteFrFR siteContexte, OperationRequest operationRequete, JsonObject body) {
+	public RequeteSiteFrFR genererRequeteSiteFrFRPourC001L006InstallerEclipse(SiteContexteFrFR siteContexte, OperationRequest operationRequete, JsonObject body) {
 		Vertx vertx = siteContexte.getVertx();
 		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
 		requeteSite.setObjetJson(body);
@@ -330,7 +287,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		return requeteSite;
 	}
 
-	public void utilisateurC001L005InstallerEclipse(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void utilisateurC001L006InstallerEclipse(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
 			String utilisateurId = requeteSite.getUtilisateurId();
@@ -421,21 +378,21 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void rechercheC001L005InstallerEclipse(RequeteSiteFrFR requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L005InstallerEclipse>>> gestionnaireEvenements) {
+	public void rechercheC001L006InstallerEclipse(RequeteSiteFrFR requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L006InstallerEclipse>>> gestionnaireEvenements) {
 		try {
 			OperationRequest operationRequete = requeteSite.getOperationRequete();
 			String entiteListeStr = requeteSite.getOperationRequete().getParams().getJsonObject("query").getString("fl");
 			String[] entiteListe = entiteListeStr == null ? null : entiteListeStr.split(",\\s*");
-			ListeRecherche<C001L005InstallerEclipse> listeRecherche = new ListeRecherche<C001L005InstallerEclipse>();
+			ListeRecherche<C001L006InstallerEclipse> listeRecherche = new ListeRecherche<C001L006InstallerEclipse>();
 			listeRecherche.setPeupler(peupler);
 			listeRecherche.setStocker(stocker);
 			listeRecherche.setQuery("*:*");
-			listeRecherche.setC(C001L005InstallerEclipse.class);
+			listeRecherche.setC(C001L006InstallerEclipse.class);
 			if(entiteListe != null)
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.l005.C001L005InstallerEclipse"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipse"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
@@ -465,7 +422,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 						switch(paramNom) {
 							case "q":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L005InstallerEclipse(entiteVar);
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L006InstallerEclipse(entiteVar);
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
 								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
 								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
@@ -479,18 +436,18 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 							case "fq":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
-								varIndexe = varIndexeC001L005InstallerEclipse(entiteVar);
+								varIndexe = varIndexeC001L006InstallerEclipse(entiteVar);
 								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
 								break;
 							case "sort":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
 								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-								varIndexe = varIndexeC001L005InstallerEclipse(entiteVar);
+								varIndexe = varIndexeC001L006InstallerEclipse(entiteVar);
 								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
 								break;
 							case "fl":
 								entiteVar = StringUtils.trim((String)paramObjet);
-								varIndexe = varIndexeC001L005InstallerEclipse(entiteVar);
+								varIndexe = varIndexeC001L006InstallerEclipse(entiteVar);
 								listeRecherche.addField(varIndexe);
 								break;
 							case "start":
@@ -514,7 +471,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void definirC001L005InstallerEclipse(C001L005InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void definirC001L006InstallerEclipse(C001L006InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -538,7 +495,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void attribuerC001L005InstallerEclipse(C001L005InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void attribuerC001L006InstallerEclipse(C001L006InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -564,7 +521,7 @@ public class C001L005InstallerEclipseFrFRGenApiServiceImpl implements C001L005In
 		}
 	}
 
-	public void indexerC001L005InstallerEclipse(C001L005InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void indexerC001L006InstallerEclipse(C001L006InstallerEclipse o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		RequeteSiteFrFR requeteSite = o.getRequeteSite_();
 		try {
 			o.initLoinPourClasse(requeteSite);
