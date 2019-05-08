@@ -179,8 +179,9 @@ public abstract class C001L005InstallerMavenFrFRGenPageGen<DEV> extends C001Leco
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001L005InstallerMavenFrFRGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001L005InstallerMavenFrFRGenPage() {
@@ -190,8 +191,9 @@ public abstract class C001L005InstallerMavenFrFRGenPageGen<DEV> extends C001Leco
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001L005InstallerMavenFrFRGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001L005InstallerMavenFrFRGenPage() {
@@ -208,6 +210,18 @@ public abstract class C001L005InstallerMavenFrFRGenPageGen<DEV> extends C001Leco
 	public void htmlBodyCourtC001L005InstallerMavenFrFRGenPage() {
 		if(c001L005InstallerMaven != null)
 			c001L005InstallerMaven.htmlBodyCourt();
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L005InstallerMavenFrFRGenPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L005InstallerMavenFrFRGenPage() {
 	}
 
 	//////////////

@@ -108,6 +108,7 @@ public abstract class ClusterGen<DEV> extends Object {
 			this.pageParts.add(o);
 		return (Cluster)this;
 	}
+	public abstract void avantPagePart(PagePart o, String entiteVar);
 	protected Cluster pagePartsInit() {
 		if(!pagePartsCouverture.dejaInitialise) {
 			_pageParts(pageParts);
@@ -1100,7 +1101,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -1113,7 +1114,7 @@ public abstract class ClusterGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirCluster(String var) throws Exception {
+	public Object obtenirCluster(String var) {
 		Cluster oCluster = (Cluster)this;
 		switch(var) {
 			case "requeteSite_":
@@ -1306,6 +1307,7 @@ public abstract class ClusterGen<DEV> extends Object {
 			siteContexte.initLoinSiteContexteEnUS();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -1323,30 +1325,38 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 
 
-	public void indexerPourClasse() throws Exception {
+	public void indexerPourClasse() {
 		indexerCluster();
 	}
 
-	public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	public void indexerPourClasse(SolrInputDocument document) {
 		indexerCluster(document);
 	}
 
-	public void indexerCluster(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCluster(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerCluster(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerCluster(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerCluster() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCluster(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerCluster() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerCluster(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerCluster(SolrInputDocument document) throws Exception {
+	public void indexerCluster(SolrInputDocument document) {
 		if(sauvegardesCluster != null)
 			document.addField("sauvegardesCluster_stored_strings", sauvegardesCluster);
 
@@ -1388,18 +1398,22 @@ public abstract class ClusterGen<DEV> extends Object {
 		}
 	}
 
-	public void desindexerCluster() throws Exception {
+	public void desindexerCluster() {
+		try {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinCluster(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinCluster(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

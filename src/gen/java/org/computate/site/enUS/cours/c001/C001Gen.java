@@ -46,7 +46,9 @@ public abstract class C001Gen<DEV> extends Cours {
 	public static final String C001_IconeGroupe = "regular";
 	public static final String C001_IconeNom = "university";
 	public static final String C001FrFRPage_Uri = "/frFR/cours/001";
+	public static final String C001FrFRPage_ImageUri = "/png/frFR/cours/001-999.png";
 	public static final String C001EnUSPage_Uri = "/enUS/course/001";
+	public static final String C001EnUSPage_ImageUri = "/png/enUS/course/001-999.png";
 
 	//////////////
 	// initLoin //
@@ -91,7 +93,7 @@ public abstract class C001Gen<DEV> extends Cours {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -104,7 +106,7 @@ public abstract class C001Gen<DEV> extends Cours {
 		}
 		return o;
 	}
-	public Object obtenirC001(String var) throws Exception {
+	public Object obtenirC001(String var) {
 		C001 oC001 = (C001)this;
 		switch(var) {
 			default:
@@ -176,6 +178,7 @@ public abstract class C001Gen<DEV> extends Cours {
 			siteContexte.initLoinSiteContexteEnUS();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -193,46 +196,58 @@ public abstract class C001Gen<DEV> extends Cours {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerC001();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerC001(document);
 	}
 
-	public void indexerC001(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001(SolrInputDocument document) throws Exception {
+	public void indexerC001(SolrInputDocument document) {
 		super.indexerCours(document);
 
 	}
 
-	public void desindexerC001() throws Exception {
+	public void desindexerC001() {
+		try {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinC001(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////
@@ -252,8 +267,9 @@ public abstract class C001Gen<DEV> extends Cours {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001() {

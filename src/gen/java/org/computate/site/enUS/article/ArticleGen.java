@@ -1409,6 +1409,62 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		return articleDescription == null ? "" : StringEscapeUtils.escapeHtml4(strArticleDescription());
 	}
 
+	/////////////////////
+	// pageDescription //
+	/////////////////////
+
+	/**	L'entité « pageDescription »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageDescription;
+	public Couverture<String> pageDescriptionCouverture = new Couverture<String>().p(this).c(String.class).var("pageDescription").o(pageDescription);
+
+	/**	<br/>L'entité « pageDescription »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.article.Article&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageDescription">Trouver l'entité pageDescription dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageDescription(Couverture<String> c);
+
+	public String getPageDescription() {
+		return pageDescription;
+	}
+
+	public void setPageDescription(String pageDescription) {
+		this.pageDescription = pageDescription;
+		this.pageDescriptionCouverture.dejaInitialise = true;
+	}
+	protected Article pageDescriptionInit() {
+		if(!pageDescriptionCouverture.dejaInitialise) {
+			_pageDescription(pageDescriptionCouverture);
+			if(pageDescription == null)
+				setPageDescription(pageDescriptionCouverture.o);
+		}
+		pageDescriptionCouverture.dejaInitialise(true);
+		return (Article)this;
+	}
+
+	public String solrPageDescription() {
+		return pageDescription;
+	}
+
+	public String strPageDescription() {
+		return pageDescription == null ? "" : pageDescription;
+	}
+
+	public String nomAffichagePageDescription() {
+		return null;
+	}
+
+	public String htmTooltipPageDescription() {
+		return null;
+	}
+
+	public String htmPageDescription() {
+		return pageDescription == null ? "" : StringEscapeUtils.escapeHtml4(strPageDescription());
+	}
+
 	/////////////////
 	// articleCree //
 	/////////////////
@@ -2296,6 +2352,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 			this.pageParts.add(o);
 		return (Article)this;
 	}
+	public abstract void avantPagePart(PagePart o, String entiteVar);
 	protected Article pagePartsInit() {
 		if(!pagePartsCouverture.dejaInitialise) {
 			_pageParts(pageParts);
@@ -2349,6 +2406,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		articleH1Init();
 		articleH2Init();
 		articleDescriptionInit();
+		pageDescriptionInit();
 		articleCreeInit();
 		pageUri_enUSInit();
 		pageUri_frFRInit();
@@ -2386,7 +2444,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -2399,7 +2457,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		}
 		return o;
 	}
-	public Object obtenirArticle(String var) throws Exception {
+	public Object obtenirArticle(String var) {
 		Article oArticle = (Article)this;
 		switch(var) {
 			case "statiqueUrlBase":
@@ -2450,6 +2508,8 @@ public abstract class ArticleGen<DEV> extends Cluster {
 				return oArticle.articleH2;
 			case "articleDescription":
 				return oArticle.articleDescription;
+			case "pageDescription":
+				return oArticle.pageDescription;
 			case "articleCree":
 				return oArticle.articleCree;
 			case "pageUri_enUS":
@@ -2549,6 +2609,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 			siteContexte.initLoinSiteContexteEnUS();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -2566,30 +2627,38 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerArticle();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerArticle(document);
 	}
 
-	public void indexerArticle(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerArticle(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerArticle(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerArticle(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerArticle() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerArticle(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerArticle() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerArticle(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerArticle(SolrInputDocument document) throws Exception {
+	public void indexerArticle(SolrInputDocument document) {
 		if(estCours != null) {
 			document.addField("estCours_indexed_boolean", estCours);
 			document.addField("estCours_stored_boolean", estCours);
@@ -2680,18 +2749,22 @@ public abstract class ArticleGen<DEV> extends Cluster {
 
 	}
 
-	public void desindexerArticle() throws Exception {
+	public void desindexerArticle() {
+		try {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinArticle(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinArticle(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////
@@ -2807,7 +2880,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), statiqueUrlBase, nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleH1, articleH2, articleDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
+		return Objects.hash(super.hashCode(), statiqueUrlBase, nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleH1, articleH2, articleDescription, pageDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
 	}
 
 	////////////
@@ -2844,6 +2917,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 				&& Objects.equals( articleH1, that.articleH1 )
 				&& Objects.equals( articleH2, that.articleH2 )
 				&& Objects.equals( articleDescription, that.articleDescription )
+				&& Objects.equals( pageDescription, that.pageDescription )
 				&& Objects.equals( articleCree, that.articleCree )
 				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
 				&& Objects.equals( pageUri_frFR, that.pageUri_frFR )
@@ -2891,6 +2965,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		sb.append( ", articleH1: \"" ).append(articleH1).append( "\"" );
 		sb.append( ", articleH2: \"" ).append(articleH2).append( "\"" );
 		sb.append( ", articleDescription: \"" ).append(articleDescription).append( "\"" );
+		sb.append( ", pageDescription: \"" ).append(pageDescription).append( "\"" );
 		sb.append( ", articleCree: " ).append(articleCree);
 		sb.append( ", pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
 		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );

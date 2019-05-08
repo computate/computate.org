@@ -127,14 +127,14 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	public static final String questionDependencesH4I = questionDependencesH4I1;
 	public static final String questionDependencesH4Span1 = "Build the dependencies with yum. ";
 	public static final String questionDependencesH4Span = questionDependencesH4Span1;
-	public static final String questionDependencesPreSpan11 = "sudo";
-	public static final String questionDependencesPreSpan1 = questionDependencesPreSpan11;
-	public static final String questionDependencesPreSpan21 = " yum-builddep";
-	public static final String questionDependencesPreSpan2 = questionDependencesPreSpan21;
-	public static final String questionDependencesPreSpan31 = " -y";
-	public static final String questionDependencesPreSpan3 = questionDependencesPreSpan31;
-	public static final String questionDependencesPreSpan41 = " maven";
-	public static final String questionDependencesPreSpan4 = questionDependencesPreSpan41;
+	public static final String questionDependencesPre1Span11 = "sudo";
+	public static final String questionDependencesPre1Span1 = questionDependencesPre1Span11;
+	public static final String questionDependencesPre1Span21 = " yum-builddep";
+	public static final String questionDependencesPre1Span2 = questionDependencesPre1Span21;
+	public static final String questionDependencesPre1Span31 = " -y";
+	public static final String questionDependencesPre1Span3 = questionDependencesPre1Span31;
+	public static final String questionDependencesPre1Span41 = " maven";
+	public static final String questionDependencesPre1Span4 = questionDependencesPre1Span41;
 	public static final String questionDependencesOl2Li11 = "sudo: The command to install yum repositories begins with the command sudo. ";
 	public static final String questionDependencesOl2Li12 = "The \"sudo\" command allows your current user to have root privileges for a few minutes after entering your password. ";
 	public static final String questionDependencesOl2Li1 = questionDependencesOl2Li11 + questionDependencesOl2Li12;
@@ -145,6 +145,26 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	public static final String questionDependencesOl2Li3 = questionDependencesOl2Li31;
 	public static final String questionDependencesOl2Li41 = "maven: The package name you wish to install the dependencies for. ";
 	public static final String questionDependencesOl2Li4 = questionDependencesOl2Li41;
+	public static final String questionDependencesPre3Span11 = "sudo";
+	public static final String questionDependencesPre3Span1 = questionDependencesPre3Span11;
+	public static final String questionDependencesPre3Span21 = " yum";
+	public static final String questionDependencesPre3Span2 = questionDependencesPre3Span21;
+	public static final String questionDependencesPre3Span31 = " install";
+	public static final String questionDependencesPre3Span3 = questionDependencesPre3Span31;
+	public static final String questionDependencesPre3Span41 = " -y";
+	public static final String questionDependencesPre3Span4 = questionDependencesPre3Span41;
+	public static final String questionDependencesPre3Span51 = " git";
+	public static final String questionDependencesPre3Span5 = questionDependencesPre3Span51;
+	public static final String questionDependencesOl4Li11 = "sudo";
+	public static final String questionDependencesOl4Li1 = questionDependencesOl4Li11;
+	public static final String questionDependencesOl4Li21 = "yum";
+	public static final String questionDependencesOl4Li2 = questionDependencesOl4Li21;
+	public static final String questionDependencesOl4Li31 = "install: For installing new yum packages. ";
+	public static final String questionDependencesOl4Li3 = questionDependencesOl4Li31;
+	public static final String questionDependencesOl4Li41 = "-y";
+	public static final String questionDependencesOl4Li4 = questionDependencesOl4Li41;
+	public static final String questionDependencesOl4Li51 = "git: The distributed revision control system for most open source software. ";
+	public static final String questionDependencesOl4Li5 = questionDependencesOl4Li51;
 
 	/**	L'entité « questionDependences »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -195,18 +215,18 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 				sx(questionDependencesH4Span1);
 			} g("span");
 		} g("h4");
-		{ e("pre").a("class", " questionDependencesPre ").f();
-			{ e("span").a("class", " questionDependencesPreSpan1 questionDependencesPreSpan odd ").f();
-				sx(questionDependencesPreSpan11);
+		{ e("pre").a("class", " questionDependencesPre1 questionDependencesPre odd ").f();
+			{ e("span").a("class", " questionDependencesPre1Span1 questionDependencesPre1Span odd ").f();
+				sx(questionDependencesPre1Span11);
 			} g("span");
-			{ e("span").a("class", " questionDependencesPreSpan2 questionDependencesPreSpan even ").f();
-				sx(questionDependencesPreSpan21);
+			{ e("span").a("class", " questionDependencesPre1Span2 questionDependencesPre1Span even ").f();
+				sx(questionDependencesPre1Span21);
 			} g("span");
-			{ e("span").a("class", " questionDependencesPreSpan3 questionDependencesPreSpan odd ").f();
-				sx(questionDependencesPreSpan31);
+			{ e("span").a("class", " questionDependencesPre1Span3 questionDependencesPre1Span odd ").f();
+				sx(questionDependencesPre1Span31);
 			} g("span");
-			{ e("span").a("class", " questionDependencesPreSpan4 questionDependencesPreSpan even ").f();
-				sx(questionDependencesPreSpan41);
+			{ e("span").a("class", " questionDependencesPre1Span4 questionDependencesPre1Span even ").f();
+				sx(questionDependencesPre1Span41);
 			} g("span");
 		} g("pre");
 		{ e("ol").a("class", " questionDependencesOl2 questionDependencesOl even ").f();
@@ -225,129 +245,45 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 				sx(questionDependencesOl2Li41);
 			} g("li");
 		} g("ol");
+		{ e("pre").a("class", " questionDependencesPre3 questionDependencesPre odd ").f();
+			{ e("span").a("class", " questionDependencesPre3Span1 questionDependencesPre3Span odd ").f();
+				sx(questionDependencesPre3Span11);
+			} g("span");
+			{ e("span").a("class", " questionDependencesPre3Span2 questionDependencesPre3Span even ").f();
+				sx(questionDependencesPre3Span21);
+			} g("span");
+			{ e("span").a("class", " questionDependencesPre3Span3 questionDependencesPre3Span odd ").f();
+				sx(questionDependencesPre3Span31);
+			} g("span");
+			{ e("span").a("class", " questionDependencesPre3Span4 questionDependencesPre3Span even ").f();
+				sx(questionDependencesPre3Span41);
+			} g("span");
+			{ e("span").a("class", " questionDependencesPre3Span5 questionDependencesPre3Span odd ").f();
+				sx(questionDependencesPre3Span51);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionDependencesOl4 questionDependencesOl even ").f();
+			{ e("li").a("class", " questionDependencesOl4Li1 questionDependencesOl4Li odd ").f();
+				sx(questionDependencesOl4Li11);
+			} g("li");
+			{ e("li").a("class", " questionDependencesOl4Li2 questionDependencesOl4Li even ").f();
+				sx(questionDependencesOl4Li21);
+			} g("li");
+			{ e("li").a("class", " questionDependencesOl4Li3 questionDependencesOl4Li odd ").f();
+				sx(questionDependencesOl4Li31);
+			} g("li");
+			{ e("li").a("class", " questionDependencesOl4Li4 questionDependencesOl4Li even ").f();
+				sx(questionDependencesOl4Li41);
+			} g("li");
+			{ e("li").a("class", " questionDependencesOl4Li5 questionDependencesOl4Li odd ").f();
+				sx(questionDependencesOl4Li51);
+			} g("li");
+		} g("ol");
 	}
 	public void htmlBodyQuestionDependences() {
 		questionDependences.htmlAvant();
 		htmlBodyQuestionDependences(questionDependences);
 		questionDependences.htmlApres();
-	}
-
-	/////////////////////////////
-	// questionInstallerAncien //
-	/////////////////////////////
-
-	public static final String questionInstallerAncienH3I1 = "far fa-truck-container";
-	public static final String questionInstallerAncienH3I = questionInstallerAncienH3I1;
-	public static final String questionInstallerAncienH3Span1 = "How do I install the dependencies for Maven? ";
-	public static final String questionInstallerAncienH3Span = questionInstallerAncienH3Span1;
-	public static final String questionInstallerAncienH4I1 = "far fa-tools";
-	public static final String questionInstallerAncienH4I = questionInstallerAncienH4I1;
-	public static final String questionInstallerAncienH4Span1 = "Build the dependencies with yum. ";
-	public static final String questionInstallerAncienH4Span = questionInstallerAncienH4Span1;
-	public static final String questionInstallerAncienPreSpan11 = "sudo";
-	public static final String questionInstallerAncienPreSpan1 = questionInstallerAncienPreSpan11;
-	public static final String questionInstallerAncienPreSpan21 = " yum-builddep";
-	public static final String questionInstallerAncienPreSpan2 = questionInstallerAncienPreSpan21;
-	public static final String questionInstallerAncienPreSpan31 = " -y";
-	public static final String questionInstallerAncienPreSpan3 = questionInstallerAncienPreSpan31;
-	public static final String questionInstallerAncienPreSpan41 = " maven";
-	public static final String questionInstallerAncienPreSpan4 = questionInstallerAncienPreSpan41;
-	public static final String questionInstallerAncienOl2Li11 = "sudo";
-	public static final String questionInstallerAncienOl2Li1 = questionInstallerAncienOl2Li11;
-	public static final String questionInstallerAncienOl2Li21 = "yum";
-	public static final String questionInstallerAncienOl2Li2 = questionInstallerAncienOl2Li21;
-	public static final String questionInstallerAncienOl2Li31 = "install: For installing new yum packages. ";
-	public static final String questionInstallerAncienOl2Li3 = questionInstallerAncienOl2Li31;
-	public static final String questionInstallerAncienOl2Li41 = "-y";
-	public static final String questionInstallerAncienOl2Li4 = questionInstallerAncienOl2Li41;
-	public static final String questionInstallerAncienOl2Li51 = "pv: The package name you wish to install. ";
-	public static final String questionInstallerAncienOl2Li5 = questionInstallerAncienOl2Li51;
-
-	/**	L'entité « questionInstallerAncien »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
-	 */
-	protected PageHtml questionInstallerAncien = new PageHtml();
-	public Couverture<PageHtml> questionInstallerAncienCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionInstallerAncien").o(questionInstallerAncien);
-
-	/**	<br/>L'entité « questionInstallerAncien »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionInstallerAncien">Trouver l'entité questionInstallerAncien dans Solr</a>
-	 * <br/>
-	 * @param questionInstallerAncien est l'entité déjà construit. 
-	 **/
-	protected abstract void _questionInstallerAncien(PageHtml o);
-
-	public PageHtml getQuestionInstallerAncien() {
-		return questionInstallerAncien;
-	}
-
-	public void setQuestionInstallerAncien(PageHtml questionInstallerAncien) {
-		this.questionInstallerAncien = questionInstallerAncien;
-		this.questionInstallerAncienCouverture.dejaInitialise = true;
-	}
-	protected C001L005InstallerMaven questionInstallerAncienInit() {
-		if(questionInstallerAncien != null) {
-			((C001L005InstallerMaven)this).avantPagePart(questionInstallerAncien, "questionInstallerAncien");
-			((C001L005InstallerMaven)this).avantPagePart(questionInstallerAncien, "questionInstallerAncien");
-		}
-		if(!questionInstallerAncienCouverture.dejaInitialise) {
-			_questionInstallerAncien(questionInstallerAncien);
-		}
-		questionInstallerAncien.initLoinPourClasse(requeteSite_);
-		questionInstallerAncienCouverture.dejaInitialise(true);
-		return (C001L005InstallerMaven)this;
-	}
-	public void htmlBodyQuestionInstallerAncien(PageHtml o) {
-		{ e("h3").a("class", " questionInstallerAncienH3 ").f();
-			{ e("i").a("class", questionInstallerAncienH3I1, " site-menu-icon questionInstallerAncienH3I ").f();
-			} g("i");
-			{ e("span").a("class", " questionInstallerAncienH3Span ").f();
-				sx(questionInstallerAncienH3Span1);
-			} g("span");
-		} g("h3");
-		{ e("h4").a("class", " questionInstallerAncienH4 ").f();
-			{ e("i").a("class", questionInstallerAncienH4I1, " site-menu-icon questionInstallerAncienH4I ").f();
-			} g("i");
-			{ e("span").a("class", " questionInstallerAncienH4Span ").f();
-				sx(questionInstallerAncienH4Span1);
-			} g("span");
-		} g("h4");
-		{ e("pre").a("class", " questionInstallerAncienPre ").f();
-			{ e("span").a("class", " questionInstallerAncienPreSpan1 questionInstallerAncienPreSpan odd ").f();
-				sx(questionInstallerAncienPreSpan11);
-			} g("span");
-			{ e("span").a("class", " questionInstallerAncienPreSpan2 questionInstallerAncienPreSpan even ").f();
-				sx(questionInstallerAncienPreSpan21);
-			} g("span");
-			{ e("span").a("class", " questionInstallerAncienPreSpan3 questionInstallerAncienPreSpan odd ").f();
-				sx(questionInstallerAncienPreSpan31);
-			} g("span");
-			{ e("span").a("class", " questionInstallerAncienPreSpan4 questionInstallerAncienPreSpan even ").f();
-				sx(questionInstallerAncienPreSpan41);
-			} g("span");
-		} g("pre");
-		{ e("ol").a("class", " questionInstallerAncienOl2 questionInstallerAncienOl even ").f();
-			{ e("li").a("class", " questionInstallerAncienOl2Li1 questionInstallerAncienOl2Li odd ").f();
-				sx(questionInstallerAncienOl2Li11);
-			} g("li");
-			{ e("li").a("class", " questionInstallerAncienOl2Li2 questionInstallerAncienOl2Li even ").f();
-				sx(questionInstallerAncienOl2Li21);
-			} g("li");
-			{ e("li").a("class", " questionInstallerAncienOl2Li3 questionInstallerAncienOl2Li odd ").f();
-				sx(questionInstallerAncienOl2Li31);
-			} g("li");
-			{ e("li").a("class", " questionInstallerAncienOl2Li4 questionInstallerAncienOl2Li even ").f();
-				sx(questionInstallerAncienOl2Li41);
-			} g("li");
-			{ e("li").a("class", " questionInstallerAncienOl2Li5 questionInstallerAncienOl2Li odd ").f();
-				sx(questionInstallerAncienOl2Li51);
-			} g("li");
-		} g("ol");
-	}
-	public void htmlBodyQuestionInstallerAncien() {
-		questionInstallerAncien.htmlAvant();
-		htmlBodyQuestionInstallerAncien(questionInstallerAncien);
-		questionInstallerAncien.htmlApres();
 	}
 
 	//////////////////////
@@ -364,17 +300,37 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	public static final String questionMkdirSrcH4Span = questionMkdirSrcH4Span1;
 	public static final String questionMkdirSrcPreSpan11 = "sudo";
 	public static final String questionMkdirSrcPreSpan1 = questionMkdirSrcPreSpan11;
-	public static final String questionMkdirSrcPreSpan21 = " mkdir";
+	public static final String questionMkdirSrcPreSpan21 = " install";
 	public static final String questionMkdirSrcPreSpan2 = questionMkdirSrcPreSpan21;
-	public static final String questionMkdirSrcPreSpan41 = " /usr/local/src/maven";
+	public static final String questionMkdirSrcPreSpan31 = " -d";
+	public static final String questionMkdirSrcPreSpan3 = questionMkdirSrcPreSpan31;
+	public static final String questionMkdirSrcPreSpan41 = " -o";
 	public static final String questionMkdirSrcPreSpan4 = questionMkdirSrcPreSpan41;
+	public static final String questionMkdirSrcPreSpan51 = " $USER";
+	public static final String questionMkdirSrcPreSpan5 = questionMkdirSrcPreSpan51;
+	public static final String questionMkdirSrcPreSpan61 = " -g";
+	public static final String questionMkdirSrcPreSpan6 = questionMkdirSrcPreSpan61;
+	public static final String questionMkdirSrcPreSpan71 = " $USER";
+	public static final String questionMkdirSrcPreSpan7 = questionMkdirSrcPreSpan71;
+	public static final String questionMkdirSrcPreSpan81 = " /usr/local/src/maven";
+	public static final String questionMkdirSrcPreSpan8 = questionMkdirSrcPreSpan81;
 	public static final String questionMkdirSrcOl2Li11 = "sudo";
 	public static final String questionMkdirSrcOl2Li1 = questionMkdirSrcOl2Li11;
-	public static final String questionMkdirSrcOl2Li21 = "mkdir";
+	public static final String questionMkdirSrcOl2Li21 = "install: Creates directories and sets attributes on the new directory. ";
 	public static final String questionMkdirSrcOl2Li2 = questionMkdirSrcOl2Li21;
-	public static final String questionMkdirSrcOl2Li31 = "/usr/local is a place for extra software that you install without the package manager. ";
-	public static final String questionMkdirSrcOl2Li32 = "/usr/local/src is a good place to clone your open source software repositories. ";
-	public static final String questionMkdirSrcOl2Li3 = questionMkdirSrcOl2Li31 + questionMkdirSrcOl2Li32;
+	public static final String questionMkdirSrcOl2Li31 = "-d: Create  directories. ";
+	public static final String questionMkdirSrcOl2Li3 = questionMkdirSrcOl2Li31;
+	public static final String questionMkdirSrcOl2Li41 = "-o: Set ownership on the directory (super-user only). ";
+	public static final String questionMkdirSrcOl2Li4 = questionMkdirSrcOl2Li41;
+	public static final String questionMkdirSrcOl2Li51 = "$USER: The current user to make the owner of the directory. ";
+	public static final String questionMkdirSrcOl2Li5 = questionMkdirSrcOl2Li51;
+	public static final String questionMkdirSrcOl2Li61 = "-g: Set group ownership on the directory (super-user only). ";
+	public static final String questionMkdirSrcOl2Li6 = questionMkdirSrcOl2Li61;
+	public static final String questionMkdirSrcOl2Li71 = "$USER: The current user to make the group owner of the directory. ";
+	public static final String questionMkdirSrcOl2Li7 = questionMkdirSrcOl2Li71;
+	public static final String questionMkdirSrcOl2Li81 = "/usr/local is a place for extra software that you install without the package manager. ";
+	public static final String questionMkdirSrcOl2Li82 = "/usr/local/src is a good place to clone your open source software repositories. ";
+	public static final String questionMkdirSrcOl2Li8 = questionMkdirSrcOl2Li81 + questionMkdirSrcOl2Li82;
 
 	/**	L'entité « questionMkdirSrc »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -432,8 +388,23 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 			{ e("span").a("class", " questionMkdirSrcPreSpan2 questionMkdirSrcPreSpan even ").f();
 				sx(questionMkdirSrcPreSpan21);
 			} g("span");
+			{ e("span").a("class", " questionMkdirSrcPreSpan3 questionMkdirSrcPreSpan odd ").f();
+				sx(questionMkdirSrcPreSpan31);
+			} g("span");
 			{ e("span").a("class", " questionMkdirSrcPreSpan4 questionMkdirSrcPreSpan even ").f();
 				sx(questionMkdirSrcPreSpan41);
+			} g("span");
+			{ e("span").a("class", " questionMkdirSrcPreSpan5 questionMkdirSrcPreSpan odd ").f();
+				sx(questionMkdirSrcPreSpan51);
+			} g("span");
+			{ e("span").a("class", " questionMkdirSrcPreSpan6 questionMkdirSrcPreSpan even ").f();
+				sx(questionMkdirSrcPreSpan61);
+			} g("span");
+			{ e("span").a("class", " questionMkdirSrcPreSpan7 questionMkdirSrcPreSpan odd ").f();
+				sx(questionMkdirSrcPreSpan71);
+			} g("span");
+			{ e("span").a("class", " questionMkdirSrcPreSpan8 questionMkdirSrcPreSpan even ").f();
+				sx(questionMkdirSrcPreSpan81);
 			} g("span");
 		} g("pre");
 		{ e("ol").a("class", " questionMkdirSrcOl2 questionMkdirSrcOl even ").f();
@@ -445,7 +416,22 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 			} g("li");
 			{ e("li").a("class", " questionMkdirSrcOl2Li3 questionMkdirSrcOl2Li odd ").f();
 				sx(questionMkdirSrcOl2Li31);
-				sx(questionMkdirSrcOl2Li32);
+			} g("li");
+			{ e("li").a("class", " questionMkdirSrcOl2Li4 questionMkdirSrcOl2Li even ").f();
+				sx(questionMkdirSrcOl2Li41);
+			} g("li");
+			{ e("li").a("class", " questionMkdirSrcOl2Li5 questionMkdirSrcOl2Li odd ").f();
+				sx(questionMkdirSrcOl2Li51);
+			} g("li");
+			{ e("li").a("class", " questionMkdirSrcOl2Li6 questionMkdirSrcOl2Li even ").f();
+				sx(questionMkdirSrcOl2Li61);
+			} g("li");
+			{ e("li").a("class", " questionMkdirSrcOl2Li7 questionMkdirSrcOl2Li odd ").f();
+				sx(questionMkdirSrcOl2Li71);
+			} g("li");
+			{ e("li").a("class", " questionMkdirSrcOl2Li8 questionMkdirSrcOl2Li even ").f();
+				sx(questionMkdirSrcOl2Li81);
+				sx(questionMkdirSrcOl2Li82);
 			} g("li");
 		} g("ol");
 	}
@@ -465,26 +451,40 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	public static final String questionMkdirMavenH3Span = questionMkdirMavenH3Span1;
 	public static final String questionMkdirMavenH4I1 = "far fa-tools";
 	public static final String questionMkdirMavenH4I = questionMkdirMavenH4I1;
-	public static final String questionMkdirMavenH4Span1 = "C";
+	public static final String questionMkdirMavenH4Span1 = "Create a maven directory in /opt. ";
 	public static final String questionMkdirMavenH4Span = questionMkdirMavenH4Span1;
 	public static final String questionMkdirMavenPreSpan11 = "sudo";
 	public static final String questionMkdirMavenPreSpan1 = questionMkdirMavenPreSpan11;
-	public static final String questionMkdirMavenPreSpan21 = " yum-builddep";
+	public static final String questionMkdirMavenPreSpan21 = " install";
 	public static final String questionMkdirMavenPreSpan2 = questionMkdirMavenPreSpan21;
-	public static final String questionMkdirMavenPreSpan31 = " -y";
+	public static final String questionMkdirMavenPreSpan31 = " -d";
 	public static final String questionMkdirMavenPreSpan3 = questionMkdirMavenPreSpan31;
-	public static final String questionMkdirMavenPreSpan41 = " maven";
+	public static final String questionMkdirMavenPreSpan41 = " -o";
 	public static final String questionMkdirMavenPreSpan4 = questionMkdirMavenPreSpan41;
+	public static final String questionMkdirMavenPreSpan51 = " $USER";
+	public static final String questionMkdirMavenPreSpan5 = questionMkdirMavenPreSpan51;
+	public static final String questionMkdirMavenPreSpan61 = " -g";
+	public static final String questionMkdirMavenPreSpan6 = questionMkdirMavenPreSpan61;
+	public static final String questionMkdirMavenPreSpan71 = " $USER";
+	public static final String questionMkdirMavenPreSpan7 = questionMkdirMavenPreSpan71;
+	public static final String questionMkdirMavenPreSpan81 = " /opt/maven";
+	public static final String questionMkdirMavenPreSpan8 = questionMkdirMavenPreSpan81;
 	public static final String questionMkdirMavenOl2Li11 = "sudo";
 	public static final String questionMkdirMavenOl2Li1 = questionMkdirMavenOl2Li11;
-	public static final String questionMkdirMavenOl2Li21 = "yum";
+	public static final String questionMkdirMavenOl2Li21 = "install";
 	public static final String questionMkdirMavenOl2Li2 = questionMkdirMavenOl2Li21;
-	public static final String questionMkdirMavenOl2Li31 = "install: For installing new yum packages. ";
+	public static final String questionMkdirMavenOl2Li31 = "-d";
 	public static final String questionMkdirMavenOl2Li3 = questionMkdirMavenOl2Li31;
-	public static final String questionMkdirMavenOl2Li41 = "-y";
+	public static final String questionMkdirMavenOl2Li41 = "-o";
 	public static final String questionMkdirMavenOl2Li4 = questionMkdirMavenOl2Li41;
-	public static final String questionMkdirMavenOl2Li51 = "pv: The package name you wish to install. ";
+	public static final String questionMkdirMavenOl2Li51 = "$USER";
 	public static final String questionMkdirMavenOl2Li5 = questionMkdirMavenOl2Li51;
+	public static final String questionMkdirMavenOl2Li61 = "-g";
+	public static final String questionMkdirMavenOl2Li6 = questionMkdirMavenOl2Li61;
+	public static final String questionMkdirMavenOl2Li71 = "$USER";
+	public static final String questionMkdirMavenOl2Li7 = questionMkdirMavenOl2Li71;
+	public static final String questionMkdirMavenOl2Li81 = "/opt is a good place to install open source software applications like maven. ";
+	public static final String questionMkdirMavenOl2Li8 = questionMkdirMavenOl2Li81;
 
 	/**	L'entité « questionMkdirMaven »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -548,6 +548,18 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 			{ e("span").a("class", " questionMkdirMavenPreSpan4 questionMkdirMavenPreSpan even ").f();
 				sx(questionMkdirMavenPreSpan41);
 			} g("span");
+			{ e("span").a("class", " questionMkdirMavenPreSpan5 questionMkdirMavenPreSpan odd ").f();
+				sx(questionMkdirMavenPreSpan51);
+			} g("span");
+			{ e("span").a("class", " questionMkdirMavenPreSpan6 questionMkdirMavenPreSpan even ").f();
+				sx(questionMkdirMavenPreSpan61);
+			} g("span");
+			{ e("span").a("class", " questionMkdirMavenPreSpan7 questionMkdirMavenPreSpan odd ").f();
+				sx(questionMkdirMavenPreSpan71);
+			} g("span");
+			{ e("span").a("class", " questionMkdirMavenPreSpan8 questionMkdirMavenPreSpan even ").f();
+				sx(questionMkdirMavenPreSpan81);
+			} g("span");
 		} g("pre");
 		{ e("ol").a("class", " questionMkdirMavenOl2 questionMkdirMavenOl even ").f();
 			{ e("li").a("class", " questionMkdirMavenOl2Li1 questionMkdirMavenOl2Li odd ").f();
@@ -565,12 +577,765 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 			{ e("li").a("class", " questionMkdirMavenOl2Li5 questionMkdirMavenOl2Li odd ").f();
 				sx(questionMkdirMavenOl2Li51);
 			} g("li");
+			{ e("li").a("class", " questionMkdirMavenOl2Li6 questionMkdirMavenOl2Li even ").f();
+				sx(questionMkdirMavenOl2Li61);
+			} g("li");
+			{ e("li").a("class", " questionMkdirMavenOl2Li7 questionMkdirMavenOl2Li odd ").f();
+				sx(questionMkdirMavenOl2Li71);
+			} g("li");
+			{ e("li").a("class", " questionMkdirMavenOl2Li8 questionMkdirMavenOl2Li even ").f();
+				sx(questionMkdirMavenOl2Li81);
+			} g("li");
 		} g("ol");
 	}
 	public void htmlBodyQuestionMkdirMaven() {
 		questionMkdirMaven.htmlAvant();
 		htmlBodyQuestionMkdirMaven(questionMkdirMaven);
 		questionMkdirMaven.htmlApres();
+	}
+
+	//////////////////////////
+	// questionClonerSource //
+	//////////////////////////
+
+	public static final String questionClonerSourceH3I1 = "far fa-truck-container";
+	public static final String questionClonerSourceH3I = questionClonerSourceH3I1;
+	public static final String questionClonerSourceH3Span1 = "How do I download the maven source code? ";
+	public static final String questionClonerSourceH3Span = questionClonerSourceH3Span1;
+	public static final String questionClonerSourceH4I1 = "far fa-tools";
+	public static final String questionClonerSourceH4I = questionClonerSourceH4I1;
+	public static final String questionClonerSourceH4Span1 = "Clone the source code with the git command. ";
+	public static final String questionClonerSourceH4Span = questionClonerSourceH4Span1;
+	public static final String questionClonerSourcePreSpan11 = "git";
+	public static final String questionClonerSourcePreSpan1 = questionClonerSourcePreSpan11;
+	public static final String questionClonerSourcePreSpan21 = " clone";
+	public static final String questionClonerSourcePreSpan2 = questionClonerSourcePreSpan21;
+	public static final String questionClonerSourcePreSpan31 = " https://git-wip-us.apache.org/repos/asf/maven.git";
+	public static final String questionClonerSourcePreSpan3 = questionClonerSourcePreSpan31;
+	public static final String questionClonerSourcePreSpan41 = " /usr/local/src/maven";
+	public static final String questionClonerSourcePreSpan4 = questionClonerSourcePreSpan41;
+	public static final String questionClonerSourceOl2Li11 = "git: The distributed revision control system for most open source software. ";
+	public static final String questionClonerSourceOl2Li1 = questionClonerSourceOl2Li11;
+	public static final String questionClonerSourceOl2Li21 = "clone: Clone a repository into a directory. ";
+	public static final String questionClonerSourceOl2Li2 = questionClonerSourceOl2Li21;
+	public static final String questionClonerSourceOl2Li31 = "https://git-wip-us.apache.org/repos/asf/maven.git: The git URL to the maven source code repository. ";
+	public static final String questionClonerSourceOl2Li3 = questionClonerSourceOl2Li31;
+	public static final String questionClonerSourceOl2Li41 = "/usr/local/src/maven: The directory where the maven source code will be cloned. ";
+	public static final String questionClonerSourceOl2Li4 = questionClonerSourceOl2Li41;
+
+	/**	L'entité « questionClonerSource »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionClonerSource = new PageHtml();
+	public Couverture<PageHtml> questionClonerSourceCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionClonerSource").o(questionClonerSource);
+
+	/**	<br/>L'entité « questionClonerSource »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionClonerSource">Trouver l'entité questionClonerSource dans Solr</a>
+	 * <br/>
+	 * @param questionClonerSource est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionClonerSource(PageHtml o);
+
+	public PageHtml getQuestionClonerSource() {
+		return questionClonerSource;
+	}
+
+	public void setQuestionClonerSource(PageHtml questionClonerSource) {
+		this.questionClonerSource = questionClonerSource;
+		this.questionClonerSourceCouverture.dejaInitialise = true;
+	}
+	protected C001L005InstallerMaven questionClonerSourceInit() {
+		if(questionClonerSource != null) {
+			((C001L005InstallerMaven)this).avantPagePart(questionClonerSource, "questionClonerSource");
+			((C001L005InstallerMaven)this).avantPagePart(questionClonerSource, "questionClonerSource");
+		}
+		if(!questionClonerSourceCouverture.dejaInitialise) {
+			_questionClonerSource(questionClonerSource);
+		}
+		questionClonerSource.initLoinPourClasse(requeteSite_);
+		questionClonerSourceCouverture.dejaInitialise(true);
+		return (C001L005InstallerMaven)this;
+	}
+	public void htmlBodyQuestionClonerSource(PageHtml o) {
+		{ e("h3").a("class", " questionClonerSourceH3 ").f();
+			{ e("i").a("class", questionClonerSourceH3I1, " site-menu-icon questionClonerSourceH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionClonerSourceH3Span ").f();
+				sx(questionClonerSourceH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionClonerSourceH4 ").f();
+			{ e("i").a("class", questionClonerSourceH4I1, " site-menu-icon questionClonerSourceH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionClonerSourceH4Span ").f();
+				sx(questionClonerSourceH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionClonerSourcePre ").f();
+			{ e("span").a("class", " questionClonerSourcePreSpan1 questionClonerSourcePreSpan odd ").f();
+				sx(questionClonerSourcePreSpan11);
+			} g("span");
+			{ e("span").a("class", " questionClonerSourcePreSpan2 questionClonerSourcePreSpan even ").f();
+				sx(questionClonerSourcePreSpan21);
+			} g("span");
+			{ e("span").a("class", " questionClonerSourcePreSpan3 questionClonerSourcePreSpan odd ").f();
+				sx(questionClonerSourcePreSpan31);
+			} g("span");
+			{ e("span").a("class", " questionClonerSourcePreSpan4 questionClonerSourcePreSpan even ").f();
+				sx(questionClonerSourcePreSpan41);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionClonerSourceOl2 questionClonerSourceOl even ").f();
+			{ e("li").a("class", " questionClonerSourceOl2Li1 questionClonerSourceOl2Li odd ").f();
+				sx(questionClonerSourceOl2Li11);
+			} g("li");
+			{ e("li").a("class", " questionClonerSourceOl2Li2 questionClonerSourceOl2Li even ").f();
+				sx(questionClonerSourceOl2Li21);
+			} g("li");
+			{ e("li").a("class", " questionClonerSourceOl2Li3 questionClonerSourceOl2Li odd ").f();
+				sx(questionClonerSourceOl2Li31);
+			} g("li");
+			{ e("li").a("class", " questionClonerSourceOl2Li4 questionClonerSourceOl2Li even ").f();
+				sx(questionClonerSourceOl2Li41);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionClonerSource() {
+		questionClonerSource.htmlAvant();
+		htmlBodyQuestionClonerSource(questionClonerSource);
+		questionClonerSource.htmlApres();
+	}
+
+	////////////////////////
+	// questionListerTags //
+	////////////////////////
+
+	public static final String questionListerTagsH3I1 = "far fa-truck-container";
+	public static final String questionListerTagsH3I = questionListerTagsH3I1;
+	public static final String questionListerTagsH3Span1 = "How do I pick a recent version of Maven? ";
+	public static final String questionListerTagsH3Span = questionListerTagsH3Span1;
+	public static final String questionListerTagsH4I1 = "far fa-tools";
+	public static final String questionListerTagsH4I = questionListerTagsH4I1;
+	public static final String questionListerTagsH4Span1 = "List all the tags in the git repository. ";
+	public static final String questionListerTagsH4Span = questionListerTagsH4Span1;
+	public static final String questionListerTagsPreSpan11 = "(cd";
+	public static final String questionListerTagsPreSpan1 = questionListerTagsPreSpan11;
+	public static final String questionListerTagsPreSpan21 = " /usr/local/src/maven";
+	public static final String questionListerTagsPreSpan2 = questionListerTagsPreSpan21;
+	public static final String questionListerTagsPreSpan31 = " &&";
+	public static final String questionListerTagsPreSpan3 = questionListerTagsPreSpan31;
+	public static final String questionListerTagsPreSpan41 = " git";
+	public static final String questionListerTagsPreSpan4 = questionListerTagsPreSpan41;
+	public static final String questionListerTagsPreSpan51 = " tag)";
+	public static final String questionListerTagsPreSpan5 = questionListerTagsPreSpan51;
+	public static final String questionListerTagsOl2Li11 = "(cd: Change directory temporarily, because of the open parenthesis. ";
+	public static final String questionListerTagsOl2Li1 = questionListerTagsOl2Li11;
+	public static final String questionListerTagsOl2Li21 = "/usr/local/src/maven: The directory where the maven source code was cloned. ";
+	public static final String questionListerTagsOl2Li2 = questionListerTagsOl2Li21;
+	public static final String questionListerTagsOl2Li31 = "&&: Run the cd and git command together. ";
+	public static final String questionListerTagsOl2Li3 = questionListerTagsOl2Li31;
+	public static final String questionListerTagsOl2Li41 = "git";
+	public static final String questionListerTagsOl2Li4 = questionListerTagsOl2Li41;
+	public static final String questionListerTagsOl2Li51 = "tag): Lists the current tags or assigned versions of the code and close the parenthesis. ";
+	public static final String questionListerTagsOl2Li5 = questionListerTagsOl2Li51;
+
+	/**	L'entité « questionListerTags »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionListerTags = new PageHtml();
+	public Couverture<PageHtml> questionListerTagsCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionListerTags").o(questionListerTags);
+
+	/**	<br/>L'entité « questionListerTags »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionListerTags">Trouver l'entité questionListerTags dans Solr</a>
+	 * <br/>
+	 * @param questionListerTags est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionListerTags(PageHtml o);
+
+	public PageHtml getQuestionListerTags() {
+		return questionListerTags;
+	}
+
+	public void setQuestionListerTags(PageHtml questionListerTags) {
+		this.questionListerTags = questionListerTags;
+		this.questionListerTagsCouverture.dejaInitialise = true;
+	}
+	protected C001L005InstallerMaven questionListerTagsInit() {
+		if(questionListerTags != null) {
+			((C001L005InstallerMaven)this).avantPagePart(questionListerTags, "questionListerTags");
+			((C001L005InstallerMaven)this).avantPagePart(questionListerTags, "questionListerTags");
+		}
+		if(!questionListerTagsCouverture.dejaInitialise) {
+			_questionListerTags(questionListerTags);
+		}
+		questionListerTags.initLoinPourClasse(requeteSite_);
+		questionListerTagsCouverture.dejaInitialise(true);
+		return (C001L005InstallerMaven)this;
+	}
+	public void htmlBodyQuestionListerTags(PageHtml o) {
+		{ e("h3").a("class", " questionListerTagsH3 ").f();
+			{ e("i").a("class", questionListerTagsH3I1, " site-menu-icon questionListerTagsH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionListerTagsH3Span ").f();
+				sx(questionListerTagsH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionListerTagsH4 ").f();
+			{ e("i").a("class", questionListerTagsH4I1, " site-menu-icon questionListerTagsH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionListerTagsH4Span ").f();
+				sx(questionListerTagsH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionListerTagsPre ").f();
+			{ e("span").a("class", " questionListerTagsPreSpan1 questionListerTagsPreSpan odd ").f();
+				sx(questionListerTagsPreSpan11);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan2 questionListerTagsPreSpan even ").f();
+				sx(questionListerTagsPreSpan21);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan3 questionListerTagsPreSpan odd ").f();
+				sx(questionListerTagsPreSpan31);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan4 questionListerTagsPreSpan even ").f();
+				sx(questionListerTagsPreSpan41);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan5 questionListerTagsPreSpan odd ").f();
+				sx(questionListerTagsPreSpan51);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionListerTagsOl2 questionListerTagsOl even ").f();
+			{ e("li").a("class", " questionListerTagsOl2Li1 questionListerTagsOl2Li odd ").f();
+				sx(questionListerTagsOl2Li11);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li2 questionListerTagsOl2Li even ").f();
+				sx(questionListerTagsOl2Li21);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li3 questionListerTagsOl2Li odd ").f();
+				sx(questionListerTagsOl2Li31);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li4 questionListerTagsOl2Li even ").f();
+				sx(questionListerTagsOl2Li41);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li5 questionListerTagsOl2Li odd ").f();
+				sx(questionListerTagsOl2Li51);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionListerTags() {
+		questionListerTags.htmlAvant();
+		htmlBodyQuestionListerTags(questionListerTags);
+		questionListerTags.htmlApres();
+	}
+
+	/////////////////////////
+	// questionCheckoutTag //
+	/////////////////////////
+
+	public static final String questionCheckoutTagH3I1 = "far fa-truck-container";
+	public static final String questionCheckoutTagH3I = questionCheckoutTagH3I1;
+	public static final String questionCheckoutTagH3Span1 = "How do I switch versions of the maven source code? ";
+	public static final String questionCheckoutTagH3Span = questionCheckoutTagH3Span1;
+	public static final String questionCheckoutTagH4I1 = "far fa-tools";
+	public static final String questionCheckoutTagH4I = questionCheckoutTagH4I1;
+	public static final String questionCheckoutTagH4Span1 = "Checkout the git tag. ";
+	public static final String questionCheckoutTagH4Span = questionCheckoutTagH4Span1;
+	public static final String questionCheckoutTagPreSpan11 = "(cd";
+	public static final String questionCheckoutTagPreSpan1 = questionCheckoutTagPreSpan11;
+	public static final String questionCheckoutTagPreSpan21 = " /usr/local/src/maven";
+	public static final String questionCheckoutTagPreSpan2 = questionCheckoutTagPreSpan21;
+	public static final String questionCheckoutTagPreSpan31 = " &&";
+	public static final String questionCheckoutTagPreSpan3 = questionCheckoutTagPreSpan31;
+	public static final String questionCheckoutTagPreSpan41 = " git";
+	public static final String questionCheckoutTagPreSpan4 = questionCheckoutTagPreSpan41;
+	public static final String questionCheckoutTagPreSpan51 = " checkout";
+	public static final String questionCheckoutTagPreSpan5 = questionCheckoutTagPreSpan51;
+	public static final String questionCheckoutTagPreSpan61 = " maven-3.6.1)";
+	public static final String questionCheckoutTagPreSpan6 = questionCheckoutTagPreSpan61;
+	public static final String questionCheckoutTagOl2Li11 = "(cd";
+	public static final String questionCheckoutTagOl2Li1 = questionCheckoutTagOl2Li11;
+	public static final String questionCheckoutTagOl2Li21 = "/usr/local/src/maven";
+	public static final String questionCheckoutTagOl2Li2 = questionCheckoutTagOl2Li21;
+	public static final String questionCheckoutTagOl2Li31 = "&&";
+	public static final String questionCheckoutTagOl2Li3 = questionCheckoutTagOl2Li31;
+	public static final String questionCheckoutTagOl2Li41 = "git";
+	public static final String questionCheckoutTagOl2Li4 = questionCheckoutTagOl2Li41;
+	public static final String questionCheckoutTagOl2Li51 = "checkout: Checkout a branch to the working tree. ";
+	public static final String questionCheckoutTagOl2Li5 = questionCheckoutTagOl2Li51;
+	public static final String questionCheckoutTagOl2Li61 = "maven-3.6.1): The latest tag to base the branch from. ";
+	public static final String questionCheckoutTagOl2Li6 = questionCheckoutTagOl2Li61;
+
+	/**	L'entité « questionCheckoutTag »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionCheckoutTag = new PageHtml();
+	public Couverture<PageHtml> questionCheckoutTagCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionCheckoutTag").o(questionCheckoutTag);
+
+	/**	<br/>L'entité « questionCheckoutTag »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionCheckoutTag">Trouver l'entité questionCheckoutTag dans Solr</a>
+	 * <br/>
+	 * @param questionCheckoutTag est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionCheckoutTag(PageHtml o);
+
+	public PageHtml getQuestionCheckoutTag() {
+		return questionCheckoutTag;
+	}
+
+	public void setQuestionCheckoutTag(PageHtml questionCheckoutTag) {
+		this.questionCheckoutTag = questionCheckoutTag;
+		this.questionCheckoutTagCouverture.dejaInitialise = true;
+	}
+	protected C001L005InstallerMaven questionCheckoutTagInit() {
+		if(questionCheckoutTag != null) {
+			((C001L005InstallerMaven)this).avantPagePart(questionCheckoutTag, "questionCheckoutTag");
+			((C001L005InstallerMaven)this).avantPagePart(questionCheckoutTag, "questionCheckoutTag");
+		}
+		if(!questionCheckoutTagCouverture.dejaInitialise) {
+			_questionCheckoutTag(questionCheckoutTag);
+		}
+		questionCheckoutTag.initLoinPourClasse(requeteSite_);
+		questionCheckoutTagCouverture.dejaInitialise(true);
+		return (C001L005InstallerMaven)this;
+	}
+	public void htmlBodyQuestionCheckoutTag(PageHtml o) {
+		{ e("h3").a("class", " questionCheckoutTagH3 ").f();
+			{ e("i").a("class", questionCheckoutTagH3I1, " site-menu-icon questionCheckoutTagH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionCheckoutTagH3Span ").f();
+				sx(questionCheckoutTagH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionCheckoutTagH4 ").f();
+			{ e("i").a("class", questionCheckoutTagH4I1, " site-menu-icon questionCheckoutTagH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionCheckoutTagH4Span ").f();
+				sx(questionCheckoutTagH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionCheckoutTagPre ").f();
+			{ e("span").a("class", " questionCheckoutTagPreSpan1 questionCheckoutTagPreSpan odd ").f();
+				sx(questionCheckoutTagPreSpan11);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan2 questionCheckoutTagPreSpan even ").f();
+				sx(questionCheckoutTagPreSpan21);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan3 questionCheckoutTagPreSpan odd ").f();
+				sx(questionCheckoutTagPreSpan31);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan4 questionCheckoutTagPreSpan even ").f();
+				sx(questionCheckoutTagPreSpan41);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan5 questionCheckoutTagPreSpan odd ").f();
+				sx(questionCheckoutTagPreSpan51);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan6 questionCheckoutTagPreSpan even ").f();
+				sx(questionCheckoutTagPreSpan61);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionCheckoutTagOl2 questionCheckoutTagOl even ").f();
+			{ e("li").a("class", " questionCheckoutTagOl2Li1 questionCheckoutTagOl2Li odd ").f();
+				sx(questionCheckoutTagOl2Li11);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl2Li2 questionCheckoutTagOl2Li even ").f();
+				sx(questionCheckoutTagOl2Li21);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl2Li3 questionCheckoutTagOl2Li odd ").f();
+				sx(questionCheckoutTagOl2Li31);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl2Li4 questionCheckoutTagOl2Li even ").f();
+				sx(questionCheckoutTagOl2Li41);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl2Li5 questionCheckoutTagOl2Li odd ").f();
+				sx(questionCheckoutTagOl2Li51);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl2Li6 questionCheckoutTagOl2Li even ").f();
+				sx(questionCheckoutTagOl2Li61);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionCheckoutTag() {
+		questionCheckoutTag.htmlAvant();
+		htmlBodyQuestionCheckoutTag(questionCheckoutTag);
+		questionCheckoutTag.htmlApres();
+	}
+
+	//////////////////////////////
+	// questionConstruireSource //
+	//////////////////////////////
+
+	public static final String questionConstruireSourceH3I1 = "far fa-truck-container";
+	public static final String questionConstruireSourceH3I = questionConstruireSourceH3I1;
+	public static final String questionConstruireSourceH3Span1 = "How do I build the maven source code? ";
+	public static final String questionConstruireSourceH3Span = questionConstruireSourceH3Span1;
+	public static final String questionConstruireSourceH4I1 = "far fa-tools";
+	public static final String questionConstruireSourceH4I = questionConstruireSourceH4I1;
+	public static final String questionConstruireSourceH4Span1 = "Build Maven with the mvn command. ";
+	public static final String questionConstruireSourceH4Span = questionConstruireSourceH4Span1;
+	public static final String questionConstruireSourcePreSpan11 = "(cd";
+	public static final String questionConstruireSourcePreSpan1 = questionConstruireSourcePreSpan11;
+	public static final String questionConstruireSourcePreSpan21 = " /usr/local/src/maven";
+	public static final String questionConstruireSourcePreSpan2 = questionConstruireSourcePreSpan21;
+	public static final String questionConstruireSourcePreSpan31 = " &&";
+	public static final String questionConstruireSourcePreSpan3 = questionConstruireSourcePreSpan31;
+	public static final String questionConstruireSourcePreSpan41 = " mvn";
+	public static final String questionConstruireSourcePreSpan4 = questionConstruireSourcePreSpan41;
+	public static final String questionConstruireSourcePreSpan51 = " -DdistributionTargetDir=\"/tmp/maven\"";
+	public static final String questionConstruireSourcePreSpan5 = questionConstruireSourcePreSpan51;
+	public static final String questionConstruireSourcePreSpan61 = " clean";
+	public static final String questionConstruireSourcePreSpan6 = questionConstruireSourcePreSpan61;
+	public static final String questionConstruireSourcePreSpan71 = " package)";
+	public static final String questionConstruireSourcePreSpan7 = questionConstruireSourcePreSpan71;
+	public static final String questionConstruireSourceOl2Li11 = "(cd";
+	public static final String questionConstruireSourceOl2Li1 = questionConstruireSourceOl2Li11;
+	public static final String questionConstruireSourceOl2Li21 = "/usr/local/src/maven";
+	public static final String questionConstruireSourceOl2Li2 = questionConstruireSourceOl2Li21;
+	public static final String questionConstruireSourceOl2Li31 = "&&";
+	public static final String questionConstruireSourceOl2Li3 = questionConstruireSourceOl2Li31;
+	public static final String questionConstruireSourceOl2Li41 = "mvn: The java software project management tool. ";
+	public static final String questionConstruireSourceOl2Li4 = questionConstruireSourceOl2Li41;
+	public static final String questionConstruireSourceOl2Li51 = "-DdistributionTargetDir=\"/tmp/maven\": Point the distributionTargetDir to a temporary directory in /tmp. ";
+	public static final String questionConstruireSourceOl2Li5 = questionConstruireSourceOl2Li51;
+	public static final String questionConstruireSourceOl2Li61 = "clean: Clean up any previous builds. ";
+	public static final String questionConstruireSourceOl2Li6 = questionConstruireSourceOl2Li61;
+	public static final String questionConstruireSourceOl2Li71 = "package): Build the complete maven application and close the parenthesis. ";
+	public static final String questionConstruireSourceOl2Li7 = questionConstruireSourceOl2Li71;
+
+	/**	L'entité « questionConstruireSource »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionConstruireSource = new PageHtml();
+	public Couverture<PageHtml> questionConstruireSourceCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionConstruireSource").o(questionConstruireSource);
+
+	/**	<br/>L'entité « questionConstruireSource »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionConstruireSource">Trouver l'entité questionConstruireSource dans Solr</a>
+	 * <br/>
+	 * @param questionConstruireSource est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionConstruireSource(PageHtml o);
+
+	public PageHtml getQuestionConstruireSource() {
+		return questionConstruireSource;
+	}
+
+	public void setQuestionConstruireSource(PageHtml questionConstruireSource) {
+		this.questionConstruireSource = questionConstruireSource;
+		this.questionConstruireSourceCouverture.dejaInitialise = true;
+	}
+	protected C001L005InstallerMaven questionConstruireSourceInit() {
+		if(questionConstruireSource != null) {
+			((C001L005InstallerMaven)this).avantPagePart(questionConstruireSource, "questionConstruireSource");
+			((C001L005InstallerMaven)this).avantPagePart(questionConstruireSource, "questionConstruireSource");
+		}
+		if(!questionConstruireSourceCouverture.dejaInitialise) {
+			_questionConstruireSource(questionConstruireSource);
+		}
+		questionConstruireSource.initLoinPourClasse(requeteSite_);
+		questionConstruireSourceCouverture.dejaInitialise(true);
+		return (C001L005InstallerMaven)this;
+	}
+	public void htmlBodyQuestionConstruireSource(PageHtml o) {
+		{ e("h3").a("class", " questionConstruireSourceH3 ").f();
+			{ e("i").a("class", questionConstruireSourceH3I1, " site-menu-icon questionConstruireSourceH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionConstruireSourceH3Span ").f();
+				sx(questionConstruireSourceH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionConstruireSourceH4 ").f();
+			{ e("i").a("class", questionConstruireSourceH4I1, " site-menu-icon questionConstruireSourceH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionConstruireSourceH4Span ").f();
+				sx(questionConstruireSourceH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionConstruireSourcePre ").f();
+			{ e("span").a("class", " questionConstruireSourcePreSpan1 questionConstruireSourcePreSpan odd ").f();
+				sx(questionConstruireSourcePreSpan11);
+			} g("span");
+			{ e("span").a("class", " questionConstruireSourcePreSpan2 questionConstruireSourcePreSpan even ").f();
+				sx(questionConstruireSourcePreSpan21);
+			} g("span");
+			{ e("span").a("class", " questionConstruireSourcePreSpan3 questionConstruireSourcePreSpan odd ").f();
+				sx(questionConstruireSourcePreSpan31);
+			} g("span");
+			{ e("span").a("class", " questionConstruireSourcePreSpan4 questionConstruireSourcePreSpan even ").f();
+				sx(questionConstruireSourcePreSpan41);
+			} g("span");
+			{ e("span").a("class", " questionConstruireSourcePreSpan5 questionConstruireSourcePreSpan odd ").f();
+				sx(questionConstruireSourcePreSpan51);
+			} g("span");
+			{ e("span").a("class", " questionConstruireSourcePreSpan6 questionConstruireSourcePreSpan even ").f();
+				sx(questionConstruireSourcePreSpan61);
+			} g("span");
+			{ e("span").a("class", " questionConstruireSourcePreSpan7 questionConstruireSourcePreSpan odd ").f();
+				sx(questionConstruireSourcePreSpan71);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionConstruireSourceOl2 questionConstruireSourceOl even ").f();
+			{ e("li").a("class", " questionConstruireSourceOl2Li1 questionConstruireSourceOl2Li odd ").f();
+				sx(questionConstruireSourceOl2Li11);
+			} g("li");
+			{ e("li").a("class", " questionConstruireSourceOl2Li2 questionConstruireSourceOl2Li even ").f();
+				sx(questionConstruireSourceOl2Li21);
+			} g("li");
+			{ e("li").a("class", " questionConstruireSourceOl2Li3 questionConstruireSourceOl2Li odd ").f();
+				sx(questionConstruireSourceOl2Li31);
+			} g("li");
+			{ e("li").a("class", " questionConstruireSourceOl2Li4 questionConstruireSourceOl2Li even ").f();
+				sx(questionConstruireSourceOl2Li41);
+			} g("li");
+			{ e("li").a("class", " questionConstruireSourceOl2Li5 questionConstruireSourceOl2Li odd ").f();
+				sx(questionConstruireSourceOl2Li51);
+			} g("li");
+			{ e("li").a("class", " questionConstruireSourceOl2Li6 questionConstruireSourceOl2Li even ").f();
+				sx(questionConstruireSourceOl2Li61);
+			} g("li");
+			{ e("li").a("class", " questionConstruireSourceOl2Li7 questionConstruireSourceOl2Li odd ").f();
+				sx(questionConstruireSourceOl2Li71);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionConstruireSource() {
+		questionConstruireSource.htmlAvant();
+		htmlBodyQuestionConstruireSource(questionConstruireSource);
+		questionConstruireSource.htmlApres();
+	}
+
+	////////////////////////////////
+	// questionMavenInstalleMaven //
+	////////////////////////////////
+
+	public static final String questionMavenInstalleMavenH3I1 = "far fa-truck-container";
+	public static final String questionMavenInstalleMavenH3I = questionMavenInstalleMavenH3I1;
+	public static final String questionMavenInstalleMavenH3Span1 = "But why are we installing Maven to install the latest Maven? ";
+	public static final String questionMavenInstalleMavenH3Span = questionMavenInstalleMavenH3Span1;
+	public static final String questionMavenInstalleMavenH4I1 = "far fa-tools";
+	public static final String questionMavenInstalleMavenH4I = questionMavenInstalleMavenH4I1;
+	public static final String questionMavenInstalleMavenH4Span1 = "A program that requires itself to build itself. ";
+	public static final String questionMavenInstalleMavenH4Span = questionMavenInstalleMavenH4Span1;
+	public static final String questionMavenInstalleMavenH5Span1 = "";
+	public static final String questionMavenInstalleMavenH5Span = questionMavenInstalleMavenH5Span1;
+	public static final String questionMavenInstalleMavenP5Span1 = "I couldn't believe it myself at first, a program that requires itself to build itself? ";
+	public static final String questionMavenInstalleMavenP5Span2 = "The best I can do to explain this phenomenon is to quote the maven documentation: ";
+	public static final String questionMavenInstalleMavenP5Span3 = "\"Until Maven 3.3, Maven core build could be boostrapped with an Ant build. ";
+	public static final String questionMavenInstalleMavenP5Span4 = "This bootstrap has been removed in Maven 3.5: you need a pre-built Maven to build Maven from source.\" ";
+	public static final String questionMavenInstalleMavenP5Span = questionMavenInstalleMavenP5Span1 + questionMavenInstalleMavenP5Span2 + questionMavenInstalleMavenP5Span3 + questionMavenInstalleMavenP5Span4;
+
+	/**	L'entité « questionMavenInstalleMaven »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionMavenInstalleMaven = new PageHtml();
+	public Couverture<PageHtml> questionMavenInstalleMavenCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionMavenInstalleMaven").o(questionMavenInstalleMaven);
+
+	/**	<br/>L'entité « questionMavenInstalleMaven »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionMavenInstalleMaven">Trouver l'entité questionMavenInstalleMaven dans Solr</a>
+	 * <br/>
+	 * @param questionMavenInstalleMaven est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionMavenInstalleMaven(PageHtml o);
+
+	public PageHtml getQuestionMavenInstalleMaven() {
+		return questionMavenInstalleMaven;
+	}
+
+	public void setQuestionMavenInstalleMaven(PageHtml questionMavenInstalleMaven) {
+		this.questionMavenInstalleMaven = questionMavenInstalleMaven;
+		this.questionMavenInstalleMavenCouverture.dejaInitialise = true;
+	}
+	protected C001L005InstallerMaven questionMavenInstalleMavenInit() {
+		if(questionMavenInstalleMaven != null) {
+			((C001L005InstallerMaven)this).avantPagePart(questionMavenInstalleMaven, "questionMavenInstalleMaven");
+			((C001L005InstallerMaven)this).avantPagePart(questionMavenInstalleMaven, "questionMavenInstalleMaven");
+		}
+		if(!questionMavenInstalleMavenCouverture.dejaInitialise) {
+			_questionMavenInstalleMaven(questionMavenInstalleMaven);
+		}
+		questionMavenInstalleMaven.initLoinPourClasse(requeteSite_);
+		questionMavenInstalleMavenCouverture.dejaInitialise(true);
+		return (C001L005InstallerMaven)this;
+	}
+	public void htmlBodyQuestionMavenInstalleMaven(PageHtml o) {
+		{ e("h3").a("class", " questionMavenInstalleMavenH3 ").f();
+			{ e("i").a("class", questionMavenInstalleMavenH3I1, " site-menu-icon questionMavenInstalleMavenH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionMavenInstalleMavenH3Span ").f();
+				sx(questionMavenInstalleMavenH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionMavenInstalleMavenH4 ").f();
+			{ e("i").a("class", questionMavenInstalleMavenH4I1, " site-menu-icon questionMavenInstalleMavenH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionMavenInstalleMavenH4Span ").f();
+				sx(questionMavenInstalleMavenH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("h5").a("class", " questionMavenInstalleMavenH5 ").f();
+			{ e("span").a("class", " questionMavenInstalleMavenH5Span ").f();
+				sx(questionMavenInstalleMavenH5Span1);
+			} g("span");
+		} g("h5");
+		{ e("p").a("class", " questionMavenInstalleMavenP5 questionMavenInstalleMavenP odd ").f();
+			{ e("span").a("class", " questionMavenInstalleMavenP5Span ").f();
+				sx(questionMavenInstalleMavenP5Span1);
+				sx(questionMavenInstalleMavenP5Span2);
+				sx(questionMavenInstalleMavenP5Span3);
+				sx(questionMavenInstalleMavenP5Span4);
+			} g("span");
+		} g("p");
+	}
+	public void htmlBodyQuestionMavenInstalleMaven() {
+		questionMavenInstalleMaven.htmlAvant();
+		htmlBodyQuestionMavenInstalleMaven(questionMavenInstalleMaven);
+		questionMavenInstalleMaven.htmlApres();
+	}
+
+	/////////////////
+	// questionBin //
+	/////////////////
+
+	public static final String questionBinH3I1 = "far fa-truck-container";
+	public static final String questionBinH3I = questionBinH3I1;
+	public static final String questionBinH3Span1 = "How do I build the maven source code? ";
+	public static final String questionBinH3Span = questionBinH3Span1;
+	public static final String questionBinH4I1 = "far fa-tools";
+	public static final String questionBinH4I = questionBinH4I1;
+	public static final String questionBinH4Span1 = "Clone the source code with the git command. ";
+	public static final String questionBinH4Span = questionBinH4Span1;
+	public static final String questionBinPreSpan11 = "(cd";
+	public static final String questionBinPreSpan1 = questionBinPreSpan11;
+	public static final String questionBinPreSpan21 = " /usr/local/src/maven";
+	public static final String questionBinPreSpan2 = questionBinPreSpan21;
+	public static final String questionBinPreSpan31 = " &&";
+	public static final String questionBinPreSpan3 = questionBinPreSpan31;
+	public static final String questionBinPreSpan41 = " mvn";
+	public static final String questionBinPreSpan4 = questionBinPreSpan41;
+	public static final String questionBinPreSpan51 = " -DdistributionTargetDir=\"/opt/maven\"";
+	public static final String questionBinPreSpan5 = questionBinPreSpan51;
+	public static final String questionBinPreSpan61 = " clean";
+	public static final String questionBinPreSpan6 = questionBinPreSpan61;
+	public static final String questionBinPreSpan71 = " package)";
+	public static final String questionBinPreSpan7 = questionBinPreSpan71;
+	public static final String questionBinOl2Li11 = "(cd";
+	public static final String questionBinOl2Li1 = questionBinOl2Li11;
+	public static final String questionBinOl2Li21 = "/usr/local/src/maven";
+	public static final String questionBinOl2Li2 = questionBinOl2Li21;
+	public static final String questionBinOl2Li31 = "&&";
+	public static final String questionBinOl2Li3 = questionBinOl2Li31;
+	public static final String questionBinOl2Li41 = "mvn: The java software project management tool. ";
+	public static final String questionBinOl2Li4 = questionBinOl2Li41;
+	public static final String questionBinOl2Li51 = "-DdistributionTargetDir=\"/opt/maven\": Point the distributionTargetDir to the directory where maven will be installed. ";
+	public static final String questionBinOl2Li5 = questionBinOl2Li51;
+	public static final String questionBinOl2Li61 = "clean: Clean up any previous builds. ";
+	public static final String questionBinOl2Li6 = questionBinOl2Li61;
+	public static final String questionBinOl2Li71 = "package): Build the complete maven application and close the parenthesis. ";
+	public static final String questionBinOl2Li7 = questionBinOl2Li71;
+
+	/**	L'entité « questionBin »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionBin = new PageHtml();
+	public Couverture<PageHtml> questionBinCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionBin").o(questionBin);
+
+	/**	<br/>L'entité « questionBin »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l005.C001L005InstallerMaven&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionBin">Trouver l'entité questionBin dans Solr</a>
+	 * <br/>
+	 * @param questionBin est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionBin(PageHtml o);
+
+	public PageHtml getQuestionBin() {
+		return questionBin;
+	}
+
+	public void setQuestionBin(PageHtml questionBin) {
+		this.questionBin = questionBin;
+		this.questionBinCouverture.dejaInitialise = true;
+	}
+	protected C001L005InstallerMaven questionBinInit() {
+		if(questionBin != null) {
+			((C001L005InstallerMaven)this).avantPagePart(questionBin, "questionBin");
+			((C001L005InstallerMaven)this).avantPagePart(questionBin, "questionBin");
+		}
+		if(!questionBinCouverture.dejaInitialise) {
+			_questionBin(questionBin);
+		}
+		questionBin.initLoinPourClasse(requeteSite_);
+		questionBinCouverture.dejaInitialise(true);
+		return (C001L005InstallerMaven)this;
+	}
+	public void htmlBodyQuestionBin(PageHtml o) {
+		{ e("h3").a("class", " questionBinH3 ").f();
+			{ e("i").a("class", questionBinH3I1, " site-menu-icon questionBinH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionBinH3Span ").f();
+				sx(questionBinH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionBinH4 ").f();
+			{ e("i").a("class", questionBinH4I1, " site-menu-icon questionBinH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionBinH4Span ").f();
+				sx(questionBinH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionBinPre ").f();
+			{ e("span").a("class", " questionBinPreSpan1 questionBinPreSpan odd ").f();
+				sx(questionBinPreSpan11);
+			} g("span");
+			{ e("span").a("class", " questionBinPreSpan2 questionBinPreSpan even ").f();
+				sx(questionBinPreSpan21);
+			} g("span");
+			{ e("span").a("class", " questionBinPreSpan3 questionBinPreSpan odd ").f();
+				sx(questionBinPreSpan31);
+			} g("span");
+			{ e("span").a("class", " questionBinPreSpan4 questionBinPreSpan even ").f();
+				sx(questionBinPreSpan41);
+			} g("span");
+			{ e("span").a("class", " questionBinPreSpan5 questionBinPreSpan odd ").f();
+				sx(questionBinPreSpan51);
+			} g("span");
+			{ e("span").a("class", " questionBinPreSpan6 questionBinPreSpan even ").f();
+				sx(questionBinPreSpan61);
+			} g("span");
+			{ e("span").a("class", " questionBinPreSpan7 questionBinPreSpan odd ").f();
+				sx(questionBinPreSpan71);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionBinOl2 questionBinOl even ").f();
+			{ e("li").a("class", " questionBinOl2Li1 questionBinOl2Li odd ").f();
+				sx(questionBinOl2Li11);
+			} g("li");
+			{ e("li").a("class", " questionBinOl2Li2 questionBinOl2Li even ").f();
+				sx(questionBinOl2Li21);
+			} g("li");
+			{ e("li").a("class", " questionBinOl2Li3 questionBinOl2Li odd ").f();
+				sx(questionBinOl2Li31);
+			} g("li");
+			{ e("li").a("class", " questionBinOl2Li4 questionBinOl2Li even ").f();
+				sx(questionBinOl2Li41);
+			} g("li");
+			{ e("li").a("class", " questionBinOl2Li5 questionBinOl2Li odd ").f();
+				sx(questionBinOl2Li51);
+			} g("li");
+			{ e("li").a("class", " questionBinOl2Li6 questionBinOl2Li even ").f();
+				sx(questionBinOl2Li61);
+			} g("li");
+			{ e("li").a("class", " questionBinOl2Li7 questionBinOl2Li odd ").f();
+				sx(questionBinOl2Li71);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionBin() {
+		questionBin.htmlAvant();
+		htmlBodyQuestionBin(questionBin);
+		questionBin.htmlApres();
 	}
 
 	//////////////////
@@ -1086,9 +1851,14 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	public void initC001L005InstallerMaven() {
 		moiInit();
 		questionDependencesInit();
-		questionInstallerAncienInit();
 		questionMkdirSrcInit();
 		questionMkdirMavenInit();
+		questionClonerSourceInit();
+		questionListerTagsInit();
+		questionCheckoutTagInit();
+		questionConstruireSourceInit();
+		questionMavenInstalleMavenInit();
+		questionBinInit();
 		recapituler1Init();
 		recapituler2Init();
 		recapituler3Init();
@@ -1108,12 +1878,22 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 			moi.setRequeteSite_(requeteSite_);
 		if(questionDependences != null)
 			questionDependences.setRequeteSite_(requeteSite_);
-		if(questionInstallerAncien != null)
-			questionInstallerAncien.setRequeteSite_(requeteSite_);
 		if(questionMkdirSrc != null)
 			questionMkdirSrc.setRequeteSite_(requeteSite_);
 		if(questionMkdirMaven != null)
 			questionMkdirMaven.setRequeteSite_(requeteSite_);
+		if(questionClonerSource != null)
+			questionClonerSource.setRequeteSite_(requeteSite_);
+		if(questionListerTags != null)
+			questionListerTags.setRequeteSite_(requeteSite_);
+		if(questionCheckoutTag != null)
+			questionCheckoutTag.setRequeteSite_(requeteSite_);
+		if(questionConstruireSource != null)
+			questionConstruireSource.setRequeteSite_(requeteSite_);
+		if(questionMavenInstalleMaven != null)
+			questionMavenInstalleMaven.setRequeteSite_(requeteSite_);
+		if(questionBin != null)
+			questionBin.setRequeteSite_(requeteSite_);
 		if(recapituler1 != null)
 			recapituler1.setRequeteSite_(requeteSite_);
 		if(recapituler2 != null)
@@ -1150,12 +1930,22 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 				return oC001L005InstallerMaven.moi;
 			case "questionDependences":
 				return oC001L005InstallerMaven.questionDependences;
-			case "questionInstallerAncien":
-				return oC001L005InstallerMaven.questionInstallerAncien;
 			case "questionMkdirSrc":
 				return oC001L005InstallerMaven.questionMkdirSrc;
 			case "questionMkdirMaven":
 				return oC001L005InstallerMaven.questionMkdirMaven;
+			case "questionClonerSource":
+				return oC001L005InstallerMaven.questionClonerSource;
+			case "questionListerTags":
+				return oC001L005InstallerMaven.questionListerTags;
+			case "questionCheckoutTag":
+				return oC001L005InstallerMaven.questionCheckoutTag;
+			case "questionConstruireSource":
+				return oC001L005InstallerMaven.questionConstruireSource;
+			case "questionMavenInstalleMaven":
+				return oC001L005InstallerMaven.questionMavenInstalleMaven;
+			case "questionBin":
+				return oC001L005InstallerMaven.questionBin;
 			case "recapituler1":
 				return oC001L005InstallerMaven.recapituler1;
 			case "recapituler2":
@@ -1286,18 +2076,26 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	}
 
 	public void indexerC001L005InstallerMaven(SolrClient clientSolr) {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L005InstallerMaven(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L005InstallerMaven(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	public void indexerC001L005InstallerMaven() {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L005InstallerMaven(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L005InstallerMaven(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	public void indexerC001L005InstallerMaven(SolrInputDocument document) {
@@ -1306,17 +2104,21 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	}
 
 	public void desindexerC001L005InstallerMaven() {
+		try {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001L005InstallerMaven(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinC001L005InstallerMaven(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////
@@ -1345,12 +2147,22 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 			moi.htmlBodyCourt();
 		if(questionDependences != null)
 			questionDependences.htmlBodyCourt();
-		if(questionInstallerAncien != null)
-			questionInstallerAncien.htmlBodyCourt();
 		if(questionMkdirSrc != null)
 			questionMkdirSrc.htmlBodyCourt();
 		if(questionMkdirMaven != null)
 			questionMkdirMaven.htmlBodyCourt();
+		if(questionClonerSource != null)
+			questionClonerSource.htmlBodyCourt();
+		if(questionListerTags != null)
+			questionListerTags.htmlBodyCourt();
+		if(questionCheckoutTag != null)
+			questionCheckoutTag.htmlBodyCourt();
+		if(questionConstruireSource != null)
+			questionConstruireSource.htmlBodyCourt();
+		if(questionMavenInstalleMaven != null)
+			questionMavenInstalleMaven.htmlBodyCourt();
+		if(questionBin != null)
+			questionBin.htmlBodyCourt();
 		if(recapituler1 != null)
 			recapituler1.htmlBodyCourt();
 		if(recapituler2 != null)
@@ -1371,9 +2183,14 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 	public void htmlBodyC001L005InstallerMaven() {
 		((C001L005InstallerMaven)this).htmlBodyMoi();
 		((C001L005InstallerMaven)this).htmlBodyQuestionDependences();
-		((C001L005InstallerMaven)this).htmlBodyQuestionInstallerAncien();
 		((C001L005InstallerMaven)this).htmlBodyQuestionMkdirSrc();
 		((C001L005InstallerMaven)this).htmlBodyQuestionMkdirMaven();
+		((C001L005InstallerMaven)this).htmlBodyQuestionClonerSource();
+		((C001L005InstallerMaven)this).htmlBodyQuestionListerTags();
+		((C001L005InstallerMaven)this).htmlBodyQuestionCheckoutTag();
+		((C001L005InstallerMaven)this).htmlBodyQuestionConstruireSource();
+		((C001L005InstallerMaven)this).htmlBodyQuestionMavenInstalleMaven();
+		((C001L005InstallerMaven)this).htmlBodyQuestionBin();
 		((C001L005InstallerMaven)this).htmlBodyRecapituler1();
 		((C001L005InstallerMaven)this).htmlBodyRecapituler2();
 		((C001L005InstallerMaven)this).htmlBodyRecapituler3();
@@ -1412,5 +2229,5 @@ public abstract class C001L005InstallerMavenGen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L005InstallerMavenVals = new String[] { moiP1, moiP2, moiP3, moiP4, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPreSpan11, questionDependencesPreSpan21, questionDependencesPreSpan31, questionDependencesPreSpan41, questionDependencesOl2Li11, questionDependencesOl2Li12, questionDependencesOl2Li21, questionDependencesOl2Li22, questionDependencesOl2Li31, questionDependencesOl2Li41, questionInstallerAncienH3I1, questionInstallerAncienH3Span1, questionInstallerAncienH4I1, questionInstallerAncienH4Span1, questionInstallerAncienPreSpan11, questionInstallerAncienPreSpan21, questionInstallerAncienPreSpan31, questionInstallerAncienPreSpan41, questionInstallerAncienOl2Li11, questionInstallerAncienOl2Li21, questionInstallerAncienOl2Li31, questionInstallerAncienOl2Li41, questionInstallerAncienOl2Li51, questionMkdirSrcH3I1, questionMkdirSrcH3Span1, questionMkdirSrcH4I1, questionMkdirSrcH4Span1, questionMkdirSrcPreSpan11, questionMkdirSrcPreSpan21, questionMkdirSrcPreSpan41, questionMkdirSrcOl2Li11, questionMkdirSrcOl2Li21, questionMkdirSrcOl2Li31, questionMkdirSrcOl2Li32, questionMkdirMavenH3I1, questionMkdirMavenH3Span1, questionMkdirMavenH4I1, questionMkdirMavenH4Span1, questionMkdirMavenPreSpan11, questionMkdirMavenPreSpan21, questionMkdirMavenPreSpan31, questionMkdirMavenPreSpan41, questionMkdirMavenOl2Li11, questionMkdirMavenOl2Li21, questionMkdirMavenOl2Li31, questionMkdirMavenOl2Li41, questionMkdirMavenOl2Li51, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td3Span1I2, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41 };
+	public static final String[] C001L005InstallerMavenVals = new String[] { moiP1, moiP2, moiP3, moiP4, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesOl2Li11, questionDependencesOl2Li12, questionDependencesOl2Li21, questionDependencesOl2Li22, questionDependencesOl2Li31, questionDependencesOl2Li41, questionDependencesPre3Span11, questionDependencesPre3Span21, questionDependencesPre3Span31, questionDependencesPre3Span41, questionDependencesPre3Span51, questionDependencesOl4Li11, questionDependencesOl4Li21, questionDependencesOl4Li31, questionDependencesOl4Li41, questionDependencesOl4Li51, questionMkdirSrcH3I1, questionMkdirSrcH3Span1, questionMkdirSrcH4I1, questionMkdirSrcH4Span1, questionMkdirSrcPreSpan11, questionMkdirSrcPreSpan21, questionMkdirSrcPreSpan31, questionMkdirSrcPreSpan41, questionMkdirSrcPreSpan51, questionMkdirSrcPreSpan61, questionMkdirSrcPreSpan71, questionMkdirSrcPreSpan81, questionMkdirSrcOl2Li11, questionMkdirSrcOl2Li21, questionMkdirSrcOl2Li31, questionMkdirSrcOl2Li41, questionMkdirSrcOl2Li51, questionMkdirSrcOl2Li61, questionMkdirSrcOl2Li71, questionMkdirSrcOl2Li81, questionMkdirSrcOl2Li82, questionMkdirMavenH3I1, questionMkdirMavenH3Span1, questionMkdirMavenH4I1, questionMkdirMavenH4Span1, questionMkdirMavenPreSpan11, questionMkdirMavenPreSpan21, questionMkdirMavenPreSpan31, questionMkdirMavenPreSpan41, questionMkdirMavenPreSpan51, questionMkdirMavenPreSpan61, questionMkdirMavenPreSpan71, questionMkdirMavenPreSpan81, questionMkdirMavenOl2Li11, questionMkdirMavenOl2Li21, questionMkdirMavenOl2Li31, questionMkdirMavenOl2Li41, questionMkdirMavenOl2Li51, questionMkdirMavenOl2Li61, questionMkdirMavenOl2Li71, questionMkdirMavenOl2Li81, questionClonerSourceH3I1, questionClonerSourceH3Span1, questionClonerSourceH4I1, questionClonerSourceH4Span1, questionClonerSourcePreSpan11, questionClonerSourcePreSpan21, questionClonerSourcePreSpan31, questionClonerSourcePreSpan41, questionClonerSourceOl2Li11, questionClonerSourceOl2Li21, questionClonerSourceOl2Li31, questionClonerSourceOl2Li41, questionListerTagsH3I1, questionListerTagsH3Span1, questionListerTagsH4I1, questionListerTagsH4Span1, questionListerTagsPreSpan11, questionListerTagsPreSpan21, questionListerTagsPreSpan31, questionListerTagsPreSpan41, questionListerTagsPreSpan51, questionListerTagsOl2Li11, questionListerTagsOl2Li21, questionListerTagsOl2Li31, questionListerTagsOl2Li41, questionListerTagsOl2Li51, questionCheckoutTagH3I1, questionCheckoutTagH3Span1, questionCheckoutTagH4I1, questionCheckoutTagH4Span1, questionCheckoutTagPreSpan11, questionCheckoutTagPreSpan21, questionCheckoutTagPreSpan31, questionCheckoutTagPreSpan41, questionCheckoutTagPreSpan51, questionCheckoutTagPreSpan61, questionCheckoutTagOl2Li11, questionCheckoutTagOl2Li21, questionCheckoutTagOl2Li31, questionCheckoutTagOl2Li41, questionCheckoutTagOl2Li51, questionCheckoutTagOl2Li61, questionConstruireSourceH3I1, questionConstruireSourceH3Span1, questionConstruireSourceH4I1, questionConstruireSourceH4Span1, questionConstruireSourcePreSpan11, questionConstruireSourcePreSpan21, questionConstruireSourcePreSpan31, questionConstruireSourcePreSpan41, questionConstruireSourcePreSpan51, questionConstruireSourcePreSpan61, questionConstruireSourcePreSpan71, questionConstruireSourceOl2Li11, questionConstruireSourceOl2Li21, questionConstruireSourceOl2Li31, questionConstruireSourceOl2Li41, questionConstruireSourceOl2Li51, questionConstruireSourceOl2Li61, questionConstruireSourceOl2Li71, questionMavenInstalleMavenH3I1, questionMavenInstalleMavenH3Span1, questionMavenInstalleMavenH4I1, questionMavenInstalleMavenH4Span1, questionMavenInstalleMavenH5Span1, questionMavenInstalleMavenP5Span1, questionMavenInstalleMavenP5Span2, questionMavenInstalleMavenP5Span3, questionMavenInstalleMavenP5Span4, questionBinH3I1, questionBinH3Span1, questionBinH4I1, questionBinH4Span1, questionBinPreSpan11, questionBinPreSpan21, questionBinPreSpan31, questionBinPreSpan41, questionBinPreSpan51, questionBinPreSpan61, questionBinPreSpan71, questionBinOl2Li11, questionBinOl2Li21, questionBinOl2Li31, questionBinOl2Li41, questionBinOl2Li51, questionBinOl2Li61, questionBinOl2Li71, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td3Span1I2, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41 };
 }

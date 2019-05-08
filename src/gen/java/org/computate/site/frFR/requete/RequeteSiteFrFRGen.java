@@ -1564,7 +1564,7 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -1577,7 +1577,7 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirRequeteSiteFrFR(String var) throws Exception {
+	public Object obtenirRequeteSiteFrFR(String var) {
 		RequeteSiteFrFR oRequeteSiteFrFR = (RequeteSiteFrFR)this;
 		switch(var) {
 			case "siteContexte_":

@@ -201,8 +201,10 @@ public abstract class IconeGen<DEV> extends PagePart {
 
 	public void requeteSiteIcone(RequeteSiteFrFR requeteSite_) {
 			super.requeteSitePagePart(requeteSite_);
-		type.setRequeteSite_(requeteSite_);
-		nom.setRequeteSite_(requeteSite_);
+		if(type != null)
+			type.setRequeteSite_(requeteSite_);
+		if(nom != null)
+			nom.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -213,7 +215,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -226,7 +228,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 		}
 		return o;
 	}
-	public Object obtenirIcone(String var) throws Exception {
+	public Object obtenirIcone(String var) {
 		Icone oIcone = (Icone)this;
 		switch(var) {
 			case "type":
@@ -297,7 +299,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 
 	@Override public void htmlBody() {
 		htmlBodyIcone();
-		super.htmlBodyPagePart();
+		super.htmlBody();
 	}
 
 	public void htmlBodyIcone() {
@@ -309,7 +311,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 
 	@Override public void htmlBodyCourt() {
 		htmlBodyCourtIcone();
-		super.htmlBodyCourtPagePart();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtIcone() {

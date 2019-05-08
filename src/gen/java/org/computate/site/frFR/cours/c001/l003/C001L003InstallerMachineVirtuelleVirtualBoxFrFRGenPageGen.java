@@ -101,7 +101,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPageGen<
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -114,7 +114,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPageGen<
 		}
 		return o;
 	}
-	public Object obtenirC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage(String var) throws Exception {
+	public Object obtenirC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage(String var) {
 		C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage oC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage = (C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage)this;
 		switch(var) {
 			case "c001L003InstallerMachineVirtuelleVirtualBox":
@@ -179,8 +179,9 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPageGen<
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
@@ -190,8 +191,9 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPageGen<
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
@@ -208,6 +210,18 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPageGen<
 	public void htmlBodyCourtC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
 		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
 			c001L003InstallerMachineVirtuelleVirtualBox.htmlBodyCourt();
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
 	}
 
 	//////////////

@@ -2318,7 +2318,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -2331,7 +2331,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirApiEcrivain(String var) throws Exception {
+	public Object obtenirApiEcrivain(String var) {
 		ApiEcrivain oApiEcrivain = (ApiEcrivain)this;
 		switch(var) {
 			case "requeteSite_":

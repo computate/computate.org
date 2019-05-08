@@ -59,7 +59,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRPageGen<DEV
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRPageGen<DEV
 		}
 		return o;
 	}
-	public Object obtenirC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage(String var) throws Exception {
+	public Object obtenirC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage(String var) {
 		C001L003InstallerMachineVirtuelleVirtualBoxFrFRPage oC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage = (C001L003InstallerMachineVirtuelleVirtualBoxFrFRPage)this;
 		switch(var) {
 			default:

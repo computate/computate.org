@@ -3572,7 +3572,7 @@ The INI Configuration Object for the config file.
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -3585,7 +3585,7 @@ The INI Configuration Object for the config file.
 		}
 		return o;
 	}
-	public Object obtenirConfigSite(String var) throws Exception {
+	public Object obtenirConfigSite(String var) {
 		ConfigSite oConfigSite = (ConfigSite)this;
 		switch(var) {
 			case "requeteSite_":

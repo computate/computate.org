@@ -144,7 +144,7 @@ public abstract class PagePartGen<DEV> extends Cluster {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -157,7 +157,7 @@ public abstract class PagePartGen<DEV> extends Cluster {
 		}
 		return o;
 	}
-	public Object obtenirPagePart(String var) throws Exception {
+	public Object obtenirPagePart(String var) {
 		PagePart oPagePart = (PagePart)this;
 		switch(var) {
 			case "page_":

@@ -32,13 +32,14 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	}
 
 	public void initLoinC001L006InstallerEclipseEnUSPage() {
+		super.initLoinC001L006InstallerEclipseEnUSGenPage(requeteSite_);
 		initC001L006InstallerEclipseEnUSPage();
 	}
 
 	public void initC001L006InstallerEclipseEnUSPage() {
 	}
 
-	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinC001L006InstallerEclipseEnUSPage(requeteSite_);
 	}
 
@@ -47,6 +48,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	/////////////////
 
 	public void requeteSiteC001L006InstallerEclipseEnUSPage(RequeteSiteEnUS requeteSite_) {
+			super.requeteSiteC001L006InstallerEclipseEnUSGenPage(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -57,7 +59,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -74,7 +76,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 		C001L006InstallerEclipseEnUSPage oC001L006InstallerEclipseEnUSPage = (C001L006InstallerEclipseEnUSPage)this;
 		switch(var) {
 			default:
-				return null;
+				return super.obtenirC001L006InstallerEclipseEnUSGenPage(var);
 		}
 	}
 
@@ -82,7 +84,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	// attribuer //
 	///////////////
 
-	public boolean attribuerPourClasse(String var, Object val) {
+	@Override public boolean attribuerPourClasse(String var, Object val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -99,7 +101,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 		C001L006InstallerEclipseEnUSPage oC001L006InstallerEclipseEnUSPage = (C001L006InstallerEclipseEnUSPage)this;
 		switch(var) {
 			default:
-				return null;
+				return super.attribuerC001L006InstallerEclipseEnUSGenPage(var, val);
 		}
 	}
 
@@ -107,7 +109,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	// definir //
 	/////////////
 
-	public boolean definirPourClasse(String var, String val) {
+	@Override public boolean definirPourClasse(String var, String val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		if(val != null) {
@@ -125,8 +127,44 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	public Object definirC001L006InstallerEclipseEnUSPage(String var, String val) {
 		switch(var) {
 			default:
-				return null;
+				return super.definirC001L006InstallerEclipseEnUSGenPage(var, val);
 		}
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsC001L006InstallerEclipseEnUSPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsC001L006InstallerEclipseEnUSPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyC001L006InstallerEclipseEnUSPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyC001L006InstallerEclipseEnUSPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001L006InstallerEclipseEnUSPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001L006InstallerEclipseEnUSPage() {
 	}
 
 	//////////////
@@ -134,7 +172,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash();
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -147,7 +185,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 		if(!(o instanceof C001L006InstallerEclipseEnUSPage))
 			return false;
 		C001L006InstallerEclipseEnUSPage that = (C001L006InstallerEclipseEnUSPage)o;
-		return true;
+		return super.equals(o);
 	}
 
 	//////////////
@@ -156,6 +194,7 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString() + "\n");
 		sb.append("C001L006InstallerEclipseEnUSPage {");
 		sb.append(" }");
 		return sb.toString();

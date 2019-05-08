@@ -2249,7 +2249,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -2262,7 +2262,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 		}
 		return o;
 	}
-	public Object obtenirC001L003InstallerMachineVirtuelleVirtualBox(String var) throws Exception {
+	public Object obtenirC001L003InstallerMachineVirtuelleVirtualBox(String var) {
 		C001L003InstallerMachineVirtuelleVirtualBox oC001L003InstallerMachineVirtuelleVirtualBox = (C001L003InstallerMachineVirtuelleVirtualBox)this;
 		switch(var) {
 			case "moi":
@@ -2414,46 +2414,58 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerC001L003InstallerMachineVirtuelleVirtualBox();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerC001L003InstallerMachineVirtuelleVirtualBox(document);
 	}
 
-	public void indexerC001L003InstallerMachineVirtuelleVirtualBox(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L003InstallerMachineVirtuelleVirtualBox(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001L003InstallerMachineVirtuelleVirtualBox(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L003InstallerMachineVirtuelleVirtualBox(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001L003InstallerMachineVirtuelleVirtualBox() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L003InstallerMachineVirtuelleVirtualBox(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001L003InstallerMachineVirtuelleVirtualBox() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L003InstallerMachineVirtuelleVirtualBox(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001L003InstallerMachineVirtuelleVirtualBox(SolrInputDocument document) throws Exception {
+	public void indexerC001L003InstallerMachineVirtuelleVirtualBox(SolrInputDocument document) {
 		super.indexerC001Lecon(document);
 
 	}
 
-	public void desindexerC001L003InstallerMachineVirtuelleVirtualBox() throws Exception {
+	public void desindexerC001L003InstallerMachineVirtuelleVirtualBox() {
+		try {
 		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-		requeteSite.initLoinRequeteSiteFrFR();
-		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-		siteContexte.initLoinSiteContexteFrFR();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001L003InstallerMachineVirtuelleVirtualBox(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteFrFR();
+			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+			siteContexte.initLoinSiteContexteFrFR();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinC001L003InstallerMachineVirtuelleVirtualBox(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

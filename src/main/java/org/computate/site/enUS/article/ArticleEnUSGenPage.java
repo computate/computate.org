@@ -251,7 +251,8 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 					htmlFormPageArticle(o);
 				}
 
-				o.htmlBody();
+				if(o != null)
+					o.htmlBody();
 
 			} g("div");
 		}

@@ -179,8 +179,9 @@ public abstract class C001L006InstallerEclipseFrFRGenPageGen<DEV> extends C001Le
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001L006InstallerEclipseFrFRGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001L006InstallerEclipseFrFRGenPage() {
@@ -190,8 +191,9 @@ public abstract class C001L006InstallerEclipseFrFRGenPageGen<DEV> extends C001Le
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001L006InstallerEclipseFrFRGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001L006InstallerEclipseFrFRGenPage() {
@@ -208,6 +210,18 @@ public abstract class C001L006InstallerEclipseFrFRGenPageGen<DEV> extends C001Le
 	public void htmlBodyCourtC001L006InstallerEclipseFrFRGenPage() {
 		if(c001L006InstallerEclipse != null)
 			c001L006InstallerEclipse.htmlBodyCourt();
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L006InstallerEclipseFrFRGenPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L006InstallerEclipseFrFRGenPage() {
 	}
 
 	//////////////

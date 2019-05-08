@@ -152,8 +152,10 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 	/////////////////
 
 	public void requeteSiteAppliPeupler(RequeteSiteFrFR requeteSite_) {
-		siteContexte.setRequeteSite_(requeteSite_);
-		configSite.setRequeteSite_(requeteSite_);
+		if(siteContexte != null)
+			siteContexte.setRequeteSite_(requeteSite_);
+		if(configSite != null)
+			configSite.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -164,7 +166,7 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -177,7 +179,7 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirAppliPeupler(String var) throws Exception {
+	public Object obtenirAppliPeupler(String var) {
 		AppliPeupler oAppliPeupler = (AppliPeupler)this;
 		switch(var) {
 			case "requeteSite_":

@@ -167,6 +167,18 @@ public abstract class C001L005InstallerMavenEnUSPageGen<DEV> extends C001L005Ins
 	public void htmlBodyCourtC001L005InstallerMavenEnUSPage() {
 	}
 
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L005InstallerMavenEnUSPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L005InstallerMavenEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

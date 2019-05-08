@@ -62,7 +62,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -75,7 +75,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 		}
 		return o;
 	}
-	public Object obtenirPageHtml(String var) throws Exception {
+	public Object obtenirPageHtml(String var) {
 		PageHtml oPageHtml = (PageHtml)this;
 		switch(var) {
 			default:
@@ -140,7 +140,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 
 	@Override public void htmlBody() {
 		htmlBodyPageHtml();
-		super.htmlBodyPagePart();
+		super.htmlBody();
 	}
 
 	public void htmlBodyPageHtml() {
@@ -152,7 +152,7 @@ public abstract class PageHtmlGen<DEV> extends PagePart {
 
 	@Override public void htmlBodyCourt() {
 		htmlBodyCourtPageHtml();
-		super.htmlBodyCourtPagePart();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtPageHtml() {

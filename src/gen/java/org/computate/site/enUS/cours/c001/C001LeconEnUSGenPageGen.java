@@ -143,7 +143,7 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -156,7 +156,7 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 		}
 		return o;
 	}
-	public Object obtenirC001LeconEnUSGenPage(String var) throws Exception {
+	public Object obtenirC001LeconEnUSGenPage(String var) {
 		C001LeconEnUSGenPage oC001LeconEnUSGenPage = (C001LeconEnUSGenPage)this;
 		switch(var) {
 			case "listeC001Lecon":
@@ -223,8 +223,9 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001LeconEnUSGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001LeconEnUSGenPage() {
@@ -245,8 +246,9 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001LeconEnUSGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001LeconEnUSGenPage() {

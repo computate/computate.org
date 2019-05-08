@@ -167,12 +167,10 @@ public class C001L001ChoisirNomDomaineFrFRGenApiServiceImpl implements C001L001C
 
 	public String varIndexeC001L001ChoisirNomDomaine(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
@@ -183,8 +181,8 @@ public class C001L001ChoisirNomDomaineFrFRGenApiServiceImpl implements C001L001C
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "leconCree":
-				return "leconCree_indexed_date";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -223,6 +221,8 @@ public class C001L001ChoisirNomDomaineFrFRGenApiServiceImpl implements C001L001C
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

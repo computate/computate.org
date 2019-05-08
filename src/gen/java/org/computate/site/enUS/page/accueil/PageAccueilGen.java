@@ -464,7 +464,7 @@ public abstract class PageAccueilGen<DEV> extends Article {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -477,7 +477,7 @@ public abstract class PageAccueilGen<DEV> extends Article {
 		}
 		return o;
 	}
-	public Object obtenirPageAccueil(String var) throws Exception {
+	public Object obtenirPageAccueil(String var) {
 		PageAccueil oPageAccueil = (PageAccueil)this;
 		switch(var) {
 			case "pageUri_enUS":
@@ -581,46 +581,58 @@ public abstract class PageAccueilGen<DEV> extends Article {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerPageAccueil();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerPageAccueil(document);
 	}
 
-	public void indexerPageAccueil(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerPageAccueil(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerPageAccueil(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerPageAccueil(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerPageAccueil() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerPageAccueil(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerPageAccueil() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerPageAccueil(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerPageAccueil(SolrInputDocument document) throws Exception {
+	public void indexerPageAccueil(SolrInputDocument document) {
 		super.indexerArticle(document);
 
 	}
 
-	public void desindexerPageAccueil() throws Exception {
+	public void desindexerPageAccueil() {
+		try {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinPageAccueil(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinPageAccueil(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

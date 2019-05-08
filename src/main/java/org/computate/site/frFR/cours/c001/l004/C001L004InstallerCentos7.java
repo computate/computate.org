@@ -26,6 +26,9 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * H2.frFR: Chaque étape pour installer le système d'exploitation CentOS 7. 
  * H2.enUS: Every step to install the CentOS 7 operating system. 
  * 
+ * Description.frFR: Comment installer le système d'exploitation pour développer mon site Web ? Chaque étape pour installer le système d'exploitation CentOS 7. 
+ * Description.enUS: How do I install the operating system to start developing my website? Every step to install the CentOS 7 operating system. 
+ * 
  * PageSimple: true
  * Couleur: green
  * IconeGroupe: regular
@@ -36,7 +39,7 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * ImageHauteur.frFR: 1749
  * ImageLargeur.enUS: 800
  * ImageHauteur.enUS: 1479
-*/     
+*/    
 public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Lecon> {
 
 	public static void main(String[] args) {  
@@ -467,9 +470,9 @@ public class C001L004InstallerCentos7 extends C001L004InstallerCentos7Gen<C001Le
 	 * Val.Ol4Li1.enUS:So avoid installing the operating system in UEFI mode. 
 	 * Val.Ol4Li2.frFR:Cliquez sur [ Terminé ]. 
 	 * Val.Ol4Li2.enUS:Click [ Done ]. 
-	 * Val.Ol4Li2.frFR:Cliquez sur [ Accepter les modifications ]. 
-	 * Val.Ol4Li2.enUS:Click [ Accept the changes ]. 
-	 */ 
+	 * Val.Ol4Li3.frFR:Cliquez sur [ Accepter les modifications ]. 
+	 * Val.Ol4Li3.enUS:Click [ Accept the changes ]. 
+	 */      
 	protected void _questionInstallationDestination(PageHtml o) {
 	}
 

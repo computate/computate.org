@@ -59,7 +59,7 @@ public abstract class AppliOpenApi3Gen<DEV> extends AppliSwagger2 {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class AppliOpenApi3Gen<DEV> extends AppliSwagger2 {
 		}
 		return o;
 	}
-	public Object obtenirAppliOpenApi3(String var) throws Exception {
+	public Object obtenirAppliOpenApi3(String var) {
 		AppliOpenApi3 oAppliOpenApi3 = (AppliOpenApi3)this;
 		switch(var) {
 			default:

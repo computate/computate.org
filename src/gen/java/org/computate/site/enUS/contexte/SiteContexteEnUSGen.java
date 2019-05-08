@@ -648,7 +648,8 @@ public abstract class SiteContexteEnUSGen<DEV> extends Object {
 	/////////////////
 
 	public void requeteSiteSiteContexteEnUS(RequeteSiteEnUS requeteSite_) {
-		configSite.setRequeteSite_(requeteSite_);
+		if(configSite != null)
+			configSite.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -659,7 +660,7 @@ public abstract class SiteContexteEnUSGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -672,7 +673,7 @@ public abstract class SiteContexteEnUSGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirSiteContexteEnUS(String var) throws Exception {
+	public Object obtenirSiteContexteEnUS(String var) {
 		SiteContexteEnUS oSiteContexteEnUS = (SiteContexteEnUS)this;
 		switch(var) {
 			case "vertx":

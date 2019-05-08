@@ -2511,7 +2511,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -2524,7 +2524,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirMiseEnPage(String var) throws Exception {
+	public Object obtenirMiseEnPage(String var) {
 		MiseEnPage oMiseEnPage = (MiseEnPage)this;
 		switch(var) {
 			case "pageParts":

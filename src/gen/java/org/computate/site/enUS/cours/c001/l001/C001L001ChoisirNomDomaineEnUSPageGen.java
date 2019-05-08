@@ -59,7 +59,7 @@ public abstract class C001L001ChoisirNomDomaineEnUSPageGen<DEV> extends C001L001
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class C001L001ChoisirNomDomaineEnUSPageGen<DEV> extends C001L001
 		}
 		return o;
 	}
-	public Object obtenirC001L001ChoisirNomDomaineEnUSPage(String var) throws Exception {
+	public Object obtenirC001L001ChoisirNomDomaineEnUSPage(String var) {
 		C001L001ChoisirNomDomaineEnUSPage oC001L001ChoisirNomDomaineEnUSPage = (C001L001ChoisirNomDomaineEnUSPage)this;
 		switch(var) {
 			default:

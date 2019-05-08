@@ -701,12 +701,18 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 	/////////////////
 
 	public void requeteSiteAppliSwagger2(RequeteSiteFrFR requeteSite_) {
-		siteContexte.setRequeteSite_(requeteSite_);
-		configSite.setRequeteSite_(requeteSite_);
-		w.setRequeteSite_(requeteSite_);
-		wChemins.setRequeteSite_(requeteSite_);
-		wCorpsRequetes.setRequeteSite_(requeteSite_);
-		wSchemas.setRequeteSite_(requeteSite_);
+		if(siteContexte != null)
+			siteContexte.setRequeteSite_(requeteSite_);
+		if(configSite != null)
+			configSite.setRequeteSite_(requeteSite_);
+		if(w != null)
+			w.setRequeteSite_(requeteSite_);
+		if(wChemins != null)
+			wChemins.setRequeteSite_(requeteSite_);
+		if(wCorpsRequetes != null)
+			wCorpsRequetes.setRequeteSite_(requeteSite_);
+		if(wSchemas != null)
+			wSchemas.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -717,7 +723,7 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -730,7 +736,7 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirAppliSwagger2(String var) throws Exception {
+	public Object obtenirAppliSwagger2(String var) {
 		AppliSwagger2 oAppliSwagger2 = (AppliSwagger2)this;
 		switch(var) {
 			case "requeteSite_":

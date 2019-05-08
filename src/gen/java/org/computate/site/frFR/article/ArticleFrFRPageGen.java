@@ -59,7 +59,7 @@ public abstract class ArticleFrFRPageGen<DEV> extends ArticleFrFRGenPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class ArticleFrFRPageGen<DEV> extends ArticleFrFRGenPage {
 		}
 		return o;
 	}
-	public Object obtenirArticleFrFRPage(String var) throws Exception {
+	public Object obtenirArticleFrFRPage(String var) {
 		ArticleFrFRPage oArticleFrFRPage = (ArticleFrFRPage)this;
 		switch(var) {
 			default:

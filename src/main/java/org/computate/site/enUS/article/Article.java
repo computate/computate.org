@@ -130,6 +130,10 @@ public class Article extends ArticleGen<Cluster> {
 		c.o(articleH1_enUS + "\n" + articleH2_enUS);
 	}
 
+	protected void _pageDescription(Couverture<String> c) {
+		c.o(articleH1_frFR + "\n" + articleH2_frFR);
+	}
+
 	protected void _articleCree(Couverture<LocalDateTime> c) {
 	}
 

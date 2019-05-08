@@ -68,7 +68,7 @@ import java.net.URLDecoder;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseFrFRPage;
-import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseEnUSPage;
+import org.computate.site.enUS.cours.c001.l006.C001L006InstallerEclipseEnUSPage;
 
 
 /**
@@ -168,12 +168,10 @@ public class C001L006InstallerEclipseEnUSGenApiServiceImpl implements C001L006In
 
 	public String varIndexeC001L006InstallerEclipse(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
@@ -184,6 +182,48 @@ public class C001L006InstallerEclipseEnUSGenApiServiceImpl implements C001L006In
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
+			case "estCours":
+				return "estCours_indexed_boolean";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
+			case "articleH1_enUS":
+				return "articleH1_enUS_indexed_string";
+			case "articleH1_frFR":
+				return "articleH1_frFR_indexed_string";
+			case "articleH2_enUS":
+				return "articleH2_enUS_indexed_string";
+			case "articleH2_frFR":
+				return "articleH2_frFR_indexed_string";
+			case "articleCree":
+				return "articleCree_indexed_date";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
+			case "pageImageUri_enUS":
+				return "pageImageUri_enUS_indexed_string";
+			case "pageImageUri_frFR":
+				return "pageImageUri_frFR_indexed_string";
+			case "pageCree":
+				return "pageCree_indexed_date";
+			case "pageH1":
+				return "pageH1_indexed_string";
+			case "pageH2":
+				return "pageH2_indexed_string";
+			case "pageH3":
+				return "pageH3_indexed_string";
+			case "pageTitre":
+				return "pageTitre_indexed_string";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -191,6 +231,10 @@ public class C001L006InstallerEclipseEnUSGenApiServiceImpl implements C001L006In
 
 	public String varRechercheC001L006InstallerEclipse(String entiteVar) {
 		switch(entiteVar) {
+			case "pageRecherche_enUS":
+				return "pageRecherche_enUS_text_enUS";
+			case "pageRecherche_frFR":
+				return "pageRecherche_frFR_text_frFR";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

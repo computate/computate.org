@@ -541,7 +541,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -554,7 +554,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		}
 		return o;
 	}
-	public Object obtenirQuestionReponse(String var) throws Exception {
+	public Object obtenirQuestionReponse(String var) {
 		QuestionReponse oQuestionReponse = (QuestionReponse)this;
 		switch(var) {
 			case "questionIconeType":

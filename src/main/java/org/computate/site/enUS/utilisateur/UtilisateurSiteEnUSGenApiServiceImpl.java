@@ -169,12 +169,10 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 
 	public String varIndexeUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
@@ -185,6 +183,8 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
 			case "calculInrPks":
 				return "calculInrPks_indexed_longs";
 			case "utilisateurNom":

@@ -101,7 +101,7 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -114,7 +114,7 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 		}
 		return o;
 	}
-	public Object obtenirC001L001ChoisirNomDomaineFrFRGenPage(String var) throws Exception {
+	public Object obtenirC001L001ChoisirNomDomaineFrFRGenPage(String var) {
 		C001L001ChoisirNomDomaineFrFRGenPage oC001L001ChoisirNomDomaineFrFRGenPage = (C001L001ChoisirNomDomaineFrFRGenPage)this;
 		switch(var) {
 			case "c001L001ChoisirNomDomaine":
@@ -179,8 +179,9 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001L001ChoisirNomDomaineFrFRGenPage() {
@@ -190,8 +191,9 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001L001ChoisirNomDomaineFrFRGenPage() {
@@ -210,6 +212,18 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 	public void htmlBodyCourtC001L001ChoisirNomDomaineFrFRGenPage() {
 		if(c001L001ChoisirNomDomaine != null)
 			c001L001ChoisirNomDomaine.htmlBodyCourt();
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L001ChoisirNomDomaineFrFRGenPage() {
 	}
 
 	//////////////

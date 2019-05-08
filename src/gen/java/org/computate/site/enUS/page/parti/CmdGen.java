@@ -124,7 +124,7 @@ public abstract class CmdGen<DEV> extends QuestionReponse {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -137,7 +137,7 @@ public abstract class CmdGen<DEV> extends QuestionReponse {
 		}
 		return o;
 	}
-	public Object obtenirCmd(String var) throws Exception {
+	public Object obtenirCmd(String var) {
 		Cmd oCmd = (Cmd)this;
 		switch(var) {
 			case "cmd":

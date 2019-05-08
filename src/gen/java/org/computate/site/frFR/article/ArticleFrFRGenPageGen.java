@@ -143,7 +143,7 @@ public abstract class ArticleFrFRGenPageGen<DEV> extends MiseEnPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -156,7 +156,7 @@ public abstract class ArticleFrFRGenPageGen<DEV> extends MiseEnPage {
 		}
 		return o;
 	}
-	public Object obtenirArticleFrFRGenPage(String var) throws Exception {
+	public Object obtenirArticleFrFRGenPage(String var) {
 		ArticleFrFRGenPage oArticleFrFRGenPage = (ArticleFrFRGenPage)this;
 		switch(var) {
 			case "listeArticle":

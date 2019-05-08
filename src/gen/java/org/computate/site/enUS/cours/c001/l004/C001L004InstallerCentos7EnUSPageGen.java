@@ -167,6 +167,18 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 	public void htmlBodyCourtC001L004InstallerCentos7EnUSPage() {
 	}
 
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L004InstallerCentos7EnUSPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L004InstallerCentos7EnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

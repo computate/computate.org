@@ -173,8 +173,10 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 
 	public void requeteSitePageParagraphe(RequeteSiteFrFR requeteSite_) {
 			super.requeteSitePagePart(requeteSite_);
-		texte.setRequeteSite_(requeteSite_);
-		texteCourt.setRequeteSite_(requeteSite_);
+		if(texte != null)
+			texte.setRequeteSite_(requeteSite_);
+		if(texteCourt != null)
+			texteCourt.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -185,7 +187,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -198,7 +200,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 		}
 		return o;
 	}
-	public Object obtenirPageParagraphe(String var) throws Exception {
+	public Object obtenirPageParagraphe(String var) {
 		PageParagraphe oPageParagraphe = (PageParagraphe)this;
 		switch(var) {
 			case "texte":
@@ -267,7 +269,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 
 	@Override public void htmlBody() {
 		htmlBodyPageParagraphe();
-		super.htmlBodyPagePart();
+		super.htmlBody();
 	}
 
 	public void htmlBodyPageParagraphe() {
@@ -279,7 +281,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 
 	@Override public void htmlBodyCourt() {
 		htmlBodyCourtPageParagraphe();
-		super.htmlBodyCourtPagePart();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtPageParagraphe() {

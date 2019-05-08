@@ -59,7 +59,7 @@ public abstract class C001LeconFrFRPageGen<DEV> extends C001LeconFrFRGenPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class C001LeconFrFRPageGen<DEV> extends C001LeconFrFRGenPage {
 		}
 		return o;
 	}
-	public Object obtenirC001LeconFrFRPage(String var) throws Exception {
+	public Object obtenirC001LeconFrFRPage(String var) {
 		C001LeconFrFRPage oC001LeconFrFRPage = (C001LeconFrFRPage)this;
 		switch(var) {
 			default:
@@ -129,6 +129,42 @@ public abstract class C001LeconFrFRPageGen<DEV> extends C001LeconFrFRGenPage {
 			default:
 				return super.definirC001LeconFrFRGenPage(var, val);
 		}
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsC001LeconFrFRPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsC001LeconFrFRPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001LeconFrFRPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001LeconFrFRPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyC001LeconFrFRPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyC001LeconFrFRPage() {
 	}
 
 	//////////////

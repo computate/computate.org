@@ -59,7 +59,7 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 		}
 		return o;
 	}
-	public Object obtenirC001FrFRPage(String var) throws Exception {
+	public Object obtenirC001FrFRPage(String var) {
 		C001FrFRPage oC001FrFRPage = (C001FrFRPage)this;
 		switch(var) {
 			default:
@@ -129,6 +129,102 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 			default:
 				return super.definirC001FrFRGenPage(var, val);
 		}
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsC001FrFRPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsC001FrFRPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyC001FrFRPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyC001FrFRPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001FrFRPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001FrFRPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001FrFRPage();
+		super.html();
+	}
+
+	public void htmlC001FrFRPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001FrFRPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001FrFRPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001FrFRPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001FrFRPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001FrFRPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001FrFRPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001FrFRPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001FrFRPage() {
 	}
 
 	//////////////

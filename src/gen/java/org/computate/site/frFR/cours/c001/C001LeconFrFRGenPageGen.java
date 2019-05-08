@@ -143,7 +143,7 @@ public abstract class C001LeconFrFRGenPageGen<DEV> extends C001FrFRPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -156,7 +156,7 @@ public abstract class C001LeconFrFRGenPageGen<DEV> extends C001FrFRPage {
 		}
 		return o;
 	}
-	public Object obtenirC001LeconFrFRGenPage(String var) throws Exception {
+	public Object obtenirC001LeconFrFRGenPage(String var) {
 		C001LeconFrFRGenPage oC001LeconFrFRGenPage = (C001LeconFrFRGenPage)this;
 		switch(var) {
 			case "listeC001Lecon":
@@ -223,8 +223,9 @@ public abstract class C001LeconFrFRGenPageGen<DEV> extends C001FrFRPage {
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001LeconFrFRGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001LeconFrFRGenPage() {
@@ -234,8 +235,9 @@ public abstract class C001LeconFrFRGenPageGen<DEV> extends C001FrFRPage {
 	// htmlScript //
 	////////////////
 
-	public void htmlScript() {
+	@Override public void htmlScript() {
 		htmlScriptC001LeconFrFRGenPage();
+		super.htmlScript();
 	}
 
 	public void htmlScriptC001LeconFrFRGenPage() {
@@ -245,13 +247,74 @@ public abstract class C001LeconFrFRGenPageGen<DEV> extends C001FrFRPage {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001LeconFrFRGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001LeconFrFRGenPage() {
 		if(c001Lecon != null)
 			c001Lecon.htmlBody();
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001LeconFrFRGenPage();
+		super.html();
+	}
+
+	public void htmlC001LeconFrFRGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001LeconFrFRGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001LeconFrFRGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001LeconFrFRGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001LeconFrFRGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001LeconFrFRGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001LeconFrFRGenPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001LeconFrFRGenPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001LeconFrFRGenPage() {
 	}
 
 	//////////////

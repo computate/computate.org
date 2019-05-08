@@ -167,28 +167,14 @@ public class C001FrFRGenApiServiceImpl implements C001FrFRGenApiService {
 
 	public String varIndexeC001(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
 				return "estLecon_indexed_boolean";
 			case "estArticle":
 				return "estArticle_indexed_boolean";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
 			case "leconNumero":
 				return "leconNumero_indexed_int";
 			case "articleH1_enUS":
@@ -205,6 +191,10 @@ public class C001FrFRGenApiServiceImpl implements C001FrFRGenApiService {
 				return "pageUri_enUS_indexed_string";
 			case "pageUri_frFR":
 				return "pageUri_frFR_indexed_string";
+			case "pageImageUri_enUS":
+				return "pageImageUri_enUS_indexed_string";
+			case "pageImageUri_frFR":
+				return "pageImageUri_frFR_indexed_string";
 			case "pageCree":
 				return "pageCree_indexed_date";
 			case "pageH1":
@@ -215,8 +205,22 @@ public class C001FrFRGenApiServiceImpl implements C001FrFRGenApiService {
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
-			case "coursNumero":
-				return "coursNumero_indexed_int";
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

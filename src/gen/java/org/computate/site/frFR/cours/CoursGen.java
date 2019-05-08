@@ -46,7 +46,9 @@ public abstract class CoursGen<DEV> extends Article {
 	public static final String Cours_IconeGroupe = "regular";
 	public static final String Cours_IconeNom = "university";
 	public static final String CoursFrFRPage_Uri = "/frFR/cours";
+	public static final String CoursFrFRPage_ImageUri = "/png/frFR/cours-999.png";
 	public static final String CoursEnUSPage_Uri = "/enUS/course";
+	public static final String CoursEnUSPage_ImageUri = "/png/enUS/course-999.png";
 
 	///////////////////////////////
 	// coursIdentifiantMinuscule //
@@ -205,7 +207,7 @@ public abstract class CoursGen<DEV> extends Article {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -218,7 +220,7 @@ public abstract class CoursGen<DEV> extends Article {
 		}
 		return o;
 	}
-	public Object obtenirCours(String var) throws Exception {
+	public Object obtenirCours(String var) {
 		Cours oCours = (Cours)this;
 		switch(var) {
 			case "coursIdentifiantMinuscule":
@@ -294,6 +296,7 @@ public abstract class CoursGen<DEV> extends Article {
 			siteContexte.initLoinSiteContexteFrFR();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -311,46 +314,58 @@ public abstract class CoursGen<DEV> extends Article {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerCours();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerCours(document);
 	}
 
-	public void indexerCours(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCours(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerCours(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerCours(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerCours() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerCours(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerCours() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerCours(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerCours(SolrInputDocument document) throws Exception {
+	public void indexerCours(SolrInputDocument document) {
 		super.indexerArticle(document);
 
 	}
 
-	public void desindexerCours() throws Exception {
+	public void desindexerCours() {
+		try {
 		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-		requeteSite.initLoinRequeteSiteFrFR();
-		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-		siteContexte.initLoinSiteContexteFrFR();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinCours(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteFrFR();
+			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+			siteContexte.initLoinSiteContexteFrFR();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinCours(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

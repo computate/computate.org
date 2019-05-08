@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours;        
+package org.computate.site.frFR.cours;       
 
 import java.time.LocalDateTime;
 import java.util.List;

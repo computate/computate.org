@@ -167,6 +167,18 @@ public abstract class C001L005InstallerMavenFrFRPageGen<DEV> extends C001L005Ins
 	public void htmlBodyCourtC001L005InstallerMavenFrFRPage() {
 	}
 
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L005InstallerMavenFrFRPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L005InstallerMavenFrFRPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

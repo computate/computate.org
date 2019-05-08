@@ -167,12 +167,10 @@ public class PageAccueilFrFRGenApiServiceImpl implements PageAccueilFrFRGenApiSe
 
 	public String varIndexePageAccueil(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
@@ -183,6 +181,8 @@ public class PageAccueilFrFRGenApiServiceImpl implements PageAccueilFrFRGenApiSe
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":

@@ -722,7 +722,7 @@ public abstract class ChaineGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -735,7 +735,7 @@ public abstract class ChaineGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirChaine(String var) throws Exception {
+	public Object obtenirChaine(String var) {
 		Chaine oChaine = (Chaine)this;
 		switch(var) {
 			case "requeteSite_":

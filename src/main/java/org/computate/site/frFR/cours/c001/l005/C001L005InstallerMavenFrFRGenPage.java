@@ -38,9 +38,9 @@ public class C001L005InstallerMavenFrFRGenPage extends C001L005InstallerMavenFrF
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(c001L005InstallerMaven != null)
-			c.o("Comment installer la dernière version de maven ?");
+			c.o("Comment installer la dernière version de maven ? ");
 		else
-			c.o("Comment installer la dernière version de maven ?");
+			c.o("Comment installer la dernière version de maven ? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -62,6 +62,10 @@ public class C001L005InstallerMavenFrFRGenPage extends C001L005InstallerMavenFrF
 
 	@Override protected void _pageUriEnUS(Couverture<String> c) {
 		c.o("/enUS/course/001/004-how-to-install-the-latest-version-of-maven");
+	}
+
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Comment installer la dernière version de maven ? Installer maven à partir du code source. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
@@ -114,7 +118,8 @@ public class C001L005InstallerMavenFrFRGenPage extends C001L005InstallerMavenFrF
 			} g("h3");
 		}
 
-		c001L005InstallerMaven.htmlBody();
+		if(c001L005InstallerMaven != null)
+			c001L005InstallerMaven.htmlBody();
 
 	}
 

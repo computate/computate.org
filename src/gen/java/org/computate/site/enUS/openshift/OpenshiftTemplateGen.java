@@ -343,9 +343,12 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 	/////////////////
 
 	public void requeteSiteOpenshiftTemplate(RequeteSiteEnUS requeteSite_) {
-		siteContexte.setRequeteSite_(requeteSite_);
-		configSite.setRequeteSite_(requeteSite_);
-		w.setRequeteSite_(requeteSite_);
+		if(siteContexte != null)
+			siteContexte.setRequeteSite_(requeteSite_);
+		if(configSite != null)
+			configSite.setRequeteSite_(requeteSite_);
+		if(w != null)
+			w.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -356,7 +359,7 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -369,7 +372,7 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirOpenshiftTemplate(String var) throws Exception {
+	public Object obtenirOpenshiftTemplate(String var) {
 		OpenshiftTemplate oOpenshiftTemplate = (OpenshiftTemplate)this;
 		switch(var) {
 			case "requeteSite_":

@@ -59,7 +59,7 @@ public abstract class CoursFrFRPageGen<DEV> extends CoursFrFRGenPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class CoursFrFRPageGen<DEV> extends CoursFrFRGenPage {
 		}
 		return o;
 	}
-	public Object obtenirCoursFrFRPage(String var) throws Exception {
+	public Object obtenirCoursFrFRPage(String var) {
 		CoursFrFRPage oCoursFrFRPage = (CoursFrFRPage)this;
 		switch(var) {
 			default:
@@ -165,6 +165,66 @@ public abstract class CoursFrFRPageGen<DEV> extends CoursFrFRGenPage {
 	}
 
 	public void htmlBodyCoursFrFRPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlCoursFrFRPage();
+		super.html();
+	}
+
+	public void htmlCoursFrFRPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaCoursFrFRPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaCoursFrFRPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesCoursFrFRPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesCoursFrFRPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleCoursFrFRPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleCoursFrFRPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtCoursFrFRPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtCoursFrFRPage() {
 	}
 
 	//////////////

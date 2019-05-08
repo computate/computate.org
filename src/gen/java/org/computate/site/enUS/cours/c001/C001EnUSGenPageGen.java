@@ -101,7 +101,7 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -114,7 +114,7 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 		}
 		return o;
 	}
-	public Object obtenirC001EnUSGenPage(String var) throws Exception {
+	public Object obtenirC001EnUSGenPage(String var) {
 		C001EnUSGenPage oC001EnUSGenPage = (C001EnUSGenPage)this;
 		switch(var) {
 			case "c001":
@@ -179,8 +179,9 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001EnUSGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001EnUSGenPage() {
@@ -190,13 +191,86 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001EnUSGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001EnUSGenPage() {
 		if(c001 != null)
 			c001.htmlBody();
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001EnUSGenPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001EnUSGenPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001EnUSGenPage();
+		super.html();
+	}
+
+	public void htmlC001EnUSGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001EnUSGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001EnUSGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001EnUSGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001EnUSGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001EnUSGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001EnUSGenPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001EnUSGenPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001EnUSGenPage() {
 	}
 
 	//////////////

@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import org.computate.site.enUS.cluster.Cluster;
 import javax.imageio.ImageIO;
+import org.computate.site.enUS.page.parti.PagePart;
 import org.apache.commons.exec.DefaultExecutor;
 import java.awt.image.BufferedImage;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -87,6 +88,10 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 		this.moiCouverture.dejaInitialise = true;
 	}
 	protected C001L006InstallerEclipse moiInit() {
+		if(moi != null) {
+			((C001L006InstallerEclipse)this).avantPagePart(moi, "moi");
+			((C001L006InstallerEclipse)this).avantPagePart(moi, "moi");
+		}
 		if(!moiCouverture.dejaInitialise) {
 			_moi(moi);
 		}
@@ -166,6 +171,10 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 		this.questionTelechargerCentos7Couverture.dejaInitialise = true;
 	}
 	protected C001L006InstallerEclipse questionTelechargerCentos7Init() {
+		if(questionTelechargerCentos7 != null) {
+			((C001L006InstallerEclipse)this).avantPagePart(questionTelechargerCentos7, "questionTelechargerCentos7");
+			((C001L006InstallerEclipse)this).avantPagePart(questionTelechargerCentos7, "questionTelechargerCentos7");
+		}
 		if(!questionTelechargerCentos7Couverture.dejaInitialise) {
 			_questionTelechargerCentos7(questionTelechargerCentos7);
 		}
@@ -268,6 +277,10 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 		this.recapituler1Couverture.dejaInitialise = true;
 	}
 	protected C001L006InstallerEclipse recapituler1Init() {
+		if(recapituler1 != null) {
+			((C001L006InstallerEclipse)this).avantPagePart(recapituler1, "recapituler1");
+			((C001L006InstallerEclipse)this).avantPagePart(recapituler1, "recapituler1");
+		}
 		if(!recapituler1Couverture.dejaInitialise) {
 			_recapituler1(recapituler1);
 		}
@@ -330,6 +343,10 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 		this.recapituler2Couverture.dejaInitialise = true;
 	}
 	protected C001L006InstallerEclipse recapituler2Init() {
+		if(recapituler2 != null) {
+			((C001L006InstallerEclipse)this).avantPagePart(recapituler2, "recapituler2");
+			((C001L006InstallerEclipse)this).avantPagePart(recapituler2, "recapituler2");
+		}
 		if(!recapituler2Couverture.dejaInitialise) {
 			_recapituler2(recapituler2);
 		}
@@ -503,6 +520,10 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 		this.recapituler3Couverture.dejaInitialise = true;
 	}
 	protected C001L006InstallerEclipse recapituler3Init() {
+		if(recapituler3 != null) {
+			((C001L006InstallerEclipse)this).avantPagePart(recapituler3, "recapituler3");
+			((C001L006InstallerEclipse)this).avantPagePart(recapituler3, "recapituler3");
+		}
 		if(!recapituler3Couverture.dejaInitialise) {
 			_recapituler3(recapituler3);
 		}
@@ -924,18 +945,26 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 	}
 
 	public void indexerC001L006InstallerEclipse(SolrClient clientSolr) {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L006InstallerEclipse(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L006InstallerEclipse(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	public void indexerC001L006InstallerEclipse() {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L006InstallerEclipse(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L006InstallerEclipse(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	public void indexerC001L006InstallerEclipse(SolrInputDocument document) {
@@ -944,17 +973,21 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 	}
 
 	public void desindexerC001L006InstallerEclipse() {
+		try {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001L006InstallerEclipse(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinC001L006InstallerEclipse(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

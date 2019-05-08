@@ -168,6 +168,8 @@ public class C001L004InstallerCentos7EnUSGenApiServiceImpl implements C001L004In
 
 	public String varIndexeC001L004InstallerCentos7(String entiteVar) {
 		switch(entiteVar) {
+			case "leconCree":
+				return "leconCree_indexed_date";
 			case "pk":
 				return "pk_indexed_long";
 			case "id":
@@ -184,8 +186,6 @@ public class C001L004InstallerCentos7EnUSGenApiServiceImpl implements C001L004In
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "leconCree":
-				return "leconCree_indexed_date";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":

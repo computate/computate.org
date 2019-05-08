@@ -52,7 +52,9 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	public static final String C001Lecon_IconeGroupe = "regular";
 	public static final String C001Lecon_IconeNom = "book";
 	public static final String C001LeconFrFRPage_Uri = "/frFR/cours/001/lecons";
+	public static final String C001LeconFrFRPage_ImageUri = "/png/frFR/cours/001/lecons-999.png";
 	public static final String C001LeconEnUSPage_Uri = "/enUS/course/001/lessons";
+	public static final String C001LeconEnUSPage_ImageUri = "/png/enUS/course/001/lessons-999.png";
 
 	///////////////
 	// leconCree //
@@ -216,7 +218,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -229,7 +231,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		}
 		return o;
 	}
-	public Object obtenirC001Lecon(String var) throws Exception {
+	public Object obtenirC001Lecon(String var) {
 		C001Lecon oC001Lecon = (C001Lecon)this;
 		switch(var) {
 			case "leconCree":
@@ -305,6 +307,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 			siteContexte.initLoinSiteContexteFrFR();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -322,30 +325,38 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerC001Lecon();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerC001Lecon(document);
 	}
 
-	public void indexerC001Lecon(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001Lecon(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001Lecon(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001Lecon(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001Lecon() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001Lecon(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001Lecon() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001Lecon(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001Lecon(SolrInputDocument document) throws Exception {
+	public void indexerC001Lecon(SolrInputDocument document) {
 		if(leconCree != null) {
 			document.addField("leconCree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(leconCree.atOffset(ZoneOffset.UTC)));
 			document.addField("leconCree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(leconCree.atOffset(ZoneOffset.UTC)));
@@ -354,18 +365,22 @@ public abstract class C001LeconGen<DEV> extends C001 {
 
 	}
 
-	public void desindexerC001Lecon() throws Exception {
+	public void desindexerC001Lecon() {
+		try {
 		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-		requeteSite.initLoinRequeteSiteFrFR();
-		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-		siteContexte.initLoinSiteContexteFrFR();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001Lecon(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteFrFR();
+			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+			siteContexte.initLoinSiteContexteFrFR();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinC001Lecon(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////
@@ -391,7 +406,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 
 	@Override public void htmlBody() {
 		htmlBodyC001Lecon();
-		super.htmlBodyC001();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001Lecon() {

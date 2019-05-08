@@ -59,7 +59,7 @@ public abstract class C001L001ChoisirNomDomaineFrFRPageGen<DEV> extends C001L001
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -72,7 +72,7 @@ public abstract class C001L001ChoisirNomDomaineFrFRPageGen<DEV> extends C001L001
 		}
 		return o;
 	}
-	public Object obtenirC001L001ChoisirNomDomaineFrFRPage(String var) throws Exception {
+	public Object obtenirC001L001ChoisirNomDomaineFrFRPage(String var) {
 		C001L001ChoisirNomDomaineFrFRPage oC001L001ChoisirNomDomaineFrFRPage = (C001L001ChoisirNomDomaineFrFRPage)this;
 		switch(var) {
 			default:
@@ -165,6 +165,18 @@ public abstract class C001L001ChoisirNomDomaineFrFRPageGen<DEV> extends C001L001
 	}
 
 	public void htmlBodyCourtC001L001ChoisirNomDomaineFrFRPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L001ChoisirNomDomaineFrFRPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L001ChoisirNomDomaineFrFRPage() {
 	}
 
 	//////////////

@@ -89,13 +89,28 @@ public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon>
 	protected void _questionDependences(PageHtml o) {
 	}
 
-	protected void _questionInstallerAncien(PageHtml o) {
-	}
-
 	protected void _questionMkdirSrc(PageHtml o) {
 	}
 
 	protected void _questionMkdirMaven(PageHtml o) {
+	}
+
+	protected void _questionClonerSource(PageHtml o) {
+	}
+
+	protected void _questionListerTags(PageHtml o) {
+	}
+
+	protected void _questionCheckoutTag(PageHtml o) {
+	}
+
+	protected void _questionConstruireSource(PageHtml o) {
+	}
+
+	protected void _questionMavenInstalleMaven(PageHtml o) {
+	}
+
+	protected void _questionBin(PageHtml o) {
 	}
 
 	protected void _recapituler1(PageHtml o) {      

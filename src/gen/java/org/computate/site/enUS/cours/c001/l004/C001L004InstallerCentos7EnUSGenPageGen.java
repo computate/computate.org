@@ -179,8 +179,9 @@ public abstract class C001L004InstallerCentos7EnUSGenPageGen<DEV> extends C001Le
 	// htmlScripts //
 	/////////////////
 
-	public void htmlScripts() {
+	@Override public void htmlScripts() {
 		htmlScriptsC001L004InstallerCentos7EnUSGenPage();
+		super.htmlScripts();
 	}
 
 	public void htmlScriptsC001L004InstallerCentos7EnUSGenPage() {
@@ -190,8 +191,9 @@ public abstract class C001L004InstallerCentos7EnUSGenPageGen<DEV> extends C001Le
 	// htmlBody //
 	//////////////
 
-	public void htmlBody() {
+	@Override public void htmlBody() {
 		htmlBodyC001L004InstallerCentos7EnUSGenPage();
+		super.htmlBody();
 	}
 
 	public void htmlBodyC001L004InstallerCentos7EnUSGenPage() {
@@ -208,6 +210,18 @@ public abstract class C001L004InstallerCentos7EnUSGenPageGen<DEV> extends C001Le
 	public void htmlBodyCourtC001L004InstallerCentos7EnUSGenPage() {
 		if(c001L004InstallerCentos7 != null)
 			c001L004InstallerCentos7.htmlBodyCourt();
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L004InstallerCentos7EnUSGenPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L004InstallerCentos7EnUSGenPage() {
 	}
 
 	//////////////

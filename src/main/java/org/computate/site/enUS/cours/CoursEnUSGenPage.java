@@ -74,7 +74,7 @@ public class CoursEnUSGenPage extends CoursEnUSGenPageGen<MiseEnPage> {
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/static/png/enUS/course-999.png");
+			c.o("/png/enUS/course-999.png");
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {

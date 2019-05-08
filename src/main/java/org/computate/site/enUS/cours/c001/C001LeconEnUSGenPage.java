@@ -42,14 +42,14 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 	}
 
 	protected void _c001Lecon(Couverture<C001Lecon> c) {
-		if(listeC001Lecon.size() == 1)
+		if(listeC001Lecon != null && listeC001Lecon.size() == 1)
 			c.o(listeC001Lecon.get(0));
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(c001Lecon != null)
 			c.o("a lesson");
-		else if(listeC001Lecon.size() == 0)
+		else if(listeC001Lecon == null || listeC001Lecon.size() == 0)
 			c.o("no lesson found");
 	}
 
@@ -64,7 +64,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001Lecon != null)
 			c.o("");
-		else if(listeC001Lecon.size() == 0)
+		else if(listeC001Lecon == null || listeC001Lecon.size() == 0)
 			c.o("no lesson found");
 	}
 
@@ -77,7 +77,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/static/png/enUS/course/001/lessons-999.png");
+			c.o("/png/enUS/course/001/lessons-999.png");
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -116,7 +116,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
-		if(listeC001Lecon.size() == 0) {
+		if(listeC001Lecon == null || listeC001Lecon.size() == 0) {
 			//no lesson found
 
 			{ e("h1").f();
@@ -124,7 +124,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("no lesson found").g("span");
 			} g("h1");
-		} else if(listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		} else if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
 			// a lesson
 			if(pageH1 != null) {
 				{ e("h1").f();
@@ -233,7 +233,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 			} g("form");
 		} g("div");
 
-		if(listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
 			C001Lecon o = listeC001Lecon.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();

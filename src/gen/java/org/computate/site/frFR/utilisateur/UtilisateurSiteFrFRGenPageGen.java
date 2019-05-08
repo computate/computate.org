@@ -143,7 +143,7 @@ public abstract class UtilisateurSiteFrFRGenPageGen<DEV> extends ArticleFrFRPage
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -156,7 +156,7 @@ public abstract class UtilisateurSiteFrFRGenPageGen<DEV> extends ArticleFrFRPage
 		}
 		return o;
 	}
-	public Object obtenirUtilisateurSiteFrFRGenPage(String var) throws Exception {
+	public Object obtenirUtilisateurSiteFrFRGenPage(String var) {
 		UtilisateurSiteFrFRGenPage oUtilisateurSiteFrFRGenPage = (UtilisateurSiteFrFRGenPage)this;
 		switch(var) {
 			case "listeUtilisateurSite":

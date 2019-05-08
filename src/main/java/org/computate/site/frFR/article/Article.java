@@ -1,4 +1,4 @@
-package org.computate.site.frFR.article;
+package org.computate.site.frFR.article; 
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -307,6 +307,10 @@ public class Article extends ArticleGen<Cluster> {
 	 * r.enUS: enUS
 	 */
 	protected void _articleDescription(Couverture<String> c) {
+		c.o(articleH1_frFR + "\n" + articleH2_frFR);
+	}
+
+	protected void _pageDescription(Couverture<String> c) {
 		c.o(articleH1_frFR + "\n" + articleH2_frFR);
 	}
 

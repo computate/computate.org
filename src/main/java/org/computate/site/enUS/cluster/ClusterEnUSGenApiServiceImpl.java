@@ -74,9 +74,9 @@ import org.computate.site.enUS.ecrivain.ToutEcrivain;
  **/
 public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ClusterEnUSGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(ClusterEnUSGenApiServiceImpl.class);
 
-	private static final String SERVICE_ADDRESS = "ClusterEnUSApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "ClusterEnUSApiServiceImpl";
 
 	protected SiteContexteEnUS siteContexte;
 

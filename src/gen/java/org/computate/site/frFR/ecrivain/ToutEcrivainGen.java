@@ -357,7 +357,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -370,7 +370,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 		}
 		return o;
 	}
-	public Object obtenirToutEcrivain(String var) throws Exception {
+	public Object obtenirToutEcrivain(String var) {
 		ToutEcrivain oToutEcrivain = (ToutEcrivain)this;
 		switch(var) {
 			case "requeteSite_":

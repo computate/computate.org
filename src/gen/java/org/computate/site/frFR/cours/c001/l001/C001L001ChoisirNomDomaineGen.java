@@ -1415,7 +1415,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -1428,7 +1428,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		}
 		return o;
 	}
-	public Object obtenirC001L001ChoisirNomDomaine(String var) throws Exception {
+	public Object obtenirC001L001ChoisirNomDomaine(String var) {
 		C001L001ChoisirNomDomaine oC001L001ChoisirNomDomaine = (C001L001ChoisirNomDomaine)this;
 		switch(var) {
 			case "intro":
@@ -1578,30 +1578,38 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerC001L001ChoisirNomDomaine();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerC001L001ChoisirNomDomaine(document);
 	}
 
-	public void indexerC001L001ChoisirNomDomaine(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L001ChoisirNomDomaine(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001L001ChoisirNomDomaine(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L001ChoisirNomDomaine(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001L001ChoisirNomDomaine() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerC001L001ChoisirNomDomaine(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerC001L001ChoisirNomDomaine() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerC001L001ChoisirNomDomaine(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerC001L001ChoisirNomDomaine(SolrInputDocument document) throws Exception {
+	public void indexerC001L001ChoisirNomDomaine(SolrInputDocument document) {
 		if(leconRecherche_frFR != null) {
 			for(String o : leconRecherche_frFR) {
 				document.addField("leconRecherche_frFR_text_frFR", o);
@@ -1616,18 +1624,22 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 
 	}
 
-	public void desindexerC001L001ChoisirNomDomaine() throws Exception {
+	public void desindexerC001L001ChoisirNomDomaine() {
+		try {
 		RequeteSiteFrFR requeteSite = new RequeteSiteFrFR();
-		requeteSite.initLoinRequeteSiteFrFR();
-		SiteContexteFrFR siteContexte = new SiteContexteFrFR();
-		siteContexte.initLoinSiteContexteFrFR();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinC001L001ChoisirNomDomaine(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteFrFR();
+			SiteContexteFrFR siteContexte = new SiteContexteFrFR();
+			siteContexte.initLoinSiteContexteFrFR();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinC001L001ChoisirNomDomaine(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////

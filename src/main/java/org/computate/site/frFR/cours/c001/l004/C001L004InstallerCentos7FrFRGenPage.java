@@ -64,6 +64,10 @@ public class C001L004InstallerCentos7FrFRGenPage extends C001L004InstallerCentos
 		c.o("/enUS/course/001/004-how-to-install-centos7");
 	}
 
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Comment installer le système d'exploitation pour développer mon site Web ? Chaque étape pour installer le système d'exploitation CentOS 7. ");
+	}
+
 	@Override protected void _pageImageUri(Couverture<String> c) {
 			c.o("/png/frFR/cours/001/004-comment-installer-centos7-999.png");
 	}
@@ -114,7 +118,8 @@ public class C001L004InstallerCentos7FrFRGenPage extends C001L004InstallerCentos
 			} g("h3");
 		}
 
-		c001L004InstallerCentos7.htmlBody();
+		if(c001L004InstallerCentos7 != null)
+			c001L004InstallerCentos7.htmlBody();
 
 	}
 

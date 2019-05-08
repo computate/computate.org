@@ -405,7 +405,7 @@ public abstract class ListeRechercheGen<DEV> {
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) throws Exception {
+	public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -418,7 +418,7 @@ public abstract class ListeRechercheGen<DEV> {
 		}
 		return o;
 	}
-	public Object obtenirListeRecherche(String var) throws Exception {
+	public Object obtenirListeRecherche(String var) {
 		ListeRecherche oListeRecherche = (ListeRecherche)this;
 		switch(var) {
 			case "c":

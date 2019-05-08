@@ -19,11 +19,14 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * UnNomMinuscule.frFR: le leçon
  * UnNomMinuscule.enUS: a lesson
  * 
- * H1.frFR: Comment installer la dernière version de maven ?
+ * H1.frFR: Comment installer la dernière version de maven ? 
  * H1.enUS: How do I install the latest version of maven. 
  * 
  * H2.frFR: Installer maven à partir du code source. 
  * H2.enUS: Install maven from the source code. 
+ * 
+ * Description.frFR: Comment installer la dernière version de maven ? Installer maven à partir du code source. 
+ * Description.enUS: How do I install the latest version of maven. Install maven from the source code. 
  * 
  * PageSimple: true
  * Couleur: green
@@ -35,7 +38,7 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * ImageHauteur.frFR: 1749
  * ImageLargeur.enUS: 800
  * ImageHauteur.enUS: 1479
-*/    
+*/   
 public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon> {
 
 	public static void main(String[] args) {  
@@ -126,10 +129,10 @@ public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon>
 	 * Val.H4I:far fa-tools
 	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
 	 * Val.H4Span.enUS:Build the dependencies with yum. 
-	 * Val.PreSpan1:sudo
-	 * Val.PreSpan2: yum-builddep
-	 * Val.PreSpan3: -y
-	 * Val.PreSpan4: maven
+	 * Val.Pre1Span1:sudo
+	 * Val.Pre1Span2: yum-builddep
+	 * Val.Pre1Span3: -y
+	 * Val.Pre1Span4: maven
 	 * 
 	 * Val.Ol2Li1.frFR:sudo: La commande pour installer des dépots yum commence par la commande sudo. 
 	 * Val.Ol2Li1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
@@ -142,35 +145,25 @@ public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon>
 	 * Val.Ol2Li2.enUS:yum-builddep installs missing dependencies for building an RPM package. 
 	 * Val.Ol2Li3.frFR:-y: Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
 	 * Val.Ol2Li3.enUS:-y: Suppress messages asking to confirm if you want to install the software. 
-	 * Val.Ol2Li4.frFR:maven: Le nom du paquet pour lequel vous vous souhaitez installer les dépendences. 
+	 * Val.Ol2Li4.frFR:maven : Le nom du paquet pour lequel vous vous souhaitez installer les dépendences. 
 	 * Val.Ol2Li4.enUS:maven: The package name you wish to install the dependencies for. 
+	 * 
+	 * Val.Pre3Span1:sudo
+	 * Val.Pre3Span2: yum
+	 * Val.Pre3Span3: install
+	 * Val.Pre3Span4: -y
+	 * Val.Pre3Span5: git
+	 * 
+	 * Val.Ol4Li1:sudo
+	 * Val.Ol4Li2:yum
+	 * Val.Ol4Li3.frFR:install : Pour installer des nouveaux paquets yum. 
+	 * Val.Ol4Li3.enUS:install: For installing new yum packages. 
+	 * Val.Ol4Li4:-y
+	 * Val.Ol4Li5.frFR:git : Le système de contrôle de révision distribué pour la plupart des logiciels open source. 
+	 * Val.Ol4Li5.enUS:git: The distributed revision control system for most open source software. 
+	 * 
 	 */  
 	protected void _questionDependences(PageHtml o) {
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * Val.H3I:far fa-truck-container
-	 * Val.H3Span.frFR:Comment installer les dépendences pour Maven ? 
-	 * Val.H3Span.enUS:How do I install the dependencies for Maven? 
-	 * Val.H4I:far fa-tools
-	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
-	 * Val.H4Span.enUS:Build the dependencies with yum. 
-	 * Val.PreSpan1:sudo
-	 * Val.PreSpan2: yum-builddep
-	 * Val.PreSpan3: -y
-	 * Val.PreSpan4: maven
-	 * 
-	 * Val.Ol2Li1:sudo
-	 * Val.Ol2Li2:yum
-	 * Val.Ol2Li3.frFR:install : Pour installer des nouveaux paquets yum. 
-	 * Val.Ol2Li3.enUS:install: For installing new yum packages. 
-	 * Val.Ol2Li4:-y
-	 * Val.Ol2Li5.frFR:pv: Le nom du paquet que vous souhaitez installer. 
-	 * Val.Ol2Li5.enUS:pv: The package name you wish to install. 
-	 */  
-	protected void _questionInstallerAncien(PageHtml o) {
 	}
 
 	/**
@@ -183,15 +176,31 @@ public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon>
 	 * Val.H4Span.frFR:Créez un répertoire maven dans /usr/local/src. 
 	 * Val.H4Span.enUS:Create a maven directory in /usr/local/src. 
 	 * Val.PreSpan1:sudo
-	 * Val.PreSpan2: mkdir
-	 * Val.PreSpan4: /usr/local/src/maven
+	 * Val.PreSpan2: install
+	 * Val.PreSpan3: -d
+	 * Val.PreSpan4: -o
+	 * Val.PreSpan5: $USER
+	 * Val.PreSpan6: -g
+	 * Val.PreSpan7: $USER
+	 * Val.PreSpan8: /usr/local/src/maven
 	 * 
 	 * Val.Ol2Li1:sudo
-	 * Val.Ol2Li2:mkdir
-	 * Val.Ol2Li3.frFR:/usr/local est un endroit pour des logiciels supplémentaires que vous installez sans le gestionnaire de paquets. 
-	 * Val.Ol2Li3.frFR:/usr/local/src est un bon endroit pour cloner vos référentiels de logiciels open source. 
-	 * Val.Ol2Li3.enUS:/usr/local is a place for extra software that you install without the package manager. 
-	 * Val.Ol2Li3.enUS:/usr/local/src is a good place to clone your open source software repositories. 
+	 * Val.Ol2Li2.frFR:install : Crée des répertoires et définit des attributs sur le nouveau répertoire. 
+	 * Val.Ol2Li2.enUS:install: Creates directories and sets attributes on the new directory. 
+	 * Val.Ol2Li3.frFR:-d : Créez tous les composants des répertoires spécifiés. 
+	 * Val.Ol2Li3.enUS:-d: Create  directories. 
+	 * Val.Ol2Li4.frFR:-o : Définir la propriété sur le répertoire (super-utilisateur uniquement). 
+	 * Val.Ol2Li4.enUS:-o: Set ownership on the directory (super-user only). 
+	 * Val.Ol2Li5.frFR:$USER : L'utilisateur actuel à rendre le propriétaire du répertoire. 
+	 * Val.Ol2Li5.enUS:$USER: The current user to make the owner of the directory. 
+	 * Val.Ol2Li6.frFR:-g : Définir la propriété du groupe sur le répertoire (super-utilisateur uniquement). 
+	 * Val.Ol2Li6.enUS:-g: Set group ownership on the directory (super-user only). 
+	 * Val.Ol2Li7.frFR:$USER : L'utilisateur actuel à rendre le propriétaire du groupe du répertoire. 
+	 * Val.Ol2Li7.enUS:$USER: The current user to make the group owner of the directory. 
+	 * Val.Ol2Li8.frFR:/usr/local est un endroit pour des logiciels supplémentaires que vous installez sans le gestionnaire de paquets. 
+	 * Val.Ol2Li8.frFR:/usr/local/src est un bon endroit pour cloner vos référentiels de logiciels open source. 
+	 * Val.Ol2Li8.enUS:/usr/local is a place for extra software that you install without the package manager. 
+	 * Val.Ol2Li8.enUS:/usr/local/src is a good place to clone your open source software repositories. 
 	 */  
 	protected void _questionMkdirSrc(PageHtml o) {
 	}
@@ -203,25 +212,198 @@ public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon>
 	 * Val.H3Span.frFR:Où puis-je installer Maven ? 
 	 * Val.H3Span.enUS:Where do I install Maven? 
 	 * Val.H4I:far fa-tools
-	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
-	 * Val.H4Span.enUS:C
+	 * Val.H4Span.frFR:Créez un répertoire maven dans /opt. 
+	 * Val.H4Span.enUS:Create a maven directory in /opt. 
 	 * Val.PreSpan1:sudo
-	 * Val.PreSpan2: yum-builddep
-	 * Val.PreSpan3: -y
-	 * Val.PreSpan4: maven
+	 * Val.PreSpan2: install
+	 * Val.PreSpan3: -d
+	 * Val.PreSpan4: -o
+	 * Val.PreSpan5: $USER
+	 * Val.PreSpan6: -g
+	 * Val.PreSpan7: $USER
+	 * Val.PreSpan8: /opt/maven
 	 * 
-	 * Val.Ol2Li1.frFR:sudo: La commande pour installer des dépots yum commence par la commande sudo. 
-	 * Val.Ol2Li1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
-	 * Val.Ol2Li1.frFR:L'installation des dépots yum nécessite toujours les privilèges root. 
 	 * Val.Ol2Li1:sudo
-	 * Val.Ol2Li2:yum
-	 * Val.Ol2Li3.frFR:install : Pour installer des nouveaux paquets yum. 
-	 * Val.Ol2Li3.enUS:install: For installing new yum packages. 
-	 * Val.Ol2Li4:-y
-	 * Val.Ol2Li5.frFR:pv: Le nom du paquet que vous souhaitez installer. 
-	 * Val.Ol2Li5.enUS:pv: The package name you wish to install. 
+	 * Val.Ol2Li2:install
+	 * Val.Ol2Li3:-d
+	 * Val.Ol2Li4:-o
+	 * Val.Ol2Li5:$USER
+	 * Val.Ol2Li6:-g
+	 * Val.Ol2Li7:$USER
+	 * Val.Ol2Li8.frFR:/opt est un bon endroit pour installer des applications logicielles open source telles que maven. 
+	 * Val.Ol2Li8.enUS:/opt is a good place to install open source software applications like maven. 
 	 */  
 	protected void _questionMkdirMaven(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Comment télécharger le code source de maven ? 
+	 * Val.H3Span.enUS:How do I download the maven source code? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Cloner le code source avec la commande git. 
+	 * Val.H4Span.enUS:Clone the source code with the git command. 
+	 * Val.PreSpan1:git
+	 * Val.PreSpan2: clone
+	 * Val.PreSpan3: https://git-wip-us.apache.org/repos/asf/maven.git
+	 * Val.PreSpan4: /usr/local/src/maven
+	 * 
+	 * Val.Ol2Li1.frFR:git : Le système de contrôle de révision distribué pour la plupart des logiciels open source. 
+	 * Val.Ol2Li1.enUS:git: The distributed revision control system for most open source software. 
+	 * Val.Ol2Li2.frFR:clone : Cloner un référentiel dans un répertoire. 
+	 * Val.Ol2Li2.enUS:clone: Clone a repository into a directory. 
+	 * Val.Ol2Li3.frFR:https://git-wip-us.apache.org/repos/asf/maven.git : URL git vers le référentiel de code source maven. 
+	 * Val.Ol2Li3.enUS:https://git-wip-us.apache.org/repos/asf/maven.git: The git URL to the maven source code repository. 
+	 * Val.Ol2Li4.frFR:/usr/local/src/maven : Répertoire dans lequel le code source maven sera cloné. 
+	 * Val.Ol2Li4.enUS:/usr/local/src/maven: The directory where the maven source code will be cloned. 
+	 */  
+	protected void _questionClonerSource(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Comment choisir une version récente de Maven ? 
+	 * Val.H3Span.enUS:How do I pick a recent version of Maven? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Listez toutes les tags du référentiel git. 
+	 * Val.H4Span.enUS:List all the tags in the git repository. 
+	 * Val.PreSpan1:(cd
+	 * Val.PreSpan2: /usr/local/src/maven
+	 * Val.PreSpan3: &&
+	 * Val.PreSpan4: git
+	 * Val.PreSpan5: tag)
+	 * 
+	 * Val.Ol2Li1.frFR:(cd : Changer de répertoire temporairement avec la parenthèse ouverte. 
+	 * Val.Ol2Li1.enUS:(cd: Change directory temporarily, because of the open parenthesis. 
+	 * Val.Ol2Li2.frFR:/usr/local/src/maven : Répertoire dans lequel le code source maven a été cloné. 
+	 * Val.Ol2Li2.enUS:/usr/local/src/maven: The directory where the maven source code was cloned. 
+	 * Val.Ol2Li3.frFR:&& : Exécutez la commande cd et git ensemble. 
+	 * Val.Ol2Li3.enUS:&&: Run the cd and git command together. 
+	 * Val.Ol2Li4:git
+	 * Val.Ol2Li5.frFR:tag) : Répertorie les tags actuelles ou les versions assignées du code et ferme la parenthèse. 
+	 * Val.Ol2Li5.enUS:tag): Lists the current tags or assigned versions of the code and close the parenthesis. 
+	 */  
+	protected void _questionListerTags(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Comment changer de version du code source de maven ? 
+	 * Val.H3Span.enUS:How do I switch versions of the maven source code? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Checkout la tag git. 
+	 * Val.H4Span.enUS:Checkout the git tag. 
+	 * Val.PreSpan1:(cd
+	 * Val.PreSpan2: /usr/local/src/maven
+	 * Val.PreSpan3: &&
+	 * Val.PreSpan4: git
+	 * Val.PreSpan5: checkout
+	 * Val.PreSpan6: maven-3.6.1)
+	 * 
+	 * Val.Ol2Li1:(cd
+	 * Val.Ol2Li2:/usr/local/src/maven
+	 * Val.Ol2Li3:&&
+	 * Val.Ol2Li4:git
+	 * Val.Ol2Li5.frFR:checkout : Checkout une branche dans l’arbre de travail. 
+	 * Val.Ol2Li5.enUS:checkout: Checkout a branch to the working tree. 
+	 * Val.Ol2Li6.frFR:maven-3.6.1) : La dernière tag pour baser la branche. 
+	 * Val.Ol2Li6.enUS:maven-3.6.1): The latest tag to base the branch from. 
+	 */  
+	protected void _questionCheckoutTag(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Comment contruire le code source de maven ? 
+	 * Val.H3Span.enUS:How do I build the maven source code? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Construisez Maven avec la commande mvn. 
+	 * Val.H4Span.enUS:Build Maven with the mvn command. 
+	 * Val.PreSpan1:(cd
+	 * Val.PreSpan2: /usr/local/src/maven
+	 * Val.PreSpan3: &&
+	 * Val.PreSpan4: mvn
+	 * Val.PreSpan5: -DdistributionTargetDir="/tmp/maven"
+	 * Val.PreSpan6: clean
+	 * Val.PreSpan7: package)
+	 * 
+	 * Val.Ol2Li1:(cd
+	 * Val.Ol2Li2:/usr/local/src/maven
+	 * Val.Ol2Li3:&&
+	 * Val.Ol2Li4.frFR:mvn: L'outil de gestion de projet logiciel Java. 
+	 * Val.Ol2Li4.enUS:mvn: The java software project management tool. 
+	 * Val.Ol2Li5.frFR:-DdistributionTargetDir="/tmp/maven" : Pointez le distributionTargetDir vers un répertoire temporaire dans /tmp. 
+	 * Val.Ol2Li5.enUS:-DdistributionTargetDir="/tmp/maven": Point the distributionTargetDir to a temporary directory in /tmp. 
+	 * Val.Ol2Li6.frFR:clean : Nettoyez toutes les versions précédentes. 
+	 * Val.Ol2Li6.enUS:clean: Clean up any previous builds. 
+	 * Val.Ol2Li7.frFR:package) : Construire l'application Maven complète et fermez la parenthèse. 
+	 * Val.Ol2Li7.enUS:package): Build the complete maven application and close the parenthesis. 
+	 */  
+	protected void _questionConstruireSource(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Mais pourquoi installons-nous Maven pour installer la dernière version de Maven ? 
+	 * Val.H3Span.enUS:But why are we installing Maven to install the latest Maven? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Un programme qui nécessite de se construire. 
+	 * Val.H4Span.enUS:A program that requires itself to build itself. 
+	 * 
+	 * Val.H5Span.frFR:
+	 * Val.P5Span.frFR:Je ne le croisais pas non plus, un programme qui nécessite de se construire ? 
+	 * Val.P5Span.frFR:Le mieux que je puisse faire pour expliquer ce phénomène est de citer la documentation de Maven : 
+	 * Val.P5Span.frFR:« Jusqu'au Maven 3.3, la construction de base de Maven pourrait être optimisée avec une construction Ant.  
+	 * Val.P5Span.frFR:Ce bootstrap a été supprimé dans Maven 3.5: vous avez besoin d'un Maven pré-construit pour créer Maven à partir du source. » 
+	 * Val.H5Span.enUS:
+	 * Val.P5Span.enUS:I couldn't believe it myself at first, a program that requires itself to build itself? 
+	 * Val.P5Span.enUS:The best I can do to explain this phenomenon is to quote the maven documentation: 
+	 * Val.P5Span.enUS:"Until Maven 3.3, Maven core build could be boostrapped with an Ant build. 
+	 * Val.P5Span.enUS:This bootstrap has been removed in Maven 3.5: you need a pre-built Maven to build Maven from source." 
+	 */  
+	protected void _questionMavenInstalleMaven(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-truck-container
+	 * Val.H3Span.frFR:Comment contruire le code source de maven ? 
+	 * Val.H3Span.enUS:How do I build the maven source code? 
+	 * Val.H4I:far fa-tools
+	 * Val.H4Span.frFR:Cloner le code source avec la commande git. 
+	 * Val.H4Span.enUS:Clone the source code with the git command. 
+	 * Val.PreSpan1:(cd
+	 * Val.PreSpan2: /usr/local/src/maven
+	 * Val.PreSpan3: &&
+	 * Val.PreSpan4: mvn
+	 * Val.PreSpan5: -DdistributionTargetDir="/opt/maven"
+	 * Val.PreSpan6: clean
+	 * Val.PreSpan7: package)
+	 * 
+	 * Val.Ol2Li1:(cd
+	 * Val.Ol2Li2:/usr/local/src/maven
+	 * Val.Ol2Li3:&&
+	 * Val.Ol2Li4.frFR:mvn: L'outil de gestion de projet logiciel Java. 
+	 * Val.Ol2Li4.enUS:mvn: The java software project management tool. 
+	 * Val.Ol2Li5.frFR:-DdistributionTargetDir="/opt/maven" : Pointez le distributionTargetDir vers le répertoire où maven sera installé. 
+	 * Val.Ol2Li5.enUS:-DdistributionTargetDir="/opt/maven": Point the distributionTargetDir to the directory where maven will be installed. 
+	 * Val.Ol2Li6.frFR:clean : Nettoyez toutes les versions précédentes. 
+	 * Val.Ol2Li6.enUS:clean: Clean up any previous builds. 
+	 * Val.Ol2Li7.frFR:package) : Construire l'application Maven complète et fermez la parenthèse. 
+	 * Val.Ol2Li7.enUS:package): Build the complete maven application and close the parenthesis. 
+	 */  
+	protected void _questionBin(PageHtml o) {
 	}
 
 	/**

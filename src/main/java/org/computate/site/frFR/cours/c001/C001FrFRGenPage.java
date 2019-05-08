@@ -64,7 +64,7 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/static/png/frFR/cours/001-999.png");
+			c.o("/png/frFR/cours/001-999.png");
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -105,7 +105,8 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 			} g("h3");
 		}
 
-		c001.htmlBody();
+		if(c001 != null)
+			c001.htmlBody();
 
 	}
 

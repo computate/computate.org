@@ -720,7 +720,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	// obtenir //
 	/////////////
 
-	@Override public Object obtenirPourClasse(String var) throws Exception {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -733,7 +733,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		}
 		return o;
 	}
-	public Object obtenirUtilisateurSite(String var) throws Exception {
+	public Object obtenirUtilisateurSite(String var) {
 		UtilisateurSite oUtilisateurSite = (UtilisateurSite)this;
 		switch(var) {
 			case "calculInrPks":
@@ -823,7 +823,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 			DefaultExecutor executeur = new DefaultExecutor();
 			{
 				new File("/usr/local/src/computate.org-static/png/frFR").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/frFR/utilisateur?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/utilisateur-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/frFR/utilisateur?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/frFR/utilisateur-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/frFR/utilisateur-999.png"));
 				System.out.println("UtilisateurSiteFrFRPage");
 				System.out.println(" * ImageLargeur.frFR: " + img.getWidth());
@@ -831,7 +831,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 			}
 			{
 				new File("/usr/local/src/computate.org-static/png/enUS").mkdirs();
-				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --url=https://site.computate.org:10080/enUS/user?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/user-999.png"));
+				executeur.execute(CommandLine.parse("/usr/bin/CutyCapt --min-height=200 --url=https://site.computate.org:10080/enUS/user?pageRecapituler=true --out=/usr/local/src/computate.org-static/png/enUS/user-999.png"));
 				BufferedImage img = ImageIO.read(new File("/usr/local/src/computate.org-static/png/enUS/user-999.png"));
 				System.out.println("UtilisateurSiteEnUSPage");
 				System.out.println(" * ImageLargeur.enUS: " + img.getWidth());
@@ -855,6 +855,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 			siteContexte.initLoinSiteContexteEnUS();
 			siteContexte.setRequeteSite_(requeteSite);
 			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
 			SolrQuery rechercheSolr = new SolrQuery();
 			rechercheSolr.setQuery("*:*");
 			rechercheSolr.setRows(1);
@@ -872,30 +873,38 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 
 
-	@Override public void indexerPourClasse() throws Exception {
+	@Override public void indexerPourClasse() {
 		indexerUtilisateurSite();
 	}
 
-	@Override public void indexerPourClasse(SolrInputDocument document) throws Exception {
+	@Override public void indexerPourClasse(SolrInputDocument document) {
 		indexerUtilisateurSite(document);
 	}
 
-	public void indexerUtilisateurSite(SolrClient clientSolr) throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerUtilisateurSite(document);
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerUtilisateurSite(SolrClient clientSolr) {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerUtilisateurSite(document);
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerUtilisateurSite() throws Exception {
-		SolrInputDocument document = new SolrInputDocument();
-		indexerUtilisateurSite(document);
-		SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
-		clientSolr.add(document);
-		clientSolr.commit();
+	public void indexerUtilisateurSite() {
+		try {
+			SolrInputDocument document = new SolrInputDocument();
+			indexerUtilisateurSite(document);
+			SolrClient clientSolr = requeteSite_.getSiteContexte_().getClientSolr();
+			clientSolr.add(document);
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
-	public void indexerUtilisateurSite(SolrInputDocument document) throws Exception {
+	public void indexerUtilisateurSite(SolrInputDocument document) {
 		if(calculInrPks != null) {
 			for(java.lang.Long o : calculInrPks) {
 				document.addField("calculInrPks_indexed_longs", o);
@@ -944,18 +953,22 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 
 	}
 
-	public void desindexerUtilisateurSite() throws Exception {
+	public void desindexerUtilisateurSite() {
+		try {
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
-		requeteSite.initLoinRequeteSiteEnUS();
-		SiteContexteEnUS siteContexte = new SiteContexteEnUS();
-		siteContexte.initLoinSiteContexteEnUS();
-		siteContexte.setRequeteSite_(requeteSite);
-		requeteSite.setSiteContexte_(siteContexte);
-		requeteSite.setConfigSite_(siteContexte.getConfigSite());
-		initLoinUtilisateurSite(siteContexte.getRequeteSite_());
-		SolrClient clientSolr = siteContexte.getClientSolr();
-		clientSolr.deleteById(id.toString());
-		clientSolr.commit();
+			requeteSite.initLoinRequeteSiteEnUS();
+			SiteContexteEnUS siteContexte = new SiteContexteEnUS();
+			siteContexte.initLoinSiteContexteEnUS();
+			siteContexte.setRequeteSite_(requeteSite);
+			requeteSite.setSiteContexte_(siteContexte);
+			requeteSite.setConfigSite_(siteContexte.getConfigSite());
+			initLoinUtilisateurSite(siteContexte.getRequeteSite_());
+			SolrClient clientSolr = siteContexte.getClientSolr();
+			clientSolr.deleteById(id.toString());
+			clientSolr.commit();
+		} catch(Exception e) {
+			ExceptionUtils.rethrow(e);
+		}
 	}
 
 	/////////////
