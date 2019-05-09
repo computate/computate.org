@@ -203,8 +203,9 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPageGen<
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
@@ -222,6 +223,54 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPageGen<
 	}
 
 	public void htmlScriptC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.html();
+	}
+
+	public void htmlC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
 	}
 
 	//////////////

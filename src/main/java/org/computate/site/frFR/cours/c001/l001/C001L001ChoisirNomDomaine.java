@@ -28,6 +28,12 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * H2.frFR: Choisir un nom de domaine. 
  * H2.enUS: Choose a domain name. 
  * 
+ * Titre.frFR: Quel est l'étape première pour créer mon propre site Web ? Choisir un nom de domaine. 
+ * Titre.enUS: What is the first step to creating my own website? Choose a domain name. 
+ * 
+ * Description.frFR: Quel est l'étape première pour créer mon propre site Web ? Choisir un nom de domaine. 
+ * Description.enUS: What is the first step to creating my own website? Choose a domain name. 
+ * 
  * PageSimple: true
  * NomPluriel.frFR: lessons
  * Couleur: green

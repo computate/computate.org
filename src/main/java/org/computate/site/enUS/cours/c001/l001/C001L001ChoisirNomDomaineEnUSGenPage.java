@@ -56,7 +56,9 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L001ChoisirNomDomaine != null)
-			c.o("");
+			c.o("What is the first step to creating my own website? Choose a domain name. ");
+		else
+			c.o("What is the first step to creating my own website? Choose a domain name. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -65,6 +67,10 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
 		c.o("/frFR/cours/001/001-choisir-nom-domaine");
+	}
+
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("What is the first step to creating my own website? Choose a domain name. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
@@ -124,7 +130,8 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 			e("iframe").a("class", "site-video-embed ").a("width", "560").a("height", "315").a("src", pageVideoUrlEmbed).a("frameborder", "0").a("allow", "autoplay; encrypted-media").a("allowfullscreen", "").f().g("iframe");
 		} g("div");
 
-		c001L001ChoisirNomDomaine.htmlBody();
+		if(c001L001ChoisirNomDomaine != null)
+			c001L001ChoisirNomDomaine.htmlBody();
 
 	}
 

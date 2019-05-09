@@ -96,8 +96,8 @@ public class PageAccueil extends PageAccueilGen<Article> {
 	protected void _listeArticle(ListeRecherche<Article> o) {
 		o.setC(Article.class);
 		o.setQuery("*:*");
-		o.addSort("archive_indexed_boolean", ORDER.asc);
-		o.addSort("supprime_indexed_boolean", ORDER.asc);
+		o.addSort("coursNumero_indexed_int", ORDER.desc);
+		o.addSort("leconNumero_indexed_int", ORDER.desc);
 		o.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.article.Article"));
 	}
 

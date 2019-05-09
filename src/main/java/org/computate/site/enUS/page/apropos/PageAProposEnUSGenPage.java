@@ -68,6 +68,10 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 		c.o("/frFR/apropos");
 	}
 
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Who is Christopher Tate? All about me. ");
+	}
+
 	@Override protected void _pageImageUri(Couverture<String> c) {
 			c.o("/png/enUS/about-999.png");
 	}
@@ -118,7 +122,8 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 			} g("h3");
 		}
 
-		pageAPropos.htmlBody();
+		if(pageAPropos != null)
+			pageAPropos.htmlBody();
 
 	}
 

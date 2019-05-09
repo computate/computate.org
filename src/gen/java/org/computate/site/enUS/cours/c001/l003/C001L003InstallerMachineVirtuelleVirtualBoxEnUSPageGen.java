@@ -167,6 +167,18 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxEnUSPageGen<DEV
 	public void htmlBodyCourtC001L003InstallerMachineVirtuelleVirtualBoxEnUSPage() {
 	}
 
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L003InstallerMachineVirtuelleVirtualBoxEnUSPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L003InstallerMachineVirtuelleVirtualBoxEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

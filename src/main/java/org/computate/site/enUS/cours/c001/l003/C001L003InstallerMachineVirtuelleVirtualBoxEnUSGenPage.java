@@ -54,7 +54,9 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
-			c.o("");
+			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
+		else
+			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -63,6 +65,10 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
 		c.o("/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box");
+	}
+
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
@@ -115,7 +121,8 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 			} g("h3");
 		}
 
-		c001L003InstallerMachineVirtuelleVirtualBox.htmlBody();
+		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
+			c001L003InstallerMachineVirtuelleVirtualBox.htmlBody();
 
 	}
 

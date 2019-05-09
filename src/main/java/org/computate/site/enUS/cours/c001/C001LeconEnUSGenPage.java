@@ -3,8 +3,8 @@ package org.computate.site.enUS.cours.c001;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import java.util.ArrayList;
-import org.apache.solr.common.SolrDocument;
+import org.computate.site.enUS.recherche.ListeRecherche;
+import org.computate.site.enUS.article.Article;
 import org.computate.site.frFR.cours.c001.C001FrFRPage;
 import org.computate.site.enUS.cours.c001.C001EnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
@@ -14,7 +14,6 @@ import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import java.io.IOException;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
-import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.MiseEnPage;
 import java.time.LocalDate;
@@ -250,7 +249,8 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 					htmlFormPageC001Lecon(o);
 				}
 
-				o.htmlBody();
+				if(o != null)
+					o.htmlBody();
 
 			} g("div");
 		}

@@ -69,6 +69,10 @@ public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnU
 		c.o("/frFR");
 	}
 
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Create your own data-driven, searchable website on your own computer and the cloud, with open source software. ");
+	}
+
 	@Override protected void _pageImageUri(Couverture<String> c) {
 			c.o("/png/-999.png");
 	}
@@ -111,7 +115,8 @@ public class PageAccueilEnUSGenPage extends PageAccueilEnUSGenPageGen<ArticleEnU
 			} g("h3");
 		}
 
-		pageAccueil.htmlBody();
+		if(pageAccueil != null)
+			pageAccueil.htmlBody();
 
 	}
 

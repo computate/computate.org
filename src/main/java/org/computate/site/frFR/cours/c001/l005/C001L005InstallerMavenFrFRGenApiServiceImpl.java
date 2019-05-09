@@ -167,8 +167,6 @@ public class C001L005InstallerMavenFrFRGenApiServiceImpl implements C001L005Inst
 
 	public String varIndexeC001L005InstallerMaven(String entiteVar) {
 		switch(entiteVar) {
-			case "leconCree":
-				return "leconCree_indexed_date";
 			case "pk":
 				return "pk_indexed_long";
 			case "id":
@@ -223,6 +221,8 @@ public class C001L005InstallerMavenFrFRGenApiServiceImpl implements C001L005Inst
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

@@ -167,6 +167,66 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxFrFRPageGen<DEV
 	public void htmlBodyCourtC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage() {
 	}
 
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage();
+		super.html();
+	}
+
+	public void htmlC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L003InstallerMachineVirtuelleVirtualBoxFrFRPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

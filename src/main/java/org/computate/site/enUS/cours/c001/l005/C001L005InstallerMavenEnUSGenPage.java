@@ -54,7 +54,9 @@ public class C001L005InstallerMavenEnUSGenPage extends C001L005InstallerMavenEnU
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L005InstallerMaven != null)
-			c.o("");
+			c.o("How do I install the latest version of maven. Install maven from the source code. ");
+		else
+			c.o("How do I install the latest version of maven. Install maven from the source code. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -66,7 +68,7 @@ public class C001L005InstallerMavenEnUSGenPage extends C001L005InstallerMavenEnU
 	}
 
 	@Override protected void _pageDescription(Couverture<String> c) {
-			c.o("How do I install the latest version of maven. Install maven from the source code. ");
+			c.o("Most enterprises use Java today to build their applications and microservices, including governments, banks, accounting and businesses. Building java applications begins with installing Maven. The default version of Maven on your Linux distribution may be out of date to install certain open source software. I will help you install the most recent version of Maven to develop your website the open source way. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
@@ -78,7 +80,7 @@ public class C001L005InstallerMavenEnUSGenPage extends C001L005InstallerMavenEnU
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1479);
+			c.o(1245);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {

@@ -203,8 +203,9 @@ public abstract class C001L005InstallerMavenFrFRGenPageGen<DEV> extends C001Leco
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtC001L005InstallerMavenFrFRGenPage();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L005InstallerMavenFrFRGenPage() {
@@ -222,6 +223,54 @@ public abstract class C001L005InstallerMavenFrFRGenPageGen<DEV> extends C001Leco
 	}
 
 	public void htmlScriptC001L005InstallerMavenFrFRGenPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L005InstallerMavenFrFRGenPage();
+		super.html();
+	}
+
+	public void htmlC001L005InstallerMavenFrFRGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L005InstallerMavenFrFRGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L005InstallerMavenFrFRGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L005InstallerMavenFrFRGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L005InstallerMavenFrFRGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L005InstallerMavenFrFRGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L005InstallerMavenFrFRGenPage() {
 	}
 
 	//////////////

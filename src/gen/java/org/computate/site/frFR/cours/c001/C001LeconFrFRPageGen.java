@@ -167,6 +167,66 @@ public abstract class C001LeconFrFRPageGen<DEV> extends C001LeconFrFRGenPage {
 	public void htmlBodyC001LeconFrFRPage() {
 	}
 
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001LeconFrFRPage();
+		super.html();
+	}
+
+	public void htmlC001LeconFrFRPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001LeconFrFRPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001LeconFrFRPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001LeconFrFRPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001LeconFrFRPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001LeconFrFRPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001LeconFrFRPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001LeconFrFRPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001LeconFrFRPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

@@ -167,6 +167,18 @@ public abstract class C001L001ChoisirNomDomaineEnUSPageGen<DEV> extends C001L001
 	public void htmlBodyCourtC001L001ChoisirNomDomaineEnUSPage() {
 	}
 
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L001ChoisirNomDomaineEnUSPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

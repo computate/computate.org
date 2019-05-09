@@ -182,83 +182,68 @@ public class C001L006InstallerEclipse extends C001L006InstallerEclipseGen<C001Le
 	 * Val.TableTr01Td4.frFR:Reponses
 	 * Val.TableTr01Td4.enUS:Answers
 	 * 
-	 * Val.TableTr02Td1I:far fa-person-carry
-	 * Val.TableTr02Td2.frFR:Comment télecharger CentOS 7 ? 
-	 * Val.TableTr02Td2.enUS:How do I download CentOS 7? 
-	 * Val.TableTr02Td3Span1I:far fa-cloud-download-alt
-	 * Val.TableTr02Td4.frFR:Télécharger un fichier ISO. 
-	 * Val.TableTr02Td4.enUS:Download an ISO file. 
+	 * Val.TableTr02Td1I:far fa-conveyor-belt-alt
+	 * Val.TableTr02Td2.frFR:Comment installer les dépendences pour Maven ? 
+	 * Val.TableTr02Td2.enUS:How do I install the dependencies for Maven? 
+	 * Val.TableTr02Td3Span1I:far fa-cookie
+	 * Val.TableTr02Td4.frFR:Construisez les dépendances avec yum. 
+	 * Val.TableTr02Td4.enUS:Build the dependencies with yum. 
 	 * 
-	 * Val.TableTr03Td1I:fab fa-usb
-	 * Val.TableTr03Td2.frFR:Comment puis-je créer une clé USB avec CentOS 7 ? 
-	 * Val.TableTr03Td2.enUS:How can I create a USB key with CentOS 7? 
-	 * Val.TableTr03Td3I:far fa-compact-disc
-	 * Val.TableTr03Td4.frFR:Utilizez la commande dd. 
-	 * Val.TableTr03Td4.enUS:Use the dd command. 
+	 * Val.TableTr03Td1I:far fa-map-point
+	 * Val.TableTr03Td2.frFR:Où est-ce que je place le code source Maven ? 
+	 * Val.TableTr03Td2.enUS:Where do I put the Maven source code? 
+	 * Val.TableTr03Td3I:far fa-folder-tree
+	 * Val.TableTr03Td4.frFR:Créez un répertoire maven dans /usr/local/src. 
+	 * Val.TableTr03Td4.enUS:Create a maven directory in /usr/local/src. 
 	 * 
-	 * Val.TableTr04Td1I:far fa-play-circle
-	 * Val.TableTr04Td2.frFR:Lorsque je redémarre avec la clé USB, quel mode de démarrage choisir? 
-	 * Val.TableTr04Td2.enUS:When I reboot with the USB key, which boot mode do I choose? 
-	 * Val.TableTr04Td3Span1I:fab fa-windows
-	 * Val.TableTr04Td3Span1I:fab fa-centos
-	 * Val.TableTr04Td4.frFR:Évitez de démarrer en mode de démarrage UEFI. 
-	 * Val.TableTr04Td4.enUS:Avoid booting in UEFI boot mode. 
+	 * Val.TableTr04Td1I:far fa-map-point
+	 * Val.TableTr04Td2.frFR:Où puis-je installer Maven ? 
+	 * Val.TableTr04Td2.enUS:Where do I install Maven? 
+	 * Val.TableTr04Td3Span1I:far fa-folder-tree
+	 * Val.TableTr04Td4.frFR:Créez un répertoire maven dans /opt. 
+	 * Val.TableTr04Td4.enUS:Create a maven directory in /opt. 
 	 * 
-	 * Val.TableTr05Td1I:fas fa-flag-alt
-	 * Val.TableTr05Td2.frFR:Quelle langue j'utilise pendant le processus d'installation? 
-	 * Val.TableTr05Td2.enUS:What language would I use during the install process? 
-	 * Val.TableTr05Td3I:far fa-language
-	 * Val.TableTr05Td4.frFR:Choisissez la langue avec laquelle vous êtes à l'aise. 
-	 * Val.TableTr05Td4.enUS:Choose the language you are comfortable with. 
+	 * Val.TableTr05Td1I:far fa-cloud-download
+	 * Val.TableTr05Td2.frFR:Comment télécharger le code source de maven ? 
+	 * Val.TableTr05Td2.enUS:How do I download the maven source code? 
+	 * Val.TableTr05Td3I:fab fa-git
+	 * Val.TableTr05Td4.frFR:Cloner le code source avec la commande git. 
+	 * Val.TableTr05Td4.enUS:Clone the source code with the git command. 
 	 * 
-	 * Val.TableTr06Td1I:fas fa-clock
-	 * Val.TableTr06Td2.frFR:Comment configurer la date et l'heure d'une installation de CentOS 7 ? 
-	 * Val.TableTr06Td2.enUS:How do I setup the date and time for a CentOS 7 installation? 
-	 * Val.TableTr06Td3I:fas fa-city
-	 * Val.TableTr06Td4.frFR:Choisissez la grande ville près de chez vous. 
-	 * Val.TableTr06Td4.enUS:Choose the big city near you. 
+	 * Val.TableTr06Td1I:far fa-code-branch
+	 * Val.TableTr06Td2.frFR:Comment choisir une version récente de Maven ? 
+	 * Val.TableTr06Td2.enUS:How do I pick a recent version of Maven? 
+	 * Val.TableTr06Td3I:far fa-tag
+	 * Val.TableTr06Td4.frFR:Listez toutes les tags du référentiel git. 
+	 * Val.TableTr06Td4.enUS:List all the tags in the git repository. 
 	 * 
-	 * Val.TableTr07Td1I:fas fa-network-wired
-	 * Val.TableTr07Td2.frFR:Comment configurer le réseau et le nom d'hôte ? 
-	 * Val.TableTr07Td2.enUS:How do I setup the network and host name? 
-	 * Val.TableTr07Td3I:fas fa-ethernet
-	 * Val.TableTr07Td4.frFR:Choisissez un nom unique sur votre réseau et branchez votre câble Ethernet. 
-	 * Val.TableTr07Td4.enUS:Pick a unique name on your network and plug in your Ethernet cable. 
+	 * Val.TableTr07Td1I:far fa-code-merge
+	 * Val.TableTr07Td2.frFR:Comment changer de version du code source de maven ? 
+	 * Val.TableTr07Td2.enUS:How do I switch versions of the maven source code? 
+	 * Val.TableTr07Td3I:far fa-code-commit
+	 * Val.TableTr07Td4.frFR:Checkout la tag git. 
+	 * Val.TableTr07Td4.enUS:Checkout the git tag. 
 	 * 
-	 * Val.TableTr08Td1I:fas fa-save
-	 * Val.TableTr08Td2.frFR:Que dois-je choisir pour la sélection de logiciel dans une installation CentOS 7 ? 
-	 * Val.TableTr08Td2.enUS:What should I choose for the software selection in a CentOS 7 installation? 
-	 * Val.TableTr08Td3I:fas fa-browser
-	 * Val.TableTr08Td4.frFR:Assurez-vous de choisir un environnement de bureau. 
-	 * Val.TableTr08Td4.enUS:Make sure to pick a desktop environment. 
+	 * Val.TableTr08Td1I:far fa-tools
+	 * Val.TableTr08Td2.frFR:Comment contruire le code source de maven ? 
+	 * Val.TableTr08Td2.enUS:How do I build the maven source code? 
+	 * Val.TableTr08Td3I:far fa-terminal
+	 * Val.TableTr08Td4.frFR:Construisez Maven avec la commande mvn. 
+	 * Val.TableTr08Td4.enUS:Build Maven with the mvn command. 
 	 * 
-	 * Val.TableTr09Td1I:fas fa-hdd
-	 * Val.TableTr09Td2.frFR:Comment configurer le disque pour la destination d'installation ? 
-	 * Val.TableTr09Td2.enUS:How do I setup the disk for the installation destination? 
-	 * Val.TableTr09Td3I:fas fa-pallet-alt
-	 * Val.TableTr09Td4.frFR:Configurez votre propre partitionnement. 
-	 * Val.TableTr09Td4.enUS:Configure your own partitioning. 
+	 * Val.TableTr09Td1I:far fa-question
+	 * Val.TableTr09Td2.frFR:Mais pourquoi installons-nous Maven pour installer la dernière version de Maven ? 
+	 * Val.TableTr09Td2.enUS:But why are we installing Maven to install the latest Maven? 
+	 * Val.TableTr09Td3I:far fa-flushed
+	 * Val.TableTr09Td4.frFR:Un programme qui nécessite de se construire. 
+	 * Val.TableTr09Td4.enUS:A program that requires itself to build itself. 
 	 * 
-	 * Val.TableTr10Td1I:fas fa-exclamation-triangle
-	 * Val.TableTr10Td2.frFR:Suis-je prêt à appuyer sur le bouton [ Begin Installation ] ? 
-	 * Val.TableTr10Td2.enUS:Am I ready to push the [ Begin Installation ] button? 
-	 * Val.TableTr10Td3I:fab fa-centos
-	 * Val.TableTr10Td4.frFR:Bienvenu au monde merveilleux de CentOS 7. 
-	 * Val.TableTr10Td4.enUS:Welcome the wonderful world of CentOS 7. 
-	 * 
-	 * Val.TableTr11Td1I:fas fa-user-cog
-	 * Val.TableTr11Td2.frFR:Ai-je besoin d'un mot de passe root et d'un mot de passe utilisateur ? 
-	 * Val.TableTr11Td2.enUS:Do I need a root password and a user password? 
-	 * Val.TableTr11Td3I:fas fa-lock-alt
-	 * Val.TableTr11Td4.frFR:Choisisez un mot de passe root fort. 
-	 * Val.TableTr11Td4.enUS:Choose a string root password. 
-	 * 
-	 * Val.TableTr12Td1I:fas fa-fast-forward
-	 * Val.TableTr12Td2.frFR:Comment terminer l'installation de CentOS 7 ? 
-	 * Val.TableTr12Td2.enUS:How do I finish the install of CentOS 7? 
-	 * Val.TableTr12Td3I:fab fa-linux
-	 * Val.TableTr12Td4.frFR:Quelques étapes supplémentaires pour profiter de votre nouvel ordinateur. 
-	 * Val.TableTr12Td4.enUS:A few more steps to enjoy your new computer. 
+	 * Val.TableTr10Td1I:far fa-mind-share
+	 * Val.TableTr10Td2.frFR:Comment changer la commande mvn par défaut sur le système ? 
+	 * Val.TableTr10Td2.enUS:How do I change the default mvn command on the system? 
+	 * Val.TableTr10Td3I:far fa-link
+	 * Val.TableTr10Td4.frFR:Sauvegardez l'original et faites un lien symbolique. 
+	 * Val.TableTr10Td4.enUS:Backup the original and make a symbolic link. 
 	 */   
 	protected void _recapituler3(PageHtml o) {      
 	}

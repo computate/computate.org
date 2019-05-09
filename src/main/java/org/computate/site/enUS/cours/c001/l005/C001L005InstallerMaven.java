@@ -14,7 +14,7 @@ public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon>
 
 	@Override()
 	protected void  _leconNumero(Couverture<Integer> c) { 
-		c.o(4);
+		c.o(5);
 	}
 
 	@Override()
@@ -110,7 +110,7 @@ public class C001L005InstallerMaven extends C001L005InstallerMavenGen<C001Lecon>
 	protected void _questionMavenInstalleMaven(PageHtml o) {
 	}
 
-	protected void _questionBin(PageHtml o) {
+	protected void _questionSauvegardeRemplacer(PageHtml o) {
 	}
 
 	protected void _recapituler1(PageHtml o) {      

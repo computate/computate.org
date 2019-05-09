@@ -4,6 +4,7 @@ import org.computate.site.frFR.cours.c001.l001.C001L001ChoisirNomDomaine;
 import org.computate.site.frFR.cours.c001.l002.C001L002ChoisirSystemeExploitation;
 import org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox;
 import org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7;
+import org.computate.site.frFR.cours.c001.l005.C001L005InstallerMaven;
 import org.computate.site.frFR.page.accueil.PageAccueil;
 import org.computate.site.frFR.page.apropos.PageAPropos;
 import org.computate.site.frFR.page.faq.PageFaq;
@@ -18,7 +19,8 @@ public class SiteImages {
 //		C001L001ChoisirNomDomaine.image();
 //		C001L002ChoisirSystemeExploitation.image();
 //		C001L003InstallerMachineVirtuelleVirtualBox.image();
-		C001L004InstallerCentos7.image();
+//		C001L004InstallerCentos7.image();
+		C001L005InstallerMaven.image();
 //		PageFaq.image();
 //		PageAPropos.image();
 	} 

@@ -27,6 +27,12 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * H2.frFR: Essayez CentOS 7 sur une machine virtuelle VirtualBox. 
  * H2.enUS: Try CentOS 7 on a VirtualBox virtual machine. 
  * 
+ * Titre.frFR: Comment puis-je essayer CentOS 7 Linux sans remplacer mon système d'exploitation ? Essayez CentOS 7 sur une machine virtuelle VirtualBox. 
+ * Titre.enUS: How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. 
+ * 
+ * Description.frFR: Comment puis-je essayer CentOS 7 Linux sans remplacer mon système d'exploitation ? Essayez CentOS 7 sur une machine virtuelle VirtualBox. 
+ * Description.enUS: How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. 
+ * 
  * PageSimple: true
  * Couleur: green
  * IconeGroupe: regular

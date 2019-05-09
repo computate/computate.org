@@ -68,6 +68,10 @@ public class PageAccueilFrFRGenPage extends PageAccueilFrFRGenPageGen<ArticleFrF
 		c.o("/");
 	}
 
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. ");
+	}
+
 	@Override protected void _pageImageUri(Couverture<String> c) {
 			c.o("/png/frFR-999.png");
 	}
@@ -110,7 +114,8 @@ public class PageAccueilFrFRGenPage extends PageAccueilFrFRGenPageGen<ArticleFrF
 			} g("h3");
 		}
 
-		pageAccueil.htmlBody();
+		if(pageAccueil != null)
+			pageAccueil.htmlBody();
 
 	}
 

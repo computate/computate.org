@@ -21,14 +21,17 @@ import org.computate.site.frFR.recherche.ListeRecherche;
  * PageSuperRechercheFrFRPage: ArticleFrFRPage
  * PageSuperRechercheEnUSPage: ArticleEnUSPage
  * 
- * Titre.frFR: Qui est Christopher Tate ? Tout à propos de moi. 
- * Titre.enUS: Who is Christopher Tate? All about me. 
- * 
  * H1.frFR: Qui est Christopher Tate ? 
  * H1.enUS: Who is Christopher Tate? 
  * 
  * H2.frFR: Tout à propos de moi. 
  * H2.enUS: All about me. 
+ * 
+ * Titre.frFR: Qui est Christopher Tate ? Tout à propos de moi. 
+ * Titre.enUS: Who is Christopher Tate? All about me. 
+ * 
+ * Description.frFR: Qui est Christopher Tate ? Tout à propos de moi. 
+ * Description.enUS: Who is Christopher Tate? All about me. 
  * 
  * PageSimple: true
  * Couleur: green

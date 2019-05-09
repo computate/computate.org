@@ -54,7 +54,9 @@ public class C001L004InstallerCentos7EnUSGenPage extends C001L004InstallerCentos
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L004InstallerCentos7 != null)
-			c.o("");
+			c.o("How do I install the operating system to start developing my website? Every step to install the CentOS 7 operating system. ");
+		else
+			c.o("How do I install the operating system to start developing my website? Every step to install the CentOS 7 operating system. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {

@@ -115,7 +115,8 @@ public class C001L006InstallerEclipseEnUSGenPage extends C001L006InstallerEclips
 			} g("h3");
 		}
 
-		c001L006InstallerEclipse.htmlBody();
+		if(c001L006InstallerEclipse != null)
+			c001L006InstallerEclipse.htmlBody();
 
 	}
 

@@ -167,6 +167,66 @@ public abstract class C001LeconEnUSPageGen<DEV> extends C001LeconEnUSGenPage {
 	public void htmlBodyC001LeconEnUSPage() {
 	}
 
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001LeconEnUSPage();
+		super.html();
+	}
+
+	public void htmlC001LeconEnUSPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001LeconEnUSPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001LeconEnUSPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001LeconEnUSPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001LeconEnUSPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001LeconEnUSPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001LeconEnUSPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001LeconEnUSPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001LeconEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

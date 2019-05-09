@@ -179,6 +179,54 @@ public abstract class C001L005InstallerMavenEnUSPageGen<DEV> extends C001L005Ins
 	public void htmlScriptC001L005InstallerMavenEnUSPage() {
 	}
 
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L005InstallerMavenEnUSPage();
+		super.html();
+	}
+
+	public void htmlC001L005InstallerMavenEnUSPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L005InstallerMavenEnUSPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L005InstallerMavenEnUSPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L005InstallerMavenEnUSPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L005InstallerMavenEnUSPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L005InstallerMavenEnUSPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L005InstallerMavenEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

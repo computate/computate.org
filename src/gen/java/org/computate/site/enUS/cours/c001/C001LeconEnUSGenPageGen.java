@@ -235,8 +235,9 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 	// htmlScript //
 	////////////////
 
-	public void htmlScript() {
+	@Override public void htmlScript() {
 		htmlScriptC001LeconEnUSGenPage();
+		super.htmlScript();
 	}
 
 	public void htmlScriptC001LeconEnUSGenPage() {
@@ -254,6 +255,66 @@ public abstract class C001LeconEnUSGenPageGen<DEV> extends C001EnUSPage {
 	public void htmlBodyC001LeconEnUSGenPage() {
 		if(c001Lecon != null)
 			c001Lecon.htmlBody();
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001LeconEnUSGenPage();
+		super.html();
+	}
+
+	public void htmlC001LeconEnUSGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001LeconEnUSGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001LeconEnUSGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001LeconEnUSGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001LeconEnUSGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001LeconEnUSGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001LeconEnUSGenPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001LeconEnUSGenPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001LeconEnUSGenPage() {
 	}
 
 	//////////////

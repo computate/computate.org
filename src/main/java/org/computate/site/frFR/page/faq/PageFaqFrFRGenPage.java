@@ -54,7 +54,9 @@ public class PageFaqFrFRGenPage extends PageFaqFrFRGenPageGen<ArticleFrFRPage> {
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(pageFaq != null)
-			c.o("");
+			c.o("Avez-vous des questions concernant computate.org ? computate.org foire aux questions (FAQ). ");
+		else
+			c.o("Avez-vous des questions concernant computate.org ? computate.org foire aux questions (FAQ). ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -63,6 +65,10 @@ public class PageFaqFrFRGenPage extends PageFaqFrFRGenPageGen<ArticleFrFRPage> {
 
 	@Override protected void _pageUriEnUS(Couverture<String> c) {
 		c.o("/enUS/faq");
+	}
+
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Avez-vous des questions concernant computate.org ? computate.org foire aux questions (FAQ). ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
@@ -115,7 +121,8 @@ public class PageFaqFrFRGenPage extends PageFaqFrFRGenPageGen<ArticleFrFRPage> {
 			} g("h3");
 		}
 
-		pageFaq.htmlBody();
+		if(pageFaq != null)
+			pageFaq.htmlBody();
 
 	}
 

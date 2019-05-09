@@ -7,7 +7,7 @@ import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.parti.PageHtml;
 
-/**  
+/** 
  * Api: true
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
@@ -25,6 +25,9 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * 
  * H2.frFR: Chaque étape pour installer le système d'exploitation CentOS 7. 
  * H2.enUS: Every step to install the CentOS 7 operating system. 
+ * 
+ * Titre.frFR: Comment installer le système d'exploitation pour développer mon site Web ? Chaque étape pour installer le système d'exploitation CentOS 7. 
+ * Titre.enUS: How do I install the operating system to start developing my website? Every step to install the CentOS 7 operating system. 
  * 
  * Description.frFR: Comment installer le système d'exploitation pour développer mon site Web ? Chaque étape pour installer le système d'exploitation CentOS 7. 
  * Description.enUS: How do I install the operating system to start developing my website? Every step to install the CentOS 7 operating system. 

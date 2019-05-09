@@ -1,6 +1,7 @@
 package org.computate.site.frFR.cours.c001;
 
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
+import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.couverture.Couverture;
 import java.util.Date;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
@@ -13,6 +14,7 @@ import org.computate.site.frFR.cluster.Cluster;
 import java.time.ZoneOffset;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
+import org.computate.site.frFR.article.Article;
 import java.time.Instant;
 import java.time.ZoneId;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
@@ -28,7 +30,7 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001Lecon&fq=classeEtendGen_indexed_boolean:true">Trouver la classe leconsACoteDocuments dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001Lecon&fq=classeEtendGen_indexed_boolean:true">Trouver la classe leconsACote dans Solr</a>
  * <br/>
  **/
 public abstract class C001LeconGen<DEV> extends C001 {
@@ -128,48 +130,38 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		return leconCree == null ? "" : StringEscapeUtils.escapeHtml4(strLeconCree());
 	}
 
-	//////////////////////////
-	// leconsACoteDocuments //
-	//////////////////////////
+	/////////////////
+	// leconsACote //
+	/////////////////
 
-	/**	L'entité « leconsACoteDocuments »
-	 *	Il est construit avant d'être initialisé avec le constructeur par défaut ArrayList<SolrDocument>(). 
+	/**	L'entité « leconsACote »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut ListeRecherche<Article>(). 
 	 */
-	protected ArrayList<SolrDocument> leconsACoteDocuments = new ArrayList<SolrDocument>();
-	public Couverture<ArrayList<SolrDocument>> leconsACoteDocumentsCouverture = new Couverture<ArrayList<SolrDocument>>().p(this).c(ArrayList.class).var("leconsACoteDocuments").o(leconsACoteDocuments);
+	protected ListeRecherche<Article> leconsACote = new ListeRecherche<Article>();
+	public Couverture<ListeRecherche<Article>> leconsACoteCouverture = new Couverture<ListeRecherche<Article>>().p(this).c(ListeRecherche.class).var("leconsACote").o(leconsACote);
 
-	/**	<br/>L'entité « leconsACoteDocuments »
-	 * Il est construit avant d'être initialisé avec le constructeur par défaut ArrayList<SolrDocument>(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001Lecon&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:leconsACoteDocuments">Trouver l'entité leconsACoteDocuments dans Solr</a>
+	/**	<br/>L'entité « leconsACote »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut ListeRecherche<Article>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001Lecon&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:leconsACote">Trouver l'entité leconsACote dans Solr</a>
 	 * <br/>
-	 * @param leconsACoteDocuments est l'entité déjà construit. 
+	 * @param leconsACote est l'entité déjà construit. 
 	 **/
-	protected abstract void _leconsACoteDocuments(ArrayList<SolrDocument> l);
+	protected abstract void _leconsACote(ListeRecherche<Article> o);
 
-	public ArrayList<SolrDocument> getLeconsACoteDocuments() {
-		return leconsACoteDocuments;
+	public ListeRecherche<Article> getLeconsACote() {
+		return leconsACote;
 	}
 
-	public void setLeconsACoteDocuments(ArrayList<SolrDocument> leconsACoteDocuments) {
-		this.leconsACoteDocuments = leconsACoteDocuments;
-		this.leconsACoteDocumentsCouverture.dejaInitialise = true;
+	public void setLeconsACote(ListeRecherche<Article> leconsACote) {
+		this.leconsACote = leconsACote;
+		this.leconsACoteCouverture.dejaInitialise = true;
 	}
-	public C001Lecon addLeconsACoteDocuments(SolrDocument...objets) {
-		for(SolrDocument o : objets) {
-			addLeconsACoteDocuments(o);
+	protected C001Lecon leconsACoteInit() {
+		if(!leconsACoteCouverture.dejaInitialise) {
+			_leconsACote(leconsACote);
 		}
-		return (C001Lecon)this;
-	}
-	public C001Lecon addLeconsACoteDocuments(SolrDocument o) {
-		if(o != null && !leconsACoteDocuments.contains(o))
-			this.leconsACoteDocuments.add(o);
-		return (C001Lecon)this;
-	}
-	protected C001Lecon leconsACoteDocumentsInit() {
-		if(!leconsACoteDocumentsCouverture.dejaInitialise) {
-			_leconsACoteDocuments(leconsACoteDocuments);
-		}
-		leconsACoteDocumentsCouverture.dejaInitialise(true);
+		leconsACote.initLoinPourClasse(requeteSite_);
+		leconsACoteCouverture.dejaInitialise(true);
 		return (C001Lecon)this;
 	}
 
@@ -195,7 +187,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 
 	public void initC001Lecon() {
 		leconCreeInit();
-		leconsACoteDocumentsInit();
+		leconsACoteInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -208,6 +200,8 @@ public abstract class C001LeconGen<DEV> extends C001 {
 
 	public void requeteSiteC001Lecon(RequeteSiteFrFR requeteSite_) {
 			super.requeteSiteC001(requeteSite_);
+		if(leconsACote != null)
+			leconsACote.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
@@ -236,8 +230,8 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		switch(var) {
 			case "leconCree":
 				return oC001Lecon.leconCree;
-			case "leconsACoteDocuments":
-				return oC001Lecon.leconsACoteDocuments;
+			case "leconsACote":
+				return oC001Lecon.leconsACote;
 			default:
 				return super.obtenirC001(var);
 		}

@@ -205,8 +205,9 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L001ChoisirNomDomaineFrFRGenPage() {
@@ -224,6 +225,54 @@ public abstract class C001L001ChoisirNomDomaineFrFRGenPageGen<DEV> extends C001L
 	}
 
 	public void htmlScriptC001L001ChoisirNomDomaineFrFRGenPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L001ChoisirNomDomaineFrFRGenPage();
+		super.html();
+	}
+
+	public void htmlC001L001ChoisirNomDomaineFrFRGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L001ChoisirNomDomaineFrFRGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L001ChoisirNomDomaineFrFRGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L001ChoisirNomDomaineFrFRGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L001ChoisirNomDomaineFrFRGenPage() {
 	}
 
 	//////////////

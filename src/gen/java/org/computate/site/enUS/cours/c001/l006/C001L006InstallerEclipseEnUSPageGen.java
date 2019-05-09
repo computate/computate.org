@@ -167,6 +167,18 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	public void htmlBodyCourtC001L006InstallerEclipseEnUSPage() {
 	}
 
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L006InstallerEclipseEnUSPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L006InstallerEclipseEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

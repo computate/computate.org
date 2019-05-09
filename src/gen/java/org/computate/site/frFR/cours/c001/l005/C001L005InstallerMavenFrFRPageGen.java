@@ -179,6 +179,54 @@ public abstract class C001L005InstallerMavenFrFRPageGen<DEV> extends C001L005Ins
 	public void htmlScriptC001L005InstallerMavenFrFRPage() {
 	}
 
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L005InstallerMavenFrFRPage();
+		super.html();
+	}
+
+	public void htmlC001L005InstallerMavenFrFRPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L005InstallerMavenFrFRPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L005InstallerMavenFrFRPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L005InstallerMavenFrFRPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L005InstallerMavenFrFRPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L005InstallerMavenFrFRPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L005InstallerMavenFrFRPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

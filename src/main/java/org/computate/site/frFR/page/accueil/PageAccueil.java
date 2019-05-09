@@ -28,14 +28,17 @@ import io.vertx.ext.web.api.OperationRequest;
  * PageSuperRechercheFrFRPage: ArticleFrFRPage
  * PageSuperRechercheEnUSPage: ArticleEnUSPage
  * 
- * Titre.frFR: Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. 
- * Titre.enUS: Create your own data-driven, searchable website on your own computer and the cloud, with open source software. 
- * 
  * H1.frFR: Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. 
  * H1.enUS: Create your own data-driven, searchable website on your own computer and the cloud, with open source software. 
  * 
  * H2.frFR: Base de données PostgreSQL flexible, intégration de la recherche Solr, normes OpenAPI 3, code Vert.x totalement asynchrone, déployé sur Red Hat OpenShift, pour les meilleures solutions 100% open sources.
  * H2.enUS: Flexible PostgreSQL database, Solr search integration, OpenAPI 3 standards, completely asynchronous Vert.x code, deployed on Red Hat OpenShift, for the very best, 100% open source solutions. 
+ * 
+ * Titre.frFR: Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. 
+ * Titre.enUS: Create your own data-driven, searchable website on your own computer and the cloud, with open source software. 
+ * 
+ * Description.frFR: Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. 
+ * Description.enUS: Create your own data-driven, searchable website on your own computer and the cloud, with open source software. 
  * 
  * PageSimple: true
  * NomPluriel.frFR: lessons
@@ -119,8 +122,8 @@ public class PageAccueil extends PageAccueilGen<Article> {
 	protected void _listeArticle(ListeRecherche<Article> o) {
 		o.setC(Article.class);
 		o.setQuery("*:*");
-		o.addSort("archive_indexed_boolean", ORDER.asc);
-		o.addSort("supprime_indexed_boolean", ORDER.asc);
+		o.addSort("coursNumero_indexed_int", ORDER.desc);
+		o.addSort("leconNumero_indexed_int", ORDER.desc);
 		o.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.article.Article"));
 	}
 

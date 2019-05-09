@@ -27,14 +27,17 @@ import io.vertx.ext.web.api.OperationRequest;
  * PageSuperRechercheFrFRPage: ArticleFrFRPage
  * PageSuperRechercheEnUSPage: ArticleEnUSPage
  * 
- * Titre.frFR: Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. 
- * Titre.enUS: Create your own data-driven, searchable website on your own computer and the cloud, with open source software. 
- * 
  * H1.frFR: computate.org blog: 
  * H1.enUS: computate.org blog: 
  * 
  * H2.frFR: Rechercher articles dans le site computate.org. 
  * H2.enUS: Search articles in the site computate.org. 
+ * 
+ * Titre.frFR: Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. 
+ * Titre.enUS: Create your own data-driven, searchable website on your own computer and the cloud, with open source software. 
+ * 
+ * Description.frFR: Construire votre site web personnel, avec données et la récherche, sur votre ordinateur et sur le cloud, avec des logiciels open source. 
+ * Description.enUS: Create your own data-driven, searchable website on your own computer and the cloud, with open source software. 
  * 
  * PageSimple: true
  * Couleur: green
@@ -121,8 +124,8 @@ public class PageBlog extends PageBlogGen<Article> {
 	protected void _listeArticle(ListeRecherche<Article> o) {
 		o.setC(Article.class);
 		o.setQuery("*:*");
-		o.addSort("archive_indexed_boolean", ORDER.asc);
-		o.addSort("supprime_indexed_boolean", ORDER.asc);
+		o.addSort("coursNumero_indexed_int", ORDER.desc);
+		o.addSort("leconNumero_indexed_int", ORDER.desc);
 		o.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.frFR.article.Article"));
 		o.addFilterQuery("estLecon_indexed_boolean:true");
 	}

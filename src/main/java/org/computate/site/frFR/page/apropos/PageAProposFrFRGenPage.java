@@ -67,6 +67,10 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 		c.o("/enUS/about");
 	}
 
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Qui est Christopher Tate ? Tout à propos de moi. ");
+	}
+
 	@Override protected void _pageImageUri(Couverture<String> c) {
 			c.o("/png/frFR/apropos-999.png");
 	}
@@ -117,7 +121,8 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 			} g("h3");
 		}
 
-		pageAPropos.htmlBody();
+		if(pageAPropos != null)
+			pageAPropos.htmlBody();
 
 	}
 

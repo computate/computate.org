@@ -27,6 +27,12 @@ import org.computate.site.frFR.recherche.ListeRecherche;
  * H2.frFR: computate.org foire aux questions (FAQ). 
  * H2.enUS: computate.org frequently asked questions (FAQ). 
  * 
+ * Titre.frFR: Avez-vous des questions concernant computate.org ? computate.org foire aux questions (FAQ). 
+ * Titre.enUS: Have some questions about computate.org? computate.org frequently asked questions (FAQ). 
+ * 
+ * Description.frFR: Avez-vous des questions concernant computate.org ? computate.org foire aux questions (FAQ). 
+ * Description.enUS: Have some questions about computate.org? computate.org frequently asked questions (FAQ). 
+ * 
  * PageSimple: true
  * Couleur: green
  * IconeGroupe: regular

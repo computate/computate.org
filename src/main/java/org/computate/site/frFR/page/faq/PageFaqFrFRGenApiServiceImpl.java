@@ -167,10 +167,12 @@ public class PageFaqFrFRGenApiServiceImpl implements PageFaqFrFRGenApiService {
 
 	public String varIndexePageFaq(String entiteVar) {
 		switch(entiteVar) {
-			case "id":
-				return "id_indexed_string";
 			case "pk":
 				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
@@ -181,8 +183,6 @@ public class PageFaqFrFRGenApiServiceImpl implements PageFaqFrFRGenApiService {
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":

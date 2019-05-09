@@ -53,7 +53,9 @@ public class C001L005InstallerMavenFrFRGenPage extends C001L005InstallerMavenFrF
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L005InstallerMaven != null)
-			c.o("");
+			c.o("Comment installer la dernière version de maven ? Installer maven à partir du code source. ");
+		else
+			c.o("Comment installer la dernière version de maven ? Installer maven à partir du code source. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -65,7 +67,7 @@ public class C001L005InstallerMavenFrFRGenPage extends C001L005InstallerMavenFrF
 	}
 
 	@Override protected void _pageDescription(Couverture<String> c) {
-			c.o("Comment installer la dernière version de maven ? Installer maven à partir du code source. ");
+			c.o("La plupart des entreprises utilisent aujourd'hui Java pour créer leurs applications et microservices, y compris les gouvernements, les banques, la comptabilité et les entreprises. La création d’applications Java commence par l’installation de Maven. La version par défaut de Maven sur votre distribution Linux est peut être obsolète pour installer certains logiciels open source. Je vous aiderai à installer la version la plus récente de Maven pour développer votre site Web de manière open source. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
@@ -77,7 +79,7 @@ public class C001L005InstallerMavenFrFRGenPage extends C001L005InstallerMavenFrF
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1749);
+			c.o(1470);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
