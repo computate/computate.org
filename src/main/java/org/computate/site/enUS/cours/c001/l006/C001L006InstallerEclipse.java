@@ -14,7 +14,7 @@ public class C001L006InstallerEclipse extends C001L006InstallerEclipseGen<C001Le
 
 	@Override()
 	protected void  _leconNumero(Couverture<Integer> c) { 
-		c.o(4);
+		c.o(6);
 	}
 
 	@Override()
@@ -86,7 +86,37 @@ public class C001L006InstallerEclipse extends C001L006InstallerEclipseGen<C001Le
 	protected void _moi(PageHtml o) {
 	}
 
-	protected void _questionTelechargerCentos7(PageHtml o) {
+	protected void _questionDependences(PageHtml o) {
+	}
+
+	protected void _questionMkdirSrc(PageHtml o) {
+	}
+
+	protected void _questionMkdirEclipse(PageHtml o) {
+	}
+
+	protected void _questionClonerSource(PageHtml o) {
+	}
+
+	protected void _questionListerTags(PageHtml o) {
+	}
+
+	protected void _questionCheckoutTag(PageHtml o) {
+	}
+
+	protected void _questionSousModules(PageHtml o) {
+	}
+
+	protected void _questionConstruireSource(PageHtml o) {
+	}
+
+	protected void _questionErreur(PageHtml o) {
+	}
+
+	protected void _questionCopierSource(PageHtml o) {
+	}
+
+	protected void _questionSauvegardeRemplacer(PageHtml o) {
 	}
 
 	protected void _recapituler1(PageHtml o) {      

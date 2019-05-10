@@ -54,19 +54,25 @@ public class C001L006InstallerEclipseEnUSGenPage extends C001L006InstallerEclips
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L006InstallerEclipse != null)
-			c.o("");
+			c.o("How do I install development tools to develop my website? How to install Eclipse IDE the open source way. ");
+		else
+			c.o("How do I install development tools to develop my website? How to install Eclipse IDE the open source way. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/enUS/course/001/004-how-to-install-eclipse");
+		c.o("/enUS/course/001/006-how-to-install-eclipse");
 	}
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
-		c.o("/frFR/cours/001/004-comment-installer-eclipse");
+		c.o("/frFR/cours/001/006-comment-installer-eclipse");
+	}
+
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("To show how important Eclipse is to the world of open source development, many leading technology companies have their own IDEs based off Eclipse. These include Red Hat, IBM, Texas Instruments, Adobe, Node, PHP and many more. Red Hat® Developer Studio is a certified Eclipse-based integrated development environment (IDE) for developing, testing, and deploying rich web apps, mobile web apps, transactional enterprise apps, and microservices. True to the Red Hat's mission, \"to be the catalyst in communities of customers, contributors, and partners creating better technology the open source way,\" Red Hat is very involved in Eclipse. I will help you install the most recent version of Eclipse to develop your website the open source way. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/enUS/course/001/004-how-to-install-eclipse-999.png");
+			c.o("/png/enUS/course/001/006-how-to-install-eclipse-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -74,7 +80,7 @@ public class C001L006InstallerEclipseEnUSGenPage extends C001L006InstallerEclips
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1479);
+			c.o(1426);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {

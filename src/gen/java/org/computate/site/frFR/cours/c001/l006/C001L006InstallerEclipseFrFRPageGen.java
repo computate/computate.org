@@ -179,6 +179,54 @@ public abstract class C001L006InstallerEclipseFrFRPageGen<DEV> extends C001L006I
 	public void htmlScriptC001L006InstallerEclipseFrFRPage() {
 	}
 
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L006InstallerEclipseFrFRPage();
+		super.html();
+	}
+
+	public void htmlC001L006InstallerEclipseFrFRPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L006InstallerEclipseFrFRPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L006InstallerEclipseFrFRPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L006InstallerEclipseFrFRPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L006InstallerEclipseFrFRPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L006InstallerEclipseFrFRPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L006InstallerEclipseFrFRPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

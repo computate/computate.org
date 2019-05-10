@@ -179,6 +179,54 @@ public abstract class C001L006InstallerEclipseEnUSPageGen<DEV> extends C001L006I
 	public void htmlScriptC001L006InstallerEclipseEnUSPage() {
 	}
 
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L006InstallerEclipseEnUSPage();
+		super.html();
+	}
+
+	public void htmlC001L006InstallerEclipseEnUSPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L006InstallerEclipseEnUSPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L006InstallerEclipseEnUSPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L006InstallerEclipseEnUSPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L006InstallerEclipseEnUSPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L006InstallerEclipseEnUSPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L006InstallerEclipseEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

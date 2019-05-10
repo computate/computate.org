@@ -102,7 +102,7 @@ public class C001L006InstallerEclipseEnUSGenApiServiceImpl implements C001L006In
 				if(a.succeeded()) {
 					utilisateurC001L006InstallerEclipse(requeteSite, b -> {
 						if(b.succeeded()) {
-							rechercheC001L006InstallerEclipse(requeteSite, false, true, "/enUS/course/001/004-how-to-install-eclipse", c -> {
+							rechercheC001L006InstallerEclipse(requeteSite, false, true, "/enUS/course/001/006-how-to-install-eclipse", c -> {
 								if(c.succeeded()) {
 									ListeRecherche<C001L006InstallerEclipse> listeC001L006InstallerEclipse = c.result();
 									reponse200RechercheEnUSPageC001L006InstallerEclipse(listeC001L006InstallerEclipse, d -> {
@@ -155,7 +155,7 @@ public class C001L006InstallerEclipseEnUSGenApiServiceImpl implements C001L006In
 			C001L006InstallerEclipseEnUSPage page = new C001L006InstallerEclipseEnUSPage();
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/004-how-to-install-eclipse");
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/006-how-to-install-eclipse");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
 			page.initLoinC001L006InstallerEclipseEnUSPage(requeteSite);
@@ -168,8 +168,6 @@ public class C001L006InstallerEclipseEnUSGenApiServiceImpl implements C001L006In
 
 	public String varIndexeC001L006InstallerEclipse(String entiteVar) {
 		switch(entiteVar) {
-			case "leconCree":
-				return "leconCree_indexed_date";
 			case "pk":
 				return "pk_indexed_long";
 			case "id":
@@ -224,6 +222,8 @@ public class C001L006InstallerEclipseEnUSGenApiServiceImpl implements C001L006In
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

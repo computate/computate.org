@@ -38,9 +38,9 @@ public class C001L006InstallerEclipseFrFRGenPage extends C001L006InstallerEclips
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(c001L006InstallerEclipse != null)
-			c.o("Comment installer des outils de développement pour développer mon site web ?");
+			c.o("Comment installer des outils de développement pour développer mon site web ? ");
 		else
-			c.o("Comment installer des outils de développement pour développer mon site web ?");
+			c.o("Comment installer des outils de développement pour développer mon site web ? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -53,19 +53,25 @@ public class C001L006InstallerEclipseFrFRGenPage extends C001L006InstallerEclips
 
 	@Override protected void _pageTitre(Couverture<String> c) {
 		if(c001L006InstallerEclipse != null)
-			c.o("");
+			c.o("Comment installer des outils de développement pour développer mon site web ? Comment installer l'IDE Eclipse de manière open source. ");
+		else
+			c.o("Comment installer des outils de développement pour développer mon site web ? Comment installer l'IDE Eclipse de manière open source. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/frFR/cours/001/004-comment-installer-eclipse");
+		c.o("/frFR/cours/001/006-comment-installer-eclipse");
 	}
 
 	@Override protected void _pageUriEnUS(Couverture<String> c) {
-		c.o("/enUS/course/001/004-how-to-install-eclipse");
+		c.o("/enUS/course/001/006-how-to-install-eclipse");
+	}
+
+	@Override protected void _pageDescription(Couverture<String> c) {
+			c.o("Pour montrer à quel point Eclipse est important pour le monde du développement open source, de nombreuses grandes entreprises de technologie ont leurs propres IDE basés sur Eclipse. Notamment Red Hat, IBM, Texas Instruments, Adobe, Node, PHP et bien d'autres. Red Hat® Developer Studio est un environnement de développement intégré (IDE) certifié basé sur Eclipse, qui permet de développer, tester et déployer des applications Web élaborées, des applications Web mobiles, des applications transactionnelles d'entreprise et des microservices. Fidèle à la mission de Red Hat, « aider les entreprises à relever les défis auxquels elles sont confrontées de manière open source, » Red Hat est très impliqué dans Eclipse. Je vous aiderai à installer la version la plus récente d'Eclipse pour développer votre site Web de manière open source. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/frFR/cours/001/004-comment-installer-eclipse-999.png");
+			c.o("/png/frFR/cours/001/006-comment-installer-eclipse-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -73,7 +79,7 @@ public class C001L006InstallerEclipseFrFRGenPage extends C001L006InstallerEclips
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1749);
+			c.o(1423);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {

@@ -203,8 +203,9 @@ public abstract class C001L006InstallerEclipseFrFRGenPageGen<DEV> extends C001Le
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtC001L006InstallerEclipseFrFRGenPage();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L006InstallerEclipseFrFRGenPage() {
@@ -222,6 +223,54 @@ public abstract class C001L006InstallerEclipseFrFRGenPageGen<DEV> extends C001Le
 	}
 
 	public void htmlScriptC001L006InstallerEclipseFrFRGenPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L006InstallerEclipseFrFRGenPage();
+		super.html();
+	}
+
+	public void htmlC001L006InstallerEclipseFrFRGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L006InstallerEclipseFrFRGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L006InstallerEclipseFrFRGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L006InstallerEclipseFrFRGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L006InstallerEclipseFrFRGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L006InstallerEclipseFrFRGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L006InstallerEclipseFrFRGenPage() {
 	}
 
 	//////////////
