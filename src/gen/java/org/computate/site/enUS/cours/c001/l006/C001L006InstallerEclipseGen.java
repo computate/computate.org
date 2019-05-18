@@ -1183,7 +1183,7 @@ public abstract class C001L006InstallerEclipseGen<DEV> extends C001Lecon {
 	public static final String questionConstruireSourceOl1Li6 = questionConstruireSourceOl1Li61;
 	public static final String questionConstruireSourceOl1Li71 = "-DskipTests=true): Skip tests to make the build go faster, but the build will still take a very long time. ";
 	public static final String questionConstruireSourceOl1Li7 = questionConstruireSourceOl1Li71;
-	public static final String questionConstruireSourceP21 = "Now copy the newly build eclipse application into the destination directory. ";
+	public static final String questionConstruireSourceP21 = "Now copy the newly built eclipse application into the destination directory. ";
 	public static final String questionConstruireSourceP2 = questionConstruireSourceP21;
 
 	/**	L'entité « questionConstruireSource »

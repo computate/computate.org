@@ -568,14 +568,14 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		e("script").a("src", statiqueUrlBase, "/js/moment.min.js").f().g("script");
 		e("script").a("src", statiqueUrlBase, "/js/jqDatePicker.js").f().g("script");
 		e("script").a("src", statiqueUrlBase, "/js/jquery.serialize-object.js").f().g("script");
-//		e("script").a("async", "").a("defer", "").a("src", "https://apis.google.com/js/platform.js").f().g("script");
-//		e("script").a("async", "").a("src", "https://www.googletagmanager.com/gtag/js?id=UA-118970786-1").f().g("script");
-//		e("script").f().l("/*<![CDATA[*/");
-//			l("window.dataLayer = window.dataLayer || [];");
-//			l("function gtag(){dataLayer.push(arguments);}");
-//			l("gtag('js', new Date());");
-//			l("gtag('config', 'UA-118970786-1');");
-//		s("/*]]>*/").g("script");
+		e("script").a("async", "").a("defer", "").a("src", "https://apis.google.com/js/platform.js").f().g("script");
+		e("script").a("async", "").a("src", "https://www.googletagmanager.com/gtag/js?id=UA-8782010-1").f().g("script");
+		e("script").f().l("/*<![CDATA[*/");
+			l("window.dataLayer = window.dataLayer || [];");
+			l("function gtag(){dataLayer.push(arguments);}");
+			l("gtag('js', new Date());");
+			l("gtag('config', 'UA-8782010-1');");
+		s("/*]]>*/").g("script");
 	}
 
 	@Override public void htmlScriptMiseEnPage() {

@@ -407,7 +407,7 @@ public class C001L006InstallerEclipse extends C001L006InstallerEclipseGen<C001Le
 	 * Val.Ol1Li7.enUS:-DskipTests=true): Skip tests to make the build go faster, but the build will still take a very long time. 
 	 * 
 	 * Val.P2.frFR:Maintenant, copiez la nouvelle application Eclipse dans le répertoire de destination. 
-	 * Val.P2.enUS:Now copy the newly build eclipse application into the destination directory. 
+	 * Val.P2.enUS:Now copy the newly built eclipse application into the destination directory. 
 	 */
 	protected void _questionConstruireSource(PageHtml o) {
 	}

@@ -42,7 +42,7 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * ImageLargeur.frFR: 800
  * ImageHauteur.frFR: 1258
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 1173
+ * ImageHauteur.enUS: 1253
 */     
 public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003InstallerMachineVirtuelleVirtualBoxGen<C001Lecon> {
 

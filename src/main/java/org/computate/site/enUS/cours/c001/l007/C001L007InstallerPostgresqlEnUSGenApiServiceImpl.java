@@ -1,4 +1,4 @@
-package org.computate.site.enUS.cours.c001.l003;
+package org.computate.site.enUS.cours.c001.l007;
 
 import org.computate.site.enUS.config.ConfigSite;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
@@ -67,45 +67,45 @@ import java.util.stream.Stream;
 import java.net.URLDecoder;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
-import org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBoxFrFRPage;
-import org.computate.site.enUS.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBoxEnUSPage;
+import org.computate.site.frFR.cours.c001.l007.C001L007InstallerPostgresqlFrFRPage;
+import org.computate.site.enUS.cours.c001.l007.C001L007InstallerPostgresqlEnUSPage;
 
 
 /**
  * Traduire: false
  **/
-public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl implements C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiService {
+public class C001L007InstallerPostgresqlEnUSGenApiServiceImpl implements C001L007InstallerPostgresqlEnUSGenApiService {
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L007InstallerPostgresqlEnUSGenApiServiceImpl.class);
 
-	protected static final String SERVICE_ADDRESS = "C001L003InstallerMachineVirtuelleVirtualBoxEnUSApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "C001L007InstallerPostgresqlEnUSApiServiceImpl";
 
 	protected SiteContexteEnUS siteContexte;
 
-	public C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl(SiteContexteEnUS siteContexte) {
+	public C001L007InstallerPostgresqlEnUSGenApiServiceImpl(SiteContexteEnUS siteContexte) {
 		this.siteContexte = siteContexte;
-		C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiService service = C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
+		C001L007InstallerPostgresqlEnUSGenApiService service = C001L007InstallerPostgresqlEnUSGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
 	// RechercheEnUSPage //
 
 	@Override
-	public void rechercheenuspageC001L003InstallerMachineVirtuelleVirtualBoxId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		rechercheenuspageC001L003InstallerMachineVirtuelleVirtualBox(operationRequete, gestionnaireEvenements);
+	public void rechercheenuspageC001L007InstallerPostgresqlId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		rechercheenuspageC001L007InstallerPostgresql(operationRequete, gestionnaireEvenements);
 	}
 
 	@Override
-	public void rechercheenuspageC001L003InstallerMachineVirtuelleVirtualBox(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void rechercheenuspageC001L007InstallerPostgresql(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
-			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001L003InstallerMachineVirtuelleVirtualBox(siteContexte, operationRequete);
-			sqlC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, a -> {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001L007InstallerPostgresql(siteContexte, operationRequete);
+			sqlC001L007InstallerPostgresql(requeteSite, a -> {
 				if(a.succeeded()) {
-					utilisateurC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, b -> {
+					utilisateurC001L007InstallerPostgresql(requeteSite, b -> {
 						if(b.succeeded()) {
-							rechercheC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, false, true, "/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box", c -> {
+							rechercheC001L007InstallerPostgresql(requeteSite, false, true, "/enUS/course/001/007-how-to-install-the-latest-version-of-postgresql", c -> {
 								if(c.succeeded()) {
-									ListeRecherche<C001L003InstallerMachineVirtuelleVirtualBox> listeC001L003InstallerMachineVirtuelleVirtualBox = c.result();
-									reponse200RechercheEnUSPageC001L003InstallerMachineVirtuelleVirtualBox(listeC001L003InstallerMachineVirtuelleVirtualBox, d -> {
+									ListeRecherche<C001L007InstallerPostgresql> listeC001L007InstallerPostgresql = c.result();
+									reponse200RechercheEnUSPageC001L007InstallerPostgresql(listeC001L007InstallerPostgresql, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
 											if(connexionSql == null) {
@@ -117,48 +117,48 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 															if(f.succeeded()) {
 																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
 															} else {
-																erreurC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, gestionnaireEvenements, f);
+																erreurC001L007InstallerPostgresql(requeteSite, gestionnaireEvenements, f);
 															}
 														});
 													} else {
-														erreurC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, gestionnaireEvenements, e);
+														erreurC001L007InstallerPostgresql(requeteSite, gestionnaireEvenements, e);
 													}
 												});
 											}
 										} else {
-											erreurC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, gestionnaireEvenements, d);
+											erreurC001L007InstallerPostgresql(requeteSite, gestionnaireEvenements, d);
 										}
 									});
 								} else {
-									erreurC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, gestionnaireEvenements, c);
+									erreurC001L007InstallerPostgresql(requeteSite, gestionnaireEvenements, c);
 								}
 							});
 						} else {
-							erreurC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, gestionnaireEvenements, b);
+							erreurC001L007InstallerPostgresql(requeteSite, gestionnaireEvenements, b);
 						}
 					});
 				} else {
-					erreurC001L003InstallerMachineVirtuelleVirtualBox(requeteSite, gestionnaireEvenements, a);
+					erreurC001L007InstallerPostgresql(requeteSite, gestionnaireEvenements, a);
 				}
 			});
 		} catch(Exception e) {
-			erreurC001L003InstallerMachineVirtuelleVirtualBox(null, gestionnaireEvenements, Future.failedFuture(e));
+			erreurC001L007InstallerPostgresql(null, gestionnaireEvenements, Future.failedFuture(e));
 		}
 	}
 
-	public void reponse200RechercheEnUSPageC001L003InstallerMachineVirtuelleVirtualBox(ListeRecherche<C001L003InstallerMachineVirtuelleVirtualBox> listeC001L003InstallerMachineVirtuelleVirtualBox, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void reponse200RechercheEnUSPageC001L007InstallerPostgresql(ListeRecherche<C001L007InstallerPostgresql> listeC001L007InstallerPostgresql, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			Buffer buffer = Buffer.buffer();
-			RequeteSiteEnUS requeteSite = listeC001L003InstallerMachineVirtuelleVirtualBox.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeC001L003InstallerMachineVirtuelleVirtualBox.getRequeteSite_(), buffer);
+			RequeteSiteEnUS requeteSite = listeC001L007InstallerPostgresql.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001L007InstallerPostgresql.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
-			C001L003InstallerMachineVirtuelleVirtualBoxEnUSPage page = new C001L003InstallerMachineVirtuelleVirtualBoxEnUSPage();
+			C001L007InstallerPostgresqlEnUSPage page = new C001L007InstallerPostgresqlEnUSPage();
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box");
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/007-how-to-install-the-latest-version-of-postgresql");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
-			page.initLoinC001L003InstallerMachineVirtuelleVirtualBoxEnUSPage(requeteSite);
+			page.initLoinC001L007InstallerPostgresqlEnUSPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
 		} catch(Exception e) {
@@ -166,7 +166,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public String varIndexeC001L003InstallerMachineVirtuelleVirtualBox(String entiteVar) {
+	public String varIndexeC001L007InstallerPostgresql(String entiteVar) {
 		switch(entiteVar) {
 			case "pk":
 				return "pk_indexed_long";
@@ -229,7 +229,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public String varRechercheC001L003InstallerMachineVirtuelleVirtualBox(String entiteVar) {
+	public String varRechercheC001L007InstallerPostgresql(String entiteVar) {
 		switch(entiteVar) {
 			case "pageRecherche_enUS":
 				return "pageRecherche_enUS_text_enUS";
@@ -240,7 +240,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public String varSuggereC001L003InstallerMachineVirtuelleVirtualBox(String entiteVar) {
+	public String varSuggereC001L007InstallerPostgresql(String entiteVar) {
 		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
@@ -249,7 +249,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 
 	// Partagé //
 
-	public void erreurC001L003InstallerMachineVirtuelleVirtualBox(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
+	public void erreurC001L007InstallerPostgresql(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
 		Throwable e = resultatAsync.cause();
 		ExceptionUtils.printRootCauseStackTrace(e);
 		OperationResponse reponseOperation = new OperationResponse(400, "BAD REQUEST", 
@@ -286,7 +286,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public void sqlC001L003InstallerMachineVirtuelleVirtualBox(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void sqlC001L007InstallerPostgresql(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
@@ -314,11 +314,11 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L003InstallerMachineVirtuelleVirtualBox(SiteContexteEnUS siteContexte, OperationRequest operationRequete) {
-		return genererRequeteSiteEnUSPourC001L003InstallerMachineVirtuelleVirtualBox(siteContexte, operationRequete, null);
+	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L007InstallerPostgresql(SiteContexteEnUS siteContexte, OperationRequest operationRequete) {
+		return genererRequeteSiteEnUSPourC001L007InstallerPostgresql(siteContexte, operationRequete, null);
 	}
 
-	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L003InstallerMachineVirtuelleVirtualBox(SiteContexteEnUS siteContexte, OperationRequest operationRequete, JsonObject body) {
+	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L007InstallerPostgresql(SiteContexteEnUS siteContexte, OperationRequest operationRequete, JsonObject body) {
 		Vertx vertx = siteContexte.getVertx();
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
 		requeteSite.setObjetJson(body);
@@ -331,7 +331,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		return requeteSite;
 	}
 
-	public void utilisateurC001L003InstallerMachineVirtuelleVirtualBox(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void utilisateurC001L007InstallerPostgresql(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
 			String utilisateurId = requeteSite.getUtilisateurId();
@@ -422,21 +422,21 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public void rechercheC001L003InstallerMachineVirtuelleVirtualBox(RequeteSiteEnUS requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L003InstallerMachineVirtuelleVirtualBox>>> gestionnaireEvenements) {
+	public void rechercheC001L007InstallerPostgresql(RequeteSiteEnUS requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L007InstallerPostgresql>>> gestionnaireEvenements) {
 		try {
 			OperationRequest operationRequete = requeteSite.getOperationRequete();
 			String entiteListeStr = requeteSite.getOperationRequete().getParams().getJsonObject("query").getString("fl");
 			String[] entiteListe = entiteListeStr == null ? null : entiteListeStr.split(",\\s*");
-			ListeRecherche<C001L003InstallerMachineVirtuelleVirtualBox> listeRecherche = new ListeRecherche<C001L003InstallerMachineVirtuelleVirtualBox>();
+			ListeRecherche<C001L007InstallerPostgresql> listeRecherche = new ListeRecherche<C001L007InstallerPostgresql>();
 			listeRecherche.setPeupler(peupler);
 			listeRecherche.setStocker(stocker);
 			listeRecherche.setQuery("*:*");
-			listeRecherche.setC(C001L003InstallerMachineVirtuelleVirtualBox.class);
+			listeRecherche.setC(C001L007InstallerPostgresql.class);
 			if(entiteListe != null)
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.l003.C001L003InstallerMachineVirtuelleVirtualBox"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.l007.C001L007InstallerPostgresql"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
@@ -466,7 +466,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 						switch(paramNom) {
 							case "q":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L003InstallerMachineVirtuelleVirtualBox(entiteVar);
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L007InstallerPostgresql(entiteVar);
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
 								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
 								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
@@ -480,18 +480,18 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 							case "fq":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
-								varIndexe = varIndexeC001L003InstallerMachineVirtuelleVirtualBox(entiteVar);
+								varIndexe = varIndexeC001L007InstallerPostgresql(entiteVar);
 								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
 								break;
 							case "sort":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
 								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-								varIndexe = varIndexeC001L003InstallerMachineVirtuelleVirtualBox(entiteVar);
+								varIndexe = varIndexeC001L007InstallerPostgresql(entiteVar);
 								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
 								break;
 							case "fl":
 								entiteVar = StringUtils.trim((String)paramObjet);
-								varIndexe = varIndexeC001L003InstallerMachineVirtuelleVirtualBox(entiteVar);
+								varIndexe = varIndexeC001L007InstallerPostgresql(entiteVar);
 								listeRecherche.addField(varIndexe);
 								break;
 							case "start":
@@ -515,7 +515,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public void definirC001L003InstallerMachineVirtuelleVirtualBox(C001L003InstallerMachineVirtuelleVirtualBox o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void definirC001L007InstallerPostgresql(C001L007InstallerPostgresql o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -539,7 +539,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public void attribuerC001L003InstallerMachineVirtuelleVirtualBox(C001L003InstallerMachineVirtuelleVirtualBox o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void attribuerC001L007InstallerPostgresql(C001L007InstallerPostgresql o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -565,7 +565,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenApiServiceImpl im
 		}
 	}
 
-	public void indexerC001L003InstallerMachineVirtuelleVirtualBox(C001L003InstallerMachineVirtuelleVirtualBox o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void indexerC001L007InstallerPostgresql(C001L007InstallerPostgresql o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		RequeteSiteEnUS requeteSite = o.getRequeteSite_();
 		try {
 			o.initLoinPourClasse(requeteSite);

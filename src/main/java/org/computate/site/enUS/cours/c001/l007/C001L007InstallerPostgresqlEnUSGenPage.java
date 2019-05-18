@@ -1,4 +1,4 @@
-package org.computate.site.enUS.cours.c001.l003;
+package org.computate.site.enUS.cours.c001.l007;
 
 import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
@@ -31,21 +31,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPageGen<C001LeconEnUSPage> {
+public class C001L007InstallerPostgresqlEnUSGenPage extends C001L007InstallerPostgresqlEnUSGenPageGen<C001LeconEnUSPage> {
 
-	protected void _c001L003InstallerMachineVirtuelleVirtualBox(Couverture<C001L003InstallerMachineVirtuelleVirtualBox> c) {
-		c.o(new C001L003InstallerMachineVirtuelleVirtualBox());
+	protected void _c001L007InstallerPostgresql(Couverture<C001L007InstallerPostgresql> c) {
+		c.o(new C001L007InstallerPostgresql());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? ");
+		if(c001L007InstallerPostgresql != null)
+			c.o("How do I install the latest version of PostgreSQL. ");
 		else
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? ");
+			c.o("How do I install the latest version of PostgreSQL. ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Try CentOS 7 on a VirtualBox virtual machine. ");
+		c.o("Install PostgreSQL from the source code. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -53,26 +53,26 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
+		if(c001L007InstallerPostgresql != null)
+			c.o("How do I install the latest version of PostgreSQL. Install PostgreSQL from the source code. ");
 		else
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
+			c.o("How do I install the latest version of PostgreSQL. Install PostgreSQL from the source code. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box");
+		c.o("/enUS/course/001/007-how-to-install-the-latest-version-of-postgresql");
 	}
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
-		c.o("/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box");
+		c.o("/frFR/cours/001/007-comment-installer-la-derniere-version-de-postgresql");
 	}
 
 	@Override protected void _pageDescription(Couverture<String> c) {
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
+			c.o("When backed by a database, your website does not need to be static content only. You can create users with roles to add content and customize the site. The best part is, the very best database on the planet is PostgreSQL, and it's open source. I will help you install the most recent version of PostgreSQL to develop your website the open source way. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box-999.png");
+			c.o("/png/enUS/course/001/007-how-to-install-the-latest-version-of-postgresql-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -80,7 +80,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1253);
+			c.o(1702);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -91,17 +91,17 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 			c.o("question");
 	}
 
-	@Override public void initLoinC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
-		initC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage();
+	@Override public void initLoinC001L007InstallerPostgresqlEnUSGenPage() {
+		initC001L007InstallerPostgresqlEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage.js").f().g("script");
+	@Override public void htmlScriptsC001L007InstallerPostgresqlEnUSGenPage() {
+		e("script").a("src", "/static/js/C001L007InstallerPostgresqlEnUSGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
+	@Override public void htmlBodyC001L007InstallerPostgresqlEnUSGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -121,13 +121,13 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 			} g("h3");
 		}
 
-		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
-			c001L003InstallerMachineVirtuelleVirtualBox.htmlBody();
+		if(c001L007InstallerPostgresql != null)
+			c001L007InstallerPostgresql.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
+	@Override public void htmlBodyCourtC001L007InstallerPostgresqlEnUSGenPage() {
 
-		c001L003InstallerMachineVirtuelleVirtualBox.htmlBodyCourt();
+		c001L007InstallerPostgresql.htmlBodyCourt();
 	}
 }

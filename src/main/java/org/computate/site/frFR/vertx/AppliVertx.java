@@ -1,9 +1,14 @@
 package org.computate.site.frFR.vertx; 
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.computate.site.enUS.article.ArticleEnUSGenApiService;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import org.computate.site.enUS.cours.CoursEnUSGenApiService;
@@ -15,6 +20,7 @@ import org.computate.site.enUS.cours.c001.l003.C001L003InstallerMachineVirtuelle
 import org.computate.site.enUS.cours.c001.l004.C001L004InstallerCentos7EnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l005.C001L005InstallerMavenEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l006.C001L006InstallerEclipseEnUSGenApiService;
+import org.computate.site.enUS.cours.c001.l007.C001L007InstallerPostgresqlEnUSGenApiService;
 import org.computate.site.enUS.page.accueil.PageAccueilEnUSGenApiService;
 import org.computate.site.enUS.page.apropos.PageAProposEnUSGenApiService;
 import org.computate.site.enUS.page.blog.PageBlogEnUSGenApiService;
@@ -33,6 +39,7 @@ import org.computate.site.frFR.cours.c001.l003.C001L003InstallerMachineVirtuelle
 import org.computate.site.frFR.cours.c001.l004.C001L004InstallerCentos7FrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l005.C001L005InstallerMavenFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseFrFRGenApiService;
+import org.computate.site.frFR.cours.c001.l007.C001L007InstallerPostgresqlFrFRGenApiService;
 import org.computate.site.frFR.page.accueil.PageAccueilFrFRGenApiService;
 import org.computate.site.frFR.page.apropos.PageAProposFrFRGenApiService;
 import org.computate.site.frFR.page.blog.PageBlogFrFRGenApiService;
@@ -46,6 +53,7 @@ import io.vertx.core.eventbus.MessageConsumer;
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerOptions;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
@@ -55,6 +63,8 @@ import io.vertx.core.shareddata.SharedData;
 import io.vertx.ext.auth.oauth2.OAuth2Auth;
 import io.vertx.ext.auth.oauth2.OAuth2FlowType;
 import io.vertx.ext.auth.oauth2.providers.KeycloakAuth;
+import io.vertx.ext.healthchecks.HealthCheckHandler;
+import io.vertx.ext.healthchecks.Status;
 import io.vertx.ext.jdbc.JDBCClient;
 import io.vertx.ext.sql.SQLConnection;
 import io.vertx.ext.web.Route;
@@ -112,7 +122,9 @@ public class AppliVertx extends AbstractVerticle {
 		Future<Void> etapesFutures = preparerDonnees(siteContexteFrFR, siteContexteEnUS).compose(a -> 
 			configurerCluster(siteContexteFrFR).compose(b -> 
 				configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
-					demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+					configurerControlesSante(siteContexteFrFR, siteContexteEnUS).compose(d -> 
+						demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+					)
 				)
 			)
 		);
@@ -349,6 +361,45 @@ public class AppliVertx extends AbstractVerticle {
 		MessageConsumer<JsonObject> calculInrApiConsumer = serviceBinder.register(c, service);
 	}
 
+	private Future<Void> configurerControlesSante(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
+		Future<Void> future = Future.future();
+		Router siteRouteur = siteContexteFrFR.getUsineRouteur().getRouter();
+		HealthCheckHandler healthCheckHandler = HealthCheckHandler.create(vertx);
+
+		healthCheckHandler.register("database", 2000, a -> {
+			siteContexteFrFR.getClientSql().queryWithParams("select current_timestamp"
+					, new JsonArray(Arrays.asList())
+					, selectCAsync
+			-> {
+				if(selectCAsync.succeeded()) {
+					a.complete(Status.OK());
+				} else {
+					LOGGER.error("The vertx application is down. ", a.cause());
+					future.fail(a.cause());
+				}
+			});
+		});
+		healthCheckHandler.register("solr", 2000, a -> {
+			SolrQuery query = new SolrQuery();
+			query.setQuery("*:*");
+			try {
+				QueryResponse r = siteContexteFrFR.getClientSolr().query(query);
+				if(r.getResults().size() > 0)
+					a.complete(Status.OK());
+				else {
+					LOGGER.error("The solr application is empty. ", a.cause());
+					future.fail(a.cause());
+				}
+			} catch (SolrServerException | IOException e) {
+				LOGGER.error("The solr application is down. ", a.cause());
+				future.fail(a.cause());
+			}
+		});
+		siteRouteur.get("/health").handler(healthCheckHandler);
+		future.complete();
+		return future;
+	}
+
 	/**
 	 * r: FrFR
 	 * r.enUS: EnUS
@@ -389,6 +440,9 @@ public class AppliVertx extends AbstractVerticle {
 
 		C001L006InstallerEclipseFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001L006InstallerEclipseEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		C001L007InstallerPostgresqlFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001L007InstallerPostgresqlEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		C001LeconFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001LeconEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);

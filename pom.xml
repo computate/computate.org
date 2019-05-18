@@ -212,7 +212,11 @@
 			<artifactId>vertx-web-api-service</artifactId>
 			<version>${vertx.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-health-check</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
 
 		<!-- <dependency> <groupId>com.github.phiz71</groupId> <artifactId>vertx-swagger-parent</artifactId> 
 			<version>1.6.0</version> <type>pom</type> </dependency> <dependency> <groupId>com.github.phiz71</groupId> 

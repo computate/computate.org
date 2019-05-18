@@ -1,4 +1,4 @@
-package org.computate.site.enUS.cours.c001.l003;
+package org.computate.site.enUS.cours.c001.l008;
 
 import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
@@ -31,21 +31,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPageGen<C001LeconEnUSPage> {
+public class C001L008CreerCertificatEnUSGenPage extends C001L008CreerCertificatEnUSGenPageGen<C001LeconEnUSPage> {
 
-	protected void _c001L003InstallerMachineVirtuelleVirtualBox(Couverture<C001L003InstallerMachineVirtuelleVirtualBox> c) {
-		c.o(new C001L003InstallerMachineVirtuelleVirtualBox());
+	protected void _c001L008CreerCertificat(Couverture<C001L008CreerCertificat> c) {
+		c.o(new C001L008CreerCertificat());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? ");
+		if(c001L008CreerCertificat != null)
+			c.o("What can I do once I have purchased a domain name? ");
 		else
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? ");
+			c.o("What can I do once I have purchased a domain name? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Try CentOS 7 on a VirtualBox virtual machine. ");
+		c.o("Obtain a valid TLS certificate for free, for security and credibility. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -53,26 +53,26 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
+		if(c001L008CreerCertificat != null)
+			c.o("Obtain a valid TLS certificate for free, for security and credibility. ");
 		else
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
+			c.o("Obtain a valid TLS certificate for free, for security and credibility. ");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box");
+		c.o("/enUS/course/001/008-how-to-obtain-free-tls-certificates");
 	}
 
 	@Override protected void _pageUriFrFR(Couverture<String> c) {
-		c.o("/frFR/cours/001/003-essayer-linux-sur-une-machine-virtuelle-avec-virtual-box");
+		c.o("/frFR/cours/001/008-comment-obtenir-certificats-tls-gratuitement");
 	}
 
 	@Override protected void _pageDescription(Couverture<String> c) {
-			c.o("How do I try CentOS 7 Linux without replacing my operating system? Try CentOS 7 on a VirtualBox virtual machine. ");
+			c.o("First, congratulations on obtaining your own domain name to launch your site. Along with a domain name, you will also want to obtain a TLS certificate. The good news is that it is completely free, thanks to open source technology. With a certificate you can secure communications to your site. You can sign your code and ensure that it is valid when deployed on the cloud. You can also setup secure OAuth2/OpenID Connect Single Sign On to all of your applications. I will show you how to obtain these certificates and generate the keystores to use in your applications the open source way. ");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/enUS/course/001/003-try-linux-on-a-virtual-machine-on-virtual-box-999.png");
+			c.o("/png/enUS/course/001/008-how-to-obtain-free-tls-certificates-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -80,7 +80,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1253);
+			c.o(1702);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -91,17 +91,17 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 			c.o("question");
 	}
 
-	@Override public void initLoinC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
-		initC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage();
+	@Override public void initLoinC001L008CreerCertificatEnUSGenPage() {
+		initC001L008CreerCertificatEnUSGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage.js").f().g("script");
+	@Override public void htmlScriptsC001L008CreerCertificatEnUSGenPage() {
+		e("script").a("src", "/static/js/C001L008CreerCertificatEnUSGenPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
+	@Override public void htmlBodyC001L008CreerCertificatEnUSGenPage() {
 
 		if(pageH1 != null) {
 			{ e("h1").f();
@@ -121,13 +121,13 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage extends C001
 			} g("h3");
 		}
 
-		if(c001L003InstallerMachineVirtuelleVirtualBox != null)
-			c001L003InstallerMachineVirtuelleVirtualBox.htmlBody();
+		if(c001L008CreerCertificat != null)
+			c001L008CreerCertificat.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtC001L003InstallerMachineVirtuelleVirtualBoxEnUSGenPage() {
+	@Override public void htmlBodyCourtC001L008CreerCertificatEnUSGenPage() {
 
-		c001L003InstallerMachineVirtuelleVirtualBox.htmlBodyCourt();
+		c001L008CreerCertificat.htmlBodyCourt();
 	}
 }
