@@ -18,6 +18,19 @@ import org.computate.site.frFR.xml.OutilXml;
 
 
 /**       
+ * Api: true
+ * ApiUri: /api/cluster
+ * ApiMethode: RechercheFrFRPage
+ * ApiMethode: RechercheEnUSPage
+ * ApiMethode: Recherche
+ * ApiMethode: POST
+ * ApiMethode: PATCH
+ * ApiMethode: GET
+ * ApiMethode: DELETE
+ * ApiUriRechercheFrFRPage: /frFR/cluster
+ * ApiUriRechercheEnUSPage: /enUS/cluster
+ * PageRechercheFrFRPage: ClusterFrFRPage
+ * PageRechercheEnUSPage: ClusterEnUSPage
  * MotCle: classeNomSimpleCluster
  * Modele: true
  */  

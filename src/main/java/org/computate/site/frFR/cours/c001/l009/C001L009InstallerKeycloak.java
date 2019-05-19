@@ -41,7 +41,7 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * ImageHauteur.frFR: 1927
  * ImageLargeur.enUS: 800
  * ImageHauteur.enUS: 1702
-*/   
+*/  
 public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001Lecon> {
 
 	public static void main(String[] args) {  

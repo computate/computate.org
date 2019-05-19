@@ -434,7 +434,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	public void initEntite(SolrDocument entiteDocumentSolr) {
 		setEntiteDocumentSolr(entiteDocumentSolr);
 		entiteVar = (String)entiteDocumentSolr.get("entiteVar_frFR_stored_string");
-		entiteVarApi = StringUtils.defaultIfBlank((String)entiteDocumentSolr.get("entiteVarApi_frFR_stored_string"), entiteVar);
+		entiteVarApi = StringUtils.defaultIfBlank((String)entiteDocumentSolr.get("entiteVarApi_stored_string"), entiteVar);
 		entiteMotsClesTrouves = BooleanUtils.isTrue((Boolean)entiteDocumentSolr.get("entiteMotsClesTrouves_stored_boolean"));
 		entiteMotsCles = (List<String>)entiteDocumentSolr.get("entiteMotsCles_stored_strings");
 		if(entiteMotsCles == null)

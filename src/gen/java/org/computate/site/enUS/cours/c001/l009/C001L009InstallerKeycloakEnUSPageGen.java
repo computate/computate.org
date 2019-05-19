@@ -32,13 +32,14 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	}
 
 	public void initLoinC001L009InstallerKeycloakEnUSPage() {
+		super.initLoinC001L009InstallerKeycloakEnUSGenPage(requeteSite_);
 		initC001L009InstallerKeycloakEnUSPage();
 	}
 
 	public void initC001L009InstallerKeycloakEnUSPage() {
 	}
 
-	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
 		initLoinC001L009InstallerKeycloakEnUSPage(requeteSite_);
 	}
 
@@ -47,6 +48,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	/////////////////
 
 	public void requeteSiteC001L009InstallerKeycloakEnUSPage(RequeteSiteEnUS requeteSite_) {
+			super.requeteSiteC001L009InstallerKeycloakEnUSGenPage(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -57,7 +59,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	// obtenir //
 	/////////////
 
-	public Object obtenirPourClasse(String var) {
+	@Override public Object obtenirPourClasse(String var) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -74,7 +76,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		C001L009InstallerKeycloakEnUSPage oC001L009InstallerKeycloakEnUSPage = (C001L009InstallerKeycloakEnUSPage)this;
 		switch(var) {
 			default:
-				return null;
+				return super.obtenirC001L009InstallerKeycloakEnUSGenPage(var);
 		}
 	}
 
@@ -82,7 +84,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	// attribuer //
 	///////////////
 
-	public boolean attribuerPourClasse(String var, Object val) {
+	@Override public boolean attribuerPourClasse(String var, Object val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		for(String v : vars) {
@@ -99,7 +101,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		C001L009InstallerKeycloakEnUSPage oC001L009InstallerKeycloakEnUSPage = (C001L009InstallerKeycloakEnUSPage)this;
 		switch(var) {
 			default:
-				return null;
+				return super.attribuerC001L009InstallerKeycloakEnUSGenPage(var, val);
 		}
 	}
 
@@ -107,7 +109,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	// definir //
 	/////////////
 
-	public boolean definirPourClasse(String var, String val) {
+	@Override public boolean definirPourClasse(String var, String val) {
 		String[] vars = StringUtils.split(var, ".");
 		Object o = null;
 		if(val != null) {
@@ -125,8 +127,104 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	public Object definirC001L009InstallerKeycloakEnUSPage(String var, String val) {
 		switch(var) {
 			default:
-				return null;
+				return super.definirC001L009InstallerKeycloakEnUSGenPage(var, val);
 		}
+	}
+
+	/////////////////
+	// htmlScripts //
+	/////////////////
+
+	@Override public void htmlScripts() {
+		htmlScriptsC001L009InstallerKeycloakEnUSPage();
+		super.htmlScripts();
+	}
+
+	public void htmlScriptsC001L009InstallerKeycloakEnUSPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyC001L009InstallerKeycloakEnUSPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyC001L009InstallerKeycloakEnUSPage() {
+	}
+
+	///////////////////
+	// htmlBodyCourt //
+	///////////////////
+
+	@Override public void htmlBodyCourt() {
+		htmlBodyCourtC001L009InstallerKeycloakEnUSPage();
+		super.htmlBodyCourt();
+	}
+
+	public void htmlBodyCourtC001L009InstallerKeycloakEnUSPage() {
+	}
+
+	////////////////
+	// htmlScript //
+	////////////////
+
+	@Override public void htmlScript() {
+		htmlScriptC001L009InstallerKeycloakEnUSPage();
+		super.htmlScript();
+	}
+
+	public void htmlScriptC001L009InstallerKeycloakEnUSPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L009InstallerKeycloakEnUSPage();
+		super.html();
+	}
+
+	public void htmlC001L009InstallerKeycloakEnUSPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L009InstallerKeycloakEnUSPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L009InstallerKeycloakEnUSPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L009InstallerKeycloakEnUSPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L009InstallerKeycloakEnUSPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L009InstallerKeycloakEnUSPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L009InstallerKeycloakEnUSPage() {
 	}
 
 	//////////////
@@ -134,7 +232,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash();
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -147,7 +245,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		if(!(o instanceof C001L009InstallerKeycloakEnUSPage))
 			return false;
 		C001L009InstallerKeycloakEnUSPage that = (C001L009InstallerKeycloakEnUSPage)o;
-		return true;
+		return super.equals(o);
 	}
 
 	//////////////
@@ -156,6 +254,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString() + "\n");
 		sb.append("C001L009InstallerKeycloakEnUSPage {");
 		sb.append(" }");
 		return sb.toString();

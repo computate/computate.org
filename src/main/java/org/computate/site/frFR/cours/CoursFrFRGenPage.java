@@ -91,7 +91,7 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	}
 
 	@Override public void htmlScriptsCoursFrFRGenPage() {
-		e("script").a("src", "/static/js/CoursFrFRGenPage.js").f().g("script");
+		e("script").a("src", "/static/js/CoursFrFRPage.js").f().g("script");
 	}
 
 	@Override public void htmlScriptCoursFrFRGenPage() {
@@ -633,11 +633,106 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					htmlFormPageCours(o);
 				}
 
-				o.htmlBody();
+				if(o != null)
+					o.htmlBody();
 
 			} g("div");
 		}
 		e("div").f();
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#postCoursModale').show(); ")
+			.f().sx("Créer un cours")
+		.g("button");
+		{ e("div").a("id", "postCoursModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#postCoursModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Créer un cours").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					Cours o = new Cours();
+
+					{ e("form").a("id", "postCoursForm").f();
+						htmlFormPOSTCours(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "postCours($('#postCoursForm')); ")
+						.f().sx("Créer un cours")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#patchCoursModale').show(); ")
+			.f().sx("Modifier des cours")
+		.g("button");
+		{ e("div").a("id", "patchCoursModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchCoursModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Modifier des cours").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					Cours o = new Cours();
+
+					{ e("form").a("id", "patchCoursFormFiltres").f();
+						htmlFormRechercheCours(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "rechercheCours($('#patchCoursFormFiltres')); ")
+						.f().sx("Modifier des cours")
+					.g("button");
+
+
+					{ e("form").a("id", "patchCoursFormValeurs").f();
+						htmlFormPATCHCours(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "patchCours($('#patchCoursFormFiltres'), $('#patchCoursFormValeurs')); ")
+						.f().sx("Modifier des cours")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#deleteCoursModale').show(); ")
+			.f().sx("Supprimer des cours")
+		.g("button");
+		{ e("div").a("id", "deleteCoursModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#deleteCoursModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Supprimer des cours").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					Cours o = new Cours();
+
+					{ e("form").a("id", "deleteCoursForm").f();
+						htmlFormPATCHCours(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "deleteCours(); ")
+						.f().sx("Supprimer des cours")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
 
 		g("div");
 	}

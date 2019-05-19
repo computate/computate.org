@@ -16,6 +16,7 @@ import org.computate.site.enUS.cluster.Cluster;
 import java.util.List;
 import org.computate.site.enUS.cours.Cours;
 import org.apache.solr.client.solrj.SolrQuery;
+import java.lang.String;
 import org.apache.solr.client.solrj.util.ClientUtils;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -38,6 +39,7 @@ public abstract class C001Gen<DEV> extends Cours {
 	public static final String C001_RechercherTousNomPar = "search course #1s by ";
 	public static final String C001_H1 = "Build modern asynchronous web applications with the best open source software. ";
 	public static final String C001_H2 = "With Vert.x, on Linux, PostgreSQL data, Solr search, deployable as Linux containers on OpenShift. ";
+	public static final String C001_Titre = "Build modern asynchronous web applications with the best open source software. ";
 	public static final String C001_LesNoms = "the course #1s";
 	public static final String C001_AucunNomTrouve = "no course #1 found";
 	public static final String C001_NomVar = "course#1";
@@ -49,6 +51,62 @@ public abstract class C001Gen<DEV> extends Cours {
 	public static final String C001FrFRPage_ImageUri = "/png/frFR/cours/001-999.png";
 	public static final String C001EnUSPage_Uri = "/enUS/course/001";
 	public static final String C001EnUSPage_ImageUri = "/png/enUS/course/001-999.png";
+
+	////////////////////
+	// siteNomDomaine //
+	////////////////////
+
+	/**	L'entité « siteNomDomaine »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String siteNomDomaine;
+	public Couverture<String> siteNomDomaineCouverture = new Couverture<String>().p(this).c(String.class).var("siteNomDomaine").o(siteNomDomaine);
+
+	/**	<br/>L'entité « siteNomDomaine »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.C001&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:siteNomDomaine">Trouver l'entité siteNomDomaine dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _siteNomDomaine(Couverture<String> c);
+
+	public String getSiteNomDomaine() {
+		return siteNomDomaine;
+	}
+
+	public void setSiteNomDomaine(String siteNomDomaine) {
+		this.siteNomDomaine = siteNomDomaine;
+		this.siteNomDomaineCouverture.dejaInitialise = true;
+	}
+	protected C001 siteNomDomaineInit() {
+		if(!siteNomDomaineCouverture.dejaInitialise) {
+			_siteNomDomaine(siteNomDomaineCouverture);
+			if(siteNomDomaine == null)
+				setSiteNomDomaine(siteNomDomaineCouverture.o);
+		}
+		siteNomDomaineCouverture.dejaInitialise(true);
+		return (C001)this;
+	}
+
+	public String solrSiteNomDomaine() {
+		return siteNomDomaine;
+	}
+
+	public String strSiteNomDomaine() {
+		return siteNomDomaine == null ? "" : siteNomDomaine;
+	}
+
+	public String nomAffichageSiteNomDomaine() {
+		return "domain name";
+	}
+
+	public String htmTooltipSiteNomDomaine() {
+		return null;
+	}
+
+	public String htmSiteNomDomaine() {
+		return siteNomDomaine == null ? "" : StringEscapeUtils.escapeHtml4(strSiteNomDomaine());
+	}
 
 	//////////////
 	// initLoin //
@@ -71,6 +129,7 @@ public abstract class C001Gen<DEV> extends Cours {
 	}
 
 	public void initC001() {
+		siteNomDomaineInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -109,6 +168,8 @@ public abstract class C001Gen<DEV> extends Cours {
 	public Object obtenirC001(String var) {
 		C001 oC001 = (C001)this;
 		switch(var) {
+			case "siteNomDomaine":
+				return oC001.siteNomDomaine;
 			default:
 				return super.obtenirCours(var);
 		}
@@ -228,6 +289,10 @@ public abstract class C001Gen<DEV> extends Cours {
 	}
 
 	public void indexerC001(SolrInputDocument document) {
+		if(siteNomDomaine != null) {
+			document.addField("siteNomDomaine_indexed_string", siteNomDomaine);
+			document.addField("siteNomDomaine_stored_string", siteNomDomaine);
+		}
 		super.indexerCours(document);
 
 	}
@@ -260,6 +325,10 @@ public abstract class C001Gen<DEV> extends Cours {
 	public void stockerC001(SolrDocument solrDocument) {
 		C001 oC001 = (C001)this;
 
+		String siteNomDomaine = (String)solrDocument.get("siteNomDomaine_stored_string");
+		if(siteNomDomaine != null)
+			oC001.setSiteNomDomaine(siteNomDomaine);
+
 		super.stockerCours(solrDocument);
 	}
 
@@ -280,7 +349,7 @@ public abstract class C001Gen<DEV> extends Cours {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode());
+		return Objects.hash(super.hashCode(), siteNomDomaine);
 	}
 
 	////////////
@@ -293,7 +362,8 @@ public abstract class C001Gen<DEV> extends Cours {
 		if(!(o instanceof C001))
 			return false;
 		C001 that = (C001)o;
-		return super.equals(o);
+		return super.equals(o)
+				&& Objects.equals( siteNomDomaine, that.siteNomDomaine );
 	}
 
 	//////////////
@@ -304,6 +374,7 @@ public abstract class C001Gen<DEV> extends Cours {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("C001 {");
+		sb.append( "siteNomDomaine: \"" ).append(siteNomDomaine).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

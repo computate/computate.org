@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import org.computate.site.frFR.cluster.Cluster;
 import javax.imageio.ImageIO;
+import org.computate.site.frFR.page.parti.PagePart;
 import org.apache.commons.exec.DefaultExecutor;
 import java.awt.image.BufferedImage;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -82,6 +83,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.moiCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak moiInit() {
+		if(moi != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(moi, "moi");
+			((C001L009InstallerKeycloak)this).avantPagePart(moi, "moi");
+		}
 		if(!moiCouverture.dejaInitialise) {
 			_moi(moi);
 		}
@@ -183,6 +188,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionDependencesCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionDependencesInit() {
+		if(questionDependences != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionDependences, "questionDependences");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionDependences, "questionDependences");
+		}
 		if(!questionDependencesCouverture.dejaInitialise) {
 			_questionDependences(questionDependences);
 		}
@@ -352,6 +361,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionMkdirSrcCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionMkdirSrcInit() {
+		if(questionMkdirSrc != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionMkdirSrc, "questionMkdirSrc");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionMkdirSrc, "questionMkdirSrc");
+		}
 		if(!questionMkdirSrcCouverture.dejaInitialise) {
 			_questionMkdirSrc(questionMkdirSrc);
 		}
@@ -502,6 +515,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionMkdirPostgreSQLCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionMkdirPostgreSQLInit() {
+		if(questionMkdirPostgreSQL != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionMkdirPostgreSQL, "questionMkdirPostgreSQL");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionMkdirPostgreSQL, "questionMkdirPostgreSQL");
+		}
 		if(!questionMkdirPostgreSQLCouverture.dejaInitialise) {
 			_questionMkdirPostgreSQL(questionMkdirPostgreSQL);
 		}
@@ -635,6 +652,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionClonerSourceCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionClonerSourceInit() {
+		if(questionClonerSource != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionClonerSource, "questionClonerSource");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionClonerSource, "questionClonerSource");
+		}
 		if(!questionClonerSourceCouverture.dejaInitialise) {
 			_questionClonerSource(questionClonerSource);
 		}
@@ -748,6 +769,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionListerTagsCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionListerTagsInit() {
+		if(questionListerTags != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionListerTags, "questionListerTags");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionListerTags, "questionListerTags");
+		}
 		if(!questionListerTagsCouverture.dejaInitialise) {
 			_questionListerTags(questionListerTags);
 		}
@@ -871,6 +896,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionCheckoutTagCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionCheckoutTagInit() {
+		if(questionCheckoutTag != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionCheckoutTag, "questionCheckoutTag");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionCheckoutTag, "questionCheckoutTag");
+		}
 		if(!questionCheckoutTagCouverture.dejaInitialise) {
 			_questionCheckoutTag(questionCheckoutTag);
 		}
@@ -1057,6 +1086,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionConstruireSourceCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionConstruireSourceInit() {
+		if(questionConstruireSource != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionConstruireSource, "questionConstruireSource");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionConstruireSource, "questionConstruireSource");
+		}
 		if(!questionConstruireSourceCouverture.dejaInitialise) {
 			_questionConstruireSource(questionConstruireSource);
 		}
@@ -1287,6 +1320,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionMkdirServeurCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionMkdirServeurInit() {
+		if(questionMkdirServeur != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionMkdirServeur, "questionMkdirServeur");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionMkdirServeur, "questionMkdirServeur");
+		}
 		if(!questionMkdirServeurCouverture.dejaInitialise) {
 			_questionMkdirServeur(questionMkdirServeur);
 		}
@@ -1424,6 +1461,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionDonneesCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionDonneesInit() {
+		if(questionDonnees != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionDonnees, "questionDonnees");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionDonnees, "questionDonnees");
+		}
 		if(!questionDonneesCouverture.dejaInitialise) {
 			_questionDonnees(questionDonnees);
 		}
@@ -1582,6 +1623,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionServiceCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionServiceInit() {
+		if(questionService != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionService, "questionService");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionService, "questionService");
+		}
 		if(!questionServiceCouverture.dejaInitialise) {
 			_questionService(questionService);
 		}
@@ -1761,6 +1806,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionSystemctlDaemonReloadCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionSystemctlDaemonReloadInit() {
+		if(questionSystemctlDaemonReload != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlDaemonReload, "questionSystemctlDaemonReload");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlDaemonReload, "questionSystemctlDaemonReload");
+		}
 		if(!questionSystemctlDaemonReloadCouverture.dejaInitialise) {
 			_questionSystemctlDaemonReload(questionSystemctlDaemonReload);
 		}
@@ -1864,6 +1913,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionSystemctlEnableCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionSystemctlEnableInit() {
+		if(questionSystemctlEnable != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlEnable, "questionSystemctlEnable");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlEnable, "questionSystemctlEnable");
+		}
 		if(!questionSystemctlEnableCouverture.dejaInitialise) {
 			_questionSystemctlEnable(questionSystemctlEnable);
 		}
@@ -1973,6 +2026,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionSystemctlStartCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionSystemctlStartInit() {
+		if(questionSystemctlStart != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlStart, "questionSystemctlStart");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlStart, "questionSystemctlStart");
+		}
 		if(!questionSystemctlStartCouverture.dejaInitialise) {
 			_questionSystemctlStart(questionSystemctlStart);
 		}
@@ -2084,6 +2141,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.questionSystemctlStatusCouverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak questionSystemctlStatusInit() {
+		if(questionSystemctlStatus != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlStatus, "questionSystemctlStatus");
+			((C001L009InstallerKeycloak)this).avantPagePart(questionSystemctlStatus, "questionSystemctlStatus");
+		}
 		if(!questionSystemctlStatusCouverture.dejaInitialise) {
 			_questionSystemctlStatus(questionSystemctlStatus);
 		}
@@ -2174,6 +2235,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.recapituler1Couverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak recapituler1Init() {
+		if(recapituler1 != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(recapituler1, "recapituler1");
+			((C001L009InstallerKeycloak)this).avantPagePart(recapituler1, "recapituler1");
+		}
 		if(!recapituler1Couverture.dejaInitialise) {
 			_recapituler1(recapituler1);
 		}
@@ -2236,6 +2301,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.recapituler2Couverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak recapituler2Init() {
+		if(recapituler2 != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(recapituler2, "recapituler2");
+			((C001L009InstallerKeycloak)this).avantPagePart(recapituler2, "recapituler2");
+		}
 		if(!recapituler2Couverture.dejaInitialise) {
 			_recapituler2(recapituler2);
 		}
@@ -2432,6 +2501,10 @@ public abstract class C001L009InstallerKeycloakGen<DEV> extends C001Lecon {
 		this.recapituler3Couverture.dejaInitialise = true;
 	}
 	protected C001L009InstallerKeycloak recapituler3Init() {
+		if(recapituler3 != null) {
+			((C001L009InstallerKeycloak)this).avantPagePart(recapituler3, "recapituler3");
+			((C001L009InstallerKeycloak)this).avantPagePart(recapituler3, "recapituler3");
+		}
 		if(!recapituler3Couverture.dejaInitialise) {
 			_recapituler3(recapituler3);
 		}

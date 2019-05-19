@@ -1,58 +1,58 @@
-package org.computate.site.frFR.cours.c001;
+package org.computate.site.enUS.cluster;
 
-import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
-import org.computate.site.frFR.cluster.Cluster;
-import org.computate.site.frFR.couverture.Couverture;
-import org.computate.site.frFR.cours.c001.C001FrFRGenPage;
-import org.computate.site.frFR.requete.RequeteSiteFrFR;
+import org.computate.site.enUS.cluster.ClusterEnUSGenPage;
+import org.computate.site.enUS.ecrivain.ToutEcrivain;
+import org.computate.site.enUS.couverture.Couverture;
+import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.computate.site.enUS.cluster.Cluster;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001FrFRPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.ClusterEnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
+public abstract class ClusterEnUSPageGen<DEV> extends ClusterEnUSGenPage {
 
 	//////////////
 	// initLoin //
 	//////////////
 
-	protected boolean dejaInitialiseC001FrFRPage = false;
+	protected boolean dejaInitialiseClusterEnUSPage = false;
 
-	public C001FrFRPage initLoinC001FrFRPage(RequeteSiteFrFR requeteSite_) {
+	public ClusterEnUSPage initLoinClusterEnUSPage(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
-		if(!dejaInitialiseC001FrFRPage) {
-			dejaInitialiseC001FrFRPage = true;
-			initLoinC001FrFRPage();
+		if(!dejaInitialiseClusterEnUSPage) {
+			dejaInitialiseClusterEnUSPage = true;
+			initLoinClusterEnUSPage();
 		}
-		return (C001FrFRPage)this;
+		return (ClusterEnUSPage)this;
 	}
 
-	public void initLoinC001FrFRPage() {
-		super.initLoinC001FrFRGenPage(requeteSite_);
-		initC001FrFRPage();
+	public void initLoinClusterEnUSPage() {
+		super.initLoinClusterEnUSGenPage(requeteSite_);
+		initClusterEnUSPage();
 	}
 
-	public void initC001FrFRPage() {
+	public void initClusterEnUSPage() {
 	}
 
-	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
-		initLoinC001FrFRPage(requeteSite_);
+	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
+		initLoinClusterEnUSPage(requeteSite_);
 	}
 
 	/////////////////
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteC001FrFRPage(RequeteSiteFrFR requeteSite_) {
-			super.requeteSiteC001FrFRGenPage(requeteSite_);
+	public void requeteSiteClusterEnUSPage(RequeteSiteEnUS requeteSite_) {
+			super.requeteSiteClusterEnUSGenPage(requeteSite_);
 	}
 
-	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
-		requeteSiteC001FrFRPage(requeteSite_);
+	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
+		requeteSiteClusterEnUSPage(requeteSite_);
 	}
 
 	/////////////
@@ -64,7 +64,7 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = obtenirC001FrFRPage(v);
+				o = obtenirClusterEnUSPage(v);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.obtenirPourClasse(v);
@@ -72,11 +72,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 		}
 		return o;
 	}
-	public Object obtenirC001FrFRPage(String var) {
-		C001FrFRPage oC001FrFRPage = (C001FrFRPage)this;
+	public Object obtenirClusterEnUSPage(String var) {
+		ClusterEnUSPage oClusterEnUSPage = (ClusterEnUSPage)this;
 		switch(var) {
 			default:
-				return super.obtenirC001FrFRGenPage(var);
+				return super.obtenirClusterEnUSGenPage(var);
 		}
 	}
 
@@ -89,7 +89,7 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = attribuerC001FrFRPage(v, val);
+				o = attribuerClusterEnUSPage(v, val);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.attribuerPourClasse(v, val);
@@ -97,11 +97,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 		}
 		return o != null;
 	}
-	public Object attribuerC001FrFRPage(String var, Object val) {
-		C001FrFRPage oC001FrFRPage = (C001FrFRPage)this;
+	public Object attribuerClusterEnUSPage(String var, Object val) {
+		ClusterEnUSPage oClusterEnUSPage = (ClusterEnUSPage)this;
 		switch(var) {
 			default:
-				return super.attribuerC001FrFRGenPage(var, val);
+				return super.attribuerClusterEnUSGenPage(var, val);
 		}
 	}
 
@@ -115,7 +115,7 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 		if(val != null) {
 			for(String v : vars) {
 				if(o == null)
-					o = definirC001FrFRPage(v, val);
+					o = definirClusterEnUSPage(v, val);
 				else if(o instanceof Cluster) {
 					Cluster cluster = (Cluster)o;
 					o = cluster.definirPourClasse(v, val);
@@ -124,10 +124,10 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 		}
 		return o != null;
 	}
-	public Object definirC001FrFRPage(String var, String val) {
+	public Object definirClusterEnUSPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirC001FrFRGenPage(var, val);
+				return super.definirClusterEnUSGenPage(var, val);
 		}
 	}
 
@@ -136,11 +136,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	/////////////////
 
 	@Override public void htmlScripts() {
-		htmlScriptsC001FrFRPage();
+		htmlScriptsClusterEnUSPage();
 		super.htmlScripts();
 	}
 
-	public void htmlScriptsC001FrFRPage() {
+	public void htmlScriptsClusterEnUSPage() {
 	}
 
 	////////////////
@@ -148,11 +148,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	////////////////
 
 	@Override public void htmlScript() {
-		htmlScriptC001FrFRPage();
+		htmlScriptClusterEnUSPage();
 		super.htmlScript();
 	}
 
-	public void htmlScriptC001FrFRPage() {
+	public void htmlScriptClusterEnUSPage() {
 	}
 
 	//////////////
@@ -160,11 +160,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	//////////////
 
 	@Override public void htmlBody() {
-		htmlBodyC001FrFRPage();
+		htmlBodyClusterEnUSPage();
 		super.htmlBody();
 	}
 
-	public void htmlBodyC001FrFRPage() {
+	public void htmlBodyClusterEnUSPage() {
 	}
 
 	//////////
@@ -172,11 +172,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	//////////
 
 	@Override public void html() {
-		htmlC001FrFRPage();
+		htmlClusterEnUSPage();
 		super.html();
 	}
 
-	public void htmlC001FrFRPage() {
+	public void htmlClusterEnUSPage() {
 	}
 
 	//////////////
@@ -184,11 +184,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	//////////////
 
 	@Override public void htmlMeta() {
-		htmlMetaC001FrFRPage();
+		htmlMetaClusterEnUSPage();
 		super.htmlMeta();
 	}
 
-	public void htmlMetaC001FrFRPage() {
+	public void htmlMetaClusterEnUSPage() {
 	}
 
 	////////////////
@@ -196,11 +196,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	////////////////
 
 	@Override public void htmlStyles() {
-		htmlStylesC001FrFRPage();
+		htmlStylesClusterEnUSPage();
 		super.htmlStyles();
 	}
 
-	public void htmlStylesC001FrFRPage() {
+	public void htmlStylesClusterEnUSPage() {
 	}
 
 	///////////////
@@ -208,11 +208,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	///////////////
 
 	@Override public void htmlStyle() {
-		htmlStyleC001FrFRPage();
+		htmlStyleClusterEnUSPage();
 		super.htmlStyle();
 	}
 
-	public void htmlStyleC001FrFRPage() {
+	public void htmlStyleClusterEnUSPage() {
 	}
 
 	///////////////////
@@ -220,11 +220,11 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	///////////////////
 
 	@Override public void htmlBodyCourt() {
-		htmlBodyCourtC001FrFRPage();
+		htmlBodyCourtClusterEnUSPage();
 		super.htmlBodyCourt();
 	}
 
-	public void htmlBodyCourtC001FrFRPage() {
+	public void htmlBodyCourtClusterEnUSPage() {
 	}
 
 	//////////////
@@ -242,9 +242,9 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	@Override public boolean equals(Object o) {
 		if(this == o)
 			return true;
-		if(!(o instanceof C001FrFRPage))
+		if(!(o instanceof ClusterEnUSPage))
 			return false;
-		C001FrFRPage that = (C001FrFRPage)o;
+		ClusterEnUSPage that = (ClusterEnUSPage)o;
 		return super.equals(o);
 	}
 
@@ -255,7 +255,7 @@ public abstract class C001FrFRPageGen<DEV> extends C001FrFRGenPage {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
-		sb.append("C001FrFRPage {");
+		sb.append("ClusterEnUSPage {");
 		sb.append(" }");
 		return sb.toString();
 	}

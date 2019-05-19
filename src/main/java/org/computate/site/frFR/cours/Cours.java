@@ -14,8 +14,14 @@ import org.computate.site.frFR.page.parti.PagePart;
 
 /**
  * Api: true
+ * ApiUri: /api/cours
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
+ * ApiMethode: Recherche
+ * ApiMethode: POST
+ * ApiMethode: PATCH
+ * ApiMethode: GET
+ * ApiMethode: DELETE
  * ApiUriRechercheFrFRPage: /frFR/cours
  * ApiUriRechercheEnUSPage: /enUS/course
  * PageRechercheFrFRPage: CoursFrFRPage
@@ -26,7 +32,7 @@ import org.computate.site.frFR.page.parti.PagePart;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/               
+*/             
 public class Cours extends CoursGen<Article> {          
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {

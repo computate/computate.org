@@ -44,6 +44,11 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 public abstract class ClusterGen<DEV> extends Object {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Cluster.class);
 
+	public static final String ClusterFrFRPage_Uri = "/frFR/cluster";
+	public static final String ClusterFrFRPage_ImageUri = "/png/frFR/cluster-999.png";
+	public static final String ClusterEnUSPage_Uri = "/enUS/cluster";
+	public static final String ClusterEnUSPage_ImageUri = "/png/enUS/cluster-999.png";
+
 	//////////////////
 	// requeteSite_ //
 	//////////////////

@@ -166,12 +166,739 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 		}
 	}
 
+	// Recherche //
+
+	@Override
+	public void rechercheCours(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourCours(siteContexte, operationRequete);
+			rechercheCours(requeteSite, false, true, null, a -> {
+				if(a.succeeded()) {
+					ListeRecherche<Cours> listeCours = a.result();
+					reponse200RechercheCours(listeCours, b -> {
+						if(b.succeeded()) {
+							gestionnaireEvenements.handle(Future.succeededFuture(b.result()));
+						} else {
+							erreurCours(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurCours(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200RechercheCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteFrFR requeteSite = listeCours.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeCours.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			QueryResponse reponseRecherche = listeCours.getQueryResponse();
+			SolrDocumentList documentsSolr = listeCours.getSolrDocumentList();
+			Long millisRecherche = Long.valueOf(reponseRecherche.getQTime());
+			Long millisTransmission = reponseRecherche.getElapsedTime();
+			Long numCommence = reponseRecherche.getResults().getStart();
+			Long numTrouve = reponseRecherche.getResults().getNumFound();
+			Integer numRetourne = reponseRecherche.getResults().size();
+			String tempsRecherche = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisRecherche), TimeUnit.MILLISECONDS.toMillis(millisRecherche) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(millisRecherche)));
+			String tempsTransmission = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisTransmission), TimeUnit.MILLISECONDS.toMillis(millisTransmission) - TimeUnit.SECONDS.toSeconds(TimeUnit.MILLISECONDS.toSeconds(millisTransmission)));
+			Exception exceptionRecherche = reponseRecherche.getException();
+
+			w.l("{");
+			w.tl(1, "\"numCommence\": ", numCommence);
+			w.tl(1, ", \"numTrouve\": ", numTrouve);
+			w.tl(1, ", \"numRetourne\": ", numRetourne);
+			w.tl(1, ", \"tempsRecherche\": ", w.q(tempsRecherche));
+			w.tl(1, ", \"tempsTransmission\": ", w.q(tempsTransmission));
+			w.tl(1, ", \"liste\": [");
+			for(int i = 0; i < listeCours.size(); i++) {
+				Cours o = listeCours.getList().get(i);
+				Object entiteValeur;
+				Integer entiteNumero = 0;
+
+				w.t(2);
+				if(i > 0)
+					w.s(", ");
+				w.l("{");
+
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getUtilisateurId();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				{
+					List<String> entiteValeurs = o.getClasseNomsCanoniques();
+					w.t(3, entiteNumero++ == 0 ? "" : ", ");
+					w.s("\"classeNomsCanoniques\": [");
+					int k = 0;
+					while(entiteValeur != null) {
+						if(k > 0)
+							w.s(", ");
+						w.s(", ");
+						w.s("\"");
+						w.s(((String)entiteValeur));
+						w.s("\"");
+						entiteValeur = entiteValeurs.iterator().hasNext() ? entiteValeurs.iterator().next() : null;
+					}
+					w.l("]");
+				}
+
+				entiteValeur = o.getClasseNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClasseNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getEstCours();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estCours\": ", entiteValeur);
+
+				entiteValeur = o.getEstLecon();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estLecon\": ", entiteValeur);
+
+				entiteValeur = o.getEstArticle();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estArticle\": ", entiteValeur);
+
+				entiteValeur = o.getCoursNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursNumero\": ", entiteValeur);
+
+				entiteValeur = o.getLeconNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"leconNumero\": ", entiteValeur);
+
+				entiteValeur = o.getArticleH1_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH1_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleH1_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH1_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleH2_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH2_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleH2_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH2_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageUri_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageUri_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageUri_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageUri_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageImageUri_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageImageUri_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageImageUri_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageImageUri_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH1();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH1\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH2();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH2\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH3();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH3\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageTitre();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageTitre\": ", w.qjs(entiteValeur));
+
+				w.tl(2, "}");
+			}
+			w.tl(1, "]");
+			if(exceptionRecherche != null) {
+				w.tl(1, ", \"exceptionRecherche\": ", w.q(exceptionRecherche.getMessage()));
+			}
+			w.l("}");
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// POST //
+
+	@Override
+	public void postCours(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourCours(siteContexte, operationRequete, body);
+			sqlCours(requeteSite, a -> {
+				if(a.succeeded()) {
+					creerPOSTCours(requeteSite, b -> {
+						if(b.succeeded()) {
+							Cours cours = b.result();
+							sqlPOSTCours(cours, c -> {
+								if(c.succeeded()) {
+									definirCours(cours, d -> {
+										if(d.succeeded()) {
+											attribuerCours(cours, e -> {
+												if(e.succeeded()) {
+													indexerCours(cours, f -> {
+														if(f.succeeded()) {
+															reponse200POSTCours(cours, g -> {
+																if(f.succeeded()) {
+																	SQLConnection connexionSql = requeteSite.getConnexionSql();
+																	connexionSql.commit(h -> {
+																		if(a.succeeded()) {
+																			connexionSql.close(i -> {
+																				if(a.succeeded()) {
+																					gestionnaireEvenements.handle(Future.succeededFuture(g.result()));
+																				} else {
+																					erreurCours(requeteSite, gestionnaireEvenements, i);
+																				}
+																			});
+																		} else {
+																			erreurCours(requeteSite, gestionnaireEvenements, h);
+																		}
+																	});
+																} else {
+																	erreurCours(requeteSite, gestionnaireEvenements, g);
+																}
+															});
+														} else {
+															erreurCours(requeteSite, gestionnaireEvenements, f);
+														}
+													});
+												} else {
+													erreurCours(requeteSite, gestionnaireEvenements, e);
+												}
+											});
+										} else {
+											erreurCours(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurCours(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurCours(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurCours(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void creerPOSTCours(RequeteSiteFrFR requeteSite, Handler<AsyncResult<Cours>> gestionnaireEvenements) {
+		try {
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			String utilisateurId = requeteSite.getUtilisateurId();
+
+			connexionSql.queryWithParams(
+					SiteContexteFrFR.SQL_creer
+					, new JsonArray(Arrays.asList(Cours.class.getCanonicalName(), utilisateurId))
+					, creerAsync
+			-> {
+				JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
+				Long pk = creerLigne.getLong(0);
+				Cours o = new Cours();
+				o.setPk(pk);
+				o.initLoinCours(requeteSite);
+				gestionnaireEvenements.handle(Future.succeededFuture(o));
+			});
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public void sqlPOSTCours(Cours o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			Long pk = o.getPk();
+			JsonObject jsonObject = requeteSite.getObjetJson();
+			StringBuilder postSql = new StringBuilder();
+			List<Object> postSqlParams = new ArrayList<Object>();
+
+			if(jsonObject != null) {
+				Set<String> entiteVars = jsonObject.fieldNames();
+				for(String entiteVar : entiteVars) {
+					switch(entiteVar) {
+					}
+				}
+			}
+			connexionSql.queryWithParams(
+					postSql.toString()
+					, new JsonArray(postSqlParams)
+					, postAsync
+			-> {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			});
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200POSTCours(Cours o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(o.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// PATCH //
+
+	@Override
+	public void patchCours(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourCours(siteContexte, operationRequete, body);
+			sqlCours(requeteSite, a -> {
+				if(a.succeeded()) {
+					utilisateurCours(requeteSite, b -> {
+						if(b.succeeded()) {
+							rechercheCours(requeteSite, false, true, null, c -> {
+								if(c.succeeded()) {
+									ListeRecherche<Cours> listeCours = c.result();
+									listePATCHCours(listeCours, d -> {
+										if(d.succeeded()) {
+											SQLConnection connexionSql = requeteSite.getConnexionSql();
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurCours(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurCours(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
+										} else {
+											erreurCours(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurCours(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurCours(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurCours(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void listePATCHCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		List<Future> futures = new ArrayList<>();
+		listeCours.getList().forEach(o -> {
+			futures.add(
+				sqlPATCHCours(o).compose(
+					a -> definirPATCHCours(a).compose(
+						b -> indexerPATCHCours(b)
+					)
+				)
+			);
+		});
+		CompositeFuture.all(futures).setHandler( a -> {
+			if(a.succeeded()) {
+				reponse200PATCHCours(listeCours, gestionnaireEvenements);
+			} else {
+				erreurCours(listeCours.getRequeteSite_(), gestionnaireEvenements, a);
+			}
+		});
+	}
+
+	public Future<Cours> sqlPATCHCours(Cours o) {
+		Future<Cours> future = Future.future();
+		try {
+			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			Long pk = o.getPk();
+			JsonObject requeteJson = requeteSite.getObjetJson();
+			StringBuilder patchSql = new StringBuilder();
+			List<Object> patchSqlParams = new ArrayList<Object>();
+			Set<String> methodeNoms = requeteJson.fieldNames();
+			Cours o2 = new Cours();
+
+			patchSql.append(SiteContexteFrFR.SQL_modifier);
+			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.frFR.cours.Cours"));
+			for(String methodeNom : methodeNoms) {
+				switch(methodeNom) {
+				}
+			}
+			connexionSql.queryWithParams(
+					patchSql.toString()
+					, new JsonArray(patchSqlParams)
+					, patchAsync
+			-> {
+				o2.setRequeteSite_(o.getRequeteSite_());
+				o2.setPk(pk);
+				future.complete(o2);
+			});
+			return future;
+		} catch(Exception e) {
+			return Future.failedFuture(e);
+		}
+	}
+
+	public Future<Cours> definirPATCHCours(Cours o) {
+		Future<Cours> future = Future.future();
+		try {
+			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			Long pk = o.getPk();
+			connexionSql.queryWithParams(
+					SiteContexteFrFR.SQL_definir
+					, new JsonArray(Arrays.asList(pk, pk, pk))
+					, definirAsync
+			-> {
+				if(definirAsync.succeeded()) {
+					for(JsonArray definition : definirAsync.result().getResults()) {
+						o.definirPourClasse(definition.getString(0), definition.getString(1));
+					}
+					future.complete(o);
+				} else {
+			future.fail(definirAsync.cause());
+				}
+			});
+			return future;
+		} catch(Exception e) {
+			return Future.failedFuture(e);
+		}
+	}
+
+	public Future<Void> indexerPATCHCours(Cours o) {
+		Future<Void> future = Future.future();
+		try {
+			o.initLoinPourClasse(o.getRequeteSite_());
+			o.indexerPourClasse();
+				future.complete();
+			return future;
+		} catch(Exception e) {
+			return Future.failedFuture(e);
+		}
+	}
+
+	public void reponse200PATCHCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteFrFR requeteSite = listeCours.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeCours.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// GET //
+
+	@Override
+	public void getCours(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourCours(siteContexte, operationRequete);
+			rechercheCours(requeteSite, false, true, null, a -> {
+				if(a.succeeded()) {
+					ListeRecherche<Cours> listeCours = a.result();
+					reponse200GETCours(listeCours, b -> {
+						if(b.succeeded()) {
+							gestionnaireEvenements.handle(Future.succeededFuture(b.result()));
+						} else {
+							erreurCours(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurCours(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200GETCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteFrFR requeteSite = listeCours.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeCours.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			SolrDocumentList documentsSolr = listeCours.getSolrDocumentList();
+
+			if(listeCours.size() > 0) {
+				SolrDocument documentSolr = documentsSolr.get(0);
+				Cours o = listeCours.get(0);
+				Object entiteValeur;
+				Integer entiteNumero = 0;
+
+				w.l("{");
+
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getUtilisateurId();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				{
+					List<String> entiteValeurs = o.getClasseNomsCanoniques();
+					w.t(3, entiteNumero++ == 0 ? "" : ", ");
+					w.s("\"classeNomsCanoniques\": [");
+					int k = 0;
+					while(entiteValeur != null) {
+						if(k > 0)
+							w.s(", ");
+						w.s(", ");
+						w.s("\"");
+						w.s(((String)entiteValeur));
+						w.s("\"");
+						entiteValeur = entiteValeurs.iterator().hasNext() ? entiteValeurs.iterator().next() : null;
+					}
+					w.l("]");
+				}
+
+				entiteValeur = o.getClasseNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClasseNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getEstCours();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estCours\": ", entiteValeur);
+
+				entiteValeur = o.getEstLecon();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estLecon\": ", entiteValeur);
+
+				entiteValeur = o.getEstArticle();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estArticle\": ", entiteValeur);
+
+				entiteValeur = o.getCoursNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"coursNumero\": ", entiteValeur);
+
+				entiteValeur = o.getLeconNumero();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"leconNumero\": ", entiteValeur);
+
+				entiteValeur = o.getArticleH1_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH1_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleH1_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH1_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleH2_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH2_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleH2_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleH2_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArticleCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"articleCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageUri_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageUri_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageUri_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageUri_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageImageUri_enUS();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageImageUri_enUS\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageImageUri_frFR();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageImageUri_frFR\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageCree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH1();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH1\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH2();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH2\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageH3();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageH3\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getPageTitre();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageTitre\": ", w.qjs(entiteValeur));
+
+				w.l("}");
+			}
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// DELETE //
+
+	@Override
+	public void deleteCours(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourCours(siteContexte, operationRequete);
+			sqlCours(requeteSite, a -> {
+				if(a.succeeded()) {
+					rechercheCours(requeteSite, false, true, null, b -> {
+						if(b.succeeded()) {
+							ListeRecherche<Cours> listeCours = b.result();
+							supprimerDELETECours(requeteSite, c -> {
+								if(c.succeeded()) {
+									reponse200DELETECours(requeteSite, d -> {
+										if(d.succeeded()) {
+											SQLConnection connexionSql = requeteSite.getConnexionSql();
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurCours(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurCours(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
+										} else {
+											erreurCours(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurCours(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurCours(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurCours(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void supprimerDELETECours(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			String utilisateurId = requeteSite.getUtilisateurId();
+			Long pk = requeteSite.getRequetePk();
+
+			connexionSql.queryWithParams(
+					SiteContexteFrFR.SQL_supprimer
+					, new JsonArray(Arrays.asList(pk, Cours.class.getCanonicalName(), pk, pk, pk, pk))
+					, supprimerAsync
+			-> {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			});
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200DELETECours(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			ToutEcrivain w = ToutEcrivain.creer(requeteSite, buffer);
+			requeteSite.setW(w);
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
 	public String varIndexeCours(String entiteVar) {
 		switch(entiteVar) {
-			case "id":
-				return "id_indexed_string";
 			case "pk":
 				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
@@ -182,8 +909,6 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":

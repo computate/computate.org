@@ -143,18 +143,6 @@ public abstract class C001EnUSPageGen<DEV> extends C001EnUSGenPage {
 	public void htmlScriptsC001EnUSPage() {
 	}
 
-	//////////////
-	// htmlBody //
-	//////////////
-
-	@Override public void htmlBody() {
-		htmlBodyC001EnUSPage();
-		super.htmlBody();
-	}
-
-	public void htmlBodyC001EnUSPage() {
-	}
-
 	////////////////
 	// htmlScript //
 	////////////////
@@ -165,6 +153,18 @@ public abstract class C001EnUSPageGen<DEV> extends C001EnUSGenPage {
 	}
 
 	public void htmlScriptC001EnUSPage() {
+	}
+
+	//////////////
+	// htmlBody //
+	//////////////
+
+	@Override public void htmlBody() {
+		htmlBodyC001EnUSPage();
+		super.htmlBody();
+	}
+
+	public void htmlBodyC001EnUSPage() {
 	}
 
 	//////////

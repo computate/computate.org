@@ -158,6 +158,7 @@ public class C001EnUSGenApiServiceImpl implements C001EnUSGenApiService {
 			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
+			page.setListeC001(listeC001);
 			page.initLoinC001EnUSPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
@@ -166,8 +167,515 @@ public class C001EnUSGenApiServiceImpl implements C001EnUSGenApiService {
 		}
 	}
 
+	// Recherche //
+
+	@Override
+	public void rechercheC001(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001(siteContexte, operationRequete);
+			rechercheC001(requeteSite, false, true, null, a -> {
+				if(a.succeeded()) {
+					ListeRecherche<C001> listeC001 = a.result();
+					reponse200RechercheC001(listeC001, b -> {
+						if(b.succeeded()) {
+							gestionnaireEvenements.handle(Future.succeededFuture(b.result()));
+						} else {
+							erreurC001(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200RechercheC001(ListeRecherche<C001> listeC001, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteEnUS requeteSite = listeC001.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			QueryResponse reponseRecherche = listeC001.getQueryResponse();
+			SolrDocumentList documentsSolr = listeC001.getSolrDocumentList();
+			Long millisRecherche = Long.valueOf(reponseRecherche.getQTime());
+			Long millisTransmission = reponseRecherche.getElapsedTime();
+			Long numCommence = reponseRecherche.getResults().getStart();
+			Long numTrouve = reponseRecherche.getResults().getNumFound();
+			Integer numRetourne = reponseRecherche.getResults().size();
+			String tempsRecherche = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisRecherche), TimeUnit.MILLISECONDS.toMillis(millisRecherche) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(millisRecherche)));
+			String tempsTransmission = String.format("%d.%03d sec", TimeUnit.MILLISECONDS.toSeconds(millisTransmission), TimeUnit.MILLISECONDS.toMillis(millisTransmission) - TimeUnit.SECONDS.toSeconds(TimeUnit.MILLISECONDS.toSeconds(millisTransmission)));
+			Exception exceptionRecherche = reponseRecherche.getException();
+
+			w.l("{");
+			w.tl(1, "\"numCommence\": ", numCommence);
+			w.tl(1, ", \"numTrouve\": ", numTrouve);
+			w.tl(1, ", \"numRetourne\": ", numRetourne);
+			w.tl(1, ", \"tempsRecherche\": ", w.q(tempsRecherche));
+			w.tl(1, ", \"tempsTransmission\": ", w.q(tempsTransmission));
+			w.tl(1, ", \"liste\": [");
+			for(int i = 0; i < listeC001.size(); i++) {
+				C001 o = listeC001.getList().get(i);
+				Object entiteValeur;
+				Integer entiteNumero = 0;
+
+				w.t(2);
+				if(i > 0)
+					w.s(", ");
+				w.l("{");
+
+				w.tl(2, "}");
+			}
+			w.tl(1, "]");
+			if(exceptionRecherche != null) {
+				w.tl(1, ", \"exceptionRecherche\": ", w.q(exceptionRecherche.getMessage()));
+			}
+			w.l("}");
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// POST //
+
+	@Override
+	public void postC001(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001(siteContexte, operationRequete, body);
+			sqlC001(requeteSite, a -> {
+				if(a.succeeded()) {
+					creerPOSTC001(requeteSite, b -> {
+						if(b.succeeded()) {
+							C001 c001 = b.result();
+							sqlPOSTC001(c001, c -> {
+								if(c.succeeded()) {
+									definirC001(c001, d -> {
+										if(d.succeeded()) {
+											attribuerC001(c001, e -> {
+												if(e.succeeded()) {
+													indexerC001(c001, f -> {
+														if(f.succeeded()) {
+															reponse200POSTC001(c001, g -> {
+																if(f.succeeded()) {
+																	SQLConnection connexionSql = requeteSite.getConnexionSql();
+																	connexionSql.commit(h -> {
+																		if(a.succeeded()) {
+																			connexionSql.close(i -> {
+																				if(a.succeeded()) {
+																					gestionnaireEvenements.handle(Future.succeededFuture(g.result()));
+																				} else {
+																					erreurC001(requeteSite, gestionnaireEvenements, i);
+																				}
+																			});
+																		} else {
+																			erreurC001(requeteSite, gestionnaireEvenements, h);
+																		}
+																	});
+																} else {
+																	erreurC001(requeteSite, gestionnaireEvenements, g);
+																}
+															});
+														} else {
+															erreurC001(requeteSite, gestionnaireEvenements, f);
+														}
+													});
+												} else {
+													erreurC001(requeteSite, gestionnaireEvenements, e);
+												}
+											});
+										} else {
+											erreurC001(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurC001(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurC001(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void creerPOSTC001(RequeteSiteEnUS requeteSite, Handler<AsyncResult<C001>> gestionnaireEvenements) {
+		try {
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			String utilisateurId = requeteSite.getUtilisateurId();
+
+			connexionSql.queryWithParams(
+					SiteContexteEnUS.SQL_creer
+					, new JsonArray(Arrays.asList(C001.class.getCanonicalName(), utilisateurId))
+					, creerAsync
+			-> {
+				JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
+				Long pk = creerLigne.getLong(0);
+				C001 o = new C001();
+				o.setPk(pk);
+				o.initLoinC001(requeteSite);
+				gestionnaireEvenements.handle(Future.succeededFuture(o));
+			});
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public void sqlPOSTC001(C001 o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			Long pk = o.getPk();
+			JsonObject jsonObject = requeteSite.getObjetJson();
+			StringBuilder postSql = new StringBuilder();
+			List<Object> postSqlParams = new ArrayList<Object>();
+
+			if(jsonObject != null) {
+				Set<String> entiteVars = jsonObject.fieldNames();
+				for(String entiteVar : entiteVars) {
+					switch(entiteVar) {
+					}
+				}
+			}
+			connexionSql.queryWithParams(
+					postSql.toString()
+					, new JsonArray(postSqlParams)
+					, postAsync
+			-> {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			});
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200POSTC001(C001 o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(o.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// PATCH //
+
+	@Override
+	public void patchC001(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001(siteContexte, operationRequete, body);
+			sqlC001(requeteSite, a -> {
+				if(a.succeeded()) {
+					utilisateurC001(requeteSite, b -> {
+						if(b.succeeded()) {
+							rechercheC001(requeteSite, false, true, null, c -> {
+								if(c.succeeded()) {
+									ListeRecherche<C001> listeC001 = c.result();
+									listePATCHC001(listeC001, d -> {
+										if(d.succeeded()) {
+											SQLConnection connexionSql = requeteSite.getConnexionSql();
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurC001(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurC001(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
+										} else {
+											erreurC001(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurC001(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurC001(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void listePATCHC001(ListeRecherche<C001> listeC001, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		List<Future> futures = new ArrayList<>();
+		listeC001.getList().forEach(o -> {
+			futures.add(
+				sqlPATCHC001(o).compose(
+					a -> definirPATCHC001(a).compose(
+						b -> indexerPATCHC001(b)
+					)
+				)
+			);
+		});
+		CompositeFuture.all(futures).setHandler( a -> {
+			if(a.succeeded()) {
+				reponse200PATCHC001(listeC001, gestionnaireEvenements);
+			} else {
+				erreurC001(listeC001.getRequeteSite_(), gestionnaireEvenements, a);
+			}
+		});
+	}
+
+	public Future<C001> sqlPATCHC001(C001 o) {
+		Future<C001> future = Future.future();
+		try {
+			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			Long pk = o.getPk();
+			JsonObject requeteJson = requeteSite.getObjetJson();
+			StringBuilder patchSql = new StringBuilder();
+			List<Object> patchSqlParams = new ArrayList<Object>();
+			Set<String> methodeNoms = requeteJson.fieldNames();
+			C001 o2 = new C001();
+
+			patchSql.append(SiteContexteEnUS.SQL_modifier);
+			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.enUS.cours.c001.C001"));
+			for(String methodeNom : methodeNoms) {
+				switch(methodeNom) {
+				}
+			}
+			connexionSql.queryWithParams(
+					patchSql.toString()
+					, new JsonArray(patchSqlParams)
+					, patchAsync
+			-> {
+				o2.setRequeteSite_(o.getRequeteSite_());
+				o2.setPk(pk);
+				future.complete(o2);
+			});
+			return future;
+		} catch(Exception e) {
+			return Future.failedFuture(e);
+		}
+	}
+
+	public Future<C001> definirPATCHC001(C001 o) {
+		Future<C001> future = Future.future();
+		try {
+			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			Long pk = o.getPk();
+			connexionSql.queryWithParams(
+					SiteContexteEnUS.SQL_definir
+					, new JsonArray(Arrays.asList(pk, pk, pk))
+					, definirAsync
+			-> {
+				if(definirAsync.succeeded()) {
+					for(JsonArray definition : definirAsync.result().getResults()) {
+						o.definirPourClasse(definition.getString(0), definition.getString(1));
+					}
+					future.complete(o);
+				} else {
+			future.fail(definirAsync.cause());
+				}
+			});
+			return future;
+		} catch(Exception e) {
+			return Future.failedFuture(e);
+		}
+	}
+
+	public Future<Void> indexerPATCHC001(C001 o) {
+		Future<Void> future = Future.future();
+		try {
+			o.initLoinPourClasse(o.getRequeteSite_());
+			o.indexerPourClasse();
+				future.complete();
+			return future;
+		} catch(Exception e) {
+			return Future.failedFuture(e);
+		}
+	}
+
+	public void reponse200PATCHC001(ListeRecherche<C001> listeC001, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteEnUS requeteSite = listeC001.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// GET //
+
+	@Override
+	public void getC001(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001(siteContexte, operationRequete);
+			rechercheC001(requeteSite, false, true, null, a -> {
+				if(a.succeeded()) {
+					ListeRecherche<C001> listeC001 = a.result();
+					reponse200GETC001(listeC001, b -> {
+						if(b.succeeded()) {
+							gestionnaireEvenements.handle(Future.succeededFuture(b.result()));
+						} else {
+							erreurC001(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200GETC001(ListeRecherche<C001> listeC001, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			RequeteSiteEnUS requeteSite = listeC001.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001.getRequeteSite_(), buffer);
+			requeteSite.setW(w);
+			SolrDocumentList documentsSolr = listeC001.getSolrDocumentList();
+
+			if(listeC001.size() > 0) {
+				SolrDocument documentSolr = documentsSolr.get(0);
+				C001 o = listeC001.get(0);
+				Object entiteValeur;
+				Integer entiteNumero = 0;
+
+				w.l("{");
+
+				w.l("}");
+			}
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	// DELETE //
+
+	@Override
+	public void deleteC001(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001(siteContexte, operationRequete);
+			sqlC001(requeteSite, a -> {
+				if(a.succeeded()) {
+					rechercheC001(requeteSite, false, true, null, b -> {
+						if(b.succeeded()) {
+							ListeRecherche<C001> listeC001 = b.result();
+							supprimerDELETEC001(requeteSite, c -> {
+								if(c.succeeded()) {
+									reponse200DELETEC001(requeteSite, d -> {
+										if(d.succeeded()) {
+											SQLConnection connexionSql = requeteSite.getConnexionSql();
+											if(connexionSql == null) {
+												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+											} else {
+												connexionSql.commit(e -> {
+													if(e.succeeded()) {
+														connexionSql.close(f -> {
+															if(f.succeeded()) {
+																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
+															} else {
+																erreurC001(requeteSite, gestionnaireEvenements, f);
+															}
+														});
+													} else {
+														erreurC001(requeteSite, gestionnaireEvenements, e);
+													}
+												});
+											}
+										} else {
+											erreurC001(requeteSite, gestionnaireEvenements, d);
+										}
+									});
+								} else {
+									erreurC001(requeteSite, gestionnaireEvenements, c);
+								}
+							});
+						} else {
+							erreurC001(requeteSite, gestionnaireEvenements, b);
+						}
+					});
+				} else {
+					erreurC001(requeteSite, gestionnaireEvenements, a);
+				}
+			});
+		} catch(Exception e) {
+			erreurC001(null, gestionnaireEvenements, Future.failedFuture(e));
+		}
+	}
+
+	public void supprimerDELETEC001(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			SQLConnection connexionSql = requeteSite.getConnexionSql();
+			String utilisateurId = requeteSite.getUtilisateurId();
+			Long pk = requeteSite.getRequetePk();
+
+			connexionSql.queryWithParams(
+					SiteContexteEnUS.SQL_supprimer
+					, new JsonArray(Arrays.asList(pk, C001.class.getCanonicalName(), pk, pk, pk, pk))
+					, supprimerAsync
+			-> {
+				gestionnaireEvenements.handle(Future.succeededFuture());
+			});
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
+	public void reponse200DELETEC001(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		try {
+			Buffer buffer = Buffer.buffer();
+			ToutEcrivain w = ToutEcrivain.creer(requeteSite, buffer);
+			requeteSite.setW(w);
+			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
+		} catch(Exception e) {
+			gestionnaireEvenements.handle(Future.failedFuture(e));
+		}
+	}
+
 	public String varIndexeC001(String entiteVar) {
 		switch(entiteVar) {
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "utilisateurId":
+				return "utilisateurId_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -206,22 +714,8 @@ public class C001EnUSGenApiServiceImpl implements C001EnUSGenApiService {
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
+			case "siteNomDomaine":
+				return "siteNomDomaine_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

@@ -135,8 +135,8 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-conveyor-belt-alt
-	 * Val.H3Span.frFR:Comment installer les dépendences pour PostgreSQL ? 
-	 * Val.H3Span.enUS:How do I install the dependencies for PostgreSQL? 
+	 * Val.H3Span.frFR:Comment installer les dépendences pour certbot ? 
+	 * Val.H3Span.enUS:How do I install the dependencies for certbot? 
 	 * Val.H4I:far fa-cookie
 	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
 	 * Val.H4Span.enUS:Build the dependencies with yum. 
@@ -144,7 +144,7 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.Pre1Span2: yum
 	 * Val.Pre1Span3: install
 	 * Val.Pre1Span4: -y
-	 * Val.Pre1Span5: postgresql
+	 * Val.Pre1Span5: epel-release
 	 * 
 	 * Val.Ol2Li1.frFR:sudo: La commande pour installer des dépots yum commence par la commande sudo. 
 	 * Val.Ol2Li1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
@@ -159,8 +159,8 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.Ol2Li3.enUS:install: For installing new yum packages. 
 	 * Val.Ol2Li4.frFR:-y : Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
 	 * Val.Ol2Li4.enUS:-y: Suppress messages asking to confirm if you want to install the software. 
-	 * Val.Ol2Li5.frFR:certbot : Nom du paquet des packages supplémentaires pour le référentiel Enterprise Linux. 
-	 * Val.Ol2Li5.enUS:certbot: The package name of the Extra Packages for Enterprise Linux repository. 
+	 * Val.Ol2Li5.frFR:epel-release : Nom du paquet des packages supplémentaires pour le référentiel Enterprise Linux. 
+	 * Val.Ol2Li5.enUS:epel-release: The package name of the Extra Packages for Enterprise Linux repository. 
 	 * 
 	 * 
 	 * Val.Pre3Span1:sudo
@@ -189,36 +189,36 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.H4I:far fa-folder-tree
 	 * Val.H4Span.frFR:Créez un répertoire certbot dans /srv. 
 	 * Val.H4Span.enUS:Create a pgsql directory in /srv. 
-	 * Val.PreSpan1:sudo
-	 * Val.PreSpan2: install
-	 * Val.PreSpan3: -d
-	 * Val.PreSpan4: -o
-	 * Val.PreSpan5: $USER
-	 * Val.PreSpan6: -g
-	 * Val.PreSpan7: $USER
-	 * Val.PreSpan6: -m
-	 * Val.PreSpan7: rwxr-xr-x
-	 * Val.PreSpan8: /srv/certbot
+	 * Val.PreSpan01:sudo
+	 * Val.PreSpan02: install
+	 * Val.PreSpan03: -d
+	 * Val.PreSpan04: -o
+	 * Val.PreSpan05: $USER
+	 * Val.PreSpan06: -g
+	 * Val.PreSpan07: $USER
+	 * Val.PreSpan08: -m
+	 * Val.PreSpan09: 700
+	 * Val.PreSpan10: /srv/certbot
 	 * 
-	 * Val.Ol2Li1:sudo
-	 * Val.Ol2Li2.frFR:install : Crée des répertoires et définit des attributs sur le nouveau répertoire. 
-	 * Val.Ol2Li2.enUS:install: Creates directories and sets attributes on the new directory. 
-	 * Val.Ol2Li3.frFR:-d : Créez tous les composants des répertoires spécifiés. 
-	 * Val.Ol2Li3.enUS:-d: Create  directories. 
-	 * Val.Ol2Li4.frFR:-o : Définir la propriété sur le répertoire (super-utilisateur uniquement). 
-	 * Val.Ol2Li4.enUS:-o: Set ownership on the directory (super-user only). 
-	 * Val.Ol2Li5.frFR:$USER : L'utilisateur actuel à rendre le propriétaire du répertoire. 
-	 * Val.Ol2Li5.enUS:$USER: The current user to make the owner of the directory. 
-	 * Val.Ol2Li6.frFR:-g : Définir la propriété du groupe sur le répertoire (super-utilisateur uniquement). 
-	 * Val.Ol2Li6.enUS:-g: Set group ownership on the directory (super-user only). 
-	 * Val.Ol2Li7.frFR:$USER : L'utilisateur actuel à rendre le propriétaire du groupe du répertoire. 
-	 * Val.Ol2Li7.enUS:$USER: The current user to make the group owner of the directory. 
-	 * Val.Ol2Li6.frFR:-m : Définir la propriété du groupe sur le répertoire (super-utilisateur uniquement). 
-	 * Val.Ol2Li6.enUS:-m: Set group ownership on the directory (super-user only). 
-	 * Val.Ol2Li7.frFR:700 : Accordez des autorisations de lecture, d'écriture et d'exécution à l'utilisateur du répertoire uniquement. 
-	 * Val.Ol2Li7.enUS:700: Give read, write and execute permissions to only the user of the directory. 
-	 * Val.Ol2Li8.frFR:/srv est un bon endroit pour installer des serveurs logicielles open source et vos certificats, clés et magasins de clés. 
-	 * Val.Ol2Li8.enUS:/srv is a good place to install open source software serveurs and your certificates, keys and keystores. 
+	 * Val.Ol2Li01:sudo
+	 * Val.Ol2Li02.frFR:install : Crée des répertoires et définit des attributs sur le nouveau répertoire. 
+	 * Val.Ol2Li02.enUS:install: Creates directories and sets attributes on the new directory. 
+	 * Val.Ol2Li03.frFR:-d : Créez tous les composants des répertoires spécifiés. 
+	 * Val.Ol2Li03.enUS:-d: Create  directories. 
+	 * Val.Ol2Li04.frFR:-o : Définir la propriété sur le répertoire (super-utilisateur uniquement). 
+	 * Val.Ol2Li04.enUS:-o: Set ownership on the directory (super-user only). 
+	 * Val.Ol2Li05.frFR:$USER : L'utilisateur actuel à rendre le propriétaire du répertoire. 
+	 * Val.Ol2Li05.enUS:$USER: The current user to make the owner of the directory. 
+	 * Val.Ol2Li06.frFR:-g : Définir la propriété du groupe sur le répertoire (super-utilisateur uniquement). 
+	 * Val.Ol2Li06.enUS:-g: Set group ownership on the directory (super-user only). 
+	 * Val.Ol2Li07.frFR:$USER : L'utilisateur actuel à rendre le propriétaire du groupe du répertoire. 
+	 * Val.Ol2Li07.enUS:$USER: The current user to make the group owner of the directory. 
+	 * Val.Ol2Li08.frFR:-m : Définir la propriété du groupe sur le répertoire (super-utilisateur uniquement). 
+	 * Val.Ol2Li08.enUS:-m: Set group ownership on the directory (super-user only). 
+	 * Val.Ol2Li09.frFR:700 : Accordez des autorisations de lecture, d'écriture et d'exécution à l'utilisateur du répertoire uniquement. 
+	 * Val.Ol2Li09.enUS:700: Give read, write and execute permissions to only the user of the directory. 
+	 * Val.Ol2Li10.frFR:/srv est un bon endroit pour installer des serveurs logicielles open source et vos certificats, clés et magasins de clés. 
+	 * Val.Ol2Li10.enUS:/srv is a good place to install open source software serveurs and your certificates, keys and keystores. 
 	 */  
 	protected void _questionMkdirSrv(PageHtml o) {
 	}

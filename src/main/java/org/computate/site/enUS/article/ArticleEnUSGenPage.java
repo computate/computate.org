@@ -95,7 +95,7 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 	}
 
 	@Override public void htmlScriptsArticleEnUSGenPage() {
-		e("script").a("src", "/static/js/ArticleEnUSGenPage.js").f().g("script");
+		e("script").a("src", "/static/js/ArticleEnUSPage.js").f().g("script");
 	}
 
 	@Override public void htmlScriptArticleEnUSGenPage() {
@@ -257,6 +257,100 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 			} g("div");
 		}
 		e("div").f();
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#postArticleModale').show(); ")
+			.f().sx("Créer an article")
+		.g("button");
+		{ e("div").a("id", "postArticleModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#postArticleModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Créer an article").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					Article o = new Article();
+
+					{ e("form").a("id", "postArticleForm").f();
+						htmlFormPOSTArticle(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "postArticle($('#postArticleForm')); ")
+						.f().sx("Créer an article")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#patchArticleModale').show(); ")
+			.f().sx("Modifier des articles")
+		.g("button");
+		{ e("div").a("id", "patchArticleModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchArticleModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Modifier des articles").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					Article o = new Article();
+
+					{ e("form").a("id", "patchArticleFormFiltres").f();
+						htmlFormRechercheArticle(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "rechercheArticle($('#patchArticleFormFiltres')); ")
+						.f().sx("Modifier des articles")
+					.g("button");
+
+
+					{ e("form").a("id", "patchArticleFormValeurs").f();
+						htmlFormPATCHArticle(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "patchArticle($('#patchArticleFormFiltres'), $('#patchArticleFormValeurs')); ")
+						.f().sx("Modifier des articles")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#deleteArticleModale').show(); ")
+			.f().sx("Supprimer des articles")
+		.g("button");
+		{ e("div").a("id", "deleteArticleModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#deleteArticleModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Supprimer des articles").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					Article o = new Article();
+
+					{ e("form").a("id", "deleteArticleForm").f();
+						htmlFormPATCHArticle(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "deleteArticle(); ")
+						.f().sx("Supprimer des articles")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
 
 		g("div");
 	}
