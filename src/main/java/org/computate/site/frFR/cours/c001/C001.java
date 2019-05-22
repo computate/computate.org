@@ -10,11 +10,6 @@ import org.computate.site.frFR.couverture.Couverture;
  * ApiUri: /api/cours/c001
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
- * ApiMethode: Recherche
- * ApiMethode: POST
- * ApiMethode: PATCH
- * ApiMethode: GET
- * ApiMethode: DELETE
  * ApiUriRechercheFrFRPage: /frFR/cours/001
  * ApiUriRechercheEnUSPage: /enUS/course/001
  * PageRechercheFrFRPage: C001FrFRPage
@@ -40,7 +35,6 @@ import org.computate.site.frFR.couverture.Couverture;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
- * Page: true
 */ 
 public class C001 extends C001Gen<Cours> {    
 
@@ -80,17 +74,5 @@ public class C001 extends C001Gen<Cours> {
 
 	public void htmlBody() {
 		super.htmlBody();
-	}
-
-	/**
-	 * Indexe: true
-	 * Stocke: true
-	 * HtmlLigne: 1
-	 * NomAffichage.frFR:nom de domaine
-	 * NomAffichage.enUS:domain name
-	 * Description.frFR:Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. 
-	 * Description.enUS:A domain name is your website name. A domain name is the address where Internet users can access your website. 
-	 */ 
-	protected void _siteNomDomaine(Couverture<String> c) {
 	}
 }

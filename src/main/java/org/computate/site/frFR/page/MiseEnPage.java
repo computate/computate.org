@@ -462,7 +462,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	protected void _pageDeconnexionUri(Couverture<String> c)  {
 		try {
 			ConfigSite configSite = requeteSite_.getConfigSite_();
-			String o = configSite.getAuthUrl() + "/realms/" + configSite.getAuthRessource() + "/protocol/openid-connect/logout?redirect_uri=" + URLEncoder.encode(configSite.getSiteUrlBase() + "/deconnexion", "UTF-8");
+			String o = configSite.getAuthUrl() + "/realms/" + configSite.getAuthRoyaume() + "/protocol/openid-connect/logout?redirect_uri=" + URLEncoder.encode(configSite.getSiteUrlBase() + "/deconnexion", "UTF-8");
 			c.o(o);
 		} catch (UnsupportedEncodingException e) {
 			ExceptionUtils.rethrow(e);

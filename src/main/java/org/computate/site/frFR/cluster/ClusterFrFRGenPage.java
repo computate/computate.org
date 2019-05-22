@@ -5,10 +5,10 @@ import java.util.List;
 import org.computate.site.frFR.page.parti.PagePart;
 import java.lang.Long;
 import java.lang.String;
-import java.lang.Boolean;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.lang.Boolean;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
@@ -18,8 +18,8 @@ import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
 import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.couverture.Couverture;
+import java.time.LocalDateTime;
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.api.OperationRequest;
 import io.vertx.core.json.JsonArray;
@@ -89,13 +89,57 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 		e("script").a("src", "/static/js/ClusterFrFRPage.js").f().g("script");
 	}
 
+	protected void _pageUriCluster(Couverture<String> c) {
+			c.o("/frFR/cluster");
+	}
+
 	@Override public void htmlScriptClusterFrFRGenPage() {
 	}
 
 	public void htmlFormPageCluster(Cluster o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/cluster").a("id", "archiveForm").a("style", "display: inline-block; ").f();
+					e("input")
+						.a("type", "hidden")
+						.a("name", "archive")
+						.a("id", "Page_archive")
+						.a("value", "false")
+					.fg();
+
+					e("input")
+						.a("type", "checkbox")
+						.a("value", "true")
+						.a("class", "setArchive")
+						.a("name", "setArchive")
+						.a("id", "Page_archive")
+						.a("onchange", "patchCluster($('#ClusterForm'), $('#archiveForm')); ")
+						;
+						if(o.getArchive() != null && o.getArchive())
+							a("checked", "checked");
+					fg();
+
+					e("label").a("for", "Page_archive").a("class", "").f().sx("archivé").g("label");
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/cluster").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
 					e("input")
 						.a("type", "hidden")
 						.a("name", "supprime")
@@ -115,59 +159,7 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 							a("checked", "checked");
 					fg();
 
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("Supprimé").g("label");
-				} g("form");
-			} g("div");
-		} g("div");
-		{ e("div").a("class", "w3-cell-row ").f();
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "creeForm").a("style", "display: inline-block; ").f();
-					LocalDateTime val = o.getCree();
-
-					e("label").a("for", "Page_cree").a("class", "").f().sx("Crée").g("label");
-					e("input")
-						.a("type", "text")
-						.a("class", "w3-input w3-border datepicker ")
-						.a("placeholder", "DD-MM-YYYY")
-						.a("data-timeformat", "DD-MM-YYYY")
-						.a("onclick", "enleverLueur($(this)); ")
-						.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-						.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-						.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-						.fg();
-					e("input")
-						.a("type", "hidden")
-						.a("class", "setCree")
-						.a("name", "setCree")
-						.a("id", "Page_cree")
-						.a("onchange", "patchCluster($('#ClusterForm'), $('#creeForm')); ")
-						.a("value", o.strCree())
-					.fg();
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "modifieForm").a("style", "display: inline-block; ").f();
-					LocalDateTime val = o.getModifie();
-
-					e("label").a("for", "Page_modifie").a("class", "").f().sx("Modifié").g("label");
-					e("input")
-						.a("type", "text")
-						.a("class", "w3-input w3-border datepicker ")
-						.a("placeholder", "DD-MM-YYYY")
-						.a("data-timeformat", "DD-MM-YYYY")
-						.a("onclick", "enleverLueur($(this)); ")
-						.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-						.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-						.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-						.fg();
-					e("input")
-						.a("type", "hidden")
-						.a("class", "setModifie")
-						.a("name", "setModifie")
-						.a("id", "Page_modifie")
-						.a("onchange", "patchCluster($('#ClusterForm'), $('#modifieForm')); ")
-						.a("value", o.strModifie())
-					.fg();
+					e("label").a("for", "Page_supprime").a("class", "").f().sx("supprimé").g("label");
 				} g("form");
 			} g("div");
 		} g("div");
@@ -175,6 +167,43 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 
 	public void htmlFormPOSTCluster(Cluster o) {
 		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("input")
+					.a("type", "hidden")
+					.a("name", "archive")
+					.a("id", "POST_archive")
+					.a("value", "false")
+				.fg();
+
+				e("input")
+					.a("type", "checkbox")
+					.a("value", "true")
+					.a("class", "valeurArchive")
+					.a("name", "archive")
+					.a("id", "POST_archive")
+					;
+					if(o.getArchive() != null && o.getArchive())
+						a("checked", "checked");
+				fg();
+
+				e("label").a("for", "POST_archive").a("class", "").f().sx("archivé").g("label");
+			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
@@ -194,53 +223,7 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 						a("checked", "checked");
 				fg();
 
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("Supprimé").g("label");
-			} g("div");
-		} g("div");
-		{ e("div").a("class", "w3-cell-row ").f();
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "POST_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurCree")
-					.a("name", "cree")
-					.a("id", "POST_cree")
-					.a("value", o.strCree())
-				.fg();
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getModifie();
-
-				e("label").a("for", "POST_modifie").a("class", "").f().sx("Modifié").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurModifie")
-					.a("name", "modifie")
-					.a("id", "POST_modifie")
-					.a("value", o.strModifie())
-				.fg();
+				e("label").a("for", "POST_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 	}
@@ -248,48 +231,62 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormPATCHCluster(Cluster o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "PATCH_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "setCree")
-					.a("name", "setCree")
-					.a("id", "PATCH_cree")
-					.a("value", o.strCree())
-				.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getModifie();
-
-				e("label").a("for", "PATCH_modifie").a("class", "").f().sx("Modifié").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
-					.a("class", "setModifie")
-					.a("name", "setModifie")
-					.a("id", "PATCH_modifie")
-					.a("value", o.strModifie())
+					.a("name", "archive")
+					.a("id", "PATCH_archive")
+					.a("value", "false")
 				.fg();
+
+				e("input")
+					.a("type", "checkbox")
+					.a("value", "true")
+					.a("class", "setArchive")
+					.a("name", "setArchive")
+					.a("id", "PATCH_archive")
+					;
+					if(o.getArchive() != null && o.getArchive())
+						a("checked", "checked");
+				fg();
+
+				e("label").a("for", "PATCH_archive").a("class", "").f().sx("archivé").g("label");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("input")
+					.a("type", "hidden")
+					.a("name", "supprime")
+					.a("id", "PATCH_supprime")
+					.a("value", "false")
+				.fg();
+
+				e("input")
+					.a("type", "checkbox")
+					.a("value", "true")
+					.a("class", "setSupprime")
+					.a("name", "setSupprime")
+					.a("id", "PATCH_supprime")
+					;
+					if(o.getSupprime() != null && o.getSupprime())
+						a("checked", "checked");
+				fg();
+
+				e("label").a("for", "PATCH_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 	}
@@ -297,48 +294,62 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormRechercheCluster(Cluster o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "Recherche_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurCree")
-					.a("name", "cree")
-					.a("id", "Recherche_cree")
-					.a("value", o.strCree())
-				.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getModifie();
-
-				e("label").a("for", "Recherche_modifie").a("class", "").f().sx("Modifié").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
-					.a("class", "valeurModifie")
-					.a("name", "modifie")
-					.a("id", "Recherche_modifie")
-					.a("value", o.strModifie())
+					.a("name", "archive")
+					.a("id", "Recherche_archive")
+					.a("value", "false")
 				.fg();
+
+				e("input")
+					.a("type", "checkbox")
+					.a("value", "true")
+					.a("class", "valeurArchive")
+					.a("name", "archive")
+					.a("id", "Recherche_archive")
+					;
+					if(o.getArchive() != null && o.getArchive())
+						a("checked", "checked");
+				fg();
+
+				e("label").a("for", "Recherche_archive").a("class", "").f().sx("archivé").g("label");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("input")
+					.a("type", "hidden")
+					.a("name", "supprime")
+					.a("id", "Recherche_supprime")
+					.a("value", "false")
+				.fg();
+
+				e("input")
+					.a("type", "checkbox")
+					.a("value", "true")
+					.a("class", "valeurSupprime")
+					.a("name", "supprime")
+					.a("id", "Recherche_supprime")
+					;
+					if(o.getSupprime() != null && o.getSupprime())
+						a("checked", "checked");
+				fg();
+
+				e("label").a("for", "Recherche_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 	}
@@ -348,24 +359,25 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeCluster == null || listeCluster.size() == 0) {
-			//
+			// contexteAucunNomTrouve : 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
-		} else if(listeCluster != null && listeCluster.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
-			// 
+		} else if(listeCluster != null && listeCluster.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
+			// contexteUnNom : 
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
 						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx("").g("span");
 				} g("h1");
+				Cluster o = listeCluster.get(0);
 			}
 		} else {
-			// plusiers 
+			// contexteNomPluriel : plusiers 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
@@ -391,13 +403,13 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 			} g("table");
 		}
 
-		if(listeCluster != null && listeCluster.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeCluster != null && listeCluster.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			Cluster o = listeCluster.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("id", "ClusterForm").a("style", "display: inline-block; ").f();
+					{ e("form").a("action", "/api/cluster").a("id", "ClusterForm").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")
@@ -427,7 +439,8 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "w3-container ").f();
 					Cluster o = new Cluster();
 
-					{ e("form").a("id", "postClusterForm").f();
+					// Form POST
+					{ e("form").a("action", "/api/cluster").a("id", "postClusterForm").f();
 						htmlFormPOSTCluster(o);
 					} g("form");
 					e("button")
@@ -455,17 +468,19 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "w3-container ").f();
 					Cluster o = new Cluster();
 
-					{ e("form").a("id", "patchClusterFormFiltres").f();
+					// FormFiltres PATCH
+					{ e("form").a("action", "/api/cluster").a("id", "patchClusterFormFiltres").f();
 						htmlFormRechercheCluster(o);
 					} g("form");
 					e("button")
 						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3- ")
 						.a("onclick", "rechercheCluster($('#patchClusterFormFiltres')); ")
-						.f().sx("Modifier des null")
+						.f().sx("Rechercher des null")
 					.g("button");
 
 
-					{ e("form").a("id", "patchClusterFormValeurs").f();
+					// FormValeurs PATCH
+					{ e("form").a("action", "/api/cluster").a("id", "patchClusterFormValeurs").f();
 						htmlFormPATCHCluster(o);
 					} g("form");
 					e("button")
@@ -493,7 +508,8 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "w3-container ").f();
 					Cluster o = new Cluster();
 
-					{ e("form").a("id", "deleteClusterForm").f();
+					// Form DELETE
+					{ e("form").a("action", "/api/cluster").a("id", "deleteClusterForm").f();
 						htmlFormPATCHCluster(o);
 					} g("form");
 					e("button")

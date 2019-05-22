@@ -8,6 +8,7 @@ import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.page.MiseEnPage;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.apache.commons.text.StringEscapeUtils;
+import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.cluster.Cluster;
 
@@ -93,6 +94,62 @@ public abstract class ClusterEnUSGenPageGen<DEV> extends MiseEnPage {
 		return (ClusterEnUSGenPage)this;
 	}
 
+	////////////////////
+	// pageUriCluster //
+	////////////////////
+
+	/**	L'entité « pageUriCluster »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUriCluster;
+	public Couverture<String> pageUriClusterCouverture = new Couverture<String>().p(this).c(String.class).var("pageUriCluster").o(pageUriCluster);
+
+	/**	<br/>L'entité « pageUriCluster »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.ClusterEnUSGenPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUriCluster">Trouver l'entité pageUriCluster dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUriCluster(Couverture<String> c);
+
+	public String getPageUriCluster() {
+		return pageUriCluster;
+	}
+
+	public void setPageUriCluster(String pageUriCluster) {
+		this.pageUriCluster = pageUriCluster;
+		this.pageUriClusterCouverture.dejaInitialise = true;
+	}
+	protected ClusterEnUSGenPage pageUriClusterInit() {
+		if(!pageUriClusterCouverture.dejaInitialise) {
+			_pageUriCluster(pageUriClusterCouverture);
+			if(pageUriCluster == null)
+				setPageUriCluster(pageUriClusterCouverture.o);
+		}
+		pageUriClusterCouverture.dejaInitialise(true);
+		return (ClusterEnUSGenPage)this;
+	}
+
+	public String solrPageUriCluster() {
+		return pageUriCluster;
+	}
+
+	public String strPageUriCluster() {
+		return pageUriCluster == null ? "" : pageUriCluster;
+	}
+
+	public String nomAffichagePageUriCluster() {
+		return null;
+	}
+
+	public String htmTooltipPageUriCluster() {
+		return null;
+	}
+
+	public String htmPageUriCluster() {
+		return pageUriCluster == null ? "" : StringEscapeUtils.escapeHtml4(strPageUriCluster());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -116,6 +173,7 @@ public abstract class ClusterEnUSGenPageGen<DEV> extends MiseEnPage {
 	public void initClusterEnUSGenPage() {
 		listeClusterInit();
 		clusterInit();
+		pageUriClusterInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -162,6 +220,8 @@ public abstract class ClusterEnUSGenPageGen<DEV> extends MiseEnPage {
 				return oClusterEnUSGenPage.listeCluster;
 			case "cluster":
 				return oClusterEnUSGenPage.cluster;
+			case "pageUriCluster":
+				return oClusterEnUSGenPage.pageUriCluster;
 			default:
 				return super.obtenirMiseEnPage(var);
 		}

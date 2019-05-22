@@ -342,41 +342,13 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 				Set<String> entiteVars = jsonObject.fieldNames();
 				for(String entiteVar : entiteVars) {
 					switch(entiteVar) {
-					case "pk":
+					case "archive":
 						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("pk", jsonObject.getLong(entiteVar), pk));
-						break;
-					case "id":
-						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("id", jsonObject.getString(entiteVar), pk));
+						postSqlParams.addAll(Arrays.asList("archive", jsonObject.getBoolean(entiteVar), pk));
 						break;
 					case "supprime":
 						postSql.append(SiteContexteEnUS.SQL_setD);
 						postSqlParams.addAll(Arrays.asList("supprime", jsonObject.getBoolean(entiteVar), pk));
-						break;
-					case "utilisateurId":
-						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("utilisateurId", jsonObject.getString(entiteVar), pk));
-						break;
-					case "cree":
-						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("cree", jsonObject.getInstant(entiteVar), pk));
-						break;
-					case "modifie":
-						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("modifie", jsonObject.getInstant(entiteVar), pk));
-						break;
-					case "classeNomsCanoniques":
-						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("classeNomsCanoniques", jsonObject.get(entiteVar), pk));
-						break;
-					case "classeNomCanonique":
-						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("classeNomCanonique", jsonObject.getString(entiteVar), pk));
-						break;
-					case "classeNomSimple":
-						postSql.append(SiteContexteEnUS.SQL_setD);
-						postSqlParams.addAll(Arrays.asList("classeNomSimple", jsonObject.getString(entiteVar), pk));
 						break;
 					}
 				}
@@ -700,18 +672,20 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "archive":
+				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -889,6 +863,7 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 									utilisateurSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
 									utilisateurSite.setUtilisateurId(principalJson.getString("sub"));
 									utilisateurSite.initLoinPourClasse(requeteSite);
+									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {

@@ -1,6 +1,6 @@
 package org.computate.site.enUS.cluster;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
@@ -33,29 +33,30 @@ public class Cluster extends ClusterGen<Object> {
 			c.o(pk.toString());
 	}
 
+	protected void __created(Couverture<ZonedDateTime> c) {}
+
+	protected void __modified(Couverture<ZonedDateTime> c) {}
+
+	protected void _archive(Couverture<Boolean> c) {
+		c.o(false);
+	}
+
 	protected void _supprime(Couverture<Boolean> c) {
-		Boolean o = false;
-		c.o(o);
+		c.o(false);
 	}
 
-	protected void _utilisateurId(Couverture<String> c) {}
-
-	protected void _cree(Couverture<LocalDateTime> c) {}
-
-	protected void _modifie(Couverture<LocalDateTime> c) {}
-
-	protected void _classeNomsCanoniques(List<String> l) {
-		l.add(Cluster.class.getCanonicalName());
-	}
-
-	protected void _classeNomCanonique(Couverture<String> c) {
+	protected void __classCanonicalName(Couverture<String> c) {
 		String o = getClass().getCanonicalName();
 		c.o(o);
 	}
 
-	protected void _classeNomSimple(Couverture<String> c) {
+	protected void __classSimpleName(Couverture<String> c) {
 		String o = getClass().getSimpleName();
 		c.o(o);
+	}
+
+	protected void _classeNomsCanoniques(List<String> l) { 
+		l.add(Cluster.class.getCanonicalName());
 	}
 
 	public Cluster e(String nomLocal) {

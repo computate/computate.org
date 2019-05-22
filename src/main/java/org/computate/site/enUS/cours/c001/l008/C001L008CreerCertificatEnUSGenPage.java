@@ -97,7 +97,7 @@ public class C001L008CreerCertificatEnUSGenPage extends C001L008CreerCertificatE
 	}
 
 	@Override public void htmlScriptsC001L008CreerCertificatEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L008CreerCertificatEnUSGenPage.js").f().g("script");
+		e("script").a("src", "/static/js/C001L008CreerCertificatEnUSPage.js").f().g("script");
 	}
 
 

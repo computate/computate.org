@@ -1,12 +1,12 @@
 package org.computate.site.enUS.utilisateur;
 
+import java.lang.String;
 import java.util.List;
 import java.lang.Long;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
-import java.lang.String;
 import java.lang.Boolean;
-import org.computate.site.frFR.article.ArticleFrFRPage;
-import org.computate.site.enUS.article.ArticleEnUSPage;
+import org.computate.site.frFR.cluster.ClusterFrFRPage;
+import org.computate.site.enUS.cluster.ClusterEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import org.computate.site.enUS.utilisateur.UtilisateurSite;
@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * Traduire: false
  **/
-public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<ArticleEnUSPage> {
+public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<ClusterEnUSPage> {
 
 	/**
 	 * {@inheritDoc}
@@ -103,7 +103,11 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Ar
 	}
 
 	@Override public void htmlScriptsUtilisateurSiteEnUSGenPage() {
-		e("script").a("src", "/static/js/UtilisateurSiteEnUSGenPage.js").f().g("script");
+		e("script").a("src", "/static/js/UtilisateurSiteEnUSPage.js").f().g("script");
+	}
+
+	protected void _pageUriUtilisateurSite(Couverture<String> c) {
+			c.o("/enUS/user");
 	}
 
 	@Override public void htmlScriptUtilisateurSiteEnUSGenPage() {
@@ -126,24 +130,25 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Ar
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeUtilisateurSite == null || listeUtilisateurSite.size() == 0) {
-			//
+			// contexteAucunNomTrouve : 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
-		} else if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
-			// 
+		} else if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
+			// contexteUnNom : 
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
 						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx("").g("span");
 				} g("h1");
+				UtilisateurSite o = listeUtilisateurSite.get(0);
 			}
 		} else {
-			// plusiers 
+			// contexteNomPluriel : plusiers 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
@@ -169,13 +174,13 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Ar
 			} g("table");
 		}
 
-		if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			UtilisateurSite o = listeUtilisateurSite.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("id", "UtilisateurSiteForm").a("style", "display: inline-block; ").f();
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "UtilisateurSiteForm").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")
@@ -186,11 +191,52 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Ar
 					htmlFormPageUtilisateurSite(o);
 				}
 
-				o.htmlBody();
+				if(o != null)
+					o.htmlBody();
 
 			} g("div");
 		}
 		e("div").f();
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#patchUtilisateurSiteModale').show(); ")
+			.f().sx("Modifier des null")
+		.g("button");
+		{ e("div").a("id", "patchUtilisateurSiteModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchUtilisateurSiteModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Modifier des null").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					UtilisateurSite o = new UtilisateurSite();
+
+					// FormFiltres PATCH
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "patchUtilisateurSiteFormFiltres").f();
+						htmlFormRechercheUtilisateurSite(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "rechercheUtilisateurSite($('#patchUtilisateurSiteFormFiltres')); ")
+						.f().sx("Rechercher des null")
+					.g("button");
+
+
+					// FormValeurs PATCH
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "patchUtilisateurSiteFormValeurs").f();
+						htmlFormPATCHUtilisateurSite(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "patchUtilisateurSite($('#patchUtilisateurSiteFormFiltres'), $('#patchUtilisateurSiteFormValeurs')); ")
+						.f().sx("Modifier des null")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
 
 		g("div");
 	}

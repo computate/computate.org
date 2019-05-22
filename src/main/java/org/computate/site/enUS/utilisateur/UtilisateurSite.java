@@ -8,6 +8,18 @@ import org.computate.site.enUS.requete.RequeteSiteEnUS;
 
 public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 
+	@Override()
+	protected void  _classeNomsCanoniques(List<String> l) {
+		l.add(UtilisateurSite.class.getCanonicalName());
+		l.add(org.computate.site.enUS.utilisateur.UtilisateurSite.class.getCanonicalName());
+		super._classeNomsCanoniques(l);
+	}
+
+	protected void __userId(Couverture<String> c) {
+		String o = requeteSite_.getUtilisateurId();
+		c.o(o);
+	}
+
 	protected void _calculInrPks(List<Long> l) {
 	}
 
@@ -49,6 +61,9 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 
 	protected void _voirSupprime(Couverture<Boolean> c) {
 		c.o(false);
+	}
+
+	protected void _siteNomDomaine(Couverture<String> c) {
 	}
 
 	public void  htmlBody() {

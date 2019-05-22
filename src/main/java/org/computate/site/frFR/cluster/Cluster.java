@@ -1,6 +1,6 @@
 package org.computate.site.frFR.cluster;    
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
@@ -78,58 +78,67 @@ public class Cluster extends ClusterGen<Object> {
 			c.o(pk.toString());
 	}
 
-	/**        
+	/**
+	 * {@inheritDoc}
+	 * Indexe: true
+	 * Stocke: true
+	 * Var.enUS: _created
 	 * HtmlLigne: 1
-	 * Description.frFR: Supprimé. 
-	 * Description.enUS: Deleted. 
-	 * NomAffichage.frFR: Supprimé
-	 * NomAffichage.enUS: Deleted
-	 */
-	protected void _supprime(Couverture<Boolean> c) {
-		Boolean o = false;
-		c.o(o);
-	}
-
-	/**
-	 * Indexe: true
-	 * Stocke: true
-	 */
-	protected void _utilisateurId(Couverture<String> c) {}
-
-	/**
-	 * Indexe: true
-	 * Stocke: true
-	 * HtmlLigne: 2
 	 * Description.frFR: La date et l'heure créées. 
 	 * Description.enUS: The date and time created. 
-	 * NomAffichage.frFR: Crée
-	 * NomAffichage.enUS: Created
-	 */
-	protected void _cree(Couverture<LocalDateTime> c) {}
+	 * NomAffichage.frFR: crée
+	 * NomAffichage.enUS: created
+	 */ 
+	protected void _cree(Couverture<ZonedDateTime> c) {}
 
 	/**
+	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 * HtmlLigne: 2
+	 * Var.enUS: _modified
+	 * HtmlLigne: 1
 	 * Description.frFR: La date et l'heure modifiéés. 
 	 * Description.enUS: The date and time modified. 
-	 * NomAffichage.frFR: Modifié
-	 * NomAffichage.enUS: Modified
+	 * NomAffichage.frFR: modifié
+	 * NomAffichage.enUS: modified
 	 */
-	protected void _modifie(Couverture<LocalDateTime> c) {}
-
+	protected void _modifie(Couverture<ZonedDateTime> c) {}
+	
 	/**
+	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 **/
-	protected void _classeNomsCanoniques(List<String> l) {
-		l.add(Cluster.class.getCanonicalName());
+	 * Definir: true
+	 * HtmlLigne: 1
+	 * Description.frFR: archivé. 
+	 * Description.enUS: archived. 
+	 * NomAffichage.frFR: archivé
+	 * NomAffichage.enUS: archived
+	 */
+	protected void _archive(Couverture<Boolean> c) {
+		c.o(false);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * Indexe: true
+	 * Stocke: true
+	 * Definir: true
+	 * HtmlLigne: 1
+	 * Description.frFR: supprimé. 
+	 * Description.enUS: deleted. 
+	 * NomAffichage.frFR: supprimé
+	 * NomAffichage.enUS: deleted
+	 */ 
+	protected void _supprime(Couverture<Boolean> c) {
+		c.o(false);
 	}
 
-	/**
+	/**  
 	 * Indexe: true
 	 * Stocke: true
-	 */      
+	 * Var.enUS: _classCanonicalName
+	 */       
 	protected void _classeNomCanonique(Couverture<String> c) {
 		String o = getClass().getCanonicalName();
 		c.o(o);
@@ -138,10 +147,20 @@ public class Cluster extends ClusterGen<Object> {
 	/**
 	 * Indexe: true
 	 * Stocke: true
+	 * Var.enUS: _classSimpleName
 	 */          
 	protected void _classeNomSimple(Couverture<String> c) {
 		String o = getClass().getSimpleName();
 		c.o(o);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Indexe: true
+	 * Stocke: true
+	 **/      
+	protected void _classeNomsCanoniques(List<String> l) { 
+		l.add(Cluster.class.getCanonicalName());
 	}
 //
 //	/**
@@ -338,7 +357,7 @@ public class Cluster extends ClusterGen<Object> {
 		return this;
 	}
 
-	/**    
+	/**     
 	 */
 	public Cluster g(String nomLocal) {
 		ToutEcrivain w = requeteSite_.getW();

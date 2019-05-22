@@ -1,11 +1,11 @@
 package org.computate.site.frFR.utilisateur;
 
+import java.lang.String;
 import java.util.List;
 import java.lang.Long;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
-import java.lang.String;
 import java.lang.Boolean;
-import org.computate.site.frFR.article.ArticleFrFRPage;
+import org.computate.site.frFR.cluster.ClusterFrFRPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
 import org.computate.site.frFR.utilisateur.UtilisateurSite;
@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * Traduire: false
  **/
-public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<ArticleFrFRPage> {
+public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<ClusterFrFRPage> {
 
 	/**
 	 * {@inheritDoc}
@@ -48,9 +48,9 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(utilisateurSite != null)
-			c.o("");
+			c.o("un utilisateur du site");
 		else if(listeUtilisateurSite == null || listeUtilisateurSite.size() == 0)
-			c.o("");
+			c.o("aucun utilisateur du site trouvé");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -65,7 +65,7 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 		if(utilisateurSite != null)
 			c.o("");
 		else if(listeUtilisateurSite == null || listeUtilisateurSite.size() == 0)
-			c.o("");
+			c.o("aucun utilisateur du site trouvé");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -102,7 +102,11 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 	}
 
 	@Override public void htmlScriptsUtilisateurSiteFrFRGenPage() {
-		e("script").a("src", "/static/js/UtilisateurSiteFrFRGenPage.js").f().g("script");
+		e("script").a("src", "/static/js/UtilisateurSiteFrFRPage.js").f().g("script");
+	}
+
+	protected void _pageUriUtilisateurSite(Couverture<String> c) {
+			c.o("/frFR/utilisateur");
 	}
 
 	@Override public void htmlScriptUtilisateurSiteFrFRGenPage() {
@@ -111,7 +115,47 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 	public void htmlFormPageUtilisateurSite(UtilisateurSite o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "archiveForm").a("style", "display: inline-block; ").f();
+					e("input")
+						.a("type", "hidden")
+						.a("name", "archive")
+						.a("id", "Page_archive")
+						.a("value", "false")
+					.fg();
+
+					e("input")
+						.a("type", "checkbox")
+						.a("value", "true")
+						.a("class", "setArchive")
+						.a("name", "setArchive")
+						.a("id", "Page_archive")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#archiveForm')); ")
+						;
+						if(o.getArchive() != null && o.getArchive())
+							a("checked", "checked");
+					fg();
+
+					e("label").a("for", "Page_archive").a("class", "").f().sx("archivé").g("label");
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
 					e("input")
 						.a("type", "hidden")
 						.a("name", "supprime")
@@ -131,107 +175,52 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 							a("checked", "checked");
 					fg();
 
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("Supprimé").g("label");
+					e("label").a("for", "Page_supprime").a("class", "").f().sx("supprimé").g("label");
 				} g("form");
 			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "creeForm").a("style", "display: inline-block; ").f();
-					LocalDateTime val = o.getCree();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("utilisateur ID").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurId()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir archivé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirArchive()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir supprimé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirSupprime()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "siteNomDomaineForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
 
-					e("label").a("for", "Page_cree").a("class", "").f().sx("Crée").g("label");
 					e("input")
 						.a("type", "text")
-						.a("class", "w3-input w3-border datepicker ")
-						.a("placeholder", "DD-MM-YYYY")
-						.a("data-timeformat", "DD-MM-YYYY")
-						.a("onclick", "enleverLueur($(this)); ")
-						.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-						.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-						.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-						.fg();
-					e("input")
-						.a("type", "hidden")
-						.a("class", "setCree")
-						.a("name", "setCree")
-						.a("id", "Page_cree")
-						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#creeForm')); ")
-						.a("value", o.strCree())
-					.fg();
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "modifieForm").a("style", "display: inline-block; ").f();
-					LocalDateTime val = o.getModifie();
-
-					e("label").a("for", "Page_modifie").a("class", "").f().sx("Modifié").g("label");
-					e("input")
-						.a("type", "text")
-						.a("class", "w3-input w3-border datepicker ")
-						.a("placeholder", "DD-MM-YYYY")
-						.a("data-timeformat", "DD-MM-YYYY")
-						.a("onclick", "enleverLueur($(this)); ")
-						.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-						.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-						.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-						.fg();
-					e("input")
-						.a("type", "hidden")
-						.a("class", "setModifie")
-						.a("name", "setModifie")
-						.a("id", "Page_modifie")
-						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#modifieForm')); ")
-						.a("value", o.strModifie())
-					.fg();
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "voirArchiveForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "voirArchive")
-						.a("id", "Page_voirArchive")
-						.a("value", "false")
+						.a("placeholder", "nom de domaine")
+						.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
+						.a("class", "setSiteNomDomaine w3-input w3-border ")
+						.a("name", "setSiteNomDomaine")
+						.a("id", "Page_siteNomDomaine")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#siteNomDomaineForm')); ")
+						.a("value", o.strSiteNomDomaine())
 					.fg();
 
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setVoirArchive")
-						.a("name", "setVoirArchive")
-						.a("id", "Page_voirArchive")
-						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#voirArchiveForm')); ")
-						;
-						if(o.getVoirArchive() != null && o.getVoirArchive())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_voirArchive").a("class", "").f().sx("voir archivé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "voirSupprimeForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "voirSupprime")
-						.a("id", "Page_voirSupprime")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setVoirSupprime")
-						.a("name", "setVoirSupprime")
-						.a("id", "Page_voirSupprime")
-						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#voirSupprimeForm')); ")
-						;
-						if(o.getVoirSupprime() != null && o.getVoirSupprime())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_voirSupprime").a("class", "").f().sx("voir supprimé").g("label");
 				} g("form");
 			} g("div");
 		} g("div");
@@ -239,6 +228,43 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 
 	public void htmlFormPOSTUtilisateurSite(UtilisateurSite o) {
 		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("input")
+					.a("type", "hidden")
+					.a("name", "archive")
+					.a("id", "POST_archive")
+					.a("value", "false")
+				.fg();
+
+				e("input")
+					.a("type", "checkbox")
+					.a("value", "true")
+					.a("class", "valeurArchive")
+					.a("name", "archive")
+					.a("id", "POST_archive")
+					;
+					if(o.getArchive() != null && o.getArchive())
+						a("checked", "checked");
+				fg();
+
+				e("label").a("for", "POST_archive").a("class", "").f().sx("archivé").g("label");
+			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
@@ -258,95 +284,49 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 						a("checked", "checked");
 				fg();
 
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("Supprimé").g("label");
+				e("label").a("for", "POST_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("utilisateur ID").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurId()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir archivé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirArchive()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir supprimé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirSupprime()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
 
-				e("label").a("for", "POST_cree").a("class", "").f().sx("Crée").g("label");
 				e("input")
 					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurCree")
-					.a("name", "cree")
-					.a("id", "POST_cree")
-					.a("value", o.strCree())
-				.fg();
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getModifie();
-
-				e("label").a("for", "POST_modifie").a("class", "").f().sx("Modifié").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurModifie")
-					.a("name", "modifie")
-					.a("id", "POST_modifie")
-					.a("value", o.strModifie())
-				.fg();
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "voirArchive")
-					.a("id", "POST_voirArchive")
-					.a("value", "false")
+					.a("placeholder", "nom de domaine")
+					.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
+					.a("class", "valeurSiteNomDomaine w3-input w3-border ")
+					.a("name", "siteNomDomaine")
+					.a("id", "POST_siteNomDomaine")
+					.a("value", o.strSiteNomDomaine())
 				.fg();
 
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurVoirArchive")
-					.a("name", "voirArchive")
-					.a("id", "POST_voirArchive")
-					;
-					if(o.getVoirArchive() != null && o.getVoirArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_voirArchive").a("class", "").f().sx("voir archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "voirSupprime")
-					.a("id", "POST_voirSupprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurVoirSupprime")
-					.a("name", "voirSupprime")
-					.a("id", "POST_voirSupprime")
-					;
-					if(o.getVoirSupprime() != null && o.getVoirSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_voirSupprime").a("class", "").f().sx("voir supprimé").g("label");
 			} g("div");
 		} g("div");
 	}
@@ -354,90 +334,104 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 	public void htmlFormPATCHUtilisateurSite(UtilisateurSite o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "PATCH_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "setCree")
-					.a("name", "setCree")
-					.a("id", "PATCH_cree")
-					.a("value", o.strCree())
-				.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getModifie();
-
-				e("label").a("for", "PATCH_modifie").a("class", "").f().sx("Modifié").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "setModifie")
-					.a("name", "setModifie")
-					.a("id", "PATCH_modifie")
-					.a("value", o.strModifie())
-				.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
-					.a("name", "voirArchive")
-					.a("id", "PATCH_voirArchive")
+					.a("name", "archive")
+					.a("id", "PATCH_archive")
 					.a("value", "false")
 				.fg();
 
 				e("input")
 					.a("type", "checkbox")
 					.a("value", "true")
-					.a("class", "setVoirArchive")
-					.a("name", "setVoirArchive")
-					.a("id", "PATCH_voirArchive")
+					.a("class", "setArchive")
+					.a("name", "setArchive")
+					.a("id", "PATCH_archive")
 					;
-					if(o.getVoirArchive() != null && o.getVoirArchive())
+					if(o.getArchive() != null && o.getArchive())
 						a("checked", "checked");
 				fg();
 
-				e("label").a("for", "PATCH_voirArchive").a("class", "").f().sx("voir archivé").g("label");
+				e("label").a("for", "PATCH_archive").a("class", "").f().sx("archivé").g("label");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
-					.a("name", "voirSupprime")
-					.a("id", "PATCH_voirSupprime")
+					.a("name", "supprime")
+					.a("id", "PATCH_supprime")
 					.a("value", "false")
 				.fg();
 
 				e("input")
 					.a("type", "checkbox")
 					.a("value", "true")
-					.a("class", "setVoirSupprime")
-					.a("name", "setVoirSupprime")
-					.a("id", "PATCH_voirSupprime")
+					.a("class", "setSupprime")
+					.a("name", "setSupprime")
+					.a("id", "PATCH_supprime")
 					;
-					if(o.getVoirSupprime() != null && o.getVoirSupprime())
+					if(o.getSupprime() != null && o.getSupprime())
 						a("checked", "checked");
 				fg();
 
-				e("label").a("for", "PATCH_voirSupprime").a("class", "").f().sx("voir supprimé").g("label");
+				e("label").a("for", "PATCH_supprime").a("class", "").f().sx("supprimé").g("label");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("utilisateur ID").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurId()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir archivé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirArchive()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir supprimé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirSupprime()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "nom de domaine")
+					.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
+					.a("class", "setSiteNomDomaine w3-input w3-border ")
+					.a("name", "setSiteNomDomaine")
+					.a("id", "PATCH_siteNomDomaine")
+					.a("value", o.strSiteNomDomaine())
+				.fg();
+
 			} g("div");
 		} g("div");
 	}
@@ -445,90 +439,104 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 	public void htmlFormRechercheUtilisateurSite(UtilisateurSite o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "Recherche_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurCree")
-					.a("name", "cree")
-					.a("id", "Recherche_cree")
-					.a("value", o.strCree())
-				.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getModifie();
-
-				e("label").a("for", "Recherche_modifie").a("class", "").f().sx("Modifié").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure modifiéés.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurModifie")
-					.a("name", "modifie")
-					.a("id", "Recherche_modifie")
-					.a("value", o.strModifie())
-				.fg();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
-					.a("name", "voirArchive")
-					.a("id", "Recherche_voirArchive")
+					.a("name", "archive")
+					.a("id", "Recherche_archive")
 					.a("value", "false")
 				.fg();
 
 				e("input")
 					.a("type", "checkbox")
 					.a("value", "true")
-					.a("class", "valeurVoirArchive")
-					.a("name", "voirArchive")
-					.a("id", "Recherche_voirArchive")
+					.a("class", "valeurArchive")
+					.a("name", "archive")
+					.a("id", "Recherche_archive")
 					;
-					if(o.getVoirArchive() != null && o.getVoirArchive())
+					if(o.getArchive() != null && o.getArchive())
 						a("checked", "checked");
 				fg();
 
-				e("label").a("for", "Recherche_voirArchive").a("class", "").f().sx("voir archivé").g("label");
+				e("label").a("for", "Recherche_archive").a("class", "").f().sx("archivé").g("label");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("input")
 					.a("type", "hidden")
-					.a("name", "voirSupprime")
-					.a("id", "Recherche_voirSupprime")
+					.a("name", "supprime")
+					.a("id", "Recherche_supprime")
 					.a("value", "false")
 				.fg();
 
 				e("input")
 					.a("type", "checkbox")
 					.a("value", "true")
-					.a("class", "valeurVoirSupprime")
-					.a("name", "voirSupprime")
-					.a("id", "Recherche_voirSupprime")
+					.a("class", "valeurSupprime")
+					.a("name", "supprime")
+					.a("id", "Recherche_supprime")
 					;
-					if(o.getVoirSupprime() != null && o.getVoirSupprime())
+					if(o.getSupprime() != null && o.getSupprime())
 						a("checked", "checked");
 				fg();
 
-				e("label").a("for", "Recherche_voirSupprime").a("class", "").f().sx("voir supprimé").g("label");
+				e("label").a("for", "Recherche_supprime").a("class", "").f().sx("supprimé").g("label");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("utilisateur ID").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurId()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir archivé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirArchive()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("voir supprimé").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strVoirSupprime()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "nom de domaine")
+					.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
+					.a("class", "valeurSiteNomDomaine w3-input w3-border ")
+					.a("name", "siteNomDomaine")
+					.a("id", "Recherche_siteNomDomaine")
+					.a("value", o.strSiteNomDomaine())
+				.fg();
+
 			} g("div");
 		} g("div");
 	}
@@ -538,29 +546,30 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeUtilisateurSite == null || listeUtilisateurSite.size() == 0) {
-			//
+			// contexteAucunNomTrouve : aucun utilisateur du site trouvé
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("aucun utilisateur du site trouvé").g("span");
 			} g("h1");
-		} else if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
-			// 
+		} else if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
+			// contexteUnNom : un utilisateur du site
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
 						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-					e("span").a("class", " ").f().sx("").g("span");
+					e("span").a("class", " ").f().sx("un utilisateur du site").g("span");
 				} g("h1");
+				UtilisateurSite o = listeUtilisateurSite.get(0);
 			}
 		} else {
-			// plusiers 
+			// contexteNomPluriel : plusiers utilisateurs du site
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("utilisateurs du site").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -581,13 +590,13 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 			} g("table");
 		}
 
-		if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			UtilisateurSite o = listeUtilisateurSite.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("id", "UtilisateurSiteForm").a("style", "display: inline-block; ").f();
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "UtilisateurSiteForm").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")
@@ -598,11 +607,52 @@ public class UtilisateurSiteFrFRGenPage extends UtilisateurSiteFrFRGenPageGen<Ar
 					htmlFormPageUtilisateurSite(o);
 				}
 
-				o.htmlBody();
+				if(o != null)
+					o.htmlBody();
 
 			} g("div");
 		}
 		e("div").f();
+
+
+		e("button")
+			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+			.a("onclick", "$('#patchUtilisateurSiteModale').show(); ")
+			.f().sx("Modifier des utilisateurs du site")
+		.g("button");
+		{ e("div").a("id", "patchUtilisateurSiteModale").a("class", "w3-modal ").f();
+			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
+				{ e("header").a("class", "w3-container w3-green ").f();
+					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchUtilisateurSiteModale').hide(); ").f().sx("×").g("span");
+					e("h2").a("class", "").f().sx("Modifier des utilisateurs du site").g("h2");
+				} g("header");
+				{ e("div").a("class", "w3-container ").f();
+					UtilisateurSite o = new UtilisateurSite();
+
+					// FormFiltres PATCH
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "patchUtilisateurSiteFormFiltres").f();
+						htmlFormRechercheUtilisateurSite(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "rechercheUtilisateurSite($('#patchUtilisateurSiteFormFiltres')); ")
+						.f().sx("Rechercher des un utilisateur du site")
+					.g("button");
+
+
+					// FormValeurs PATCH
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "patchUtilisateurSiteFormValeurs").f();
+						htmlFormPATCHUtilisateurSite(o);
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
+						.a("onclick", "patchUtilisateurSite($('#patchUtilisateurSiteFormFiltres'), $('#patchUtilisateurSiteFormValeurs')); ")
+						.f().sx("Modifier des utilisateurs du site")
+					.g("button");
+
+				} g("div");
+			} g("div");
+		} g("div");
 
 		g("div");
 	}

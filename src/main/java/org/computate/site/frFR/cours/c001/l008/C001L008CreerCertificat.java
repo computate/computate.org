@@ -5,6 +5,7 @@ import java.util.List;
 import org.computate.site.frFR.cours.c001.C001Lecon;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.parti.PageHtml;
+import org.computate.site.frFR.utilisateur.UtilisateurSite;
 
 /**
  * Api: true
@@ -232,6 +233,11 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.H4I:far fa-stamp
 	 * Val.H4Span.frFR:Utilisez la commande certbot. 
 	 * Val.H4Span.enUS:Use the certbot command. 
+	 */  
+	protected void _questionCertbot1(PageHtml o) {
+	}
+
+	/**
 	 * Val.PreSpan01:sudo
 	 * Val.PreSpan02: certbot
 	 * Val.PreSpan03: --manual
@@ -242,6 +248,48 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.PreSpan08: -d *.example.com
 	 * Val.PreSpan09: -d *.apps.example.com
 	 * Val.PreSpan10: -d example.org -d *.example.org -d *.apps.example.org
+	 */
+	protected void _questionCertbot2(PageHtml o) {
+	}
+	@Override public void htmlBodyQuestionCertbot2(PageHtml o) {
+		UtilisateurSite utilisateurSite = requeteSite_.getUtilisateurSite();
+		if(utilisateurSite == null) {
+			super.htmlBodyQuestionCertbot2(o);
+		}
+		else {
+			{ e("pre").a("class", " questionCertbot2Pre ").f();
+				{ e("span").a("class", " questionCertbot2PreSpan01 questionCertbot2PreSpan odd ").f();
+					sx(questionCertbot2PreSpan011);
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan02 questionCertbot2PreSpan even ").f();
+					sx(questionCertbot2PreSpan021);
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan03 questionCertbot2PreSpan odd ").f();
+					sx(questionCertbot2PreSpan031);
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan04 questionCertbot2PreSpan even ").f();
+					sx(questionCertbot2PreSpan041);
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan05 questionCertbot2PreSpan odd ").f();
+					sx(questionCertbot2PreSpan051);
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan06 questionCertbot2PreSpan even ").f();
+					sx(questionCertbot2PreSpan061);
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan07 questionCertbot2PreSpan odd ").f();
+					sx(" -d ", utilisateurSite.getSiteNomDomaine());
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan08 questionCertbot2PreSpan even ").f();
+					sx(" -d *.", utilisateurSite.getSiteNomDomaine());
+				} g("span");
+				{ e("span").a("class", " questionCertbot2PreSpan09 questionCertbot2PreSpan odd ").f();
+					sx(" -d *.apps.", utilisateurSite.getSiteNomDomaine());
+				} g("span");
+			} g("pre");
+		}
+	}
+
+	/**
 	 * 
 	 * Val.Ol2Li01:sudo
 	 * Val.Ol2Li02.frFR:certbot : Une autorité de certification gratuite et automatisée qui vise à réduire les barrières à l'entrée pour le chiffrement de tout le trafic HTTP sur l'Internet. 
@@ -297,8 +345,8 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.P3Span2.enUS:Then I can manage the DNS records, after the changes are made for all my domains. 
 	 * Val.P3Span2.enUS:So I add a TXT record and value for each certbot challenge and save the changes. 
 	 * Val.P3Span2.enUS:As far as I can tell, the TXT records are recorded immediately. 
-	 */  
-	protected void _questionCertbot(PageHtml o) {
+	 */
+	protected void _questionCertbot3(PageHtml o) {
 	}
 
 	/**

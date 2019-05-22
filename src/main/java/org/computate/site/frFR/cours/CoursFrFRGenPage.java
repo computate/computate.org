@@ -100,30 +100,6 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormPageCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "supprime")
-						.a("id", "Page_supprime")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setSupprime")
-						.a("name", "setSupprime")
-						.a("id", "Page_supprime")
-						.a("onchange", "patchCours($('#CoursForm'), $('#supprimeForm')); ")
-						;
-						if(o.getSupprime() != null && o.getSupprime())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("Supprimé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("form").a("id", "coursNumeroForm").a("style", "display: inline-block; ").f();
 					e("label").a("for", "Page_coursNumero").a("class", "").f().sx("cours").g("label");
 
@@ -171,33 +147,32 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 
 				} g("form");
 			} g("div");
-		} g("div");
-		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "creeForm").a("style", "display: inline-block; ").f();
-					LocalDateTime val = o.getCree();
-
-					e("label").a("for", "Page_cree").a("class", "").f().sx("Crée").g("label");
-					e("input")
-						.a("type", "text")
-						.a("class", "w3-input w3-border datepicker ")
-						.a("placeholder", "DD-MM-YYYY")
-						.a("data-timeformat", "DD-MM-YYYY")
-						.a("onclick", "enleverLueur($(this)); ")
-						.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-						.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-						.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-						.fg();
+				{ e("form").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
 					e("input")
 						.a("type", "hidden")
-						.a("class", "setCree")
-						.a("name", "setCree")
-						.a("id", "Page_cree")
-						.a("onchange", "patchCours($('#CoursForm'), $('#creeForm')); ")
-						.a("value", o.strCree())
+						.a("name", "supprime")
+						.a("id", "Page_supprime")
+						.a("value", "false")
 					.fg();
+
+					e("input")
+						.a("type", "checkbox")
+						.a("value", "true")
+						.a("class", "setSupprime")
+						.a("name", "setSupprime")
+						.a("id", "Page_supprime")
+						.a("onchange", "patchCours($('#CoursForm'), $('#supprimeForm')); ")
+						;
+						if(o.getSupprime() != null && o.getSupprime())
+							a("checked", "checked");
+					fg();
+
+					e("label").a("for", "Page_supprime").a("class", "").f().sx("Supprimé").g("label");
 				} g("form");
 			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("form").a("id", "modifieForm").a("style", "display: inline-block; ").f();
 					LocalDateTime val = o.getModifie();
@@ -223,32 +198,36 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					.fg();
 				} g("form");
 			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("id", "creeForm").a("style", "display: inline-block; ").f();
+					LocalDateTime val = o.getCree();
+
+					e("label").a("for", "Page_cree").a("class", "").f().sx("Crée").g("label");
+					e("input")
+						.a("type", "text")
+						.a("class", "w3-input w3-border datepicker ")
+						.a("placeholder", "DD-MM-YYYY")
+						.a("data-timeformat", "DD-MM-YYYY")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
+						.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
+						.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
+						.fg();
+					e("input")
+						.a("type", "hidden")
+						.a("class", "setCree")
+						.a("name", "setCree")
+						.a("id", "Page_cree")
+						.a("onchange", "patchCours($('#CoursForm'), $('#creeForm')); ")
+						.a("value", o.strCree())
+					.fg();
+				} g("form");
+			} g("div");
 		} g("div");
 	}
 
 	public void htmlFormPOSTCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("Supprimé").g("label");
-			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				e("label").a("for", "POST_coursNumero").a("class", "").f().sx("cours").g("label");
 
@@ -288,30 +267,29 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				.fg();
 
 			} g("div");
-		} g("div");
-		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "POST_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
 				e("input")
 					.a("type", "hidden")
-					.a("class", "valeurCree")
-					.a("name", "cree")
-					.a("id", "POST_cree")
-					.a("value", o.strCree())
+					.a("name", "supprime")
+					.a("id", "POST_supprime")
+					.a("value", "false")
 				.fg();
+
+				e("input")
+					.a("type", "checkbox")
+					.a("value", "true")
+					.a("class", "valeurSupprime")
+					.a("name", "supprime")
+					.a("id", "POST_supprime")
+					;
+					if(o.getSupprime() != null && o.getSupprime())
+						a("checked", "checked");
+				fg();
+
+				e("label").a("for", "POST_supprime").a("class", "").f().sx("Supprimé").g("label");
 			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				LocalDateTime val = o.getModifie();
 
@@ -332,6 +310,28 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					.a("name", "modifie")
 					.a("id", "POST_modifie")
 					.a("value", o.strModifie())
+				.fg();
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				LocalDateTime val = o.getCree();
+
+				e("label").a("for", "POST_cree").a("class", "").f().sx("Crée").g("label");
+				e("input")
+					.a("type", "text")
+					.a("class", "w3-input w3-border datepicker ")
+					.a("placeholder", "DD-MM-YYYY")
+					.a("data-timeformat", "DD-MM-YYYY")
+					.a("onclick", "enleverLueur($(this)); ")
+					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
+					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
+					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
+					.fg();
+				e("input")
+					.a("type", "hidden")
+					.a("class", "valeurCree")
+					.a("name", "cree")
+					.a("id", "POST_cree")
+					.a("value", o.strCree())
 				.fg();
 			} g("div");
 		} g("div");
@@ -355,28 +355,6 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "PATCH_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "setCree")
-					.a("name", "setCree")
-					.a("id", "PATCH_cree")
-					.a("value", o.strCree())
-				.fg();
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				LocalDateTime val = o.getModifie();
 
 				e("label").a("for", "PATCH_modifie").a("class", "").f().sx("Modifié").g("label");
@@ -396,6 +374,28 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					.a("name", "setModifie")
 					.a("id", "PATCH_modifie")
 					.a("value", o.strModifie())
+				.fg();
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				LocalDateTime val = o.getCree();
+
+				e("label").a("for", "PATCH_cree").a("class", "").f().sx("Crée").g("label");
+				e("input")
+					.a("type", "text")
+					.a("class", "w3-input w3-border datepicker ")
+					.a("placeholder", "DD-MM-YYYY")
+					.a("data-timeformat", "DD-MM-YYYY")
+					.a("onclick", "enleverLueur($(this)); ")
+					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
+					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
+					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
+					.fg();
+				e("input")
+					.a("type", "hidden")
+					.a("class", "setCree")
+					.a("name", "setCree")
+					.a("id", "PATCH_cree")
+					.a("value", o.strCree())
 				.fg();
 			} g("div");
 		} g("div");
@@ -434,28 +434,6 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				LocalDateTime val = o.getCree();
-
-				e("label").a("for", "Recherche_cree").a("class", "").f().sx("Crée").g("label");
-				e("input")
-					.a("type", "text")
-					.a("class", "w3-input w3-border datepicker ")
-					.a("placeholder", "DD-MM-YYYY")
-					.a("data-timeformat", "DD-MM-YYYY")
-					.a("onclick", "enleverLueur($(this)); ")
-					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
-					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
-					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
-					.fg();
-				e("input")
-					.a("type", "hidden")
-					.a("class", "valeurCree")
-					.a("name", "cree")
-					.a("id", "Recherche_cree")
-					.a("value", o.strCree())
-				.fg();
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				LocalDateTime val = o.getModifie();
 
 				e("label").a("for", "Recherche_modifie").a("class", "").f().sx("Modifié").g("label");
@@ -475,6 +453,28 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					.a("name", "modifie")
 					.a("id", "Recherche_modifie")
 					.a("value", o.strModifie())
+				.fg();
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				LocalDateTime val = o.getCree();
+
+				e("label").a("for", "Recherche_cree").a("class", "").f().sx("Crée").g("label");
+				e("input")
+					.a("type", "text")
+					.a("class", "w3-input w3-border datepicker ")
+					.a("placeholder", "DD-MM-YYYY")
+					.a("data-timeformat", "DD-MM-YYYY")
+					.a("onclick", "enleverLueur($(this)); ")
+					.a("title", "La date et l'heure créées.  (DD-MM-YYYY)")
+					.a("value", val == null ? "" : DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("fr-FR")).format(val))
+					.a("onchange", "var t = moment(this.value, 'DD-MM-YYYY'); if(t) { var s = t.format('YYYY-MM-DD'); $(this).next().val(s); $(this).next().trigger('change'); } ")
+					.fg();
+				e("input")
+					.a("type", "hidden")
+					.a("class", "valeurCree")
+					.a("name", "cree")
+					.a("id", "Recherche_cree")
+					.a("value", o.strCree())
 				.fg();
 			} g("div");
 		} g("div");

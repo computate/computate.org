@@ -33,14 +33,9 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 
-	public static final String C001L008CreerCertificat_UnNom = "le leçon";
-	public static final String C001L008CreerCertificat_NomSingulier = "leçon";
-	public static final String C001L008CreerCertificat_NomPluriel = "leçons";
 	public static final String C001L008CreerCertificat_H1 = "Que puis-je faire une fois que j'ai acheté un nom de domaine ? ";
 	public static final String C001L008CreerCertificat_H2 = "Obtenez gratuitement un certificat TLS valide pour des raisons de sécurité et de crédibilité. ";
 	public static final String C001L008CreerCertificat_Titre = "Obtenez gratuitement un certificat TLS valide pour des raisons de sécurité et de crédibilité. ";
-	public static final String C001L008CreerCertificat_LesNoms = "les leçons";
-	public static final String C001L008CreerCertificat_NomVar = "leçon";
 	public static final String C001L008CreerCertificat_Couleur = "green";
 	public static final String C001L008CreerCertificat_IconeGroupe = "regular";
 	public static final String C001L008CreerCertificat_IconeNom = "question";
@@ -471,223 +466,317 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		questionMkdirSrv.htmlApres();
 	}
 
-	/////////////////////
-	// questionCertbot //
-	/////////////////////
+	//////////////////////
+	// questionCertbot1 //
+	//////////////////////
 
-	public static final String questionCertbotH3I1 = "far fa-file-certificate";
-	public static final String questionCertbotH3I = questionCertbotH3I1;
-	public static final String questionCertbotH3Span1 = "Comment puis-je obtenir mon certificat ? ";
-	public static final String questionCertbotH3Span = questionCertbotH3Span1;
-	public static final String questionCertbotH4I1 = "far fa-stamp";
-	public static final String questionCertbotH4I = questionCertbotH4I1;
-	public static final String questionCertbotH4Span1 = "Utilisez la commande certbot. ";
-	public static final String questionCertbotH4Span = questionCertbotH4Span1;
-	public static final String questionCertbotPreSpan011 = "sudo";
-	public static final String questionCertbotPreSpan01 = questionCertbotPreSpan011;
-	public static final String questionCertbotPreSpan021 = " certbot";
-	public static final String questionCertbotPreSpan02 = questionCertbotPreSpan021;
-	public static final String questionCertbotPreSpan031 = " --manual";
-	public static final String questionCertbotPreSpan03 = questionCertbotPreSpan031;
-	public static final String questionCertbotPreSpan041 = " --preferred-challenges dns";
-	public static final String questionCertbotPreSpan04 = questionCertbotPreSpan041;
-	public static final String questionCertbotPreSpan051 = " --server https://acme-v02.api.letsencrypt.org/directory";
-	public static final String questionCertbotPreSpan05 = questionCertbotPreSpan051;
-	public static final String questionCertbotPreSpan061 = " certonly";
-	public static final String questionCertbotPreSpan06 = questionCertbotPreSpan061;
-	public static final String questionCertbotPreSpan071 = " -d example.com";
-	public static final String questionCertbotPreSpan07 = questionCertbotPreSpan071;
-	public static final String questionCertbotPreSpan081 = " -d *.example.com";
-	public static final String questionCertbotPreSpan08 = questionCertbotPreSpan081;
-	public static final String questionCertbotPreSpan091 = " -d *.apps.example.com";
-	public static final String questionCertbotPreSpan09 = questionCertbotPreSpan091;
-	public static final String questionCertbotPreSpan101 = " -d example.org -d *.example.org -d *.apps.example.org";
-	public static final String questionCertbotPreSpan10 = questionCertbotPreSpan101;
-	public static final String questionCertbotOl2Li011 = "sudo";
-	public static final String questionCertbotOl2Li01 = questionCertbotOl2Li011;
-	public static final String questionCertbotOl2Li021 = "certbot : Une autorité de certification gratuite et automatisée qui vise à réduire les barrières à l'entrée pour le chiffrement de tout le trafic HTTP sur l'Internet. ";
-	public static final String questionCertbotOl2Li02 = questionCertbotOl2Li021;
-	public static final String questionCertbotOl2Li031 = "--manual : Obtenez des certificats de manière interactive ou à l'aide d'un script shell. ";
-	public static final String questionCertbotOl2Li03 = questionCertbotOl2Li031;
-	public static final String questionCertbotOl2Li041 = "--preferred-challenges dns : Obtenir ou renouveler un certificat, mais ne l'installez pas. ";
-	public static final String questionCertbotOl2Li04 = questionCertbotOl2Li041;
-	public static final String questionCertbotOl2Li051 = "--server https://acme-v02.api.letsencrypt.org/directory : Spécifiez une version plus récente d'un serveur letsencrypt qui autorise les domaines wildcard dans les certificats. ";
-	public static final String questionCertbotOl2Li05 = questionCertbotOl2Li051;
-	public static final String questionCertbotOl2Li061 = "certonly : Obtenir ou renouveler un certificat, mais ne l'installez pas. ";
-	public static final String questionCertbotOl2Li06 = questionCertbotOl2Li061;
-	public static final String questionCertbotOl2Li071 = "-d example.com : Spécifiez votre nom de domaine de racine pour l'inclure en tant que route sécurisée par le certificat. ";
-	public static final String questionCertbotOl2Li07 = questionCertbotOl2Li071;
-	public static final String questionCertbotOl2Li081 = "-d example.com : Incluez des domaines génériques dans votre domaine racine, y compris www par exemple. ";
-	public static final String questionCertbotOl2Li08 = questionCertbotOl2Li081;
-	public static final String questionCertbotOl2Li091 = "-d example.com : Les domaines génériques n'incluent pas les sous-domaines d'un domaine générique; incluez donc également des sous-domaines supplémentaires. ";
-	public static final String questionCertbotOl2Li09 = questionCertbotOl2Li091;
-	public static final String questionCertbotOl2Li101 = "-d example.com : Vous pouvez inclure plus d'un nom de domaine dans le même certificat si vous le souhaitez, jusqu'à un montant généreux par letsencrypt. ";
-	public static final String questionCertbotOl2Li10 = questionCertbotOl2Li101;
-	public static final String questionCertbotP21 = "certbot vous posera des questions, par exemple, si vous souhaitez que votre adresse IP soit consignée comme ayant demandé ce certificat.";
-	public static final String questionCertbotP22 = "Vous pouvez répondre Yes car c'est votre certificat. ";
-	public static final String questionCertbotP23 = "Il vous demandera probablement votre adresse e-mail, c'est bien, parce qu'ils vous enverront un mail lorsque votre certificat expirera quelques semaines avant. ";
-	public static final String questionCertbotP24 = "Les certificats expirent tous les 3 mois, c'est bien souvent, mais ils sont gratuits, donc vous ne pouvez pas trop vous plaindre.";
-	public static final String questionCertbotP25 = "Des certificats beaucoup plus chers peuvent durer 3 ans. ";
-	public static final String questionCertbotP2 = questionCertbotP21 + questionCertbotP22 + questionCertbotP23 + questionCertbotP24 + questionCertbotP25;
-	public static final String questionCertbotP3Span11 = "Aussi, certbot vous demandera de créer plusieurs enregistrements DNS TXT avec des valeurs aléatoires pour vos noms de domaine que vous avez spécifiés, afin de prouver que vous êtes le propriétaire du domaine. ";
-	public static final String questionCertbotP3Span12 = "Cela prendra du temps tous les trois mois. Je vous recommande donc un service qui vous permettra de gérer le DNS de vos propres noms de domaine. ";
-	public static final String questionCertbotP3Span13 = "Fastmail est le service que j'utilise pour la messagerie personnelle et le DNS ";
-	public static final String questionCertbotP3Span1 = questionCertbotP3Span11 + questionCertbotP3Span12 + questionCertbotP3Span13;
-	public static final String questionCertbotP3A11 = " fastmail.com";
-	public static final String questionCertbotP3A1 = questionCertbotP3A11;
-	public static final String questionCertbotP3Span21 = ". Fastmail est basé en Australie et protège la confidentialité de votre messagerie, contrairement à certains autres fournisseurs de messagerie. ";
-	public static final String questionCertbotP3Span22 = "Avec Fastmail, je peux me connecter, même à partir de mon appli Fastmail sur mon mobile, et gérer mon DNS. ";
-	public static final String questionCertbotP3Span23 = "Je peux gérer autant de noms de domaine que je le souhaite avec Fastmail. ";
-	public static final String questionCertbotP3Span24 = "Je dit à l'équipe de support du bureau d'enregistrement de domaine où j'ai acheté le domaine, les serveurs de noms de fastmail.com (ns1.messagingengine.com, ns2.messagingengine.com) et j'ajoute le domaine dans Fastmail. ";
-	public static final String questionCertbotP3Span25 = "Ensuite, je peux gérer les enregistrements DNS une fois les modifications sont faites pour tous mes domaines. ";
-	public static final String questionCertbotP3Span26 = "J'ajoute un enregistrement TXT et une valeur pour chaque défi certbot et enregistre les modifications. ";
-	public static final String questionCertbotP3Span27 = "Autant que je sache, les enregistrements TXT sont enregistrés immédiatement. ";
-	public static final String questionCertbotP3Span2 = questionCertbotP3Span21 + questionCertbotP3Span22 + questionCertbotP3Span23 + questionCertbotP3Span24 + questionCertbotP3Span25 + questionCertbotP3Span26 + questionCertbotP3Span27;
+	public static final String questionCertbot1H3I1 = "far fa-file-certificate";
+	public static final String questionCertbot1H3I = questionCertbot1H3I1;
+	public static final String questionCertbot1H3Span1 = "Comment puis-je obtenir mon certificat ? ";
+	public static final String questionCertbot1H3Span = questionCertbot1H3Span1;
+	public static final String questionCertbot1H4I1 = "far fa-stamp";
+	public static final String questionCertbot1H4I = questionCertbot1H4I1;
+	public static final String questionCertbot1H4Span1 = "Utilisez la commande certbot. ";
+	public static final String questionCertbot1H4Span = questionCertbot1H4Span1;
 
-	/**	L'entité « questionCertbot »
+	/**	L'entité « questionCertbot1 »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 */
-	protected PageHtml questionCertbot = new PageHtml();
-	public Couverture<PageHtml> questionCertbotCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionCertbot").o(questionCertbot);
+	protected PageHtml questionCertbot1 = new PageHtml();
+	public Couverture<PageHtml> questionCertbot1Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionCertbot1").o(questionCertbot1);
 
-	/**	<br/>L'entité « questionCertbot »
+	/**	<br/>L'entité « questionCertbot1 »
 	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionCertbot">Trouver l'entité questionCertbot dans Solr</a>
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionCertbot1">Trouver l'entité questionCertbot1 dans Solr</a>
 	 * <br/>
-	 * @param questionCertbot est l'entité déjà construit. 
+	 * @param questionCertbot1 est l'entité déjà construit. 
 	 **/
-	protected abstract void _questionCertbot(PageHtml o);
+	protected abstract void _questionCertbot1(PageHtml o);
 
-	public PageHtml getQuestionCertbot() {
-		return questionCertbot;
+	public PageHtml getQuestionCertbot1() {
+		return questionCertbot1;
 	}
 
-	public void setQuestionCertbot(PageHtml questionCertbot) {
-		this.questionCertbot = questionCertbot;
-		this.questionCertbotCouverture.dejaInitialise = true;
+	public void setQuestionCertbot1(PageHtml questionCertbot1) {
+		this.questionCertbot1 = questionCertbot1;
+		this.questionCertbot1Couverture.dejaInitialise = true;
 	}
-	protected C001L008CreerCertificat questionCertbotInit() {
-		if(questionCertbot != null) {
-			((C001L008CreerCertificat)this).avantPagePart(questionCertbot, "questionCertbot");
-			((C001L008CreerCertificat)this).avantPagePart(questionCertbot, "questionCertbot");
+	protected C001L008CreerCertificat questionCertbot1Init() {
+		if(questionCertbot1 != null) {
+			((C001L008CreerCertificat)this).avantPagePart(questionCertbot1, "questionCertbot1");
+			((C001L008CreerCertificat)this).avantPagePart(questionCertbot1, "questionCertbot1");
 		}
-		if(!questionCertbotCouverture.dejaInitialise) {
-			_questionCertbot(questionCertbot);
+		if(!questionCertbot1Couverture.dejaInitialise) {
+			_questionCertbot1(questionCertbot1);
 		}
-		questionCertbot.initLoinPourClasse(requeteSite_);
-		questionCertbotCouverture.dejaInitialise(true);
+		questionCertbot1.initLoinPourClasse(requeteSite_);
+		questionCertbot1Couverture.dejaInitialise(true);
 		return (C001L008CreerCertificat)this;
 	}
-	public void htmlBodyQuestionCertbot(PageHtml o) {
-		{ e("h3").a("class", " questionCertbotH3 ").f();
-			{ e("i").a("class", questionCertbotH3I1, " site-menu-icon questionCertbotH3I ").f();
+	public void htmlBodyQuestionCertbot1(PageHtml o) {
+		{ e("h3").a("class", " questionCertbot1H3 ").f();
+			{ e("i").a("class", questionCertbot1H3I1, " site-menu-icon questionCertbot1H3I ").f();
 			} g("i");
-			{ e("span").a("class", " questionCertbotH3Span ").f();
-				sx(questionCertbotH3Span1);
+			{ e("span").a("class", " questionCertbot1H3Span ").f();
+				sx(questionCertbot1H3Span1);
 			} g("span");
 		} g("h3");
-		{ e("h4").a("class", " questionCertbotH4 ").f();
-			{ e("i").a("class", questionCertbotH4I1, " site-menu-icon questionCertbotH4I ").f();
+		{ e("h4").a("class", " questionCertbot1H4 ").f();
+			{ e("i").a("class", questionCertbot1H4I1, " site-menu-icon questionCertbot1H4I ").f();
 			} g("i");
-			{ e("span").a("class", " questionCertbotH4Span ").f();
-				sx(questionCertbotH4Span1);
+			{ e("span").a("class", " questionCertbot1H4Span ").f();
+				sx(questionCertbot1H4Span1);
 			} g("span");
 		} g("h4");
-		{ e("pre").a("class", " questionCertbotPre ").f();
-			{ e("span").a("class", " questionCertbotPreSpan01 questionCertbotPreSpan odd ").f();
-				sx(questionCertbotPreSpan011);
+	}
+	public void htmlBodyQuestionCertbot1() {
+		questionCertbot1.htmlAvant();
+		htmlBodyQuestionCertbot1(questionCertbot1);
+		questionCertbot1.htmlApres();
+	}
+
+	//////////////////////
+	// questionCertbot2 //
+	//////////////////////
+
+	public static final String questionCertbot2PreSpan011 = "sudo";
+	public static final String questionCertbot2PreSpan01 = questionCertbot2PreSpan011;
+	public static final String questionCertbot2PreSpan021 = " certbot";
+	public static final String questionCertbot2PreSpan02 = questionCertbot2PreSpan021;
+	public static final String questionCertbot2PreSpan031 = " --manual";
+	public static final String questionCertbot2PreSpan03 = questionCertbot2PreSpan031;
+	public static final String questionCertbot2PreSpan041 = " --preferred-challenges dns";
+	public static final String questionCertbot2PreSpan04 = questionCertbot2PreSpan041;
+	public static final String questionCertbot2PreSpan051 = " --server https://acme-v02.api.letsencrypt.org/directory";
+	public static final String questionCertbot2PreSpan05 = questionCertbot2PreSpan051;
+	public static final String questionCertbot2PreSpan061 = " certonly";
+	public static final String questionCertbot2PreSpan06 = questionCertbot2PreSpan061;
+	public static final String questionCertbot2PreSpan071 = " -d example.com";
+	public static final String questionCertbot2PreSpan07 = questionCertbot2PreSpan071;
+	public static final String questionCertbot2PreSpan081 = " -d *.example.com";
+	public static final String questionCertbot2PreSpan08 = questionCertbot2PreSpan081;
+	public static final String questionCertbot2PreSpan091 = " -d *.apps.example.com";
+	public static final String questionCertbot2PreSpan09 = questionCertbot2PreSpan091;
+	public static final String questionCertbot2PreSpan101 = " -d example.org -d *.example.org -d *.apps.example.org";
+	public static final String questionCertbot2PreSpan10 = questionCertbot2PreSpan101;
+
+	/**	L'entité « questionCertbot2 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionCertbot2 = new PageHtml();
+	public Couverture<PageHtml> questionCertbot2Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionCertbot2").o(questionCertbot2);
+
+	/**	<br/>L'entité « questionCertbot2 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionCertbot2">Trouver l'entité questionCertbot2 dans Solr</a>
+	 * <br/>
+	 * @param questionCertbot2 est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionCertbot2(PageHtml o);
+
+	public PageHtml getQuestionCertbot2() {
+		return questionCertbot2;
+	}
+
+	public void setQuestionCertbot2(PageHtml questionCertbot2) {
+		this.questionCertbot2 = questionCertbot2;
+		this.questionCertbot2Couverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat questionCertbot2Init() {
+		if(questionCertbot2 != null) {
+			((C001L008CreerCertificat)this).avantPagePart(questionCertbot2, "questionCertbot2");
+			((C001L008CreerCertificat)this).avantPagePart(questionCertbot2, "questionCertbot2");
+		}
+		if(!questionCertbot2Couverture.dejaInitialise) {
+			_questionCertbot2(questionCertbot2);
+		}
+		questionCertbot2.initLoinPourClasse(requeteSite_);
+		questionCertbot2Couverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyQuestionCertbot2(PageHtml o) {
+		{ e("pre").a("class", " questionCertbot2Pre ").f();
+			{ e("span").a("class", " questionCertbot2PreSpan01 questionCertbot2PreSpan odd ").f();
+				sx(questionCertbot2PreSpan011);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan02 questionCertbotPreSpan even ").f();
-				sx(questionCertbotPreSpan021);
+			{ e("span").a("class", " questionCertbot2PreSpan02 questionCertbot2PreSpan even ").f();
+				sx(questionCertbot2PreSpan021);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan03 questionCertbotPreSpan odd ").f();
-				sx(questionCertbotPreSpan031);
+			{ e("span").a("class", " questionCertbot2PreSpan03 questionCertbot2PreSpan odd ").f();
+				sx(questionCertbot2PreSpan031);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan04 questionCertbotPreSpan even ").f();
-				sx(questionCertbotPreSpan041);
+			{ e("span").a("class", " questionCertbot2PreSpan04 questionCertbot2PreSpan even ").f();
+				sx(questionCertbot2PreSpan041);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan05 questionCertbotPreSpan odd ").f();
-				sx(questionCertbotPreSpan051);
+			{ e("span").a("class", " questionCertbot2PreSpan05 questionCertbot2PreSpan odd ").f();
+				sx(questionCertbot2PreSpan051);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan06 questionCertbotPreSpan even ").f();
-				sx(questionCertbotPreSpan061);
+			{ e("span").a("class", " questionCertbot2PreSpan06 questionCertbot2PreSpan even ").f();
+				sx(questionCertbot2PreSpan061);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan07 questionCertbotPreSpan odd ").f();
-				sx(questionCertbotPreSpan071);
+			{ e("span").a("class", " questionCertbot2PreSpan07 questionCertbot2PreSpan odd ").f();
+				sx(questionCertbot2PreSpan071);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan08 questionCertbotPreSpan even ").f();
-				sx(questionCertbotPreSpan081);
+			{ e("span").a("class", " questionCertbot2PreSpan08 questionCertbot2PreSpan even ").f();
+				sx(questionCertbot2PreSpan081);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan09 questionCertbotPreSpan odd ").f();
-				sx(questionCertbotPreSpan091);
+			{ e("span").a("class", " questionCertbot2PreSpan09 questionCertbot2PreSpan odd ").f();
+				sx(questionCertbot2PreSpan091);
 			} g("span");
-			{ e("span").a("class", " questionCertbotPreSpan10 questionCertbotPreSpan even ").f();
-				sx(questionCertbotPreSpan101);
+			{ e("span").a("class", " questionCertbot2PreSpan10 questionCertbot2PreSpan even ").f();
+				sx(questionCertbot2PreSpan101);
 			} g("span");
 		} g("pre");
-		{ e("ol").a("class", " questionCertbotOl2 questionCertbotOl even ").f();
-			{ e("li").a("class", " questionCertbotOl2Li01 questionCertbotOl2Li odd ").f();
-				sx(questionCertbotOl2Li011);
+	}
+	public void htmlBodyQuestionCertbot2() {
+		questionCertbot2.htmlAvant();
+		htmlBodyQuestionCertbot2(questionCertbot2);
+		questionCertbot2.htmlApres();
+	}
+
+	//////////////////////
+	// questionCertbot3 //
+	//////////////////////
+
+	public static final String questionCertbot3Ol2Li011 = "sudo";
+	public static final String questionCertbot3Ol2Li01 = questionCertbot3Ol2Li011;
+	public static final String questionCertbot3Ol2Li021 = "certbot : Une autorité de certification gratuite et automatisée qui vise à réduire les barrières à l'entrée pour le chiffrement de tout le trafic HTTP sur l'Internet. ";
+	public static final String questionCertbot3Ol2Li02 = questionCertbot3Ol2Li021;
+	public static final String questionCertbot3Ol2Li031 = "--manual : Obtenez des certificats de manière interactive ou à l'aide d'un script shell. ";
+	public static final String questionCertbot3Ol2Li03 = questionCertbot3Ol2Li031;
+	public static final String questionCertbot3Ol2Li041 = "--preferred-challenges dns : Obtenir ou renouveler un certificat, mais ne l'installez pas. ";
+	public static final String questionCertbot3Ol2Li04 = questionCertbot3Ol2Li041;
+	public static final String questionCertbot3Ol2Li051 = "--server https://acme-v02.api.letsencrypt.org/directory : Spécifiez une version plus récente d'un serveur letsencrypt qui autorise les domaines wildcard dans les certificats. ";
+	public static final String questionCertbot3Ol2Li05 = questionCertbot3Ol2Li051;
+	public static final String questionCertbot3Ol2Li061 = "certonly : Obtenir ou renouveler un certificat, mais ne l'installez pas. ";
+	public static final String questionCertbot3Ol2Li06 = questionCertbot3Ol2Li061;
+	public static final String questionCertbot3Ol2Li071 = "-d example.com : Spécifiez votre nom de domaine de racine pour l'inclure en tant que route sécurisée par le certificat. ";
+	public static final String questionCertbot3Ol2Li07 = questionCertbot3Ol2Li071;
+	public static final String questionCertbot3Ol2Li081 = "-d example.com : Incluez des domaines génériques dans votre domaine racine, y compris www par exemple. ";
+	public static final String questionCertbot3Ol2Li08 = questionCertbot3Ol2Li081;
+	public static final String questionCertbot3Ol2Li091 = "-d example.com : Les domaines génériques n'incluent pas les sous-domaines d'un domaine générique; incluez donc également des sous-domaines supplémentaires. ";
+	public static final String questionCertbot3Ol2Li09 = questionCertbot3Ol2Li091;
+	public static final String questionCertbot3Ol2Li101 = "-d example.com : Vous pouvez inclure plus d'un nom de domaine dans le même certificat si vous le souhaitez, jusqu'à un montant généreux par letsencrypt. ";
+	public static final String questionCertbot3Ol2Li10 = questionCertbot3Ol2Li101;
+	public static final String questionCertbot3P21 = "certbot vous posera des questions, par exemple, si vous souhaitez que votre adresse IP soit consignée comme ayant demandé ce certificat.";
+	public static final String questionCertbot3P22 = "Vous pouvez répondre Yes car c'est votre certificat. ";
+	public static final String questionCertbot3P23 = "Il vous demandera probablement votre adresse e-mail, c'est bien, parce qu'ils vous enverront un mail lorsque votre certificat expirera quelques semaines avant. ";
+	public static final String questionCertbot3P24 = "Les certificats expirent tous les 3 mois, c'est bien souvent, mais ils sont gratuits, donc vous ne pouvez pas trop vous plaindre.";
+	public static final String questionCertbot3P25 = "Des certificats beaucoup plus chers peuvent durer 3 ans. ";
+	public static final String questionCertbot3P2 = questionCertbot3P21 + questionCertbot3P22 + questionCertbot3P23 + questionCertbot3P24 + questionCertbot3P25;
+	public static final String questionCertbot3P3Span11 = "Aussi, certbot vous demandera de créer plusieurs enregistrements DNS TXT avec des valeurs aléatoires pour vos noms de domaine que vous avez spécifiés, afin de prouver que vous êtes le propriétaire du domaine. ";
+	public static final String questionCertbot3P3Span12 = "Cela prendra du temps tous les trois mois. Je vous recommande donc un service qui vous permettra de gérer le DNS de vos propres noms de domaine. ";
+	public static final String questionCertbot3P3Span13 = "Fastmail est le service que j'utilise pour la messagerie personnelle et le DNS ";
+	public static final String questionCertbot3P3Span1 = questionCertbot3P3Span11 + questionCertbot3P3Span12 + questionCertbot3P3Span13;
+	public static final String questionCertbot3P3A11 = " fastmail.com";
+	public static final String questionCertbot3P3A1 = questionCertbot3P3A11;
+	public static final String questionCertbot3P3Span21 = ". Fastmail est basé en Australie et protège la confidentialité de votre messagerie, contrairement à certains autres fournisseurs de messagerie. ";
+	public static final String questionCertbot3P3Span22 = "Avec Fastmail, je peux me connecter, même à partir de mon appli Fastmail sur mon mobile, et gérer mon DNS. ";
+	public static final String questionCertbot3P3Span23 = "Je peux gérer autant de noms de domaine que je le souhaite avec Fastmail. ";
+	public static final String questionCertbot3P3Span24 = "Je dit à l'équipe de support du bureau d'enregistrement de domaine où j'ai acheté le domaine, les serveurs de noms de fastmail.com (ns1.messagingengine.com, ns2.messagingengine.com) et j'ajoute le domaine dans Fastmail. ";
+	public static final String questionCertbot3P3Span25 = "Ensuite, je peux gérer les enregistrements DNS une fois les modifications sont faites pour tous mes domaines. ";
+	public static final String questionCertbot3P3Span26 = "J'ajoute un enregistrement TXT et une valeur pour chaque défi certbot et enregistre les modifications. ";
+	public static final String questionCertbot3P3Span27 = "Autant que je sache, les enregistrements TXT sont enregistrés immédiatement. ";
+	public static final String questionCertbot3P3Span2 = questionCertbot3P3Span21 + questionCertbot3P3Span22 + questionCertbot3P3Span23 + questionCertbot3P3Span24 + questionCertbot3P3Span25 + questionCertbot3P3Span26 + questionCertbot3P3Span27;
+
+	/**	L'entité « questionCertbot3 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionCertbot3 = new PageHtml();
+	public Couverture<PageHtml> questionCertbot3Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionCertbot3").o(questionCertbot3);
+
+	/**	<br/>L'entité « questionCertbot3 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionCertbot3">Trouver l'entité questionCertbot3 dans Solr</a>
+	 * <br/>
+	 * @param questionCertbot3 est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionCertbot3(PageHtml o);
+
+	public PageHtml getQuestionCertbot3() {
+		return questionCertbot3;
+	}
+
+	public void setQuestionCertbot3(PageHtml questionCertbot3) {
+		this.questionCertbot3 = questionCertbot3;
+		this.questionCertbot3Couverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat questionCertbot3Init() {
+		if(questionCertbot3 != null) {
+			((C001L008CreerCertificat)this).avantPagePart(questionCertbot3, "questionCertbot3");
+			((C001L008CreerCertificat)this).avantPagePart(questionCertbot3, "questionCertbot3");
+		}
+		if(!questionCertbot3Couverture.dejaInitialise) {
+			_questionCertbot3(questionCertbot3);
+		}
+		questionCertbot3.initLoinPourClasse(requeteSite_);
+		questionCertbot3Couverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyQuestionCertbot3(PageHtml o) {
+		{ e("ol").a("class", " questionCertbot3Ol2 questionCertbot3Ol even ").f();
+			{ e("li").a("class", " questionCertbot3Ol2Li01 questionCertbot3Ol2Li odd ").f();
+				sx(questionCertbot3Ol2Li011);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li02 questionCertbotOl2Li even ").f();
-				sx(questionCertbotOl2Li021);
+			{ e("li").a("class", " questionCertbot3Ol2Li02 questionCertbot3Ol2Li even ").f();
+				sx(questionCertbot3Ol2Li021);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li03 questionCertbotOl2Li odd ").f();
-				sx(questionCertbotOl2Li031);
+			{ e("li").a("class", " questionCertbot3Ol2Li03 questionCertbot3Ol2Li odd ").f();
+				sx(questionCertbot3Ol2Li031);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li04 questionCertbotOl2Li even ").f();
-				sx(questionCertbotOl2Li041);
+			{ e("li").a("class", " questionCertbot3Ol2Li04 questionCertbot3Ol2Li even ").f();
+				sx(questionCertbot3Ol2Li041);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li05 questionCertbotOl2Li odd ").f();
-				sx(questionCertbotOl2Li051);
+			{ e("li").a("class", " questionCertbot3Ol2Li05 questionCertbot3Ol2Li odd ").f();
+				sx(questionCertbot3Ol2Li051);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li06 questionCertbotOl2Li even ").f();
-				sx(questionCertbotOl2Li061);
+			{ e("li").a("class", " questionCertbot3Ol2Li06 questionCertbot3Ol2Li even ").f();
+				sx(questionCertbot3Ol2Li061);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li07 questionCertbotOl2Li odd ").f();
-				sx(questionCertbotOl2Li071);
+			{ e("li").a("class", " questionCertbot3Ol2Li07 questionCertbot3Ol2Li odd ").f();
+				sx(questionCertbot3Ol2Li071);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li08 questionCertbotOl2Li even ").f();
-				sx(questionCertbotOl2Li081);
+			{ e("li").a("class", " questionCertbot3Ol2Li08 questionCertbot3Ol2Li even ").f();
+				sx(questionCertbot3Ol2Li081);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li09 questionCertbotOl2Li odd ").f();
-				sx(questionCertbotOl2Li091);
+			{ e("li").a("class", " questionCertbot3Ol2Li09 questionCertbot3Ol2Li odd ").f();
+				sx(questionCertbot3Ol2Li091);
 			} g("li");
-			{ e("li").a("class", " questionCertbotOl2Li10 questionCertbotOl2Li even ").f();
-				sx(questionCertbotOl2Li101);
+			{ e("li").a("class", " questionCertbot3Ol2Li10 questionCertbot3Ol2Li even ").f();
+				sx(questionCertbot3Ol2Li101);
 			} g("li");
 		} g("ol");
-		{ e("p").a("class", " questionCertbotP2 questionCertbotP even ").f();
-			sx(questionCertbotP21);
-			sx(questionCertbotP22);
-			sx(questionCertbotP23);
-			sx(questionCertbotP24);
-			sx(questionCertbotP25);
+		{ e("p").a("class", " questionCertbot3P2 questionCertbot3P even ").f();
+			sx(questionCertbot3P21);
+			sx(questionCertbot3P22);
+			sx(questionCertbot3P23);
+			sx(questionCertbot3P24);
+			sx(questionCertbot3P25);
 		} g("p");
-		{ e("p").a("class", " questionCertbotP3 questionCertbotP odd ").f();
-			{ e("span").a("class", " questionCertbotP3Span1 questionCertbotP3Span odd ").f();
-				sx(questionCertbotP3Span11);
-				sx(questionCertbotP3Span12);
-				sx(questionCertbotP3Span13);
+		{ e("p").a("class", " questionCertbot3P3 questionCertbot3P odd ").f();
+			{ e("span").a("class", " questionCertbot3P3Span1 questionCertbot3P3Span odd ").f();
+				sx(questionCertbot3P3Span11);
+				sx(questionCertbot3P3Span12);
+				sx(questionCertbot3P3Span13);
 			} g("span");
-			{ e("a").a("class", " questionCertbotP3A1 questionCertbotP3A odd ").a("href", questionCertbotP3A11).f();
-				sx(questionCertbotP3A11);
+			{ e("a").a("class", " questionCertbot3P3A1 questionCertbot3P3A odd ").a("href", questionCertbot3P3A11).f();
+				sx(questionCertbot3P3A11);
 			} g("a");
-			{ e("span").a("class", " questionCertbotP3Span2 questionCertbotP3Span even ").f();
-				sx(questionCertbotP3Span21);
-				sx(questionCertbotP3Span22);
-				sx(questionCertbotP3Span23);
-				sx(questionCertbotP3Span24);
-				sx(questionCertbotP3Span25);
-				sx(questionCertbotP3Span26);
-				sx(questionCertbotP3Span27);
+			{ e("span").a("class", " questionCertbot3P3Span2 questionCertbot3P3Span even ").f();
+				sx(questionCertbot3P3Span21);
+				sx(questionCertbot3P3Span22);
+				sx(questionCertbot3P3Span23);
+				sx(questionCertbot3P3Span24);
+				sx(questionCertbot3P3Span25);
+				sx(questionCertbot3P3Span26);
+				sx(questionCertbot3P3Span27);
 			} g("span");
 		} g("p");
 	}
-	public void htmlBodyQuestionCertbot() {
-		questionCertbot.htmlAvant();
-		htmlBodyQuestionCertbot(questionCertbot);
-		questionCertbot.htmlApres();
+	public void htmlBodyQuestionCertbot3() {
+		questionCertbot3.htmlAvant();
+		htmlBodyQuestionCertbot3(questionCertbot3);
+		questionCertbot3.htmlApres();
 	}
 
 	//////////////////////////
@@ -2880,7 +2969,9 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		moiInit();
 		questionDependencesInit();
 		questionMkdirSrvInit();
-		questionCertbotInit();
+		questionCertbot1Init();
+		questionCertbot2Init();
+		questionCertbot3Init();
 		questionClonerSourceInit();
 		questionListerTagsInit();
 		questionCheckoutTagInit();
@@ -2913,8 +3004,12 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 			questionDependences.setRequeteSite_(requeteSite_);
 		if(questionMkdirSrv != null)
 			questionMkdirSrv.setRequeteSite_(requeteSite_);
-		if(questionCertbot != null)
-			questionCertbot.setRequeteSite_(requeteSite_);
+		if(questionCertbot1 != null)
+			questionCertbot1.setRequeteSite_(requeteSite_);
+		if(questionCertbot2 != null)
+			questionCertbot2.setRequeteSite_(requeteSite_);
+		if(questionCertbot3 != null)
+			questionCertbot3.setRequeteSite_(requeteSite_);
 		if(questionClonerSource != null)
 			questionClonerSource.setRequeteSite_(requeteSite_);
 		if(questionListerTags != null)
@@ -2975,8 +3070,12 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 				return oC001L008CreerCertificat.questionDependences;
 			case "questionMkdirSrv":
 				return oC001L008CreerCertificat.questionMkdirSrv;
-			case "questionCertbot":
-				return oC001L008CreerCertificat.questionCertbot;
+			case "questionCertbot1":
+				return oC001L008CreerCertificat.questionCertbot1;
+			case "questionCertbot2":
+				return oC001L008CreerCertificat.questionCertbot2;
+			case "questionCertbot3":
+				return oC001L008CreerCertificat.questionCertbot3;
 			case "questionClonerSource":
 				return oC001L008CreerCertificat.questionClonerSource;
 			case "questionListerTags":
@@ -3202,8 +3301,12 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 			questionDependences.htmlBodyCourt();
 		if(questionMkdirSrv != null)
 			questionMkdirSrv.htmlBodyCourt();
-		if(questionCertbot != null)
-			questionCertbot.htmlBodyCourt();
+		if(questionCertbot1 != null)
+			questionCertbot1.htmlBodyCourt();
+		if(questionCertbot2 != null)
+			questionCertbot2.htmlBodyCourt();
+		if(questionCertbot3 != null)
+			questionCertbot3.htmlBodyCourt();
 		if(questionClonerSource != null)
 			questionClonerSource.htmlBodyCourt();
 		if(questionListerTags != null)
@@ -3247,7 +3350,9 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		((C001L008CreerCertificat)this).htmlBodyMoi();
 		((C001L008CreerCertificat)this).htmlBodyQuestionDependences();
 		((C001L008CreerCertificat)this).htmlBodyQuestionMkdirSrv();
-		((C001L008CreerCertificat)this).htmlBodyQuestionCertbot();
+		((C001L008CreerCertificat)this).htmlBodyQuestionCertbot1();
+		((C001L008CreerCertificat)this).htmlBodyQuestionCertbot2();
+		((C001L008CreerCertificat)this).htmlBodyQuestionCertbot3();
 		((C001L008CreerCertificat)this).htmlBodyQuestionClonerSource();
 		((C001L008CreerCertificat)this).htmlBodyQuestionListerTags();
 		((C001L008CreerCertificat)this).htmlBodyQuestionCheckoutTag();
@@ -3297,5 +3402,5 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L008CreerCertificatVals = new String[] { moiP1, moiP2, moiP3, moiP4, moiP5, moiP6, moiP7, moiP8, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li11, questionDependencesOl2Li12, questionDependencesOl2Li13, questionDependencesOl2Li21, questionDependencesOl2Li22, questionDependencesOl2Li31, questionDependencesOl2Li41, questionDependencesOl2Li51, questionDependencesPre3Span11, questionDependencesPre3Span21, questionDependencesPre3Span31, questionDependencesPre3Span41, questionDependencesPre3Span51, questionDependencesOl4Li11, questionDependencesOl4Li21, questionDependencesOl4Li31, questionDependencesOl4Li41, questionDependencesOl4Li51, questionMkdirSrvH3I1, questionMkdirSrvH3Span1, questionMkdirSrvH4I1, questionMkdirSrvH4Span1, questionMkdirSrvPreSpan011, questionMkdirSrvPreSpan021, questionMkdirSrvPreSpan031, questionMkdirSrvPreSpan041, questionMkdirSrvPreSpan051, questionMkdirSrvPreSpan061, questionMkdirSrvPreSpan071, questionMkdirSrvPreSpan081, questionMkdirSrvPreSpan091, questionMkdirSrvPreSpan101, questionMkdirSrvOl2Li011, questionMkdirSrvOl2Li021, questionMkdirSrvOl2Li031, questionMkdirSrvOl2Li041, questionMkdirSrvOl2Li051, questionMkdirSrvOl2Li061, questionMkdirSrvOl2Li071, questionMkdirSrvOl2Li081, questionMkdirSrvOl2Li091, questionMkdirSrvOl2Li101, questionCertbotH3I1, questionCertbotH3Span1, questionCertbotH4I1, questionCertbotH4Span1, questionCertbotPreSpan011, questionCertbotPreSpan021, questionCertbotPreSpan031, questionCertbotPreSpan041, questionCertbotPreSpan051, questionCertbotPreSpan061, questionCertbotPreSpan071, questionCertbotPreSpan081, questionCertbotPreSpan091, questionCertbotPreSpan101, questionCertbotOl2Li011, questionCertbotOl2Li021, questionCertbotOl2Li031, questionCertbotOl2Li041, questionCertbotOl2Li051, questionCertbotOl2Li061, questionCertbotOl2Li071, questionCertbotOl2Li081, questionCertbotOl2Li091, questionCertbotOl2Li101, questionCertbotP21, questionCertbotP22, questionCertbotP23, questionCertbotP24, questionCertbotP25, questionCertbotP3Span11, questionCertbotP3Span12, questionCertbotP3Span13, questionCertbotP3A11, questionCertbotP3Span21, questionCertbotP3Span22, questionCertbotP3Span23, questionCertbotP3Span24, questionCertbotP3Span25, questionCertbotP3Span26, questionCertbotP3Span27, questionClonerSourceH3I1, questionClonerSourceH3Span1, questionClonerSourceH4I1, questionClonerSourceH4Span1, questionClonerSourcePreSpan11, questionClonerSourcePreSpan21, questionClonerSourcePreSpan31, questionClonerSourcePreSpan41, questionClonerSourceOl2Li11, questionClonerSourceOl2Li21, questionClonerSourceOl2Li31, questionClonerSourceOl2Li41, questionListerTagsH3I1, questionListerTagsH3Span1, questionListerTagsH4I1, questionListerTagsH4Span1, questionListerTagsPreSpan11, questionListerTagsPreSpan21, questionListerTagsPreSpan31, questionListerTagsPreSpan41, questionListerTagsPreSpan51, questionListerTagsOl2Li11, questionListerTagsOl2Li21, questionListerTagsOl2Li31, questionListerTagsOl2Li41, questionListerTagsOl2Li51, questionCheckoutTagH3I1, questionCheckoutTagH3Span1, questionCheckoutTagH4I1, questionCheckoutTagH4Span1, questionCheckoutTagPreSpan11, questionCheckoutTagPreSpan21, questionCheckoutTagPreSpan31, questionCheckoutTagPreSpan41, questionCheckoutTagPreSpan51, questionCheckoutTagPreSpan61, questionCheckoutTagOl2Li11, questionCheckoutTagOl2Li21, questionCheckoutTagOl2Li31, questionCheckoutTagOl2Li41, questionCheckoutTagOl2Li51, questionCheckoutTagOl2Li61, questionConstruireSourceH3I1, questionConstruireSourceH3Span1, questionConstruireSourceH4I1, questionConstruireSourceH4Span1, questionConstruireSourcePre1Span011, questionConstruireSourcePre1Span021, questionConstruireSourcePre1Span031, questionConstruireSourcePre1Span041, questionConstruireSourcePre1Span051, questionConstruireSourcePre1Span061, questionConstruireSourcePre1Span071, questionConstruireSourcePre1Span081, questionConstruireSourcePre1Span091, questionConstruireSourcePre1Span101, questionConstruireSourceOl1Li011, questionConstruireSourceOl1Li021, questionConstruireSourceOl1Li031, questionConstruireSourceOl1Li041, questionConstruireSourceOl1Li051, questionConstruireSourceOl1Li061, questionConstruireSourceOl1Li071, questionConstruireSourceOl1Li081, questionConstruireSourceOl1Li091, questionConstruireSourceOl1Li092, questionConstruireSourceOl1Li101, questionConstruireSourcePre2Span11, questionConstruireSourcePre2Span21, questionConstruireSourcePre2Span31, questionConstruireSourcePre2Span41, questionConstruireSourcePre2Span51, questionConstruireSourceOl2Li11, questionConstruireSourceOl2Li21, questionConstruireSourceOl2Li31, questionConstruireSourceOl2Li41, questionConstruireSourceOl2Li51, questionConstruireSourcePre3Span11, questionConstruireSourcePre3Span21, questionConstruireSourcePre3Span31, questionConstruireSourcePre3Span41, questionConstruireSourcePre3Span51, questionConstruireSourceOl3Li11, questionConstruireSourceOl3Li21, questionConstruireSourceOl3Li31, questionConstruireSourceOl3Li41, questionConstruireSourceOl3Li51, questionMkdirServeurH3I1, questionMkdirServeurH3Span1, questionMkdirServeurH4I1, questionMkdirServeurH4Span1, questionMkdirServeurPreSpan11, questionMkdirServeurPreSpan21, questionMkdirServeurPreSpan31, questionMkdirServeurPreSpan41, questionMkdirServeurPreSpan51, questionMkdirServeurPreSpan61, questionMkdirServeurPreSpan71, questionMkdirServeurPreSpan81, questionMkdirServeurOl2Li11, questionMkdirServeurOl2Li21, questionMkdirServeurOl2Li31, questionMkdirServeurOl2Li41, questionMkdirServeurOl2Li51, questionMkdirServeurOl2Li61, questionMkdirServeurOl2Li71, questionMkdirServeurOl2Li81, questionDonneesH3I1, questionDonneesH3Span1, questionDonneesH4I1, questionDonneesH4Span1, questionDonneesP11, questionDonneesP12, questionDonneesP13, questionDonneesPreSpan11, questionDonneesPreSpan21, questionDonneesPreSpan31, questionDonneesPreSpan41, questionDonneesOl2Li11, questionDonneesOl2Li21, questionDonneesOl2Li31, questionDonneesOl2Li41, questionServiceH3I1, questionServiceH3Span1, questionServiceH4I1, questionServiceH4Span1, questionServicePreSpan11, questionServicePreSpan1Br1, questionServicePreSpan2Br1, questionServicePreSpan3Br1, questionServicePreSpan3Br2, questionServicePreSpan3Br3, questionServicePreSpan3Br4, questionServicePreSpan3Br5, questionServicePreSpan3Br6, questionServicePreSpan3Br7, questionServicePreSpan3Br8, questionServicePreSpan3Br9, questionServicePreSpan3Br10, questionServicePreSpan3Br11, questionServicePreSpan3Br12, questionServicePreSpan3Br13, questionServicePreSpan3Br14, questionServicePreSpan3Br15, questionServiceOl2Li011, questionServiceOl2Li021, questionServiceOl2Li031, questionServiceOl2Li041, questionServiceOl2Li051, questionServiceOl2Li061, questionServiceOl2Li071, questionServiceOl2Li081, questionServiceOl2Li091, questionServiceOl2Li101, questionServiceOl2Li111, questionServiceOl2Li121, questionServiceOl2Li131, questionServiceOl2Li141, questionServiceOl2Li151, questionServiceOl2Li161, questionServiceOl2Li171, questionServiceOl2Li181, questionServiceOl2Li191, questionSystemctlDaemonReloadH3I1, questionSystemctlDaemonReloadH3Span1, questionSystemctlDaemonReloadH4I1, questionSystemctlDaemonReloadH4Span1, questionSystemctlDaemonReloadPreSpan11, questionSystemctlDaemonReloadPreSpan21, questionSystemctlDaemonReloadPreSpan31, questionSystemctlDaemonReloadOl2Li11, questionSystemctlDaemonReloadOl2Li21, questionSystemctlDaemonReloadOl2Li31, questionSystemctlEnableH3I1, questionSystemctlEnableH3Span1, questionSystemctlEnableH4I1, questionSystemctlEnableH4Span1, questionSystemctlEnablePreSpan11, questionSystemctlEnablePreSpan21, questionSystemctlEnablePreSpan31, questionSystemctlEnablePreSpan41, questionSystemctlEnableOl2Li11, questionSystemctlEnableOl2Li21, questionSystemctlEnableOl2Li31, questionSystemctlEnableOl2Li41, questionSystemctlStartH3I1, questionSystemctlStartH3Span1, questionSystemctlStartH4I1, questionSystemctlStartH4Span1, questionSystemctlStartPreSpan11, questionSystemctlStartPreSpan21, questionSystemctlStartPreSpan31, questionSystemctlStartPreSpan41, questionSystemctlStartOl2Li11, questionSystemctlStartOl2Li21, questionSystemctlStartOl2Li31, questionSystemctlStartOl2Li41, questionSystemctlStatusH3I1, questionSystemctlStatusH3Span1, questionSystemctlStatusH4I1, questionSystemctlStatusH4Span1, questionSystemctlStatusPreSpan11, questionSystemctlStatusPreSpan21, questionSystemctlStatusPreSpan31, questionSystemctlStatusPreSpan41, questionSystemctlStatusOl2Li11, questionSystemctlStatusOl2Li21, questionSystemctlStatusOl2Li31, questionSystemctlStatusOl2Li41, questionSystemctlStatusP21, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41, recapituler3TableTr13Td1I1, recapituler3TableTr13Td21, recapituler3TableTr13Td3I1, recapituler3TableTr13Td41, recapituler3TableTr14Td1I1, recapituler3TableTr14Td21, recapituler3TableTr14Td3I1, recapituler3TableTr14Td41, recapituler3TableTr15Td1I1, recapituler3TableTr15Td21, recapituler3TableTr15Td3I1, recapituler3TableTr15Td41 };
+	public static final String[] C001L008CreerCertificatVals = new String[] { moiP1, moiP2, moiP3, moiP4, moiP5, moiP6, moiP7, moiP8, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li11, questionDependencesOl2Li12, questionDependencesOl2Li13, questionDependencesOl2Li21, questionDependencesOl2Li22, questionDependencesOl2Li31, questionDependencesOl2Li41, questionDependencesOl2Li51, questionDependencesPre3Span11, questionDependencesPre3Span21, questionDependencesPre3Span31, questionDependencesPre3Span41, questionDependencesPre3Span51, questionDependencesOl4Li11, questionDependencesOl4Li21, questionDependencesOl4Li31, questionDependencesOl4Li41, questionDependencesOl4Li51, questionMkdirSrvH3I1, questionMkdirSrvH3Span1, questionMkdirSrvH4I1, questionMkdirSrvH4Span1, questionMkdirSrvPreSpan011, questionMkdirSrvPreSpan021, questionMkdirSrvPreSpan031, questionMkdirSrvPreSpan041, questionMkdirSrvPreSpan051, questionMkdirSrvPreSpan061, questionMkdirSrvPreSpan071, questionMkdirSrvPreSpan081, questionMkdirSrvPreSpan091, questionMkdirSrvPreSpan101, questionMkdirSrvOl2Li011, questionMkdirSrvOl2Li021, questionMkdirSrvOl2Li031, questionMkdirSrvOl2Li041, questionMkdirSrvOl2Li051, questionMkdirSrvOl2Li061, questionMkdirSrvOl2Li071, questionMkdirSrvOl2Li081, questionMkdirSrvOl2Li091, questionMkdirSrvOl2Li101, questionCertbot1H3I1, questionCertbot1H3Span1, questionCertbot1H4I1, questionCertbot1H4Span1, questionCertbot2PreSpan011, questionCertbot2PreSpan021, questionCertbot2PreSpan031, questionCertbot2PreSpan041, questionCertbot2PreSpan051, questionCertbot2PreSpan061, questionCertbot2PreSpan071, questionCertbot2PreSpan081, questionCertbot2PreSpan091, questionCertbot2PreSpan101, questionCertbot3Ol2Li011, questionCertbot3Ol2Li021, questionCertbot3Ol2Li031, questionCertbot3Ol2Li041, questionCertbot3Ol2Li051, questionCertbot3Ol2Li061, questionCertbot3Ol2Li071, questionCertbot3Ol2Li081, questionCertbot3Ol2Li091, questionCertbot3Ol2Li101, questionCertbot3P21, questionCertbot3P22, questionCertbot3P23, questionCertbot3P24, questionCertbot3P25, questionCertbot3P3Span11, questionCertbot3P3Span12, questionCertbot3P3Span13, questionCertbot3P3A11, questionCertbot3P3Span21, questionCertbot3P3Span22, questionCertbot3P3Span23, questionCertbot3P3Span24, questionCertbot3P3Span25, questionCertbot3P3Span26, questionCertbot3P3Span27, questionClonerSourceH3I1, questionClonerSourceH3Span1, questionClonerSourceH4I1, questionClonerSourceH4Span1, questionClonerSourcePreSpan11, questionClonerSourcePreSpan21, questionClonerSourcePreSpan31, questionClonerSourcePreSpan41, questionClonerSourceOl2Li11, questionClonerSourceOl2Li21, questionClonerSourceOl2Li31, questionClonerSourceOl2Li41, questionListerTagsH3I1, questionListerTagsH3Span1, questionListerTagsH4I1, questionListerTagsH4Span1, questionListerTagsPreSpan11, questionListerTagsPreSpan21, questionListerTagsPreSpan31, questionListerTagsPreSpan41, questionListerTagsPreSpan51, questionListerTagsOl2Li11, questionListerTagsOl2Li21, questionListerTagsOl2Li31, questionListerTagsOl2Li41, questionListerTagsOl2Li51, questionCheckoutTagH3I1, questionCheckoutTagH3Span1, questionCheckoutTagH4I1, questionCheckoutTagH4Span1, questionCheckoutTagPreSpan11, questionCheckoutTagPreSpan21, questionCheckoutTagPreSpan31, questionCheckoutTagPreSpan41, questionCheckoutTagPreSpan51, questionCheckoutTagPreSpan61, questionCheckoutTagOl2Li11, questionCheckoutTagOl2Li21, questionCheckoutTagOl2Li31, questionCheckoutTagOl2Li41, questionCheckoutTagOl2Li51, questionCheckoutTagOl2Li61, questionConstruireSourceH3I1, questionConstruireSourceH3Span1, questionConstruireSourceH4I1, questionConstruireSourceH4Span1, questionConstruireSourcePre1Span011, questionConstruireSourcePre1Span021, questionConstruireSourcePre1Span031, questionConstruireSourcePre1Span041, questionConstruireSourcePre1Span051, questionConstruireSourcePre1Span061, questionConstruireSourcePre1Span071, questionConstruireSourcePre1Span081, questionConstruireSourcePre1Span091, questionConstruireSourcePre1Span101, questionConstruireSourceOl1Li011, questionConstruireSourceOl1Li021, questionConstruireSourceOl1Li031, questionConstruireSourceOl1Li041, questionConstruireSourceOl1Li051, questionConstruireSourceOl1Li061, questionConstruireSourceOl1Li071, questionConstruireSourceOl1Li081, questionConstruireSourceOl1Li091, questionConstruireSourceOl1Li092, questionConstruireSourceOl1Li101, questionConstruireSourcePre2Span11, questionConstruireSourcePre2Span21, questionConstruireSourcePre2Span31, questionConstruireSourcePre2Span41, questionConstruireSourcePre2Span51, questionConstruireSourceOl2Li11, questionConstruireSourceOl2Li21, questionConstruireSourceOl2Li31, questionConstruireSourceOl2Li41, questionConstruireSourceOl2Li51, questionConstruireSourcePre3Span11, questionConstruireSourcePre3Span21, questionConstruireSourcePre3Span31, questionConstruireSourcePre3Span41, questionConstruireSourcePre3Span51, questionConstruireSourceOl3Li11, questionConstruireSourceOl3Li21, questionConstruireSourceOl3Li31, questionConstruireSourceOl3Li41, questionConstruireSourceOl3Li51, questionMkdirServeurH3I1, questionMkdirServeurH3Span1, questionMkdirServeurH4I1, questionMkdirServeurH4Span1, questionMkdirServeurPreSpan11, questionMkdirServeurPreSpan21, questionMkdirServeurPreSpan31, questionMkdirServeurPreSpan41, questionMkdirServeurPreSpan51, questionMkdirServeurPreSpan61, questionMkdirServeurPreSpan71, questionMkdirServeurPreSpan81, questionMkdirServeurOl2Li11, questionMkdirServeurOl2Li21, questionMkdirServeurOl2Li31, questionMkdirServeurOl2Li41, questionMkdirServeurOl2Li51, questionMkdirServeurOl2Li61, questionMkdirServeurOl2Li71, questionMkdirServeurOl2Li81, questionDonneesH3I1, questionDonneesH3Span1, questionDonneesH4I1, questionDonneesH4Span1, questionDonneesP11, questionDonneesP12, questionDonneesP13, questionDonneesPreSpan11, questionDonneesPreSpan21, questionDonneesPreSpan31, questionDonneesPreSpan41, questionDonneesOl2Li11, questionDonneesOl2Li21, questionDonneesOl2Li31, questionDonneesOl2Li41, questionServiceH3I1, questionServiceH3Span1, questionServiceH4I1, questionServiceH4Span1, questionServicePreSpan11, questionServicePreSpan1Br1, questionServicePreSpan2Br1, questionServicePreSpan3Br1, questionServicePreSpan3Br2, questionServicePreSpan3Br3, questionServicePreSpan3Br4, questionServicePreSpan3Br5, questionServicePreSpan3Br6, questionServicePreSpan3Br7, questionServicePreSpan3Br8, questionServicePreSpan3Br9, questionServicePreSpan3Br10, questionServicePreSpan3Br11, questionServicePreSpan3Br12, questionServicePreSpan3Br13, questionServicePreSpan3Br14, questionServicePreSpan3Br15, questionServiceOl2Li011, questionServiceOl2Li021, questionServiceOl2Li031, questionServiceOl2Li041, questionServiceOl2Li051, questionServiceOl2Li061, questionServiceOl2Li071, questionServiceOl2Li081, questionServiceOl2Li091, questionServiceOl2Li101, questionServiceOl2Li111, questionServiceOl2Li121, questionServiceOl2Li131, questionServiceOl2Li141, questionServiceOl2Li151, questionServiceOl2Li161, questionServiceOl2Li171, questionServiceOl2Li181, questionServiceOl2Li191, questionSystemctlDaemonReloadH3I1, questionSystemctlDaemonReloadH3Span1, questionSystemctlDaemonReloadH4I1, questionSystemctlDaemonReloadH4Span1, questionSystemctlDaemonReloadPreSpan11, questionSystemctlDaemonReloadPreSpan21, questionSystemctlDaemonReloadPreSpan31, questionSystemctlDaemonReloadOl2Li11, questionSystemctlDaemonReloadOl2Li21, questionSystemctlDaemonReloadOl2Li31, questionSystemctlEnableH3I1, questionSystemctlEnableH3Span1, questionSystemctlEnableH4I1, questionSystemctlEnableH4Span1, questionSystemctlEnablePreSpan11, questionSystemctlEnablePreSpan21, questionSystemctlEnablePreSpan31, questionSystemctlEnablePreSpan41, questionSystemctlEnableOl2Li11, questionSystemctlEnableOl2Li21, questionSystemctlEnableOl2Li31, questionSystemctlEnableOl2Li41, questionSystemctlStartH3I1, questionSystemctlStartH3Span1, questionSystemctlStartH4I1, questionSystemctlStartH4Span1, questionSystemctlStartPreSpan11, questionSystemctlStartPreSpan21, questionSystemctlStartPreSpan31, questionSystemctlStartPreSpan41, questionSystemctlStartOl2Li11, questionSystemctlStartOl2Li21, questionSystemctlStartOl2Li31, questionSystemctlStartOl2Li41, questionSystemctlStatusH3I1, questionSystemctlStatusH3Span1, questionSystemctlStatusH4I1, questionSystemctlStatusH4Span1, questionSystemctlStatusPreSpan11, questionSystemctlStatusPreSpan21, questionSystemctlStatusPreSpan31, questionSystemctlStatusPreSpan41, questionSystemctlStatusOl2Li11, questionSystemctlStatusOl2Li21, questionSystemctlStatusOl2Li31, questionSystemctlStatusOl2Li41, questionSystemctlStatusP21, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41, recapituler3TableTr13Td1I1, recapituler3TableTr13Td21, recapituler3TableTr13Td3I1, recapituler3TableTr13Td41, recapituler3TableTr14Td1I1, recapituler3TableTr14Td21, recapituler3TableTr14Td3I1, recapituler3TableTr14Td41, recapituler3TableTr15Td1I1, recapituler3TableTr15Td21, recapituler3TableTr15Td3I1, recapituler3TableTr15Td41 };
 }

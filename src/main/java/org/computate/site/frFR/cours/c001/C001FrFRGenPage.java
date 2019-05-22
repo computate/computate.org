@@ -1,6 +1,5 @@
 package org.computate.site.frFR.cours.c001;
 
-import java.lang.String;
 import org.computate.site.frFR.cours.CoursFrFRPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
@@ -180,23 +179,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 
 				} g("form");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("id", "siteNomDomaineForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
-
-					e("input")
-						.a("type", "text")
-						.a("placeholder", "nom de domaine")
-						.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
-						.a("class", "setSiteNomDomaine w3-input w3-border ")
-						.a("name", "setSiteNomDomaine")
-						.a("id", "Page_siteNomDomaine")
-						.a("onchange", "patchC001($('#C001Form'), $('#siteNomDomaineForm')); ")
-						.a("value", o.strSiteNomDomaine())
-					.fg();
-
-				} g("form");
-			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
@@ -314,20 +296,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 				.fg();
 
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "nom de domaine")
-					.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
-					.a("class", "valeurSiteNomDomaine w3-input w3-border ")
-					.a("name", "siteNomDomaine")
-					.a("id", "POST_siteNomDomaine")
-					.a("value", o.strSiteNomDomaine())
-				.fg();
-
-			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
@@ -389,20 +357,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 					.a("name", "setCoursNumero")
 					.a("id", "PATCH_coursNumero")
 					.a("value", o.strCoursNumero())
-				.fg();
-
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "PATCH_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "nom de domaine")
-					.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
-					.a("class", "setSiteNomDomaine w3-input w3-border ")
-					.a("name", "setSiteNomDomaine")
-					.a("id", "PATCH_siteNomDomaine")
-					.a("value", o.strSiteNomDomaine())
 				.fg();
 
 			} g("div");
@@ -482,20 +436,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 					.a("name", "coursNumero")
 					.a("id", "Recherche_coursNumero")
 					.a("value", o.strCoursNumero())
-				.fg();
-
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "Recherche_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "nom de domaine")
-					.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
-					.a("class", "valeurSiteNomDomaine w3-input w3-border ")
-					.a("name", "siteNomDomaine")
-					.a("id", "Recherche_siteNomDomaine")
-					.a("value", o.strSiteNomDomaine())
 				.fg();
 
 			} g("div");
@@ -707,100 +647,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 			} g("div");
 		}
 		e("div").f();
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#postC001Modale').show(); ")
-			.f().sx("Créer un cours n ° 1")
-		.g("button");
-		{ e("div").a("id", "postC001Modale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#postC001Modale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Créer un cours n ° 1").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					C001 o = new C001();
-
-					{ e("form").a("id", "postC001Form").f();
-						htmlFormPOSTC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "postC001($('#postC001Form')); ")
-						.f().sx("Créer un cours n ° 1")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#patchC001Modale').show(); ")
-			.f().sx("Modifier des courses")
-		.g("button");
-		{ e("div").a("id", "patchC001Modale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchC001Modale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Modifier des courses").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					C001 o = new C001();
-
-					{ e("form").a("id", "patchC001FormFiltres").f();
-						htmlFormRechercheC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "rechercheC001($('#patchC001FormFiltres')); ")
-						.f().sx("Modifier des courses")
-					.g("button");
-
-
-					{ e("form").a("id", "patchC001FormValeurs").f();
-						htmlFormPATCHC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "patchC001($('#patchC001FormFiltres'), $('#patchC001FormValeurs')); ")
-						.f().sx("Modifier des courses")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#deleteC001Modale').show(); ")
-			.f().sx("Supprimer des courses")
-		.g("button");
-		{ e("div").a("id", "deleteC001Modale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#deleteC001Modale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Supprimer des courses").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					C001 o = new C001();
-
-					{ e("form").a("id", "deleteC001Form").f();
-						htmlFormPATCHC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "deleteC001(); ")
-						.f().sx("Supprimer des courses")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
 
 		g("div");
 	}

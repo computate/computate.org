@@ -2,13 +2,14 @@ package org.computate.site.enUS.utilisateur;
 
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
-import org.computate.site.enUS.article.ArticleEnUSPage;
 import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.apache.commons.text.StringEscapeUtils;
+import org.computate.site.enUS.cluster.ClusterEnUSPage;
+import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.cluster.Cluster;
 
@@ -16,7 +17,7 @@ import org.computate.site.enUS.cluster.Cluster;
  * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.utilisateur.UtilisateurSiteEnUSGenPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ArticleEnUSPage {
+public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ClusterEnUSPage {
 
 	//////////////////////////
 	// listeUtilisateurSite //
@@ -94,6 +95,62 @@ public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ArticleEnUSPage
 		return (UtilisateurSiteEnUSGenPage)this;
 	}
 
+	////////////////////////////
+	// pageUriUtilisateurSite //
+	////////////////////////////
+
+	/**	L'entité « pageUriUtilisateurSite »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUriUtilisateurSite;
+	public Couverture<String> pageUriUtilisateurSiteCouverture = new Couverture<String>().p(this).c(String.class).var("pageUriUtilisateurSite").o(pageUriUtilisateurSite);
+
+	/**	<br/>L'entité « pageUriUtilisateurSite »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.utilisateur.UtilisateurSiteEnUSGenPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUriUtilisateurSite">Trouver l'entité pageUriUtilisateurSite dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUriUtilisateurSite(Couverture<String> c);
+
+	public String getPageUriUtilisateurSite() {
+		return pageUriUtilisateurSite;
+	}
+
+	public void setPageUriUtilisateurSite(String pageUriUtilisateurSite) {
+		this.pageUriUtilisateurSite = pageUriUtilisateurSite;
+		this.pageUriUtilisateurSiteCouverture.dejaInitialise = true;
+	}
+	protected UtilisateurSiteEnUSGenPage pageUriUtilisateurSiteInit() {
+		if(!pageUriUtilisateurSiteCouverture.dejaInitialise) {
+			_pageUriUtilisateurSite(pageUriUtilisateurSiteCouverture);
+			if(pageUriUtilisateurSite == null)
+				setPageUriUtilisateurSite(pageUriUtilisateurSiteCouverture.o);
+		}
+		pageUriUtilisateurSiteCouverture.dejaInitialise(true);
+		return (UtilisateurSiteEnUSGenPage)this;
+	}
+
+	public String solrPageUriUtilisateurSite() {
+		return pageUriUtilisateurSite;
+	}
+
+	public String strPageUriUtilisateurSite() {
+		return pageUriUtilisateurSite == null ? "" : pageUriUtilisateurSite;
+	}
+
+	public String nomAffichagePageUriUtilisateurSite() {
+		return null;
+	}
+
+	public String htmTooltipPageUriUtilisateurSite() {
+		return null;
+	}
+
+	public String htmPageUriUtilisateurSite() {
+		return pageUriUtilisateurSite == null ? "" : StringEscapeUtils.escapeHtml4(strPageUriUtilisateurSite());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -110,13 +167,14 @@ public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ArticleEnUSPage
 	}
 
 	public void initLoinUtilisateurSiteEnUSGenPage() {
-		super.initLoinArticleEnUSPage(requeteSite_);
+		super.initLoinClusterEnUSPage(requeteSite_);
 		initUtilisateurSiteEnUSGenPage();
 	}
 
 	public void initUtilisateurSiteEnUSGenPage() {
 		listeUtilisateurSiteInit();
 		utilisateurSiteInit();
+		pageUriUtilisateurSiteInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -128,7 +186,7 @@ public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ArticleEnUSPage
 	/////////////////
 
 	public void requeteSiteUtilisateurSiteEnUSGenPage(RequeteSiteEnUS requeteSite_) {
-			super.requeteSiteArticleEnUSPage(requeteSite_);
+			super.requeteSiteClusterEnUSPage(requeteSite_);
 		if(listeUtilisateurSite != null)
 			listeUtilisateurSite.setRequeteSite_(requeteSite_);
 		if(utilisateurSite != null)
@@ -163,8 +221,10 @@ public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ArticleEnUSPage
 				return oUtilisateurSiteEnUSGenPage.listeUtilisateurSite;
 			case "utilisateurSite":
 				return oUtilisateurSiteEnUSGenPage.utilisateurSite;
+			case "pageUriUtilisateurSite":
+				return oUtilisateurSiteEnUSGenPage.pageUriUtilisateurSite;
 			default:
-				return super.obtenirArticleEnUSPage(var);
+				return super.obtenirClusterEnUSPage(var);
 		}
 	}
 
@@ -189,7 +249,7 @@ public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ArticleEnUSPage
 		UtilisateurSiteEnUSGenPage oUtilisateurSiteEnUSGenPage = (UtilisateurSiteEnUSGenPage)this;
 		switch(var) {
 			default:
-				return super.attribuerArticleEnUSPage(var, val);
+				return super.attribuerClusterEnUSPage(var, val);
 		}
 	}
 
@@ -215,7 +275,7 @@ public abstract class UtilisateurSiteEnUSGenPageGen<DEV> extends ArticleEnUSPage
 	public Object definirUtilisateurSiteEnUSGenPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirArticleEnUSPage(var, val);
+				return super.definirClusterEnUSPage(var, val);
 		}
 	}
 

@@ -113,7 +113,6 @@ public abstract class ClusterGen<DEV> extends Object {
 			this.pageParts.add(o);
 		return (Cluster)this;
 	}
-	public abstract void avantPagePart(PagePart o, String entiteVar);
 	protected Cluster pagePartsInit() {
 		if(!pagePartsCouverture.dejaInitialise) {
 			_pageParts(pageParts);
@@ -192,7 +191,7 @@ public abstract class ClusterGen<DEV> extends Object {
 				r.l("	<script>//<![CDATA[");
 				r.l("		function patchCluster", strPk(), "Pk() {");
 				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
 				r.l("				dataType: 'json',");
 				r.l("				type: 'patch',");
 				r.l("				contentType: 'application/json',");
@@ -289,7 +288,7 @@ public abstract class ClusterGen<DEV> extends Object {
 				r.l("	<script>//<![CDATA[");
 				r.l("		function patchCluster", strPk(), "Id() {");
 				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
 				r.l("				dataType: 'json',");
 				r.l("				type: 'patch',");
 				r.l("				contentType: 'application/json',");
@@ -317,6 +316,334 @@ public abstract class ClusterGen<DEV> extends Object {
 				r.l("	</div>");
 			} else {
 				r.s(htmId());
+			}
+			r.l("</div>");
+		}
+	}
+
+	//////////////
+	// _created //
+	//////////////
+
+	/**	L'entité « _created »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected ZonedDateTime _created;
+	public Couverture<ZonedDateTime> _createdCouverture = new Couverture<ZonedDateTime>().p(this).c(ZonedDateTime.class).var("_created").o(_created);
+
+	/**	<br/>L'entité « _created »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:_created">Trouver l'entité _created dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void __created(Couverture<ZonedDateTime> c);
+
+	public ZonedDateTime get_created() {
+		return _created;
+	}
+
+	public void set_created(ZonedDateTime _created) {
+		this._created = _created;
+		this._createdCouverture.dejaInitialise = true;
+	}
+	public Cluster set_created(Instant o) {
+		this._created = ZonedDateTime.from(o);
+		this._createdCouverture.dejaInitialise = true;
+		return (Cluster)this;
+	}
+	/** Example: 2011-12-03T10:15:30+01:00 **/
+	public Cluster set_created(String o) {
+		this._created = ZonedDateTime.parse(o, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+		this._createdCouverture.dejaInitialise = true;
+		return (Cluster)this;
+	}
+	public Cluster set_created(Date o) {
+		this._created = ZonedDateTime.ofInstant(o.toInstant(), ZoneId.systemDefault());
+		this._createdCouverture.dejaInitialise = true;
+		return (Cluster)this;
+	}
+	protected Cluster _createdInit() {
+		if(!_createdCouverture.dejaInitialise) {
+			__created(_createdCouverture);
+			if(_created == null)
+				set_created(_createdCouverture.o);
+		}
+		_createdCouverture.dejaInitialise(true);
+		return (Cluster)this;
+	}
+
+	public Date solr_created() {
+		return _created == null ? null : Date.from(_created.toInstant());
+	}
+
+	public String str_created() {
+		return _created == null ? "" : _created.toString();
+	}
+
+	public String nomAffichage_created() {
+		return "created";
+	}
+
+	public String htmTooltip_created() {
+		return null;
+	}
+
+	public String htm_created() {
+		return _created == null ? "" : StringEscapeUtils.escapeHtml4(str_created());
+	}
+
+	public void htm_created(ToutEcrivain r, Boolean patchDroits) {
+		if(pk!= null) {
+			r.s("<div id=\"patchCluster", strPk(), "_created\">");
+			if(patchDroits) {
+				r.l();
+				r.l("	<script>//<![CDATA[");
+				r.l("		function patchCluster", strPk(), "_created() {");
+				r.l("			$.ajax({");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
+				r.l("				dataType: 'json',");
+				r.l("				type: 'patch',");
+				r.l("				contentType: 'application/json',");
+				r.l("				processData: false,");
+				r.l("				success: function( data, textStatus, jQxhr ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				data: {\"set_created\": this.value },");
+				r.l("				");
+				r.l("			});");
+				r.l("		}");
+				r.l("	//]]></script>");
+				r.l("	<div class=\"\">");
+				r.l("		<label class=\"w3-tooltip \">");
+				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichage_created()), "</span>");
+				r.s("			<input");
+							r.s(" name=\"_created\"");
+							r.s(" value=\"", htm_created(), "\");");
+							r.s(" onchange=\"\"");
+							r.l("/>");
+				r.l("		</label>");
+				r.l("	</div>");
+			} else {
+				r.s(htm_created());
+			}
+			r.l("</div>");
+		}
+	}
+
+	///////////////
+	// _modified //
+	///////////////
+
+	/**	L'entité « _modified »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected ZonedDateTime _modified;
+	public Couverture<ZonedDateTime> _modifiedCouverture = new Couverture<ZonedDateTime>().p(this).c(ZonedDateTime.class).var("_modified").o(_modified);
+
+	/**	<br/>L'entité « _modified »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:_modified">Trouver l'entité _modified dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void __modified(Couverture<ZonedDateTime> c);
+
+	public ZonedDateTime get_modified() {
+		return _modified;
+	}
+
+	public void set_modified(ZonedDateTime _modified) {
+		this._modified = _modified;
+		this._modifiedCouverture.dejaInitialise = true;
+	}
+	public Cluster set_modified(Instant o) {
+		this._modified = ZonedDateTime.from(o);
+		this._modifiedCouverture.dejaInitialise = true;
+		return (Cluster)this;
+	}
+	/** Example: 2011-12-03T10:15:30+01:00 **/
+	public Cluster set_modified(String o) {
+		this._modified = ZonedDateTime.parse(o, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+		this._modifiedCouverture.dejaInitialise = true;
+		return (Cluster)this;
+	}
+	public Cluster set_modified(Date o) {
+		this._modified = ZonedDateTime.ofInstant(o.toInstant(), ZoneId.systemDefault());
+		this._modifiedCouverture.dejaInitialise = true;
+		return (Cluster)this;
+	}
+	protected Cluster _modifiedInit() {
+		if(!_modifiedCouverture.dejaInitialise) {
+			__modified(_modifiedCouverture);
+			if(_modified == null)
+				set_modified(_modifiedCouverture.o);
+		}
+		_modifiedCouverture.dejaInitialise(true);
+		return (Cluster)this;
+	}
+
+	public Date solr_modified() {
+		return _modified == null ? null : Date.from(_modified.toInstant());
+	}
+
+	public String str_modified() {
+		return _modified == null ? "" : _modified.toString();
+	}
+
+	public String nomAffichage_modified() {
+		return "modified";
+	}
+
+	public String htmTooltip_modified() {
+		return null;
+	}
+
+	public String htm_modified() {
+		return _modified == null ? "" : StringEscapeUtils.escapeHtml4(str_modified());
+	}
+
+	public void htm_modified(ToutEcrivain r, Boolean patchDroits) {
+		if(pk!= null) {
+			r.s("<div id=\"patchCluster", strPk(), "_modified\">");
+			if(patchDroits) {
+				r.l();
+				r.l("	<script>//<![CDATA[");
+				r.l("		function patchCluster", strPk(), "_modified() {");
+				r.l("			$.ajax({");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
+				r.l("				dataType: 'json',");
+				r.l("				type: 'patch',");
+				r.l("				contentType: 'application/json',");
+				r.l("				processData: false,");
+				r.l("				success: function( data, textStatus, jQxhr ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				data: {\"set_modified\": this.value },");
+				r.l("				");
+				r.l("			});");
+				r.l("		}");
+				r.l("	//]]></script>");
+				r.l("	<div class=\"\">");
+				r.l("		<label class=\"w3-tooltip \">");
+				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichage_modified()), "</span>");
+				r.s("			<input");
+							r.s(" name=\"_modified\"");
+							r.s(" value=\"", htm_modified(), "\");");
+							r.s(" onchange=\"\"");
+							r.l("/>");
+				r.l("		</label>");
+				r.l("	</div>");
+			} else {
+				r.s(htm_modified());
+			}
+			r.l("</div>");
+		}
+	}
+
+	/////////////
+	// archive //
+	/////////////
+
+	/**	L'entité « archive »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected Boolean archive;
+	public Couverture<Boolean> archiveCouverture = new Couverture<Boolean>().p(this).c(Boolean.class).var("archive").o(archive);
+
+	/**	<br/>L'entité « archive »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:archive">Trouver l'entité archive dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _archive(Couverture<Boolean> c);
+
+	public Boolean getArchive() {
+		return archive;
+	}
+
+	public void setArchive(Boolean archive) {
+		this.archive = archive;
+		this.archiveCouverture.dejaInitialise = true;
+	}
+	public Cluster setArchive(String o) {
+		this.archive = Boolean.parseBoolean(o);
+		this.archiveCouverture.dejaInitialise = true;
+		return (Cluster)this;
+	}
+	protected Cluster archiveInit() {
+		if(!archiveCouverture.dejaInitialise) {
+			_archive(archiveCouverture);
+			if(archive == null)
+				setArchive(archiveCouverture.o);
+		}
+		archiveCouverture.dejaInitialise(true);
+		return (Cluster)this;
+	}
+
+	public Boolean solrArchive() {
+		return archive;
+	}
+
+	public String strArchive() {
+		return archive == null ? "" : archive.toString();
+	}
+
+	public String nomAffichageArchive() {
+		return "archived";
+	}
+
+	public String htmTooltipArchive() {
+		return null;
+	}
+
+	public String htmArchive() {
+		return archive == null ? "" : StringEscapeUtils.escapeHtml4(strArchive());
+	}
+
+	public void htmArchive(ToutEcrivain r, Boolean patchDroits) {
+		if(pk!= null) {
+			r.s("<div id=\"patchCluster", strPk(), "Archive\">");
+			if(patchDroits) {
+				r.l();
+				r.l("	<script>//<![CDATA[");
+				r.l("		function patchCluster", strPk(), "Archive() {");
+				r.l("			$.ajax({");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
+				r.l("				dataType: 'json',");
+				r.l("				type: 'patch',");
+				r.l("				contentType: 'application/json',");
+				r.l("				processData: false,");
+				r.l("				success: function( data, textStatus, jQxhr ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
+				r.l("					");
+				r.l("				},");
+				r.l("				data: {\"setArchive\": this.value },");
+				r.l("				");
+				r.l("			});");
+				r.l("		}");
+				r.l("	//]]></script>");
+				r.l("	<div class=\"\">");
+				r.l("		<label class=\"w3-tooltip \">");
+				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageArchive()), "</span>");
+				r.s("			<input");
+							r.s(" name=\"archive\"");
+							r.s(" value=\"", htmArchive(), "\");");
+							r.s(" onchange=\"\"");
+							r.l("/>");
+				r.l("		</label>");
+				r.l("	</div>");
+			} else {
+				r.s(htmArchive());
 			}
 			r.l("</div>");
 		}
@@ -372,7 +699,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 
 	public String nomAffichageSupprime() {
-		return "Deleted";
+		return "deleted";
 	}
 
 	public String htmTooltipSupprime() {
@@ -391,7 +718,7 @@ public abstract class ClusterGen<DEV> extends Object {
 				r.l("	<script>//<![CDATA[");
 				r.l("		function patchCluster", strPk(), "Supprime() {");
 				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
 				r.l("				dataType: 'json',");
 				r.l("				type: 'patch',");
 				r.l("				contentType: 'application/json',");
@@ -424,71 +751,71 @@ public abstract class ClusterGen<DEV> extends Object {
 		}
 	}
 
-	///////////////////
-	// utilisateurId //
-	///////////////////
+	/////////////////////////
+	// _classCanonicalName //
+	/////////////////////////
 
-	/**	L'entité « utilisateurId »
+	/**	L'entité « _classCanonicalName »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected String utilisateurId;
-	public Couverture<String> utilisateurIdCouverture = new Couverture<String>().p(this).c(String.class).var("utilisateurId").o(utilisateurId);
+	protected String _classCanonicalName;
+	public Couverture<String> _classCanonicalNameCouverture = new Couverture<String>().p(this).c(String.class).var("_classCanonicalName").o(_classCanonicalName);
 
-	/**	<br/>L'entité « utilisateurId »
+	/**	<br/>L'entité « _classCanonicalName »
 	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:utilisateurId">Trouver l'entité utilisateurId dans Solr</a>
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:_classCanonicalName">Trouver l'entité _classCanonicalName dans Solr</a>
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _utilisateurId(Couverture<String> c);
+	protected abstract void __classCanonicalName(Couverture<String> c);
 
-	public String getUtilisateurId() {
-		return utilisateurId;
+	public String get_classCanonicalName() {
+		return _classCanonicalName;
 	}
 
-	public void setUtilisateurId(String utilisateurId) {
-		this.utilisateurId = utilisateurId;
-		this.utilisateurIdCouverture.dejaInitialise = true;
+	public void set_classCanonicalName(String _classCanonicalName) {
+		this._classCanonicalName = _classCanonicalName;
+		this._classCanonicalNameCouverture.dejaInitialise = true;
 	}
-	protected Cluster utilisateurIdInit() {
-		if(!utilisateurIdCouverture.dejaInitialise) {
-			_utilisateurId(utilisateurIdCouverture);
-			if(utilisateurId == null)
-				setUtilisateurId(utilisateurIdCouverture.o);
+	protected Cluster _classCanonicalNameInit() {
+		if(!_classCanonicalNameCouverture.dejaInitialise) {
+			__classCanonicalName(_classCanonicalNameCouverture);
+			if(_classCanonicalName == null)
+				set_classCanonicalName(_classCanonicalNameCouverture.o);
 		}
-		utilisateurIdCouverture.dejaInitialise(true);
+		_classCanonicalNameCouverture.dejaInitialise(true);
 		return (Cluster)this;
 	}
 
-	public String solrUtilisateurId() {
-		return utilisateurId;
+	public String solr_classCanonicalName() {
+		return _classCanonicalName;
 	}
 
-	public String strUtilisateurId() {
-		return utilisateurId == null ? "" : utilisateurId;
+	public String str_classCanonicalName() {
+		return _classCanonicalName == null ? "" : _classCanonicalName;
 	}
 
-	public String nomAffichageUtilisateurId() {
+	public String nomAffichage_classCanonicalName() {
 		return null;
 	}
 
-	public String htmTooltipUtilisateurId() {
+	public String htmTooltip_classCanonicalName() {
 		return null;
 	}
 
-	public String htmUtilisateurId() {
-		return utilisateurId == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurId());
+	public String htm_classCanonicalName() {
+		return _classCanonicalName == null ? "" : StringEscapeUtils.escapeHtml4(str_classCanonicalName());
 	}
 
-	public void htmUtilisateurId(ToutEcrivain r, Boolean patchDroits) {
+	public void htm_classCanonicalName(ToutEcrivain r, Boolean patchDroits) {
 		if(pk!= null) {
-			r.s("<div id=\"patchCluster", strPk(), "UtilisateurId\">");
+			r.s("<div id=\"patchCluster", strPk(), "_classCanonicalName\">");
 			if(patchDroits) {
 				r.l();
 				r.l("	<script>//<![CDATA[");
-				r.l("		function patchCluster", strPk(), "UtilisateurId() {");
+				r.l("		function patchCluster", strPk(), "_classCanonicalName() {");
 				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
 				r.l("				dataType: 'json',");
 				r.l("				type: 'patch',");
 				r.l("				contentType: 'application/json',");
@@ -499,109 +826,93 @@ public abstract class ClusterGen<DEV> extends Object {
 				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
 				r.l("					");
 				r.l("				},");
-				r.l("				data: {\"setUtilisateurId\": this.value },");
+				r.l("				data: {\"set_classCanonicalName\": this.value },");
 				r.l("				");
 				r.l("			});");
 				r.l("		}");
 				r.l("	//]]></script>");
 				r.l("	<div class=\"\">");
 				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurId()), "</span>");
+				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichage_classCanonicalName()), "</span>");
 				r.s("			<input");
-							r.s(" name=\"utilisateurId\"");
-							r.s(" value=\"", htmUtilisateurId(), "\");");
+							r.s(" name=\"_classCanonicalName\"");
+							r.s(" value=\"", htm_classCanonicalName(), "\");");
 							r.s(" onchange=\"\"");
 							r.l("/>");
 				r.l("		</label>");
 				r.l("	</div>");
 			} else {
-				r.s(htmUtilisateurId());
+				r.s(htm_classCanonicalName());
 			}
 			r.l("</div>");
 		}
 	}
 
-	//////////
-	// cree //
-	//////////
+	//////////////////////
+	// _classSimpleName //
+	//////////////////////
 
-	/**	L'entité « cree »
+	/**	L'entité « _classSimpleName »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected LocalDateTime cree;
-	public Couverture<LocalDateTime> creeCouverture = new Couverture<LocalDateTime>().p(this).c(LocalDateTime.class).var("cree").o(cree);
+	protected String _classSimpleName;
+	public Couverture<String> _classSimpleNameCouverture = new Couverture<String>().p(this).c(String.class).var("_classSimpleName").o(_classSimpleName);
 
-	/**	<br/>L'entité « cree »
+	/**	<br/>L'entité « _classSimpleName »
 	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:cree">Trouver l'entité cree dans Solr</a>
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:_classSimpleName">Trouver l'entité _classSimpleName dans Solr</a>
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void _cree(Couverture<LocalDateTime> c);
+	protected abstract void __classSimpleName(Couverture<String> c);
 
-	public LocalDateTime getCree() {
-		return cree;
+	public String get_classSimpleName() {
+		return _classSimpleName;
 	}
 
-	public void setCree(LocalDateTime cree) {
-		this.cree = cree;
-		this.creeCouverture.dejaInitialise = true;
+	public void set_classSimpleName(String _classSimpleName) {
+		this._classSimpleName = _classSimpleName;
+		this._classSimpleNameCouverture.dejaInitialise = true;
 	}
-	public Cluster setCree(Instant o) {
-		this.cree = LocalDateTime.from(o);
-		this.creeCouverture.dejaInitialise = true;
-		return (Cluster)this;
-	}
-	/** Example: 2011-12-03T10:15:30+01:00 **/
-	public Cluster setCree(String o) {
-		this.cree = LocalDateTime.parse(o, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-		this.creeCouverture.dejaInitialise = true;
-		return (Cluster)this;
-	}
-	public Cluster setCree(Date o) {
-		this.cree = LocalDateTime.ofInstant(o.toInstant(), ZoneId.systemDefault());
-		this.creeCouverture.dejaInitialise = true;
-		return (Cluster)this;
-	}
-	protected Cluster creeInit() {
-		if(!creeCouverture.dejaInitialise) {
-			_cree(creeCouverture);
-			if(cree == null)
-				setCree(creeCouverture.o);
+	protected Cluster _classSimpleNameInit() {
+		if(!_classSimpleNameCouverture.dejaInitialise) {
+			__classSimpleName(_classSimpleNameCouverture);
+			if(_classSimpleName == null)
+				set_classSimpleName(_classSimpleNameCouverture.o);
 		}
-		creeCouverture.dejaInitialise(true);
+		_classSimpleNameCouverture.dejaInitialise(true);
 		return (Cluster)this;
 	}
 
-	public Date solrCree() {
-		return cree == null ? null : Date.from(cree.atZone(ZoneId.systemDefault()).toInstant());
+	public String solr_classSimpleName() {
+		return _classSimpleName;
 	}
 
-	public String strCree() {
-		return cree == null ? "" : cree.toString();
+	public String str_classSimpleName() {
+		return _classSimpleName == null ? "" : _classSimpleName;
 	}
 
-	public String nomAffichageCree() {
-		return "Created";
-	}
-
-	public String htmTooltipCree() {
+	public String nomAffichage_classSimpleName() {
 		return null;
 	}
 
-	public String htmCree() {
-		return cree == null ? "" : StringEscapeUtils.escapeHtml4(strCree());
+	public String htmTooltip_classSimpleName() {
+		return null;
 	}
 
-	public void htmCree(ToutEcrivain r, Boolean patchDroits) {
+	public String htm_classSimpleName() {
+		return _classSimpleName == null ? "" : StringEscapeUtils.escapeHtml4(str_classSimpleName());
+	}
+
+	public void htm_classSimpleName(ToutEcrivain r, Boolean patchDroits) {
 		if(pk!= null) {
-			r.s("<div id=\"patchCluster", strPk(), "Cree\">");
+			r.s("<div id=\"patchCluster", strPk(), "_classSimpleName\">");
 			if(patchDroits) {
 				r.l();
 				r.l("	<script>//<![CDATA[");
-				r.l("		function patchCluster", strPk(), "Cree() {");
+				r.l("		function patchCluster", strPk(), "_classSimpleName() {");
 				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
 				r.l("				dataType: 'json',");
 				r.l("				type: 'patch',");
 				r.l("				contentType: 'application/json',");
@@ -612,136 +923,23 @@ public abstract class ClusterGen<DEV> extends Object {
 				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
 				r.l("					");
 				r.l("				},");
-				r.l("				data: {\"setCree\": this.value },");
+				r.l("				data: {\"set_classSimpleName\": this.value },");
 				r.l("				");
 				r.l("			});");
 				r.l("		}");
 				r.l("	//]]></script>");
 				r.l("	<div class=\"\">");
 				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageCree()), "</span>");
+				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichage_classSimpleName()), "</span>");
 				r.s("			<input");
-							r.s(" name=\"cree\"");
-							r.s(" value=\"", htmCree(), "\");");
+							r.s(" name=\"_classSimpleName\"");
+							r.s(" value=\"", htm_classSimpleName(), "\");");
 							r.s(" onchange=\"\"");
 							r.l("/>");
 				r.l("		</label>");
 				r.l("	</div>");
 			} else {
-				r.s(htmCree());
-			}
-			r.l("</div>");
-		}
-	}
-
-	/////////////
-	// modifie //
-	/////////////
-
-	/**	L'entité « modifie »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected LocalDateTime modifie;
-	public Couverture<LocalDateTime> modifieCouverture = new Couverture<LocalDateTime>().p(this).c(LocalDateTime.class).var("modifie").o(modifie);
-
-	/**	<br/>L'entité « modifie »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:modifie">Trouver l'entité modifie dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _modifie(Couverture<LocalDateTime> c);
-
-	public LocalDateTime getModifie() {
-		return modifie;
-	}
-
-	public void setModifie(LocalDateTime modifie) {
-		this.modifie = modifie;
-		this.modifieCouverture.dejaInitialise = true;
-	}
-	public Cluster setModifie(Instant o) {
-		this.modifie = LocalDateTime.from(o);
-		this.modifieCouverture.dejaInitialise = true;
-		return (Cluster)this;
-	}
-	/** Example: 2011-12-03T10:15:30+01:00 **/
-	public Cluster setModifie(String o) {
-		this.modifie = LocalDateTime.parse(o, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-		this.modifieCouverture.dejaInitialise = true;
-		return (Cluster)this;
-	}
-	public Cluster setModifie(Date o) {
-		this.modifie = LocalDateTime.ofInstant(o.toInstant(), ZoneId.systemDefault());
-		this.modifieCouverture.dejaInitialise = true;
-		return (Cluster)this;
-	}
-	protected Cluster modifieInit() {
-		if(!modifieCouverture.dejaInitialise) {
-			_modifie(modifieCouverture);
-			if(modifie == null)
-				setModifie(modifieCouverture.o);
-		}
-		modifieCouverture.dejaInitialise(true);
-		return (Cluster)this;
-	}
-
-	public Date solrModifie() {
-		return modifie == null ? null : Date.from(modifie.atZone(ZoneId.systemDefault()).toInstant());
-	}
-
-	public String strModifie() {
-		return modifie == null ? "" : modifie.toString();
-	}
-
-	public String nomAffichageModifie() {
-		return "Modified";
-	}
-
-	public String htmTooltipModifie() {
-		return null;
-	}
-
-	public String htmModifie() {
-		return modifie == null ? "" : StringEscapeUtils.escapeHtml4(strModifie());
-	}
-
-	public void htmModifie(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchCluster", strPk(), "Modifie\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchCluster", strPk(), "Modifie() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setModifie\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageModifie()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"modifie\"");
-							r.s(" value=\"", htmModifie(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmModifie());
+				r.s(htm_classSimpleName());
 			}
 			r.l("</div>");
 		}
@@ -828,7 +1026,7 @@ public abstract class ClusterGen<DEV> extends Object {
 				r.l("	<script>//<![CDATA[");
 				r.l("		function patchCluster", strPk(), "ClasseNomsCanoniques() {");
 				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
+				r.l("				url: '/api/cluster?fq=pk:", strPk(), "',");
 				r.l("				dataType: 'json',");
 				r.l("				type: 'patch',");
 				r.l("				contentType: 'application/json',");
@@ -861,200 +1059,6 @@ public abstract class ClusterGen<DEV> extends Object {
 		}
 	}
 
-	////////////////////////
-	// classeNomCanonique //
-	////////////////////////
-
-	/**	L'entité « classeNomCanonique »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String classeNomCanonique;
-	public Couverture<String> classeNomCanoniqueCouverture = new Couverture<String>().p(this).c(String.class).var("classeNomCanonique").o(classeNomCanonique);
-
-	/**	<br/>L'entité « classeNomCanonique »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:classeNomCanonique">Trouver l'entité classeNomCanonique dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _classeNomCanonique(Couverture<String> c);
-
-	public String getClasseNomCanonique() {
-		return classeNomCanonique;
-	}
-
-	public void setClasseNomCanonique(String classeNomCanonique) {
-		this.classeNomCanonique = classeNomCanonique;
-		this.classeNomCanoniqueCouverture.dejaInitialise = true;
-	}
-	protected Cluster classeNomCanoniqueInit() {
-		if(!classeNomCanoniqueCouverture.dejaInitialise) {
-			_classeNomCanonique(classeNomCanoniqueCouverture);
-			if(classeNomCanonique == null)
-				setClasseNomCanonique(classeNomCanoniqueCouverture.o);
-		}
-		classeNomCanoniqueCouverture.dejaInitialise(true);
-		return (Cluster)this;
-	}
-
-	public String solrClasseNomCanonique() {
-		return classeNomCanonique;
-	}
-
-	public String strClasseNomCanonique() {
-		return classeNomCanonique == null ? "" : classeNomCanonique;
-	}
-
-	public String nomAffichageClasseNomCanonique() {
-		return null;
-	}
-
-	public String htmTooltipClasseNomCanonique() {
-		return null;
-	}
-
-	public String htmClasseNomCanonique() {
-		return classeNomCanonique == null ? "" : StringEscapeUtils.escapeHtml4(strClasseNomCanonique());
-	}
-
-	public void htmClasseNomCanonique(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchCluster", strPk(), "ClasseNomCanonique\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchCluster", strPk(), "ClasseNomCanonique() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setClasseNomCanonique\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageClasseNomCanonique()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"classeNomCanonique\"");
-							r.s(" value=\"", htmClasseNomCanonique(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmClasseNomCanonique());
-			}
-			r.l("</div>");
-		}
-	}
-
-	/////////////////////
-	// classeNomSimple //
-	/////////////////////
-
-	/**	L'entité « classeNomSimple »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String classeNomSimple;
-	public Couverture<String> classeNomSimpleCouverture = new Couverture<String>().p(this).c(String.class).var("classeNomSimple").o(classeNomSimple);
-
-	/**	<br/>L'entité « classeNomSimple »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:classeNomSimple">Trouver l'entité classeNomSimple dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _classeNomSimple(Couverture<String> c);
-
-	public String getClasseNomSimple() {
-		return classeNomSimple;
-	}
-
-	public void setClasseNomSimple(String classeNomSimple) {
-		this.classeNomSimple = classeNomSimple;
-		this.classeNomSimpleCouverture.dejaInitialise = true;
-	}
-	protected Cluster classeNomSimpleInit() {
-		if(!classeNomSimpleCouverture.dejaInitialise) {
-			_classeNomSimple(classeNomSimpleCouverture);
-			if(classeNomSimple == null)
-				setClasseNomSimple(classeNomSimpleCouverture.o);
-		}
-		classeNomSimpleCouverture.dejaInitialise(true);
-		return (Cluster)this;
-	}
-
-	public String solrClasseNomSimple() {
-		return classeNomSimple;
-	}
-
-	public String strClasseNomSimple() {
-		return classeNomSimple == null ? "" : classeNomSimple;
-	}
-
-	public String nomAffichageClasseNomSimple() {
-		return null;
-	}
-
-	public String htmTooltipClasseNomSimple() {
-		return null;
-	}
-
-	public String htmClasseNomSimple() {
-		return classeNomSimple == null ? "" : StringEscapeUtils.escapeHtml4(strClasseNomSimple());
-	}
-
-	public void htmClasseNomSimple(ToutEcrivain r, Boolean patchDroits) {
-		if(pk!= null) {
-			r.s("<div id=\"patchCluster", strPk(), "ClasseNomSimple\">");
-			if(patchDroits) {
-				r.l();
-				r.l("	<script>//<![CDATA[");
-				r.l("		function patchCluster", strPk(), "ClasseNomSimple() {");
-				r.l("			$.ajax({");
-				r.l("				url: '?fq=pk:", strPk(), "',");
-				r.l("				dataType: 'json',");
-				r.l("				type: 'patch',");
-				r.l("				contentType: 'application/json',");
-				r.l("				processData: false,");
-				r.l("				success: function( data, textStatus, jQxhr ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
-				r.l("					");
-				r.l("				},");
-				r.l("				data: {\"setClasseNomSimple\": this.value },");
-				r.l("				");
-				r.l("			});");
-				r.l("		}");
-				r.l("	//]]></script>");
-				r.l("	<div class=\"\">");
-				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageClasseNomSimple()), "</span>");
-				r.s("			<input");
-							r.s(" name=\"classeNomSimple\"");
-							r.s(" value=\"", htmClasseNomSimple(), "\");");
-							r.s(" onchange=\"\"");
-							r.l("/>");
-				r.l("		</label>");
-				r.l("	</div>");
-			} else {
-				r.s(htmClasseNomSimple());
-			}
-			r.l("</div>");
-		}
-	}
-
 	//////////////
 	// initLoin //
 	//////////////
@@ -1078,13 +1082,13 @@ public abstract class ClusterGen<DEV> extends Object {
 		pagePartsInit();
 		pkInit();
 		idInit();
+		_createdInit();
+		_modifiedInit();
+		archiveInit();
 		supprimeInit();
-		utilisateurIdInit();
-		creeInit();
-		modifieInit();
+		_classCanonicalNameInit();
+		_classSimpleNameInit();
 		classeNomsCanoniquesInit();
-		classeNomCanoniqueInit();
-		classeNomSimpleInit();
 	}
 
 	public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -1130,20 +1134,20 @@ public abstract class ClusterGen<DEV> extends Object {
 				return oCluster.pk;
 			case "id":
 				return oCluster.id;
+			case "_created":
+				return oCluster._created;
+			case "_modified":
+				return oCluster._modified;
+			case "archive":
+				return oCluster.archive;
 			case "supprime":
 				return oCluster.supprime;
-			case "utilisateurId":
-				return oCluster.utilisateurId;
-			case "cree":
-				return oCluster.cree;
-			case "modifie":
-				return oCluster.modifie;
+			case "_classCanonicalName":
+				return oCluster._classCanonicalName;
+			case "_classSimpleName":
+				return oCluster._classSimpleName;
 			case "classeNomsCanoniques":
 				return oCluster.classeNomsCanoniques;
-			case "classeNomCanonique":
-				return oCluster.classeNomCanonique;
-			case "classeNomSimple":
-				return oCluster.classeNomSimple;
 			default:
 				return null;
 		}
@@ -1195,41 +1199,12 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 	public Object definirCluster(String var, String val) {
 		switch(var) {
-			case "pk":
-				setPk(val);
-				sauvegardesCluster.add(var);
-				return val;
-			case "id":
-				setId(val);
+			case "archive":
+				setArchive(val);
 				sauvegardesCluster.add(var);
 				return val;
 			case "supprime":
 				setSupprime(val);
-				sauvegardesCluster.add(var);
-				return val;
-			case "utilisateurId":
-				setUtilisateurId(val);
-				sauvegardesCluster.add(var);
-				return val;
-			case "cree":
-				setCree(val);
-				sauvegardesCluster.add(var);
-				return val;
-			case "modifie":
-				setModifie(val);
-				sauvegardesCluster.add(var);
-				return val;
-			case "classeNomsCanoniques":
-				addClasseNomsCanoniques(val);
-				if(!sauvegardesCluster.contains(var))
-					sauvegardesCluster.add(var);
-				return val;
-			case "classeNomCanonique":
-				setClasseNomCanonique(val);
-				sauvegardesCluster.add(var);
-				return val;
-			case "classeNomSimple":
-				setClasseNomSimple(val);
 				sauvegardesCluster.add(var);
 				return val;
 			default:
@@ -1261,40 +1236,46 @@ public abstract class ClusterGen<DEV> extends Object {
 			String id = (String)solrDocument.get("id");
 			oCluster.setId(id);
 
-			if(sauvegardesCluster.contains("utilisateurId")) {
-				String utilisateurId = (String)solrDocument.get("utilisateurId_stored_string");
-				if(utilisateurId != null)
-					oCluster.setUtilisateurId(utilisateurId);
+			if(sauvegardesCluster.contains("_created")) {
+				Date _created = (Date)solrDocument.get("_created_stored_date");
+				if(_created != null)
+					oCluster.set_created(_created);
 			}
 
-			if(sauvegardesCluster.contains("cree")) {
-				Date cree = (Date)solrDocument.get("cree_stored_date");
-				if(cree != null)
-					oCluster.setCree(cree);
+			if(sauvegardesCluster.contains("_modified")) {
+				Date _modified = (Date)solrDocument.get("_modified_stored_date");
+				if(_modified != null)
+					oCluster.set_modified(_modified);
 			}
 
-			if(sauvegardesCluster.contains("modifie")) {
-				Date modifie = (Date)solrDocument.get("modifie_stored_date");
-				if(modifie != null)
-					oCluster.setModifie(modifie);
+			if(sauvegardesCluster.contains("archive")) {
+				Boolean archive = (Boolean)solrDocument.get("archive_stored_boolean");
+				if(archive != null)
+					oCluster.setArchive(archive);
+			}
+
+			if(sauvegardesCluster.contains("supprime")) {
+				Boolean supprime = (Boolean)solrDocument.get("supprime_stored_boolean");
+				if(supprime != null)
+					oCluster.setSupprime(supprime);
+			}
+
+			if(sauvegardesCluster.contains("_classCanonicalName")) {
+				String _classCanonicalName = (String)solrDocument.get("_classCanonicalName_stored_string");
+				if(_classCanonicalName != null)
+					oCluster.set_classCanonicalName(_classCanonicalName);
+			}
+
+			if(sauvegardesCluster.contains("_classSimpleName")) {
+				String _classSimpleName = (String)solrDocument.get("_classSimpleName_stored_string");
+				if(_classSimpleName != null)
+					oCluster.set_classSimpleName(_classSimpleName);
 			}
 
 			if(sauvegardesCluster.contains("classeNomsCanoniques")) {
 				List<String> classeNomsCanoniques = (List<String>)solrDocument.get("classeNomsCanoniques_stored_strings");
 				if(classeNomsCanoniques != null)
 					oCluster.classeNomsCanoniques.addAll(classeNomsCanoniques);
-			}
-
-			if(sauvegardesCluster.contains("classeNomCanonique")) {
-				String classeNomCanonique = (String)solrDocument.get("classeNomCanonique_stored_string");
-				if(classeNomCanonique != null)
-					oCluster.setClasseNomCanonique(classeNomCanonique);
-			}
-
-			if(sauvegardesCluster.contains("classeNomSimple")) {
-				String classeNomSimple = (String)solrDocument.get("classeNomSimple_stored_string");
-				if(classeNomSimple != null)
-					oCluster.setClasseNomSimple(classeNomSimple);
 			}
 		}
 	}
@@ -1373,17 +1354,29 @@ public abstract class ClusterGen<DEV> extends Object {
 			document.addField("id", id);
 			document.addField("id_indexed_string", id);
 		}
-		if(utilisateurId != null) {
-			document.addField("utilisateurId_indexed_string", utilisateurId);
-			document.addField("utilisateurId_stored_string", utilisateurId);
+		if(_created != null) {
+			document.addField("_created_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(ZonedDateTime.ofInstant(_created.toInstant(), ZoneId.of("UTC"))));
+			document.addField("_created_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(ZonedDateTime.ofInstant(_created.toInstant(), ZoneId.of("UTC"))));
 		}
-		if(cree != null) {
-			document.addField("cree_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(cree.atOffset(ZoneOffset.UTC)));
-			document.addField("cree_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(cree.atOffset(ZoneOffset.UTC)));
+		if(_modified != null) {
+			document.addField("_modified_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(ZonedDateTime.ofInstant(_modified.toInstant(), ZoneId.of("UTC"))));
+			document.addField("_modified_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(ZonedDateTime.ofInstant(_modified.toInstant(), ZoneId.of("UTC"))));
 		}
-		if(modifie != null) {
-			document.addField("modifie_indexed_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
-			document.addField("modifie_stored_date", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").format(modifie.atOffset(ZoneOffset.UTC)));
+		if(archive != null) {
+			document.addField("archive_indexed_boolean", archive);
+			document.addField("archive_stored_boolean", archive);
+		}
+		if(supprime != null) {
+			document.addField("supprime_indexed_boolean", supprime);
+			document.addField("supprime_stored_boolean", supprime);
+		}
+		if(_classCanonicalName != null) {
+			document.addField("_classCanonicalName_indexed_string", _classCanonicalName);
+			document.addField("_classCanonicalName_stored_string", _classCanonicalName);
+		}
+		if(_classSimpleName != null) {
+			document.addField("_classSimpleName_indexed_string", _classSimpleName);
+			document.addField("_classSimpleName_stored_string", _classSimpleName);
 		}
 		if(classeNomsCanoniques != null) {
 			for(java.lang.String o : classeNomsCanoniques) {
@@ -1392,14 +1385,6 @@ public abstract class ClusterGen<DEV> extends Object {
 			for(java.lang.String o : classeNomsCanoniques) {
 				document.addField("classeNomsCanoniques_stored_strings", o);
 			}
-		}
-		if(classeNomCanonique != null) {
-			document.addField("classeNomCanonique_indexed_string", classeNomCanonique);
-			document.addField("classeNomCanonique_stored_string", classeNomCanonique);
-		}
-		if(classeNomSimple != null) {
-			document.addField("classeNomSimple_indexed_string", classeNomSimple);
-			document.addField("classeNomSimple_stored_string", classeNomSimple);
 		}
 	}
 
@@ -1438,29 +1423,33 @@ public abstract class ClusterGen<DEV> extends Object {
 		String id = (String)solrDocument.get("id");
 		oCluster.setId(id);
 
-		String utilisateurId = (String)solrDocument.get("utilisateurId_stored_string");
-		if(utilisateurId != null)
-			oCluster.setUtilisateurId(utilisateurId);
+		Date _created = (Date)solrDocument.get("_created_stored_date");
+		if(_created != null)
+			oCluster.set_created(_created);
 
-		Date cree = (Date)solrDocument.get("cree_stored_date");
-		if(cree != null)
-			oCluster.setCree(cree);
+		Date _modified = (Date)solrDocument.get("_modified_stored_date");
+		if(_modified != null)
+			oCluster.set_modified(_modified);
 
-		Date modifie = (Date)solrDocument.get("modifie_stored_date");
-		if(modifie != null)
-			oCluster.setModifie(modifie);
+		Boolean archive = (Boolean)solrDocument.get("archive_stored_boolean");
+		if(archive != null)
+			oCluster.setArchive(archive);
+
+		Boolean supprime = (Boolean)solrDocument.get("supprime_stored_boolean");
+		if(supprime != null)
+			oCluster.setSupprime(supprime);
+
+		String _classCanonicalName = (String)solrDocument.get("_classCanonicalName_stored_string");
+		if(_classCanonicalName != null)
+			oCluster.set_classCanonicalName(_classCanonicalName);
+
+		String _classSimpleName = (String)solrDocument.get("_classSimpleName_stored_string");
+		if(_classSimpleName != null)
+			oCluster.set_classSimpleName(_classSimpleName);
 
 		List<String> classeNomsCanoniques = (List<String>)solrDocument.get("classeNomsCanoniques_stored_strings");
 		if(classeNomsCanoniques != null)
 			oCluster.classeNomsCanoniques.addAll(classeNomsCanoniques);
-
-		String classeNomCanonique = (String)solrDocument.get("classeNomCanonique_stored_string");
-		if(classeNomCanonique != null)
-			oCluster.setClasseNomCanonique(classeNomCanonique);
-
-		String classeNomSimple = (String)solrDocument.get("classeNomSimple_stored_string");
-		if(classeNomSimple != null)
-			oCluster.setClasseNomSimple(classeNomSimple);
 	}
 
 	//////////////
@@ -1468,7 +1457,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(pk, id, supprime, utilisateurId, cree, modifie, classeNomsCanoniques, classeNomCanonique, classeNomSimple);
+		return Objects.hash(archive, supprime);
 	}
 
 	////////////
@@ -1481,15 +1470,8 @@ public abstract class ClusterGen<DEV> extends Object {
 		if(!(o instanceof Cluster))
 			return false;
 		Cluster that = (Cluster)o;
-		return Objects.equals( pk, that.pk )
-				&& Objects.equals( id, that.id )
-				&& Objects.equals( supprime, that.supprime )
-				&& Objects.equals( utilisateurId, that.utilisateurId )
-				&& Objects.equals( cree, that.cree )
-				&& Objects.equals( modifie, that.modifie )
-				&& Objects.equals( classeNomsCanoniques, that.classeNomsCanoniques )
-				&& Objects.equals( classeNomCanonique, that.classeNomCanonique )
-				&& Objects.equals( classeNomSimple, that.classeNomSimple );
+		return Objects.equals( archive, that.archive )
+				&& Objects.equals( supprime, that.supprime );
 	}
 
 	//////////////
@@ -1499,15 +1481,8 @@ public abstract class ClusterGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Cluster {");
-		sb.append( "pk: " ).append(pk);
-		sb.append( ", id: \"" ).append(id).append( "\"" );
+		sb.append( "archive: " ).append(archive);
 		sb.append( ", supprime: " ).append(supprime);
-		sb.append( ", utilisateurId: \"" ).append(utilisateurId).append( "\"" );
-		sb.append( ", cree: " ).append(cree);
-		sb.append( ", modifie: " ).append(modifie);
-		sb.append( ", classeNomsCanoniques: " ).append(classeNomsCanoniques);
-		sb.append( ", classeNomCanonique: \"" ).append(classeNomCanonique).append( "\"" );
-		sb.append( ", classeNomSimple: \"" ).append(classeNomSimple).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

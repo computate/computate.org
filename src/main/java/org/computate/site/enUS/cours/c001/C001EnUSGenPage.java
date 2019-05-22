@@ -1,6 +1,5 @@
 package org.computate.site.enUS.cours.c001;
 
-import java.lang.String;
 import org.computate.site.frFR.cours.CoursFrFRPage;
 import org.computate.site.enUS.cours.CoursEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
@@ -263,100 +262,6 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 			} g("div");
 		}
 		e("div").f();
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#postC001Modale').show(); ")
-			.f().sx("Créer a course #1")
-		.g("button");
-		{ e("div").a("id", "postC001Modale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#postC001Modale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Créer a course #1").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					C001 o = new C001();
-
-					{ e("form").a("id", "postC001Form").f();
-						htmlFormPOSTC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "postC001($('#postC001Form')); ")
-						.f().sx("Créer a course #1")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#patchC001Modale').show(); ")
-			.f().sx("Modifier des course #1s")
-		.g("button");
-		{ e("div").a("id", "patchC001Modale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchC001Modale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Modifier des course #1s").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					C001 o = new C001();
-
-					{ e("form").a("id", "patchC001FormFiltres").f();
-						htmlFormRechercheC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "rechercheC001($('#patchC001FormFiltres')); ")
-						.f().sx("Modifier des course #1s")
-					.g("button");
-
-
-					{ e("form").a("id", "patchC001FormValeurs").f();
-						htmlFormPATCHC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "patchC001($('#patchC001FormFiltres'), $('#patchC001FormValeurs')); ")
-						.f().sx("Modifier des course #1s")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#deleteC001Modale').show(); ")
-			.f().sx("Supprimer des course #1s")
-		.g("button");
-		{ e("div").a("id", "deleteC001Modale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#deleteC001Modale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Supprimer des course #1s").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					C001 o = new C001();
-
-					{ e("form").a("id", "deleteC001Form").f();
-						htmlFormPATCHC001(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "deleteC001(); ")
-						.f().sx("Supprimer des course #1s")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
 
 		g("div");
 	}

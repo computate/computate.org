@@ -50,7 +50,4 @@ public class C001 extends C001Gen<Cours> {
 	public void  htmlBody() {
 		super.htmlBody();
 	}
-
-	protected void _siteNomDomaine(Couverture<String> c) {
-	}
 }

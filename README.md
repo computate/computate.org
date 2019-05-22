@@ -43,3 +43,13 @@ Then create the quickstart template:
 
 Now when you use "Add to Project" button in the OpenShift console, you should see a template for this quickstart. 
 
+Other stuff
+
+oc replace --force -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.9/sso/sso72-postgresql-persistent.json
+
+base64 /srv/heytate.com/server.jks | perl -pe'chomp'
+
+keytool -genseckey -alias computate.org -storetype JCEKS -keystore /srv/heytate.com/server.jceks
+
+base64 /srv/heytate.com/server.jceks | perl -pe'chomp'
+
