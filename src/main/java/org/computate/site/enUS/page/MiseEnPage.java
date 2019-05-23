@@ -307,7 +307,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/site.css").fg();
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/datePicker.css").fg();
 		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Anonymous+Pro|Bellefair|Jomhuria|PT+Serif:700|Stint+Ultra+Condensed&display=swap").fg();
-		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.8.2/css/all.css").a("integrity", "sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJFsha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF").a("crossorigin", "anonymous").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.8.2/css/all.css").a("integrity", "sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF").a("crossorigin", "anonymous").fg();
 		e("link").a("rel", "shortcut icon").a("href", statiqueUrlBase, "/png/c-key.png").fg();
 	}
 
