@@ -10,6 +10,7 @@ import org.computate.site.enUS.article.Article;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.MiseEnPage;
 import org.computate.site.enUS.page.parti.PagePart;
+import org.computate.site.enUS.utilisateur.UtilisateurSite;
 
 public class Cours extends CoursGen<Article> {
 
@@ -33,6 +34,20 @@ public class Cours extends CoursGen<Article> {
 	@Override()
 	protected void  _estArticle(Couverture<Boolean> c) {
 		c.o(false);
+	}
+
+	protected void _utilisateurSite(Couverture<UtilisateurSite> c) {
+		c.o(requeteSite_.getUtilisateurSite());
+	}
+
+	protected void _utilisateurId(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getUtilisateurId());
+	}
+
+	protected void _utilisateurSiteNomDomaine(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getSiteNomDomaine());
 	}
 
 	protected void _coursIdentifiantMinuscule(Couverture<String> c) {

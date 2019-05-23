@@ -8,6 +8,7 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.enUS.article.Article;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
+import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import org.apache.solr.client.solrj.SolrClient;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -27,20 +28,6 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class CoursGen<DEV> extends Article {
 
-	public static final String Cours_UnNom = "a course";
-	public static final String Cours_Ce = "this ";
-	public static final String Cours_CeNom = "this course";
-	public static final String Cours_Un = "an ";
-	public static final String Cours_LeNom = "the course";
-	public static final String Cours_NomSingulier = "course";
-	public static final String Cours_NomPluriel = "courses";
-	public static final String Cours_NomActuel = "current course";
-	public static final String Cours_TousNom = "the courses";
-	public static final String Cours_RechercherTousNomPar = "search courses by ";
-	public static final String Cours_LesNoms = "the courses";
-	public static final String Cours_AucunNomTrouve = "no course found";
-	public static final String Cours_NomVar = "course";
-	public static final String Cours_DeNom = "of course";
 	public static final String Cours_Couleur = "green";
 	public static final String Cours_IconeGroupe = "regular";
 	public static final String Cours_IconeNom = "university";
@@ -48,6 +35,156 @@ public abstract class CoursGen<DEV> extends Article {
 	public static final String CoursFrFRPage_ImageUri = "/png/frFR/cours-999.png";
 	public static final String CoursEnUSPage_Uri = "/enUS/course";
 	public static final String CoursEnUSPage_ImageUri = "/png/enUS/course-999.png";
+
+	/////////////////////
+	// utilisateurSite //
+	/////////////////////
+
+	/**	L'entité « utilisateurSite »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected UtilisateurSite utilisateurSite;
+	public Couverture<UtilisateurSite> utilisateurSiteCouverture = new Couverture<UtilisateurSite>().p(this).c(UtilisateurSite.class).var("utilisateurSite").o(utilisateurSite);
+
+	/**	<br/>L'entité « utilisateurSite »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:utilisateurSite">Trouver l'entité utilisateurSite dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _utilisateurSite(Couverture<UtilisateurSite> c);
+
+	public UtilisateurSite getUtilisateurSite() {
+		return utilisateurSite;
+	}
+
+	public void setUtilisateurSite(UtilisateurSite utilisateurSite) {
+		this.utilisateurSite = utilisateurSite;
+		this.utilisateurSiteCouverture.dejaInitialise = true;
+	}
+	protected Cours utilisateurSiteInit() {
+		if(!utilisateurSiteCouverture.dejaInitialise) {
+			_utilisateurSite(utilisateurSiteCouverture);
+			if(utilisateurSite == null)
+				setUtilisateurSite(utilisateurSiteCouverture.o);
+		}
+		if(utilisateurSite != null)
+			utilisateurSite.initLoinPourClasse(requeteSite_);
+		utilisateurSiteCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	///////////////////
+	// utilisateurId //
+	///////////////////
+
+	/**	L'entité « utilisateurId »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String utilisateurId;
+	public Couverture<String> utilisateurIdCouverture = new Couverture<String>().p(this).c(String.class).var("utilisateurId").o(utilisateurId);
+
+	/**	<br/>L'entité « utilisateurId »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:utilisateurId">Trouver l'entité utilisateurId dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _utilisateurId(Couverture<String> c);
+
+	public String getUtilisateurId() {
+		return utilisateurId;
+	}
+
+	public void setUtilisateurId(String utilisateurId) {
+		this.utilisateurId = utilisateurId;
+		this.utilisateurIdCouverture.dejaInitialise = true;
+	}
+	protected Cours utilisateurIdInit() {
+		if(!utilisateurIdCouverture.dejaInitialise) {
+			_utilisateurId(utilisateurIdCouverture);
+			if(utilisateurId == null)
+				setUtilisateurId(utilisateurIdCouverture.o);
+		}
+		utilisateurIdCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrUtilisateurId() {
+		return utilisateurId;
+	}
+
+	public String strUtilisateurId() {
+		return utilisateurId == null ? "" : utilisateurId;
+	}
+
+	public String nomAffichageUtilisateurId() {
+		return null;
+	}
+
+	public String htmTooltipUtilisateurId() {
+		return null;
+	}
+
+	public String htmUtilisateurId() {
+		return utilisateurId == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurId());
+	}
+
+	///////////////////////////////
+	// utilisateurSiteNomDomaine //
+	///////////////////////////////
+
+	/**	L'entité « utilisateurSiteNomDomaine »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String utilisateurSiteNomDomaine;
+	public Couverture<String> utilisateurSiteNomDomaineCouverture = new Couverture<String>().p(this).c(String.class).var("utilisateurSiteNomDomaine").o(utilisateurSiteNomDomaine);
+
+	/**	<br/>L'entité « utilisateurSiteNomDomaine »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.Cours&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:utilisateurSiteNomDomaine">Trouver l'entité utilisateurSiteNomDomaine dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _utilisateurSiteNomDomaine(Couverture<String> c);
+
+	public String getUtilisateurSiteNomDomaine() {
+		return utilisateurSiteNomDomaine;
+	}
+
+	public void setUtilisateurSiteNomDomaine(String utilisateurSiteNomDomaine) {
+		this.utilisateurSiteNomDomaine = utilisateurSiteNomDomaine;
+		this.utilisateurSiteNomDomaineCouverture.dejaInitialise = true;
+	}
+	protected Cours utilisateurSiteNomDomaineInit() {
+		if(!utilisateurSiteNomDomaineCouverture.dejaInitialise) {
+			_utilisateurSiteNomDomaine(utilisateurSiteNomDomaineCouverture);
+			if(utilisateurSiteNomDomaine == null)
+				setUtilisateurSiteNomDomaine(utilisateurSiteNomDomaineCouverture.o);
+		}
+		utilisateurSiteNomDomaineCouverture.dejaInitialise(true);
+		return (Cours)this;
+	}
+
+	public String solrUtilisateurSiteNomDomaine() {
+		return utilisateurSiteNomDomaine;
+	}
+
+	public String strUtilisateurSiteNomDomaine() {
+		return utilisateurSiteNomDomaine == null ? "" : utilisateurSiteNomDomaine;
+	}
+
+	public String nomAffichageUtilisateurSiteNomDomaine() {
+		return null;
+	}
+
+	public String htmTooltipUtilisateurSiteNomDomaine() {
+		return null;
+	}
+
+	public String htmUtilisateurSiteNomDomaine() {
+		return utilisateurSiteNomDomaine == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurSiteNomDomaine());
+	}
 
 	///////////////////////////////
 	// coursIdentifiantMinuscule //
@@ -182,6 +319,9 @@ public abstract class CoursGen<DEV> extends Article {
 	}
 
 	public void initCours() {
+		utilisateurSiteInit();
+		utilisateurIdInit();
+		utilisateurSiteNomDomaineInit();
 		coursIdentifiantMinusculeInit();
 		coursIdentifiantMajusculeInit();
 	}
@@ -196,6 +336,8 @@ public abstract class CoursGen<DEV> extends Article {
 
 	public void requeteSiteCours(RequeteSiteEnUS requeteSite_) {
 			super.requeteSiteArticle(requeteSite_);
+		if(utilisateurSite != null)
+			utilisateurSite.setRequeteSite_(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
@@ -222,6 +364,12 @@ public abstract class CoursGen<DEV> extends Article {
 	public Object obtenirCours(String var) {
 		Cours oCours = (Cours)this;
 		switch(var) {
+			case "utilisateurSite":
+				return oCours.utilisateurSite;
+			case "utilisateurId":
+				return oCours.utilisateurId;
+			case "utilisateurSiteNomDomaine":
+				return oCours.utilisateurSiteNomDomaine;
 			case "coursIdentifiantMinuscule":
 				return oCours.coursIdentifiantMinuscule;
 			case "coursIdentifiantMajuscule":
@@ -390,6 +538,8 @@ public abstract class CoursGen<DEV> extends Article {
 	}
 
 	public void htmlBodyCours() {
+		if(utilisateurSite != null)
+			utilisateurSite.htmlBody();
 	}
 
 	//////////////
@@ -397,7 +547,7 @@ public abstract class CoursGen<DEV> extends Article {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), coursIdentifiantMinuscule, coursIdentifiantMajuscule);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -410,9 +560,7 @@ public abstract class CoursGen<DEV> extends Article {
 		if(!(o instanceof Cours))
 			return false;
 		Cours that = (Cours)o;
-		return super.equals(o)
-				&& Objects.equals( coursIdentifiantMinuscule, that.coursIdentifiantMinuscule )
-				&& Objects.equals( coursIdentifiantMajuscule, that.coursIdentifiantMajuscule );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -423,8 +571,6 @@ public abstract class CoursGen<DEV> extends Article {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("Cours {");
-		sb.append( "coursIdentifiantMinuscule: \"" ).append(coursIdentifiantMinuscule).append( "\"" );
-		sb.append( ", coursIdentifiantMajuscule: \"" ).append(coursIdentifiantMajuscule).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

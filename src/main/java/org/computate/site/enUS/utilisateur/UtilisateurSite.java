@@ -15,7 +15,7 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 		super._classeNomsCanoniques(l);
 	}
 
-	protected void __userId(Couverture<String> c) {
+	protected void _utilisateurId(Couverture<String> c) {
 		String o = requeteSite_.getUtilisateurId();
 		c.o(o);
 	}

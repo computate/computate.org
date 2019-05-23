@@ -2762,7 +2762,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(statiqueUrlBase, contexteIconeGroupe, contexteIconeNom, contexteIconeClassesCss, pageVisibleAuxBots, pageH1, pageH2, pageH3, pageH1Court, pageH2Court, pageH3Court, pageTitre, pageUri, pageUriFrFR, pageUris, pageUrl, pageImageUri, pageImageUrl, pageVideoId, pageVideoUrl, pageVideoUrlEmbed, pageImageLargeur, pageImageHauteur, pageImageTypeContenu, pageTypeContenu, pageCree, pageModifiee, pageMotsCles, pageDescription, pageAccueilUri, pageAProposUri, pageBlogUri, pageLeconUri, pageCoursUri, pageFaqUri, pageUtilisateurUri, pageDeconnexionUri, pageYoutubeUrl, pagePinterestUrl);
+		return Objects.hash();
 	}
 
 	////////////
@@ -2775,45 +2775,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		if(!(o instanceof MiseEnPage))
 			return false;
 		MiseEnPage that = (MiseEnPage)o;
-		return Objects.equals( statiqueUrlBase, that.statiqueUrlBase )
-				&& Objects.equals( contexteIconeGroupe, that.contexteIconeGroupe )
-				&& Objects.equals( contexteIconeNom, that.contexteIconeNom )
-				&& Objects.equals( contexteIconeClassesCss, that.contexteIconeClassesCss )
-				&& Objects.equals( pageVisibleAuxBots, that.pageVisibleAuxBots )
-				&& Objects.equals( pageH1, that.pageH1 )
-				&& Objects.equals( pageH2, that.pageH2 )
-				&& Objects.equals( pageH3, that.pageH3 )
-				&& Objects.equals( pageH1Court, that.pageH1Court )
-				&& Objects.equals( pageH2Court, that.pageH2Court )
-				&& Objects.equals( pageH3Court, that.pageH3Court )
-				&& Objects.equals( pageTitre, that.pageTitre )
-				&& Objects.equals( pageUri, that.pageUri )
-				&& Objects.equals( pageUriFrFR, that.pageUriFrFR )
-				&& Objects.equals( pageUris, that.pageUris )
-				&& Objects.equals( pageUrl, that.pageUrl )
-				&& Objects.equals( pageImageUri, that.pageImageUri )
-				&& Objects.equals( pageImageUrl, that.pageImageUrl )
-				&& Objects.equals( pageVideoId, that.pageVideoId )
-				&& Objects.equals( pageVideoUrl, that.pageVideoUrl )
-				&& Objects.equals( pageVideoUrlEmbed, that.pageVideoUrlEmbed )
-				&& Objects.equals( pageImageLargeur, that.pageImageLargeur )
-				&& Objects.equals( pageImageHauteur, that.pageImageHauteur )
-				&& Objects.equals( pageImageTypeContenu, that.pageImageTypeContenu )
-				&& Objects.equals( pageTypeContenu, that.pageTypeContenu )
-				&& Objects.equals( pageCree, that.pageCree )
-				&& Objects.equals( pageModifiee, that.pageModifiee )
-				&& Objects.equals( pageMotsCles, that.pageMotsCles )
-				&& Objects.equals( pageDescription, that.pageDescription )
-				&& Objects.equals( pageAccueilUri, that.pageAccueilUri )
-				&& Objects.equals( pageAProposUri, that.pageAProposUri )
-				&& Objects.equals( pageBlogUri, that.pageBlogUri )
-				&& Objects.equals( pageLeconUri, that.pageLeconUri )
-				&& Objects.equals( pageCoursUri, that.pageCoursUri )
-				&& Objects.equals( pageFaqUri, that.pageFaqUri )
-				&& Objects.equals( pageUtilisateurUri, that.pageUtilisateurUri )
-				&& Objects.equals( pageDeconnexionUri, that.pageDeconnexionUri )
-				&& Objects.equals( pageYoutubeUrl, that.pageYoutubeUrl )
-				&& Objects.equals( pagePinterestUrl, that.pagePinterestUrl );
+		return true;
 	}
 
 	//////////////
@@ -2823,45 +2785,6 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("MiseEnPage {");
-		sb.append( "statiqueUrlBase: \"" ).append(statiqueUrlBase).append( "\"" );
-		sb.append( ", contexteIconeGroupe: \"" ).append(contexteIconeGroupe).append( "\"" );
-		sb.append( ", contexteIconeNom: \"" ).append(contexteIconeNom).append( "\"" );
-		sb.append( ", contexteIconeClassesCss: \"" ).append(contexteIconeClassesCss).append( "\"" );
-		sb.append( ", pageVisibleAuxBots: " ).append(pageVisibleAuxBots);
-		sb.append( ", pageH1: \"" ).append(pageH1).append( "\"" );
-		sb.append( ", pageH2: \"" ).append(pageH2).append( "\"" );
-		sb.append( ", pageH3: \"" ).append(pageH3).append( "\"" );
-		sb.append( ", pageH1Court: \"" ).append(pageH1Court).append( "\"" );
-		sb.append( ", pageH2Court: \"" ).append(pageH2Court).append( "\"" );
-		sb.append( ", pageH3Court: \"" ).append(pageH3Court).append( "\"" );
-		sb.append( ", pageTitre: \"" ).append(pageTitre).append( "\"" );
-		sb.append( ", pageUri: \"" ).append(pageUri).append( "\"" );
-		sb.append( ", pageUriFrFR: \"" ).append(pageUriFrFR).append( "\"" );
-		sb.append( ", pageUris: " ).append(pageUris);
-		sb.append( ", pageUrl: \"" ).append(pageUrl).append( "\"" );
-		sb.append( ", pageImageUri: \"" ).append(pageImageUri).append( "\"" );
-		sb.append( ", pageImageUrl: \"" ).append(pageImageUrl).append( "\"" );
-		sb.append( ", pageVideoId: \"" ).append(pageVideoId).append( "\"" );
-		sb.append( ", pageVideoUrl: \"" ).append(pageVideoUrl).append( "\"" );
-		sb.append( ", pageVideoUrlEmbed: \"" ).append(pageVideoUrlEmbed).append( "\"" );
-		sb.append( ", pageImageLargeur: " ).append(pageImageLargeur);
-		sb.append( ", pageImageHauteur: " ).append(pageImageHauteur);
-		sb.append( ", pageImageTypeContenu: \"" ).append(pageImageTypeContenu).append( "\"" );
-		sb.append( ", pageTypeContenu: \"" ).append(pageTypeContenu).append( "\"" );
-		sb.append( ", pageCree: " ).append(pageCree);
-		sb.append( ", pageModifiee: " ).append(pageModifiee);
-		sb.append( ", pageMotsCles: \"" ).append(pageMotsCles).append( "\"" );
-		sb.append( ", pageDescription: \"" ).append(pageDescription).append( "\"" );
-		sb.append( ", pageAccueilUri: \"" ).append(pageAccueilUri).append( "\"" );
-		sb.append( ", pageAProposUri: \"" ).append(pageAProposUri).append( "\"" );
-		sb.append( ", pageBlogUri: \"" ).append(pageBlogUri).append( "\"" );
-		sb.append( ", pageLeconUri: \"" ).append(pageLeconUri).append( "\"" );
-		sb.append( ", pageCoursUri: \"" ).append(pageCoursUri).append( "\"" );
-		sb.append( ", pageFaqUri: \"" ).append(pageFaqUri).append( "\"" );
-		sb.append( ", pageUtilisateurUri: \"" ).append(pageUtilisateurUri).append( "\"" );
-		sb.append( ", pageDeconnexionUri: \"" ).append(pageDeconnexionUri).append( "\"" );
-		sb.append( ", pageYoutubeUrl: \"" ).append(pageYoutubeUrl).append( "\"" );
-		sb.append( ", pagePinterestUrl: \"" ).append(pagePinterestUrl).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

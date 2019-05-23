@@ -11,6 +11,7 @@ import org.computate.site.frFR.article.Article;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.computate.site.frFR.page.parti.PagePart;
+import org.computate.site.frFR.utilisateur.UtilisateurSite;
 
 /**
  * Api: true
@@ -51,6 +52,32 @@ public class Cours extends CoursGen<Article> {
 
 	@Override protected void _estArticle(Couverture<Boolean> c) {
 		c.o(false);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 **/
+	protected void _utilisateurSite(Couverture<UtilisateurSite> c) {
+		c.o(requeteSite_.getUtilisateurSite());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 **/
+	protected void _utilisateurId(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getUtilisateurId());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 **/
+	protected void _utilisateurSiteNomDomaine(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getSiteNomDomaine());
 	}
 
 	protected void _coursIdentifiantMinuscule(Couverture<String> c) {

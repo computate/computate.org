@@ -47,7 +47,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 
 	/**  
 	 * {@inheritDoc}
-	 * Var.enUS: _userId
 	 * Indexe: true
 	 * Stocke: true
 	 * HtmlLigne: 2

@@ -702,18 +702,20 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "archive":
+				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -895,6 +897,7 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 									utilisateurSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
 									utilisateurSite.setUtilisateurId(principalJson.getString("sub"));
 									utilisateurSite.initLoinPourClasse(requeteSite);
+									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {

@@ -49,69 +49,69 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	public static final String UtilisateurSiteEnUSPage_Uri = "/enUS/user";
 	public static final String UtilisateurSiteEnUSPage_ImageUri = "/png/enUS/user-999.png";
 
-	/////////////
-	// _userId //
-	/////////////
+	///////////////////
+	// utilisateurId //
+	///////////////////
 
-	/**	L'entité « _userId »
+	/**	L'entité « utilisateurId »
 	 *	 is defined as null before being initialized. 
 	 */
-	protected String _userId;
-	public Couverture<String> _userIdCouverture = new Couverture<String>().p(this).c(String.class).var("_userId").o(_userId);
+	protected String utilisateurId;
+	public Couverture<String> utilisateurIdCouverture = new Couverture<String>().p(this).c(String.class).var("utilisateurId").o(utilisateurId);
 
-	/**	<br/>L'entité « _userId »
+	/**	<br/>L'entité « utilisateurId »
 	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.utilisateur.UtilisateurSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:_userId">Trouver l'entité _userId dans Solr</a>
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.utilisateur.UtilisateurSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:utilisateurId">Trouver l'entité utilisateurId dans Solr</a>
 	 * <br/>
 	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
 	 **/
-	protected abstract void __userId(Couverture<String> c);
+	protected abstract void _utilisateurId(Couverture<String> c);
 
-	public String get_userId() {
-		return _userId;
+	public String getUtilisateurId() {
+		return utilisateurId;
 	}
 
-	public void set_userId(String _userId) {
-		this._userId = _userId;
-		this._userIdCouverture.dejaInitialise = true;
+	public void setUtilisateurId(String utilisateurId) {
+		this.utilisateurId = utilisateurId;
+		this.utilisateurIdCouverture.dejaInitialise = true;
 	}
-	protected UtilisateurSite _userIdInit() {
-		if(!_userIdCouverture.dejaInitialise) {
-			__userId(_userIdCouverture);
-			if(_userId == null)
-				set_userId(_userIdCouverture.o);
+	protected UtilisateurSite utilisateurIdInit() {
+		if(!utilisateurIdCouverture.dejaInitialise) {
+			_utilisateurId(utilisateurIdCouverture);
+			if(utilisateurId == null)
+				setUtilisateurId(utilisateurIdCouverture.o);
 		}
-		_userIdCouverture.dejaInitialise(true);
+		utilisateurIdCouverture.dejaInitialise(true);
 		return (UtilisateurSite)this;
 	}
 
-	public String solr_userId() {
-		return _userId;
+	public String solrUtilisateurId() {
+		return utilisateurId;
 	}
 
-	public String str_userId() {
-		return _userId == null ? "" : _userId;
+	public String strUtilisateurId() {
+		return utilisateurId == null ? "" : utilisateurId;
 	}
 
-	public String nomAffichage_userId() {
+	public String nomAffichageUtilisateurId() {
 		return "user ID";
 	}
 
-	public String htmTooltip_userId() {
+	public String htmTooltipUtilisateurId() {
 		return null;
 	}
 
-	public String htm_userId() {
-		return _userId == null ? "" : StringEscapeUtils.escapeHtml4(str_userId());
+	public String htmUtilisateurId() {
+		return utilisateurId == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurId());
 	}
 
-	public void htm_userId(ToutEcrivain r, Boolean patchDroits) {
+	public void htmUtilisateurId(ToutEcrivain r, Boolean patchDroits) {
 		if(pk!= null) {
-			r.s("<div id=\"patchUtilisateurSite", strPk(), "_userId\">");
+			r.s("<div id=\"patchUtilisateurSite", strPk(), "UtilisateurId\">");
 			if(patchDroits) {
 				r.l();
 				r.l("	<script>//<![CDATA[");
-				r.l("		function patchUtilisateurSite", strPk(), "_userId() {");
+				r.l("		function patchUtilisateurSite", strPk(), "UtilisateurId() {");
 				r.l("			$.ajax({");
 				r.l("				url: '/api/site/utilisateur?fq=pk:", strPk(), "',");
 				r.l("				dataType: 'json',");
@@ -124,23 +124,23 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 				r.l("				error: function( jqXhr, textStatus, errorThrown ) {");
 				r.l("					");
 				r.l("				},");
-				r.l("				data: {\"set_userId\": this.value },");
+				r.l("				data: {\"setUtilisateurId\": this.value },");
 				r.l("				");
 				r.l("			});");
 				r.l("		}");
 				r.l("	//]]></script>");
 				r.l("	<div class=\"\">");
 				r.l("		<label class=\"w3-tooltip \">");
-				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichage_userId()), "</span>");
+				r.l("			<span>", StringEscapeUtils.escapeHtml4(nomAffichageUtilisateurId()), "</span>");
 				r.s("			<input");
-							r.s(" name=\"_userId\"");
-							r.s(" value=\"", htm_userId(), "\");");
+							r.s(" name=\"utilisateurId\"");
+							r.s(" value=\"", htmUtilisateurId(), "\");");
 							r.s(" onchange=\"\"");
 							r.l("/>");
 				r.l("		</label>");
 				r.l("	</div>");
 			} else {
-				r.s(htm_userId());
+				r.s(htmUtilisateurId());
 			}
 			r.l("</div>");
 		}
@@ -1300,7 +1300,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 
 	public void initUtilisateurSite() {
-		_userIdInit();
+		utilisateurIdInit();
 		calculInrPksInit();
 		utilisateurNomInit();
 		utilisateurMailInit();
@@ -1350,8 +1350,8 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	public Object obtenirUtilisateurSite(String var) {
 		UtilisateurSite oUtilisateurSite = (UtilisateurSite)this;
 		switch(var) {
-			case "_userId":
-				return oUtilisateurSite._userId;
+			case "utilisateurId":
+				return oUtilisateurSite.utilisateurId;
 			case "calculInrPks":
 				return oUtilisateurSite.calculInrPks;
 			case "requeteSite_":
@@ -1454,10 +1454,10 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		sauvegardesUtilisateurSite = (List<String>)solrDocument.get("sauvegardesUtilisateurSite_stored_strings");
 		if(sauvegardesUtilisateurSite != null) {
 
-			if(sauvegardesUtilisateurSite.contains("_userId")) {
-				String _userId = (String)solrDocument.get("_userId_stored_string");
-				if(_userId != null)
-					oUtilisateurSite.set_userId(_userId);
+			if(sauvegardesUtilisateurSite.contains("utilisateurId")) {
+				String utilisateurId = (String)solrDocument.get("utilisateurId_stored_string");
+				if(utilisateurId != null)
+					oUtilisateurSite.setUtilisateurId(utilisateurId);
 			}
 
 			if(sauvegardesUtilisateurSite.contains("calculInrPks")) {
@@ -1624,9 +1624,9 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		if(sauvegardesUtilisateurSite != null)
 			document.addField("sauvegardesUtilisateurSite_stored_strings", sauvegardesUtilisateurSite);
 
-		if(_userId != null) {
-			document.addField("_userId_indexed_string", _userId);
-			document.addField("_userId_stored_string", _userId);
+		if(utilisateurId != null) {
+			document.addField("utilisateurId_indexed_string", utilisateurId);
+			document.addField("utilisateurId_stored_string", utilisateurId);
 		}
 		if(calculInrPks != null) {
 			for(java.lang.Long o : calculInrPks) {
@@ -1708,9 +1708,9 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	public void stockerUtilisateurSite(SolrDocument solrDocument) {
 		UtilisateurSite oUtilisateurSite = (UtilisateurSite)this;
 
-		String _userId = (String)solrDocument.get("_userId_stored_string");
-		if(_userId != null)
-			oUtilisateurSite.set_userId(_userId);
+		String utilisateurId = (String)solrDocument.get("utilisateurId_stored_string");
+		if(utilisateurId != null)
+			oUtilisateurSite.setUtilisateurId(utilisateurId);
 
 		List<Long> calculInrPks = (List<Long>)solrDocument.get("calculInrPks_stored_longs");
 		if(calculInrPks != null)

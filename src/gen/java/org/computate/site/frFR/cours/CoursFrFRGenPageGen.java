@@ -9,6 +9,7 @@ import org.computate.site.frFR.cours.Cours;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.text.StringEscapeUtils;
+import java.lang.String;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.apache.commons.lang3.StringUtils;
 
@@ -94,6 +95,62 @@ public abstract class CoursFrFRGenPageGen<DEV> extends MiseEnPage {
 		return (CoursFrFRGenPage)this;
 	}
 
+	//////////////////
+	// pageUriCours //
+	//////////////////
+
+	/**	L'entité « pageUriCours »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUriCours;
+	public Couverture<String> pageUriCoursCouverture = new Couverture<String>().p(this).c(String.class).var("pageUriCours").o(pageUriCours);
+
+	/**	<br/>L'entité « pageUriCours »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.CoursFrFRGenPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageUriCours">Trouver l'entité pageUriCours dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUriCours(Couverture<String> c);
+
+	public String getPageUriCours() {
+		return pageUriCours;
+	}
+
+	public void setPageUriCours(String pageUriCours) {
+		this.pageUriCours = pageUriCours;
+		this.pageUriCoursCouverture.dejaInitialise = true;
+	}
+	protected CoursFrFRGenPage pageUriCoursInit() {
+		if(!pageUriCoursCouverture.dejaInitialise) {
+			_pageUriCours(pageUriCoursCouverture);
+			if(pageUriCours == null)
+				setPageUriCours(pageUriCoursCouverture.o);
+		}
+		pageUriCoursCouverture.dejaInitialise(true);
+		return (CoursFrFRGenPage)this;
+	}
+
+	public String solrPageUriCours() {
+		return pageUriCours;
+	}
+
+	public String strPageUriCours() {
+		return pageUriCours == null ? "" : pageUriCours;
+	}
+
+	public String nomAffichagePageUriCours() {
+		return null;
+	}
+
+	public String htmTooltipPageUriCours() {
+		return null;
+	}
+
+	public String htmPageUriCours() {
+		return pageUriCours == null ? "" : StringEscapeUtils.escapeHtml4(strPageUriCours());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -117,6 +174,7 @@ public abstract class CoursFrFRGenPageGen<DEV> extends MiseEnPage {
 	public void initCoursFrFRGenPage() {
 		listeCoursInit();
 		coursInit();
+		pageUriCoursInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -163,6 +221,8 @@ public abstract class CoursFrFRGenPageGen<DEV> extends MiseEnPage {
 				return oCoursFrFRGenPage.listeCours;
 			case "cours":
 				return oCoursFrFRGenPage.cours;
+			case "pageUriCours":
+				return oCoursFrFRGenPage.pageUriCours;
 			default:
 				return super.obtenirMiseEnPage(var);
 		}

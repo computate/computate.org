@@ -93,85 +93,13 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	protected void _questionMkdirSrv(PageHtml o) {
 	}
 
-	protected void _questionCertbot1(PageHtml o) {
+	protected void _questionCertbot(PageHtml o) {
 	}
 
-	protected void _questionCertbot2(PageHtml o) {
+	protected void _questionCopier(PageHtml o) {
 	}
 
-	@Override()
-	public void  htmlBodyQuestionCertbot2(PageHtml o) {
-		UtilisateurSite utilisateurSite = requeteSite_.getUtilisateurSite();
-		if(utilisateurSite == null) {
-			super.htmlBodyQuestionCertbot2(o);
-		}
-		else {
-			{ e("pre").a("class", " questionCertbot2Pre ").f();
-				{ e("span").a("class", " questionCertbot2PreSpan01 questionCertbot2PreSpan odd ").f();
-					sx(questionCertbot2PreSpan011);
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan02 questionCertbot2PreSpan even ").f();
-					sx(questionCertbot2PreSpan021);
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan03 questionCertbot2PreSpan odd ").f();
-					sx(questionCertbot2PreSpan031);
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan04 questionCertbot2PreSpan even ").f();
-					sx(questionCertbot2PreSpan041);
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan05 questionCertbot2PreSpan odd ").f();
-					sx(questionCertbot2PreSpan051);
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan06 questionCertbot2PreSpan even ").f();
-					sx(questionCertbot2PreSpan061);
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan07 questionCertbot2PreSpan odd ").f();
-					sx(" -d ", utilisateurSite.getSiteNomDomaine());
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan08 questionCertbot2PreSpan even ").f();
-					sx(" -d *.", utilisateurSite.getSiteNomDomaine());
-				} g("span");
-				{ e("span").a("class", " questionCertbot2PreSpan09 questionCertbot2PreSpan odd ").f();
-					sx(" -d *.apps.", utilisateurSite.getSiteNomDomaine());
-				} g("span");
-			} g("pre");
-		}
-	}
-
-	protected void _questionCertbot3(PageHtml o) {
-	}
-
-	protected void _questionClonerSource(PageHtml o) {
-	}
-
-	protected void _questionListerTags(PageHtml o) {
-	}
-
-	protected void _questionCheckoutTag(PageHtml o) {
-	}
-
-	protected void _questionConstruireSource(PageHtml o) {
-	}
-
-	protected void _questionMkdirServeur(PageHtml o) {
-	}
-
-	protected void _questionDonnees(PageHtml o) {
-	}
-
-	protected void _questionService(PageHtml o) {
-	}
-
-	protected void _questionSystemctlDaemonReload(PageHtml o) {
-	}
-
-	protected void _questionSystemctlEnable(PageHtml o) {
-	}
-
-	protected void _questionSystemctlStart(PageHtml o) {
-	}
-
-	protected void _questionSystemctlStatus(PageHtml o) {
+	protected void _questionRacineCa(PageHtml o) {
 	}
 
 	protected void _recapituler1(PageHtml o) {      
