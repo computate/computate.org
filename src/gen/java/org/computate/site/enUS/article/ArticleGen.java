@@ -36,20 +36,6 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class ArticleGen<DEV> extends Cluster {
 
-	public static final String Article_UnNom = "an article";
-	public static final String Article_Ce = "this ";
-	public static final String Article_CeNom = "this article";
-	public static final String Article_Un = "an ";
-	public static final String Article_LeNom = "thearticle";
-	public static final String Article_NomSingulier = "article";
-	public static final String Article_NomPluriel = "articles";
-	public static final String Article_NomActuel = "current article";
-	public static final String Article_TousNom = "the articles";
-	public static final String Article_RechercherTousNomPar = "search articles by ";
-	public static final String Article_LesNoms = "the articles";
-	public static final String Article_AucunNomTrouve = "no article found";
-	public static final String Article_NomVar = "article";
-	public static final String Article_DeNom = "of article";
 	public static final String Article_Couleur = "green";
 	public static final String Article_IconeGroupe = "regular";
 	public static final String Article_IconeNom = "university";
@@ -2880,7 +2866,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), statiqueUrlBase, nomDomaine, nomSite, nomHoteSite, nomEnsembleSite, nomHoteOrdinateur, cheminServeur, cheminProjet, utilisateurNom, groupeNom, estCours, estLecon, estArticle, coursNumero, leconNumero, leconDescription, articleH1_enUS, articleH1_frFR, articleH2_enUS, articleH2_frFR, articleH1, articleH2, articleDescription, pageDescription, articleCree, pageUri_enUS, pageUri_frFR, pageUri, pageImageUri_enUS, pageImageUri_frFR, pageImageUri, pageCree, pageH1, pageH2, pageH3, pageTitre, pageRecherche_enUS, pageRecherche_frFR);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -2893,45 +2879,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		if(!(o instanceof Article))
 			return false;
 		Article that = (Article)o;
-		return super.equals(o)
-				&& Objects.equals( statiqueUrlBase, that.statiqueUrlBase )
-				&& Objects.equals( nomDomaine, that.nomDomaine )
-				&& Objects.equals( nomSite, that.nomSite )
-				&& Objects.equals( nomHoteSite, that.nomHoteSite )
-				&& Objects.equals( nomEnsembleSite, that.nomEnsembleSite )
-				&& Objects.equals( nomHoteOrdinateur, that.nomHoteOrdinateur )
-				&& Objects.equals( cheminServeur, that.cheminServeur )
-				&& Objects.equals( cheminProjet, that.cheminProjet )
-				&& Objects.equals( utilisateurNom, that.utilisateurNom )
-				&& Objects.equals( groupeNom, that.groupeNom )
-				&& Objects.equals( estCours, that.estCours )
-				&& Objects.equals( estLecon, that.estLecon )
-				&& Objects.equals( estArticle, that.estArticle )
-				&& Objects.equals( coursNumero, that.coursNumero )
-				&& Objects.equals( leconNumero, that.leconNumero )
-				&& Objects.equals( leconDescription, that.leconDescription )
-				&& Objects.equals( articleH1_enUS, that.articleH1_enUS )
-				&& Objects.equals( articleH1_frFR, that.articleH1_frFR )
-				&& Objects.equals( articleH2_enUS, that.articleH2_enUS )
-				&& Objects.equals( articleH2_frFR, that.articleH2_frFR )
-				&& Objects.equals( articleH1, that.articleH1 )
-				&& Objects.equals( articleH2, that.articleH2 )
-				&& Objects.equals( articleDescription, that.articleDescription )
-				&& Objects.equals( pageDescription, that.pageDescription )
-				&& Objects.equals( articleCree, that.articleCree )
-				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
-				&& Objects.equals( pageUri_frFR, that.pageUri_frFR )
-				&& Objects.equals( pageUri, that.pageUri )
-				&& Objects.equals( pageImageUri_enUS, that.pageImageUri_enUS )
-				&& Objects.equals( pageImageUri_frFR, that.pageImageUri_frFR )
-				&& Objects.equals( pageImageUri, that.pageImageUri )
-				&& Objects.equals( pageCree, that.pageCree )
-				&& Objects.equals( pageH1, that.pageH1 )
-				&& Objects.equals( pageH2, that.pageH2 )
-				&& Objects.equals( pageH3, that.pageH3 )
-				&& Objects.equals( pageTitre, that.pageTitre )
-				&& Objects.equals( pageRecherche_enUS, that.pageRecherche_enUS )
-				&& Objects.equals( pageRecherche_frFR, that.pageRecherche_frFR );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -2942,44 +2890,6 @@ public abstract class ArticleGen<DEV> extends Cluster {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("Article {");
-		sb.append( "statiqueUrlBase: \"" ).append(statiqueUrlBase).append( "\"" );
-		sb.append( ", nomDomaine: \"" ).append(nomDomaine).append( "\"" );
-		sb.append( ", nomSite: \"" ).append(nomSite).append( "\"" );
-		sb.append( ", nomHoteSite: \"" ).append(nomHoteSite).append( "\"" );
-		sb.append( ", nomEnsembleSite: \"" ).append(nomEnsembleSite).append( "\"" );
-		sb.append( ", nomHoteOrdinateur: \"" ).append(nomHoteOrdinateur).append( "\"" );
-		sb.append( ", cheminServeur: \"" ).append(cheminServeur).append( "\"" );
-		sb.append( ", cheminProjet: \"" ).append(cheminProjet).append( "\"" );
-		sb.append( ", utilisateurNom: \"" ).append(utilisateurNom).append( "\"" );
-		sb.append( ", groupeNom: \"" ).append(groupeNom).append( "\"" );
-		sb.append( ", estCours: " ).append(estCours);
-		sb.append( ", estLecon: " ).append(estLecon);
-		sb.append( ", estArticle: " ).append(estArticle);
-		sb.append( ", coursNumero: " ).append(coursNumero);
-		sb.append( ", leconNumero: " ).append(leconNumero);
-		sb.append( ", leconDescription: \"" ).append(leconDescription).append( "\"" );
-		sb.append( ", articleH1_enUS: \"" ).append(articleH1_enUS).append( "\"" );
-		sb.append( ", articleH1_frFR: \"" ).append(articleH1_frFR).append( "\"" );
-		sb.append( ", articleH2_enUS: \"" ).append(articleH2_enUS).append( "\"" );
-		sb.append( ", articleH2_frFR: \"" ).append(articleH2_frFR).append( "\"" );
-		sb.append( ", articleH1: \"" ).append(articleH1).append( "\"" );
-		sb.append( ", articleH2: \"" ).append(articleH2).append( "\"" );
-		sb.append( ", articleDescription: \"" ).append(articleDescription).append( "\"" );
-		sb.append( ", pageDescription: \"" ).append(pageDescription).append( "\"" );
-		sb.append( ", articleCree: " ).append(articleCree);
-		sb.append( ", pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
-		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );
-		sb.append( ", pageUri: \"" ).append(pageUri).append( "\"" );
-		sb.append( ", pageImageUri_enUS: \"" ).append(pageImageUri_enUS).append( "\"" );
-		sb.append( ", pageImageUri_frFR: \"" ).append(pageImageUri_frFR).append( "\"" );
-		sb.append( ", pageImageUri: \"" ).append(pageImageUri).append( "\"" );
-		sb.append( ", pageCree: " ).append(pageCree);
-		sb.append( ", pageH1: \"" ).append(pageH1).append( "\"" );
-		sb.append( ", pageH2: \"" ).append(pageH2).append( "\"" );
-		sb.append( ", pageH3: \"" ).append(pageH3).append( "\"" );
-		sb.append( ", pageTitre: \"" ).append(pageTitre).append( "\"" );
-		sb.append( ", pageRecherche_enUS: " ).append(pageRecherche_enUS);
-		sb.append( ", pageRecherche_frFR: " ).append(pageRecherche_frFR);
 		sb.append(" }");
 		return sb.toString();
 	}

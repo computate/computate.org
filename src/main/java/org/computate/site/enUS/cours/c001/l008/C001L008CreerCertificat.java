@@ -102,6 +102,21 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	protected void _questionRacineCa(PageHtml o) {
 	}
 
+	protected void _questionCertificatsFusionnes(PageHtml o) {
+	}
+
+	protected void _questionPkcs12(PageHtml o) {
+	}
+
+	protected void _questionKeystore(PageHtml o) {
+	}
+
+	protected void _questionGenSecKey(PageHtml o) {
+	}
+
+	protected void _fin(PageHtml o) {
+	}
+
 	protected void _recapituler1(PageHtml o) {      
 	}
 

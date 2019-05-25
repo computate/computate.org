@@ -97,7 +97,7 @@ public class C001L009InstallerKeycloakEnUSGenPage extends C001L009InstallerKeycl
 	}
 
 	@Override public void htmlScriptsC001L009InstallerKeycloakEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L009InstallerKeycloakEnUSGenPage.js").f().g("script");
+		e("script").a("src", "/static/js/C001L009InstallerKeycloakEnUSPage.js").f().g("script");
 	}
 
 

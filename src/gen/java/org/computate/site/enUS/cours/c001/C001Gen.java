@@ -26,23 +26,9 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class C001Gen<DEV> extends Cours {
 
-	public static final String C001_UnNom = "a course #1";
-	public static final String C001_Ce = "this ";
-	public static final String C001_CeNom = "this course #1";
-	public static final String C001_Un = "an ";
-	public static final String C001_LeNom = "the course #1";
-	public static final String C001_NomSingulier = "course #1";
-	public static final String C001_NomPluriel = "course #1s";
-	public static final String C001_NomActuel = "current course #1";
-	public static final String C001_TousNom = "the course #1s";
-	public static final String C001_RechercherTousNomPar = "search course #1s by ";
 	public static final String C001_H1 = "Build modern asynchronous web applications with the best open source software. ";
 	public static final String C001_H2 = "With Vert.x, on Linux, PostgreSQL data, Solr search, deployable as Linux containers on OpenShift. ";
 	public static final String C001_Titre = "Build modern asynchronous web applications with the best open source software. ";
-	public static final String C001_LesNoms = "the course #1s";
-	public static final String C001_AucunNomTrouve = "no course #1 found";
-	public static final String C001_NomVar = "course#1";
-	public static final String C001_DeNom = "of course #1";
 	public static final String C001_Couleur = "green";
 	public static final String C001_IconeGroupe = "regular";
 	public static final String C001_IconeNom = "university";

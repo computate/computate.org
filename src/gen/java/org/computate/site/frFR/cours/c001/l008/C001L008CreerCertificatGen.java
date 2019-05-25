@@ -904,8 +904,6 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 
 	public static final String questionCopierH3I1 = "far fa-key";
 	public static final String questionCopierH3I = questionCopierH3I1;
-	public static final String questionCopierH3Span1 = "Comment utiliser le certificat et la clé générés par certbot ? ";
-	public static final String questionCopierH3Span = questionCopierH3Span1;
 	public static final String questionCopierH4I1 = "far fa-copy";
 	public static final String questionCopierH4I = questionCopierH4I1;
 	public static final String questionCopierH4Span1 = "Copiez les fichiers certbot avec la commande install. ";
@@ -1051,9 +1049,6 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		{ e("h3").a("class", " questionCopierH3 ").f();
 			{ e("i").a("class", questionCopierH3I1, " site-menu-icon questionCopierH3I ").f();
 			} g("i");
-			{ e("span").a("class", " questionCopierH3Span ").f();
-				sx(questionCopierH3Span1);
-			} g("span");
 		} g("h3");
 		{ e("h4").a("class", " questionCopierH4 ").f();
 			{ e("i").a("class", questionCopierH4I1, " site-menu-icon questionCopierH4I ").f();
@@ -1495,6 +1490,777 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		questionRacineCa.htmlApres();
 	}
 
+	//////////////////////////////////
+	// questionCertificatsFusionnes //
+	//////////////////////////////////
+
+	public static final String questionCertificatsFusionnesH3I1 = "far fa-object-group";
+	public static final String questionCertificatsFusionnesH3I = questionCertificatsFusionnesH3I1;
+	public static final String questionCertificatsFusionnesH3Span1 = "Comment créer une version fusionnée de certificats de site, de certificats d'autorité et de certificat racine ? ";
+	public static final String questionCertificatsFusionnesH3Span = questionCertificatsFusionnesH3Span1;
+	public static final String questionCertificatsFusionnesH4I1 = "far fa-cat";
+	public static final String questionCertificatsFusionnesH4I = questionCertificatsFusionnesH4I1;
+	public static final String questionCertificatsFusionnesH4Span1 = "Créez un certificat fusionné avec la commande cat. ";
+	public static final String questionCertificatsFusionnesH4Span = questionCertificatsFusionnesH4Span1;
+	public static final String questionCertificatsFusionnesPre1Span011 = "cat";
+	public static final String questionCertificatsFusionnesPre1Span01 = questionCertificatsFusionnesPre1Span011;
+	public static final String questionCertificatsFusionnesPre1Span021 = " /srv/certbot/root.crt";
+	public static final String questionCertificatsFusionnesPre1Span02 = questionCertificatsFusionnesPre1Span021;
+	public static final String questionCertificatsFusionnesPre1Span031 = " /srv/certbot/ca2.crt";
+	public static final String questionCertificatsFusionnesPre1Span03 = questionCertificatsFusionnesPre1Span031;
+	public static final String questionCertificatsFusionnesPre1Span041 = " /srv/certbot/server.crt";
+	public static final String questionCertificatsFusionnesPre1Span04 = questionCertificatsFusionnesPre1Span041;
+	public static final String questionCertificatsFusionnesPre1Span051 = " >";
+	public static final String questionCertificatsFusionnesPre1Span05 = questionCertificatsFusionnesPre1Span051;
+	public static final String questionCertificatsFusionnesPre1Span061 = " /srv/certbot/merged.crt";
+	public static final String questionCertificatsFusionnesPre1Span06 = questionCertificatsFusionnesPre1Span061;
+	public static final String questionCertificatsFusionnesOl1Li01Dt1 = "cat";
+	public static final String questionCertificatsFusionnesOl1Li01Dt = questionCertificatsFusionnesOl1Li01Dt1;
+	public static final String questionCertificatsFusionnesOl1Li01Dd1 = " : Concaténer des fichiers et imprimer sur la sortie standard. ";
+	public static final String questionCertificatsFusionnesOl1Li01Dd = questionCertificatsFusionnesOl1Li01Dd1;
+	public static final String questionCertificatsFusionnesOl1Li02Dt1 = "/srv/certbot/root.crt";
+	public static final String questionCertificatsFusionnesOl1Li02Dt = questionCertificatsFusionnesOl1Li02Dt1;
+	public static final String questionCertificatsFusionnesOl1Li02Dd1 = " : Le chemin vers le certificat racine de letsencrypt. ";
+	public static final String questionCertificatsFusionnesOl1Li02Dd = questionCertificatsFusionnesOl1Li02Dd1;
+	public static final String questionCertificatsFusionnesOl1Li03Dt1 = "/srv/certbot/ca2.crt";
+	public static final String questionCertificatsFusionnesOl1Li03Dt = questionCertificatsFusionnesOl1Li03Dt1;
+	public static final String questionCertificatsFusionnesOl1Li03Dd1 = " : Le chemin vers le deuxième certificat d'autorité letsencrypt. ";
+	public static final String questionCertificatsFusionnesOl1Li03Dd = questionCertificatsFusionnesOl1Li03Dd1;
+	public static final String questionCertificatsFusionnesOl1Li04Dt1 = "/srv/certbot/server.crt";
+	public static final String questionCertificatsFusionnesOl1Li04Dt = questionCertificatsFusionnesOl1Li04Dt1;
+	public static final String questionCertificatsFusionnesOl1Li04Dd1 = " : Le chemin vers votre nouveau certificat de site, la première certificat d'autorité de letsencrypt est également dedans. ";
+	public static final String questionCertificatsFusionnesOl1Li04Dd = questionCertificatsFusionnesOl1Li04Dd1;
+	public static final String questionCertificatsFusionnesOl1Li05Dt1 = ">";
+	public static final String questionCertificatsFusionnesOl1Li05Dt = questionCertificatsFusionnesOl1Li05Dt1;
+	public static final String questionCertificatsFusionnesOl1Li05Dd1 = " : Ecrivez le contenu de la commande précédente dans le fichier. ";
+	public static final String questionCertificatsFusionnesOl1Li05Dd = questionCertificatsFusionnesOl1Li05Dd1;
+	public static final String questionCertificatsFusionnesOl1Li06Dt1 = "/srv/certbot/merged.crt";
+	public static final String questionCertificatsFusionnesOl1Li06Dt = questionCertificatsFusionnesOl1Li06Dt1;
+	public static final String questionCertificatsFusionnesOl1Li06Dd1 = " : Le chemin vers le fichier de certificat fusionné. ";
+	public static final String questionCertificatsFusionnesOl1Li06Dd = questionCertificatsFusionnesOl1Li06Dd1;
+
+	/**	L'entité « questionCertificatsFusionnes »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionCertificatsFusionnes = new PageHtml();
+	public Couverture<PageHtml> questionCertificatsFusionnesCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionCertificatsFusionnes").o(questionCertificatsFusionnes);
+
+	/**	<br/>L'entité « questionCertificatsFusionnes »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionCertificatsFusionnes">Trouver l'entité questionCertificatsFusionnes dans Solr</a>
+	 * <br/>
+	 * @param questionCertificatsFusionnes est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionCertificatsFusionnes(PageHtml o);
+
+	public PageHtml getQuestionCertificatsFusionnes() {
+		return questionCertificatsFusionnes;
+	}
+
+	public void setQuestionCertificatsFusionnes(PageHtml questionCertificatsFusionnes) {
+		this.questionCertificatsFusionnes = questionCertificatsFusionnes;
+		this.questionCertificatsFusionnesCouverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat questionCertificatsFusionnesInit() {
+		if(questionCertificatsFusionnes != null) {
+			((C001L008CreerCertificat)this).avantPagePart(questionCertificatsFusionnes, "questionCertificatsFusionnes");
+			((C001L008CreerCertificat)this).avantPagePart(questionCertificatsFusionnes, "questionCertificatsFusionnes");
+		}
+		if(!questionCertificatsFusionnesCouverture.dejaInitialise) {
+			_questionCertificatsFusionnes(questionCertificatsFusionnes);
+		}
+		questionCertificatsFusionnes.initLoinPourClasse(requeteSite_);
+		questionCertificatsFusionnesCouverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyQuestionCertificatsFusionnes(PageHtml o) {
+		{ e("h3").a("class", " questionCertificatsFusionnesH3 ").f();
+			{ e("i").a("class", questionCertificatsFusionnesH3I1, " site-menu-icon questionCertificatsFusionnesH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionCertificatsFusionnesH3Span ").f();
+				sx(questionCertificatsFusionnesH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionCertificatsFusionnesH4 ").f();
+			{ e("i").a("class", questionCertificatsFusionnesH4I1, " site-menu-icon questionCertificatsFusionnesH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionCertificatsFusionnesH4Span ").f();
+				sx(questionCertificatsFusionnesH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionCertificatsFusionnesPre1 questionCertificatsFusionnesPre odd ").f();
+			{ e("span").a("class", " questionCertificatsFusionnesPre1Span01 questionCertificatsFusionnesPre1Span odd ").f();
+				sx(questionCertificatsFusionnesPre1Span011);
+			} g("span");
+			{ e("span").a("class", " questionCertificatsFusionnesPre1Span02 questionCertificatsFusionnesPre1Span even ").f();
+				sx(questionCertificatsFusionnesPre1Span021);
+			} g("span");
+			{ e("span").a("class", " questionCertificatsFusionnesPre1Span03 questionCertificatsFusionnesPre1Span odd ").f();
+				sx(questionCertificatsFusionnesPre1Span031);
+			} g("span");
+			{ e("span").a("class", " questionCertificatsFusionnesPre1Span04 questionCertificatsFusionnesPre1Span even ").f();
+				sx(questionCertificatsFusionnesPre1Span041);
+			} g("span");
+			{ e("span").a("class", " questionCertificatsFusionnesPre1Span05 questionCertificatsFusionnesPre1Span odd ").f();
+				sx(questionCertificatsFusionnesPre1Span051);
+			} g("span");
+			{ e("span").a("class", " questionCertificatsFusionnesPre1Span06 questionCertificatsFusionnesPre1Span even ").f();
+				sx(questionCertificatsFusionnesPre1Span061);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionCertificatsFusionnesOl1 questionCertificatsFusionnesOl odd ").f();
+			{ e("li").a("class", " questionCertificatsFusionnesOl1Li01 questionCertificatsFusionnesOl1Li odd ").f();
+				{ e("dt").a("class", " questionCertificatsFusionnesOl1Li01Dt ").f();
+					sx(questionCertificatsFusionnesOl1Li01Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionCertificatsFusionnesOl1Li01Dd ").f();
+					sx(questionCertificatsFusionnesOl1Li01Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionCertificatsFusionnesOl1Li02 questionCertificatsFusionnesOl1Li even ").f();
+				{ e("dt").a("class", " questionCertificatsFusionnesOl1Li02Dt ").f();
+					sx(questionCertificatsFusionnesOl1Li02Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionCertificatsFusionnesOl1Li02Dd ").f();
+					sx(questionCertificatsFusionnesOl1Li02Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionCertificatsFusionnesOl1Li03 questionCertificatsFusionnesOl1Li odd ").f();
+				{ e("dt").a("class", " questionCertificatsFusionnesOl1Li03Dt ").f();
+					sx(questionCertificatsFusionnesOl1Li03Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionCertificatsFusionnesOl1Li03Dd ").f();
+					sx(questionCertificatsFusionnesOl1Li03Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionCertificatsFusionnesOl1Li04 questionCertificatsFusionnesOl1Li even ").f();
+				{ e("dt").a("class", " questionCertificatsFusionnesOl1Li04Dt ").f();
+					sx(questionCertificatsFusionnesOl1Li04Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionCertificatsFusionnesOl1Li04Dd ").f();
+					sx(questionCertificatsFusionnesOl1Li04Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionCertificatsFusionnesOl1Li05 questionCertificatsFusionnesOl1Li odd ").f();
+				{ e("dt").a("class", " questionCertificatsFusionnesOl1Li05Dt ").f();
+					sx(questionCertificatsFusionnesOl1Li05Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionCertificatsFusionnesOl1Li05Dd ").f();
+					sx(questionCertificatsFusionnesOl1Li05Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionCertificatsFusionnesOl1Li06 questionCertificatsFusionnesOl1Li even ").f();
+				{ e("dt").a("class", " questionCertificatsFusionnesOl1Li06Dt ").f();
+					sx(questionCertificatsFusionnesOl1Li06Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionCertificatsFusionnesOl1Li06Dd ").f();
+					sx(questionCertificatsFusionnesOl1Li06Dd1);
+				} g("dd");
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionCertificatsFusionnes() {
+		questionCertificatsFusionnes.htmlAvant();
+		htmlBodyQuestionCertificatsFusionnes(questionCertificatsFusionnes);
+		questionCertificatsFusionnes.htmlApres();
+	}
+
+	////////////////////
+	// questionPkcs12 //
+	////////////////////
+
+	public static final String questionPkcs12H3I1 = "far fa-file-certificate";
+	public static final String questionPkcs12H3I = questionPkcs12H3I1;
+	public static final String questionPkcs12H3Span1 = "Comment créer une chaîne de confiance de certificat pkcs12 ? ";
+	public static final String questionPkcs12H3Span = questionPkcs12H3Span1;
+	public static final String questionPkcs12H4I1 = "far fa-shield-alt";
+	public static final String questionPkcs12H4I = questionPkcs12H4I1;
+	public static final String questionPkcs12H4Span1 = "Utilisez la commande openssl pour créer un fichier .p12. ";
+	public static final String questionPkcs12H4Span = questionPkcs12H4Span1;
+	public static final String questionPkcs12P11 = "En cryptographie, PKCS # 12 définit un format de fichier d’archive pour stocker de nombreux objets de cryptographie dans un seul fichier. ";
+	public static final String questionPkcs12P12 = "C'est utilisé pour regrouper une clé privée avec son certificat X.509 ou pour regrouper tous les membres d'une chaîne de confiance. ";
+	public static final String questionPkcs12P1 = questionPkcs12P11 + questionPkcs12P12;
+	public static final String questionPkcs12Pre1Span011 = "openssl";
+	public static final String questionPkcs12Pre1Span01 = questionPkcs12Pre1Span011;
+	public static final String questionPkcs12Pre1Span021 = " pkcs12";
+	public static final String questionPkcs12Pre1Span02 = questionPkcs12Pre1Span021;
+	public static final String questionPkcs12Pre1Span031 = " -export";
+	public static final String questionPkcs12Pre1Span03 = questionPkcs12Pre1Span031;
+	public static final String questionPkcs12Pre1Span04Span11 = " -name ";
+	public static final String questionPkcs12Pre1Span04Span1 = questionPkcs12Pre1Span04Span11;
+	public static final String questionPkcs12Pre1Span04Span21 = "example.com";
+	public static final String questionPkcs12Pre1Span04Span2 = questionPkcs12Pre1Span04Span21;
+	public static final String questionPkcs12Pre1Span051 = " -in /srv/certbot/merged.crt";
+	public static final String questionPkcs12Pre1Span05 = questionPkcs12Pre1Span051;
+	public static final String questionPkcs12Pre1Span061 = " -inkey /srv/certbot/server.key";
+	public static final String questionPkcs12Pre1Span06 = questionPkcs12Pre1Span061;
+	public static final String questionPkcs12Pre1Span071 = " -out /srv/certbot/server.p12";
+	public static final String questionPkcs12Pre1Span07 = questionPkcs12Pre1Span071;
+	public static final String questionPkcs12Ol1Li01Dt1 = "openssl";
+	public static final String questionPkcs12Ol1Li01Dt = questionPkcs12Ol1Li01Dt1;
+	public static final String questionPkcs12Ol1Li01Dd1 = " : OpenSSL est une boîte à outils de cryptographie implémentant les protocoles réseau Secure Sockets Layer (SSL v2/v3) et Transport Layer Security (TLS v1). ";
+	public static final String questionPkcs12Ol1Li01Dd = questionPkcs12Ol1Li01Dd1;
+	public static final String questionPkcs12Ol1Li02Dt1 = "pkcs12";
+	public static final String questionPkcs12Ol1Li02Dt = questionPkcs12Ol1Li02Dt1;
+	public static final String questionPkcs12Ol1Li02Dd1 = " : La commande pkcs12 permet aux fichiers PKCS # 12 d'être créés et analysés. ";
+	public static final String questionPkcs12Ol1Li02Dd = questionPkcs12Ol1Li02Dd1;
+	public static final String questionPkcs12Ol1Li03Dt1 = "-export";
+	public static final String questionPkcs12Ol1Li03Dt = questionPkcs12Ol1Li03Dt1;
+	public static final String questionPkcs12Ol1Li03Dd1 = " : Cette option spécifie qu'un fichier PKCS # 12 sera créé plutôt que analysé. ";
+	public static final String questionPkcs12Ol1Li03Dd = questionPkcs12Ol1Li03Dd1;
+	public static final String questionPkcs12Ol1Li04DtSpan11 = "-name ";
+	public static final String questionPkcs12Ol1Li04DtSpan1 = questionPkcs12Ol1Li04DtSpan11;
+	public static final String questionPkcs12Ol1Li04DtSpan21 = "example.com";
+	public static final String questionPkcs12Ol1Li04DtSpan2 = questionPkcs12Ol1Li04DtSpan21;
+	public static final String questionPkcs12Ol1Li04Dd1 = " : Ceci spécifie l'alias ou le nom d'affichage du certificat et de la clé privée. ";
+	public static final String questionPkcs12Ol1Li04Dd = questionPkcs12Ol1Li04Dd1;
+	public static final String questionPkcs12Ol1Li05Dt1 = "-in /srv/certbot/merged.crt";
+	public static final String questionPkcs12Ol1Li05Dt = questionPkcs12Ol1Li05Dt1;
+	public static final String questionPkcs12Ol1Li05Dd1 = " : Le chemin vers le fichier de certificat fusionné. ";
+	public static final String questionPkcs12Ol1Li05Dd = questionPkcs12Ol1Li05Dd1;
+	public static final String questionPkcs12Ol1Li06Dt1 = "-inkey /srv/certbot/server.key";
+	public static final String questionPkcs12Ol1Li06Dt = questionPkcs12Ol1Li06Dt1;
+	public static final String questionPkcs12Ol1Li06Dd1 = " : Le chemin vers le la clé privée. ";
+	public static final String questionPkcs12Ol1Li06Dd = questionPkcs12Ol1Li06Dd1;
+	public static final String questionPkcs12Ol1Li07Dt1 = "-out /srv/certbot/server.p12";
+	public static final String questionPkcs12Ol1Li07Dt = questionPkcs12Ol1Li07Dt1;
+	public static final String questionPkcs12Ol1Li07Dd1 = " : Le chemin au nouveau fichier de chaîne de confiance .p12. ";
+	public static final String questionPkcs12Ol1Li07Dd = questionPkcs12Ol1Li07Dd1;
+
+	/**	L'entité « questionPkcs12 »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionPkcs12 = new PageHtml();
+	public Couverture<PageHtml> questionPkcs12Couverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionPkcs12").o(questionPkcs12);
+
+	/**	<br/>L'entité « questionPkcs12 »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionPkcs12">Trouver l'entité questionPkcs12 dans Solr</a>
+	 * <br/>
+	 * @param questionPkcs12 est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionPkcs12(PageHtml o);
+
+	public PageHtml getQuestionPkcs12() {
+		return questionPkcs12;
+	}
+
+	public void setQuestionPkcs12(PageHtml questionPkcs12) {
+		this.questionPkcs12 = questionPkcs12;
+		this.questionPkcs12Couverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat questionPkcs12Init() {
+		if(questionPkcs12 != null) {
+			((C001L008CreerCertificat)this).avantPagePart(questionPkcs12, "questionPkcs12");
+			((C001L008CreerCertificat)this).avantPagePart(questionPkcs12, "questionPkcs12");
+		}
+		if(!questionPkcs12Couverture.dejaInitialise) {
+			_questionPkcs12(questionPkcs12);
+		}
+		questionPkcs12.initLoinPourClasse(requeteSite_);
+		questionPkcs12Couverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyQuestionPkcs12(PageHtml o) {
+		{ e("h3").a("class", " questionPkcs12H3 ").f();
+			{ e("i").a("class", questionPkcs12H3I1, " site-menu-icon questionPkcs12H3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionPkcs12H3Span ").f();
+				sx(questionPkcs12H3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionPkcs12H4 ").f();
+			{ e("i").a("class", questionPkcs12H4I1, " site-menu-icon questionPkcs12H4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionPkcs12H4Span ").f();
+				sx(questionPkcs12H4Span1);
+			} g("span");
+		} g("h4");
+		{ e("p").a("class", " questionPkcs12P1 questionPkcs12P odd ").f();
+			sx(questionPkcs12P11);
+			sx(questionPkcs12P12);
+		} g("p");
+		{ e("pre").a("class", " questionPkcs12Pre1 questionPkcs12Pre odd ").f();
+			{ e("span").a("class", " questionPkcs12Pre1Span01 questionPkcs12Pre1Span odd ").f();
+				sx(questionPkcs12Pre1Span011);
+			} g("span");
+			{ e("span").a("class", " questionPkcs12Pre1Span02 questionPkcs12Pre1Span even ").f();
+				sx(questionPkcs12Pre1Span021);
+			} g("span");
+			{ e("span").a("class", " questionPkcs12Pre1Span03 questionPkcs12Pre1Span odd ").f();
+				sx(questionPkcs12Pre1Span031);
+			} g("span");
+			{ e("span").a("class", " questionPkcs12Pre1Span04 questionPkcs12Pre1Span even ").f();
+				{ e("span").a("class", " questionPkcs12Pre1Span04Span1 questionPkcs12Pre1Span odd ").f();
+					sx(questionPkcs12Pre1Span04Span11);
+				} g("span");
+				{ e("span").a("class", " questionPkcs12Pre1Span04Span2 questionPkcs12Pre1Span even ").f();
+					sx(utilisateurId == null ? questionPkcs12Pre1Span04Span21 : utilisateurSiteNomDomaine);
+				} g("span");
+			} g("span");
+			{ e("span").a("class", " questionPkcs12Pre1Span05 questionPkcs12Pre1Span odd ").f();
+				sx(questionPkcs12Pre1Span051);
+			} g("span");
+			{ e("span").a("class", " questionPkcs12Pre1Span06 questionPkcs12Pre1Span even ").f();
+				sx(questionPkcs12Pre1Span061);
+			} g("span");
+			{ e("span").a("class", " questionPkcs12Pre1Span07 questionPkcs12Pre1Span odd ").f();
+				sx(questionPkcs12Pre1Span071);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionPkcs12Ol1 questionPkcs12Ol odd ").f();
+			{ e("li").a("class", " questionPkcs12Ol1Li01 questionPkcs12Ol1Li odd ").f();
+				{ e("dt").a("class", " questionPkcs12Ol1Li01Dt ").f();
+					sx(questionPkcs12Ol1Li01Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionPkcs12Ol1Li01Dd ").f();
+					sx(questionPkcs12Ol1Li01Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionPkcs12Ol1Li02 questionPkcs12Ol1Li even ").f();
+				{ e("dt").a("class", " questionPkcs12Ol1Li02Dt ").f();
+					sx(questionPkcs12Ol1Li02Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionPkcs12Ol1Li02Dd ").f();
+					sx(questionPkcs12Ol1Li02Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionPkcs12Ol1Li03 questionPkcs12Ol1Li odd ").f();
+				{ e("dt").a("class", " questionPkcs12Ol1Li03Dt ").f();
+					sx(questionPkcs12Ol1Li03Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionPkcs12Ol1Li03Dd ").f();
+					sx(questionPkcs12Ol1Li03Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionPkcs12Ol1Li04 questionPkcs12Ol1Li even ").f();
+				{ e("dt").a("class", " questionPkcs12Ol1Li04Dt ").f();
+					{ e("span").a("class", " questionPkcs12Ol1Li04DtSpan1 questionPkcs12Ol1Li odd ").f();
+						sx(questionPkcs12Ol1Li04DtSpan11);
+					} g("span");
+					{ e("span").a("class", " questionPkcs12Ol1Li04DtSpan2 questionPkcs12Ol1Li even ").f();
+						sx(utilisateurId == null ? questionPkcs12Ol1Li04DtSpan21 : utilisateurSiteNomDomaine);
+					} g("span");
+				} g("dt");
+				{ e("dd").a("class", " questionPkcs12Ol1Li04Dd ").f();
+					sx(questionPkcs12Ol1Li04Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionPkcs12Ol1Li05 questionPkcs12Ol1Li odd ").f();
+				{ e("dt").a("class", " questionPkcs12Ol1Li05Dt ").f();
+					sx(questionPkcs12Ol1Li05Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionPkcs12Ol1Li05Dd ").f();
+					sx(questionPkcs12Ol1Li05Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionPkcs12Ol1Li06 questionPkcs12Ol1Li even ").f();
+				{ e("dt").a("class", " questionPkcs12Ol1Li06Dt ").f();
+					sx(questionPkcs12Ol1Li06Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionPkcs12Ol1Li06Dd ").f();
+					sx(questionPkcs12Ol1Li06Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionPkcs12Ol1Li07 questionPkcs12Ol1Li odd ").f();
+				{ e("dt").a("class", " questionPkcs12Ol1Li07Dt ").f();
+					sx(questionPkcs12Ol1Li07Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionPkcs12Ol1Li07Dd ").f();
+					sx(questionPkcs12Ol1Li07Dd1);
+				} g("dd");
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionPkcs12() {
+		questionPkcs12.htmlAvant();
+		htmlBodyQuestionPkcs12(questionPkcs12);
+		questionPkcs12.htmlApres();
+	}
+
+	//////////////////////
+	// questionKeystore //
+	//////////////////////
+
+	public static final String questionKeystoreH3I1 = "far fa-store";
+	public static final String questionKeystoreH3I = questionKeystoreH3I1;
+	public static final String questionKeystoreH3Span1 = "Comment créer un magasin de clés Java pour les chaînes de certificats dans les applications Java? ";
+	public static final String questionKeystoreH3Span = questionKeystoreH3Span1;
+	public static final String questionKeystoreH4I1 = "far fa-terminal";
+	public static final String questionKeystoreH4I = questionKeystoreH4I1;
+	public static final String questionKeystoreH4Span1 = "Utilisez la commande keytool pour créer un fichier .jks. ";
+	public static final String questionKeystoreH4Span = questionKeystoreH4Span1;
+	public static final String questionKeystorePre1Span011 = "keytool";
+	public static final String questionKeystorePre1Span01 = questionKeystorePre1Span011;
+	public static final String questionKeystorePre1Span021 = " -importkeystore";
+	public static final String questionKeystorePre1Span02 = questionKeystorePre1Span021;
+	public static final String questionKeystorePre1Span031 = " -srcstoretype pkcs12";
+	public static final String questionKeystorePre1Span03 = questionKeystorePre1Span031;
+	public static final String questionKeystorePre1Span041 = " -srckeystore /srv/certbot/server.p12";
+	public static final String questionKeystorePre1Span04 = questionKeystorePre1Span041;
+	public static final String questionKeystorePre1Span051 = " -destkeystore /srv/certbot/server.jks";
+	public static final String questionKeystorePre1Span05 = questionKeystorePre1Span051;
+	public static final String questionKeystoreOl1Li01Dt1 = "keytool";
+	public static final String questionKeystoreOl1Li01Dt = questionKeystoreOl1Li01Dt1;
+	public static final String questionKeystoreOl1Li01Dd1 = " : Une application Java qui gère un magasin de clés cryptographiques, de chaînes de certificats et de certificats de confiance. ";
+	public static final String questionKeystoreOl1Li01Dd = questionKeystoreOl1Li01Dd1;
+	public static final String questionKeystoreOl1Li02Dt1 = "-importkeystore";
+	public static final String questionKeystoreOl1Li02Dt = questionKeystoreOl1Li02Dt1;
+	public static final String questionKeystoreOl1Li02Dd1 = " : Importe des entrées d'un magasin de clés de source vers un magasin de clés de destination. ";
+	public static final String questionKeystoreOl1Li02Dd = questionKeystoreOl1Li02Dd1;
+	public static final String questionKeystoreOl1Li03Dt1 = "-srcstoretype pkcs12";
+	public static final String questionKeystoreOl1Li03Dt = questionKeystoreOl1Li03Dt1;
+	public static final String questionKeystoreOl1Li03Dd1 = " : Le type de magasin de clés source, qui est pkcs12. ";
+	public static final String questionKeystoreOl1Li03Dd = questionKeystoreOl1Li03Dd1;
+	public static final String questionKeystoreOl1Li04Dt1 = "-srckeystore /srv/certbot/server.p12";
+	public static final String questionKeystoreOl1Li04Dt = questionKeystoreOl1Li04Dt1;
+	public static final String questionKeystoreOl1Li04Dd1 = " : Le chemin au fichier de chaîne de confiance .p12. ";
+	public static final String questionKeystoreOl1Li04Dd = questionKeystoreOl1Li04Dd1;
+	public static final String questionKeystoreOl1Li05Dt1 = "-destkeystore /srv/certbot/server.jks";
+	public static final String questionKeystoreOl1Li05Dt = questionKeystoreOl1Li05Dt1;
+	public static final String questionKeystoreOl1Li05Dd1 = " : Le chemin au nouveau magasin de clés Java .jks. ";
+	public static final String questionKeystoreOl1Li05Dd = questionKeystoreOl1Li05Dd1;
+
+	/**	L'entité « questionKeystore »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionKeystore = new PageHtml();
+	public Couverture<PageHtml> questionKeystoreCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionKeystore").o(questionKeystore);
+
+	/**	<br/>L'entité « questionKeystore »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionKeystore">Trouver l'entité questionKeystore dans Solr</a>
+	 * <br/>
+	 * @param questionKeystore est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionKeystore(PageHtml o);
+
+	public PageHtml getQuestionKeystore() {
+		return questionKeystore;
+	}
+
+	public void setQuestionKeystore(PageHtml questionKeystore) {
+		this.questionKeystore = questionKeystore;
+		this.questionKeystoreCouverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat questionKeystoreInit() {
+		if(questionKeystore != null) {
+			((C001L008CreerCertificat)this).avantPagePart(questionKeystore, "questionKeystore");
+			((C001L008CreerCertificat)this).avantPagePart(questionKeystore, "questionKeystore");
+		}
+		if(!questionKeystoreCouverture.dejaInitialise) {
+			_questionKeystore(questionKeystore);
+		}
+		questionKeystore.initLoinPourClasse(requeteSite_);
+		questionKeystoreCouverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyQuestionKeystore(PageHtml o) {
+		{ e("h3").a("class", " questionKeystoreH3 ").f();
+			{ e("i").a("class", questionKeystoreH3I1, " site-menu-icon questionKeystoreH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionKeystoreH3Span ").f();
+				sx(questionKeystoreH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionKeystoreH4 ").f();
+			{ e("i").a("class", questionKeystoreH4I1, " site-menu-icon questionKeystoreH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionKeystoreH4Span ").f();
+				sx(questionKeystoreH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionKeystorePre1 questionKeystorePre odd ").f();
+			{ e("span").a("class", " questionKeystorePre1Span01 questionKeystorePre1Span odd ").f();
+				sx(questionKeystorePre1Span011);
+			} g("span");
+			{ e("span").a("class", " questionKeystorePre1Span02 questionKeystorePre1Span even ").f();
+				sx(questionKeystorePre1Span021);
+			} g("span");
+			{ e("span").a("class", " questionKeystorePre1Span03 questionKeystorePre1Span odd ").f();
+				sx(questionKeystorePre1Span031);
+			} g("span");
+			{ e("span").a("class", " questionKeystorePre1Span04 questionKeystorePre1Span even ").f();
+				sx(questionKeystorePre1Span041);
+			} g("span");
+			{ e("span").a("class", " questionKeystorePre1Span05 questionKeystorePre1Span odd ").f();
+				sx(questionKeystorePre1Span051);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionKeystoreOl1 questionKeystoreOl odd ").f();
+			{ e("li").a("class", " questionKeystoreOl1Li01 questionKeystoreOl1Li odd ").f();
+				{ e("dt").a("class", " questionKeystoreOl1Li01Dt ").f();
+					sx(questionKeystoreOl1Li01Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionKeystoreOl1Li01Dd ").f();
+					sx(questionKeystoreOl1Li01Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionKeystoreOl1Li02 questionKeystoreOl1Li even ").f();
+				{ e("dt").a("class", " questionKeystoreOl1Li02Dt ").f();
+					sx(questionKeystoreOl1Li02Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionKeystoreOl1Li02Dd ").f();
+					sx(questionKeystoreOl1Li02Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionKeystoreOl1Li03 questionKeystoreOl1Li odd ").f();
+				{ e("dt").a("class", " questionKeystoreOl1Li03Dt ").f();
+					sx(questionKeystoreOl1Li03Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionKeystoreOl1Li03Dd ").f();
+					sx(questionKeystoreOl1Li03Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionKeystoreOl1Li04 questionKeystoreOl1Li even ").f();
+				{ e("dt").a("class", " questionKeystoreOl1Li04Dt ").f();
+					sx(questionKeystoreOl1Li04Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionKeystoreOl1Li04Dd ").f();
+					sx(questionKeystoreOl1Li04Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionKeystoreOl1Li05 questionKeystoreOl1Li odd ").f();
+				{ e("dt").a("class", " questionKeystoreOl1Li05Dt ").f();
+					sx(questionKeystoreOl1Li05Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionKeystoreOl1Li05Dd ").f();
+					sx(questionKeystoreOl1Li05Dd1);
+				} g("dd");
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionKeystore() {
+		questionKeystore.htmlAvant();
+		htmlBodyQuestionKeystore(questionKeystore);
+		questionKeystore.htmlApres();
+	}
+
+	///////////////////////
+	// questionGenSecKey //
+	///////////////////////
+
+	public static final String questionGenSecKeyH3I1 = "far fa-key";
+	public static final String questionGenSecKeyH3I = questionGenSecKeyH3I1;
+	public static final String questionGenSecKeyH3Span1 = "Comment créer un magasin de clés Java pour mon clé secret dans les applications Java? ";
+	public static final String questionGenSecKeyH3Span = questionGenSecKeyH3Span1;
+	public static final String questionGenSecKeyH4I1 = "far fa-terminal";
+	public static final String questionGenSecKeyH4I = questionGenSecKeyH4I1;
+	public static final String questionGenSecKeyH4Span1 = "Utilisez la commande keytool pour créer un fichier .jceks. ";
+	public static final String questionGenSecKeyH4Span = questionGenSecKeyH4Span1;
+	public static final String questionGenSecKeyPre1Span011 = "keytool";
+	public static final String questionGenSecKeyPre1Span01 = questionGenSecKeyPre1Span011;
+	public static final String questionGenSecKeyPre1Span021 = " -genseckey";
+	public static final String questionGenSecKeyPre1Span02 = questionGenSecKeyPre1Span021;
+	public static final String questionGenSecKeyPre1Span031 = " -storetype JCEKS";
+	public static final String questionGenSecKeyPre1Span03 = questionGenSecKeyPre1Span031;
+	public static final String questionGenSecKeyPre1Span04Span11 = " -alias ";
+	public static final String questionGenSecKeyPre1Span04Span1 = questionGenSecKeyPre1Span04Span11;
+	public static final String questionGenSecKeyPre1Span04Span21 = "example.com";
+	public static final String questionGenSecKeyPre1Span04Span2 = questionGenSecKeyPre1Span04Span21;
+	public static final String questionGenSecKeyPre1Span051 = " -keystore /srv/certbot/server.jceks";
+	public static final String questionGenSecKeyPre1Span05 = questionGenSecKeyPre1Span051;
+	public static final String questionGenSecKeyOl1Li01Dt1 = "keytool";
+	public static final String questionGenSecKeyOl1Li01Dt = questionGenSecKeyOl1Li01Dt1;
+	public static final String questionGenSecKeyOl1Li02Dt1 = "-genseckey";
+	public static final String questionGenSecKeyOl1Li02Dt = questionGenSecKeyOl1Li02Dt1;
+	public static final String questionGenSecKeyOl1Li02Dd1 = " : Importe des entrées d'un magasin de clés de source vers un magasin de clés de destination. ";
+	public static final String questionGenSecKeyOl1Li02Dd = questionGenSecKeyOl1Li02Dd1;
+	public static final String questionGenSecKeyOl1Li03Dt1 = "-storetype JCEKS";
+	public static final String questionGenSecKeyOl1Li03Dt = questionGenSecKeyOl1Li03Dt1;
+	public static final String questionGenSecKeyOl1Li03Dd1 = " : Type de fichier de clés dans lequel les clés sont stockées afin d'éviter que vos clés de chiffrement ne soient exposées. ";
+	public static final String questionGenSecKeyOl1Li03Dd = questionGenSecKeyOl1Li03Dd1;
+	public static final String questionGenSecKeyOl1Li04DtSpan11 = "-alias ";
+	public static final String questionGenSecKeyOl1Li04DtSpan1 = questionGenSecKeyOl1Li04DtSpan11;
+	public static final String questionGenSecKeyOl1Li04DtSpan21 = "example.com";
+	public static final String questionGenSecKeyOl1Li04DtSpan2 = questionGenSecKeyOl1Li04DtSpan21;
+	public static final String questionGenSecKeyOl1Li04Dd1 = " : Ceci spécifie l'alias ou le nom d'affichage du certificat et de la clé privée. ";
+	public static final String questionGenSecKeyOl1Li04Dd = questionGenSecKeyOl1Li04Dd1;
+	public static final String questionGenSecKeyOl1Li05Dt1 = "-keystore /srv/certbot/server.jceks";
+	public static final String questionGenSecKeyOl1Li05Dt = questionGenSecKeyOl1Li05Dt1;
+	public static final String questionGenSecKeyOl1Li05Dd1 = " : Le chemin au nouveau magasin de clés Java .jks. ";
+	public static final String questionGenSecKeyOl1Li05Dd = questionGenSecKeyOl1Li05Dd1;
+
+	/**	L'entité « questionGenSecKey »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionGenSecKey = new PageHtml();
+	public Couverture<PageHtml> questionGenSecKeyCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionGenSecKey").o(questionGenSecKey);
+
+	/**	<br/>L'entité « questionGenSecKey »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionGenSecKey">Trouver l'entité questionGenSecKey dans Solr</a>
+	 * <br/>
+	 * @param questionGenSecKey est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionGenSecKey(PageHtml o);
+
+	public PageHtml getQuestionGenSecKey() {
+		return questionGenSecKey;
+	}
+
+	public void setQuestionGenSecKey(PageHtml questionGenSecKey) {
+		this.questionGenSecKey = questionGenSecKey;
+		this.questionGenSecKeyCouverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat questionGenSecKeyInit() {
+		if(questionGenSecKey != null) {
+			((C001L008CreerCertificat)this).avantPagePart(questionGenSecKey, "questionGenSecKey");
+			((C001L008CreerCertificat)this).avantPagePart(questionGenSecKey, "questionGenSecKey");
+		}
+		if(!questionGenSecKeyCouverture.dejaInitialise) {
+			_questionGenSecKey(questionGenSecKey);
+		}
+		questionGenSecKey.initLoinPourClasse(requeteSite_);
+		questionGenSecKeyCouverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyQuestionGenSecKey(PageHtml o) {
+		{ e("h3").a("class", " questionGenSecKeyH3 ").f();
+			{ e("i").a("class", questionGenSecKeyH3I1, " site-menu-icon questionGenSecKeyH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionGenSecKeyH3Span ").f();
+				sx(questionGenSecKeyH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionGenSecKeyH4 ").f();
+			{ e("i").a("class", questionGenSecKeyH4I1, " site-menu-icon questionGenSecKeyH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionGenSecKeyH4Span ").f();
+				sx(questionGenSecKeyH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionGenSecKeyPre1 questionGenSecKeyPre odd ").f();
+			{ e("span").a("class", " questionGenSecKeyPre1Span01 questionGenSecKeyPre1Span odd ").f();
+				sx(questionGenSecKeyPre1Span011);
+			} g("span");
+			{ e("span").a("class", " questionGenSecKeyPre1Span02 questionGenSecKeyPre1Span even ").f();
+				sx(questionGenSecKeyPre1Span021);
+			} g("span");
+			{ e("span").a("class", " questionGenSecKeyPre1Span03 questionGenSecKeyPre1Span odd ").f();
+				sx(questionGenSecKeyPre1Span031);
+			} g("span");
+			{ e("span").a("class", " questionGenSecKeyPre1Span04 questionGenSecKeyPre1Span even ").f();
+				{ e("span").a("class", " questionGenSecKeyPre1Span04Span1 questionGenSecKeyPre1Span odd ").f();
+					sx(questionGenSecKeyPre1Span04Span11);
+				} g("span");
+				{ e("span").a("class", " questionGenSecKeyPre1Span04Span2 questionGenSecKeyPre1Span even ").f();
+					sx(utilisateurId == null ? questionGenSecKeyPre1Span04Span21 : utilisateurSiteNomDomaine);
+				} g("span");
+			} g("span");
+			{ e("span").a("class", " questionGenSecKeyPre1Span05 questionGenSecKeyPre1Span odd ").f();
+				sx(questionGenSecKeyPre1Span051);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionGenSecKeyOl1 questionGenSecKeyOl odd ").f();
+			{ e("li").a("class", " questionGenSecKeyOl1Li01 questionGenSecKeyOl1Li odd ").f();
+				{ e("dt").a("class", " questionGenSecKeyOl1Li01Dt ").f();
+					sx(questionGenSecKeyOl1Li01Dt1);
+				} g("dt");
+			} g("li");
+			{ e("li").a("class", " questionGenSecKeyOl1Li02 questionGenSecKeyOl1Li even ").f();
+				{ e("dt").a("class", " questionGenSecKeyOl1Li02Dt ").f();
+					sx(questionGenSecKeyOl1Li02Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionGenSecKeyOl1Li02Dd ").f();
+					sx(questionGenSecKeyOl1Li02Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionGenSecKeyOl1Li03 questionGenSecKeyOl1Li odd ").f();
+				{ e("dt").a("class", " questionGenSecKeyOl1Li03Dt ").f();
+					sx(questionGenSecKeyOl1Li03Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionGenSecKeyOl1Li03Dd ").f();
+					sx(questionGenSecKeyOl1Li03Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionGenSecKeyOl1Li04 questionGenSecKeyOl1Li even ").f();
+				{ e("dt").a("class", " questionGenSecKeyOl1Li04Dt ").f();
+					{ e("span").a("class", " questionGenSecKeyOl1Li04DtSpan1 questionGenSecKeyOl1Li odd ").f();
+						sx(questionGenSecKeyOl1Li04DtSpan11);
+					} g("span");
+					{ e("span").a("class", " questionGenSecKeyOl1Li04DtSpan2 questionGenSecKeyOl1Li even ").f();
+						sx(utilisateurId == null ? questionGenSecKeyOl1Li04DtSpan21 : utilisateurSiteNomDomaine);
+					} g("span");
+				} g("dt");
+				{ e("dd").a("class", " questionGenSecKeyOl1Li04Dd ").f();
+					sx(questionGenSecKeyOl1Li04Dd1);
+				} g("dd");
+			} g("li");
+			{ e("li").a("class", " questionGenSecKeyOl1Li05 questionGenSecKeyOl1Li odd ").f();
+				{ e("dt").a("class", " questionGenSecKeyOl1Li05Dt ").f();
+					sx(questionGenSecKeyOl1Li05Dt1);
+				} g("dt");
+				{ e("dd").a("class", " questionGenSecKeyOl1Li05Dd ").f();
+					sx(questionGenSecKeyOl1Li05Dd1);
+				} g("dd");
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionGenSecKey() {
+		questionGenSecKey.htmlAvant();
+		htmlBodyQuestionGenSecKey(questionGenSecKey);
+		questionGenSecKey.htmlApres();
+	}
+
+	/////////
+	// fin //
+	/////////
+
+	public static final String finP1 = "Félicitations, vous êtes maintenant prêt à utiliser votre nouveau certificat, vos clés et vos magasins de clés dans vos applications. ";
+	public static final String finP2 = "Vous pourrez sécuriser vos applications avec https et TLS localement et sur le cloud OpenShift. ";
+	public static final String finP3 = "Vous pouvez signer votre code Java pour le déployer en toute confiance. ";
+	public static final String finP4 = "Vous pouvez installer un serveur Single Sign On pour gérer l'authentification et l'autorisation des utilisateurs dans vos applications. ";
+	public static final String finP = finP1 + finP2 + finP3 + finP4;
+
+	/**	L'entité « fin »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml fin = new PageHtml();
+	public Couverture<PageHtml> finCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("fin").o(fin);
+
+	/**	<br/>L'entité « fin »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:fin">Trouver l'entité fin dans Solr</a>
+	 * <br/>
+	 * @param fin est l'entité déjà construit. 
+	 **/
+	protected abstract void _fin(PageHtml o);
+
+	public PageHtml getFin() {
+		return fin;
+	}
+
+	public void setFin(PageHtml fin) {
+		this.fin = fin;
+		this.finCouverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat finInit() {
+		if(fin != null) {
+			((C001L008CreerCertificat)this).avantPagePart(fin, "fin");
+			((C001L008CreerCertificat)this).avantPagePart(fin, "fin");
+		}
+		if(!finCouverture.dejaInitialise) {
+			_fin(fin);
+		}
+		fin.initLoinPourClasse(requeteSite_);
+		finCouverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyFin(PageHtml o) {
+		{ e("p").a("class", " finP ").f();
+			sx(finP1);
+			sx(finP2);
+			sx(finP3);
+			sx(finP4);
+		} g("p");
+	}
+	public void htmlBodyFin() {
+		fin.htmlAvant();
+		htmlBodyFin(fin);
+		fin.htmlApres();
+	}
+
 	//////////////////
 	// recapituler1 //
 	//////////////////
@@ -1551,7 +2317,7 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 	// recapituler2 //
 	//////////////////
 
-	public static final String recapituler2TableTr1Td11 = "Jeudi ";
+	public static final String recapituler2TableTr1Td11 = "Vendredi ";
 	public static final String recapituler2TableTr1Td1 = recapituler2TableTr1Td11;
 	public static final String recapituler2TableTr1Td2I1 = "far fa-fast-forward";
 	public static final String recapituler2TableTr1Td2I = recapituler2TableTr1Td2I1;
@@ -1559,11 +2325,11 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 	public static final String recapituler2TableTr1Td3I = recapituler2TableTr1Td3I1;
 	public static final String recapituler2TableTr1Td4I1 = "far fa-pen-nib";
 	public static final String recapituler2TableTr1Td4I = recapituler2TableTr1Td4I1;
-	public static final String recapituler2TableTr2Td11 = "16 Mai 2019";
+	public static final String recapituler2TableTr2Td11 = "24 Mai 2019";
 	public static final String recapituler2TableTr2Td1 = recapituler2TableTr2Td11;
-	public static final String recapituler2TableTr2Td21 = "Comment installer la dernière version de PostgreSQL ? ";
+	public static final String recapituler2TableTr2Td21 = "Que puis-je faire une fois que j'ai acheté un nom de domaine ? ";
 	public static final String recapituler2TableTr2Td2 = recapituler2TableTr2Td21;
-	public static final String recapituler2TableTr2Td31 = "Installer PostgreSQL à partir du code source. ";
+	public static final String recapituler2TableTr2Td31 = "Obtenez gratuitement un certificat TLS valide pour des raisons de sécurité et de crédibilité. ";
 	public static final String recapituler2TableTr2Td3 = recapituler2TableTr2Td31;
 	public static final String recapituler2TableTr2Td41 = "Par Christophe Tate";
 	public static final String recapituler2TableTr2Td4 = recapituler2TableTr2Td41;
@@ -1657,7 +2423,7 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 	public static final String recapituler3TableTr01Td4 = recapituler3TableTr01Td41;
 	public static final String recapituler3TableTr02Td1I1 = "far fa-conveyor-belt-alt";
 	public static final String recapituler3TableTr02Td1I = recapituler3TableTr02Td1I1;
-	public static final String recapituler3TableTr02Td21 = "Comment installer les dépendences pour PostgreSQL ? ";
+	public static final String recapituler3TableTr02Td21 = "Comment installer les dépendences pour certbot ? ";
 	public static final String recapituler3TableTr02Td2 = recapituler3TableTr02Td21;
 	public static final String recapituler3TableTr02Td3Span1I1 = "far fa-cookie";
 	public static final String recapituler3TableTr02Td3Span1I = recapituler3TableTr02Td3Span1I1;
@@ -1665,108 +2431,68 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 	public static final String recapituler3TableTr02Td4 = recapituler3TableTr02Td41;
 	public static final String recapituler3TableTr03Td1I1 = "far fa-files-medical";
 	public static final String recapituler3TableTr03Td1I = recapituler3TableTr03Td1I1;
-	public static final String recapituler3TableTr03Td21 = "Où est-ce que je place le code source PostgreSQL ? ";
+	public static final String recapituler3TableTr03Td21 = "Où dois-je placer les certificats, les clés et les magasins de clés pour mon site ? ";
 	public static final String recapituler3TableTr03Td2 = recapituler3TableTr03Td21;
 	public static final String recapituler3TableTr03Td3I1 = "far fa-folder-tree";
 	public static final String recapituler3TableTr03Td3I = recapituler3TableTr03Td3I1;
-	public static final String recapituler3TableTr03Td41 = "Créez un répertoire PostgreSQL dans /usr/local/src. ";
+	public static final String recapituler3TableTr03Td41 = "Créez un répertoire certbot dans /srv. ";
 	public static final String recapituler3TableTr03Td4 = recapituler3TableTr03Td41;
-	public static final String recapituler3TableTr04Td1I1 = "far fa-map-pin";
+	public static final String recapituler3TableTr04Td1I1 = "far fa-file-certificate";
 	public static final String recapituler3TableTr04Td1I = recapituler3TableTr04Td1I1;
-	public static final String recapituler3TableTr04Td21 = "Où puis-je installer PostgreSQL ? ";
+	public static final String recapituler3TableTr04Td21 = "Comment puis-je obtenir mon certificat ? ";
 	public static final String recapituler3TableTr04Td2 = recapituler3TableTr04Td21;
-	public static final String recapituler3TableTr04Td3Span1I1 = "far fa-folder-tree";
+	public static final String recapituler3TableTr04Td3Span1I1 = "far fa-stamp";
 	public static final String recapituler3TableTr04Td3Span1I = recapituler3TableTr04Td3Span1I1;
-	public static final String recapituler3TableTr04Td41 = "Créez un répertoire PostgreSQL dans /opt. ";
+	public static final String recapituler3TableTr04Td41 = "Utilisez la commande certbot. ";
 	public static final String recapituler3TableTr04Td4 = recapituler3TableTr04Td41;
-	public static final String recapituler3TableTr05Td1I1 = "far fa-cloud-download";
+	public static final String recapituler3TableTr05Td1I1 = "far fa-key";
 	public static final String recapituler3TableTr05Td1I = recapituler3TableTr05Td1I1;
-	public static final String recapituler3TableTr05Td21 = "Comment télécharger le code source de PostgreSQL ? ";
+	public static final String recapituler3TableTr05Td21 = "Comment utiliser le certificat et la clé générés par certbot ? ";
 	public static final String recapituler3TableTr05Td2 = recapituler3TableTr05Td21;
-	public static final String recapituler3TableTr05Td3I1 = "fab fa-git";
+	public static final String recapituler3TableTr05Td3I1 = "far fa-copy";
 	public static final String recapituler3TableTr05Td3I = recapituler3TableTr05Td3I1;
-	public static final String recapituler3TableTr05Td41 = "Cloner le code source avec la commande git. ";
+	public static final String recapituler3TableTr05Td41 = "Copiez les fichiers certbot avec la commande install. ";
 	public static final String recapituler3TableTr05Td4 = recapituler3TableTr05Td41;
-	public static final String recapituler3TableTr06Td1I1 = "far fa-code-branch";
+	public static final String recapituler3TableTr06Td1I1 = "far fa-users-crown";
 	public static final String recapituler3TableTr06Td1I = recapituler3TableTr06Td1I1;
-	public static final String recapituler3TableTr06Td21 = "Comment choisir une version récente de PostgreSQL ? ";
+	public static final String recapituler3TableTr06Td21 = "Comment puis-je obtenir les certificats letencrypt racine et CA ? ";
 	public static final String recapituler3TableTr06Td2 = recapituler3TableTr06Td21;
-	public static final String recapituler3TableTr06Td3I1 = "far fa-tag";
+	public static final String recapituler3TableTr06Td3I1 = "far fa-copy";
 	public static final String recapituler3TableTr06Td3I = recapituler3TableTr06Td3I1;
-	public static final String recapituler3TableTr06Td41 = "Listez toutes les tags du référentiel git. ";
+	public static final String recapituler3TableTr06Td41 = "Téléchargez les certificats racine et CA avec la commande curl. ";
 	public static final String recapituler3TableTr06Td4 = recapituler3TableTr06Td41;
-	public static final String recapituler3TableTr07Td1I1 = "far fa-code-merge";
+	public static final String recapituler3TableTr07Td1I1 = "far fa-object-group";
 	public static final String recapituler3TableTr07Td1I = recapituler3TableTr07Td1I1;
-	public static final String recapituler3TableTr07Td21 = "Comment changer de version du code source de PostgreSQL ? ";
+	public static final String recapituler3TableTr07Td21 = "Comment créer une version fusionnée de certificats de site, de certificats d'autorité et de certificat racine ? ";
 	public static final String recapituler3TableTr07Td2 = recapituler3TableTr07Td21;
-	public static final String recapituler3TableTr07Td3I1 = "far fa-code-commit";
+	public static final String recapituler3TableTr07Td3I1 = "far fa-cat";
 	public static final String recapituler3TableTr07Td3I = recapituler3TableTr07Td3I1;
-	public static final String recapituler3TableTr07Td41 = "Checkout la tag git. ";
+	public static final String recapituler3TableTr07Td41 = "Créez un certificat fusionné avec la commande cat. ";
 	public static final String recapituler3TableTr07Td4 = recapituler3TableTr07Td41;
-	public static final String recapituler3TableTr08Td1I1 = "far fa-tools";
+	public static final String recapituler3TableTr08Td1I1 = "far fa-file-certificate";
 	public static final String recapituler3TableTr08Td1I = recapituler3TableTr08Td1I1;
-	public static final String recapituler3TableTr08Td21 = "Comment contruire le code source de PostgreSQL ? ";
+	public static final String recapituler3TableTr08Td21 = "Comment créer une chaîne de confiance de certificat pkcs12 ? ";
 	public static final String recapituler3TableTr08Td2 = recapituler3TableTr08Td21;
-	public static final String recapituler3TableTr08Td3I1 = "far fa-terminal";
+	public static final String recapituler3TableTr08Td3I1 = "far fa-shield-alt";
 	public static final String recapituler3TableTr08Td3I = recapituler3TableTr08Td3I1;
-	public static final String recapituler3TableTr08Td41 = "Construisez PostgreSQL avec la commande configure. ";
+	public static final String recapituler3TableTr08Td41 = "Utilisez la commande openssl pour créer un fichier .p12. ";
 	public static final String recapituler3TableTr08Td4 = recapituler3TableTr08Td41;
-	public static final String recapituler3TableTr09Td1I1 = "far fa-map-pin";
+	public static final String recapituler3TableTr09Td1I1 = "far fa-store";
 	public static final String recapituler3TableTr09Td1I = recapituler3TableTr09Td1I1;
-	public static final String recapituler3TableTr09Td21 = "Après avoir installé PostgreSQL, où se trouve mon répertoire de données ? ";
+	public static final String recapituler3TableTr09Td21 = "Comment créer un magasin de clés Java pour les chaînes de certificats dans les applications Java? ";
 	public static final String recapituler3TableTr09Td2 = recapituler3TableTr09Td21;
-	public static final String recapituler3TableTr09Td3I1 = "far fa-folder-tree";
+	public static final String recapituler3TableTr09Td3I1 = "far fa-terminal";
 	public static final String recapituler3TableTr09Td3I = recapituler3TableTr09Td3I1;
-	public static final String recapituler3TableTr09Td41 = "Créez un répertoire pgsql dans /srv. ";
+	public static final String recapituler3TableTr09Td41 = "Utilisez la commande keytool pour créer un fichier .jks. ";
 	public static final String recapituler3TableTr09Td4 = recapituler3TableTr09Td41;
-	public static final String recapituler3TableTr10Td1I1 = "far fa-database";
+	public static final String recapituler3TableTr10Td1I1 = "far fa-key";
 	public static final String recapituler3TableTr10Td1I = recapituler3TableTr10Td1I1;
-	public static final String recapituler3TableTr10Td21 = "Comment créer une nouvelle base de données PostgreSQL ? ";
+	public static final String recapituler3TableTr10Td21 = "Comment créer un magasin de clés Java pour mon clé secret dans les applications Java? ";
 	public static final String recapituler3TableTr10Td2 = recapituler3TableTr10Td21;
-	public static final String recapituler3TableTr10Td3I1 = "far fa-table";
+	public static final String recapituler3TableTr10Td3I1 = "far fa-terminal";
 	public static final String recapituler3TableTr10Td3I = recapituler3TableTr10Td3I1;
-	public static final String recapituler3TableTr10Td41 = "Comment initialiser un nouveau serveur PostgreSQL. ";
+	public static final String recapituler3TableTr10Td41 = "Utilisez la commande keytool pour créer un fichier .jceks. ";
 	public static final String recapituler3TableTr10Td4 = recapituler3TableTr10Td41;
-	public static final String recapituler3TableTr11Td1I1 = "far fa-alarm-clock";
-	public static final String recapituler3TableTr11Td1I = recapituler3TableTr11Td1I1;
-	public static final String recapituler3TableTr11Td21 = "Comment puis-je exécuter PostgreSQL tout le temps au démarrage de mon ordinateur ? ";
-	public static final String recapituler3TableTr11Td2 = recapituler3TableTr11Td21;
-	public static final String recapituler3TableTr11Td3I1 = "far fa-layer-plus";
-	public static final String recapituler3TableTr11Td3I = recapituler3TableTr11Td3I1;
-	public static final String recapituler3TableTr11Td41 = "Comment exécuter PostgreSQL en tant que service systemd. ";
-	public static final String recapituler3TableTr11Td4 = recapituler3TableTr11Td41;
-	public static final String recapituler3TableTr12Td1I1 = "far fa-search";
-	public static final String recapituler3TableTr12Td1I = recapituler3TableTr12Td1I1;
-	public static final String recapituler3TableTr12Td21 = "Comment le système connaît-il le nouveau service ? ";
-	public static final String recapituler3TableTr12Td2 = recapituler3TableTr12Td21;
-	public static final String recapituler3TableTr12Td3I1 = "far fa-redo-alt";
-	public static final String recapituler3TableTr12Td3I = recapituler3TableTr12Td3I1;
-	public static final String recapituler3TableTr12Td41 = "Rechargez le daemon systemd. ";
-	public static final String recapituler3TableTr12Td4 = recapituler3TableTr12Td41;
-	public static final String recapituler3TableTr13Td1I1 = "far fa-toggle-off";
-	public static final String recapituler3TableTr13Td1I = recapituler3TableTr13Td1I1;
-	public static final String recapituler3TableTr13Td21 = "Comment activer le service PostgreSQL? ";
-	public static final String recapituler3TableTr13Td2 = recapituler3TableTr13Td21;
-	public static final String recapituler3TableTr13Td3I1 = "far fa-toggle-on";
-	public static final String recapituler3TableTr13Td3I = recapituler3TableTr13Td3I1;
-	public static final String recapituler3TableTr13Td41 = "Utilisez la commande systemctl enable. ";
-	public static final String recapituler3TableTr13Td4 = recapituler3TableTr13Td41;
-	public static final String recapituler3TableTr14Td1I1 = "far fa-pause-circle";
-	public static final String recapituler3TableTr14Td1I = recapituler3TableTr14Td1I1;
-	public static final String recapituler3TableTr14Td21 = "Comment démarrer le service PostgreSQL? ";
-	public static final String recapituler3TableTr14Td2 = recapituler3TableTr14Td21;
-	public static final String recapituler3TableTr14Td3I1 = "far fa-play-circle";
-	public static final String recapituler3TableTr14Td3I = recapituler3TableTr14Td3I1;
-	public static final String recapituler3TableTr14Td41 = "Utilisez la commande systemctl start. ";
-	public static final String recapituler3TableTr14Td4 = recapituler3TableTr14Td41;
-	public static final String recapituler3TableTr15Td1I1 = "far fa-clipboard";
-	public static final String recapituler3TableTr15Td1I = recapituler3TableTr15Td1I1;
-	public static final String recapituler3TableTr15Td21 = "Comment puis-je m'assurer que le service PostgreSQL a démarré avec succès ? ";
-	public static final String recapituler3TableTr15Td2 = recapituler3TableTr15Td21;
-	public static final String recapituler3TableTr15Td3I1 = "far fa-clipboard-check";
-	public static final String recapituler3TableTr15Td3I = recapituler3TableTr15Td3I1;
-	public static final String recapituler3TableTr15Td41 = "Utilisez la commande systemctl status. ";
-	public static final String recapituler3TableTr15Td4 = recapituler3TableTr15Td41;
 
 	/**	L'entité « recapituler3 »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -1968,86 +2694,6 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 					sx(recapituler3TableTr10Td41);
 				} g("td");
 			} g("tr");
-			{ e("tr").a("class", " recapituler3TableTr11 recapituler3TableTr odd ").f();
-				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td1 recapituler3TableTr11Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr11Td1I1, " site-menu-icon recapituler3TableTr11Td1I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td2 recapituler3TableTr11Td even ").f();
-					sx(recapituler3TableTr11Td21);
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td3 recapituler3TableTr11Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr11Td3I1, " site-menu-icon recapituler3TableTr11Td3I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td4 recapituler3TableTr11Td even ").f();
-					sx(recapituler3TableTr11Td41);
-				} g("td");
-			} g("tr");
-			{ e("tr").a("class", " recapituler3TableTr12 recapituler3TableTr even ").f();
-				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td1 recapituler3TableTr12Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr12Td1I1, " site-menu-icon recapituler3TableTr12Td1I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td2 recapituler3TableTr12Td even ").f();
-					sx(recapituler3TableTr12Td21);
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td3 recapituler3TableTr12Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr12Td3I1, " site-menu-icon recapituler3TableTr12Td3I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td4 recapituler3TableTr12Td even ").f();
-					sx(recapituler3TableTr12Td41);
-				} g("td");
-			} g("tr");
-			{ e("tr").a("class", " recapituler3TableTr13 recapituler3TableTr odd ").f();
-				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td1 recapituler3TableTr13Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr13Td1I1, " site-menu-icon recapituler3TableTr13Td1I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td2 recapituler3TableTr13Td even ").f();
-					sx(recapituler3TableTr13Td21);
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td3 recapituler3TableTr13Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr13Td3I1, " site-menu-icon recapituler3TableTr13Td3I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td4 recapituler3TableTr13Td even ").f();
-					sx(recapituler3TableTr13Td41);
-				} g("td");
-			} g("tr");
-			{ e("tr").a("class", " recapituler3TableTr14 recapituler3TableTr even ").f();
-				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td1 recapituler3TableTr14Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr14Td1I1, " site-menu-icon recapituler3TableTr14Td1I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td2 recapituler3TableTr14Td even ").f();
-					sx(recapituler3TableTr14Td21);
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td3 recapituler3TableTr14Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr14Td3I1, " site-menu-icon recapituler3TableTr14Td3I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td4 recapituler3TableTr14Td even ").f();
-					sx(recapituler3TableTr14Td41);
-				} g("td");
-			} g("tr");
-			{ e("tr").a("class", " recapituler3TableTr15 recapituler3TableTr odd ").f();
-				{ e("td").a("class", " w3-mobile recapituler3TableTr15Td1 recapituler3TableTr15Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr15Td1I1, " site-menu-icon recapituler3TableTr15Td1I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr15Td2 recapituler3TableTr15Td even ").f();
-					sx(recapituler3TableTr15Td21);
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr15Td3 recapituler3TableTr15Td odd ").f();
-					{ e("i").a("class", recapituler3TableTr15Td3I1, " site-menu-icon recapituler3TableTr15Td3I ").f();
-					} g("i");
-				} g("td");
-				{ e("td").a("class", " w3-mobile recapituler3TableTr15Td4 recapituler3TableTr15Td even ").f();
-					sx(recapituler3TableTr15Td41);
-				} g("td");
-			} g("tr");
 		} g("table");
 	}
 	public void htmlBodyRecapituler3() {
@@ -2083,6 +2729,11 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		questionCertbotInit();
 		questionCopierInit();
 		questionRacineCaInit();
+		questionCertificatsFusionnesInit();
+		questionPkcs12Init();
+		questionKeystoreInit();
+		questionGenSecKeyInit();
+		finInit();
 		recapituler1Init();
 		recapituler2Init();
 		recapituler3Init();
@@ -2110,6 +2761,16 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 			questionCopier.setRequeteSite_(requeteSite_);
 		if(questionRacineCa != null)
 			questionRacineCa.setRequeteSite_(requeteSite_);
+		if(questionCertificatsFusionnes != null)
+			questionCertificatsFusionnes.setRequeteSite_(requeteSite_);
+		if(questionPkcs12 != null)
+			questionPkcs12.setRequeteSite_(requeteSite_);
+		if(questionKeystore != null)
+			questionKeystore.setRequeteSite_(requeteSite_);
+		if(questionGenSecKey != null)
+			questionGenSecKey.setRequeteSite_(requeteSite_);
+		if(fin != null)
+			fin.setRequeteSite_(requeteSite_);
 		if(recapituler1 != null)
 			recapituler1.setRequeteSite_(requeteSite_);
 		if(recapituler2 != null)
@@ -2154,6 +2815,16 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 				return oC001L008CreerCertificat.questionCopier;
 			case "questionRacineCa":
 				return oC001L008CreerCertificat.questionRacineCa;
+			case "questionCertificatsFusionnes":
+				return oC001L008CreerCertificat.questionCertificatsFusionnes;
+			case "questionPkcs12":
+				return oC001L008CreerCertificat.questionPkcs12;
+			case "questionKeystore":
+				return oC001L008CreerCertificat.questionKeystore;
+			case "questionGenSecKey":
+				return oC001L008CreerCertificat.questionGenSecKey;
+			case "fin":
+				return oC001L008CreerCertificat.fin;
 			case "recapituler1":
 				return oC001L008CreerCertificat.recapituler1;
 			case "recapituler2":
@@ -2363,6 +3034,16 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 			questionCopier.htmlBodyCourt();
 		if(questionRacineCa != null)
 			questionRacineCa.htmlBodyCourt();
+		if(questionCertificatsFusionnes != null)
+			questionCertificatsFusionnes.htmlBodyCourt();
+		if(questionPkcs12 != null)
+			questionPkcs12.htmlBodyCourt();
+		if(questionKeystore != null)
+			questionKeystore.htmlBodyCourt();
+		if(questionGenSecKey != null)
+			questionGenSecKey.htmlBodyCourt();
+		if(fin != null)
+			fin.htmlBodyCourt();
 		if(recapituler1 != null)
 			recapituler1.htmlBodyCourt();
 		if(recapituler2 != null)
@@ -2387,6 +3068,11 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		((C001L008CreerCertificat)this).htmlBodyQuestionCertbot();
 		((C001L008CreerCertificat)this).htmlBodyQuestionCopier();
 		((C001L008CreerCertificat)this).htmlBodyQuestionRacineCa();
+		((C001L008CreerCertificat)this).htmlBodyQuestionCertificatsFusionnes();
+		((C001L008CreerCertificat)this).htmlBodyQuestionPkcs12();
+		((C001L008CreerCertificat)this).htmlBodyQuestionKeystore();
+		((C001L008CreerCertificat)this).htmlBodyQuestionGenSecKey();
+		((C001L008CreerCertificat)this).htmlBodyFin();
 		((C001L008CreerCertificat)this).htmlBodyRecapituler1();
 		((C001L008CreerCertificat)this).htmlBodyRecapituler2();
 		((C001L008CreerCertificat)this).htmlBodyRecapituler3();
@@ -2425,5 +3111,5 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L008CreerCertificatVals = new String[] { moiP1, moiP2, moiP3, moiP4, moiP5, moiP6, moiP7, moiP8, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li1Dt1, questionDependencesOl2Li1Dd1, questionDependencesOl2Li1Dd2, questionDependencesOl2Li1Dd3, questionDependencesOl2Li2Dt1, questionDependencesOl2Li2Dd1, questionDependencesOl2Li2Dd2, questionDependencesOl2Li3Dt1, questionDependencesOl2Li3Dd1, questionDependencesOl2Li4Dt1, questionDependencesOl2Li4Dd1, questionDependencesOl2Li5Dt1, questionDependencesOl2Li5Dd1, questionDependencesPre3Span11, questionDependencesPre3Span21, questionDependencesPre3Span31, questionDependencesPre3Span41, questionDependencesPre3Span51, questionDependencesOl4Li1Dt1, questionDependencesOl4Li2Dt1, questionDependencesOl4Li3Dt1, questionDependencesOl4Li4Dt1, questionDependencesOl4Li5Dt1, questionDependencesOl4Li5Dd1, questionMkdirSrvH3I1, questionMkdirSrvH3Span1, questionMkdirSrvH4I1, questionMkdirSrvH4Span1, questionMkdirSrvPreSpan011, questionMkdirSrvPreSpan021, questionMkdirSrvPreSpan031, questionMkdirSrvPreSpan041, questionMkdirSrvPreSpan051, questionMkdirSrvPreSpan061, questionMkdirSrvPreSpan071, questionMkdirSrvPreSpan081, questionMkdirSrvPreSpan091, questionMkdirSrvPreSpan101, questionMkdirSrvOl2Li01Dt1, questionMkdirSrvOl2Li02Dt1, questionMkdirSrvOl2Li02Dd1, questionMkdirSrvOl2Li03Dt1, questionMkdirSrvOl2Li03Dd1, questionMkdirSrvOl2Li04Dt1, questionMkdirSrvOl2Li04Dd1, questionMkdirSrvOl2Li05Dt1, questionMkdirSrvOl2Li05Dd1, questionMkdirSrvOl2Li06Dt1, questionMkdirSrvOl2Li06Dd1, questionMkdirSrvOl2Li07Dt1, questionMkdirSrvOl2Li07Dd1, questionMkdirSrvOl2Li08Dt1, questionMkdirSrvOl2Li08Dd1, questionMkdirSrvOl2Li09Dt1, questionMkdirSrvOl2Li09Dd1, questionMkdirSrvOl2Li10Dt1, questionMkdirSrvOl2Li10Dd1, questionCertbotH3I1, questionCertbotH3Span1, questionCertbotH4I1, questionCertbotH4Span1, questionCertbotPreSpan011, questionCertbotPreSpan021, questionCertbotPreSpan031, questionCertbotPreSpan041, questionCertbotPreSpan051, questionCertbotPreSpan061, questionCertbotPreSpan07Span11, questionCertbotPreSpan07Span21, questionCertbotPreSpan08Span11, questionCertbotPreSpan08Span21, questionCertbotPreSpan09Span11, questionCertbotPreSpan09Span21, questionCertbotOl2Li01Dt1, questionCertbotOl2Li02Dt1, questionCertbotOl2Li02Dd1, questionCertbotOl2Li03Dt1, questionCertbotOl2Li03Dd1, questionCertbotOl2Li04Dt1, questionCertbotOl2Li04Dd1, questionCertbotOl2Li05Dt1, questionCertbotOl2Li05Dd1, questionCertbotOl2Li06Dt1, questionCertbotOl2Li06Dd1, questionCertbotOl2Li07DtSpan11, questionCertbotOl2Li07DtSpan21, questionCertbotOl2Li07DdSpan31, questionCertbotOl2Li08DtSpan11, questionCertbotOl2Li08DtSpan21, questionCertbotOl2Li08DdSpan31, questionCertbotOl2Li09DtSpan11, questionCertbotOl2Li09DtSpan21, questionCertbotOl2Li09DdSpan31, questionCertbotOl2Li09DdSpan32, questionCertbotP21, questionCertbotP22, questionCertbotP23, questionCertbotP24, questionCertbotP25, questionCertbotP3Span11, questionCertbotP3Span12, questionCertbotP3Span13, questionCertbotP3A11, questionCertbotP3Span21, questionCertbotP3Span22, questionCertbotP3Span23, questionCertbotP3Span24, questionCertbotP3Span25, questionCertbotP3Span26, questionCertbotP3Span27, questionCopierH3I1, questionCopierH3Span1, questionCopierH4I1, questionCopierH4Span1, questionCopierPre1Span011, questionCopierPre1Span021, questionCopierPre1Span031, questionCopierPre1Span041, questionCopierPre1Span051, questionCopierPre1Span061, questionCopierPre1Span071, questionCopierPre1Span081, questionCopierPre1Span09Span11, questionCopierPreSpan09Span21, questionCopierPre1Span09Span31, questionCopierPre1Span101, questionCopierOl1Li01Dt1, questionCopierOl1Li02Dt1, questionCopierOl1Li03Dt1, questionCopierOl1Li04Dt1, questionCopierOl1Li05Dt1, questionCopierOl1Li06Dt1, questionCopierOl1Li07Dt1, questionCopierOl1Li08Dt1, questionCopierOl1Li09Dt1, questionCopierOl1Li09Dt2, questionCopierOl1Li09Dt3, questionCopierOl1Li09Dt4, questionCopierOl1Li09Dd1, questionCopierOl1Li10Dt1, questionCopierOl1Li10Dd1, questionCopierPre2Span011, questionCopierPre2Span021, questionCopierPre2Span031, questionCopierPre2Span041, questionCopierPre2Span051, questionCopierPre2Span061, questionCopierPre2Span071, questionCopierPre2Span081, questionCopierPre2Span09Span11, questionCopierPre2Span09Span21, questionCopierPre2Span09Span31, questionCopierPre2Span101, questionCopierOl2Li01Dt1, questionCopierOl2Li02Dt1, questionCopierOl2Li03Dt1, questionCopierOl2Li04Dt1, questionCopierOl2Li05Dt1, questionCopierOl2Li06Dt1, questionCopierOl2Li07Dt1, questionCopierOl2Li08Dt1, questionCopierOl2Li09Dt1, questionCopierOl2Li09Dt2, questionCopierOl2Li09Dt3, questionCopierOl2Li09Dt4, questionCopierOl2Li09Dd1, questionCopierOl2Li10Dt1, questionCopierOl2Li10Dd1, questionRacineCaH3I1, questionRacineCaH3Span1, questionRacineCaH4I1, questionRacineCaH4Span1, questionRacineCaPre1Span011, questionRacineCaPre1Span021, questionRacineCaPre1Span031, questionRacineCaOl1Li01Dt1, questionRacineCaOl1Li01Dd1, questionRacineCaOl1Li02Dt1, questionRacineCaOl1Li02Dd1, questionRacineCaOl1Li03Dt1, questionRacineCaOl1Li03Dd1, questionRacineCaPre2Span011, questionRacineCaPre2Span021, questionRacineCaPre2Span031, questionRacineCaOl2Li01Dt1, questionRacineCaOl2Li02Dt1, questionRacineCaOl2Li02Dd1, questionRacineCaOl2Li03Dt1, questionRacineCaOl2Li03Dd1, questionRacineCaPre3Span011, questionRacineCaPre3Span021, questionRacineCaPre3Span031, questionRacineCaOl3Li01Dt1, questionRacineCaOl3Li02Dt1, questionRacineCaOl3Li02Dd1, questionRacineCaOl3Li03Dt1, questionRacineCaOl3Li03Dd1, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41, recapituler3TableTr13Td1I1, recapituler3TableTr13Td21, recapituler3TableTr13Td3I1, recapituler3TableTr13Td41, recapituler3TableTr14Td1I1, recapituler3TableTr14Td21, recapituler3TableTr14Td3I1, recapituler3TableTr14Td41, recapituler3TableTr15Td1I1, recapituler3TableTr15Td21, recapituler3TableTr15Td3I1, recapituler3TableTr15Td41 };
+	public static final String[] C001L008CreerCertificatVals = new String[] { moiP1, moiP2, moiP3, moiP4, moiP5, moiP6, moiP7, moiP8, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li1Dt1, questionDependencesOl2Li1Dd1, questionDependencesOl2Li1Dd2, questionDependencesOl2Li1Dd3, questionDependencesOl2Li2Dt1, questionDependencesOl2Li2Dd1, questionDependencesOl2Li2Dd2, questionDependencesOl2Li3Dt1, questionDependencesOl2Li3Dd1, questionDependencesOl2Li4Dt1, questionDependencesOl2Li4Dd1, questionDependencesOl2Li5Dt1, questionDependencesOl2Li5Dd1, questionDependencesPre3Span11, questionDependencesPre3Span21, questionDependencesPre3Span31, questionDependencesPre3Span41, questionDependencesPre3Span51, questionDependencesOl4Li1Dt1, questionDependencesOl4Li2Dt1, questionDependencesOl4Li3Dt1, questionDependencesOl4Li4Dt1, questionDependencesOl4Li5Dt1, questionDependencesOl4Li5Dd1, questionMkdirSrvH3I1, questionMkdirSrvH3Span1, questionMkdirSrvH4I1, questionMkdirSrvH4Span1, questionMkdirSrvPreSpan011, questionMkdirSrvPreSpan021, questionMkdirSrvPreSpan031, questionMkdirSrvPreSpan041, questionMkdirSrvPreSpan051, questionMkdirSrvPreSpan061, questionMkdirSrvPreSpan071, questionMkdirSrvPreSpan081, questionMkdirSrvPreSpan091, questionMkdirSrvPreSpan101, questionMkdirSrvOl2Li01Dt1, questionMkdirSrvOl2Li02Dt1, questionMkdirSrvOl2Li02Dd1, questionMkdirSrvOl2Li03Dt1, questionMkdirSrvOl2Li03Dd1, questionMkdirSrvOl2Li04Dt1, questionMkdirSrvOl2Li04Dd1, questionMkdirSrvOl2Li05Dt1, questionMkdirSrvOl2Li05Dd1, questionMkdirSrvOl2Li06Dt1, questionMkdirSrvOl2Li06Dd1, questionMkdirSrvOl2Li07Dt1, questionMkdirSrvOl2Li07Dd1, questionMkdirSrvOl2Li08Dt1, questionMkdirSrvOl2Li08Dd1, questionMkdirSrvOl2Li09Dt1, questionMkdirSrvOl2Li09Dd1, questionMkdirSrvOl2Li10Dt1, questionMkdirSrvOl2Li10Dd1, questionCertbotH3I1, questionCertbotH3Span1, questionCertbotH4I1, questionCertbotH4Span1, questionCertbotPreSpan011, questionCertbotPreSpan021, questionCertbotPreSpan031, questionCertbotPreSpan041, questionCertbotPreSpan051, questionCertbotPreSpan061, questionCertbotPreSpan07Span11, questionCertbotPreSpan07Span21, questionCertbotPreSpan08Span11, questionCertbotPreSpan08Span21, questionCertbotPreSpan09Span11, questionCertbotPreSpan09Span21, questionCertbotOl2Li01Dt1, questionCertbotOl2Li02Dt1, questionCertbotOl2Li02Dd1, questionCertbotOl2Li03Dt1, questionCertbotOl2Li03Dd1, questionCertbotOl2Li04Dt1, questionCertbotOl2Li04Dd1, questionCertbotOl2Li05Dt1, questionCertbotOl2Li05Dd1, questionCertbotOl2Li06Dt1, questionCertbotOl2Li06Dd1, questionCertbotOl2Li07DtSpan11, questionCertbotOl2Li07DtSpan21, questionCertbotOl2Li07DdSpan31, questionCertbotOl2Li08DtSpan11, questionCertbotOl2Li08DtSpan21, questionCertbotOl2Li08DdSpan31, questionCertbotOl2Li09DtSpan11, questionCertbotOl2Li09DtSpan21, questionCertbotOl2Li09DdSpan31, questionCertbotOl2Li09DdSpan32, questionCertbotP21, questionCertbotP22, questionCertbotP23, questionCertbotP24, questionCertbotP25, questionCertbotP3Span11, questionCertbotP3Span12, questionCertbotP3Span13, questionCertbotP3A11, questionCertbotP3Span21, questionCertbotP3Span22, questionCertbotP3Span23, questionCertbotP3Span24, questionCertbotP3Span25, questionCertbotP3Span26, questionCertbotP3Span27, questionCopierH3I1, questionCopierH4I1, questionCopierH4Span1, questionCopierPre1Span011, questionCopierPre1Span021, questionCopierPre1Span031, questionCopierPre1Span041, questionCopierPre1Span051, questionCopierPre1Span061, questionCopierPre1Span071, questionCopierPre1Span081, questionCopierPre1Span09Span11, questionCopierPreSpan09Span21, questionCopierPre1Span09Span31, questionCopierPre1Span101, questionCopierOl1Li01Dt1, questionCopierOl1Li02Dt1, questionCopierOl1Li03Dt1, questionCopierOl1Li04Dt1, questionCopierOl1Li05Dt1, questionCopierOl1Li06Dt1, questionCopierOl1Li07Dt1, questionCopierOl1Li08Dt1, questionCopierOl1Li09Dt1, questionCopierOl1Li09Dt2, questionCopierOl1Li09Dt3, questionCopierOl1Li09Dt4, questionCopierOl1Li09Dd1, questionCopierOl1Li10Dt1, questionCopierOl1Li10Dd1, questionCopierPre2Span011, questionCopierPre2Span021, questionCopierPre2Span031, questionCopierPre2Span041, questionCopierPre2Span051, questionCopierPre2Span061, questionCopierPre2Span071, questionCopierPre2Span081, questionCopierPre2Span09Span11, questionCopierPre2Span09Span21, questionCopierPre2Span09Span31, questionCopierPre2Span101, questionCopierOl2Li01Dt1, questionCopierOl2Li02Dt1, questionCopierOl2Li03Dt1, questionCopierOl2Li04Dt1, questionCopierOl2Li05Dt1, questionCopierOl2Li06Dt1, questionCopierOl2Li07Dt1, questionCopierOl2Li08Dt1, questionCopierOl2Li09Dt1, questionCopierOl2Li09Dt2, questionCopierOl2Li09Dt3, questionCopierOl2Li09Dt4, questionCopierOl2Li09Dd1, questionCopierOl2Li10Dt1, questionCopierOl2Li10Dd1, questionRacineCaH3I1, questionRacineCaH3Span1, questionRacineCaH4I1, questionRacineCaH4Span1, questionRacineCaPre1Span011, questionRacineCaPre1Span021, questionRacineCaPre1Span031, questionRacineCaOl1Li01Dt1, questionRacineCaOl1Li01Dd1, questionRacineCaOl1Li02Dt1, questionRacineCaOl1Li02Dd1, questionRacineCaOl1Li03Dt1, questionRacineCaOl1Li03Dd1, questionRacineCaPre2Span011, questionRacineCaPre2Span021, questionRacineCaPre2Span031, questionRacineCaOl2Li01Dt1, questionRacineCaOl2Li02Dt1, questionRacineCaOl2Li02Dd1, questionRacineCaOl2Li03Dt1, questionRacineCaOl2Li03Dd1, questionRacineCaPre3Span011, questionRacineCaPre3Span021, questionRacineCaPre3Span031, questionRacineCaOl3Li01Dt1, questionRacineCaOl3Li02Dt1, questionRacineCaOl3Li02Dd1, questionRacineCaOl3Li03Dt1, questionRacineCaOl3Li03Dd1, questionCertificatsFusionnesH3I1, questionCertificatsFusionnesH3Span1, questionCertificatsFusionnesH4I1, questionCertificatsFusionnesH4Span1, questionCertificatsFusionnesPre1Span011, questionCertificatsFusionnesPre1Span021, questionCertificatsFusionnesPre1Span031, questionCertificatsFusionnesPre1Span041, questionCertificatsFusionnesPre1Span051, questionCertificatsFusionnesPre1Span061, questionCertificatsFusionnesOl1Li01Dt1, questionCertificatsFusionnesOl1Li01Dd1, questionCertificatsFusionnesOl1Li02Dt1, questionCertificatsFusionnesOl1Li02Dd1, questionCertificatsFusionnesOl1Li03Dt1, questionCertificatsFusionnesOl1Li03Dd1, questionCertificatsFusionnesOl1Li04Dt1, questionCertificatsFusionnesOl1Li04Dd1, questionCertificatsFusionnesOl1Li05Dt1, questionCertificatsFusionnesOl1Li05Dd1, questionCertificatsFusionnesOl1Li06Dt1, questionCertificatsFusionnesOl1Li06Dd1, questionPkcs12H3I1, questionPkcs12H3Span1, questionPkcs12H4I1, questionPkcs12H4Span1, questionPkcs12P11, questionPkcs12P12, questionPkcs12Pre1Span011, questionPkcs12Pre1Span021, questionPkcs12Pre1Span031, questionPkcs12Pre1Span04Span11, questionPkcs12Pre1Span04Span21, questionPkcs12Pre1Span051, questionPkcs12Pre1Span061, questionPkcs12Pre1Span071, questionPkcs12Ol1Li01Dt1, questionPkcs12Ol1Li01Dd1, questionPkcs12Ol1Li02Dt1, questionPkcs12Ol1Li02Dd1, questionPkcs12Ol1Li03Dt1, questionPkcs12Ol1Li03Dd1, questionPkcs12Ol1Li04DtSpan11, questionPkcs12Ol1Li04DtSpan21, questionPkcs12Ol1Li04Dd1, questionPkcs12Ol1Li05Dt1, questionPkcs12Ol1Li05Dd1, questionPkcs12Ol1Li06Dt1, questionPkcs12Ol1Li06Dd1, questionPkcs12Ol1Li07Dt1, questionPkcs12Ol1Li07Dd1, questionKeystoreH3I1, questionKeystoreH3Span1, questionKeystoreH4I1, questionKeystoreH4Span1, questionKeystorePre1Span011, questionKeystorePre1Span021, questionKeystorePre1Span031, questionKeystorePre1Span041, questionKeystorePre1Span051, questionKeystoreOl1Li01Dt1, questionKeystoreOl1Li01Dd1, questionKeystoreOl1Li02Dt1, questionKeystoreOl1Li02Dd1, questionKeystoreOl1Li03Dt1, questionKeystoreOl1Li03Dd1, questionKeystoreOl1Li04Dt1, questionKeystoreOl1Li04Dd1, questionKeystoreOl1Li05Dt1, questionKeystoreOl1Li05Dd1, questionGenSecKeyH3I1, questionGenSecKeyH3Span1, questionGenSecKeyH4I1, questionGenSecKeyH4Span1, questionGenSecKeyPre1Span011, questionGenSecKeyPre1Span021, questionGenSecKeyPre1Span031, questionGenSecKeyPre1Span04Span11, questionGenSecKeyPre1Span04Span21, questionGenSecKeyPre1Span051, questionGenSecKeyOl1Li01Dt1, questionGenSecKeyOl1Li02Dt1, questionGenSecKeyOl1Li02Dd1, questionGenSecKeyOl1Li03Dt1, questionGenSecKeyOl1Li03Dd1, questionGenSecKeyOl1Li04DtSpan11, questionGenSecKeyOl1Li04DtSpan21, questionGenSecKeyOl1Li04Dd1, questionGenSecKeyOl1Li05Dt1, questionGenSecKeyOl1Li05Dd1, finP1, finP2, finP3, finP4, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41 };
 }

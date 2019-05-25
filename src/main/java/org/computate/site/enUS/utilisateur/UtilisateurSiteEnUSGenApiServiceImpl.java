@@ -300,12 +300,12 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 		}
 	}
 
-	public Future<Void> indexerPATCHUtilisateurSite(UtilisateurSite o) {
-		Future<Void> future = Future.future();
+	public Future<JsonObject> indexerPATCHUtilisateurSite(UtilisateurSite o) {
+		Future<JsonObject> future = Future.future();
 		try {
 			o.initLoinPourClasse(o.getRequeteSite_());
 			o.indexerPourClasse();
-				future.complete();
+				future.complete(new JsonObject());
 			return future;
 		} catch(Exception e) {
 			return Future.failedFuture(e);
@@ -326,24 +326,24 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 
 	public String varIndexeUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "archive":
-				return "archive_indexed_boolean";
 			case "supprime":
 				return "supprime_indexed_boolean";
+			case "id":
+				return "id_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
 			case "classeNomsCanoniques":
 				return "classeNomsCanoniques_indexed_strings";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
 			case "utilisateurId":
 				return "utilisateurId_indexed_string";
 			case "calculInrPks":
@@ -515,6 +515,10 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -547,6 +551,10 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));

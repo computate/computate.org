@@ -80,7 +80,7 @@ public class C001L008CreerCertificatEnUSGenPage extends C001L008CreerCertificatE
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1702);
+			c.o(1111);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {

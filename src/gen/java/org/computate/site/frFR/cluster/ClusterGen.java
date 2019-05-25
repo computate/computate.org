@@ -11,6 +11,7 @@ import io.vertx.core.logging.LoggerFactory;
 import java.util.ArrayList;
 import org.computate.site.frFR.cluster.Cluster;
 import java.lang.Long;
+import java.util.Locale;
 import java.lang.Boolean;
 import io.vertx.core.json.JsonObject;
 import org.computate.site.frFR.page.parti.PagePart;
@@ -38,7 +39,7 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true">Trouver la classe classeNomsCanoniques dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cluster.Cluster&fq=classeEtendGen_indexed_boolean:true">Trouver la classe archive dans Solr</a>
  * <br/>
  **/
 public abstract class ClusterGen<DEV> extends Object {
@@ -378,7 +379,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 
 	public String strCree() {
-		return cree == null ? "" : cree.toString();
+		return cree == null ? "" : cree.format(DateTimeFormatter.ofPattern("EEE d MMM yyyy H'h'mm:ss zz", Locale.FRANCE));
 	}
 
 	public String nomAffichageCree() {
@@ -491,7 +492,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 
 	public String strModifie() {
-		return modifie == null ? "" : modifie.toString();
+		return modifie == null ? "" : modifie.format(DateTimeFormatter.ofPattern("EEE d MMM yyyy H'h'mm:ss zz", Locale.FRANCE));
 	}
 
 	public String nomAffichageModifie() {
@@ -1199,6 +1200,14 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 	public Object definirCluster(String var, String val) {
 		switch(var) {
+			case "cree":
+				setCree(val);
+				sauvegardesCluster.add(var);
+				return val;
+			case "modifie":
+				setModifie(val);
+				sauvegardesCluster.add(var);
+				return val;
 			case "archive":
 				setArchive(val);
 				sauvegardesCluster.add(var);
@@ -1457,7 +1466,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(archive, supprime);
+		return Objects.hash(cree, modifie, archive, supprime);
 	}
 
 	////////////
@@ -1470,7 +1479,9 @@ public abstract class ClusterGen<DEV> extends Object {
 		if(!(o instanceof Cluster))
 			return false;
 		Cluster that = (Cluster)o;
-		return Objects.equals( archive, that.archive )
+		return Objects.equals( cree, that.cree )
+				&& Objects.equals( modifie, that.modifie )
+				&& Objects.equals( archive, that.archive )
 				&& Objects.equals( supprime, that.supprime );
 	}
 
@@ -1481,7 +1492,9 @@ public abstract class ClusterGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Cluster {");
-		sb.append( "archive: " ).append(archive);
+		sb.append( "cree: " ).append(cree);
+		sb.append( ", modifie: " ).append(modifie);
+		sb.append( ", archive: " ).append(archive);
 		sb.append( ", supprime: " ).append(supprime);
 		sb.append(" }");
 		return sb.toString();

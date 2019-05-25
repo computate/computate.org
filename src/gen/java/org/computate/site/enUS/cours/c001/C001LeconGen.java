@@ -35,20 +35,6 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class C001LeconGen<DEV> extends C001 {
 
-	public static final String C001Lecon_UnNom = "a lesson";
-	public static final String C001Lecon_Ce = "this ";
-	public static final String C001Lecon_CeNom = "this lesson";
-	public static final String C001Lecon_Un = "an ";
-	public static final String C001Lecon_LeNom = "the lesson";
-	public static final String C001Lecon_NomSingulier = "lesson";
-	public static final String C001Lecon_NomPluriel = "lessons";
-	public static final String C001Lecon_NomActuel = "current lesson";
-	public static final String C001Lecon_TousNom = "the lessons";
-	public static final String C001Lecon_RechercherTousNomPar = "search lessons by ";
-	public static final String C001Lecon_LesNoms = "the lessons";
-	public static final String C001Lecon_AucunNomTrouve = "no lesson found";
-	public static final String C001Lecon_NomVar = "lesson";
-	public static final String C001Lecon_DeNom = "of lesson";
 	public static final String C001Lecon_Couleur = "green";
 	public static final String C001Lecon_IconeGroupe = "regular";
 	public static final String C001Lecon_IconeNom = "book";
@@ -410,7 +396,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), leconCree);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -423,8 +409,7 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		if(!(o instanceof C001Lecon))
 			return false;
 		C001Lecon that = (C001Lecon)o;
-		return super.equals(o)
-				&& Objects.equals( leconCree, that.leconCree );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -435,7 +420,6 @@ public abstract class C001LeconGen<DEV> extends C001 {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("C001Lecon {");
-		sb.append( "leconCree: " ).append(leconCree);
 		sb.append(" }");
 		return sb.toString();
 	}

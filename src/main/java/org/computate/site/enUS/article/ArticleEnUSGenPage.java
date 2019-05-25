@@ -49,9 +49,9 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(article != null)
-			c.o("an article");
+			c.o("");
 		else if(listeArticle == null || listeArticle.size() == 0)
-			c.o("no article found");
+			c.o("");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -66,7 +66,7 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 		if(article != null)
 			c.o("");
 		else if(listeArticle == null || listeArticle.size() == 0)
-			c.o("no article found");
+			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -98,6 +98,10 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 		e("script").a("src", "/static/js/ArticleEnUSPage.js").f().g("script");
 	}
 
+	protected void _pageUriArticle(Couverture<String> c) {
+			c.o("/enUS/article");
+	}
+
 	@Override public void htmlScriptArticleEnUSGenPage() {
 	}
 
@@ -118,21 +122,22 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeArticle == null || listeArticle.size() == 0) {
-			//no article found
+			// contexteAucunNomTrouve : 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("no article found").g("span");
+				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
-		} else if(listeArticle != null && listeArticle.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
-			// an article
+		} else if(listeArticle != null && listeArticle.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
+			// contexteUnNom : 
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
 						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx(pageH1).g("span");
 				} g("h1");
+				Article o = listeArticle.get(0);
 			}
 			if(pageH2 != null) {
 				{ e("h2").f();
@@ -145,12 +150,12 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 				} g("h3");
 			}
 		} else {
-			// plusiers articles
+			// contexteNomPluriel : plusiers 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("articles").g("span");
+				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -198,7 +203,6 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 			{ e("form").a("id", "ArticleForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/enUS/article").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_enUS')); return false; ").f();
 				{ e("div").a("class", "w3-bar ").f();
 					e("input").a("type", "text")
-						.a("placeholder", "")
 						.a("title", "")
 						.a("class", "recherchePageRecherche_enUS w3-input w3-border w3-bar-item ")
 						.a("name", "pageRecherche_enUS")
@@ -234,13 +238,13 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 			} g("form");
 		} g("div");
 
-		if(listeArticle != null && listeArticle.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeArticle != null && listeArticle.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			Article o = listeArticle.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("id", "ArticleForm").a("style", "display: inline-block; ").f();
+					{ e("form").a("action", "/api/article").a("id", "ArticleForm").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")
@@ -262,24 +266,25 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 		e("button")
 			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 			.a("onclick", "$('#postArticleModale').show(); ")
-			.f().sx("Créer an article")
+			.f().sx("Créer null")
 		.g("button");
 		{ e("div").a("id", "postArticleModale").a("class", "w3-modal ").f();
 			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
 				{ e("header").a("class", "w3-container w3-green ").f();
 					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#postArticleModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Créer an article").g("h2");
+					e("h2").a("class", "").f().sx("Créer null").g("h2");
 				} g("header");
 				{ e("div").a("class", "w3-container ").f();
 					Article o = new Article();
 
-					{ e("form").a("id", "postArticleForm").f();
+					// Form POST
+					{ e("form").a("action", "/api/article").a("id", "postArticleForm").f();
 						htmlFormPOSTArticle(o);
 					} g("form");
 					e("button")
 						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 						.a("onclick", "postArticle($('#postArticleForm')); ")
-						.f().sx("Créer an article")
+						.f().sx("Créer null")
 					.g("button");
 
 				} g("div");
@@ -290,34 +295,36 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 		e("button")
 			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 			.a("onclick", "$('#patchArticleModale').show(); ")
-			.f().sx("Modifier des articles")
+			.f().sx("Modifier des null")
 		.g("button");
 		{ e("div").a("id", "patchArticleModale").a("class", "w3-modal ").f();
 			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
 				{ e("header").a("class", "w3-container w3-green ").f();
 					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchArticleModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Modifier des articles").g("h2");
+					e("h2").a("class", "").f().sx("Modifier des null").g("h2");
 				} g("header");
 				{ e("div").a("class", "w3-container ").f();
 					Article o = new Article();
 
-					{ e("form").a("id", "patchArticleFormFiltres").f();
+					// FormFiltres PATCH
+					{ e("form").a("action", "/api/article").a("id", "patchArticleFormFiltres").f();
 						htmlFormRechercheArticle(o);
 					} g("form");
 					e("button")
 						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 						.a("onclick", "rechercheArticle($('#patchArticleFormFiltres')); ")
-						.f().sx("Modifier des articles")
+						.f().sx("Rechercher des null")
 					.g("button");
 
 
-					{ e("form").a("id", "patchArticleFormValeurs").f();
+					// FormValeurs PATCH
+					{ e("form").a("action", "/api/article").a("id", "patchArticleFormValeurs").f();
 						htmlFormPATCHArticle(o);
 					} g("form");
 					e("button")
 						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 						.a("onclick", "patchArticle($('#patchArticleFormFiltres'), $('#patchArticleFormValeurs')); ")
-						.f().sx("Modifier des articles")
+						.f().sx("Modifier des null")
 					.g("button");
 
 				} g("div");
@@ -328,24 +335,25 @@ public class ArticleEnUSGenPage extends ArticleEnUSGenPageGen<MiseEnPage> {
 		e("button")
 			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 			.a("onclick", "$('#deleteArticleModale').show(); ")
-			.f().sx("Supprimer des articles")
+			.f().sx("Supprimer des null")
 		.g("button");
 		{ e("div").a("id", "deleteArticleModale").a("class", "w3-modal ").f();
 			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
 				{ e("header").a("class", "w3-container w3-green ").f();
 					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#deleteArticleModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Supprimer des articles").g("h2");
+					e("h2").a("class", "").f().sx("Supprimer des null").g("h2");
 				} g("header");
 				{ e("div").a("class", "w3-container ").f();
 					Article o = new Article();
 
-					{ e("form").a("id", "deleteArticleForm").f();
+					// Form DELETE
+					{ e("form").a("action", "/api/article").a("id", "deleteArticleForm").f();
 						htmlFormPATCHArticle(o);
 					} g("form");
 					e("button")
 						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 						.a("onclick", "deleteArticle(); ")
-						.f().sx("Supprimer des articles")
+						.f().sx("Supprimer des null")
 					.g("button");
 
 				} g("div");

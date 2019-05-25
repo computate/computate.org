@@ -33,8 +33,8 @@ import org.computate.site.frFR.xml.OutilXml;
  * PageRechercheEnUSPage: ClusterEnUSPage
  * MotCle: classeNomSimpleCluster
  * Modele: true
- */  
-public class Cluster extends ClusterGen<Object> {  
+ */ 
+public class Cluster extends ClusterGen<Object> { 
 
 	public static DateTimeFormatter FORMAT_dateMedicalCourt = DateTimeFormatter.ofPattern("M/d/yyyy", Locale.FRANCE);
 
@@ -82,20 +82,22 @@ public class Cluster extends ClusterGen<Object> {
 	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _created
+	 * Definir: true
+	 * Modifier: false
 	 * HtmlLigne: 1
 	 * Description.frFR: La date et l'heure créées. 
 	 * Description.enUS: The date and time created. 
 	 * NomAffichage.frFR: crée
 	 * NomAffichage.enUS: created
-	 */ 
+	 */    
 	protected void _cree(Couverture<ZonedDateTime> c) {}
 
 	/**
 	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _modified
+	 * Definir: true
+	 * Modifier: false
 	 * HtmlLigne: 1
 	 * Description.frFR: La date et l'heure modifiéés. 
 	 * Description.enUS: The date and time modified. 
@@ -109,7 +111,6 @@ public class Cluster extends ClusterGen<Object> {
 	 * Indexe: true
 	 * Stocke: true
 	 * Definir: true
-	 * HtmlLigne: 1
 	 * Description.frFR: archivé. 
 	 * Description.enUS: archived. 
 	 * NomAffichage.frFR: archivé
@@ -124,7 +125,6 @@ public class Cluster extends ClusterGen<Object> {
 	 * Indexe: true
 	 * Stocke: true
 	 * Definir: true
-	 * HtmlLigne: 1
 	 * Description.frFR: supprimé. 
 	 * Description.enUS: deleted. 
 	 * NomAffichage.frFR: supprimé
@@ -137,7 +137,6 @@ public class Cluster extends ClusterGen<Object> {
 	/**  
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _classCanonicalName
 	 */       
 	protected void _classeNomCanonique(Couverture<String> c) {
 		String o = getClass().getCanonicalName();
@@ -147,7 +146,6 @@ public class Cluster extends ClusterGen<Object> {
 	/**
 	 * Indexe: true
 	 * Stocke: true
-	 * Var.enUS: _classSimpleName
 	 */          
 	protected void _classeNomSimple(Couverture<String> c) {
 		String o = getClass().getSimpleName();

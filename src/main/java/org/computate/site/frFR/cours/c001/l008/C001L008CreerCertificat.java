@@ -39,9 +39,9 @@ import org.computate.site.frFR.utilisateur.UtilisateurSite;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 1927
+ * ImageHauteur.frFR: 1152
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 1702
+ * ImageHauteur.enUS: 1111
 */   
 public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Lecon> {
 
@@ -338,7 +338,7 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-key
-	 * Val.H3Span.frFR:Comment utiliser le certificat et la clé générés par certbot ? 
+//	 * Val.H3Span.frFR:Comment utiliser le certificat et la clé générés par certbot ? 
 	 * Val.H3Span.enUS:How do I use the certificate and key that certbot generated? 
 	 * Val.H4I:far fa-copy
 	 * Val.H4Span.frFR:Copiez les fichiers certbot avec la commande install. 
@@ -461,6 +461,180 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	}
 
 	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-object-group
+	 * Val.H3Span.frFR:Comment créer une version fusionnée de certificats de site, de certificats d'autorité et de certificat racine ? 
+	 * Val.H3Span.enUS:How do I create a merged version of site certificates, certificate authority and root certificate? 
+	 * Val.H4I:far fa-cat
+	 * Val.H4Span.frFR:Créez un certificat fusionné avec la commande cat. 
+	 * Val.H4Span.enUS:Create a merged certificate with the cat command. 
+	 * 
+	 * Val.Pre1Span01:cat
+	 * Val.Pre1Span02: /srv/certbot/root.crt
+	 * Val.Pre1Span03: /srv/certbot/ca2.crt
+	 * Val.Pre1Span04: /srv/certbot/server.crt
+	 * Val.Pre1Span05: >
+	 * Val.Pre1Span06: /srv/certbot/merged.crt
+	 * 
+	 * Val.Ol1Li01Dt:cat
+	 * Val.Ol1Li01Dd.frFR: : Concaténer des fichiers et imprimer sur la sortie standard. 
+	 * Val.Ol1Li01Dd.enUS:: Concatenate files and print on the standard output. 
+	 * Val.Ol1Li02Dt:/srv/certbot/root.crt
+	 * Val.Ol1Li02Dd.frFR: : Le chemin vers le certificat racine de letsencrypt. 
+	 * Val.Ol1Li02Dd.enUS:: The path to the letsencrypt root certificate. 
+	 * Val.Ol1Li03Dt:/srv/certbot/ca2.crt
+	 * Val.Ol1Li03Dd.frFR: : Le chemin vers le deuxième certificat d'autorité letsencrypt. 
+	 * Val.Ol1Li03Dd.enUS:: The path to the second letsencrypt certificate authority. 
+	 * Val.Ol1Li04Dt:/srv/certbot/server.crt
+	 * Val.Ol1Li04Dd.frFR: : Le chemin vers votre nouveau certificat de site, la première certificat d'autorité de letsencrypt est également dedans. 
+	 * Val.Ol1Li04Dd.enUS:: The path to your new site certificate, the first letsencrypt certificate authority is also in there. 
+	 * Val.Ol1Li05Dt:>
+	 * Val.Ol1Li05Dd.frFR: : Ecrivez le contenu de la commande précédente dans le fichier. 
+	 * Val.Ol1Li05Dd.enUS:: Write the contents of the previous command to the file. 
+	 * Val.Ol1Li06Dt:/srv/certbot/merged.crt
+	 * Val.Ol1Li06Dd.frFR: : Le chemin vers le fichier de certificat fusionné. 
+	 * Val.Ol1Li06Dd.enUS:: The path to the merged certificate file. 
+	 */  
+	protected void _questionCertificatsFusionnes(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-file-certificate
+	 * Val.H3Span.frFR:Comment créer une chaîne de confiance de certificat pkcs12 ? 
+	 * Val.H3Span.enUS:How do I create a pkcs12 certificate chain of trust? 
+	 * Val.H4I:far fa-shield-alt
+	 * Val.H4Span.frFR:Utilisez la commande openssl pour créer un fichier .p12. 
+	 * Val.H4Span.enUS:Use the openssl command to create a .p12 file. 
+	 * 
+	 * Val.P1.frFR:En cryptographie, PKCS # 12 définit un format de fichier d’archive pour stocker de nombreux objets de cryptographie dans un seul fichier. 
+	 * Val.P1.frFR:C'est utilisé pour regrouper une clé privée avec son certificat X.509 ou pour regrouper tous les membres d'une chaîne de confiance. 
+	 * Val.P1.enUS:In cryptography, PKCS #12 defines an archive file format for storing many cryptography objects as a single file. 
+	 * Val.P1.enUS:It is commonly used to bundle a private key with its X.509 certificate or to bundle all the members of a chain of trust. 
+	 * 
+	 * Val.Pre1Span01:openssl
+	 * Val.Pre1Span02: pkcs12
+	 * Val.Pre1Span03: -export
+	 * Val.Pre1Span04Span1: -name 
+	 * Val:utilisateurSiteNomDomaine:.Pre1Span04Span2:example.com
+	 * Val.Pre1Span05: -in /srv/certbot/merged.crt
+	 * Val.Pre1Span06: -inkey /srv/certbot/server.key
+	 * Val.Pre1Span07: -out /srv/certbot/server.p12
+	 * 
+	 * Val.Ol1Li01Dt:openssl
+	 * Val.Ol1Li01Dd.frFR: : OpenSSL est une boîte à outils de cryptographie implémentant les protocoles réseau Secure Sockets Layer (SSL v2/v3) et Transport Layer Security (TLS v1). 
+	 * Val.Ol1Li01Dd.enUS:: OpenSSL is a cryptography toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) network protocols. 
+	 * Val.Ol1Li02Dt:pkcs12
+	 * Val.Ol1Li02Dd.frFR: : La commande pkcs12 permet aux fichiers PKCS # 12 d'être créés et analysés. 
+	 * Val.Ol1Li02Dd.enUS:: The pkcs12 command allows PKCS#12 files to be created and parsed. 
+	 * Val.Ol1Li03Dt:-export
+	 * Val.Ol1Li03Dd.frFR: : Cette option spécifie qu'un fichier PKCS # 12 sera créé plutôt que analysé. 
+	 * Val.Ol1Li03Dd.enUS:: This option specifies that a PKCS#12 file will be created rather than parsed. 
+	 * Val.Ol1Li04DtSpan1:-name 
+	 * Val:utilisateurSiteNomDomaine:.Ol1Li04DtSpan2:example.com
+	 * Val.Ol1Li04Dd.frFR: : Ceci spécifie l'alias ou le nom d'affichage du certificat et de la clé privée. 
+	 * Val.Ol1Li04Dd.enUS:: This specifies the alias, or friendly name, for the certificate and private key. 
+	 * Val.Ol1Li05Dt:-in /srv/certbot/merged.crt
+	 * Val.Ol1Li05Dd.frFR: : Le chemin vers le fichier de certificat fusionné. 
+	 * Val.Ol1Li05Dd.enUS:: The path to the merged certificate file. 
+	 * Val.Ol1Li06Dt:-inkey /srv/certbot/server.key
+	 * Val.Ol1Li06Dd.frFR: : Le chemin vers le la clé privée. 
+	 * Val.Ol1Li06Dd.enUS:: The path to the private key. 
+	 * Val.Ol1Li07Dt:-out /srv/certbot/server.p12
+	 * Val.Ol1Li07Dd.frFR: : Le chemin au nouveau fichier de chaîne de confiance .p12. 
+	 * Val.Ol1Li07Dd.enUS:: The path to the new .p12 chain of trust file. 
+	 */  
+	protected void _questionPkcs12(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-store
+	 * Val.H3Span.frFR:Comment créer un magasin de clés Java pour les chaînes de certificats dans les applications Java? 
+	 * Val.H3Span.enUS:How do I create a Java keystore for certificate chains in Java applications? 
+	 * Val.H4I:far fa-terminal
+	 * Val.H4Span.frFR:Utilisez la commande keytool pour créer un fichier .jks. 
+	 * Val.H4Span.enUS:Use the keytool command to create a .jks file. 
+	 * 
+	 * Val.Pre1Span01:keytool
+	 * Val.Pre1Span02: -importkeystore
+	 * Val.Pre1Span03: -srcstoretype pkcs12
+	 * Val.Pre1Span04: -srckeystore /srv/certbot/server.p12
+	 * Val.Pre1Span05: -destkeystore /srv/certbot/server.jks
+	 * 
+	 * Val.Ol1Li01Dt:keytool
+	 * Val.Ol1Li01Dd.frFR: : Une application Java qui gère un magasin de clés cryptographiques, de chaînes de certificats et de certificats de confiance. 
+	 * Val.Ol1Li01Dd.enUS:: A Java application that manages a keystore of cryptographic keys, certificate chains, and trusted certificates. 
+	 * Val.Ol1Li02Dt:-importkeystore
+	 * Val.Ol1Li02Dd.frFR: : Importe des entrées d'un magasin de clés de source vers un magasin de clés de destination. 
+	 * Val.Ol1Li02Dd.enUS:: Imports entries from a source keystore to a destination keystore. 
+	 * Val.Ol1Li03Dt:-srcstoretype pkcs12
+	 * Val.Ol1Li03Dd.frFR: : Le type de magasin de clés source, qui est pkcs12. 
+	 * Val.Ol1Li03Dd.enUS:: The type of source keystore, which is pkcs12. 
+	 * Val.Ol1Li04Dt:-srckeystore /srv/certbot/server.p12
+	 * Val.Ol1Li04Dd.frFR: : Le chemin au fichier de chaîne de confiance .p12. 
+	 * Val.Ol1Li04Dd.enUS:: The path to the .p12 chain of trust file. 
+	 * Val.Ol1Li05Dt:-destkeystore /srv/certbot/server.jks
+	 * Val.Ol1Li05Dd.frFR: : Le chemin au nouveau magasin de clés Java .jks. 
+	 * Val.Ol1Li05Dd.enUS:: The path to the new .jks Java keystore. 
+	 */  
+	protected void _questionKeystore(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-key
+	 * Val.H3Span.frFR:Comment créer un magasin de clés Java pour mon clé secret dans les applications Java? 
+	 * Val.H3Span.enUS:How do I create a Java keystore for my secret key in Java applications? 
+	 * Val.H4I:far fa-terminal
+	 * Val.H4Span.frFR:Utilisez la commande keytool pour créer un fichier .jceks. 
+	 * Val.H4Span.enUS:Use the keytool command to create a .jceks file. 
+	 * 
+	 * Val.Pre1Span01:keytool
+	 * Val.Pre1Span02: -genseckey
+	 * Val.Pre1Span03: -storetype JCEKS
+	 * Val.Pre1Span04Span1: -alias 
+	 * Val:utilisateurSiteNomDomaine:.Pre1Span04Span2:example.com
+	 * Val.Pre1Span05: -keystore /srv/certbot/server.jceks
+	 * 
+	 * Val.Ol1Li01Dt:keytool
+	 * Val.Ol1Li02Dt:-genseckey
+	 * Val.Ol1Li02Dd.frFR: : Importe des entrées d'un magasin de clés de source vers un magasin de clés de destination. 
+	 * Val.Ol1Li02Dd.enUS:: Generates a secret key and stores it in a new secret key entry keystore identified by the alias. 
+	 * Val.Ol1Li03Dt:-storetype JCEKS
+	 * Val.Ol1Li03Dd.frFR: : Type de fichier de clés dans lequel les clés sont stockées afin d'éviter que vos clés de chiffrement ne soient exposées. 
+	 * Val.Ol1Li03Dd.enUS:: The type of keystore for storing keys to prevent your encryption keys from being exposed. 
+	 * Val.Ol1Li04DtSpan1:-alias 
+	 * Val:utilisateurSiteNomDomaine:.Ol1Li04DtSpan2:example.com
+	 * Val.Ol1Li04Dd.frFR: : Ceci spécifie l'alias ou le nom d'affichage du certificat et de la clé privée. 
+	 * Val.Ol1Li04Dd.enUS:: This specifies the alias, or friendly name, for the certificate and private key. 
+	 * Val.Ol1Li05Dt:-keystore /srv/certbot/server.jceks
+	 * Val.Ol1Li05Dd.frFR: : Le chemin au nouveau magasin de clés Java .jks. 
+	 * Val.Ol1Li05Dd.enUS:: The path to the new .jks Java keystore. 
+	 */  
+	protected void _questionGenSecKey(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.P.frFR:Félicitations, vous êtes maintenant prêt à utiliser votre nouveau certificat, vos clés et vos magasins de clés dans vos applications. 
+	 * Val.P.frFR:Vous pourrez sécuriser vos applications avec https et TLS localement et sur le cloud OpenShift. 
+	 * Val.P.frFR:Vous pouvez signer votre code Java pour le déployer en toute confiance. 
+	 * Val.P.frFR:Vous pouvez installer un serveur Single Sign On pour gérer l'authentification et l'autorisation des utilisateurs dans vos applications. 
+	 * Val.P.enUS:Congratulations, now you are all set to use your new certificate, keys and keystores in your applications. 
+	 * Val.P.enUS:You will be able to secure your applications with https and TLS locally and on the OpenShift cloud. 
+	 * Val.P.enUS:You can sign your Java code to deploy it confidently. 
+	 * Val.P.enUS:You can install a Single Sign On server to manage user authentication and authorization in your applications. 
+	 */  
+	protected void _fin(PageHtml o) {
+	}
+
+	/**
 	 * Val.H3.frFR:À récapituler : 
 	 * Val.H3.enUS:To review: 
 	 */
@@ -468,17 +642,17 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	}
 
 	/**
-	 * Val.TableTr1Td1.frFR:Jeudi 
-	 * Val.TableTr1Td1.enUS:Thursday 
+	 * Val.TableTr1Td1.frFR:Vendredi 
+	 * Val.TableTr1Td1.enUS:Friday 
 	 * Val.TableTr1Td2I:far fa-fast-forward
 	 * Val.TableTr1Td3I:far fa-file-code
 	 * Val.TableTr1Td4I:far fa-pen-nib
-	 * Val.TableTr2Td1.frFR:16 Mai 2019
-	 * Val.TableTr2Td1.enUS:May 16 2019
-	 * Val.TableTr2Td2.frFR:Comment installer la dernière version de PostgreSQL ? 
-	 * Val.TableTr2Td2.enUS:How do I install the latest version of PostgreSQL. 
-	 * Val.TableTr2Td3.frFR:Installer PostgreSQL à partir du code source. 
-	 * Val.TableTr2Td3.enUS:Install PostgreSQL from the source code. 
+	 * Val.TableTr2Td1.frFR:24 Mai 2019
+	 * Val.TableTr2Td1.enUS:May 24 2019
+	 * Val.TableTr2Td2.frFR:Que puis-je faire une fois que j'ai acheté un nom de domaine ? 
+	 * Val.TableTr2Td2.enUS:What can I do once I have purchased a domain name? 
+	 * Val.TableTr2Td3.frFR:Obtenez gratuitement un certificat TLS valide pour des raisons de sécurité et de crédibilité. 
+	 * Val.TableTr2Td3.enUS:Obtain a valid TLS certificate for free, for security and credibility. 
 	 * Val.TableTr2Td4.frFR:Par Christophe Tate
 	 * Val.TableTr2Td4.enUS:By Christopher Tate
 	 */  
@@ -495,102 +669,67 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.TableTr01Td4.enUS:Answers
 	 * 
 	 * Val.TableTr02Td1I:far fa-conveyor-belt-alt
-	 * Val.TableTr02Td2.frFR:Comment installer les dépendences pour PostgreSQL ? 
-	 * Val.TableTr02Td2.enUS:How do I install the dependencies for PostgreSQL? 
+	 * Val.TableTr02Td2.frFR:Comment installer les dépendences pour certbot ? 
+	 * Val.TableTr02Td2.enUS:How do I install the dependencies for certbot? 
 	 * Val.TableTr02Td3Span1I:far fa-cookie
 	 * Val.TableTr02Td4.frFR:Construisez les dépendances avec yum. 
 	 * Val.TableTr02Td4.enUS:Build the dependencies with yum. 
 	 * 
 	 * Val.TableTr03Td1I:far fa-files-medical
-	 * Val.TableTr03Td2.frFR:Où est-ce que je place le code source PostgreSQL ? 
-	 * Val.TableTr03Td2.enUS:Where do I put the PostgreSQL source code? 
+	 * Val.TableTr03Td2.frFR:Où dois-je placer les certificats, les clés et les magasins de clés pour mon site ? 
+	 * Val.TableTr03Td2.enUS:Where do I put the certificates, keys and keystores for my site? 
 	 * Val.TableTr03Td3I:far fa-folder-tree
-	 * Val.TableTr03Td4.frFR:Créez un répertoire PostgreSQL dans /usr/local/src. 
-	 * Val.TableTr03Td4.enUS:Create a PostgreSQL directory in /usr/local/src. 
+	 * Val.TableTr03Td4.frFR:Créez un répertoire certbot dans /srv. 
+	 * Val.TableTr03Td4.enUS:Create a pgsql directory in /srv. 
 	 * 
-	 * Val.TableTr04Td1I:far fa-map-pin
-	 * Val.TableTr04Td2.frFR:Où puis-je installer PostgreSQL ? 
-	 * Val.TableTr04Td2.enUS:Where do I install PostgreSQL? 
-	 * Val.TableTr04Td3Span1I:far fa-folder-tree
-	 * Val.TableTr04Td4.frFR:Créez un répertoire PostgreSQL dans /opt. 
-	 * Val.TableTr04Td4.enUS:Create a PostgreSQL directory in /opt. 
+	 * Val.TableTr04Td1I:far fa-file-certificate
+	 * Val.TableTr04Td2.frFR:Comment puis-je obtenir mon certificat ? 
+	 * Val.TableTr04Td2.enUS:How do I obtain my certificate? 
+	 * Val.TableTr04Td3Span1I:far fa-stamp
+	 * Val.TableTr04Td4.frFR:Utilisez la commande certbot. 
+	 * Val.TableTr04Td4.enUS:Use the certbot command. 
 	 * 
-	 * Val.TableTr05Td1I:far fa-cloud-download
-	 * Val.TableTr05Td2.frFR:Comment télécharger le code source de PostgreSQL ? 
-	 * Val.TableTr05Td2.enUS:How do I download the PostgreSQL source code? 
-	 * Val.TableTr05Td3I:fab fa-git
-	 * Val.TableTr05Td4.frFR:Cloner le code source avec la commande git. 
-	 * Val.TableTr05Td4.enUS:Clone the source code with the git command. 
+	 * Val.TableTr05Td1I:far fa-key
+	 * Val.TableTr05Td2.frFR:Comment utiliser le certificat et la clé générés par certbot ? 
+	 * Val.TableTr05Td2.enUS:How do I use the certificate and key that certbot generated? 
+	 * Val.TableTr05Td3I:far fa-copy
+	 * Val.TableTr05Td4.frFR:Copiez les fichiers certbot avec la commande install. 
+	 * Val.TableTr05Td4.enUS:Copy the certbot files with the install command. 
 	 * 
-	 * Val.TableTr06Td1I:far fa-code-branch
-	 * Val.TableTr06Td2.frFR:Comment choisir une version récente de PostgreSQL ? 
-	 * Val.TableTr06Td2.enUS:How do I pick a recent version of PostgreSQL? 
-	 * Val.TableTr06Td3I:far fa-tag
-	 * Val.TableTr06Td4.frFR:Listez toutes les tags du référentiel git. 
-	 * Val.TableTr06Td4.enUS:List all the tags in the git repository. 
+	 * Val.TableTr06Td1I:far fa-users-crown
+	 * Val.TableTr06Td2.frFR:Comment puis-je obtenir les certificats letencrypt racine et CA ? 
+	 * Val.TableTr06Td2.enUS:How do I obtain the letsencrypt root and CA certificates? 
+	 * Val.TableTr06Td3I:far fa-copy
+	 * Val.TableTr06Td4.frFR:Téléchargez les certificats racine et CA avec la commande curl. 
+	 * Val.TableTr06Td4.enUS:Download the root and CA certificates with the curl command. 
 	 * 
-	 * Val.TableTr07Td1I:far fa-code-merge
-	 * Val.TableTr07Td2.frFR:Comment changer de version du code source de PostgreSQL ? 
-	 * Val.TableTr07Td2.enUS:How do I switch versions of the PostgreSQL source code? 
-	 * Val.TableTr07Td3I:far fa-code-commit
-	 * Val.TableTr07Td4.frFR:Checkout la tag git. 
-	 * Val.TableTr07Td4.enUS:Checkout the git tag. 
+	 * Val.TableTr07Td1I:far fa-object-group
+	 * Val.TableTr07Td2.frFR:Comment créer une version fusionnée de certificats de site, de certificats d'autorité et de certificat racine ? 
+	 * Val.TableTr07Td2.enUS:How do I create a merged version of site certificates, certificate authority and root certificate? 
+	 * Val.TableTr07Td3I:far fa-cat
+	 * Val.TableTr07Td4.frFR:Créez un certificat fusionné avec la commande cat. 
+	 * Val.TableTr07Td4.enUS:Create a merged certificate with the cat command. 
 	 * 
-	 * Val.TableTr08Td1I:far fa-tools
-	 * Val.TableTr08Td2.frFR:Comment contruire le code source de PostgreSQL ? 
-	 * Val.TableTr08Td2.enUS:How do I build the PostgreSQL source code? 
-	 * Val.TableTr08Td3I:far fa-terminal
-	 * Val.TableTr08Td4.frFR:Construisez PostgreSQL avec la commande configure. 
-	 * Val.TableTr08Td4.enUS:Build PostgreSQL with the configure command. 
+	 * Val.TableTr08Td1I:far fa-file-certificate
+	 * Val.TableTr08Td2.frFR:Comment créer une chaîne de confiance de certificat pkcs12 ? 
+	 * Val.TableTr08Td2.enUS:How do I create a pkcs12 certificate chain of trust? 
+	 * Val.TableTr08Td3I:far fa-shield-alt
+	 * Val.TableTr08Td4.frFR:Utilisez la commande openssl pour créer un fichier .p12. 
+	 * Val.TableTr08Td4.enUS:Use the openssl command to create a .p12 file. 
 	 * 
-	 * Val.TableTr09Td1I:far fa-map-pin
-	 * Val.TableTr09Td2.frFR:Après avoir installé PostgreSQL, où se trouve mon répertoire de données ? 
-	 * Val.TableTr09Td2.enUS:After installing PostgreSQL, where is my data directory? 
-	 * Val.TableTr09Td3I:far fa-folder-tree
-	 * Val.TableTr09Td4.frFR:Créez un répertoire pgsql dans /srv. 
-	 * Val.TableTr09Td4.enUS:Create a pgsql directory in /srv. 
+	 * Val.TableTr09Td1I:far fa-store
+	 * Val.TableTr09Td2.frFR:Comment créer un magasin de clés Java pour les chaînes de certificats dans les applications Java? 
+	 * Val.TableTr09Td2.enUS:How do I create a Java keystore for certificate chains in Java applications? 
+	 * Val.TableTr09Td3I:far fa-terminal
+	 * Val.TableTr09Td4.frFR:Utilisez la commande keytool pour créer un fichier .jks. 
+	 * Val.TableTr09Td4.enUS:Use the keytool command to create a .jks file. 
 	 * 
-	 * Val.TableTr10Td1I:far fa-database
-	 * Val.TableTr10Td2.frFR:Comment créer une nouvelle base de données PostgreSQL ? 
-	 * Val.TableTr10Td2.enUS:How do I create a new PostgreSQL database? 
-	 * Val.TableTr10Td3I:far fa-table
-	 * Val.TableTr10Td4.frFR:Comment initialiser un nouveau serveur PostgreSQL. 
-	 * Val.TableTr10Td4.enUS:How to initialize a new PostgreSQL server. 
-	 * 
-	 * Val.TableTr11Td1I:far fa-alarm-clock
-	 * Val.TableTr11Td2.frFR:Comment puis-je exécuter PostgreSQL tout le temps au démarrage de mon ordinateur ? 
-	 * Val.TableTr11Td2.enUS:How do I run PostgreSQL all the time, when my computer starts up? 
-	 * Val.TableTr11Td3I:far fa-layer-plus
-	 * Val.TableTr11Td4.frFR:Comment exécuter PostgreSQL en tant que service systemd. 
-	 * Val.TableTr11Td4.enUS:How to run PostgreSQL as a systemd service. 
-	 * 
-	 * Val.TableTr12Td1I:far fa-search
-	 * Val.TableTr12Td2.frFR:Comment le système connaît-il le nouveau service ? 
-	 * Val.TableTr12Td2.enUS:How does the system know about the new service? 
-	 * Val.TableTr12Td3I:far fa-redo-alt
-	 * Val.TableTr12Td4.frFR:Rechargez le daemon systemd. 
-	 * Val.TableTr12Td4.enUS:Reload the systemd daemon. 
-	 * 
-	 * Val.TableTr13Td1I:far fa-toggle-off
-	 * Val.TableTr13Td2.frFR:Comment activer le service PostgreSQL? 
-	 * Val.TableTr13Td2.enUS:How do I enable the PostgreSQL service? 
-	 * Val.TableTr13Td3I:far fa-toggle-on
-	 * Val.TableTr13Td4.frFR:Utilisez la commande systemctl enable. 
-	 * Val.TableTr13Td4.enUS:Use the systemctl enable command. 
-	 * 
-	 * Val.TableTr14Td1I:far fa-pause-circle
-	 * Val.TableTr14Td2.frFR:Comment démarrer le service PostgreSQL? 
-	 * Val.TableTr14Td2.enUS:How do I start the PostgreSQL service? 
-	 * Val.TableTr14Td3I:far fa-play-circle
-	 * Val.TableTr14Td4.frFR:Utilisez la commande systemctl start. 
-	 * Val.TableTr14Td4.enUS:Use the systemctl start command. 
-	 * 
-	 * Val.TableTr15Td1I:far fa-clipboard
-	 * Val.TableTr15Td2.frFR:Comment puis-je m'assurer que le service PostgreSQL a démarré avec succès ? 
-	 * Val.TableTr15Td2.enUS:How do I make sure the PostgreSQL service started successfully? 
-	 * Val.TableTr15Td3I:far fa-clipboard-check
-	 * Val.TableTr15Td4.frFR:Utilisez la commande systemctl status. 
-	 * Val.TableTr15Td4.enUS:Use the systemctl status command. 
+	 * Val.TableTr10Td1I:far fa-key
+	 * Val.TableTr10Td2.frFR:Comment créer un magasin de clés Java pour mon clé secret dans les applications Java? 
+	 * Val.TableTr10Td2.enUS:How do I create a Java keystore for my secret key in Java applications? 
+	 * Val.TableTr10Td3I:far fa-terminal
+	 * Val.TableTr10Td4.frFR:Utilisez la commande keytool pour créer un fichier .jceks. 
+	 * Val.TableTr10Td4.enUS:Use the keytool command to create a .jceks file. 
 	 */ 
 	protected void _recapituler3(PageHtml o) {      
 	}

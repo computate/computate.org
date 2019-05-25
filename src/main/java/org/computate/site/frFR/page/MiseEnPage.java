@@ -647,8 +647,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 						e("script").f().l("/*<![CDATA[*/");
 							s("var _ctct_m = \"805a4a78c2843d257b9b05ea244b6ec7\"; ");
 						s("/*]]>*/").g("script");
-						e("script").a("id", "signupScript").a("src", "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js").a("async", "").a("defer", "").f();
-						g("script");
 					}
 					e("div").a("id", "modaleErreur").a("class", "w3-modal").a("onclick", "this.style.display = 'none';").f();
 						e("div").a("class", "w3-modal-content w3-animate-zoom").f();
@@ -862,6 +860,15 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				g("div");
 			}
 			if(requeteSite_.getUtilisateurId() != null) {
+				e("div").a("class", "site-bar-item w3-bar-item ").f();
+					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageUtilisateurUri).f(); 
+//						e("img").a("src", statiqueUrlBase, "/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
+						e("br").fg();
+						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+							sx(requeteSite_.getUtilisateurNom());
+						g("span");
+					g("a");
+				g("div");
 				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageDeconnexionUri).f();
 //						e("img").a("src", statiqueUrlBase, "/svg/light-speed.svg").a("style", "height: 50px; ").fg();

@@ -97,15 +97,87 @@ public class ClusterEnUSGenPage extends ClusterEnUSGenPageGen<MiseEnPage> {
 	}
 
 	public void htmlFormPageCluster(Cluster o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormPOSTCluster(Cluster o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormPATCHCluster(Cluster o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormRechercheCluster(Cluster o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
 	}
 
 	@Override public void htmlBodyClusterEnUSGenPage() {

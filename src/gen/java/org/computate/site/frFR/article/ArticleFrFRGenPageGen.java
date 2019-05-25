@@ -9,6 +9,7 @@ import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.frFR.article.Article;
+import java.lang.String;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.apache.commons.lang3.StringUtils;
 
@@ -94,6 +95,62 @@ public abstract class ArticleFrFRGenPageGen<DEV> extends MiseEnPage {
 		return (ArticleFrFRGenPage)this;
 	}
 
+	////////////////////
+	// pageUriArticle //
+	////////////////////
+
+	/**	L'entité « pageUriArticle »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUriArticle;
+	public Couverture<String> pageUriArticleCouverture = new Couverture<String>().p(this).c(String.class).var("pageUriArticle").o(pageUriArticle);
+
+	/**	<br/>L'entité « pageUriArticle »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.article.ArticleFrFRGenPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageUriArticle">Trouver l'entité pageUriArticle dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUriArticle(Couverture<String> c);
+
+	public String getPageUriArticle() {
+		return pageUriArticle;
+	}
+
+	public void setPageUriArticle(String pageUriArticle) {
+		this.pageUriArticle = pageUriArticle;
+		this.pageUriArticleCouverture.dejaInitialise = true;
+	}
+	protected ArticleFrFRGenPage pageUriArticleInit() {
+		if(!pageUriArticleCouverture.dejaInitialise) {
+			_pageUriArticle(pageUriArticleCouverture);
+			if(pageUriArticle == null)
+				setPageUriArticle(pageUriArticleCouverture.o);
+		}
+		pageUriArticleCouverture.dejaInitialise(true);
+		return (ArticleFrFRGenPage)this;
+	}
+
+	public String solrPageUriArticle() {
+		return pageUriArticle;
+	}
+
+	public String strPageUriArticle() {
+		return pageUriArticle == null ? "" : pageUriArticle;
+	}
+
+	public String nomAffichagePageUriArticle() {
+		return null;
+	}
+
+	public String htmTooltipPageUriArticle() {
+		return null;
+	}
+
+	public String htmPageUriArticle() {
+		return pageUriArticle == null ? "" : StringEscapeUtils.escapeHtml4(strPageUriArticle());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -117,6 +174,7 @@ public abstract class ArticleFrFRGenPageGen<DEV> extends MiseEnPage {
 	public void initArticleFrFRGenPage() {
 		listeArticleInit();
 		articleInit();
+		pageUriArticleInit();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -163,6 +221,8 @@ public abstract class ArticleFrFRGenPageGen<DEV> extends MiseEnPage {
 				return oArticleFrFRGenPage.listeArticle;
 			case "article":
 				return oArticleFrFRGenPage.article;
+			case "pageUriArticle":
+				return oArticleFrFRGenPage.pageUriArticle;
 			default:
 				return super.obtenirMiseEnPage(var);
 		}

@@ -16,6 +16,7 @@ import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
 import org.computate.site.enUS.cluster.Cluster;
 import java.util.List;
+import java.util.Locale;
 import java.time.format.DateTimeFormatter;
 import java.lang.Boolean;
 import java.lang.Object;

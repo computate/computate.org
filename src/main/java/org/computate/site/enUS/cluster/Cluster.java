@@ -33,9 +33,9 @@ public class Cluster extends ClusterGen<Object> {
 			c.o(pk.toString());
 	}
 
-	protected void __created(Couverture<ZonedDateTime> c) {}
+	protected void _cree(Couverture<ZonedDateTime> c) {}
 
-	protected void __modified(Couverture<ZonedDateTime> c) {}
+	protected void _modifie(Couverture<ZonedDateTime> c) {}
 
 	protected void _archive(Couverture<Boolean> c) {
 		c.o(false);
@@ -45,12 +45,12 @@ public class Cluster extends ClusterGen<Object> {
 		c.o(false);
 	}
 
-	protected void __classCanonicalName(Couverture<String> c) {
+	protected void _classeNomCanonique(Couverture<String> c) {
 		String o = getClass().getCanonicalName();
 		c.o(o);
 	}
 
-	protected void __classSimpleName(Couverture<String> c) {
+	protected void _classeNomSimple(Couverture<String> c) {
 		String o = getClass().getSimpleName();
 		c.o(o);
 	}

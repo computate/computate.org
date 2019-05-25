@@ -256,15 +256,35 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.frFR.utilisateur.UtilisateurSite"));
 			for(String methodeNom : methodeNoms) {
 				switch(methodeNom) {
+					case "setSupprime":
+						o2.setSupprime(requeteJson.getBoolean(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
+						break;
+					case "setCree":
+						o2.setCree(requeteJson.getInstant(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("cree", o2.getCree(), pk));
+						break;
+					case "setModifie":
+						o2.setModifie(requeteJson.getInstant(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("modifie", o2.getModifie(), pk));
+						break;
 					case "setArchive":
 						o2.setArchive(requeteJson.getBoolean(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
 						patchSqlParams.addAll(Arrays.asList("archive", o2.getArchive(), pk));
 						break;
-					case "setSupprime":
-						o2.setSupprime(requeteJson.getBoolean(methodeNom));
+					case "setVoirArchive":
+						o2.setVoirArchive(requeteJson.getBoolean(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
+						patchSqlParams.addAll(Arrays.asList("voirArchive", o2.getVoirArchive(), pk));
+						break;
+					case "setVoirSupprime":
+						o2.setVoirSupprime(requeteJson.getBoolean(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("voirSupprime", o2.getVoirSupprime(), pk));
 						break;
 					case "setSiteNomDomaine":
 						o2.setSiteNomDomaine(requeteJson.getString(methodeNom));
@@ -314,12 +334,12 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 		}
 	}
 
-	public Future<Void> indexerPATCHUtilisateurSite(UtilisateurSite o) {
-		Future<Void> future = Future.future();
+	public Future<JsonObject> indexerPATCHUtilisateurSite(UtilisateurSite o) {
+		Future<JsonObject> future = Future.future();
 		try {
 			o.initLoinPourClasse(o.getRequeteSite_());
 			o.indexerPourClasse();
-				future.complete();
+				future.complete(new JsonObject());
 			return future;
 		} catch(Exception e) {
 			return Future.failedFuture(e);
@@ -340,24 +360,24 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 
 	public String varIndexeUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "archive":
-				return "archive_indexed_boolean";
 			case "supprime":
 				return "supprime_indexed_boolean";
+			case "id":
+				return "id_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
 			case "classeNomsCanoniques":
 				return "classeNomsCanoniques_indexed_strings";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
 			case "utilisateurId":
 				return "utilisateurId_indexed_string";
 			case "calculInrPks":
@@ -529,6 +549,10 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -561,6 +585,10 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));

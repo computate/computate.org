@@ -674,102 +674,67 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.TableTr01Td4.enUS:Answers
 	 * 
 	 * Val.TableTr02Td1I:far fa-conveyor-belt-alt
-	 * Val.TableTr02Td2.frFR:Comment installer les dépendences pour PostgreSQL ? 
-	 * Val.TableTr02Td2.enUS:How do I install the dependencies for PostgreSQL? 
+	 * Val.TableTr02Td2.frFR:Comment installer les dépendences pour certbot ? 
+	 * Val.TableTr02Td2.enUS:How do I install the dependencies for certbot? 
 	 * Val.TableTr02Td3Span1I:far fa-cookie
 	 * Val.TableTr02Td4.frFR:Construisez les dépendances avec yum. 
 	 * Val.TableTr02Td4.enUS:Build the dependencies with yum. 
 	 * 
 	 * Val.TableTr03Td1I:far fa-files-medical
-	 * Val.TableTr03Td2.frFR:Où est-ce que je place le code source PostgreSQL ? 
-	 * Val.TableTr03Td2.enUS:Where do I put the PostgreSQL source code? 
+	 * Val.TableTr03Td2.frFR:Où dois-je placer les certificats, les clés et les magasins de clés pour mon site ? 
+	 * Val.TableTr03Td2.enUS:Where do I put the certificates, keys and keystores for my site? 
 	 * Val.TableTr03Td3I:far fa-folder-tree
-	 * Val.TableTr03Td4.frFR:Créez un répertoire PostgreSQL dans /usr/local/src. 
-	 * Val.TableTr03Td4.enUS:Create a PostgreSQL directory in /usr/local/src. 
+	 * Val.TableTr03Td4.frFR:Créez un répertoire certbot dans /srv. 
+	 * Val.TableTr03Td4.enUS:Create a pgsql directory in /srv. 
 	 * 
-	 * Val.TableTr04Td1I:far fa-map-pin
-	 * Val.TableTr04Td2.frFR:Où puis-je installer PostgreSQL ? 
-	 * Val.TableTr04Td2.enUS:Where do I install PostgreSQL? 
-	 * Val.TableTr04Td3Span1I:far fa-folder-tree
-	 * Val.TableTr04Td4.frFR:Créez un répertoire PostgreSQL dans /opt. 
-	 * Val.TableTr04Td4.enUS:Create a PostgreSQL directory in /opt. 
+	 * Val.TableTr04Td1I:far fa-file-certificate
+	 * Val.TableTr04Td2.frFR:Comment puis-je obtenir mon certificat ? 
+	 * Val.TableTr04Td2.enUS:How do I obtain my certificate? 
+	 * Val.TableTr04Td3Span1I:far fa-stamp
+	 * Val.TableTr04Td4.frFR:Utilisez la commande certbot. 
+	 * Val.TableTr04Td4.enUS:Use the certbot command. 
 	 * 
-	 * Val.TableTr05Td1I:far fa-cloud-download
-	 * Val.TableTr05Td2.frFR:Comment télécharger le code source de PostgreSQL ? 
-	 * Val.TableTr05Td2.enUS:How do I download the PostgreSQL source code? 
-	 * Val.TableTr05Td3I:fab fa-git
-	 * Val.TableTr05Td4.frFR:Cloner le code source avec la commande git. 
-	 * Val.TableTr05Td4.enUS:Clone the source code with the git command. 
+	 * Val.TableTr05Td1I:far fa-key
+	 * Val.TableTr05Td2.frFR:Comment utiliser le certificat et la clé générés par certbot ? 
+	 * Val.TableTr05Td2.enUS:How do I use the certificate and key that certbot generated? 
+	 * Val.TableTr05Td3I:far fa-copy
+	 * Val.TableTr05Td4.frFR:Copiez les fichiers certbot avec la commande install. 
+	 * Val.TableTr05Td4.enUS:Copy the certbot files with the install command. 
 	 * 
-	 * Val.TableTr06Td1I:far fa-code-branch
-	 * Val.TableTr06Td2.frFR:Comment choisir une version récente de PostgreSQL ? 
-	 * Val.TableTr06Td2.enUS:How do I pick a recent version of PostgreSQL? 
-	 * Val.TableTr06Td3I:far fa-tag
-	 * Val.TableTr06Td4.frFR:Listez toutes les tags du référentiel git. 
-	 * Val.TableTr06Td4.enUS:List all the tags in the git repository. 
+	 * Val.TableTr06Td1I:far fa-users-crown
+	 * Val.TableTr06Td2.frFR:Comment puis-je obtenir les certificats letencrypt racine et CA ? 
+	 * Val.TableTr06Td2.enUS:How do I obtain the letsencrypt root and CA certificates? 
+	 * Val.TableTr06Td3I:far fa-copy
+	 * Val.TableTr06Td4.frFR:Téléchargez les certificats racine et CA avec la commande curl. 
+	 * Val.TableTr06Td4.enUS:Download the root and CA certificates with the curl command. 
 	 * 
-	 * Val.TableTr07Td1I:far fa-code-merge
-	 * Val.TableTr07Td2.frFR:Comment changer de version du code source de PostgreSQL ? 
-	 * Val.TableTr07Td2.enUS:How do I switch versions of the PostgreSQL source code? 
-	 * Val.TableTr07Td3I:far fa-code-commit
-	 * Val.TableTr07Td4.frFR:Checkout la tag git. 
-	 * Val.TableTr07Td4.enUS:Checkout the git tag. 
+	 * Val.TableTr07Td1I:far fa-object-group
+	 * Val.TableTr07Td2.frFR:Comment créer une version fusionnée de certificats de site, de certificats d'autorité et de certificat racine ? 
+	 * Val.TableTr07Td2.enUS:How do I create a merged version of site certificates, certificate authority and root certificate? 
+	 * Val.TableTr07Td3I:far fa-cat
+	 * Val.TableTr07Td4.frFR:Créez un certificat fusionné avec la commande cat. 
+	 * Val.TableTr07Td4.enUS:Create a merged certificate with the cat command. 
 	 * 
-	 * Val.TableTr08Td1I:far fa-tools
-	 * Val.TableTr08Td2.frFR:Comment contruire le code source de PostgreSQL ? 
-	 * Val.TableTr08Td2.enUS:How do I build the PostgreSQL source code? 
-	 * Val.TableTr08Td3I:far fa-terminal
-	 * Val.TableTr08Td4.frFR:Construisez PostgreSQL avec la commande configure. 
-	 * Val.TableTr08Td4.enUS:Build PostgreSQL with the configure command. 
+	 * Val.TableTr08Td1I:far fa-file-certificate
+	 * Val.TableTr08Td2.frFR:Comment créer une chaîne de confiance de certificat pkcs12 ? 
+	 * Val.TableTr08Td2.enUS:How do I create a pkcs12 certificate chain of trust? 
+	 * Val.TableTr08Td3I:far fa-shield-alt
+	 * Val.TableTr08Td4.frFR:Utilisez la commande openssl pour créer un fichier .p12. 
+	 * Val.TableTr08Td4.enUS:Use the openssl command to create a .p12 file. 
 	 * 
-	 * Val.TableTr09Td1I:far fa-map-pin
-	 * Val.TableTr09Td2.frFR:Après avoir installé PostgreSQL, où se trouve mon répertoire de données ? 
-	 * Val.TableTr09Td2.enUS:After installing PostgreSQL, where is my data directory? 
-	 * Val.TableTr09Td3I:far fa-folder-tree
-	 * Val.TableTr09Td4.frFR:Créez un répertoire pgsql dans /srv. 
-	 * Val.TableTr09Td4.enUS:Create a pgsql directory in /srv. 
+	 * Val.TableTr09Td1I:far fa-store
+	 * Val.TableTr09Td2.frFR:Comment créer un magasin de clés Java pour les chaînes de certificats dans les applications Java? 
+	 * Val.TableTr09Td2.enUS:How do I create a Java keystore for certificate chains in Java applications? 
+	 * Val.TableTr09Td3I:far fa-terminal
+	 * Val.TableTr09Td4.frFR:Utilisez la commande keytool pour créer un fichier .jks. 
+	 * Val.TableTr09Td4.enUS:Use the keytool command to create a .jks file. 
 	 * 
-	 * Val.TableTr10Td1I:far fa-database
-	 * Val.TableTr10Td2.frFR:Comment créer une nouvelle base de données PostgreSQL ? 
-	 * Val.TableTr10Td2.enUS:How do I create a new PostgreSQL database? 
-	 * Val.TableTr10Td3I:far fa-table
-	 * Val.TableTr10Td4.frFR:Comment initialiser un nouveau serveur PostgreSQL. 
-	 * Val.TableTr10Td4.enUS:How to initialize a new PostgreSQL server. 
-	 * 
-	 * Val.TableTr11Td1I:far fa-alarm-clock
-	 * Val.TableTr11Td2.frFR:Comment puis-je exécuter PostgreSQL tout le temps au démarrage de mon ordinateur ? 
-	 * Val.TableTr11Td2.enUS:How do I run PostgreSQL all the time, when my computer starts up? 
-	 * Val.TableTr11Td3I:far fa-layer-plus
-	 * Val.TableTr11Td4.frFR:Comment exécuter PostgreSQL en tant que service systemd. 
-	 * Val.TableTr11Td4.enUS:How to run PostgreSQL as a systemd service. 
-	 * 
-	 * Val.TableTr12Td1I:far fa-search
-	 * Val.TableTr12Td2.frFR:Comment le système connaît-il le nouveau service ? 
-	 * Val.TableTr12Td2.enUS:How does the system know about the new service? 
-	 * Val.TableTr12Td3I:far fa-redo-alt
-	 * Val.TableTr12Td4.frFR:Rechargez le daemon systemd. 
-	 * Val.TableTr12Td4.enUS:Reload the systemd daemon. 
-	 * 
-	 * Val.TableTr13Td1I:far fa-toggle-off
-	 * Val.TableTr13Td2.frFR:Comment activer le service PostgreSQL? 
-	 * Val.TableTr13Td2.enUS:How do I enable the PostgreSQL service? 
-	 * Val.TableTr13Td3I:far fa-toggle-on
-	 * Val.TableTr13Td4.frFR:Utilisez la commande systemctl enable. 
-	 * Val.TableTr13Td4.enUS:Use the systemctl enable command. 
-	 * 
-	 * Val.TableTr14Td1I:far fa-pause-circle
-	 * Val.TableTr14Td2.frFR:Comment démarrer le service PostgreSQL? 
-	 * Val.TableTr14Td2.enUS:How do I start the PostgreSQL service? 
-	 * Val.TableTr14Td3I:far fa-play-circle
-	 * Val.TableTr14Td4.frFR:Utilisez la commande systemctl start. 
-	 * Val.TableTr14Td4.enUS:Use the systemctl start command. 
-	 * 
-	 * Val.TableTr15Td1I:far fa-clipboard
-	 * Val.TableTr15Td2.frFR:Comment puis-je m'assurer que le service PostgreSQL a démarré avec succès ? 
-	 * Val.TableTr15Td2.enUS:How do I make sure the PostgreSQL service started successfully? 
-	 * Val.TableTr15Td3I:far fa-clipboard-check
-	 * Val.TableTr15Td4.frFR:Utilisez la commande systemctl status. 
-	 * Val.TableTr15Td4.enUS:Use the systemctl status command. 
+	 * Val.TableTr10Td1I:far fa-key
+	 * Val.TableTr10Td2.frFR:Comment créer un magasin de clés Java pour mon clé secret dans les applications Java? 
+	 * Val.TableTr10Td2.enUS:How do I create a Java keystore for my secret key in Java applications? 
+	 * Val.TableTr10Td3I:far fa-terminal
+	 * Val.TableTr10Td4.frFR:Utilisez la commande keytool pour créer un fichier .jceks. 
+	 * Val.TableTr10Td4.enUS:Use the keytool command to create a .jceks file. 
 	 */ 
 	protected void _recapituler3(PageHtml o) {      
 	}

@@ -25,7 +25,7 @@ import org.computate.site.frFR.requete.RequeteSiteFrFR;
  * Sauvegarde: true
  * 
  * UnNom.frFR: un utilisateur du site
- * UnNom.frFR: a site user
+ * UnNom.enUS: a site user
  * NomPluriel.frFR: utilisateurs du site
  * Couleur: green
  * IconeGroupe: regular
@@ -36,11 +36,11 @@ import org.computate.site.frFR.requete.RequeteSiteFrFR;
  * ImageHauteur.frFR: 616
  * ImageLargeur.enUS: 800
  * ImageHauteur.enUS: 616
- */              
+ */             
 public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {  
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {
-		l.add(UtilisateurSite.class.getCanonicalName());
+		l.add(org.computate.site.frFR.utilisateur.UtilisateurSite.class.getCanonicalName());
 		l.add(org.computate.site.enUS.utilisateur.UtilisateurSite.class.getCanonicalName());
 		super._classeNomsCanoniques(l);
 	}
@@ -49,7 +49,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 * HtmlLigne: 2
 	 * Description.frFR: L'identifiant Keycloak pour cet utilisateur. 
 	 * NomAffichage.frFR: utilisateur ID
 	 * NomAffichage.enUS: user ID
@@ -68,17 +67,15 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	protected void _calculInrPks(List<Long> l) {
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	protected void _requeteSite_(Couverture<RequeteSiteFrFR> c) {}
-
 	/**	
 	 * {@inheritDoc}
 	 * description.frFR: Le nom d'utilisateur pour se connecter au site. 
+	 * NomAffichage.frFR: nom d'utilisateur
+	 * NomAffichage.enUS: username
+	 * HtmlLigne: 2
 	 * Indexe: true
 	 * Stocke: true
-	 */ 
+	 */   
 	protected void _utilisateurNom(Couverture<String> c) {
 		String o = requeteSite_.getUtilisateurNom();
 		c.o(o);
@@ -87,15 +84,19 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	/**	
 	 * {@inheritDoc}
 	 * description.frFR: Le mail pour recevoir des courriels. 
+	 * NomAffichage.frFR: mail
+	 * NomAffichage.enUS: email
 	 * Indexe: true
 	 * Stocke: true
-	 */
+	 */  
 	protected void _utilisateurMail(Couverture<String> c) {
 	}
 
 	/**	
 	 * {@inheritDoc}
 	 * description.frFR: Le prénom pour cet utilisateur. 
+	 * NomAffichage.frFR: prénom
+	 * NomAffichage.enUS: first name
 	 * Indexe: true
 	 * Stocke: true
 	 */
@@ -107,6 +108,8 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	/**	
 	 * {@inheritDoc}
 	 * description.frFR: Le nom de famille pour cet utilisateur. 
+	 * NomAffichage.frFR: nom de famille
+	 * NomAffichage.enUS: last name
 	 * Indexe: true
 	 * Stocke: true
 	 */
@@ -118,6 +121,9 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	/**	
 	 * {@inheritDoc}
 	 * description.frFR: Le prénom et nom de famille pour cet utilisateur. 
+	 * NomAffichage.frFR: nom complet
+	 * NomAffichage.enUS: full name
+	 * HtmlLigne: 2
 	 * Indexe: true
 	 * Stocke: true
 	 */
@@ -149,7 +155,7 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 * HtmlLigne: 2
+	 * Definir: true
 	 * NomAffichage.frFR: voir archivé
 	 * NomAffichage.enUS: see archived
 	 * Description.frFR: Filter the search results in the application to show archived records. 
@@ -163,12 +169,12 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	 * {@inheritDoc}
 	 * Indexe: true
 	 * Stocke: true
-	 * HtmlLigne: 2
+	 * Definir: true
 	 * NomAffichage.frFR: voir supprimé
 	 * NomAffichage.enUS: see deleted
 	 * Description.frFR: Filter the search results in the application to show deleted records. 
 	 * Description.enUS: Filtrer les résultats de recherche dans l'application à voir les données supprimées. 
-	 **/         
+	 **/       
 	protected void _voirSupprime(Couverture<Boolean> c) {
 		c.o(false);
 	}
@@ -183,11 +189,19 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	 * NomAffichage.enUS:domain name
 	 * Description.frFR:Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. 
 	 * Description.enUS:A domain name is your website name. A domain name is the address where Internet users can access your website. 
+	 * r: Gérer mon compte
+	 * r.enUS: Manage my account
 	 */   
 	protected void _siteNomDomaine(Couverture<String> c) {
+		c.o("example.com");
 	}
 
 	public void htmlBody() {
 		super.htmlBody();
+		{ e("a").a("href", requeteSite_.getConfigSite_().getAuthUrl(), "/realms/", requeteSite_.getConfigSite_().getAuthRoyaume(), "/account");
+			a("class", "w3-btn w3-round w3-border w3-border-black w3-section w3-green w3-ripple w3-padding w3-margin ");
+			f();
+			sx("Gérer mon compte");
+		} g("a");
 	}  
 }

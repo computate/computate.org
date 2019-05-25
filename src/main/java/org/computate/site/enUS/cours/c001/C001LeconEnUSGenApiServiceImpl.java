@@ -169,22 +169,6 @@ public class C001LeconEnUSGenApiServiceImpl implements C001LeconEnUSGenApiServic
 
 	public String varIndexeC001Lecon(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -223,6 +207,24 @@ public class C001LeconEnUSGenApiServiceImpl implements C001LeconEnUSGenApiServic
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "leconCree":
 				return "leconCree_indexed_date";
 			default:
@@ -406,6 +408,7 @@ public class C001LeconEnUSGenApiServiceImpl implements C001LeconEnUSGenApiServic
 									utilisateurSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
 									utilisateurSite.setUtilisateurId(principalJson.getString("sub"));
 									utilisateurSite.initLoinPourClasse(requeteSite);
+									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {

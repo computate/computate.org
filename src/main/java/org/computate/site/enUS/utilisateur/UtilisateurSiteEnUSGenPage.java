@@ -3,11 +3,11 @@ package org.computate.site.enUS.utilisateur;
 import java.lang.String;
 import java.util.List;
 import java.lang.Long;
-import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import java.lang.Boolean;
 import org.computate.site.frFR.cluster.ClusterFrFRPage;
 import org.computate.site.enUS.cluster.ClusterEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
+import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import java.io.IOException;
@@ -49,9 +49,9 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(utilisateurSite != null)
-			c.o("");
+			c.o("a site user");
 		else if(listeUtilisateurSite == null || listeUtilisateurSite.size() == 0)
-			c.o("");
+			c.o("no site user found");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -66,7 +66,7 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 		if(utilisateurSite != null)
 			c.o("");
 		else if(listeUtilisateurSite == null || listeUtilisateurSite.size() == 0)
-			c.o("");
+			c.o("no site user found");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -103,7 +103,7 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 	}
 
 	@Override public void htmlScriptsUtilisateurSiteEnUSGenPage() {
-		e("script").a("src", "/static/js/UtilisateurSiteEnUSPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/UtilisateurSiteEnUSPage.js").f().g("script");
 	}
 
 	protected void _pageUriUtilisateurSite(Couverture<String> c) {
@@ -114,15 +114,222 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 	}
 
 	public void htmlFormPageUtilisateurSite(UtilisateurSite o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("username").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNom()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("full name").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNomComplet()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "siteNomDomaineForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_siteNomDomaine").a("class", "").f().sx("domain name").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "domain name")
+						.a("class", "setSiteNomDomaine w3-input w3-border ")
+						.a("name", "setSiteNomDomaine")
+						.a("id", "Page_siteNomDomaine")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#siteNomDomaineForm')); ")
+						.a("value", o.strSiteNomDomaine())
+					.fg();
+
+				} g("form");
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormPOSTUtilisateurSite(UtilisateurSite o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("username").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNom()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("full name").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNomComplet()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_siteNomDomaine").a("class", "").f().sx("domain name").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "domain name")
+					.a("class", "valeurSiteNomDomaine w3-input w3-border ")
+					.a("name", "siteNomDomaine")
+					.a("id", "POST_siteNomDomaine")
+					.a("value", o.strSiteNomDomaine())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormPATCHUtilisateurSite(UtilisateurSite o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("username").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNom()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("full name").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNomComplet()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_siteNomDomaine").a("class", "").f().sx("domain name").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "domain name")
+					.a("class", "setSiteNomDomaine w3-input w3-border ")
+					.a("name", "setSiteNomDomaine")
+					.a("id", "PATCH_siteNomDomaine")
+					.a("value", o.strSiteNomDomaine())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormRechercheUtilisateurSite(UtilisateurSite o) {
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("created").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modified").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("username").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNom()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("full name").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strUtilisateurNomComplet()).g("span");
+				} g("div");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_siteNomDomaine").a("class", "").f().sx("domain name").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "domain name")
+					.a("class", "valeurSiteNomDomaine w3-input w3-border ")
+					.a("name", "siteNomDomaine")
+					.a("id", "Recherche_siteNomDomaine")
+					.a("value", o.strSiteNomDomaine())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	@Override public void htmlBodyUtilisateurSiteEnUSGenPage() {
@@ -130,30 +337,30 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeUtilisateurSite == null || listeUtilisateurSite.size() == 0) {
-			// contexteAucunNomTrouve : 
+			// contexteAucunNomTrouve : no site user found
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("no site user found").g("span");
 			} g("h1");
 		} else if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
-			// contexteUnNom : 
+			// contexteUnNom : a site user
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
 						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-					e("span").a("class", " ").f().sx("").g("span");
+					e("span").a("class", " ").f().sx("a site user").g("span");
 				} g("h1");
 				UtilisateurSite o = listeUtilisateurSite.get(0);
 			}
 		} else {
-			// contexteNomPluriel : plusiers 
+			// contexteNomPluriel : plusiers site users
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("site users").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -177,7 +384,7 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 		if(listeUtilisateurSite != null && listeUtilisateurSite.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			UtilisateurSite o = listeUtilisateurSite.first();
 
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+			{ e("div").a("class", "").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("action", "/api/site/utilisateur").a("id", "UtilisateurSiteForm").a("style", "display: inline-block; ").f();
@@ -196,19 +403,23 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 
 			} g("div");
 		}
+		htmlBodyFormsUtilisateurSiteEnUSGenPage();
+	}
+
+	public void htmlBodyFormsUtilisateurSiteEnUSGenPage() {
 		e("div").f();
 
 
 		e("button")
 			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 			.a("onclick", "$('#patchUtilisateurSiteModale').show(); ")
-			.f().sx("Modifier des null")
+			.f().sx("Modifier des site users")
 		.g("button");
 		{ e("div").a("id", "patchUtilisateurSiteModale").a("class", "w3-modal ").f();
 			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
 				{ e("header").a("class", "w3-container w3-green ").f();
 					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchUtilisateurSiteModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Modifier des null").g("h2");
+					e("h2").a("class", "").f().sx("Modifier des site users").g("h2");
 				} g("header");
 				{ e("div").a("class", "w3-container ").f();
 					UtilisateurSite o = new UtilisateurSite();
@@ -220,7 +431,7 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 					e("button")
 						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 						.a("onclick", "rechercheUtilisateurSite($('#patchUtilisateurSiteFormFiltres')); ")
-						.f().sx("Rechercher des null")
+						.f().sx("Rechercher des a site user")
 					.g("button");
 
 
@@ -231,7 +442,7 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 					e("button")
 						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
 						.a("onclick", "patchUtilisateurSite($('#patchUtilisateurSiteFormFiltres'), $('#patchUtilisateurSiteFormValeurs')); ")
-						.f().sx("Modifier des null")
+						.f().sx("Modifier des site users")
 					.g("button");
 
 				} g("div");

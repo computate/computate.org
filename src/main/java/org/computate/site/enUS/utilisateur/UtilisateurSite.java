@@ -10,7 +10,7 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 
 	@Override()
 	protected void  _classeNomsCanoniques(List<String> l) {
-		l.add(UtilisateurSite.class.getCanonicalName());
+		l.add(org.computate.site.frFR.utilisateur.UtilisateurSite.class.getCanonicalName());
 		l.add(org.computate.site.enUS.utilisateur.UtilisateurSite.class.getCanonicalName());
 		super._classeNomsCanoniques(l);
 	}
@@ -22,8 +22,6 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 
 	protected void _calculInrPks(List<Long> l) {
 	}
-
-	protected void _requeteSite_(Couverture<RequeteSiteEnUS> c) {}
 
 	protected void _utilisateurNom(Couverture<String> c) {
 		String o = requeteSite_.getUtilisateurNom();
@@ -64,9 +62,15 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	}
 
 	protected void _siteNomDomaine(Couverture<String> c) {
+		c.o("example.com");
 	}
 
 	public void  htmlBody() {
 		super.htmlBody();
+		{ e("a").a("href", requeteSite_.getConfigSite_().getAuthUrl(), "/realms/", requeteSite_.getConfigSite_().getAuthRoyaume(), "/account");
+			a("class", "w3-btn w3-round w3-border w3-border-black w3-section w3-green w3-ripple w3-padding w3-margin ");
+			f();
+			sx("Gérer mon compte");
+		} g("a");
 	}
 }

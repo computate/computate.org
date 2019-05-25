@@ -30,7 +30,7 @@ public class SiteIndexer {
 		C001L005InstallerMaven.indexer();
 		C001L006InstallerEclipse.indexer();
 		C001L007InstallerPostgresql.indexer();
-//		C001L008CreerCertificat.indexer();
+		C001L008CreerCertificat.indexer();
 //		C001L009InstallerKeycloak.indexer();
 	} 
 }

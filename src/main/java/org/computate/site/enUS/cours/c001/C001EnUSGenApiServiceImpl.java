@@ -173,18 +173,20 @@ public class C001EnUSGenApiServiceImpl implements C001EnUSGenApiService {
 				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "archive":
+				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -404,6 +406,7 @@ public class C001EnUSGenApiServiceImpl implements C001EnUSGenApiService {
 									utilisateurSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
 									utilisateurSite.setUtilisateurId(principalJson.getString("sub"));
 									utilisateurSite.initLoinPourClasse(requeteSite);
+									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {

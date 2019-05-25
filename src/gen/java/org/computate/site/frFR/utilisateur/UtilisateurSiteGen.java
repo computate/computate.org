@@ -282,33 +282,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		}
 	}
 
-	//////////////////
-	// requeteSite_ //
-	//////////////////
-
-	/**	L'entité « requeteSite_ »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected RequeteSiteFrFR requeteSite_;
-	public Couverture<RequeteSiteFrFR> requeteSite_Couverture = new Couverture<RequeteSiteFrFR>().p(this).c(RequeteSiteFrFR.class).var("requeteSite_").o(requeteSite_);
-
-	/**	<br/>L'entité « requeteSite_ »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.utilisateur.UtilisateurSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:requeteSite_">Trouver l'entité requeteSite_ dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _requeteSite_(Couverture<RequeteSiteFrFR> c);
-
-	public RequeteSiteFrFR getRequeteSite_() {
-		return requeteSite_;
-	}
-
-	public void setRequeteSite_(RequeteSiteFrFR requeteSite_) {
-		this.requeteSite_ = requeteSite_;
-		this.requeteSite_Couverture.dejaInitialise = true;
-	}
-
 	////////////////////
 	// utilisateurNom //
 	////////////////////
@@ -354,7 +327,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageUtilisateurNom() {
-		return null;
+		return "nom d'utilisateur";
 	}
 
 	public String htmTooltipUtilisateurNom() {
@@ -451,7 +424,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageUtilisateurMail() {
-		return null;
+		return "mail";
 	}
 
 	public String htmTooltipUtilisateurMail() {
@@ -548,7 +521,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageUtilisateurPrenom() {
-		return null;
+		return "prénom";
 	}
 
 	public String htmTooltipUtilisateurPrenom() {
@@ -645,7 +618,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageUtilisateurNomFamille() {
-		return null;
+		return "nom de famille";
 	}
 
 	public String htmTooltipUtilisateurNomFamille() {
@@ -742,7 +715,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 
 	public String nomAffichageUtilisateurNomComplet() {
-		return null;
+		return "nom complet";
 	}
 
 	public String htmTooltipUtilisateurNomComplet() {
@@ -1369,8 +1342,6 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 				return oUtilisateurSite.utilisateurId;
 			case "calculInrPks":
 				return oUtilisateurSite.calculInrPks;
-			case "requeteSite_":
-				return oUtilisateurSite.requeteSite_;
 			case "utilisateurNom":
 				return oUtilisateurSite.utilisateurNom;
 			case "utilisateurMail":
@@ -1442,6 +1413,14 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	}
 	public Object definirUtilisateurSite(String var, String val) {
 		switch(var) {
+			case "voirArchive":
+				setVoirArchive(val);
+				sauvegardesUtilisateurSite.add(var);
+				return val;
+			case "voirSupprime":
+				setVoirSupprime(val);
+				sauvegardesUtilisateurSite.add(var);
+				return val;
 			case "siteNomDomaine":
 				setSiteNomDomaine(val);
 				sauvegardesUtilisateurSite.add(var);
@@ -1790,7 +1769,7 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), siteNomDomaine);
+		return Objects.hash(super.hashCode(), voirArchive, voirSupprime, siteNomDomaine);
 	}
 
 	////////////
@@ -1804,6 +1783,8 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 			return false;
 		UtilisateurSite that = (UtilisateurSite)o;
 		return super.equals(o)
+				&& Objects.equals( voirArchive, that.voirArchive )
+				&& Objects.equals( voirSupprime, that.voirSupprime )
 				&& Objects.equals( siteNomDomaine, that.siteNomDomaine );
 	}
 
@@ -1815,7 +1796,9 @@ public abstract class UtilisateurSiteGen<DEV> extends Cluster {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("UtilisateurSite {");
-		sb.append( "siteNomDomaine: \"" ).append(siteNomDomaine).append( "\"" );
+		sb.append( "voirArchive: " ).append(voirArchive);
+		sb.append( ", voirSupprime: " ).append(voirSupprime);
+		sb.append( ", siteNomDomaine: \"" ).append(siteNomDomaine).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

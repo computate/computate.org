@@ -9,6 +9,7 @@ import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.apache.commons.text.StringEscapeUtils;
+import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.cluster.Cluster;
 
@@ -94,6 +95,62 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 		return (C001EnUSGenPage)this;
 	}
 
+	/////////////////
+	// pageUriC001 //
+	/////////////////
+
+	/**	L'entité « pageUriC001 »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String pageUriC001;
+	public Couverture<String> pageUriC001Couverture = new Couverture<String>().p(this).c(String.class).var("pageUriC001").o(pageUriC001);
+
+	/**	<br/>L'entité « pageUriC001 »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.C001EnUSGenPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:pageUriC001">Trouver l'entité pageUriC001 dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _pageUriC001(Couverture<String> c);
+
+	public String getPageUriC001() {
+		return pageUriC001;
+	}
+
+	public void setPageUriC001(String pageUriC001) {
+		this.pageUriC001 = pageUriC001;
+		this.pageUriC001Couverture.dejaInitialise = true;
+	}
+	protected C001EnUSGenPage pageUriC001Init() {
+		if(!pageUriC001Couverture.dejaInitialise) {
+			_pageUriC001(pageUriC001Couverture);
+			if(pageUriC001 == null)
+				setPageUriC001(pageUriC001Couverture.o);
+		}
+		pageUriC001Couverture.dejaInitialise(true);
+		return (C001EnUSGenPage)this;
+	}
+
+	public String solrPageUriC001() {
+		return pageUriC001;
+	}
+
+	public String strPageUriC001() {
+		return pageUriC001 == null ? "" : pageUriC001;
+	}
+
+	public String nomAffichagePageUriC001() {
+		return null;
+	}
+
+	public String htmTooltipPageUriC001() {
+		return null;
+	}
+
+	public String htmPageUriC001() {
+		return pageUriC001 == null ? "" : StringEscapeUtils.escapeHtml4(strPageUriC001());
+	}
+
 	//////////////
 	// initLoin //
 	//////////////
@@ -117,6 +174,7 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 	public void initC001EnUSGenPage() {
 		listeC001Init();
 		c001Init();
+		pageUriC001Init();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -163,6 +221,8 @@ public abstract class C001EnUSGenPageGen<DEV> extends CoursEnUSPage {
 				return oC001EnUSGenPage.listeC001;
 			case "c001":
 				return oC001EnUSGenPage.c001;
+			case "pageUriC001":
+				return oC001EnUSGenPage.pageUriC001;
 			default:
 				return super.obtenirCoursEnUSPage(var);
 		}

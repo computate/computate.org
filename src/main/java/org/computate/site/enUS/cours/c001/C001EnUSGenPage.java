@@ -48,7 +48,7 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 		if(c001 != null)
 			c.o("Build modern asynchronous web applications with the best open source software. ");
 		else if(listeC001 == null || listeC001.size() == 0)
-			c.o("no course #1 found");
+			c.o("");
 		else
 			c.o("Build modern asynchronous web applications with the best open source software. ");
 	}
@@ -65,7 +65,7 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 		if(c001 != null)
 			c.o("Build modern asynchronous web applications with the best open source software. ");
 		else if(listeC001 == null || listeC001.size() == 0)
-			c.o("no course #1 found");
+			c.o("");
 		else
 			c.o("Build modern asynchronous web applications with the best open source software. ");
 	}
@@ -103,6 +103,10 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 		e("script").a("src", "/static/js/C001EnUSPage.js").f().g("script");
 	}
 
+	protected void _pageUriC001(Couverture<String> c) {
+			c.o("/enUS/course/001");
+	}
+
 	@Override public void htmlScriptC001EnUSGenPage() {
 	}
 
@@ -123,21 +127,22 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeC001 == null || listeC001.size() == 0) {
-			//no course #1 found
+			// contexteAucunNomTrouve : 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("no course #1 found").g("span");
+				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
-		} else if(listeC001 != null && listeC001.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
-			// a course #1
+		} else if(listeC001 != null && listeC001.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
+			// contexteUnNom : 
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
 						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx(pageH1).g("span");
 				} g("h1");
+				C001 o = listeC001.get(0);
 			}
 			if(pageH2 != null) {
 				{ e("h2").f();
@@ -150,12 +155,12 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 				} g("h3");
 			}
 		} else {
-			// plusiers course #1s
+			// contexteNomPluriel : plusiers 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("course #1s").g("span");
+				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -203,7 +208,6 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 			{ e("form").a("id", "C001Form").a("style", "display: inline-block; ").a("method", "GET").a("action", "/enUS/course/001").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_enUS')); return false; ").f();
 				{ e("div").a("class", "w3-bar ").f();
 					e("input").a("type", "text")
-						.a("placeholder", "")
 						.a("title", "")
 						.a("class", "recherchePageRecherche_enUS w3-input w3-border w3-bar-item ")
 						.a("name", "pageRecherche_enUS")
@@ -239,13 +243,13 @@ public class C001EnUSGenPage extends C001EnUSGenPageGen<CoursEnUSPage> {
 			} g("form");
 		} g("div");
 
-		if(listeC001 != null && listeC001.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeC001 != null && listeC001.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			C001 o = listeC001.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("id", "C001Form").a("style", "display: inline-block; ").f();
+					{ e("form").a("action", "/api/cours/c001").a("id", "C001Form").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")

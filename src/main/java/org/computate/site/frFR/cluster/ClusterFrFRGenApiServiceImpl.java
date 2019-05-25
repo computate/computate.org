@@ -225,25 +225,13 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 					w.s(", ");
 				w.l("{");
 
-				entiteValeur = o.getPk();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getArchive();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
-
 				entiteValeur = o.getSupprime();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
+
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
 
 				entiteValeur = o.getClasseNomCanonique();
 				if(entiteValeur != null)
@@ -269,6 +257,18 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 					}
 					w.l("]");
 				}
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
 
 				w.tl(2, "}");
 			}
@@ -386,6 +386,14 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 				Set<String> entiteVars = jsonObject.fieldNames();
 				for(String entiteVar : entiteVars) {
 					switch(entiteVar) {
+					case "cree":
+						postSql.append(SiteContexteFrFR.SQL_setD);
+						postSqlParams.addAll(Arrays.asList("cree", jsonObject.getInstant(entiteVar), pk));
+						break;
+					case "modifie":
+						postSql.append(SiteContexteFrFR.SQL_setD);
+						postSqlParams.addAll(Arrays.asList("modifie", jsonObject.getInstant(entiteVar), pk));
+						break;
 					case "archive":
 						postSql.append(SiteContexteFrFR.SQL_setD);
 						postSqlParams.addAll(Arrays.asList("archive", jsonObject.getBoolean(entiteVar), pk));
@@ -511,15 +519,25 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.frFR.cluster.Cluster"));
 			for(String methodeNom : methodeNoms) {
 				switch(methodeNom) {
-					case "setArchive":
-						o2.setArchive(requeteJson.getBoolean(methodeNom));
-						patchSql.append(SiteContexteFrFR.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("archive", o2.getArchive(), pk));
-						break;
 					case "setSupprime":
 						o2.setSupprime(requeteJson.getBoolean(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
 						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
+						break;
+					case "setCree":
+						o2.setCree(requeteJson.getInstant(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("cree", o2.getCree(), pk));
+						break;
+					case "setModifie":
+						o2.setModifie(requeteJson.getInstant(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("modifie", o2.getModifie(), pk));
+						break;
+					case "setArchive":
+						o2.setArchive(requeteJson.getBoolean(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("archive", o2.getArchive(), pk));
 						break;
 				}
 			}
@@ -629,25 +647,13 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 
 				w.l("{");
 
-				entiteValeur = o.getPk();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getArchive();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
-
 				entiteValeur = o.getSupprime();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
+
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
 
 				entiteValeur = o.getClasseNomCanonique();
 				if(entiteValeur != null)
@@ -673,6 +679,18 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 					}
 					w.l("]");
 				}
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
 
 				w.l("}");
 			}
@@ -767,24 +785,24 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 
 	public String varIndexeCluster(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "archive":
-				return "archive_indexed_boolean";
 			case "supprime":
 				return "supprime_indexed_boolean";
+			case "id":
+				return "id_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
 			case "classeNomsCanoniques":
 				return "classeNomsCanoniques_indexed_strings";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

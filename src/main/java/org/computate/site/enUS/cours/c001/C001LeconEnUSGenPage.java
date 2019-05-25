@@ -47,9 +47,9 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(c001Lecon != null)
-			c.o("a lesson");
+			c.o("");
 		else if(listeC001Lecon == null || listeC001Lecon.size() == 0)
-			c.o("no lesson found");
+			c.o("");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -64,7 +64,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 		if(c001Lecon != null)
 			c.o("");
 		else if(listeC001Lecon == null || listeC001Lecon.size() == 0)
-			c.o("no lesson found");
+			c.o("");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -93,7 +93,7 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 	}
 
 	@Override public void htmlScriptsC001LeconEnUSGenPage() {
-		e("script").a("src", "/static/js/C001LeconEnUSGenPage.js").f().g("script");
+		e("script").a("src", "/static/js/C001LeconEnUSPage.js").f().g("script");
 	}
 
 	@Override public void htmlScriptC001LeconEnUSGenPage() {
@@ -116,21 +116,22 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeC001Lecon == null || listeC001Lecon.size() == 0) {
-			//no lesson found
+			// contexteAucunNomTrouve : 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("no lesson found").g("span");
+				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
-		} else if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
-			// a lesson
+		} else if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
+			// contexteUnNom : 
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
 						e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 					e("span").a("class", " ").f().sx(pageH1).g("span");
 				} g("h1");
+				C001Lecon o = listeC001Lecon.get(0);
 			}
 			if(pageH2 != null) {
 				{ e("h2").f();
@@ -143,12 +144,12 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 				} g("h3");
 			}
 		} else {
-			// plusiers lessons
+			// contexteNomPluriel : plusiers 
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("lessons").g("span");
+				e("span").a("class", " ").f().sx("").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -196,7 +197,6 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 			{ e("form").a("id", "C001LeconForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/enUS/course/001/lessons").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_enUS')); return false; ").f();
 				{ e("div").a("class", "w3-bar ").f();
 					e("input").a("type", "text")
-						.a("placeholder", "")
 						.a("title", "")
 						.a("class", "recherchePageRecherche_enUS w3-input w3-border w3-bar-item ")
 						.a("name", "pageRecherche_enUS")
@@ -232,13 +232,13 @@ public class C001LeconEnUSGenPage extends C001LeconEnUSGenPageGen<C001EnUSPage> 
 			} g("form");
 		} g("div");
 
-		if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q") == null && params.getJsonObject("query").getJsonArray("fq").size() == 0) {
+		if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			C001Lecon o = listeC001Lecon.first();
 
 			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("id", "C001LeconForm").a("style", "display: inline-block; ").f();
+					{ e("form").a("action", "").a("id", "C001LeconForm").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")

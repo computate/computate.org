@@ -342,6 +342,14 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 				Set<String> entiteVars = jsonObject.fieldNames();
 				for(String entiteVar : entiteVars) {
 					switch(entiteVar) {
+					case "cree":
+						postSql.append(SiteContexteEnUS.SQL_setD);
+						postSqlParams.addAll(Arrays.asList("cree", jsonObject.getInstant(entiteVar), pk));
+						break;
+					case "modifie":
+						postSql.append(SiteContexteEnUS.SQL_setD);
+						postSqlParams.addAll(Arrays.asList("modifie", jsonObject.getInstant(entiteVar), pk));
+						break;
 					case "archive":
 						postSql.append(SiteContexteEnUS.SQL_setD);
 						postSqlParams.addAll(Arrays.asList("archive", jsonObject.getBoolean(entiteVar), pk));
@@ -668,24 +676,24 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 
 	public String varIndexeCluster(String entiteVar) {
 		switch(entiteVar) {
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "archive":
-				return "archive_indexed_boolean";
 			case "supprime":
 				return "supprime_indexed_boolean";
+			case "id":
+				return "id_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
 			case "classeNomsCanoniques":
 				return "classeNomsCanoniques_indexed_strings";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

@@ -33,7 +33,7 @@ import org.computate.site.frFR.page.parti.PagePart;
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
-*/  
+*/   
 public class Article extends ArticleGen<Cluster> { 
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {

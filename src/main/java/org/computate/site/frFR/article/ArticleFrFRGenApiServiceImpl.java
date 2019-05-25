@@ -229,10 +229,6 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
 
-				entiteValeur = o.getUtilisateurId();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
-
 				entiteValeur = o.getCree();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
@@ -240,6 +236,22 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 				entiteValeur = o.getModifie();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
+
+				entiteValeur = o.getSupprime();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
+
+				entiteValeur = o.getClasseNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClasseNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
 
 				{
 					List<String> entiteValeurs = o.getClasseNomsCanoniques();
@@ -257,14 +269,6 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 					}
 					w.l("]");
 				}
-
-				entiteValeur = o.getClasseNomCanonique();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClasseNomSimple();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
 
 				entiteValeur = o.getEstCours();
 				if(entiteValeur != null)
@@ -687,10 +691,6 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
 
-				entiteValeur = o.getUtilisateurId();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"utilisateurId\": ", w.qjs(entiteValeur));
-
 				entiteValeur = o.getCree();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
@@ -698,6 +698,22 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 				entiteValeur = o.getModifie();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
+
+				entiteValeur = o.getSupprime();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
+
+				entiteValeur = o.getClasseNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClasseNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
 
 				{
 					List<String> entiteValeurs = o.getClasseNomsCanoniques();
@@ -715,14 +731,6 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 					}
 					w.l("]");
 				}
-
-				entiteValeur = o.getClasseNomCanonique();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClasseNomSimple();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
 
 				entiteValeur = o.getEstCours();
 				if(entiteValeur != null)
@@ -897,18 +905,20 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 				return "pk_indexed_long";
 			case "id":
 				return "id_indexed_string";
-			case "utilisateurId":
-				return "utilisateurId_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "archive":
+				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -1128,6 +1138,7 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 									utilisateurSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
 									utilisateurSite.setUtilisateurId(principalJson.getString("sub"));
 									utilisateurSite.initLoinPourClasse(requeteSite);
+									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {

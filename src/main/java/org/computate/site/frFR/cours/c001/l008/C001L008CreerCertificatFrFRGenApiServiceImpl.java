@@ -167,8 +167,6 @@ public class C001L008CreerCertificatFrFRGenApiServiceImpl implements C001L008Cre
 
 	public String varIndexeC001L008CreerCertificat(String entiteVar) {
 		switch(entiteVar) {
-			case "leconCree":
-				return "leconCree_indexed_date";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -225,6 +223,8 @@ public class C001L008CreerCertificatFrFRGenApiServiceImpl implements C001L008Cre
 				return "classeNomSimple_indexed_string";
 			case "classeNomsCanoniques":
 				return "classeNomsCanoniques_indexed_strings";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

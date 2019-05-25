@@ -114,54 +114,6 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cluster").a("id", "archiveForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "archive")
-						.a("id", "Page_archive")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setArchive")
-						.a("name", "setArchive")
-						.a("id", "Page_archive")
-						.a("onchange", "patchCluster($('#ClusterForm'), $('#archiveForm')); ")
-						;
-						if(o.getArchive() != null && o.getArchive())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_archive").a("class", "").f().sx("archivé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cluster").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "supprime")
-						.a("id", "Page_supprime")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setSupprime")
-						.a("name", "setSupprime")
-						.a("id", "Page_supprime")
-						.a("onchange", "patchCluster($('#ClusterForm'), $('#supprimeForm')); ")
-						;
-						if(o.getSupprime() != null && o.getSupprime())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("supprimé").g("label");
-				} g("form");
-			} g("div");
 		} g("div");
 	}
 
@@ -182,48 +134,6 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 	}
@@ -246,48 +156,6 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "PATCH_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setArchive")
-					.a("name", "setArchive")
-					.a("id", "PATCH_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "PATCH_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setSupprime")
-					.a("name", "setSupprime")
-					.a("id", "PATCH_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
 		} g("div");
 	}
 
@@ -308,48 +176,6 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 	}
