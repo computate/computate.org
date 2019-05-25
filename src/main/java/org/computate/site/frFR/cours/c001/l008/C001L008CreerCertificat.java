@@ -196,7 +196,7 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.H3Span.enUS:Where do I put the certificates, keys and keystores for my site? 
 	 * Val.H4I:far fa-folder-tree
 	 * Val.H4Span.frFR:Créez un répertoire certbot dans /srv. 
-	 * Val.H4Span.enUS:Create a pgsql directory in /srv. 
+	 * Val.H4Span.enUS:Create a certbot directory in /srv. 
 	 * Val.PreSpan01:sudo
 	 * Val.PreSpan02: install
 	 * Val.PreSpan03: -d
@@ -228,8 +228,8 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.Ol2Li07Dd.frFR: : L'utilisateur actuel à rendre le propriétaire du groupe du répertoire. 
 	 * Val.Ol2Li07Dd.enUS:: The current user to make the group owner of the directory. 
 	 * Val.Ol2Li08Dt:-m
-	 * Val.Ol2Li08Dd.frFR:-m : Définir la propriété du groupe sur le répertoire (super-utilisateur uniquement). 
-	 * Val.Ol2Li08Dd.enUS:-m: Set group ownership on the directory (super-user only). 
+	 * Val.Ol2Li08Dd.frFR:-m : Définir les droits sur le répertoire (super-utilisateur uniquement). 
+	 * Val.Ol2Li08Dd.enUS:-m: Set permissions on the directory (super-user only). 
 	 * Val.Ol2Li09Dt:700
 	 * Val.Ol2Li09Dd.frFR: : Accordez des autorisations de lecture, d'écriture et d'exécution à l'utilisateur du répertoire uniquement. 
 	 * Val.Ol2Li09Dd.enUS:: Give read, write and execute permissions to only the user of the directory. 
@@ -272,8 +272,8 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.Ol2Li03Dd.frFR: : Obtenez des certificats de manière interactive ou à l'aide d'un script shell. 
 	 * Val.Ol2Li03Dd.enUS:: Obtain certificates interactively, or using shell script. 
 	 * Val.Ol2Li04Dt:--preferred-challenges dns
-	 * Val.Ol2Li04Dd.frFR: : Obtenir ou renouveler un certificat, mais ne l'installez pas. 
-	 * Val.Ol2Li04Dd.enUS:: Obtain or renew a certificate, but do not install it. 
+	 * Val.Ol2Li04Dd.frFR: : Utilisez les défis d'enregistrement DNS pour prouver la propriété de votre domaine. 
+	 * Val.Ol2Li04Dd.enUS:: Use DNS record challenges to prove ownership of your domain. 
 	 * Val.Ol2Li05Dt:--server https://acme-v02.api.letsencrypt.org/directory
 	 * Val.Ol2Li05Dd.frFR: : Spécifiez une version plus récente d'un serveur letsencrypt qui autorise les domaines wildcard dans les certificats. 
 	 * Val.Ol2Li05Dd.enUS:: Specify a more recent version of a letsencrypt server that allows wildcard domains in certificates. 
@@ -452,7 +452,7 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.Ol3Li01Dt:curl
 	 * Val.Ol3Li02Dt:https://letsencrypt.org/certs/letsencryptauthorityx3.pem.txt
 	 * Val.Ol3Li02Dd.frFR: : L'URL du deuxième certificat d'autorité letsencrypt. 
-	 * Val.Ol3Li02Dd.enUS:: The URL to the first letsencrypt certificate authority. 
+	 * Val.Ol3Li02Dd.enUS:: The URL to the second letsencrypt certificate authority. 
 	 * Val.Ol3Li03Dt:-o /srv/certbot/ca2.crt
 	 * Val.Ol3Li03Dd.frFR: : Ecrit la sortie dans le fichier ca2.crt au lieu de stdout. 
 	 * Val.Ol3Li03Dd.enUS:: Write output to the ca2.crt file instead of stdout. 
@@ -680,7 +680,7 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.TableTr03Td2.enUS:Where do I put the certificates, keys and keystores for my site? 
 	 * Val.TableTr03Td3I:far fa-folder-tree
 	 * Val.TableTr03Td4.frFR:Créez un répertoire certbot dans /srv. 
-	 * Val.TableTr03Td4.enUS:Create a pgsql directory in /srv. 
+	 * Val.TableTr03Td4.enUS:Create a certbot directory in /srv. 
 	 * 
 	 * Val.TableTr04Td1I:far fa-file-certificate
 	 * Val.TableTr04Td2.frFR:Comment puis-je obtenir mon certificat ? 
