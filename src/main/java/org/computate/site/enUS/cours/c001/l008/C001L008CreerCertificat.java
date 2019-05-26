@@ -87,6 +87,34 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	protected void _moi(PageHtml o) {
 	}
 
+	protected void _personnaliser(PageHtml o) {
+	}
+
+	@Override()
+	public void  htmlBodyPersonnaliser(PageHtml o) {
+		super.htmlBodyPersonnaliser(o);
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "siteNomDomaineForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_siteNomDomaine").a("class", "").f().sx("domain name").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "domain name")
+						.a("title", "A domain name is your website name. A domain name is the address where Internet users can access your website. ")
+						.a("class", "setSiteNomDomaine w3-input w3-border ")
+						.a("name", "setSiteNomDomaine")
+						.a("id", "Page_siteNomDomaine")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#siteNomDomaineForm')); ")
+						.a("value", utilisateurSite.strSiteNomDomaine())
+					.fg();
+
+				} g("form");
+			} g("div");
+		} g("div");
+	}
+
 	protected void _questionDependences(PageHtml o) {
 	}
 

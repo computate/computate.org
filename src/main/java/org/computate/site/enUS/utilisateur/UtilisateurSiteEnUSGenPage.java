@@ -161,6 +161,7 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 						.a("class", "setSiteNomDomaine w3-input w3-border ")
 						.a("name", "setSiteNomDomaine")
 						.a("id", "Page_siteNomDomaine")
+						.a("onclick", "enleverLueur($(this)); ")
 						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#siteNomDomaineForm')); ")
 						.a("value", o.strSiteNomDomaine())
 					.fg();

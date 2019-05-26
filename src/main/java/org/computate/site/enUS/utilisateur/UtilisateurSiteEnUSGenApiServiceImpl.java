@@ -300,12 +300,12 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 		}
 	}
 
-	public Future<JsonObject> indexerPATCHUtilisateurSite(UtilisateurSite o) {
-		Future<JsonObject> future = Future.future();
+	public Future<Void> indexerPATCHUtilisateurSite(UtilisateurSite o) {
+		Future<Void> future = Future.future();
 		try {
 			o.initLoinPourClasse(o.getRequeteSite_());
 			o.indexerPourClasse();
-				future.complete(new JsonObject());
+				future.complete();
 			return future;
 		} catch(Exception e) {
 			return Future.failedFuture(e);
@@ -318,6 +318,7 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 			RequeteSiteEnUS requeteSite = listeUtilisateurSite.getRequeteSite_();
 			ToutEcrivain w = ToutEcrivain.creer(listeUtilisateurSite.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
+			buffer.appendString("{}");
 			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));

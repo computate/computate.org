@@ -174,7 +174,7 @@ public class UtilisateurSite extends UtilisateurSiteGen<Cluster> {
 	 * NomAffichage.enUS: see deleted
 	 * Description.frFR: Filter the search results in the application to show deleted records. 
 	 * Description.enUS: Filtrer les résultats de recherche dans l'application à voir les données supprimées. 
-	 **/       
+	 **/ 
 	protected void _voirSupprime(Couverture<Boolean> c) {
 		c.o(false);
 	}

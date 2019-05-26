@@ -206,26 +206,26 @@ public class C001L008CreerCertificatEnUSGenApiServiceImpl implements C001L008Cre
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "archive":
-				return "archive_indexed_boolean";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			case "supprime":
 				return "supprime_indexed_boolean";
+			case "id":
+				return "id_indexed_string";
+			case "pk":
+				return "pk_indexed_long";
 			case "classeNomCanonique":
 				return "classeNomCanonique_indexed_string";
 			case "classeNomSimple":
 				return "classeNomSimple_indexed_string";
 			case "classeNomsCanoniques":
 				return "classeNomsCanoniques_indexed_strings";
-			case "leconCree":
-				return "leconCree_indexed_date";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -377,6 +377,10 @@ public class C001L008CreerCertificatEnUSGenApiServiceImpl implements C001L008Cre
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -409,6 +413,10 @@ public class C001L008CreerCertificatEnUSGenApiServiceImpl implements C001L008Cre
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));

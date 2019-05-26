@@ -96,7 +96,7 @@ public class C001L008CreerCertificatFrFRGenPage extends C001L008CreerCertificatF
 	}
 
 	@Override public void htmlScriptsC001L008CreerCertificatFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L008CreerCertificatFrFRPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L008CreerCertificatFrFRPage.js").f().g("script");
 	}
 
 

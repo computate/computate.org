@@ -110,6 +110,52 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		moi.htmlApres();
 	}
 
+	///////////////////
+	// personnaliser //
+	///////////////////
+
+	/**	L'entité « personnaliser »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml personnaliser = new PageHtml();
+	public Couverture<PageHtml> personnaliserCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("personnaliser").o(personnaliser);
+
+	/**	<br/>L'entité « personnaliser »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:personnaliser">Trouver l'entité personnaliser dans Solr</a>
+	 * <br/>
+	 * @param personnaliser est l'entité déjà construit. 
+	 **/
+	protected abstract void _personnaliser(PageHtml o);
+
+	public PageHtml getPersonnaliser() {
+		return personnaliser;
+	}
+
+	public void setPersonnaliser(PageHtml personnaliser) {
+		this.personnaliser = personnaliser;
+		this.personnaliserCouverture.dejaInitialise = true;
+	}
+	protected C001L008CreerCertificat personnaliserInit() {
+		if(personnaliser != null) {
+			((C001L008CreerCertificat)this).avantPagePart(personnaliser, "personnaliser");
+			((C001L008CreerCertificat)this).avantPagePart(personnaliser, "personnaliser");
+		}
+		if(!personnaliserCouverture.dejaInitialise) {
+			_personnaliser(personnaliser);
+		}
+		personnaliser.initLoinPourClasse(requeteSite_);
+		personnaliserCouverture.dejaInitialise(true);
+		return (C001L008CreerCertificat)this;
+	}
+	public void htmlBodyPersonnaliser(PageHtml o) {
+	}
+	public void htmlBodyPersonnaliser() {
+		personnaliser.htmlAvant();
+		htmlBodyPersonnaliser(personnaliser);
+		personnaliser.htmlApres();
+	}
+
 	/////////////////////////
 	// questionDependences //
 	/////////////////////////
@@ -403,7 +449,7 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 	public static final String questionMkdirSrvOl2Li07Dd = questionMkdirSrvOl2Li07Dd1;
 	public static final String questionMkdirSrvOl2Li08Dt1 = "-m";
 	public static final String questionMkdirSrvOl2Li08Dt = questionMkdirSrvOl2Li08Dt1;
-	public static final String questionMkdirSrvOl2Li08Dd1 = "-m : Définir la propriété du groupe sur le répertoire (super-utilisateur uniquement). ";
+	public static final String questionMkdirSrvOl2Li08Dd1 = "-m : Définir les droits sur le répertoire (super-utilisateur uniquement). ";
 	public static final String questionMkdirSrvOl2Li08Dd = questionMkdirSrvOl2Li08Dd1;
 	public static final String questionMkdirSrvOl2Li09Dt1 = "700";
 	public static final String questionMkdirSrvOl2Li09Dt = questionMkdirSrvOl2Li09Dt1;
@@ -629,7 +675,7 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 	public static final String questionCertbotOl2Li03Dd = questionCertbotOl2Li03Dd1;
 	public static final String questionCertbotOl2Li04Dt1 = "--preferred-challenges dns";
 	public static final String questionCertbotOl2Li04Dt = questionCertbotOl2Li04Dt1;
-	public static final String questionCertbotOl2Li04Dd1 = " : Obtenir ou renouveler un certificat, mais ne l'installez pas. ";
+	public static final String questionCertbotOl2Li04Dd1 = " : Utilisez les défis d'enregistrement DNS pour prouver la propriété de votre domaine. ";
 	public static final String questionCertbotOl2Li04Dd = questionCertbotOl2Li04Dd1;
 	public static final String questionCertbotOl2Li05Dt1 = "--server https://acme-v02.api.letsencrypt.org/directory";
 	public static final String questionCertbotOl2Li05Dt = questionCertbotOl2Li05Dt1;
@@ -2724,6 +2770,7 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 
 	public void initC001L008CreerCertificat() {
 		moiInit();
+		personnaliserInit();
 		questionDependencesInit();
 		questionMkdirSrvInit();
 		questionCertbotInit();
@@ -2751,6 +2798,8 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 			super.requeteSiteC001Lecon(requeteSite_);
 		if(moi != null)
 			moi.setRequeteSite_(requeteSite_);
+		if(personnaliser != null)
+			personnaliser.setRequeteSite_(requeteSite_);
 		if(questionDependences != null)
 			questionDependences.setRequeteSite_(requeteSite_);
 		if(questionMkdirSrv != null)
@@ -2805,6 +2854,8 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 		switch(var) {
 			case "moi":
 				return oC001L008CreerCertificat.moi;
+			case "personnaliser":
+				return oC001L008CreerCertificat.personnaliser;
 			case "questionDependences":
 				return oC001L008CreerCertificat.questionDependences;
 			case "questionMkdirSrv":
@@ -3024,6 +3075,8 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 	public void htmlBodyCourtC001L008CreerCertificat() {
 		if(moi != null)
 			moi.htmlBodyCourt();
+		if(personnaliser != null)
+			personnaliser.htmlBodyCourt();
 		if(questionDependences != null)
 			questionDependences.htmlBodyCourt();
 		if(questionMkdirSrv != null)
@@ -3063,6 +3116,7 @@ public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 
 	public void htmlBodyC001L008CreerCertificat() {
 		((C001L008CreerCertificat)this).htmlBodyMoi();
+		((C001L008CreerCertificat)this).htmlBodyPersonnaliser();
 		((C001L008CreerCertificat)this).htmlBodyQuestionDependences();
 		((C001L008CreerCertificat)this).htmlBodyQuestionMkdirSrv();
 		((C001L008CreerCertificat)this).htmlBodyQuestionCertbot();
