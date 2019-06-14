@@ -14,6 +14,7 @@ buildNumber.properties
 config/computate.org.config
 config/keystore.properties
 src/main/fabric8/deployment.yaml
+**/*.swp
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
