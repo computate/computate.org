@@ -22,8 +22,8 @@ import io.vertx.ext.web.api.OperationRequest;
  * PageRechercheEnUSPage: C001LeconEnUSPage
  * PageSuperRechercheFrFRPage: C001FrFRPage
  * PageSuperRechercheEnUSPage: C001EnUSPage
- * UnNomMinuscule.frFR: un leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: un leçon
+ * UnNom.enUS: a lesson
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: book
@@ -122,7 +122,7 @@ public class C001Lecon extends C001LeconGen<C001> {
 //					});
 //					fg();
 //					{ e("button")
-//						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-green ")
+//						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-vivid-greenish-blue ")
 //						.f();
 //						e("i").a("class", "fas fa-search ").f().g("i");
 //					} g("button");

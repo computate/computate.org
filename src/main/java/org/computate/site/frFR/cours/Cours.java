@@ -19,16 +19,13 @@ import org.computate.site.frFR.utilisateur.UtilisateurSite;
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
  * ApiMethode: Recherche
- * ApiMethode: POST
- * ApiMethode: PATCH
  * ApiMethode: GET
- * ApiMethode: DELETE
  * ApiUriRechercheFrFRPage: /frFR/cours
  * ApiUriRechercheEnUSPage: /enUS/course
  * PageRechercheFrFRPage: CoursFrFRPage
  * PageRechercheEnUSPage: CoursEnUSPage
- * UnNomMinuscule.frFR: un cours
- * UnNomMinuscule.enUS: a course
+ * UnNom.frFR: un cours
+ * UnNom.enUS: a course
  * NomPluriel.frFR: cours
  * Couleur: green
  * IconeGroupe: regular
@@ -52,32 +49,6 @@ public class Cours extends CoursGen<Article> {
 
 	@Override protected void _estArticle(Couverture<Boolean> c) {
 		c.o(false);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 **/
-	protected void _utilisateurSite(Couverture<UtilisateurSite> c) {
-		c.o(requeteSite_.getUtilisateurSite());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 **/
-	protected void _utilisateurId(Couverture<String> c) {
-		if(utilisateurSite != null)
-			c.o(utilisateurSite.getUtilisateurId());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 **/
-	protected void _utilisateurSiteNomDomaine(Couverture<String> c) {
-		if(utilisateurSite != null)
-			c.o(utilisateurSite.getSiteNomDomaine());
 	}
 
 	protected void _coursIdentifiantMinuscule(Couverture<String> c) {

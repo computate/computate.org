@@ -536,6 +536,7 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 			RequeteSiteEnUS requeteSite = listeCluster.getRequeteSite_();
 			ToutEcrivain w = ToutEcrivain.creer(listeCluster.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
+			buffer.appendString("{}");
 			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -676,24 +677,24 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 
 	public String varIndexeCluster(String entiteVar) {
 		switch(entiteVar) {
-			case "supprime":
-				return "supprime_indexed_boolean";
-			case "id":
-				return "id_indexed_string";
 			case "pk":
 				return "pk_indexed_long";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "id":
+				return "id_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
 			case "archive":
 				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -814,7 +815,7 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
 									SiteContexteEnUS.SQL_creer
-									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 									, creerAsync
 							-> {
 								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
@@ -841,6 +842,10 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -873,6 +878,10 @@ public class ClusterEnUSGenApiServiceImpl implements ClusterEnUSGenApiService {
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));

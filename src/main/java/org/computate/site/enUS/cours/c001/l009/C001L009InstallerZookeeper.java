@@ -90,6 +90,20 @@ public class C001L009InstallerZookeeper extends C001L009InstallerZookeeperGen<C0
 			c.o(utilisateurSite.getZookeeperVersion());
 	}
 
+	protected void _zookeeperPortAdmin(Couverture<Integer> c) {
+		if(utilisateurSite == null)
+			c.o(10280);
+		else
+			c.o(utilisateurSite.getZookeeperPortAdmin());
+	}
+
+	protected void _zookeeperPortClient(Couverture<Integer> c) {
+		if(utilisateurSite == null)
+			c.o(10281);
+		else
+			c.o(utilisateurSite.getZookeeperPortClient());
+	}
+
 	protected void _zookeeperTag(Couverture<String> c) {
 		c.o("release-" + zookeeperVersion);
 	}
@@ -105,25 +119,58 @@ public class C001L009InstallerZookeeper extends C001L009InstallerZookeeperGen<C0
 		super.htmlBodyPersonnaliser(o);
 		htmlBodyPersonnaliserAvant(o);
 		if(utilisateurSite != null) {
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperVersionForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_zookeeperVersion").a("class", "").f().sx("version de Zookeeper").g("label");
+			{ e("div").a("class", "w3-cell-row ").f();
+				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperVersionForm").a("style", "display: inline-block; ").f();
+						e("label").a("for", "Page_zookeeperVersion").a("class", "").f().sx("version de Zookeeper").g("label");
+		
+						e("input")
+							.a("type", "text")
+							.a("placeholder", "version de Zookeeper")
+							.a("class", "setZookeeperVersion w3-input w3-border ")
+							.a("name", "setZookeeperVersion")
+							.a("id", "Page_zookeeperVersion")
+							.a("onclick", "enleverLueur($(this)); ")
+							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperVersionForm')); ")
+							.a("value", strZookeeperVersion())
+						.fg();
+		
+					} g("form");
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortAdminForm").a("style", "display: inline-block; ").f();
+						e("label").a("for", "Page_zookeeperPortAdmin").a("class", "").f().sx("port admin de Zookeeper").g("label");
 	
-					e("input")
-						.a("type", "text")
-						.a("placeholder", "version de Zookeeper")
-						.a("class", "setZookeeperVersion w3-input w3-border ")
-						.a("name", "setZookeeperVersion")
-						.a("id", "Page_zookeeperVersion")
-						.a("onclick", "enleverLueur($(this)); ")
-						.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperVersionForm')); ")
-						.a("value", strZookeeperVersion())
-					.fg();
+						e("input")
+							.a("type", "text")
+							.a("placeholder", "port admin de Zookeeper")
+							.a("class", "setZookeeperPortAdmin w3-input w3-border ")
+							.a("name", "setZookeeperPortAdmin")
+							.a("id", "Page_zookeeperPortAdmin")
+							.a("onclick", "enleverLueur($(this)); ")
+							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperPortAdminForm')); ")
+							.a("value", strZookeeperPortAdmin())
+						.fg();
 	
-				} g("form");
+					} g("form");
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortClientForm").a("style", "display: inline-block; ").f();
+						e("label").a("for", "Page_zookeeperPortClient").a("class", "").f().sx("port client de Zookeeper").g("label");
+	
+						e("input")
+							.a("type", "text")
+							.a("placeholder", "port client de Zookeeper")
+							.a("class", "setZookeeperPortClient w3-input w3-border ")
+							.a("name", "setZookeeperPortClient")
+							.a("id", "Page_zookeeperPortClient")
+							.a("onclick", "enleverLueur($(this)); ")
+							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperPortClientForm')); ")
+							.a("value", strZookeeperPortClient())
+						.fg();
+	
+					} g("form");
+				} g("div");
 			} g("div");
 		}
 		htmlBodyPersonnaliserApres(o);
+		e("div").a("id", "sitePersonnaliser").f();
 	}
 
 	protected void _questionDependences(PageHtml o) {
@@ -147,7 +194,7 @@ public class C001L009InstallerZookeeper extends C001L009InstallerZookeeperGen<C0
 	protected void _questionMkdirServeur(PageHtml o) {
 	}
 
-	protected void _questionDonnees(PageHtml o) {
+	protected void _questionConfigurer(PageHtml o) {
 	}
 
 	protected void _questionService(PageHtml o) {
@@ -166,6 +213,12 @@ public class C001L009InstallerZookeeper extends C001L009InstallerZookeeperGen<C0
 	}
 
 	protected void _recapituler1(PageHtml o) {      
+	}
+
+	@Override()
+	public void  htmlBodyRecapituler1(PageHtml o) {
+		g("div");
+		super.htmlBodyRecapituler1(o);
 	}
 
 	protected void _recapituler2(PageHtml o) {    

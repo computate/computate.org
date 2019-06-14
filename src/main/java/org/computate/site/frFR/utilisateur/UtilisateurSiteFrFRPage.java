@@ -7,4 +7,7 @@ public class UtilisateurSiteFrFRPage extends UtilisateurSiteFrFRPageGen<Utilisat
 
 	@Override public void htmlBodyFormsUtilisateurSiteFrFRGenPage() {
 	}
+
+	@Override public void htmlScriptsUtilisateurSiteFrFRGenPage() {
+	}
 }

@@ -8,7 +8,6 @@ import org.computate.site.frFR.recherche.ListeRecherche;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.text.StringEscapeUtils;
-import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 import org.computate.site.frFR.cours.c001.C001;
 import org.computate.site.frFR.cours.CoursFrFRPage;
@@ -95,62 +94,6 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 		return (C001FrFRGenPage)this;
 	}
 
-	/////////////////
-	// pageUriC001 //
-	/////////////////
-
-	/**	L'entité « pageUriC001 »
-	 *	 is defined as null before being initialized. 
-	 */
-	protected String pageUriC001;
-	public Couverture<String> pageUriC001Couverture = new Couverture<String>().p(this).c(String.class).var("pageUriC001").o(pageUriC001);
-
-	/**	<br/>L'entité « pageUriC001 »
-	 *  est défini comme null avant d'être initialisé. 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001FrFRGenPage&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:pageUriC001">Trouver l'entité pageUriC001 dans Solr</a>
-	 * <br/>
-	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
-	 **/
-	protected abstract void _pageUriC001(Couverture<String> c);
-
-	public String getPageUriC001() {
-		return pageUriC001;
-	}
-
-	public void setPageUriC001(String pageUriC001) {
-		this.pageUriC001 = pageUriC001;
-		this.pageUriC001Couverture.dejaInitialise = true;
-	}
-	protected C001FrFRGenPage pageUriC001Init() {
-		if(!pageUriC001Couverture.dejaInitialise) {
-			_pageUriC001(pageUriC001Couverture);
-			if(pageUriC001 == null)
-				setPageUriC001(pageUriC001Couverture.o);
-		}
-		pageUriC001Couverture.dejaInitialise(true);
-		return (C001FrFRGenPage)this;
-	}
-
-	public String solrPageUriC001() {
-		return pageUriC001;
-	}
-
-	public String strPageUriC001() {
-		return pageUriC001 == null ? "" : pageUriC001;
-	}
-
-	public String nomAffichagePageUriC001() {
-		return null;
-	}
-
-	public String htmTooltipPageUriC001() {
-		return null;
-	}
-
-	public String htmPageUriC001() {
-		return pageUriC001 == null ? "" : StringEscapeUtils.escapeHtml4(strPageUriC001());
-	}
-
 	//////////////
 	// initLoin //
 	//////////////
@@ -174,7 +117,6 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 	public void initC001FrFRGenPage() {
 		listeC001Init();
 		c001Init();
-		pageUriC001Init();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -221,8 +163,6 @@ public abstract class C001FrFRGenPageGen<DEV> extends CoursFrFRPage {
 				return oC001FrFRGenPage.listeC001;
 			case "c001":
 				return oC001FrFRGenPage.c001;
-			case "pageUriC001":
-				return oC001FrFRGenPage.pageUriC001;
 			default:
 				return super.obtenirCoursFrFRPage(var);
 		}

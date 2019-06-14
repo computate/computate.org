@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.computate.site.frFR.cours.c001.C001;
 import java.util.ArrayList;
 import org.computate.site.frFR.cluster.Cluster;
+import java.util.Locale;
 import java.time.ZoneOffset;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.commons.text.StringEscapeUtils;
@@ -35,6 +36,21 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class C001LeconGen<DEV> extends C001 {
 
+	public static final String C001Lecon_UnNom = "un leçon";
+	public static final String C001Lecon_Ce = "ce ";
+	public static final String C001Lecon_CeNom = "ce leçon";
+	public static final String C001Lecon_Un = "un ";
+	public static final String C001Lecon_LeNom = "le leçon";
+	public static final String C001Lecon_NomSingulier = "leçon";
+	public static final String C001Lecon_NomPluriel = "leçons";
+	public static final String C001Lecon_NomActuel = "leçon actuel";
+	public static final String C001Lecon_TousNom = "tous les leçons";
+	public static final String C001Lecon_RechercherTousNomPar = "rechercher leçons par ";
+	public static final String C001Lecon_RechercherTousNom = "rechercher leçons";
+	public static final String C001Lecon_LesNoms = "les leçons";
+	public static final String C001Lecon_AucunNomTrouve = "aucun leçon trouvé";
+	public static final String C001Lecon_NomVar = "leçon";
+	public static final String C001Lecon_DeNom = "de leçon";
 	public static final String C001Lecon_Couleur = "green";
 	public static final String C001Lecon_IconeGroupe = "regular";
 	public static final String C001Lecon_IconeNom = "book";

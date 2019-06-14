@@ -1,4 +1,4 @@
-package org.computate.site.enUS.cours.c001.l009;
+package org.computate.site.enUS.cours.c001.l010;
 
 import org.computate.site.enUS.config.ConfigSite;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
@@ -67,45 +67,45 @@ import java.util.stream.Stream;
 import java.net.URLDecoder;
 import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
-import org.computate.site.frFR.cours.c001.l009.C001L009InstallerKeycloakFrFRPage;
-import org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloakEnUSPage;
+import org.computate.site.frFR.cours.c001.l010.C001L010InstallerSolrFrFRPage;
+import org.computate.site.enUS.cours.c001.l010.C001L010InstallerSolrEnUSPage;
 
 
 /**
  * Traduire: false
  **/
-public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009InstallerKeycloakEnUSGenApiService {
+public class C001L010InstallerSolrEnUSGenApiServiceImpl implements C001L010InstallerSolrEnUSGenApiService {
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L009InstallerKeycloakEnUSGenApiServiceImpl.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(C001L010InstallerSolrEnUSGenApiServiceImpl.class);
 
-	protected static final String SERVICE_ADDRESS = "C001L009InstallerKeycloakEnUSApiServiceImpl";
+	protected static final String SERVICE_ADDRESS = "C001L010InstallerSolrEnUSApiServiceImpl";
 
 	protected SiteContexteEnUS siteContexte;
 
-	public C001L009InstallerKeycloakEnUSGenApiServiceImpl(SiteContexteEnUS siteContexte) {
+	public C001L010InstallerSolrEnUSGenApiServiceImpl(SiteContexteEnUS siteContexte) {
 		this.siteContexte = siteContexte;
-		C001L009InstallerKeycloakEnUSGenApiService service = C001L009InstallerKeycloakEnUSGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
+		C001L010InstallerSolrEnUSGenApiService service = C001L010InstallerSolrEnUSGenApiService.creerProxy(siteContexte.getVertx(), SERVICE_ADDRESS);
 	}
 
 	// RechercheEnUSPage //
 
 	@Override
-	public void rechercheenuspageC001L009InstallerKeycloakId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		rechercheenuspageC001L009InstallerKeycloak(operationRequete, gestionnaireEvenements);
+	public void rechercheenuspageC001L010InstallerSolrId(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+		rechercheenuspageC001L010InstallerSolr(operationRequete, gestionnaireEvenements);
 	}
 
 	@Override
-	public void rechercheenuspageC001L009InstallerKeycloak(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void rechercheenuspageC001L010InstallerSolr(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
-			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001L009InstallerKeycloak(siteContexte, operationRequete);
-			sqlC001L009InstallerKeycloak(requeteSite, a -> {
+			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourC001L010InstallerSolr(siteContexte, operationRequete);
+			sqlC001L010InstallerSolr(requeteSite, a -> {
 				if(a.succeeded()) {
-					utilisateurC001L009InstallerKeycloak(requeteSite, b -> {
+					utilisateurC001L010InstallerSolr(requeteSite, b -> {
 						if(b.succeeded()) {
-							rechercheC001L009InstallerKeycloak(requeteSite, false, true, "/enUS/course/001/009-how-to-install-the-latest-version-of-postgresql", c -> {
+							rechercheC001L010InstallerSolr(requeteSite, false, true, "/enUS/course/001/010-how-to-install-a-recent-version-of-solr-search-engine", c -> {
 								if(c.succeeded()) {
-									ListeRecherche<C001L009InstallerKeycloak> listeC001L009InstallerKeycloak = c.result();
-									reponse200RechercheEnUSPageC001L009InstallerKeycloak(listeC001L009InstallerKeycloak, d -> {
+									ListeRecherche<C001L010InstallerSolr> listeC001L010InstallerSolr = c.result();
+									reponse200RechercheEnUSPageC001L010InstallerSolr(listeC001L010InstallerSolr, d -> {
 										if(d.succeeded()) {
 											SQLConnection connexionSql = requeteSite.getConnexionSql();
 											if(connexionSql == null) {
@@ -117,48 +117,48 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 															if(f.succeeded()) {
 																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
 															} else {
-																erreurC001L009InstallerKeycloak(requeteSite, gestionnaireEvenements, f);
+																erreurC001L010InstallerSolr(requeteSite, gestionnaireEvenements, f);
 															}
 														});
 													} else {
-														erreurC001L009InstallerKeycloak(requeteSite, gestionnaireEvenements, e);
+														erreurC001L010InstallerSolr(requeteSite, gestionnaireEvenements, e);
 													}
 												});
 											}
 										} else {
-											erreurC001L009InstallerKeycloak(requeteSite, gestionnaireEvenements, d);
+											erreurC001L010InstallerSolr(requeteSite, gestionnaireEvenements, d);
 										}
 									});
 								} else {
-									erreurC001L009InstallerKeycloak(requeteSite, gestionnaireEvenements, c);
+									erreurC001L010InstallerSolr(requeteSite, gestionnaireEvenements, c);
 								}
 							});
 						} else {
-							erreurC001L009InstallerKeycloak(requeteSite, gestionnaireEvenements, b);
+							erreurC001L010InstallerSolr(requeteSite, gestionnaireEvenements, b);
 						}
 					});
 				} else {
-					erreurC001L009InstallerKeycloak(requeteSite, gestionnaireEvenements, a);
+					erreurC001L010InstallerSolr(requeteSite, gestionnaireEvenements, a);
 				}
 			});
 		} catch(Exception e) {
-			erreurC001L009InstallerKeycloak(null, gestionnaireEvenements, Future.failedFuture(e));
+			erreurC001L010InstallerSolr(null, gestionnaireEvenements, Future.failedFuture(e));
 		}
 	}
 
-	public void reponse200RechercheEnUSPageC001L009InstallerKeycloak(ListeRecherche<C001L009InstallerKeycloak> listeC001L009InstallerKeycloak, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void reponse200RechercheEnUSPageC001L010InstallerSolr(ListeRecherche<C001L010InstallerSolr> listeC001L010InstallerSolr, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			Buffer buffer = Buffer.buffer();
-			RequeteSiteEnUS requeteSite = listeC001L009InstallerKeycloak.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeC001L009InstallerKeycloak.getRequeteSite_(), buffer);
+			RequeteSiteEnUS requeteSite = listeC001L010InstallerSolr.getRequeteSite_();
+			ToutEcrivain w = ToutEcrivain.creer(listeC001L010InstallerSolr.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
-			C001L009InstallerKeycloakEnUSPage page = new C001L009InstallerKeycloakEnUSPage();
+			C001L010InstallerSolrEnUSPage page = new C001L010InstallerSolrEnUSPage();
 			SolrDocument pageDocumentSolr = new SolrDocument();
 
-			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/009-how-to-install-the-latest-version-of-postgresql");
+			pageDocumentSolr.setField("pageUri_frFR_stored_string", "/enUS/course/001/010-how-to-install-a-recent-version-of-solr-search-engine");
 			page.setPageDocumentSolr(pageDocumentSolr);
 			page.setW(w);
-			page.initLoinC001L009InstallerKeycloakEnUSPage(requeteSite);
+			page.initLoinC001L010InstallerSolrEnUSPage(requeteSite);
 			page.html();
 			gestionnaireEvenements.handle(Future.succeededFuture(new OperationResponse(200, "OK", buffer, new CaseInsensitiveHeaders())));
 		} catch(Exception e) {
@@ -166,8 +166,26 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public String varIndexeC001L009InstallerKeycloak(String entiteVar) {
+	public String varIndexeC001L010InstallerSolr(String entiteVar) {
 		switch(entiteVar) {
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "leconCree":
 				return "leconCree_indexed_date";
 			case "estCours":
@@ -208,30 +226,12 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "archive":
-				return "archive_indexed_boolean";
-			case "supprime":
-				return "supprime_indexed_boolean";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
 	}
 
-	public String varRechercheC001L009InstallerKeycloak(String entiteVar) {
+	public String varRechercheC001L010InstallerSolr(String entiteVar) {
 		switch(entiteVar) {
 			case "pageRecherche_enUS":
 				return "pageRecherche_enUS_text_enUS";
@@ -242,7 +242,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public String varSuggereC001L009InstallerKeycloak(String entiteVar) {
+	public String varSuggereC001L010InstallerSolr(String entiteVar) {
 		switch(entiteVar) {
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
@@ -251,7 +251,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 
 	// Partagé //
 
-	public void erreurC001L009InstallerKeycloak(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
+	public void erreurC001L010InstallerSolr(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements, AsyncResult<?> resultatAsync) {
 		Throwable e = resultatAsync.cause();
 		ExceptionUtils.printRootCauseStackTrace(e);
 		OperationResponse reponseOperation = new OperationResponse(400, "BAD REQUEST", 
@@ -288,7 +288,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public void sqlC001L009InstallerKeycloak(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void sqlC001L010InstallerSolr(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLClient clientSql = requeteSite.getSiteContexte_().getClientSql();
 
@@ -316,11 +316,11 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L009InstallerKeycloak(SiteContexteEnUS siteContexte, OperationRequest operationRequete) {
-		return genererRequeteSiteEnUSPourC001L009InstallerKeycloak(siteContexte, operationRequete, null);
+	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L010InstallerSolr(SiteContexteEnUS siteContexte, OperationRequest operationRequete) {
+		return genererRequeteSiteEnUSPourC001L010InstallerSolr(siteContexte, operationRequete, null);
 	}
 
-	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L009InstallerKeycloak(SiteContexteEnUS siteContexte, OperationRequest operationRequete, JsonObject body) {
+	public RequeteSiteEnUS genererRequeteSiteEnUSPourC001L010InstallerSolr(SiteContexteEnUS siteContexte, OperationRequest operationRequete, JsonObject body) {
 		Vertx vertx = siteContexte.getVertx();
 		RequeteSiteEnUS requeteSite = new RequeteSiteEnUS();
 		requeteSite.setObjetJson(body);
@@ -333,7 +333,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		return requeteSite;
 	}
 
-	public void utilisateurC001L009InstallerKeycloak(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void utilisateurC001L010InstallerSolr(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
 			String utilisateurId = requeteSite.getUtilisateurId();
@@ -350,7 +350,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
 									SiteContexteEnUS.SQL_creer
-									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 									, creerAsync
 							-> {
 								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
@@ -377,6 +377,10 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -409,6 +413,10 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));
@@ -425,21 +433,21 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public void rechercheC001L009InstallerKeycloak(RequeteSiteEnUS requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L009InstallerKeycloak>>> gestionnaireEvenements) {
+	public void rechercheC001L010InstallerSolr(RequeteSiteEnUS requeteSite, Boolean peupler, Boolean stocker, String classeApiUriMethode, Handler<AsyncResult<ListeRecherche<C001L010InstallerSolr>>> gestionnaireEvenements) {
 		try {
 			OperationRequest operationRequete = requeteSite.getOperationRequete();
 			String entiteListeStr = requeteSite.getOperationRequete().getParams().getJsonObject("query").getString("fl");
 			String[] entiteListe = entiteListeStr == null ? null : entiteListeStr.split(",\\s*");
-			ListeRecherche<C001L009InstallerKeycloak> listeRecherche = new ListeRecherche<C001L009InstallerKeycloak>();
+			ListeRecherche<C001L010InstallerSolr> listeRecherche = new ListeRecherche<C001L010InstallerSolr>();
 			listeRecherche.setPeupler(peupler);
 			listeRecherche.setStocker(stocker);
 			listeRecherche.setQuery("*:*");
-			listeRecherche.setC(C001L009InstallerKeycloak.class);
+			listeRecherche.setC(C001L010InstallerSolr.class);
 			if(entiteListe != null)
 			listeRecherche.setFields(entiteListe);
 			listeRecherche.addSort("archive_indexed_boolean", ORDER.asc);
 			listeRecherche.addSort("supprime_indexed_boolean", ORDER.asc);
-			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloak"));
+			listeRecherche.addFilterQuery("classeNomsCanoniques_indexed_strings:" + ClientUtils.escapeQueryChars("org.computate.site.enUS.cours.c001.l010.C001L010InstallerSolr"));
 			UtilisateurSite utilisateurSite = requeteSite.getUtilisateurSite();
 			if(utilisateurSite != null && !utilisateurSite.getVoirSupprime())
 				listeRecherche.addFilterQuery("supprime_indexed_boolean:false");
@@ -469,7 +477,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 						switch(paramNom) {
 							case "q":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
-								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L009InstallerKeycloak(entiteVar);
+								varIndexe = "*".equals(entiteVar) ? entiteVar : varRechercheC001L010InstallerSolr(entiteVar);
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
 								valeurIndexe = StringUtils.isEmpty(valeurIndexe) ? "*" : valeurIndexe;
 								listeRecherche.setQuery(varIndexe + ":" + ("*".equals(valeurIndexe) ? valeurIndexe : ClientUtils.escapeQueryChars(valeurIndexe)));
@@ -483,18 +491,18 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 							case "fq":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, ":"));
 								valeurIndexe = URLDecoder.decode(StringUtils.trim(StringUtils.substringAfter((String)paramObjet, ":")), "UTF-8");
-								varIndexe = varIndexeC001L009InstallerKeycloak(entiteVar);
+								varIndexe = varIndexeC001L010InstallerSolr(entiteVar);
 								listeRecherche.addFilterQuery(varIndexe + ":" + ClientUtils.escapeQueryChars(valeurIndexe));
 								break;
 							case "sort":
 								entiteVar = StringUtils.trim(StringUtils.substringBefore((String)paramObjet, " "));
 								valeurTri = StringUtils.trim(StringUtils.substringAfter((String)paramObjet, " "));
-								varIndexe = varIndexeC001L009InstallerKeycloak(entiteVar);
+								varIndexe = varIndexeC001L010InstallerSolr(entiteVar);
 								listeRecherche.addSort(varIndexe, ORDER.valueOf(valeurTri));
 								break;
 							case "fl":
 								entiteVar = StringUtils.trim((String)paramObjet);
-								varIndexe = varIndexeC001L009InstallerKeycloak(entiteVar);
+								varIndexe = varIndexeC001L010InstallerSolr(entiteVar);
 								listeRecherche.addField(varIndexe);
 								break;
 							case "start":
@@ -518,7 +526,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public void definirC001L009InstallerKeycloak(C001L009InstallerKeycloak o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void definirC001L010InstallerSolr(C001L010InstallerSolr o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -542,7 +550,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public void attribuerC001L009InstallerKeycloak(C001L009InstallerKeycloak o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void attribuerC001L010InstallerSolr(C001L010InstallerSolr o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		try {
 			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
 			SQLConnection connexionSql = requeteSite.getConnexionSql();
@@ -568,7 +576,7 @@ public class C001L009InstallerKeycloakEnUSGenApiServiceImpl implements C001L009I
 		}
 	}
 
-	public void indexerC001L009InstallerKeycloak(C001L009InstallerKeycloak o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
+	public void indexerC001L010InstallerSolr(C001L010InstallerSolr o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
 		RequeteSiteEnUS requeteSite = o.getRequeteSite_();
 		try {
 			o.initLoinPourClasse(requeteSite);

@@ -16,8 +16,8 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * PageRechercheEnUSPage: C001L007InstallerPostgresqlEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
  * H1.frFR: Comment installer la dernière version de PostgreSQL ? 
  * H1.enUS: How do I install the latest version of PostgreSQL. 
@@ -503,7 +503,7 @@ public class C001L007InstallerPostgresql extends C001L007InstallerPostgresqlGen<
 	 * Val.Ol2Li02.enUS:[Unit]: A unit configuration file whose name ends in ".service" encodes information about a process controlled and supervised by systemd. 
 	 * Val.Ol2Li03.frFR:Description=... : La description du service. 
 	 * Val.Ol2Li03.enUS:Description=...: The description of the service. 
-	 * Val.Ol2Li04.frFR:After=... : Demander un mot de passe pour le nouveau super utilisateur. 
+	 * Val.Ol2Li04.frFR:After=... : Le service PostgreSQL sera démarré après les dépendances suivantes. 
 	 * Val.Ol2Li04.enUS:After=...: The PostgreSQL service will be started after the following dependencies. 
 	 * Val.Ol2Li05.frFR:[Service] : Les informations relatives à un service contrôlé et supervisé par systemd. 
 	 * Val.Ol2Li05.enUS:[Service]: Information about a service controlled and supervised by systemd. 
@@ -517,8 +517,8 @@ public class C001L007InstallerPostgresql extends C001L007InstallerPostgresqlGen<
 	 * Val.Ol2Li09.enUS:Group=...: The group user as the current user that will run the service. 
 	 * Val.Ol2Li10.frFR:ExecStart=... : La commande PostgreSQL qui lancera le service. 
 	 * Val.Ol2Li10.enUS:ExecStart=...: The PostgreSQL command that will start the service. 
-	 * Val.Ol2Li11.frFR:ExecStart=... : La commande PostgreSQL qui arrêtera le service. 
-	 * Val.Ol2Li11.enUS:ExecStart=...: The PostgreSQL command that will stop the service. 
+	 * Val.Ol2Li11.frFR:ExecStop=... : La commande PostgreSQL qui arrêtera le service. 
+	 * Val.Ol2Li11.enUS:ExecStop=...: The PostgreSQL command that will stop the service. 
 	 * Val.Ol2Li12.frFR:ExecReload=... : La commande PostgreSQL qui redémarrera le service. 
 	 * Val.Ol2Li12.enUS:ExecReload=...: The PostgreSQL command that will restart the service. 
 	 * Val.Ol2Li13.frFR:TimeoutSec=300 : Le nombre de secondes avant d'abandonner le démarrage du service. 

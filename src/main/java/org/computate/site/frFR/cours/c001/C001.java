@@ -7,7 +7,6 @@ import org.computate.site.frFR.couverture.Couverture;
 
 /**  
  * Api: true
- * ApiUri: /api/cours/c001
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
  * ApiUriRechercheFrFRPage: /frFR/cours/001
@@ -16,8 +15,8 @@ import org.computate.site.frFR.couverture.Couverture;
  * PageRechercheEnUSPage: C001EnUSPage
  * PageSuperRechercheFrFRPage: CoursFrFRPage
  * PageSuperRechercheEnUSPage: CoursEnUSPage
- * UnNomMinuscule.frFR: un cours n ° 1
- * UnNomMinuscule.enUS: a course #1
+ * UnNom.frFR: un cours n ° 1
+ * UnNom.enUS: a course #1
  * NomPluriel.frFR: courses
  * 
  * H1.frFR: Construire des applications Web modernes et async avec les meilleurs logiciels open sources. 

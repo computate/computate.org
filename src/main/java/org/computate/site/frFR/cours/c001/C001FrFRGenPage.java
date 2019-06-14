@@ -47,7 +47,7 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 		if(c001 != null)
 			c.o("Construire des applications Web modernes et async avec les meilleurs logiciels open sources. ");
 		else if(listeC001 == null || listeC001.size() == 0)
-			c.o("");
+			c.o("aucun cours n ° 1 trouvé");
 		else
 			c.o("Construire des applications Web modernes et async avec les meilleurs logiciels open sources. ");
 	}
@@ -64,7 +64,7 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 		if(c001 != null)
 			c.o("Construire des applications Web modernes et async avec les meilleurs logiciels open sources. ");
 		else if(listeC001 == null || listeC001.size() == 0)
-			c.o("");
+			c.o("aucun cours n ° 1 trouvé");
 		else
 			c.o("Construire des applications Web modernes et async avec les meilleurs logiciels open sources. ");
 	}
@@ -99,11 +99,7 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 	}
 
 	@Override public void htmlScriptsC001FrFRGenPage() {
-		e("script").a("src", "/static/js/C001FrFRPage.js").f().g("script");
-	}
-
-	protected void _pageUriC001(Couverture<String> c) {
-			c.o("/frFR/cours/001");
+		e("script").a("src", statiqueUrlBase, "/js/C001FrFRPage.js").f().g("script");
 	}
 
 	@Override public void htmlScriptC001FrFRGenPage() {
@@ -113,70 +109,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
-					e("label").a("class", "").f().sx("crée").g("label");
-				} g("div");
-				{ e("div").a("class", "").f();
-					e("span").f().sx(o.strCree()).g("span");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("div").a("class", "").f();
-					e("label").a("class", "").f().sx("modifié").g("label");
-				} g("div");
-				{ e("div").a("class", "").f();
-					e("span").f().sx(o.strModifie()).g("span");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cours/c001").a("id", "archiveForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "archive")
-						.a("id", "Page_archive")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setArchive")
-						.a("name", "setArchive")
-						.a("id", "Page_archive")
-						.a("onchange", "patchC001($('#C001Form'), $('#archiveForm')); ")
-						;
-						if(o.getArchive() != null && o.getArchive())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_archive").a("class", "").f().sx("archivé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cours/c001").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "supprime")
-						.a("id", "Page_supprime")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setSupprime")
-						.a("name", "setSupprime")
-						.a("id", "Page_supprime")
-						.a("onchange", "patchC001($('#C001Form'), $('#supprimeForm')); ")
-						;
-						if(o.getSupprime() != null && o.getSupprime())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("supprimé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("cours").g("label");
 				} g("div");
 				{ e("div").a("class", "").f();
@@ -197,6 +129,22 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 				} g("div");
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strArticleDescription()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
 		} g("div");
@@ -206,64 +154,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
-					e("label").a("class", "").f().sx("crée").g("label");
-				} g("div");
-				{ e("div").a("class", "").f();
-					e("span").f().sx(o.strCree()).g("span");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("div").a("class", "").f();
-					e("label").a("class", "").f().sx("modifié").g("label");
-				} g("div");
-				{ e("div").a("class", "").f();
-					e("span").f().sx(o.strModifie()).g("span");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("cours").g("label");
 				} g("div");
 				{ e("div").a("class", "").f();
@@ -286,11 +176,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 					e("span").f().sx(o.strArticleDescription()).g("span");
 				} g("div");
 			} g("div");
-		} g("div");
-	}
-
-	public void htmlFormPATCHC001(C001 o) {
-		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("crée").g("label");
@@ -307,54 +192,33 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "PATCH_archive")
-					.a("value", "false")
-				.fg();
+		} g("div");
+	}
 
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setArchive")
-					.a("name", "setArchive")
-					.a("id", "PATCH_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "PATCH_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setSupprime")
-					.a("name", "setSupprime")
-					.a("id", "PATCH_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
+	public void htmlFormPATCHC001(C001 o) {
+		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("cours").g("label");
 				} g("div");
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strCoursNumero()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("crée").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCree()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("modifié").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
 		} g("div");
@@ -374,6 +238,14 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("cours").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCoursNumero()).g("span");
+				} g("div");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("crée").g("label");
 				} g("div");
 				{ e("div").a("class", "").f();
@@ -386,56 +258,6 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 				} g("div");
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strModifie()).g("span");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("div").a("class", "").f();
-					e("label").a("class", "").f().sx("cours").g("label");
-				} g("div");
-				{ e("div").a("class", "").f();
-					e("span").f().sx(o.strCoursNumero()).g("span");
 				} g("div");
 			} g("div");
 		} g("div");
@@ -456,15 +278,15 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeC001 == null || listeC001.size() == 0) {
-			// contexteAucunNomTrouve : 
+			// contexteAucunNomTrouve : aucun cours n ° 1 trouvé
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("aucun cours n ° 1 trouvé").g("span");
 			} g("h1");
 		} else if(listeC001 != null && listeC001.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
-			// contexteUnNom : 
+			// contexteUnNom : un cours n ° 1
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
@@ -484,12 +306,12 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 				} g("h3");
 			}
 		} else {
-			// contexteNomPluriel : plusiers 
+			// contexteNomPluriel : plusiers courses
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("courses").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -537,6 +359,7 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 			{ e("form").a("id", "C001Form").a("style", "display: inline-block; ").a("method", "GET").a("action", "/frFR/cours/001").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_frFR')); return false; ").f();
 				{ e("div").a("class", "w3-bar ").f();
 					e("input").a("type", "text")
+						.a("placeholder", "rechercher courses")
 						.a("title", "")
 						.a("class", "recherchePageRecherche_frFR w3-input w3-border w3-bar-item ")
 						.a("name", "pageRecherche_frFR")
@@ -575,10 +398,10 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 		if(listeC001 != null && listeC001.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			C001 o = listeC001.first();
 
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+			{ e("div").a("class", "").f();
 
 				if(o.getPk() != null) {
-					{ e("form").a("action", "/api/cours/c001").a("id", "C001Form").a("style", "display: inline-block; ").f();
+					{ e("form").a("action", "").a("id", "C001Form").a("style", "display: inline-block; ").f();
 						e("input")
 						.a("name", "pk")
 						.a("class", "valeurPk")
@@ -594,6 +417,10 @@ public class C001FrFRGenPage extends C001FrFRGenPageGen<CoursFrFRPage> {
 
 			} g("div");
 		}
+		htmlBodyFormsC001FrFRGenPage();
+	}
+
+	public void htmlBodyFormsC001FrFRGenPage() {
 		e("div").f();
 
 		g("div");

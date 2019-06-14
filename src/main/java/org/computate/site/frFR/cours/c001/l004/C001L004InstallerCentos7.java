@@ -17,8 +17,8 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * PageRechercheEnUSPage: C001L004InstallerCentos7EnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
  * H1.frFR: Comment installer le système d'exploitation pour développer mon site Web ? 
  * H1.enUS: How do I install the operating system to start developing my website? 

@@ -103,7 +103,7 @@ public class C001L001ChoisirNomDomaineEnUSGenPage extends C001L001ChoisirNomDoma
 	}
 
 	@Override public void htmlScriptsC001L001ChoisirNomDomaineEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L001ChoisirNomDomaineEnUSGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L001ChoisirNomDomaineEnUSPage.js").f().g("script");
 	}
 
 

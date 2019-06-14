@@ -1743,7 +1743,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), leconRecherche_frFR, leconRecherche_enUS);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -1756,9 +1756,7 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		if(!(o instanceof C001L001ChoisirNomDomaine))
 			return false;
 		C001L001ChoisirNomDomaine that = (C001L001ChoisirNomDomaine)o;
-		return super.equals(o)
-				&& Objects.equals( leconRecherche_frFR, that.leconRecherche_frFR )
-				&& Objects.equals( leconRecherche_enUS, that.leconRecherche_enUS );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -1769,8 +1767,6 @@ public abstract class C001L001ChoisirNomDomaineGen<DEV> extends C001Lecon {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("C001L001ChoisirNomDomaine {");
-		sb.append( "leconRecherche_frFR: " ).append(leconRecherche_frFR);
-		sb.append( ", leconRecherche_enUS: " ).append(leconRecherche_enUS);
 		sb.append(" }");
 		return sb.toString();
 	}

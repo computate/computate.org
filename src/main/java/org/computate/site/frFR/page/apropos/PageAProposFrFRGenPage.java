@@ -97,7 +97,7 @@ public class PageAProposFrFRGenPage extends PageAProposFrFRGenPageGen<ArticleFrF
 	}
 
 	@Override public void htmlScriptsPageAProposFrFRGenPage() {
-		e("script").a("src", "/static/js/PageAProposFrFRGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/PageAProposFrFRPage.js").f().g("script");
 	}
 
 

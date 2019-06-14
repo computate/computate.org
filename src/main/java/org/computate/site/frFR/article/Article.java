@@ -12,7 +12,9 @@ import org.apache.solr.common.SolrDocument;
 import org.computate.site.frFR.cluster.Cluster;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.page.MiseEnPage;
+import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.page.parti.PagePart;
+import org.computate.site.frFR.utilisateur.UtilisateurSite;
 
 /**
  * Api: true
@@ -20,16 +22,13 @@ import org.computate.site.frFR.page.parti.PagePart;
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
  * ApiMethode: Recherche
- * ApiMethode: POST
- * ApiMethode: PATCH
  * ApiMethode: GET
- * ApiMethode: DELETE
  * ApiUriRechercheFrFRPage: /frFR/article
  * ApiUriRechercheEnUSPage: /enUS/article
  * PageRechercheFrFRPage: ArticleFrFRPage
  * PageRechercheEnUSPage: ArticleEnUSPage
- * UnNomMinuscule.frFR: un article
- * UnNomMinuscule.enUS: an article
+ * UnNom.frFR: un article
+ * UnNom.enUS: an article
  * Couleur: green
  * IconeGroupe: regular
  * IconeNom: university
@@ -477,5 +476,121 @@ public class Article extends ArticleGen<Cluster> {
 	}
 
 	public void avantPagePart(PagePart o, String var) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 **/
+	protected void _utilisateurSite(Couverture<UtilisateurSite> c) {
+		c.o(requeteSite_.getUtilisateurSite());
+	}
+	@Override public void htmlBodyArticle() {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 **/
+	protected void _utilisateurId(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getUtilisateurId());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 **/
+	protected void _utilisateurSiteNomDomaine(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getSiteNomDomaine());
+	}
+
+	/**
+	 * r:Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. 
+	 * r.enUS:A domain name is your website name. A domain name is the address where Internet users can access your website. 
+	 * r:nom de domaine
+	 * r.enUS:domain name
+	 * r:rafraîchir la page
+	 * r.enUS:refresh page
+	 * r: Personnalisez le site entier pour votre domaine. 
+	 * r.enUS: Customize the whole site for your domain. 
+	 * r:Cliquez simplement sur le bouton 
+	 * r.enUS:Just click the 
+	 * r:[ Connexion ]
+	 * r.enUS:[ Login ]
+	 * r: ci-dessus. 
+	 * r.enUS: button above. 
+	 * r:Cliquez « New user? Register ». 
+	 * r.enUS:Click: New user? Register
+	 * r:C'est gratuit et vos informations sont privées. 
+	 * r.enUS:It's free, and your information is private. 
+	 * r:/frFR/utilisateur
+	 * r.enUS:/enUS/user
+	 */ 
+	public void htmlBodyPersonnaliserAvant(PageHtml o) {
+		if(utilisateurSite != null && requeteSite_.getUtilisateurRolesRessource().contains("SiteAdmin")) {
+			{ e("div").a("class", "w3-card-4 w3-margin-bottom ").f();
+				{ e("h1").a("class", "w3-container w3-vivid-greenish-blue ").f();
+					e("i").a("class", "far fa-keyboard site-menu-icon ").f().g("i");
+					sx("Site Admin. ");
+				} g("h1");
+				{ e("div").a("class", "w3-padding ").f();
+
+					// FormFiltres PATCH
+					{ e("form").a("action", "/api/cluster").a("id", "patchClusterFormFiltres").f();
+					} g("form");
+					{ e("form").a("action", "/api/cluster").a("id", "patchClusterFormValeurs").f();
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3- ")
+						.a("onclick", "patchCluster($('#patchClusterFormFiltres'), $('#patchClusterFormValeurs')); ")
+						.f().sx("Indexer tous les pages")
+					.g("button");
+				} g("div");
+			} g("div");
+		}
+		{ e("div").a("class", "w3-card-4 w3-margin-bottom ").f();
+			{e("h1").a("class", "w3-container w3-vivid-greenish-blue ").f();
+				e("i").a("class", "far fa-keyboard site-menu-icon ").f().g("i");
+				sx("Personnalisez le site entier pour votre domaine. ");
+			} g("h1");
+			{ e("div").a("class", "w3-padding ").f();
+				if(utilisateurSite == null) {
+					{ e("ol").f();
+						{ e("li").f();
+							e("i").a("class", "far fa-sign-in-alt site-menu-icon ").f().g("i");
+							sx("Cliquez simplement sur le bouton ");
+							e("a").a("class", "").a("href", "/frFR/utilisateur").f(); 
+								sx("[ Connexion ]");
+							g("a");
+							sx(" ci-dessus. ");
+						} g("li");
+						{ e("li").f();
+							e("i").a("class", "far fa-users-medical site-menu-icon ").f().g("i");
+							sx("Cliquez « New user? Register ». ");
+						} g("li");
+						{ e("li").f();
+							e("i").a("class", "far fa-shield-check site-menu-icon ").f().g("i");
+							sx("C'est gratuit et vos informations sont privées. ");
+						} g("li");
+					} g("ol");
+				}
+				else {
+				}
+			}
+		}
+	}
+
+	public void htmlBodyPersonnaliserApres(PageHtml o) {
+		{
+			{
+				if(utilisateurSite == null) {
+				}
+				else {
+					e("a").a("href", "").f().g("a");
+				}
+			} g("div");
+		} g("div");
 	}
 }

@@ -203,8 +203,9 @@ public abstract class C001L004InstallerCentos7EnUSGenPageGen<DEV> extends C001Le
 	// htmlBodyCourt //
 	///////////////////
 
-	public void htmlBodyCourt() {
+	@Override public void htmlBodyCourt() {
 		htmlBodyCourtC001L004InstallerCentos7EnUSGenPage();
+		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L004InstallerCentos7EnUSGenPage() {
@@ -222,6 +223,54 @@ public abstract class C001L004InstallerCentos7EnUSGenPageGen<DEV> extends C001Le
 	}
 
 	public void htmlScriptC001L004InstallerCentos7EnUSGenPage() {
+	}
+
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L004InstallerCentos7EnUSGenPage();
+		super.html();
+	}
+
+	public void htmlC001L004InstallerCentos7EnUSGenPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L004InstallerCentos7EnUSGenPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L004InstallerCentos7EnUSGenPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L004InstallerCentos7EnUSGenPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L004InstallerCentos7EnUSGenPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L004InstallerCentos7EnUSGenPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L004InstallerCentos7EnUSGenPage() {
 	}
 
 	//////////////

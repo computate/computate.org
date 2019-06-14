@@ -36,20 +36,6 @@ public class Cours extends CoursGen<Article> {
 		c.o(false);
 	}
 
-	protected void _utilisateurSite(Couverture<UtilisateurSite> c) {
-		c.o(requeteSite_.getUtilisateurSite());
-	}
-
-	protected void _utilisateurId(Couverture<String> c) {
-		if(utilisateurSite != null)
-			c.o(utilisateurSite.getUtilisateurId());
-	}
-
-	protected void _utilisateurSiteNomDomaine(Couverture<String> c) {
-		if(utilisateurSite != null)
-			c.o(utilisateurSite.getSiteNomDomaine());
-	}
-
 	protected void _coursIdentifiantMinuscule(Couverture<String> c) {
 		String s = "c" + String.format("%03d", coursNumero);
 		c.o(s);

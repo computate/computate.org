@@ -1596,7 +1596,7 @@ public abstract class C001L007InstallerPostgresqlGen<DEV> extends C001Lecon {
 	public static final String questionServiceOl2Li09 = questionServiceOl2Li091;
 	public static final String questionServiceOl2Li101 = "ExecStart=...: The PostgreSQL command that will start the service. ";
 	public static final String questionServiceOl2Li10 = questionServiceOl2Li101;
-	public static final String questionServiceOl2Li111 = "ExecStart=...: The PostgreSQL command that will stop the service. ";
+	public static final String questionServiceOl2Li111 = "ExecStop=...: The PostgreSQL command that will stop the service. ";
 	public static final String questionServiceOl2Li11 = questionServiceOl2Li111;
 	public static final String questionServiceOl2Li121 = "ExecReload=...: The PostgreSQL command that will restart the service. ";
 	public static final String questionServiceOl2Li12 = questionServiceOl2Li121;

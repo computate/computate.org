@@ -256,11 +256,6 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.frFR.utilisateur.UtilisateurSite"));
 			for(String methodeNom : methodeNoms) {
 				switch(methodeNom) {
-					case "setSupprime":
-						o2.setSupprime(requeteJson.getBoolean(methodeNom));
-						patchSql.append(SiteContexteFrFR.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
-						break;
 					case "setCree":
 						o2.setCree(requeteJson.getInstant(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
@@ -276,6 +271,11 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 						patchSql.append(SiteContexteFrFR.SQL_setD);
 						patchSqlParams.addAll(Arrays.asList("archive", o2.getArchive(), pk));
 						break;
+					case "setSupprime":
+						o2.setSupprime(requeteJson.getBoolean(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
+						break;
 					case "setVoirArchive":
 						o2.setVoirArchive(requeteJson.getBoolean(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
@@ -290,6 +290,41 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 						o2.setSiteNomDomaine(requeteJson.getString(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
 						patchSqlParams.addAll(Arrays.asList("siteNomDomaine", o2.getSiteNomDomaine(), pk));
+						break;
+					case "setZookeeperVersion":
+						o2.setZookeeperVersion(requeteJson.getString(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("zookeeperVersion", o2.getZookeeperVersion(), pk));
+						break;
+					case "setZookeeperPortAdmin":
+						o2.setZookeeperPortAdmin(requeteJson.getInteger(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("zookeeperPortAdmin", o2.getZookeeperPortAdmin(), pk));
+						break;
+					case "setZookeeperPortClient":
+						o2.setZookeeperPortClient(requeteJson.getInteger(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("zookeeperPortClient", o2.getZookeeperPortClient(), pk));
+						break;
+					case "setSolrVersion":
+						o2.setSolrVersion(requeteJson.getString(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("solrVersion", o2.getSolrVersion(), pk));
+						break;
+					case "setSolrPortClient":
+						o2.setSolrPortClient(requeteJson.getInteger(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("solrPortClient", o2.getSolrPortClient(), pk));
+						break;
+					case "setSolrConfigset":
+						o2.setSolrConfigset(requeteJson.getString(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("solrConfigset", o2.getSolrConfigset(), pk));
+						break;
+					case "setSolrCollection":
+						o2.setSolrCollection(requeteJson.getString(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("solrCollection", o2.getSolrCollection(), pk));
 						break;
 				}
 			}
@@ -361,24 +396,62 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 
 	public String varIndexeUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
-			case "supprime":
-				return "supprime_indexed_boolean";
-			case "id":
-				return "id_indexed_string";
 			case "pk":
 				return "pk_indexed_long";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "id":
+				return "id_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
 			case "archive":
 				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
+			case "estCours":
+				return "estCours_indexed_boolean";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
+			case "articleH1_enUS":
+				return "articleH1_enUS_indexed_string";
+			case "articleH1_frFR":
+				return "articleH1_frFR_indexed_string";
+			case "articleH2_enUS":
+				return "articleH2_enUS_indexed_string";
+			case "articleH2_frFR":
+				return "articleH2_frFR_indexed_string";
+			case "articleCree":
+				return "articleCree_indexed_date";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
+			case "pageImageUri_enUS":
+				return "pageImageUri_enUS_indexed_string";
+			case "pageImageUri_frFR":
+				return "pageImageUri_frFR_indexed_string";
+			case "pageCree":
+				return "pageCree_indexed_date";
+			case "pageH1":
+				return "pageH1_indexed_string";
+			case "pageH2":
+				return "pageH2_indexed_string";
+			case "pageH3":
+				return "pageH3_indexed_string";
+			case "pageTitre":
+				return "pageTitre_indexed_string";
 			case "utilisateurId":
 				return "utilisateurId_indexed_string";
 			case "calculInrPks":
@@ -403,6 +476,20 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 				return "voirSupprime_indexed_boolean";
 			case "siteNomDomaine":
 				return "siteNomDomaine_indexed_string";
+			case "zookeeperVersion":
+				return "zookeeperVersion_indexed_string";
+			case "zookeeperPortAdmin":
+				return "zookeeperPortAdmin_indexed_int";
+			case "zookeeperPortClient":
+				return "zookeeperPortClient_indexed_int";
+			case "solrVersion":
+				return "solrVersion_indexed_string";
+			case "solrPortClient":
+				return "solrPortClient_indexed_int";
+			case "solrConfigset":
+				return "solrConfigset_indexed_string";
+			case "solrCollection":
+				return "solrCollection_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -410,6 +497,10 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 
 	public String varRechercheUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
+			case "pageRecherche_enUS":
+				return "pageRecherche_enUS_text_enUS";
+			case "pageRecherche_frFR":
+				return "pageRecherche_frFR_text_frFR";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -523,7 +614,7 @@ public class UtilisateurSiteFrFRGenApiServiceImpl implements UtilisateurSiteFrFR
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
 									SiteContexteFrFR.SQL_creer
-									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 									, creerAsync
 							-> {
 								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);

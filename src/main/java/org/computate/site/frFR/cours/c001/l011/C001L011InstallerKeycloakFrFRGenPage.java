@@ -1,5 +1,7 @@
-package org.computate.site.frFR.cours.c001.l009;
+package org.computate.site.frFR.cours.c001.l011;
 
+import java.lang.String;
+import java.lang.Integer;
 import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.cours.c001.C001LeconFrFRPage;
 import org.computate.site.frFR.config.ConfigSite;
@@ -30,21 +32,21 @@ import java.util.List;
 /**
  * Traduire: false
  **/
-public class C001L009InstallerKeycloakFrFRGenPage extends C001L009InstallerKeycloakFrFRGenPageGen<C001LeconFrFRPage> {
+public class C001L011InstallerKeycloakFrFRGenPage extends C001L011InstallerKeycloakFrFRGenPageGen<C001LeconFrFRPage> {
 
-	protected void _c001L009InstallerKeycloak(Couverture<C001L009InstallerKeycloak> c) {
-		c.o(new C001L009InstallerKeycloak());
+	protected void _c001L011InstallerKeycloak(Couverture<C001L011InstallerKeycloak> c) {
+		c.o(new C001L011InstallerKeycloak());
 	}
 
 	@Override protected void _pageH1(Couverture<String> c) {
-		if(c001L009InstallerKeycloak != null)
-			c.o("Comment installer la dernière version de PostgreSQL ? ");
+		if(c001L011InstallerKeycloak != null)
+			c.o("H1.enUS:How do I try out some user management software for single sign on applications? ");
 		else
-			c.o("Comment installer la dernière version de PostgreSQL ? ");
+			c.o("H1.enUS:How do I try out some user management software for single sign on applications? ");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
-		c.o("Installer PostgreSQL à partir du code source. ");
+		c.o("H2.enUS:Install Keycloak from the source code. ");
 	}
 
 	@Override protected void _pageH3(Couverture<String> c) {
@@ -52,26 +54,26 @@ public class C001L009InstallerKeycloakFrFRGenPage extends C001L009InstallerKeycl
 	}
 
 	@Override protected void _pageTitre(Couverture<String> c) {
-		if(c001L009InstallerKeycloak != null)
-			c.o("Comment installer la dernière version de PostgreSQL ? Installer PostgreSQL à partir du code source. ");
+		if(c001L011InstallerKeycloak != null)
+			c.o("Titre.enUS:");
 		else
-			c.o("Comment installer la dernière version de PostgreSQL ? Installer PostgreSQL à partir du code source. ");
+			c.o("Titre.enUS:");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
-		c.o("/frFR/cours/001/009-comment-installer-la-derniere-version-de-postgresql");
+		c.o("/frFR/cours/001/011-comment-installer-une-version-recente-de-keycloak");
 	}
 
 	@Override protected void _pageUriEnUS(Couverture<String> c) {
-		c.o("/enUS/course/001/009-how-to-install-the-latest-version-of-postgresql");
+		c.o("/enUS/course/001/011-how-to-install-a-recent-version-of-keycloak");
 	}
 
 	@Override protected void _pageDescription(Couverture<String> c) {
-			c.o("Lorsque votre site web utilise une base de données, votre site Web n'est plus uniquement de contenu statique. Vous pouvez créer des utilisateurs avec des rôles pour ajouter du contenu et personnaliser le site. La bonne nouvelle est que la meilleure base de données sur la planète est PostgreSQL, est elle est open source. Je vous aiderai à installer la version la plus récente de PostgreSQL pour développer votre site Web de manière open source. ");
+			c.o("Description.enUS:");
 	}
 
 	@Override protected void _pageImageUri(Couverture<String> c) {
-			c.o("/png/frFR/cours/001/009-comment-installer-la-derniere-version-de-postgresql-999.png");
+			c.o("/png/frFR/cours/001/011-comment-installer-une-version-recente-de-keycloak-999.png");
 	}
 
 	@Override protected void _pageImageLargeur(Couverture<Integer> c) {
@@ -79,7 +81,7 @@ public class C001L009InstallerKeycloakFrFRGenPage extends C001L009InstallerKeycl
 	}
 
 	@Override protected void _pageImageHauteur(Couverture<Integer> c) {
-			c.o(1927);
+			c.o(1666);
 	}
 
 	@Override protected void _contexteIconeGroupe(Couverture<String> c) {
@@ -90,43 +92,43 @@ public class C001L009InstallerKeycloakFrFRGenPage extends C001L009InstallerKeycl
 			c.o("question");
 	}
 
-	@Override public void initLoinC001L009InstallerKeycloakFrFRGenPage() {
-		initC001L009InstallerKeycloakFrFRGenPage();
+	@Override public void initLoinC001L011InstallerKeycloakFrFRGenPage() {
+		initC001L011InstallerKeycloakFrFRGenPage();
 		super.initLoinMiseEnPage();
 	}
 
-	@Override public void htmlScriptsC001L009InstallerKeycloakFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L009InstallerKeycloakFrFRPage.js").f().g("script");
+	@Override public void htmlScriptsC001L011InstallerKeycloakFrFRGenPage() {
+		e("script").a("src", statiqueUrlBase, "/js/C001L011InstallerKeycloakFrFRPage.js").f().g("script");
 	}
 
 
-	@Override public void htmlBodyC001L009InstallerKeycloakFrFRGenPage() {
+	@Override public void htmlBodyC001L011InstallerKeycloakFrFRGenPage() {
 
-		if(pageH1 != null) {
+		if(StringUtils.isNotBlank(pageH1)) {
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx(pageH1).g("span");
 			} g("h1");
 		}
-		if(pageH2 != null) {
+		if(StringUtils.isNotBlank(pageH1)) {
 			{ e("h2").f();
 				e("span").a("class", " ").f().sx(pageH2).g("span");
 			} g("h2");
 		}
-		if(pageH3 != null) {
+		if(StringUtils.isNotBlank(pageH3)) {
 			{ e("h3").f();
 				e("span").a("class", " ").f().sx(pageH3).g("span");
 			} g("h3");
 		}
 
-		if(c001L009InstallerKeycloak != null)
-			c001L009InstallerKeycloak.htmlBody();
+		if(c001L011InstallerKeycloak != null)
+			c001L011InstallerKeycloak.htmlBody();
 
 	}
 
-	@Override public void htmlBodyCourtC001L009InstallerKeycloakFrFRGenPage() {
+	@Override public void htmlBodyCourtC001L011InstallerKeycloakFrFRGenPage() {
 
-		c001L009InstallerKeycloak.htmlBodyCourt();
+		c001L011InstallerKeycloak.htmlBodyCourt();
 	}
 }

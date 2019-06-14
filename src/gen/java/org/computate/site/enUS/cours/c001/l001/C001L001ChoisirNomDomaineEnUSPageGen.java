@@ -179,6 +179,54 @@ public abstract class C001L001ChoisirNomDomaineEnUSPageGen<DEV> extends C001L001
 	public void htmlScriptC001L001ChoisirNomDomaineEnUSPage() {
 	}
 
+	//////////
+	// html //
+	//////////
+
+	@Override public void html() {
+		htmlC001L001ChoisirNomDomaineEnUSPage();
+		super.html();
+	}
+
+	public void htmlC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
+	//////////////
+	// htmlMeta //
+	//////////////
+
+	@Override public void htmlMeta() {
+		htmlMetaC001L001ChoisirNomDomaineEnUSPage();
+		super.htmlMeta();
+	}
+
+	public void htmlMetaC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
+	////////////////
+	// htmlStyles //
+	////////////////
+
+	@Override public void htmlStyles() {
+		htmlStylesC001L001ChoisirNomDomaineEnUSPage();
+		super.htmlStyles();
+	}
+
+	public void htmlStylesC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
+	///////////////
+	// htmlStyle //
+	///////////////
+
+	@Override public void htmlStyle() {
+		htmlStyleC001L001ChoisirNomDomaineEnUSPage();
+		super.htmlStyle();
+	}
+
+	public void htmlStyleC001L001ChoisirNomDomaineEnUSPage() {
+	}
+
 	//////////////
 	// hashCode //
 	//////////////

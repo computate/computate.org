@@ -96,7 +96,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage extends C001
 	}
 
 	@Override public void htmlScriptsC001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L003InstallerMachineVirtuelleVirtualBoxFrFRGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L003InstallerMachineVirtuelleVirtualBoxFrFRPage.js").f().g("script");
 	}
 
 

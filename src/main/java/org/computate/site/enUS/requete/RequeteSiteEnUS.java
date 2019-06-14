@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.List;
 import java.util.Stack;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -29,6 +30,7 @@ import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import io.vertx.core.Vertx;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.oauth2.KeycloakHelper;
 import io.vertx.ext.sql.SQLConnection;
@@ -157,6 +159,24 @@ public class RequeteSiteEnUS extends RequeteSiteEnUSGen<Object> implements Seria
 			String o = principalJson.getString("name");
 //			String o = KeycloakHelper.name(principalJson);
 			c.o(o);
+		}
+	}
+
+	protected void _utilisateurRessource(Couverture<JsonObject> c) {
+		if(configSite_ != null && principalJson != null) {
+			JsonObject ressource = principalJson.getJsonObject("resource_access").getJsonObject(requeteSite_.getConfigSite_().getAuthRessource());
+			c.o(ressource);
+		}
+	}
+
+	protected void _utilisateurRolesRessource(List<String> o) {
+		if(utilisateurRessource != null) {
+			JsonArray roles = utilisateurRessource.getJsonArray("roles");
+			if(roles != null) {
+				roles.stream().forEach(r -> {
+					addUtilisateurRolesRessource((String)r);
+				});
+			}
 		}
 	}
 

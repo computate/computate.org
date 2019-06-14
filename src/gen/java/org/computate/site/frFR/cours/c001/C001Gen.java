@@ -21,14 +21,29 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001&fq=classeEtendGen_indexed_boolean:true">Trouver la classe pageParts dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.C001&fq=classeEtendGen_indexed_boolean:true">Trouver la classe coursIdentifiantMajuscule dans Solr</a>
  * <br/>
  **/
 public abstract class C001Gen<DEV> extends Cours {
 
+	public static final String C001_UnNom = "un cours n ° 1";
+	public static final String C001_Ce = "ce ";
+	public static final String C001_CeNom = "ce cours n ° 1";
+	public static final String C001_Un = "un ";
+	public static final String C001_LeNom = "le cours n ° 1";
+	public static final String C001_NomSingulier = "cours n ° 1";
+	public static final String C001_NomPluriel = "courses";
+	public static final String C001_NomActuel = "cours n ° 1 actuel";
+	public static final String C001_TousNom = "tous les courses";
+	public static final String C001_RechercherTousNomPar = "rechercher courses par ";
+	public static final String C001_RechercherTousNom = "rechercher courses";
 	public static final String C001_H1 = "Construire des applications Web modernes et async avec les meilleurs logiciels open sources. ";
 	public static final String C001_H2 = "Avec Vert.x, sur Linux, données PostgreSQL, recherche Solr, construit comme containers Linux sur OpenShift. ";
 	public static final String C001_Titre = "Construire des applications Web modernes et async avec les meilleurs logiciels open sources. ";
+	public static final String C001_LesNoms = "les courses";
+	public static final String C001_AucunNomTrouve = "aucun cours n ° 1 trouvé";
+	public static final String C001_NomVar = "coursN°1";
+	public static final String C001_DeNom = "de cours n ° 1";
 	public static final String C001_Couleur = "green";
 	public static final String C001_IconeGroupe = "regular";
 	public static final String C001_IconeNom = "university";

@@ -33,9 +33,23 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 
+	public static final String C001L008CreerCertificat_UnNom = "a lesson";
+	public static final String C001L008CreerCertificat_Ce = "this ";
+	public static final String C001L008CreerCertificat_CeNom = "this lesson";
+	public static final String C001L008CreerCertificat_Un = "an ";
+	public static final String C001L008CreerCertificat_LeNom = "the lesson";
+	public static final String C001L008CreerCertificat_NomSingulier = "lesson";
+	public static final String C001L008CreerCertificat_NomPluriel = "lessons";
+	public static final String C001L008CreerCertificat_NomActuel = "current lesson";
+	public static final String C001L008CreerCertificat_TousNom = "the lessons";
+	public static final String C001L008CreerCertificat_RechercherTousNomPar = "search lessons by ";
 	public static final String C001L008CreerCertificat_H1 = "What can I do once I have purchased a domain name? ";
 	public static final String C001L008CreerCertificat_H2 = "Obtain a valid TLS certificate for free, for security and credibility. ";
 	public static final String C001L008CreerCertificat_Titre = "Obtain a valid TLS certificate for free, for security and credibility. ";
+	public static final String C001L008CreerCertificat_LesNoms = "the lessons";
+	public static final String C001L008CreerCertificat_AucunNomTrouve = "no lesson found";
+	public static final String C001L008CreerCertificat_NomVar = "lesson";
+	public static final String C001L008CreerCertificat_DeNom = "of lesson";
 	public static final String C001L008CreerCertificat_Couleur = "green";
 	public static final String C001L008CreerCertificat_IconeGroupe = "regular";
 	public static final String C001L008CreerCertificat_IconeNom = "question";

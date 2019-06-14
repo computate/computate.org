@@ -18,8 +18,8 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * PageRechercheEnUSPage: C001L003InstallerMachineVirtuelleVirtualBoxEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
  * H1.frFR: Comment puis-je essayer CentOS 7 Linux sans remplacer mon système d'exploitation ? 
  * H1.enUS: How do I try CentOS 7 Linux without replacing my operating system? 

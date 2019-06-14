@@ -8,6 +8,7 @@ import io.vertx.ext.web.handler.OAuth2AuthHandler;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import java.lang.Integer;
+import io.vertx.core.WorkerExecutor;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.site.frFR.cluster.Cluster;
@@ -167,6 +168,42 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 				setAuthFournisseur(authFournisseurCouverture.o);
 		}
 		authFournisseurCouverture.dejaInitialise(true);
+		return (SiteContexteFrFR)this;
+	}
+
+	//////////////////////////
+	// executeurTravailleur //
+	//////////////////////////
+
+	/**	L'entité « executeurTravailleur »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected WorkerExecutor executeurTravailleur;
+	public Couverture<WorkerExecutor> executeurTravailleurCouverture = new Couverture<WorkerExecutor>().p(this).c(WorkerExecutor.class).var("executeurTravailleur").o(executeurTravailleur);
+
+	/**	<br/>L'entité « executeurTravailleur »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.contexte.SiteContexteFrFR&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:executeurTravailleur">Trouver l'entité executeurTravailleur dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _executeurTravailleur(Couverture<WorkerExecutor> c);
+
+	public WorkerExecutor getExecuteurTravailleur() {
+		return executeurTravailleur;
+	}
+
+	public void setExecuteurTravailleur(WorkerExecutor executeurTravailleur) {
+		this.executeurTravailleur = executeurTravailleur;
+		this.executeurTravailleurCouverture.dejaInitialise = true;
+	}
+	protected SiteContexteFrFR executeurTravailleurInit() {
+		if(!executeurTravailleurCouverture.dejaInitialise) {
+			_executeurTravailleur(executeurTravailleurCouverture);
+			if(executeurTravailleur == null)
+				setExecuteurTravailleur(executeurTravailleurCouverture.o);
+		}
+		executeurTravailleurCouverture.dejaInitialise(true);
 		return (SiteContexteFrFR)this;
 	}
 
@@ -628,6 +665,7 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 		usineRouteurInit();
 		gestionnaireAuthInit();
 		authFournisseurInit();
+		executeurTravailleurInit();
 		configSiteInit();
 		jdbcConfigInit();
 		clientSqlInit();
@@ -684,6 +722,8 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 				return oSiteContexteFrFR.gestionnaireAuth;
 			case "authFournisseur":
 				return oSiteContexteFrFR.authFournisseur;
+			case "executeurTravailleur":
+				return oSiteContexteFrFR.executeurTravailleur;
 			case "configSite":
 				return oSiteContexteFrFR.configSite;
 			case "jdbcConfig":
@@ -765,7 +805,7 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(selCryptage, motDePasseCryptage, jetonIdentitePaypal, nombreExecuteurs);
+		return Objects.hash();
 	}
 
 	////////////
@@ -778,10 +818,7 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 		if(!(o instanceof SiteContexteFrFR))
 			return false;
 		SiteContexteFrFR that = (SiteContexteFrFR)o;
-		return Objects.equals( selCryptage, that.selCryptage )
-				&& Objects.equals( motDePasseCryptage, that.motDePasseCryptage )
-				&& Objects.equals( jetonIdentitePaypal, that.jetonIdentitePaypal )
-				&& Objects.equals( nombreExecuteurs, that.nombreExecuteurs );
+		return true;
 	}
 
 	//////////////
@@ -791,10 +828,6 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("SiteContexteFrFR {");
-		sb.append( "selCryptage: \"" ).append(selCryptage).append( "\"" );
-		sb.append( ", motDePasseCryptage: \"" ).append(motDePasseCryptage).append( "\"" );
-		sb.append( ", jetonIdentitePaypal: \"" ).append(jetonIdentitePaypal).append( "\"" );
-		sb.append( ", nombreExecuteurs: " ).append(nombreExecuteurs);
 		sb.append(" }");
 		return sb.toString();
 	}

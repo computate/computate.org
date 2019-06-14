@@ -512,9 +512,11 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	/**
 	 * r:À récapituler : 
 	 * r.enUS:To review: 
+	 * r:"fr"
+	 * r.enUS:"en"
 	 */ 
 	public void pageRecapituler()  {
-		{ e("html").a("xmlns:xlink", "http://www.w3.org/1999/xlink").a("xmlns", "http://www.w3.org/1999/xhtml").a("xmlns:fb", "http://ogp.me/ns/fb#").f();
+		{ e("html").a("lang", "fr").f();
 			{ e("head").f();
 				e("title").f();
 					sx(pageTitre);
@@ -565,9 +567,11 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //		e("script").a("src", "https://code.jquery.com/jquery-1.12.4.min.js").f().g("script");
 		e("script").a("src", statiqueUrlBase, "/js/jquery-1.12.4.min.js").f().g("script");
 		e("script").a("src", statiqueUrlBase, "/js/site.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/UtilisateurSiteFrFRPage.js").f().g("script");
 		e("script").a("src", statiqueUrlBase, "/js/moment.min.js").f().g("script");
 		e("script").a("src", statiqueUrlBase, "/js/jqDatePicker.js").f().g("script");
 		e("script").a("src", statiqueUrlBase, "/js/jquery.serialize-object.js").f().g("script");
+//		e("script").a("src", "https://kit.fontawesome.com/a66bc13c75.js").f().g("script");
 		e("script").a("async", "").a("defer", "").a("src", "https://apis.google.com/js/platform.js").f().g("script");
 		e("script").a("async", "").a("src", "https://www.googletagmanager.com/gtag/js?id=UA-8782010-1").f().g("script");
 		e("script").f().l("/*<![CDATA[*/");
@@ -585,8 +589,8 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/w3.css").fg();
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/site.css").fg();
 		e("link").a("rel", "stylesheet").a("href", statiqueUrlBase, "/css/datePicker.css").fg();
-		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Anonymous+Pro|Bellefair|Jomhuria|PT+Serif:700|Stint+Ultra+Condensed&display=swap").fg();
-		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.8.2/css/all.css").a("integrity", "sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF").a("crossorigin", "anonymous").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://fonts.googleapis.com/css?family=Anonymous%20Pro%7CBellefair%7CJomhuria%7CPT%20Serif%3A700%7CStint%20Ultra%20Condensed&display=swap").fg();
+		e("link").a("rel", "stylesheet").a("href", "https://pro.fontawesome.com/releases/v5.9.0/css/all.css").a("integrity", "sha384-vlOMx0hKjUCl4WzuhIhSNZSm2yQCaf0mOU1hEDK/iztH3gU4v5NMmJln9273A6Jz").a("crossorigin", "anonymous").fg();
 		e("link").a("rel", "shortcut icon").a("href", statiqueUrlBase, "/png/c-key.png").fg();
 	}
 
@@ -605,13 +609,15 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * r.enUS: Let's get connected. 
 	 * r: En-haut. 
 	 * r.enUS: Up to the top. 
+	 * r:"fr"
+	 * r.enUS:"en"
 	 */
 	@Override public void htmlMiseEnPage() {
 		if(requeteSite_.getOperationRequete().getParams().getJsonObject("query").getBoolean("pageRecapituler")) {
 			pageRecapituler();
 		}
 		else {
-			e("html").a("xmlns:xlink", "http://www.w3.org/1999/xlink").a("xmlns", "http://www.w3.org/1999/xhtml").a("xmlns:fb", "http://ogp.me/ns/fb#").f();
+			e("html").a("lang", "fr").f();
 				e("head").f();
 					e("title").f();
 						sx(pageTitre);
@@ -628,10 +634,10 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		
 				g("head");
 				e("body").a("class", "w3-light-grey ").f(); 
-					e("a").a("name", "top").f().g("a");
+					e("a").a("id", "top").f().g("a");
 					JsonObject params = requeteSite_.getOperationRequete().getParams();
 					if(StringUtils.equals("*:*", params.getJsonObject("query").getString("q")) && params.getJsonObject("query").getJsonArray("fq") == null) {
-						e("script").a("type", "text/javascript").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
+						e("script").a("async", "").a("defer", "").a("src", "//assets.pinterest.com/js/pinit_main.js?0.8726554954646004").f().g("script");
 						e("div").a("id", "fb-root").f().g("div");
 						e("script").f().l("/*<![CDATA[*/");
 							l("(function(d, s, id) {");
@@ -664,7 +670,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					e("div").a("class", "site-section-all ").f();
 						e("div").a("class", "site-section-above w3-light-grey ").f();
 							e("div").a("class", "w3-center w3-black w3-text-white ").f();
-		//							e("img").a("src", "/img/trailblaze-top.jpg").a("class", "w3-img ").a("style", "width: 100%; margin-bottom: -10px; ").fg();
 								menu();
 							g("div");
 							e("div").a("id", "site-section-primary").a("class", "site-section-primary w3-text-black w3-padding-bottom-32 ").f();
@@ -689,16 +694,16 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 									g("div");
 									e("div").a("class", "w3-large ").f();
 										String urlSource = "https://github.com/computate/computate.org/blob/master/src/main/java/" + StringUtils.replace(getClass().getSuperclass().getSuperclass().getCanonicalName(), ".", "/") + ".java";
-										e("a").a("href", urlSource).a("target", "_new").a("class", "grow-30 ").f();
+										e("a").a("href", urlSource).a("target", "_blank").a("class", "grow-30 ").f();
 											sx("Voir le code source ici sur github. ");
 										g("a");
 									g("div");
 									e("div").a("class", "grow-30 w3-margin ").f();
-										e("a").a("href", "https://www.openshift.com/").a("target", "_new").f();
+										e("a").a("href", "https://www.openshift.com/").a("target", "_blank").f();
 											e("span").a("class", "w3-large ").f();
 												sx("Powered by ");
 											g("span");
-											e("img").a("class", "w3-image ").a("style", "display: inline-block; width: 200px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/openshift.svg").fg();
+											e("img").a("alt", "").a("class", "w3-image ").a("style", "display: inline-block; width: 200px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/openshift.svg").fg();
 										g("a");
 									g("div");
 								g("footer");
@@ -714,23 +719,23 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 										sx("Connectez-vous. ");
 									g("h6");
 									e("div").a("style", "").f();
-										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.facebook.com/computateorg/").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/facebook.svg").fg();
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.facebook.com/computateorg/").f();
+											e("img").a("alt", "").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/facebook.svg").fg();
 										g("a");
-										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://twitter.com/computateorg").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/twitter.svg").fg();
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://twitter.com/computateorg").f();
+											e("img").a("alt", "").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/twitter.svg").fg();
 										g("a");
-										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.instagram.com/computateorg/").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/instagram.svg").fg();
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://www.instagram.com/computateorg/").f();
+											e("img").a("alt", "").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/instagram.svg").fg();
 										g("a");
-										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://openclipart.org/user-detail/computateorg").f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/openclipart.svg").fg();
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", "https://openclipart.org/user-detail/computateorg").f();
+											e("img").a("alt", "").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/openclipart.svg").fg();
 										g("a");
-										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pageYoutubeUrl).f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/youtube.svg").fg();
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pageYoutubeUrl).f();
+											e("img").a("alt", "").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/youtube.svg").fg();
 										g("a");
-										e("a").a("target", "_new").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pagePinterestUrl).f();
-											e("img").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/pinterest.svg").fg();
+										e("a").a("target", "_blank").a("rel", "noopener noreferrer").a("data-ajax", "false").a("href", pagePinterestUrl).f();
+											e("img").a("alt", "").a("class", "grow-30 ").a("style", "display: inline-block; width: 50px; height: 50px; margin: 0 10px;").a("src", statiqueUrlBase, "/svg/pinterest.svg").fg();
 										g("a");
 									g("div");
 									e("h6").f();
@@ -756,9 +761,9 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 * r.enUS: "Home"
 	 * r: "À propos"
 	 * r.enUS: "About"
-	 * r: "Se connecter"
+	 * r: "Connexion"
 	 * r.enUS: "Login"
-	 * r: "Se déconnecter"
+	 * r: "Déconnexion"
 	 * r.enUS: "Logout"
 	 * r: "Cours"
 	 * r.enUS: "Courses"
@@ -775,7 +780,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
 //					e("img").a("src", statiqueUrlBase, "/svg/computate-keys.svg").a("style", "width: 250px; ").fg();
 //					e("br").fg();
-////					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+////					e("span").a("class", "site-menu-item").f();
 ////						sx("computate");
 ////					g("span");
 //				g("a");
@@ -783,10 +788,10 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("span").a("class", "header-icon-a grow-30 w3-center ").f();
 					e("a").a("class", "w3-hover-opacity").a("title", "English").a("href", pageUriEnUS).f();
-						e("img").a("src", statiqueUrlBase, "/svg/flag-US.svg").a("style", "height: 50px; ").fg();
+						e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/flag-US.svg").a("style", "height: 50px; ").fg();
 					g("a");
 					e("a").a("class", "w3-hover-opacity").a("title", "français").a("href", pageUri).f();
-						e("img").a("src", statiqueUrlBase, "/svg/flag-FR.svg").a("style", "height: 50px; ").fg();
+						e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/flag-FR.svg").a("style", "height: 50px; ").fg();
 					g("a");
 					e("br").fg();
 					e("span").a("class", "site-menu-item").f();
@@ -796,54 +801,54 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAccueilUri).f();
-//					e("img").a("src", statiqueUrlBase, "/svg/computate-keys.svg").a("style", "width: 250px; ").fg();
+//					e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/computate-keys.svg").a("style", "width: 250px; ").fg();
 					e("br").fg();
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+					e("span").a("class", "site-menu-item").f();
 						sx("Accueil");
 					g("span");
 				g("a");
 			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageBlogUri).f();
-//					e("img").a("src", statiqueUrlBase, "/svg/full-moon.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/full-moon.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+					e("span").a("class", "site-menu-item").f();
 						sx("Blog");
 					g("span");
 				g("a");
 			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
-//					e("img").a("src", statiqueUrlBase, "/svg/cluster.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/cluster.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+					e("span").a("class", "site-menu-item").f();
 						sx("Cours");
 					g("span");
 				g("a");
 			g("div");
 //			e("div").a("class", "site-bar-item w3-bar-item ").f();
 //				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageCoursUri).f();
-//					e("img").a("src", statiqueUrlBase, "/svg/full-moon.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/full-moon.svg").a("style", "height: 50px; ").fg();
 //					e("br").fg();
-//					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+//					e("span").a("class", "site-menu-item").f();
 //						sx("Leçons");
 //					g("span");
 //				g("a");
 //			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageAProposUri).f();
-//					e("img").a("src", statiqueUrlBase, "/png/computate.png").a("style", "height: 50px; ").fg();
+//					e("img").a("alt", "").a("src", statiqueUrlBase, "/png/computate.png").a("style", "height: 50px; ").fg();
 					e("br").fg();
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+					e("span").a("class", "site-menu-item").f();
 						sx("À propos");
 					g("span");
 				g("a");
 			g("div");
 			e("div").a("class", "site-bar-item w3-bar-item ").f();
 				e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageFaqUri).f();
-//					e("img").a("src", statiqueUrlBase, "/svg/ufo.svg").a("style", "height: 50px; ").fg();
+//					e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/ufo.svg").a("style", "height: 50px; ").fg();
 					e("br").fg();
-					e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+					e("span").a("class", "site-menu-item").f();
 						sx("FAQ");
 					g("span");
 				g("a");
@@ -851,10 +856,10 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() == null) {
 				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageUtilisateurUri).f(); 
-//						e("img").a("src", statiqueUrlBase, "/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
+//						e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
-						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
-							sx("Se connecter");
+						e("span").a("class", "site-menu-item").f();
+							sx("Connexion");
 						g("span");
 					g("a");
 				g("div");
@@ -862,19 +867,19 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 			if(requeteSite_.getUtilisateurId() != null) {
 				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageUtilisateurUri).f(); 
-//						e("img").a("src", statiqueUrlBase, "/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
+//						e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/astronaut-helmet.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
-						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
+						e("span").a("class", "site-menu-item").f();
 							sx(requeteSite_.getUtilisateurNom());
 						g("span");
 					g("a");
 				g("div");
 				e("div").a("class", "site-bar-item w3-bar-item ").f();
 					e("a").a("class", "header-icon-a grow-30 w3-hover-opacity w3-center ").a("href", pageDeconnexionUri).f();
-//						e("img").a("src", statiqueUrlBase, "/svg/light-speed.svg").a("style", "height: 50px; ").fg();
+//						e("img").a("alt", "").a("src", statiqueUrlBase, "/svg/light-speed.svg").a("style", "height: 50px; ").fg();
 						e("br").fg();
-						e("span").a("class", "site-menu-item").a("id", "computate_org_span").f();
-							sx("Se déconnecter");
+						e("span").a("class", "site-menu-item").f();
+							sx("Déconnexion");
 						g("span");
 					g("a");
 				g("div");
@@ -891,7 +896,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		{ e("div").a("class", "w3-padding w3-margin-top w3-center site-abondonnezPas-div ").f();
 			e("h3").f().sx("N'abandonnez pas vos idées. Vous pouvez faire des choses compliquées ! ").g("h3");
 			{ e("div").f();
-				e("img").a("class", "w3-image ").a("src", statiqueUrlBase, "/svg/computate-keys.svg").fg();
+				e("img").a("alt", "").a("class", "w3-image ").a("src", statiqueUrlBase, "/svg/computate-keys.svg").fg();
 			} g("div");
 		} g("div");
 	}
@@ -907,20 +912,20 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 				e("h3").f().sx("Partager cette page. ").g("h3");
 				{ e("div").a("class", "w3-cell-row ").f();
 					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-						e("img").a("class", "blog-publication-social-img").a("src", statiqueUrlBase, "/svg/facebook.svg").fg();
+						e("img").a("alt", "").a("class", "blog-publication-social-img").a("src", statiqueUrlBase, "/svg/facebook.svg").fg();
 						{ e("div").f();
 							e("div").a("class", "fb-like").a("data-href", pageUrl).a("data-layout", "box_count").a("data-action", "like").a("data-size", "small").a("data-show-faces", "true").a("data-share", "true").f().g("div");
 						} g("div");
 					} g("div");
 					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-						e("img").a("class", "blog-publication-social-img").a("src", statiqueUrlBase, "/svg/twitter.svg").fg();
+						e("img").a("alt", "").a("class", "blog-publication-social-img").a("src", statiqueUrlBase, "/svg/twitter.svg").fg();
 						{ e("div").f();
 							e("a").a("href", "https://twitter.com/share").a("class", "twitter-share-button ").a("data-show-count", "false").f().g("a");
-							e("script").a("async", "").a("charset", "utf-8").a("src", "//platform.twitter.com/widgets.js").f().g("script");
+							e("script").a("async", "").a("src", "//platform.twitter.com/widgets.js").f().g("script");
 						} g("div");
 					}g("div");
 					{ e("div").a("class", "blog-publication-social-div w3-cell ").f();
-						e("img").a("class", "blog-publication-social-img").a("src", statiqueUrlBase, "/svg/pinterest.svg").fg();
+						e("img").a("alt", "").a("class", "blog-publication-social-img").a("src", statiqueUrlBase, "/svg/pinterest.svg").fg();
 						{ e("div").a("class",  "pinterest-div ").f();
 							{ e("a");
 								a("data-pin-media", pageImageUrl);
@@ -930,7 +935,7 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 								a("href", "https://www.pinterest.com/pin/create/button/");
 								a("data-pin-do", "buttonPin");
 								f();
-									e("img").a("src", "//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png").fg();
+									e("img").a("alt", "").a("src", "//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png").fg();
 							} g("a");
 						} g("div");
 					} g("div");

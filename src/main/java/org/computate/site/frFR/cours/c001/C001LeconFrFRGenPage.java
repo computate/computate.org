@@ -46,9 +46,9 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(c001Lecon != null)
-			c.o("");
+			c.o("un leçon");
 		else if(listeC001Lecon == null || listeC001Lecon.size() == 0)
-			c.o("");
+			c.o("aucun leçon trouvé");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -63,7 +63,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 		if(c001Lecon != null)
 			c.o("");
 		else if(listeC001Lecon == null || listeC001Lecon.size() == 0)
-			c.o("");
+			c.o("aucun leçon trouvé");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -92,7 +92,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 	}
 
 	@Override public void htmlScriptsC001LeconFrFRGenPage() {
-		e("script").a("src", "/static/js/C001LeconFrFRPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001LeconFrFRPage.js").f().g("script");
 	}
 
 	@Override public void htmlScriptC001LeconFrFRGenPage() {
@@ -140,54 +140,6 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "").a("id", "archiveForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "archive")
-						.a("id", "Page_archive")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setArchive")
-						.a("name", "setArchive")
-						.a("id", "Page_archive")
-						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#archiveForm')); ")
-						;
-						if(o.getArchive() != null && o.getArchive())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_archive").a("class", "").f().sx("archivé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "supprime")
-						.a("id", "Page_supprime")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setSupprime")
-						.a("name", "setSupprime")
-						.a("id", "Page_supprime")
-						.a("onchange", "patchC001Lecon($('#C001LeconForm'), $('#supprimeForm')); ")
-						;
-						if(o.getSupprime() != null && o.getSupprime())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("supprimé").g("label");
-				} g("form");
-			} g("div");
 		} g("div");
 	}
 
@@ -233,48 +185,6 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
 		} g("div");
 	}
 
@@ -303,48 +213,6 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "PATCH_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setArchive")
-					.a("name", "setArchive")
-					.a("id", "PATCH_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "PATCH_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setSupprime")
-					.a("name", "setSupprime")
-					.a("id", "PATCH_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
@@ -385,48 +253,6 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
@@ -445,15 +271,15 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeC001Lecon == null || listeC001Lecon.size() == 0) {
-			// contexteAucunNomTrouve : 
+			// contexteAucunNomTrouve : aucun leçon trouvé
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("aucun leçon trouvé").g("span");
 			} g("h1");
 		} else if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
-			// contexteUnNom : 
+			// contexteUnNom : un leçon
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
@@ -473,12 +299,12 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 				} g("h3");
 			}
 		} else {
-			// contexteNomPluriel : plusiers 
+			// contexteNomPluriel : plusiers leçons
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("leçons").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -526,6 +352,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 			{ e("form").a("id", "C001LeconForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/frFR/cours/001/lecons").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_frFR')); return false; ").f();
 				{ e("div").a("class", "w3-bar ").f();
 					e("input").a("type", "text")
+						.a("placeholder", "rechercher leçons")
 						.a("title", "")
 						.a("class", "recherchePageRecherche_frFR w3-input w3-border w3-bar-item ")
 						.a("name", "pageRecherche_frFR")
@@ -564,7 +391,7 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 		if(listeC001Lecon != null && listeC001Lecon.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			C001Lecon o = listeC001Lecon.first();
 
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+			{ e("div").a("class", "").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("action", "").a("id", "C001LeconForm").a("style", "display: inline-block; ").f();
@@ -583,6 +410,10 @@ public class C001LeconFrFRGenPage extends C001LeconFrFRGenPageGen<C001FrFRPage> 
 
 			} g("div");
 		}
+		htmlBodyFormsC001LeconFrFRGenPage();
+	}
+
+	public void htmlBodyFormsC001LeconFrFRGenPage() {
 		e("div").f();
 
 		g("div");

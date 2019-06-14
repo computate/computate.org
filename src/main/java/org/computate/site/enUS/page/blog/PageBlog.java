@@ -139,7 +139,7 @@ public class PageBlog extends PageBlogGen<Article> {
 					});
 					fg();
 					{ e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-green ")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-vivid-greenish-blue ")
 						.f();
 						e("i").a("class", "fas fa-search ").f().g("i");
 					} g("button");

@@ -97,7 +97,7 @@ public class C001L004InstallerCentos7EnUSGenPage extends C001L004InstallerCentos
 	}
 
 	@Override public void htmlScriptsC001L004InstallerCentos7EnUSGenPage() {
-		e("script").a("src", "/static/js/C001L004InstallerCentos7EnUSGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L004InstallerCentos7EnUSPage.js").f().g("script");
 	}
 
 

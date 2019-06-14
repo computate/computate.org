@@ -291,7 +291,7 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	 * {@inheritDoc}
 	 **/ 
 	protected void _classeRoles(Couverture<List<String>> c) {
-		List<String> o = (List<String>)classeDocumentSolr.get("classeRoles_frFR_stored_strings");
+		List<String> o = (List<String>)classeDocumentSolr.get("classeRoles_stored_strings");
 		if(o == null)
 			o = new ArrayList<>();
 		c.o(o);

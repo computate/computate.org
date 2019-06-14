@@ -96,7 +96,7 @@ public class C001L006InstallerEclipseFrFRGenPage extends C001L006InstallerEclips
 	}
 
 	@Override public void htmlScriptsC001L006InstallerEclipseFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L006InstallerEclipseFrFRGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L006InstallerEclipseFrFRPage.js").f().g("script");
 	}
 
 

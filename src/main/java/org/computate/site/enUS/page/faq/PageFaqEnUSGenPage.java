@@ -98,7 +98,7 @@ public class PageFaqEnUSGenPage extends PageFaqEnUSGenPageGen<ArticleEnUSPage> {
 	}
 
 	@Override public void htmlScriptsPageFaqEnUSGenPage() {
-		e("script").a("src", "/static/js/PageFaqEnUSGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/PageFaqEnUSPage.js").f().g("script");
 	}
 
 

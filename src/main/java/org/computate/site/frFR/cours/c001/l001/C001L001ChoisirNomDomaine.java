@@ -19,8 +19,8 @@ import org.computate.site.frFR.page.parti.QuestionReponse;
  * PageRechercheEnUSPage: C001L001ChoisirNomDomaineEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
  * H1.frFR: Quel est l'étape première pour créer mon propre site Web ? 
  * H1.enUS: What is the first step to creating my own website? 

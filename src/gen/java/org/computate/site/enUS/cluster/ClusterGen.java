@@ -114,6 +114,7 @@ public abstract class ClusterGen<DEV> extends Object {
 			this.pageParts.add(o);
 		return (Cluster)this;
 	}
+	public abstract void avantPagePart(PagePart o, String entiteVar);
 	protected Cluster pagePartsInit() {
 		if(!pagePartsCouverture.dejaInitialise) {
 			_pageParts(pageParts);

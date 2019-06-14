@@ -97,7 +97,7 @@ public class C001L006InstallerEclipseEnUSGenPage extends C001L006InstallerEclips
 	}
 
 	@Override public void htmlScriptsC001L006InstallerEclipseEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L006InstallerEclipseEnUSGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L006InstallerEclipseEnUSPage.js").f().g("script");
 	}
 
 

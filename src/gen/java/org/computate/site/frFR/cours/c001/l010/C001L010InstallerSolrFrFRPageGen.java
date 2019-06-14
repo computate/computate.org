@@ -1,58 +1,58 @@
-package org.computate.site.frFR.cours.c001.l009;
+package org.computate.site.frFR.cours.c001.l010;
 
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.site.frFR.cluster.Cluster;
 import org.computate.site.frFR.couverture.Couverture;
+import org.computate.site.frFR.cours.c001.l010.C001L010InstallerSolrFrFRGenPage;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.computate.site.frFR.cours.c001.l009.C001L009InstallerKeycloakFrFRGenPage;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l009.C001L009InstallerKeycloakFrFRPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l010.C001L010InstallerSolrFrFRPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009InstallerKeycloakFrFRGenPage {
+public abstract class C001L010InstallerSolrFrFRPageGen<DEV> extends C001L010InstallerSolrFrFRGenPage {
 
 	//////////////
 	// initLoin //
 	//////////////
 
-	protected boolean dejaInitialiseC001L009InstallerKeycloakFrFRPage = false;
+	protected boolean dejaInitialiseC001L010InstallerSolrFrFRPage = false;
 
-	public C001L009InstallerKeycloakFrFRPage initLoinC001L009InstallerKeycloakFrFRPage(RequeteSiteFrFR requeteSite_) {
+	public C001L010InstallerSolrFrFRPage initLoinC001L010InstallerSolrFrFRPage(RequeteSiteFrFR requeteSite_) {
 		setRequeteSite_(requeteSite_);
-		if(!dejaInitialiseC001L009InstallerKeycloakFrFRPage) {
-			dejaInitialiseC001L009InstallerKeycloakFrFRPage = true;
-			initLoinC001L009InstallerKeycloakFrFRPage();
+		if(!dejaInitialiseC001L010InstallerSolrFrFRPage) {
+			dejaInitialiseC001L010InstallerSolrFrFRPage = true;
+			initLoinC001L010InstallerSolrFrFRPage();
 		}
-		return (C001L009InstallerKeycloakFrFRPage)this;
+		return (C001L010InstallerSolrFrFRPage)this;
 	}
 
-	public void initLoinC001L009InstallerKeycloakFrFRPage() {
-		super.initLoinC001L009InstallerKeycloakFrFRGenPage(requeteSite_);
-		initC001L009InstallerKeycloakFrFRPage();
+	public void initLoinC001L010InstallerSolrFrFRPage() {
+		super.initLoinC001L010InstallerSolrFrFRGenPage(requeteSite_);
+		initC001L010InstallerSolrFrFRPage();
 	}
 
-	public void initC001L009InstallerKeycloakFrFRPage() {
+	public void initC001L010InstallerSolrFrFRPage() {
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
-		initLoinC001L009InstallerKeycloakFrFRPage(requeteSite_);
+		initLoinC001L010InstallerSolrFrFRPage(requeteSite_);
 	}
 
 	/////////////////
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteC001L009InstallerKeycloakFrFRPage(RequeteSiteFrFR requeteSite_) {
-			super.requeteSiteC001L009InstallerKeycloakFrFRGenPage(requeteSite_);
+	public void requeteSiteC001L010InstallerSolrFrFRPage(RequeteSiteFrFR requeteSite_) {
+			super.requeteSiteC001L010InstallerSolrFrFRGenPage(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteFrFR requeteSite_) {
-		requeteSiteC001L009InstallerKeycloakFrFRPage(requeteSite_);
+		requeteSiteC001L010InstallerSolrFrFRPage(requeteSite_);
 	}
 
 	/////////////
@@ -64,7 +64,7 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = obtenirC001L009InstallerKeycloakFrFRPage(v);
+				o = obtenirC001L010InstallerSolrFrFRPage(v);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.obtenirPourClasse(v);
@@ -72,11 +72,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 		}
 		return o;
 	}
-	public Object obtenirC001L009InstallerKeycloakFrFRPage(String var) {
-		C001L009InstallerKeycloakFrFRPage oC001L009InstallerKeycloakFrFRPage = (C001L009InstallerKeycloakFrFRPage)this;
+	public Object obtenirC001L010InstallerSolrFrFRPage(String var) {
+		C001L010InstallerSolrFrFRPage oC001L010InstallerSolrFrFRPage = (C001L010InstallerSolrFrFRPage)this;
 		switch(var) {
 			default:
-				return super.obtenirC001L009InstallerKeycloakFrFRGenPage(var);
+				return super.obtenirC001L010InstallerSolrFrFRGenPage(var);
 		}
 	}
 
@@ -89,7 +89,7 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = attribuerC001L009InstallerKeycloakFrFRPage(v, val);
+				o = attribuerC001L010InstallerSolrFrFRPage(v, val);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.attribuerPourClasse(v, val);
@@ -97,11 +97,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 		}
 		return o != null;
 	}
-	public Object attribuerC001L009InstallerKeycloakFrFRPage(String var, Object val) {
-		C001L009InstallerKeycloakFrFRPage oC001L009InstallerKeycloakFrFRPage = (C001L009InstallerKeycloakFrFRPage)this;
+	public Object attribuerC001L010InstallerSolrFrFRPage(String var, Object val) {
+		C001L010InstallerSolrFrFRPage oC001L010InstallerSolrFrFRPage = (C001L010InstallerSolrFrFRPage)this;
 		switch(var) {
 			default:
-				return super.attribuerC001L009InstallerKeycloakFrFRGenPage(var, val);
+				return super.attribuerC001L010InstallerSolrFrFRGenPage(var, val);
 		}
 	}
 
@@ -115,7 +115,7 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 		if(val != null) {
 			for(String v : vars) {
 				if(o == null)
-					o = definirC001L009InstallerKeycloakFrFRPage(v, val);
+					o = definirC001L010InstallerSolrFrFRPage(v, val);
 				else if(o instanceof Cluster) {
 					Cluster cluster = (Cluster)o;
 					o = cluster.definirPourClasse(v, val);
@@ -124,10 +124,10 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 		}
 		return o != null;
 	}
-	public Object definirC001L009InstallerKeycloakFrFRPage(String var, String val) {
+	public Object definirC001L010InstallerSolrFrFRPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirC001L009InstallerKeycloakFrFRGenPage(var, val);
+				return super.definirC001L010InstallerSolrFrFRGenPage(var, val);
 		}
 	}
 
@@ -136,11 +136,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	/////////////////
 
 	@Override public void htmlScripts() {
-		htmlScriptsC001L009InstallerKeycloakFrFRPage();
+		htmlScriptsC001L010InstallerSolrFrFRPage();
 		super.htmlScripts();
 	}
 
-	public void htmlScriptsC001L009InstallerKeycloakFrFRPage() {
+	public void htmlScriptsC001L010InstallerSolrFrFRPage() {
 	}
 
 	//////////////
@@ -148,11 +148,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	//////////////
 
 	@Override public void htmlBody() {
-		htmlBodyC001L009InstallerKeycloakFrFRPage();
+		htmlBodyC001L010InstallerSolrFrFRPage();
 		super.htmlBody();
 	}
 
-	public void htmlBodyC001L009InstallerKeycloakFrFRPage() {
+	public void htmlBodyC001L010InstallerSolrFrFRPage() {
 	}
 
 	///////////////////
@@ -160,11 +160,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	///////////////////
 
 	@Override public void htmlBodyCourt() {
-		htmlBodyCourtC001L009InstallerKeycloakFrFRPage();
+		htmlBodyCourtC001L010InstallerSolrFrFRPage();
 		super.htmlBodyCourt();
 	}
 
-	public void htmlBodyCourtC001L009InstallerKeycloakFrFRPage() {
+	public void htmlBodyCourtC001L010InstallerSolrFrFRPage() {
 	}
 
 	////////////////
@@ -172,11 +172,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	////////////////
 
 	@Override public void htmlScript() {
-		htmlScriptC001L009InstallerKeycloakFrFRPage();
+		htmlScriptC001L010InstallerSolrFrFRPage();
 		super.htmlScript();
 	}
 
-	public void htmlScriptC001L009InstallerKeycloakFrFRPage() {
+	public void htmlScriptC001L010InstallerSolrFrFRPage() {
 	}
 
 	//////////
@@ -184,11 +184,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	//////////
 
 	@Override public void html() {
-		htmlC001L009InstallerKeycloakFrFRPage();
+		htmlC001L010InstallerSolrFrFRPage();
 		super.html();
 	}
 
-	public void htmlC001L009InstallerKeycloakFrFRPage() {
+	public void htmlC001L010InstallerSolrFrFRPage() {
 	}
 
 	//////////////
@@ -196,11 +196,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	//////////////
 
 	@Override public void htmlMeta() {
-		htmlMetaC001L009InstallerKeycloakFrFRPage();
+		htmlMetaC001L010InstallerSolrFrFRPage();
 		super.htmlMeta();
 	}
 
-	public void htmlMetaC001L009InstallerKeycloakFrFRPage() {
+	public void htmlMetaC001L010InstallerSolrFrFRPage() {
 	}
 
 	////////////////
@@ -208,11 +208,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	////////////////
 
 	@Override public void htmlStyles() {
-		htmlStylesC001L009InstallerKeycloakFrFRPage();
+		htmlStylesC001L010InstallerSolrFrFRPage();
 		super.htmlStyles();
 	}
 
-	public void htmlStylesC001L009InstallerKeycloakFrFRPage() {
+	public void htmlStylesC001L010InstallerSolrFrFRPage() {
 	}
 
 	///////////////
@@ -220,11 +220,11 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	///////////////
 
 	@Override public void htmlStyle() {
-		htmlStyleC001L009InstallerKeycloakFrFRPage();
+		htmlStyleC001L010InstallerSolrFrFRPage();
 		super.htmlStyle();
 	}
 
-	public void htmlStyleC001L009InstallerKeycloakFrFRPage() {
+	public void htmlStyleC001L010InstallerSolrFrFRPage() {
 	}
 
 	//////////////
@@ -242,9 +242,9 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	@Override public boolean equals(Object o) {
 		if(this == o)
 			return true;
-		if(!(o instanceof C001L009InstallerKeycloakFrFRPage))
+		if(!(o instanceof C001L010InstallerSolrFrFRPage))
 			return false;
-		C001L009InstallerKeycloakFrFRPage that = (C001L009InstallerKeycloakFrFRPage)o;
+		C001L010InstallerSolrFrFRPage that = (C001L010InstallerSolrFrFRPage)o;
 		return super.equals(o);
 	}
 
@@ -255,7 +255,7 @@ public abstract class C001L009InstallerKeycloakFrFRPageGen<DEV> extends C001L009
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
-		sb.append("C001L009InstallerKeycloakFrFRPage {");
+		sb.append("C001L010InstallerSolrFrFRPage {");
 		sb.append(" }");
 		return sb.toString();
 	}

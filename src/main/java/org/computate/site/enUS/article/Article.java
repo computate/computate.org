@@ -11,7 +11,9 @@ import org.apache.solr.common.SolrDocument;
 import org.computate.site.enUS.cluster.Cluster;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.MiseEnPage;
+import org.computate.site.enUS.page.parti.PageHtml;
 import org.computate.site.enUS.page.parti.PagePart;
+import org.computate.site.enUS.utilisateur.UtilisateurSite;
 
 public class Article extends ArticleGen<Cluster> {
 
@@ -230,5 +232,89 @@ public class Article extends ArticleGen<Cluster> {
 	}
 
 	public void  avantPagePart(PagePart o, String var) {
+	}
+
+	protected void _utilisateurSite(Couverture<UtilisateurSite> c) {
+		c.o(requeteSite_.getUtilisateurSite());
+	}
+
+	@Override()
+	public void  htmlBodyArticle() {
+	}
+
+	protected void _utilisateurId(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getUtilisateurId());
+	}
+
+	protected void _utilisateurSiteNomDomaine(Couverture<String> c) {
+		if(utilisateurSite != null)
+			c.o(utilisateurSite.getSiteNomDomaine());
+	}
+
+	public void  htmlBodyPersonnaliserAvant(PageHtml o) {
+		if(utilisateurSite != null && requeteSite_.getUtilisateurRolesRessource().contains("SiteAdmin")) {
+			{ e("div").a("class", "w3-card-4 w3-margin-bottom ").f();
+				{ e("h1").a("class", "w3-container w3-vivid-greenish-blue ").f();
+					e("i").a("class", "far fa-keyboard site-menu-icon ").f().g("i");
+					sx("Site Admin. ");
+				} g("h1");
+				{ e("div").a("class", "w3-padding ").f();
+
+					// FormFiltres PATCH
+					{ e("form").a("action", "/api/cluster").a("id", "patchClusterFormFiltres").f();
+					} g("form");
+					{ e("form").a("action", "/api/cluster").a("id", "patchClusterFormValeurs").f();
+					} g("form");
+					e("button")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3- ")
+						.a("onclick", "patchCluster($('#patchClusterFormFiltres'), $('#patchClusterFormValeurs')); ")
+						.f().sx("Indexer tous les pages")
+					.g("button");
+				} g("div");
+			} g("div");
+		}
+		{ e("div").a("class", "w3-card-4 w3-margin-bottom ").f();
+			{e("h1").a("class", "w3-container w3-vivid-greenish-blue ").f();
+				e("i").a("class", "far fa-keyboard site-menu-icon ").f().g("i");
+				sx("Customize the whole site for your domain. ");
+			} g("h1");
+			{ e("div").a("class", "w3-padding ").f();
+				if(utilisateurSite == null) {
+					{ e("ol").f();
+						{ e("li").f();
+							e("i").a("class", "far fa-sign-in-alt site-menu-icon ").f().g("i");
+							sx("Just click the ");
+							e("a").a("class", "").a("href", "/enUS/user").f(); 
+								sx("[ Login ]");
+							g("a");
+							sx(" button above. ");
+						} g("li");
+						{ e("li").f();
+							e("i").a("class", "far fa-users-medical site-menu-icon ").f().g("i");
+							sx("Click: New user? Register");
+						} g("li");
+						{ e("li").f();
+							e("i").a("class", "far fa-shield-check site-menu-icon ").f().g("i");
+							sx("It's free, and your information is private. ");
+						} g("li");
+					} g("ol");
+				}
+				else {
+				}
+			}
+		}
+	}
+
+	public void  htmlBodyPersonnaliserApres(PageHtml o) {
+		{
+			{
+				if(utilisateurSite == null) {
+				}
+				else {
+					e("a").a("href", "").f().g("a");
+				}
+			} g("div");
+		} g("div");
 	}
 }

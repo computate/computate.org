@@ -257,15 +257,13 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 					List<String> entiteValeurs = o.getClasseNomsCanoniques();
 					w.t(3, entiteNumero++ == 0 ? "" : ", ");
 					w.s("\"classeNomsCanoniques\": [");
-					int k = 0;
-					while(entiteValeur != null) {
+					for(int k = 0; k < entiteValeurs.size(); k++) {
+						entiteValeur = entiteValeurs.get(k);
 						if(k > 0)
 							w.s(", ");
-						w.s(", ");
 						w.s("\"");
 						w.s(((String)entiteValeur));
 						w.s("\"");
-						entiteValeur = entiteValeurs.iterator().hasNext() ? entiteValeurs.iterator().next() : null;
 					}
 					w.l("]");
 				}
@@ -359,293 +357,6 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 		}
 	}
 
-	// POST //
-
-	@Override
-	public void postArticle(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourArticle(siteContexte, operationRequete, body);
-			sqlArticle(requeteSite, a -> {
-				if(a.succeeded()) {
-					creerPOSTArticle(requeteSite, b -> {
-						if(b.succeeded()) {
-							Article article = b.result();
-							sqlPOSTArticle(article, c -> {
-								if(c.succeeded()) {
-									definirArticle(article, d -> {
-										if(d.succeeded()) {
-											attribuerArticle(article, e -> {
-												if(e.succeeded()) {
-													indexerArticle(article, f -> {
-														if(f.succeeded()) {
-															reponse200POSTArticle(article, g -> {
-																if(f.succeeded()) {
-																	SQLConnection connexionSql = requeteSite.getConnexionSql();
-																	connexionSql.commit(h -> {
-																		if(a.succeeded()) {
-																			connexionSql.close(i -> {
-																				if(a.succeeded()) {
-																					gestionnaireEvenements.handle(Future.succeededFuture(g.result()));
-																				} else {
-																					erreurArticle(requeteSite, gestionnaireEvenements, i);
-																				}
-																			});
-																		} else {
-																			erreurArticle(requeteSite, gestionnaireEvenements, h);
-																		}
-																	});
-																} else {
-																	erreurArticle(requeteSite, gestionnaireEvenements, g);
-																}
-															});
-														} else {
-															erreurArticle(requeteSite, gestionnaireEvenements, f);
-														}
-													});
-												} else {
-													erreurArticle(requeteSite, gestionnaireEvenements, e);
-												}
-											});
-										} else {
-											erreurArticle(requeteSite, gestionnaireEvenements, d);
-										}
-									});
-								} else {
-									erreurArticle(requeteSite, gestionnaireEvenements, c);
-								}
-							});
-						} else {
-							erreurArticle(requeteSite, gestionnaireEvenements, b);
-						}
-					});
-				} else {
-					erreurArticle(requeteSite, gestionnaireEvenements, a);
-				}
-			});
-		} catch(Exception e) {
-			erreurArticle(null, gestionnaireEvenements, Future.failedFuture(e));
-		}
-	}
-
-	public void creerPOSTArticle(RequeteSiteFrFR requeteSite, Handler<AsyncResult<Article>> gestionnaireEvenements) {
-		try {
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			String utilisateurId = requeteSite.getUtilisateurId();
-
-			connexionSql.queryWithParams(
-					SiteContexteFrFR.SQL_creer
-					, new JsonArray(Arrays.asList(Article.class.getCanonicalName(), utilisateurId))
-					, creerAsync
-			-> {
-				JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
-				Long pk = creerLigne.getLong(0);
-				Article o = new Article();
-				o.setPk(pk);
-				o.initLoinArticle(requeteSite);
-				gestionnaireEvenements.handle(Future.succeededFuture(o));
-			});
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public void sqlPOSTArticle(Article o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			Long pk = o.getPk();
-			JsonObject jsonObject = requeteSite.getObjetJson();
-			StringBuilder postSql = new StringBuilder();
-			List<Object> postSqlParams = new ArrayList<Object>();
-
-			if(jsonObject != null) {
-				Set<String> entiteVars = jsonObject.fieldNames();
-				for(String entiteVar : entiteVars) {
-					switch(entiteVar) {
-					}
-				}
-			}
-			connexionSql.queryWithParams(
-					postSql.toString()
-					, new JsonArray(postSqlParams)
-					, postAsync
-			-> {
-				gestionnaireEvenements.handle(Future.succeededFuture());
-			});
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public void reponse200POSTArticle(Article o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			Buffer buffer = Buffer.buffer();
-			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(o.getRequeteSite_(), buffer);
-			requeteSite.setW(w);
-			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	// PATCH //
-
-	@Override
-	public void patchArticle(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourArticle(siteContexte, operationRequete, body);
-			sqlArticle(requeteSite, a -> {
-				if(a.succeeded()) {
-					utilisateurArticle(requeteSite, b -> {
-						if(b.succeeded()) {
-							rechercheArticle(requeteSite, false, true, null, c -> {
-								if(c.succeeded()) {
-									ListeRecherche<Article> listeArticle = c.result();
-									listePATCHArticle(listeArticle, d -> {
-										if(d.succeeded()) {
-											SQLConnection connexionSql = requeteSite.getConnexionSql();
-											if(connexionSql == null) {
-												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-											} else {
-												connexionSql.commit(e -> {
-													if(e.succeeded()) {
-														connexionSql.close(f -> {
-															if(f.succeeded()) {
-																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-															} else {
-																erreurArticle(requeteSite, gestionnaireEvenements, f);
-															}
-														});
-													} else {
-														erreurArticle(requeteSite, gestionnaireEvenements, e);
-													}
-												});
-											}
-										} else {
-											erreurArticle(requeteSite, gestionnaireEvenements, d);
-										}
-									});
-								} else {
-									erreurArticle(requeteSite, gestionnaireEvenements, c);
-								}
-							});
-						} else {
-							erreurArticle(requeteSite, gestionnaireEvenements, b);
-						}
-					});
-				} else {
-					erreurArticle(requeteSite, gestionnaireEvenements, a);
-				}
-			});
-		} catch(Exception e) {
-			erreurArticle(null, gestionnaireEvenements, Future.failedFuture(e));
-		}
-	}
-
-	public void listePATCHArticle(ListeRecherche<Article> listeArticle, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		List<Future> futures = new ArrayList<>();
-		listeArticle.getList().forEach(o -> {
-			futures.add(
-				sqlPATCHArticle(o).compose(
-					a -> definirPATCHArticle(a).compose(
-						b -> indexerPATCHArticle(b)
-					)
-				)
-			);
-		});
-		CompositeFuture.all(futures).setHandler( a -> {
-			if(a.succeeded()) {
-				reponse200PATCHArticle(listeArticle, gestionnaireEvenements);
-			} else {
-				erreurArticle(listeArticle.getRequeteSite_(), gestionnaireEvenements, a);
-			}
-		});
-	}
-
-	public Future<Article> sqlPATCHArticle(Article o) {
-		Future<Article> future = Future.future();
-		try {
-			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			Long pk = o.getPk();
-			JsonObject requeteJson = requeteSite.getObjetJson();
-			StringBuilder patchSql = new StringBuilder();
-			List<Object> patchSqlParams = new ArrayList<Object>();
-			Set<String> methodeNoms = requeteJson.fieldNames();
-			Article o2 = new Article();
-
-			patchSql.append(SiteContexteFrFR.SQL_modifier);
-			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.frFR.article.Article"));
-			for(String methodeNom : methodeNoms) {
-				switch(methodeNom) {
-				}
-			}
-			connexionSql.queryWithParams(
-					patchSql.toString()
-					, new JsonArray(patchSqlParams)
-					, patchAsync
-			-> {
-				o2.setRequeteSite_(o.getRequeteSite_());
-				o2.setPk(pk);
-				future.complete(o2);
-			});
-			return future;
-		} catch(Exception e) {
-			return Future.failedFuture(e);
-		}
-	}
-
-	public Future<Article> definirPATCHArticle(Article o) {
-		Future<Article> future = Future.future();
-		try {
-			RequeteSiteFrFR requeteSite = o.getRequeteSite_();
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			Long pk = o.getPk();
-			connexionSql.queryWithParams(
-					SiteContexteFrFR.SQL_definir
-					, new JsonArray(Arrays.asList(pk, pk, pk))
-					, definirAsync
-			-> {
-				if(definirAsync.succeeded()) {
-					for(JsonArray definition : definirAsync.result().getResults()) {
-						o.definirPourClasse(definition.getString(0), definition.getString(1));
-					}
-					future.complete(o);
-				} else {
-			future.fail(definirAsync.cause());
-				}
-			});
-			return future;
-		} catch(Exception e) {
-			return Future.failedFuture(e);
-		}
-	}
-
-	public Future<Void> indexerPATCHArticle(Article o) {
-		Future<Void> future = Future.future();
-		try {
-			o.initLoinPourClasse(o.getRequeteSite_());
-			o.indexerPourClasse();
-				future.complete();
-			return future;
-		} catch(Exception e) {
-			return Future.failedFuture(e);
-		}
-	}
-
-	public void reponse200PATCHArticle(ListeRecherche<Article> listeArticle, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			Buffer buffer = Buffer.buffer();
-			RequeteSiteFrFR requeteSite = listeArticle.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeArticle.getRequeteSite_(), buffer);
-			requeteSite.setW(w);
-			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
 	// GET //
 
 	@Override
@@ -719,15 +430,13 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 					List<String> entiteValeurs = o.getClasseNomsCanoniques();
 					w.t(3, entiteNumero++ == 0 ? "" : ", ");
 					w.s("\"classeNomsCanoniques\": [");
-					int k = 0;
-					while(entiteValeur != null) {
+					for(int k = 0; k < entiteValeurs.size(); k++) {
+						entiteValeur = entiteValeurs.get(k);
 						if(k > 0)
 							w.s(", ");
-						w.s(", ");
 						w.s("\"");
 						w.s(((String)entiteValeur));
 						w.s("\"");
-						entiteValeur = entiteValeurs.iterator().hasNext() ? entiteValeurs.iterator().next() : null;
 					}
 					w.l("]");
 				}
@@ -810,89 +519,6 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 
 				w.l("}");
 			}
-			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	// DELETE //
-
-	@Override
-	public void deleteArticle(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteFrFR requeteSite = genererRequeteSiteFrFRPourArticle(siteContexte, operationRequete);
-			sqlArticle(requeteSite, a -> {
-				if(a.succeeded()) {
-					rechercheArticle(requeteSite, false, true, null, b -> {
-						if(b.succeeded()) {
-							ListeRecherche<Article> listeArticle = b.result();
-							supprimerDELETEArticle(requeteSite, c -> {
-								if(c.succeeded()) {
-									reponse200DELETEArticle(requeteSite, d -> {
-										if(d.succeeded()) {
-											SQLConnection connexionSql = requeteSite.getConnexionSql();
-											if(connexionSql == null) {
-												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-											} else {
-												connexionSql.commit(e -> {
-													if(e.succeeded()) {
-														connexionSql.close(f -> {
-															if(f.succeeded()) {
-																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-															} else {
-																erreurArticle(requeteSite, gestionnaireEvenements, f);
-															}
-														});
-													} else {
-														erreurArticle(requeteSite, gestionnaireEvenements, e);
-													}
-												});
-											}
-										} else {
-											erreurArticle(requeteSite, gestionnaireEvenements, d);
-										}
-									});
-								} else {
-									erreurArticle(requeteSite, gestionnaireEvenements, c);
-								}
-							});
-						} else {
-							erreurArticle(requeteSite, gestionnaireEvenements, b);
-						}
-					});
-				} else {
-					erreurArticle(requeteSite, gestionnaireEvenements, a);
-				}
-			});
-		} catch(Exception e) {
-			erreurArticle(null, gestionnaireEvenements, Future.failedFuture(e));
-		}
-	}
-
-	public void supprimerDELETEArticle(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			String utilisateurId = requeteSite.getUtilisateurId();
-			Long pk = requeteSite.getRequetePk();
-
-			connexionSql.queryWithParams(
-					SiteContexteFrFR.SQL_supprimer
-					, new JsonArray(Arrays.asList(pk, Article.class.getCanonicalName(), pk, pk, pk, pk))
-					, supprimerAsync
-			-> {
-				gestionnaireEvenements.handle(Future.succeededFuture());
-			});
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public void reponse200DELETEArticle(RequeteSiteFrFR requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			Buffer buffer = Buffer.buffer();
-			ToutEcrivain w = ToutEcrivain.creer(requeteSite, buffer);
-			requeteSite.setW(w);
 			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -1081,7 +707,7 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
 									SiteContexteFrFR.SQL_creer
-									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 									, creerAsync
 							-> {
 								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
@@ -1108,6 +734,10 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -1140,6 +770,10 @@ public class ArticleFrFRGenApiServiceImpl implements ArticleFrFRGenApiService {
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));

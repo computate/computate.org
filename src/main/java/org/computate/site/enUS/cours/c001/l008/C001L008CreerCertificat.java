@@ -93,15 +93,16 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	@Override()
 	public void  htmlBodyPersonnaliser(PageHtml o) {
 		super.htmlBodyPersonnaliser(o);
-		{ e("div").a("class", "w3-cell-row ").f();
+		htmlBodyPersonnaliserAvant(o);
+		if(utilisateurSite != null) {
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("form").a("action", "/api/site/utilisateur").a("id", "siteNomDomaineForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_siteNomDomaine").a("class", "").f().sx("domain name").g("label");
-
+					e("label").a("for", "Page_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
+	
 					e("input")
 						.a("type", "text")
-						.a("placeholder", "domain name")
-						.a("title", "A domain name is your website name. A domain name is the address where Internet users can access your website. ")
+						.a("placeholder", "nom de domaine")
+						.a("title", "Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. ")
 						.a("class", "setSiteNomDomaine w3-input w3-border ")
 						.a("name", "setSiteNomDomaine")
 						.a("id", "Page_siteNomDomaine")
@@ -109,10 +110,12 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 						.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#siteNomDomaineForm')); ")
 						.a("value", utilisateurSite.strSiteNomDomaine())
 					.fg();
-
+	
 				} g("form");
 			} g("div");
-		} g("div");
+		}
+		htmlBodyPersonnaliserApres(o);
+		e("div").a("id", "sitePersonnaliser").f();
 	}
 
 	protected void _questionDependences(PageHtml o) {
@@ -146,6 +149,12 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	}
 
 	protected void _recapituler1(PageHtml o) {      
+	}
+
+	@Override()
+	public void  htmlBodyRecapituler1(PageHtml o) {
+		g("div");
+		super.htmlBodyRecapituler1(o);
 	}
 
 	protected void _recapituler2(PageHtml o) {    

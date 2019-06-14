@@ -8,6 +8,7 @@ import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.vertx.core.Vertx;
+import io.vertx.core.WorkerExecutor;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.oauth2.OAuth2Auth;
 import io.vertx.ext.jdbc.JDBCClient;
@@ -61,6 +62,9 @@ public class SiteContexteEnUS extends SiteContexteEnUSGen<Object> {
 	}
 
 	protected void _authFournisseur(Couverture<OAuth2Auth> c) {
+	}
+
+	protected void _executeurTravailleur(Couverture<WorkerExecutor> c) {
 	}
 
 	protected void _configSite(ConfigSite o) { 

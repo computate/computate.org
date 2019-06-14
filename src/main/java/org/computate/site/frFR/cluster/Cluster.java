@@ -20,6 +20,7 @@ import org.computate.site.frFR.xml.OutilXml;
 /**       
  * Api: true
  * ApiUri: /api/cluster
+ * Role: SiteAdmin
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
  * ApiMethode: Recherche

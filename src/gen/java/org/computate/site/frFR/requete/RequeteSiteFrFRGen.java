@@ -23,6 +23,7 @@ import org.computate.site.frFR.utilisateur.UtilisateurSite;
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.apache.solr.common.SolrDocument;
+import java.util.List;
 import io.vertx.ext.web.api.OperationRequest;
 import org.apache.solr.client.solrj.SolrQuery;
 import io.vertx.ext.sql.SQLConnection;
@@ -834,6 +835,115 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 		return utilisateurNomComplet == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurNomComplet());
 	}
 
+	//////////////////////////
+	// utilisateurRessource //
+	//////////////////////////
+
+	/**	L'entité « utilisateurRessource »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected JsonObject utilisateurRessource;
+	public Couverture<JsonObject> utilisateurRessourceCouverture = new Couverture<JsonObject>().p(this).c(JsonObject.class).var("utilisateurRessource").o(utilisateurRessource);
+
+	/**	<br/>L'entité « utilisateurRessource »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.requete.RequeteSiteFrFR&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:utilisateurRessource">Trouver l'entité utilisateurRessource dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _utilisateurRessource(Couverture<JsonObject> c);
+
+	public JsonObject getUtilisateurRessource() {
+		return utilisateurRessource;
+	}
+
+	public void setUtilisateurRessource(JsonObject utilisateurRessource) {
+		this.utilisateurRessource = utilisateurRessource;
+		this.utilisateurRessourceCouverture.dejaInitialise = true;
+	}
+	protected RequeteSiteFrFR utilisateurRessourceInit() {
+		if(!utilisateurRessourceCouverture.dejaInitialise) {
+			_utilisateurRessource(utilisateurRessourceCouverture);
+			if(utilisateurRessource == null)
+				setUtilisateurRessource(utilisateurRessourceCouverture.o);
+		}
+		utilisateurRessourceCouverture.dejaInitialise(true);
+		return (RequeteSiteFrFR)this;
+	}
+
+	///////////////////////////////
+	// utilisateurRolesRessource //
+	///////////////////////////////
+
+	/**	L'entité « utilisateurRolesRessource »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 */
+	protected List<String> utilisateurRolesRessource = new java.util.ArrayList<java.lang.String>();
+	public Couverture<List<String>> utilisateurRolesRessourceCouverture = new Couverture<List<String>>().p(this).c(List.class).var("utilisateurRolesRessource").o(utilisateurRolesRessource);
+
+	/**	<br/>L'entité « utilisateurRolesRessource »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.requete.RequeteSiteFrFR&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:utilisateurRolesRessource">Trouver l'entité utilisateurRolesRessource dans Solr</a>
+	 * <br/>
+	 * @param utilisateurRolesRessource est l'entité déjà construit. 
+	 **/
+	protected abstract void _utilisateurRolesRessource(List<String> o);
+
+	public List<String> getUtilisateurRolesRessource() {
+		return utilisateurRolesRessource;
+	}
+
+	public void setUtilisateurRolesRessource(List<String> utilisateurRolesRessource) {
+		this.utilisateurRolesRessource = utilisateurRolesRessource;
+		this.utilisateurRolesRessourceCouverture.dejaInitialise = true;
+	}
+	public RequeteSiteFrFR addUtilisateurRolesRessource(String...objets) {
+		for(String o : objets) {
+			addUtilisateurRolesRessource(o);
+		}
+		return (RequeteSiteFrFR)this;
+	}
+	public RequeteSiteFrFR addUtilisateurRolesRessource(String o) {
+		if(o != null && !utilisateurRolesRessource.contains(o))
+			this.utilisateurRolesRessource.add(o);
+		return (RequeteSiteFrFR)this;
+	}
+	public RequeteSiteFrFR setUtilisateurRolesRessource(JsonArray objets) {
+		utilisateurRolesRessource.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addUtilisateurRolesRessource(o);
+		}
+		return (RequeteSiteFrFR)this;
+	}
+	protected RequeteSiteFrFR utilisateurRolesRessourceInit() {
+		if(!utilisateurRolesRessourceCouverture.dejaInitialise) {
+			_utilisateurRolesRessource(utilisateurRolesRessource);
+		}
+		utilisateurRolesRessourceCouverture.dejaInitialise(true);
+		return (RequeteSiteFrFR)this;
+	}
+
+	public List<String> solrUtilisateurRolesRessource() {
+		return utilisateurRolesRessource;
+	}
+
+	public String strUtilisateurRolesRessource() {
+		return utilisateurRolesRessource == null ? "" : utilisateurRolesRessource.toString();
+	}
+
+	public String nomAffichageUtilisateurRolesRessource() {
+		return null;
+	}
+
+	public String htmTooltipUtilisateurRolesRessource() {
+		return null;
+	}
+
+	public String htmUtilisateurRolesRessource() {
+		return utilisateurRolesRessource == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurRolesRessource());
+	}
+
 	/////////////////////
 	// utilisateurSite //
 	/////////////////////
@@ -1524,6 +1634,8 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 		utilisateurNomFamilleInit();
 		utilisateurPrenomInit();
 		utilisateurNomCompletInit();
+		utilisateurRessourceInit();
+		utilisateurRolesRessourceInit();
 		utilisateurSiteInit();
 		xmlPileInit();
 		documentSolrInit();
@@ -1618,6 +1730,10 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 				return oRequeteSiteFrFR.utilisateurPrenom;
 			case "utilisateurNomComplet":
 				return oRequeteSiteFrFR.utilisateurNomComplet;
+			case "utilisateurRessource":
+				return oRequeteSiteFrFR.utilisateurRessource;
+			case "utilisateurRolesRessource":
+				return oRequeteSiteFrFR.utilisateurRolesRessource;
 			case "utilisateurSite":
 				return oRequeteSiteFrFR.utilisateurSite;
 			case "xmlPile":
@@ -1709,7 +1825,7 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(utilisateurNomDomaine, utilisateurNomEnsemble, utilisateurId, utilisateurNom, utilisateurNomFamille, utilisateurPrenom, utilisateurNomComplet, pageAchete, pageAdmin, h, crypterSel, requetePk);
+		return Objects.hash();
 	}
 
 	////////////
@@ -1722,18 +1838,7 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 		if(!(o instanceof RequeteSiteFrFR))
 			return false;
 		RequeteSiteFrFR that = (RequeteSiteFrFR)o;
-		return Objects.equals( utilisateurNomDomaine, that.utilisateurNomDomaine )
-				&& Objects.equals( utilisateurNomEnsemble, that.utilisateurNomEnsemble )
-				&& Objects.equals( utilisateurId, that.utilisateurId )
-				&& Objects.equals( utilisateurNom, that.utilisateurNom )
-				&& Objects.equals( utilisateurNomFamille, that.utilisateurNomFamille )
-				&& Objects.equals( utilisateurPrenom, that.utilisateurPrenom )
-				&& Objects.equals( utilisateurNomComplet, that.utilisateurNomComplet )
-				&& Objects.equals( pageAchete, that.pageAchete )
-				&& Objects.equals( pageAdmin, that.pageAdmin )
-				&& Objects.equals( h, that.h )
-				&& Objects.equals( crypterSel, that.crypterSel )
-				&& Objects.equals( requetePk, that.requetePk );
+		return true;
 	}
 
 	//////////////
@@ -1743,18 +1848,6 @@ public abstract class RequeteSiteFrFRGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("RequeteSiteFrFR {");
-		sb.append( "utilisateurNomDomaine: \"" ).append(utilisateurNomDomaine).append( "\"" );
-		sb.append( ", utilisateurNomEnsemble: \"" ).append(utilisateurNomEnsemble).append( "\"" );
-		sb.append( ", utilisateurId: \"" ).append(utilisateurId).append( "\"" );
-		sb.append( ", utilisateurNom: \"" ).append(utilisateurNom).append( "\"" );
-		sb.append( ", utilisateurNomFamille: \"" ).append(utilisateurNomFamille).append( "\"" );
-		sb.append( ", utilisateurPrenom: \"" ).append(utilisateurPrenom).append( "\"" );
-		sb.append( ", utilisateurNomComplet: \"" ).append(utilisateurNomComplet).append( "\"" );
-		sb.append( ", pageAchete: " ).append(pageAchete);
-		sb.append( ", pageAdmin: " ).append(pageAdmin);
-		sb.append( ", h: \"" ).append(h).append( "\"" );
-		sb.append( ", crypterSel: \"" ).append(crypterSel).append( "\"" );
-		sb.append( ", requetePk: " ).append(requetePk);
 		sb.append(" }");
 		return sb.toString();
 	}

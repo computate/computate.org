@@ -97,7 +97,7 @@ public class PageFaqFrFRGenPage extends PageFaqFrFRGenPageGen<ArticleFrFRPage> {
 	}
 
 	@Override public void htmlScriptsPageFaqFrFRGenPage() {
-		e("script").a("src", "/static/js/PageFaqFrFRGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/PageFaqFrFRPage.js").f().g("script");
 	}
 
 

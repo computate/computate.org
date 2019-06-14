@@ -1,11 +1,11 @@
 package org.computate.site.frFR.cours;
 
-import org.computate.site.frFR.utilisateur.UtilisateurSite;
 import java.lang.String;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
+import org.computate.site.frFR.utilisateur.UtilisateurSite;
 import java.io.IOException;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
@@ -45,9 +45,9 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(cours != null)
-			c.o("");
+			c.o("un cours");
 		else if(listeCours == null || listeCours.size() == 0)
-			c.o("");
+			c.o("aucun cours trouvé");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -62,7 +62,7 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 		if(cours != null)
 			c.o("");
 		else if(listeCours == null || listeCours.size() == 0)
-			c.o("");
+			c.o("aucun cours trouvé");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -91,7 +91,7 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	}
 
 	@Override public void htmlScriptsCoursFrFRGenPage() {
-		e("script").a("src", "/static/js/CoursFrFRPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/CoursFrFRPage.js").f().g("script");
 	}
 
 	protected void _pageUriCours(Couverture<String> c) {
@@ -104,52 +104,28 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormPageCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cours").a("id", "coursNumeroForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_coursNumero").a("class", "").f().sx("cours").g("label");
-
-					e("input")
-						.a("type", "text")
-						.a("placeholder", "cours")
-						.a("class", "setCoursNumero w3-input w3-border ")
-						.a("name", "setCoursNumero")
-						.a("id", "Page_coursNumero")
-						.a("onchange", "patchCours($('#CoursForm'), $('#coursNumeroForm')); ")
-						.a("value", o.strCoursNumero())
-					.fg();
-
-				} g("form");
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("cours").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCoursNumero()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cours").a("id", "leconDescriptionForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_leconDescription").a("class", "").f().sx("description").g("label");
-
-					e("input")
-						.a("type", "text")
-						.a("placeholder", "description")
-						.a("class", "setLeconDescription w3-input w3-border ")
-						.a("name", "setLeconDescription")
-						.a("id", "Page_leconDescription")
-						.a("onchange", "patchCours($('#CoursForm'), $('#leconDescriptionForm')); ")
-						.a("value", o.strLeconDescription())
-					.fg();
-
-				} g("form");
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("description").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strLeconDescription()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cours").a("id", "articleDescriptionForm").a("style", "display: inline-block; ").f();
-					e("label").a("for", "Page_articleDescription").a("class", "").f().sx("description").g("label");
-
-					e("input")
-						.a("type", "text")
-						.a("placeholder", "description")
-						.a("class", "setArticleDescription w3-input w3-border ")
-						.a("name", "setArticleDescription")
-						.a("id", "Page_articleDescription")
-						.a("onchange", "patchCours($('#CoursForm'), $('#articleDescriptionForm')); ")
-						.a("value", o.strArticleDescription())
-					.fg();
-
-				} g("form");
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("description").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strArticleDescription()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
@@ -166,54 +142,6 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cours").a("id", "archiveForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "archive")
-						.a("id", "Page_archive")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setArchive")
-						.a("name", "setArchive")
-						.a("id", "Page_archive")
-						.a("onchange", "patchCours($('#CoursForm'), $('#archiveForm')); ")
-						;
-						if(o.getArchive() != null && o.getArchive())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_archive").a("class", "").f().sx("archivé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/cours").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "supprime")
-						.a("id", "Page_supprime")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setSupprime")
-						.a("name", "setSupprime")
-						.a("id", "Page_supprime")
-						.a("onchange", "patchCours($('#CoursForm'), $('#supprimeForm')); ")
-						;
-						if(o.getSupprime() != null && o.getSupprime())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("supprimé").g("label");
-				} g("form");
 			} g("div");
 		} g("div");
 	}
@@ -221,43 +149,28 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormPOSTCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_coursNumero").a("class", "").f().sx("cours").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "cours")
-					.a("class", "valeurCoursNumero w3-input w3-border ")
-					.a("name", "coursNumero")
-					.a("id", "POST_coursNumero")
-					.a("value", o.strCoursNumero())
-				.fg();
-
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("cours").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCoursNumero()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_leconDescription").a("class", "").f().sx("description").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "description")
-					.a("class", "valeurLeconDescription w3-input w3-border ")
-					.a("name", "leconDescription")
-					.a("id", "POST_leconDescription")
-					.a("value", o.strLeconDescription())
-				.fg();
-
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("description").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strLeconDescription()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "POST_articleDescription").a("class", "").f().sx("description").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "description")
-					.a("class", "valeurArticleDescription w3-input w3-border ")
-					.a("name", "articleDescription")
-					.a("id", "POST_articleDescription")
-					.a("value", o.strArticleDescription())
-				.fg();
-
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("description").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strArticleDescription()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
@@ -274,48 +187,6 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("supprimé").g("label");
 			} g("div");
 		} g("div");
 	}
@@ -323,17 +194,12 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormPATCHCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "PATCH_coursNumero").a("class", "").f().sx("cours").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "cours")
-					.a("class", "setCoursNumero w3-input w3-border ")
-					.a("name", "setCoursNumero")
-					.a("id", "PATCH_coursNumero")
-					.a("value", o.strCoursNumero())
-				.fg();
-
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("cours").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCoursNumero()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
@@ -351,62 +217,15 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "PATCH_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setArchive")
-					.a("name", "setArchive")
-					.a("id", "PATCH_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "PATCH_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setSupprime")
-					.a("name", "setSupprime")
-					.a("id", "PATCH_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "PATCH_leconNumero").a("class", "").f().sx("leçon").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "leçon")
-					.a("class", "setLeconNumero w3-input w3-border ")
-					.a("name", "setLeconNumero")
-					.a("id", "PATCH_leconNumero")
-					.a("value", o.strLeconNumero())
-				.fg();
-
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("leçon").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strLeconNumero()).g("span");
+				} g("div");
 			} g("div");
 		} g("div");
 	}
@@ -414,17 +233,12 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 	public void htmlFormRechercheCours(Cours o) {
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "Recherche_coursNumero").a("class", "").f().sx("cours").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "cours")
-					.a("class", "valeurCoursNumero w3-input w3-border ")
-					.a("name", "coursNumero")
-					.a("id", "Recherche_coursNumero")
-					.a("value", o.strCoursNumero())
-				.fg();
-
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("cours").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strCoursNumero()).g("span");
+				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
@@ -442,62 +256,15 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
 			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
 		} g("div");
 		{ e("div").a("class", "w3-cell-row ").f();
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("label").a("for", "Recherche_leconNumero").a("class", "").f().sx("leçon").g("label");
-
-				e("input")
-					.a("type", "text")
-					.a("placeholder", "leçon")
-					.a("class", "valeurLeconNumero w3-input w3-border ")
-					.a("name", "leconNumero")
-					.a("id", "Recherche_leconNumero")
-					.a("value", o.strLeconNumero())
-				.fg();
-
+				{ e("div").a("class", "").f();
+					e("label").a("class", "").f().sx("leçon").g("label");
+				} g("div");
+				{ e("div").a("class", "").f();
+					e("span").f().sx(o.strLeconNumero()).g("span");
+				} g("div");
 			} g("div");
 		} g("div");
 	}
@@ -507,15 +274,15 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeCours == null || listeCours.size() == 0) {
-			// contexteAucunNomTrouve : 
+			// contexteAucunNomTrouve : aucun cours trouvé
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("aucun cours trouvé").g("span");
 			} g("h1");
 		} else if(listeCours != null && listeCours.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
-			// contexteUnNom : 
+			// contexteUnNom : un cours
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
@@ -535,12 +302,12 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 				} g("h3");
 			}
 		} else {
-			// contexteNomPluriel : plusiers 
+			// contexteNomPluriel : plusiers cours
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("cours").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -588,6 +355,7 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 			{ e("form").a("id", "CoursForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/frFR/cours").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_frFR')); return false; ").f();
 				{ e("div").a("class", "w3-bar ").f();
 					e("input").a("type", "text")
+						.a("placeholder", "rechercher cours")
 						.a("title", "")
 						.a("class", "recherchePageRecherche_frFR w3-input w3-border w3-bar-item ")
 						.a("name", "pageRecherche_frFR")
@@ -626,7 +394,7 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 		if(listeCours != null && listeCours.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			Cours o = listeCours.first();
 
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+			{ e("div").a("class", "").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("action", "/api/cours").a("id", "CoursForm").a("style", "display: inline-block; ").f();
@@ -645,105 +413,11 @@ public class CoursFrFRGenPage extends CoursFrFRGenPageGen<MiseEnPage> {
 
 			} g("div");
 		}
+		htmlBodyFormsCoursFrFRGenPage();
+	}
+
+	public void htmlBodyFormsCoursFrFRGenPage() {
 		e("div").f();
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#postCoursModale').show(); ")
-			.f().sx("Créer null")
-		.g("button");
-		{ e("div").a("id", "postCoursModale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#postCoursModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Créer null").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					Cours o = new Cours();
-
-					// Form POST
-					{ e("form").a("action", "/api/cours").a("id", "postCoursForm").f();
-						htmlFormPOSTCours(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "postCours($('#postCoursForm')); ")
-						.f().sx("Créer null")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#patchCoursModale').show(); ")
-			.f().sx("Modifier des null")
-		.g("button");
-		{ e("div").a("id", "patchCoursModale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchCoursModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Modifier des null").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					Cours o = new Cours();
-
-					// FormFiltres PATCH
-					{ e("form").a("action", "/api/cours").a("id", "patchCoursFormFiltres").f();
-						htmlFormRechercheCours(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "rechercheCours($('#patchCoursFormFiltres')); ")
-						.f().sx("Rechercher des null")
-					.g("button");
-
-
-					// FormValeurs PATCH
-					{ e("form").a("action", "/api/cours").a("id", "patchCoursFormValeurs").f();
-						htmlFormPATCHCours(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "patchCours($('#patchCoursFormFiltres'), $('#patchCoursFormValeurs')); ")
-						.f().sx("Modifier des null")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#deleteCoursModale').show(); ")
-			.f().sx("Supprimer des null")
-		.g("button");
-		{ e("div").a("id", "deleteCoursModale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#deleteCoursModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Supprimer des null").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					Cours o = new Cours();
-
-					// Form DELETE
-					{ e("form").a("action", "/api/cours").a("id", "deleteCoursForm").f();
-						htmlFormPATCHCours(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "deleteCours(); ")
-						.f().sx("Supprimer des null")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
 
 		g("div");
 	}

@@ -172,7 +172,7 @@ public class PageAccueil extends PageAccueilGen<Article> {
 					});
 					fg();
 					{ e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-green ")
+						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-bar-item w3-vivid-greenish-blue ")
 						.f();
 						e("i").a("class", "fas fa-search ").f().g("i");
 					} g("button");
@@ -194,7 +194,7 @@ public class PageAccueil extends PageAccueilGen<Article> {
 				{ e("div").a("class", "w3-half w3-mobile ").f();
 					{ e("div").a("class", "w3-card-4 w3-margin w3-white ").f();
 						{ e("a").a("href", uri).f();
-							{ e("span").a("class", "w3-container w3-responsive ").f();
+							{ e("div").a("class", "w3-container w3-responsive ").f();
 								{ e("h3").a("class", "w3-margin-top ").f();
 									sx(o.getArticleH1());
 								} g("h3");
@@ -204,9 +204,9 @@ public class PageAccueil extends PageAccueilGen<Article> {
 								{ e("h4").a("class", "w3-margin-top w3-margin-bottom ").f();
 									sx(o.getArticleH2());
 								} g("h4");
-							} g("span");
+							} g("div");
 							if(o.getPageImageUri() != null)
-								e("img").a("src", statiqueUrlBase, "/", o.getPageImageUri()).a("class", "w3-image ").fg();
+								e("img").a("alt", "").a("src", statiqueUrlBase, "/", o.getPageImageUri()).a("class", "w3-image ").fg();
 						} g("a");
 					} g("div");
 				} g("div");

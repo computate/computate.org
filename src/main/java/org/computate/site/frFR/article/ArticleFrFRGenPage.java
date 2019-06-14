@@ -9,11 +9,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.List;
 import org.computate.site.frFR.page.parti.PagePart;
+import org.computate.site.frFR.utilisateur.UtilisateurSite;
 import org.computate.site.frFR.page.MiseEnPage;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
-import org.computate.site.frFR.utilisateur.UtilisateurSite;
 import java.io.IOException;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
@@ -49,9 +49,9 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 
 	@Override protected void _pageH1(Couverture<String> c) {
 		if(article != null)
-			c.o("");
+			c.o("un article");
 		else if(listeArticle == null || listeArticle.size() == 0)
-			c.o("");
+			c.o("aucun article trouvé");
 	}
 
 	@Override protected void _pageH2(Couverture<String> c) {
@@ -66,7 +66,7 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 		if(article != null)
 			c.o("");
 		else if(listeArticle == null || listeArticle.size() == 0)
-			c.o("");
+			c.o("aucun article trouvé");
 	}
 
 	@Override protected void _pageUri(Couverture<String> c) {
@@ -95,7 +95,7 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 	}
 
 	@Override public void htmlScriptsArticleFrFRGenPage() {
-		e("script").a("src", "/static/js/ArticleFrFRPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/ArticleFrFRPage.js").f().g("script");
 	}
 
 	protected void _pageUriArticle(Couverture<String> c) {
@@ -122,54 +122,6 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 				{ e("div").a("class", "").f();
 					e("span").f().sx(o.strModifie()).g("span");
 				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/article").a("id", "archiveForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "archive")
-						.a("id", "Page_archive")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setArchive")
-						.a("name", "setArchive")
-						.a("id", "Page_archive")
-						.a("onchange", "patchArticle($('#ArticleForm'), $('#archiveForm')); ")
-						;
-						if(o.getArchive() != null && o.getArchive())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_archive").a("class", "").f().sx("archivé").g("label");
-				} g("form");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				{ e("form").a("action", "/api/article").a("id", "supprimeForm").a("style", "display: inline-block; ").f();
-					e("input")
-						.a("type", "hidden")
-						.a("name", "supprime")
-						.a("id", "Page_supprime")
-						.a("value", "false")
-					.fg();
-
-					e("input")
-						.a("type", "checkbox")
-						.a("value", "true")
-						.a("class", "setSupprime")
-						.a("name", "setSupprime")
-						.a("id", "Page_supprime")
-						.a("onchange", "patchArticle($('#ArticleForm'), $('#supprimeForm')); ")
-						;
-						if(o.getSupprime() != null && o.getSupprime())
-							a("checked", "checked");
-					fg();
-
-					e("label").a("for", "Page_supprime").a("class", "").f().sx("supprimé").g("label");
-				} g("form");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
@@ -217,48 +169,6 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "POST_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "POST_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "POST_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("cours").g("label");
 				} g("div");
@@ -304,48 +214,6 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "PATCH_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setArchive")
-					.a("name", "setArchive")
-					.a("id", "PATCH_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "PATCH_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "setSupprime")
-					.a("name", "setSupprime")
-					.a("id", "PATCH_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "PATCH_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("cours").g("label");
 				} g("div");
@@ -385,48 +253,6 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 				} g("div");
 			} g("div");
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurArchive")
-					.a("name", "archive")
-					.a("id", "Recherche_archive")
-					;
-					if(o.getArchive() != null && o.getArchive())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_archive").a("class", "").f().sx("archivé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-				e("input")
-					.a("type", "hidden")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					.a("value", "false")
-				.fg();
-
-				e("input")
-					.a("type", "checkbox")
-					.a("value", "true")
-					.a("class", "valeurSupprime")
-					.a("name", "supprime")
-					.a("id", "Recherche_supprime")
-					;
-					if(o.getSupprime() != null && o.getSupprime())
-						a("checked", "checked");
-				fg();
-
-				e("label").a("for", "Recherche_supprime").a("class", "").f().sx("supprimé").g("label");
-			} g("div");
-			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("div").a("class", "").f();
 					e("label").a("class", "").f().sx("cours").g("label");
 				} g("div");
@@ -452,15 +278,15 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 		OperationRequest operationRequete = requeteSite_.getOperationRequete();
 		JsonObject params = operationRequete.getParams();
 		if(listeArticle == null || listeArticle.size() == 0) {
-			// contexteAucunNomTrouve : 
+			// contexteAucunNomTrouve : aucun article trouvé
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("aucun article trouvé").g("span");
 			} g("h1");
 		} else if(listeArticle != null && listeArticle.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
-			// contexteUnNom : 
+			// contexteUnNom : un article
 			if(pageH1 != null) {
 				{ e("h1").f();
 					if(contexteIconeClassesCss != null)
@@ -480,12 +306,12 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 				} g("h3");
 			}
 		} else {
-			// contexteNomPluriel : plusiers 
+			// contexteNomPluriel : plusiers articles
 
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
-				e("span").a("class", " ").f().sx("").g("span");
+				e("span").a("class", " ").f().sx("articles").g("span");
 			} g("h1");
 			{ e("table").a("class", "w3-table w3-bordered w3-striped w3-border w3-hoverable ").f();
 				{ e("thead").f();
@@ -533,6 +359,7 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 			{ e("form").a("id", "ArticleForm").a("style", "display: inline-block; ").a("method", "GET").a("action", "/frFR/article").a("onsubmit", "event.preventDefault(); rechercher($('#recherchePageRecherche_frFR')); return false; ").f();
 				{ e("div").a("class", "w3-bar ").f();
 					e("input").a("type", "text")
+						.a("placeholder", "rechercher articles")
 						.a("title", "")
 						.a("class", "recherchePageRecherche_frFR w3-input w3-border w3-bar-item ")
 						.a("name", "pageRecherche_frFR")
@@ -571,7 +398,7 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 		if(listeArticle != null && listeArticle.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			Article o = listeArticle.first();
 
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+			{ e("div").a("class", "").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("action", "/api/article").a("id", "ArticleForm").a("style", "display: inline-block; ").f();
@@ -590,105 +417,11 @@ public class ArticleFrFRGenPage extends ArticleFrFRGenPageGen<MiseEnPage> {
 
 			} g("div");
 		}
+		htmlBodyFormsArticleFrFRGenPage();
+	}
+
+	public void htmlBodyFormsArticleFrFRGenPage() {
 		e("div").f();
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#postArticleModale').show(); ")
-			.f().sx("Créer null")
-		.g("button");
-		{ e("div").a("id", "postArticleModale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#postArticleModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Créer null").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					Article o = new Article();
-
-					// Form POST
-					{ e("form").a("action", "/api/article").a("id", "postArticleForm").f();
-						htmlFormPOSTArticle(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "postArticle($('#postArticleForm')); ")
-						.f().sx("Créer null")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#patchArticleModale').show(); ")
-			.f().sx("Modifier des null")
-		.g("button");
-		{ e("div").a("id", "patchArticleModale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#patchArticleModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Modifier des null").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					Article o = new Article();
-
-					// FormFiltres PATCH
-					{ e("form").a("action", "/api/article").a("id", "patchArticleFormFiltres").f();
-						htmlFormRechercheArticle(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "rechercheArticle($('#patchArticleFormFiltres')); ")
-						.f().sx("Rechercher des null")
-					.g("button");
-
-
-					// FormValeurs PATCH
-					{ e("form").a("action", "/api/article").a("id", "patchArticleFormValeurs").f();
-						htmlFormPATCHArticle(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "patchArticle($('#patchArticleFormFiltres'), $('#patchArticleFormValeurs')); ")
-						.f().sx("Modifier des null")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
-
-
-		e("button")
-			.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-			.a("onclick", "$('#deleteArticleModale').show(); ")
-			.f().sx("Supprimer des null")
-		.g("button");
-		{ e("div").a("id", "deleteArticleModale").a("class", "w3-modal ").f();
-			{ e("div").a("class", "w3-modal-content w3-card-4 ").f();
-				{ e("header").a("class", "w3-container w3-green ").f();
-					e("span").a("class", "w3-button w3-display-topright ").a("onclick", "$('#deleteArticleModale').hide(); ").f().sx("×").g("span");
-					e("h2").a("class", "").f().sx("Supprimer des null").g("h2");
-				} g("header");
-				{ e("div").a("class", "w3-container ").f();
-					Article o = new Article();
-
-					// Form DELETE
-					{ e("form").a("action", "/api/article").a("id", "deleteArticleForm").f();
-						htmlFormPATCHArticle(o);
-					} g("form");
-					e("button")
-						.a("class", "w3-btn w3-round w3-border w3-border-black w3-ripple w3-padding w3-green ")
-						.a("onclick", "deleteArticle(); ")
-						.f().sx("Supprimer des null")
-					.g("button");
-
-				} g("div");
-			} g("div");
-		} g("div");
 
 		g("div");
 	}

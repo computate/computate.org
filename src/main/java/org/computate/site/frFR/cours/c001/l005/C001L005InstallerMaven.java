@@ -16,8 +16,8 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * PageRechercheEnUSPage: C001L005InstallerMavenEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
  * H1.frFR: Comment installer la dernière version de maven ? 
  * H1.enUS: How do I install the latest version of maven. 

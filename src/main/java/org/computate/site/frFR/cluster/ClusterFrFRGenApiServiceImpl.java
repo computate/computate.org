@@ -225,13 +225,25 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 					w.s(", ");
 				w.l("{");
 
-				entiteValeur = o.getSupprime();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
-
 				entiteValeur = o.getPk();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
+
+				entiteValeur = o.getSupprime();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
 
 				entiteValeur = o.getClasseNomCanonique();
 				if(entiteValeur != null)
@@ -245,30 +257,16 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 					List<String> entiteValeurs = o.getClasseNomsCanoniques();
 					w.t(3, entiteNumero++ == 0 ? "" : ", ");
 					w.s("\"classeNomsCanoniques\": [");
-					int k = 0;
-					while(entiteValeur != null) {
+					for(int k = 0; k < entiteValeurs.size(); k++) {
+						entiteValeur = entiteValeurs.get(k);
 						if(k > 0)
 							w.s(", ");
-						w.s(", ");
 						w.s("\"");
 						w.s(((String)entiteValeur));
 						w.s("\"");
-						entiteValeur = entiteValeurs.iterator().hasNext() ? entiteValeurs.iterator().next() : null;
 					}
 					w.l("]");
 				}
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getArchive();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
 
 				w.tl(2, "}");
 			}
@@ -519,11 +517,6 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.frFR.cluster.Cluster"));
 			for(String methodeNom : methodeNoms) {
 				switch(methodeNom) {
-					case "setSupprime":
-						o2.setSupprime(requeteJson.getBoolean(methodeNom));
-						patchSql.append(SiteContexteFrFR.SQL_setD);
-						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
-						break;
 					case "setCree":
 						o2.setCree(requeteJson.getInstant(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
@@ -538,6 +531,11 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 						o2.setArchive(requeteJson.getBoolean(methodeNom));
 						patchSql.append(SiteContexteFrFR.SQL_setD);
 						patchSqlParams.addAll(Arrays.asList("archive", o2.getArchive(), pk));
+						break;
+					case "setSupprime":
+						o2.setSupprime(requeteJson.getBoolean(methodeNom));
+						patchSql.append(SiteContexteFrFR.SQL_setD);
+						patchSqlParams.addAll(Arrays.asList("supprime", o2.getSupprime(), pk));
 						break;
 				}
 			}
@@ -600,6 +598,7 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 			RequeteSiteFrFR requeteSite = listeCluster.getRequeteSite_();
 			ToutEcrivain w = ToutEcrivain.creer(listeCluster.getRequeteSite_(), buffer);
 			requeteSite.setW(w);
+			buffer.appendString("{}");
 			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -647,13 +646,25 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 
 				w.l("{");
 
-				entiteValeur = o.getSupprime();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
-
 				entiteValeur = o.getPk();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
+
+				entiteValeur = o.getSupprime();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
 
 				entiteValeur = o.getClasseNomCanonique();
 				if(entiteValeur != null)
@@ -667,30 +678,16 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 					List<String> entiteValeurs = o.getClasseNomsCanoniques();
 					w.t(3, entiteNumero++ == 0 ? "" : ", ");
 					w.s("\"classeNomsCanoniques\": [");
-					int k = 0;
-					while(entiteValeur != null) {
+					for(int k = 0; k < entiteValeurs.size(); k++) {
+						entiteValeur = entiteValeurs.get(k);
 						if(k > 0)
 							w.s(", ");
-						w.s(", ");
 						w.s("\"");
 						w.s(((String)entiteValeur));
 						w.s("\"");
-						entiteValeur = entiteValeurs.iterator().hasNext() ? entiteValeurs.iterator().next() : null;
 					}
 					w.l("]");
 				}
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getArchive();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
 
 				w.l("}");
 			}
@@ -785,24 +782,24 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 
 	public String varIndexeCluster(String entiteVar) {
 		switch(entiteVar) {
-			case "supprime":
-				return "supprime_indexed_boolean";
-			case "id":
-				return "id_indexed_string";
 			case "pk":
 				return "pk_indexed_long";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "id":
+				return "id_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
 			case "archive":
 				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -923,7 +920,7 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
 									SiteContexteFrFR.SQL_creer
-									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 									, creerAsync
 							-> {
 								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
@@ -950,6 +947,10 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -982,6 +983,10 @@ public class ClusterFrFRGenApiServiceImpl implements ClusterFrFRGenApiService {
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));

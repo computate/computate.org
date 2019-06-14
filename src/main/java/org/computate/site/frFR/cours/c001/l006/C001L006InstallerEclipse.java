@@ -16,8 +16,8 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * PageRechercheEnUSPage: C001L006InstallerEclipseEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
  * H1.frFR: Comment installer des outils de développement pour développer mon site web ? 
  * H1.enUS: How do I install development tools to develop my website? 

@@ -2481,7 +2481,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(classeApiMethode, openApiVersion, classeUris, openApiVersionNumero, tabsSchema, tabsReponses, classeApiTag, classeEtendBase, classeEstBase, classeNomSimple, classeCheminAbsolu, classeApiUriMethode, classeApiMethodeMethode, classeApiTypeMedia200Methode, classeApiOperationIdMethode, classeApiOperationIdMethodeRequete, classeApiOperationIdMethodeReponse, classeSuperApiOperationIdMethodeRequete, classeSuperApiOperationIdMethodeReponse, classeMotsClesTrouves, classeMotsCles, classeRolesTrouves, classeRoles, classePageLangueNom, classePageNomSimple, langueNom);
+		return Objects.hash();
 	}
 
 	////////////
@@ -2494,32 +2494,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		if(!(o instanceof ApiEcrivain))
 			return false;
 		ApiEcrivain that = (ApiEcrivain)o;
-		return Objects.equals( classeApiMethode, that.classeApiMethode )
-				&& Objects.equals( openApiVersion, that.openApiVersion )
-				&& Objects.equals( classeUris, that.classeUris )
-				&& Objects.equals( openApiVersionNumero, that.openApiVersionNumero )
-				&& Objects.equals( tabsSchema, that.tabsSchema )
-				&& Objects.equals( tabsReponses, that.tabsReponses )
-				&& Objects.equals( classeApiTag, that.classeApiTag )
-				&& Objects.equals( classeEtendBase, that.classeEtendBase )
-				&& Objects.equals( classeEstBase, that.classeEstBase )
-				&& Objects.equals( classeNomSimple, that.classeNomSimple )
-				&& Objects.equals( classeCheminAbsolu, that.classeCheminAbsolu )
-				&& Objects.equals( classeApiUriMethode, that.classeApiUriMethode )
-				&& Objects.equals( classeApiMethodeMethode, that.classeApiMethodeMethode )
-				&& Objects.equals( classeApiTypeMedia200Methode, that.classeApiTypeMedia200Methode )
-				&& Objects.equals( classeApiOperationIdMethode, that.classeApiOperationIdMethode )
-				&& Objects.equals( classeApiOperationIdMethodeRequete, that.classeApiOperationIdMethodeRequete )
-				&& Objects.equals( classeApiOperationIdMethodeReponse, that.classeApiOperationIdMethodeReponse )
-				&& Objects.equals( classeSuperApiOperationIdMethodeRequete, that.classeSuperApiOperationIdMethodeRequete )
-				&& Objects.equals( classeSuperApiOperationIdMethodeReponse, that.classeSuperApiOperationIdMethodeReponse )
-				&& Objects.equals( classeMotsClesTrouves, that.classeMotsClesTrouves )
-				&& Objects.equals( classeMotsCles, that.classeMotsCles )
-				&& Objects.equals( classeRolesTrouves, that.classeRolesTrouves )
-				&& Objects.equals( classeRoles, that.classeRoles )
-				&& Objects.equals( classePageLangueNom, that.classePageLangueNom )
-				&& Objects.equals( classePageNomSimple, that.classePageNomSimple )
-				&& Objects.equals( langueNom, that.langueNom );
+		return true;
 	}
 
 	//////////////
@@ -2529,32 +2504,6 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ApiEcrivain {");
-		sb.append( "classeApiMethode: \"" ).append(classeApiMethode).append( "\"" );
-		sb.append( ", openApiVersion: \"" ).append(openApiVersion).append( "\"" );
-		sb.append( ", classeUris: " ).append(classeUris);
-		sb.append( ", openApiVersionNumero: " ).append(openApiVersionNumero);
-		sb.append( ", tabsSchema: " ).append(tabsSchema);
-		sb.append( ", tabsReponses: " ).append(tabsReponses);
-		sb.append( ", classeApiTag: \"" ).append(classeApiTag).append( "\"" );
-		sb.append( ", classeEtendBase: " ).append(classeEtendBase);
-		sb.append( ", classeEstBase: " ).append(classeEstBase);
-		sb.append( ", classeNomSimple: \"" ).append(classeNomSimple).append( "\"" );
-		sb.append( ", classeCheminAbsolu: \"" ).append(classeCheminAbsolu).append( "\"" );
-		sb.append( ", classeApiUriMethode: \"" ).append(classeApiUriMethode).append( "\"" );
-		sb.append( ", classeApiMethodeMethode: \"" ).append(classeApiMethodeMethode).append( "\"" );
-		sb.append( ", classeApiTypeMedia200Methode: \"" ).append(classeApiTypeMedia200Methode).append( "\"" );
-		sb.append( ", classeApiOperationIdMethode: \"" ).append(classeApiOperationIdMethode).append( "\"" );
-		sb.append( ", classeApiOperationIdMethodeRequete: \"" ).append(classeApiOperationIdMethodeRequete).append( "\"" );
-		sb.append( ", classeApiOperationIdMethodeReponse: \"" ).append(classeApiOperationIdMethodeReponse).append( "\"" );
-		sb.append( ", classeSuperApiOperationIdMethodeRequete: \"" ).append(classeSuperApiOperationIdMethodeRequete).append( "\"" );
-		sb.append( ", classeSuperApiOperationIdMethodeReponse: \"" ).append(classeSuperApiOperationIdMethodeReponse).append( "\"" );
-		sb.append( ", classeMotsClesTrouves: " ).append(classeMotsClesTrouves);
-		sb.append( ", classeMotsCles: " ).append(classeMotsCles);
-		sb.append( ", classeRolesTrouves: " ).append(classeRolesTrouves);
-		sb.append( ", classeRoles: " ).append(classeRoles);
-		sb.append( ", classePageLangueNom: \"" ).append(classePageLangueNom).append( "\"" );
-		sb.append( ", classePageNomSimple: \"" ).append(classePageNomSimple).append( "\"" );
-		sb.append( ", langueNom: \"" ).append(langueNom).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

@@ -4,6 +4,9 @@ import java.lang.String;
 import java.util.List;
 import java.lang.Long;
 import java.lang.Boolean;
+import java.lang.Integer;
+import org.computate.site.enUS.recherche.ListeRecherche;
+import org.computate.site.enUS.article.Article;
 import org.computate.site.frFR.cluster.ClusterFrFRPage;
 import org.computate.site.enUS.cluster.ClusterEnUSPage;
 import org.computate.site.enUS.config.ConfigSite;
@@ -13,7 +16,6 @@ import org.computate.site.enUS.utilisateur.UtilisateurSite;
 import java.io.IOException;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
-import org.computate.site.enUS.recherche.ListeRecherche;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.page.MiseEnPage;
 import java.time.LocalDateTime;
@@ -169,6 +171,131 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 				} g("form");
 			} g("div");
 		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperVersionForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_zookeeperVersion").a("class", "").f().sx("Zookeeper version").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "Zookeeper version")
+						.a("class", "setZookeeperVersion w3-input w3-border ")
+						.a("name", "setZookeeperVersion")
+						.a("id", "Page_zookeeperVersion")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#zookeeperVersionForm')); ")
+						.a("value", o.strZookeeperVersion())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortAdminForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_zookeeperPortAdmin").a("class", "").f().sx("Zookeeper admin port").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "Zookeeper admin port")
+						.a("class", "setZookeeperPortAdmin w3-input w3-border ")
+						.a("name", "setZookeeperPortAdmin")
+						.a("id", "Page_zookeeperPortAdmin")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#zookeeperPortAdminForm')); ")
+						.a("value", o.strZookeeperPortAdmin())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortClientForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_zookeeperPortClient").a("class", "").f().sx("Zookeeper client port").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "Zookeeper client port")
+						.a("class", "setZookeeperPortClient w3-input w3-border ")
+						.a("name", "setZookeeperPortClient")
+						.a("id", "Page_zookeeperPortClient")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#zookeeperPortClientForm')); ")
+						.a("value", o.strZookeeperPortClient())
+					.fg();
+
+				} g("form");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "solrVersionForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_solrVersion").a("class", "").f().sx("Solr version").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "Solr version")
+						.a("class", "setSolrVersion w3-input w3-border ")
+						.a("name", "setSolrVersion")
+						.a("id", "Page_solrVersion")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#solrVersionForm')); ")
+						.a("value", o.strSolrVersion())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "solrPortClientForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_solrPortClient").a("class", "").f().sx("Solr client port").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "Solr client port")
+						.a("class", "setSolrPortClient w3-input w3-border ")
+						.a("name", "setSolrPortClient")
+						.a("id", "Page_solrPortClient")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#solrPortClientForm')); ")
+						.a("value", o.strSolrPortClient())
+					.fg();
+
+				} g("form");
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "solrConfigsetForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_solrConfigset").a("class", "").f().sx("Solr configset").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "Solr configset")
+						.a("class", "setSolrConfigset w3-input w3-border ")
+						.a("name", "setSolrConfigset")
+						.a("id", "Page_solrConfigset")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#solrConfigsetForm')); ")
+						.a("value", o.strSolrConfigset())
+					.fg();
+
+				} g("form");
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				{ e("form").a("action", "/api/site/utilisateur").a("id", "solrCollectionForm").a("style", "display: inline-block; ").f();
+					e("label").a("for", "Page_solrCollection").a("class", "").f().sx("Solr collection").g("label");
+
+					e("input")
+						.a("type", "text")
+						.a("placeholder", "Solr collection")
+						.a("class", "setSolrCollection w3-input w3-border ")
+						.a("name", "setSolrCollection")
+						.a("id", "Page_solrCollection")
+						.a("onclick", "enleverLueur($(this)); ")
+						.a("onchange", "patchUtilisateurSite($('#UtilisateurSiteForm'), $('#solrCollectionForm')); ")
+						.a("value", o.strSolrCollection())
+					.fg();
+
+				} g("form");
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormPOSTUtilisateurSite(UtilisateurSite o) {
@@ -219,6 +346,103 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 					.a("name", "siteNomDomaine")
 					.a("id", "POST_siteNomDomaine")
 					.a("value", o.strSiteNomDomaine())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_zookeeperVersion").a("class", "").f().sx("Zookeeper version").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper version")
+					.a("class", "valeurZookeeperVersion w3-input w3-border ")
+					.a("name", "zookeeperVersion")
+					.a("id", "POST_zookeeperVersion")
+					.a("value", o.strZookeeperVersion())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_zookeeperPortAdmin").a("class", "").f().sx("Zookeeper admin port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper admin port")
+					.a("class", "valeurZookeeperPortAdmin w3-input w3-border ")
+					.a("name", "zookeeperPortAdmin")
+					.a("id", "POST_zookeeperPortAdmin")
+					.a("value", o.strZookeeperPortAdmin())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_zookeeperPortClient").a("class", "").f().sx("Zookeeper client port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper client port")
+					.a("class", "valeurZookeeperPortClient w3-input w3-border ")
+					.a("name", "zookeeperPortClient")
+					.a("id", "POST_zookeeperPortClient")
+					.a("value", o.strZookeeperPortClient())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_solrVersion").a("class", "").f().sx("Solr version").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr version")
+					.a("class", "valeurSolrVersion w3-input w3-border ")
+					.a("name", "solrVersion")
+					.a("id", "POST_solrVersion")
+					.a("value", o.strSolrVersion())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_solrPortClient").a("class", "").f().sx("Solr client port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr client port")
+					.a("class", "valeurSolrPortClient w3-input w3-border ")
+					.a("name", "solrPortClient")
+					.a("id", "POST_solrPortClient")
+					.a("value", o.strSolrPortClient())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_solrConfigset").a("class", "").f().sx("Solr configset").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr configset")
+					.a("class", "valeurSolrConfigset w3-input w3-border ")
+					.a("name", "solrConfigset")
+					.a("id", "POST_solrConfigset")
+					.a("value", o.strSolrConfigset())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "POST_solrCollection").a("class", "").f().sx("Solr collection").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr collection")
+					.a("class", "valeurSolrCollection w3-input w3-border ")
+					.a("name", "solrCollection")
+					.a("id", "POST_solrCollection")
+					.a("value", o.strSolrCollection())
 				.fg();
 
 			} g("div");
@@ -277,6 +501,103 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 
 			} g("div");
 		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_zookeeperVersion").a("class", "").f().sx("Zookeeper version").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper version")
+					.a("class", "setZookeeperVersion w3-input w3-border ")
+					.a("name", "setZookeeperVersion")
+					.a("id", "PATCH_zookeeperVersion")
+					.a("value", o.strZookeeperVersion())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_zookeeperPortAdmin").a("class", "").f().sx("Zookeeper admin port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper admin port")
+					.a("class", "setZookeeperPortAdmin w3-input w3-border ")
+					.a("name", "setZookeeperPortAdmin")
+					.a("id", "PATCH_zookeeperPortAdmin")
+					.a("value", o.strZookeeperPortAdmin())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_zookeeperPortClient").a("class", "").f().sx("Zookeeper client port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper client port")
+					.a("class", "setZookeeperPortClient w3-input w3-border ")
+					.a("name", "setZookeeperPortClient")
+					.a("id", "PATCH_zookeeperPortClient")
+					.a("value", o.strZookeeperPortClient())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_solrVersion").a("class", "").f().sx("Solr version").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr version")
+					.a("class", "setSolrVersion w3-input w3-border ")
+					.a("name", "setSolrVersion")
+					.a("id", "PATCH_solrVersion")
+					.a("value", o.strSolrVersion())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_solrPortClient").a("class", "").f().sx("Solr client port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr client port")
+					.a("class", "setSolrPortClient w3-input w3-border ")
+					.a("name", "setSolrPortClient")
+					.a("id", "PATCH_solrPortClient")
+					.a("value", o.strSolrPortClient())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_solrConfigset").a("class", "").f().sx("Solr configset").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr configset")
+					.a("class", "setSolrConfigset w3-input w3-border ")
+					.a("name", "setSolrConfigset")
+					.a("id", "PATCH_solrConfigset")
+					.a("value", o.strSolrConfigset())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "PATCH_solrCollection").a("class", "").f().sx("Solr collection").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr collection")
+					.a("class", "setSolrCollection w3-input w3-border ")
+					.a("name", "setSolrCollection")
+					.a("id", "PATCH_solrCollection")
+					.a("value", o.strSolrCollection())
+				.fg();
+
+			} g("div");
+		} g("div");
 	}
 
 	public void htmlFormRechercheUtilisateurSite(UtilisateurSite o) {
@@ -327,6 +648,103 @@ public class UtilisateurSiteEnUSGenPage extends UtilisateurSiteEnUSGenPageGen<Cl
 					.a("name", "siteNomDomaine")
 					.a("id", "Recherche_siteNomDomaine")
 					.a("value", o.strSiteNomDomaine())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_zookeeperVersion").a("class", "").f().sx("Zookeeper version").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper version")
+					.a("class", "valeurZookeeperVersion w3-input w3-border ")
+					.a("name", "zookeeperVersion")
+					.a("id", "Recherche_zookeeperVersion")
+					.a("value", o.strZookeeperVersion())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_zookeeperPortAdmin").a("class", "").f().sx("Zookeeper admin port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper admin port")
+					.a("class", "valeurZookeeperPortAdmin w3-input w3-border ")
+					.a("name", "zookeeperPortAdmin")
+					.a("id", "Recherche_zookeeperPortAdmin")
+					.a("value", o.strZookeeperPortAdmin())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_zookeeperPortClient").a("class", "").f().sx("Zookeeper client port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Zookeeper client port")
+					.a("class", "valeurZookeeperPortClient w3-input w3-border ")
+					.a("name", "zookeeperPortClient")
+					.a("id", "Recherche_zookeeperPortClient")
+					.a("value", o.strZookeeperPortClient())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_solrVersion").a("class", "").f().sx("Solr version").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr version")
+					.a("class", "valeurSolrVersion w3-input w3-border ")
+					.a("name", "solrVersion")
+					.a("id", "Recherche_solrVersion")
+					.a("value", o.strSolrVersion())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_solrPortClient").a("class", "").f().sx("Solr client port").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr client port")
+					.a("class", "valeurSolrPortClient w3-input w3-border ")
+					.a("name", "solrPortClient")
+					.a("id", "Recherche_solrPortClient")
+					.a("value", o.strSolrPortClient())
+				.fg();
+
+			} g("div");
+		} g("div");
+		{ e("div").a("class", "w3-cell-row ").f();
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_solrConfigset").a("class", "").f().sx("Solr configset").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr configset")
+					.a("class", "valeurSolrConfigset w3-input w3-border ")
+					.a("name", "solrConfigset")
+					.a("id", "Recherche_solrConfigset")
+					.a("value", o.strSolrConfigset())
+				.fg();
+
+			} g("div");
+			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+				e("label").a("for", "Recherche_solrCollection").a("class", "").f().sx("Solr collection").g("label");
+
+				e("input")
+					.a("type", "text")
+					.a("placeholder", "Solr collection")
+					.a("class", "valeurSolrCollection w3-input w3-border ")
+					.a("name", "solrCollection")
+					.a("id", "Recherche_solrCollection")
+					.a("value", o.strSolrCollection())
 				.fg();
 
 			} g("div");

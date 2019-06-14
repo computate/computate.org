@@ -17,8 +17,8 @@ import org.computate.site.frFR.utilisateur.UtilisateurSite;
  * PageRechercheEnUSPage: C001L008CreerCertificatEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
  * H1.frFR: Que puis-je faire une fois que j'ai acheté un nom de domaine ? 
  * H1.enUS: What can I do once I have purchased a domain name? 
@@ -134,19 +134,14 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 
 	protected void _personnaliser(PageHtml o) {
 	}
-	/**
-	 * r:Un nom de domaine est le nom de votre site web. Un nom de domaine est l'adresse à laquelle les internautes peuvent accéder à votre site Web. 
-	 * r.enUS:A domain name is your website name. A domain name is the address where Internet users can access your website. 
-	 * r:nom de domaine
-	 * r.enUS:domain name
-	 */
 	@Override public void htmlBodyPersonnaliser(PageHtml o) {
 		super.htmlBodyPersonnaliser(o);
-		{ e("div").a("class", "w3-cell-row ").f();
+		htmlBodyPersonnaliserAvant(o);
+		if(utilisateurSite != null) {
 			{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
 				{ e("form").a("action", "/api/site/utilisateur").a("id", "siteNomDomaineForm").a("style", "display: inline-block; ").f();
 					e("label").a("for", "Page_siteNomDomaine").a("class", "").f().sx("nom de domaine").g("label");
-
+	
 					e("input")
 						.a("type", "text")
 						.a("placeholder", "nom de domaine")
@@ -158,10 +153,12 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 						.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#siteNomDomaineForm')); ")
 						.a("value", utilisateurSite.strSiteNomDomaine())
 					.fg();
-
+	
 				} g("form");
 			} g("div");
-		} g("div");
+		}
+		htmlBodyPersonnaliserApres(o);
+		e("div").a("id", "sitePersonnaliser").f();
 	}
 
 	/**
@@ -671,6 +668,10 @@ public class C001L008CreerCertificat extends C001L008CreerCertificatGen<C001Leco
 	 * Val.H3.enUS:To review: 
 	 */
 	protected void _recapituler1(PageHtml o) {      
+	}
+	@Override public void htmlBodyRecapituler1(PageHtml o) {
+		g("div");
+		super.htmlBodyRecapituler1(o);
 	}
 
 	/**

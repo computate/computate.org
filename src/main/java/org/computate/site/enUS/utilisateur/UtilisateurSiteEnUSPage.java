@@ -7,4 +7,7 @@ public class UtilisateurSiteEnUSPage extends UtilisateurSiteEnUSPageGen<Utilisat
 
 	@Override public void htmlBodyFormsUtilisateurSiteEnUSGenPage() {
 	}
+
+	@Override public void htmlScriptsUtilisateurSiteEnUSGenPage() {
+	}
 }

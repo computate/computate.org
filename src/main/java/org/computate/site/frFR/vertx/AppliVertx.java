@@ -10,6 +10,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.computate.site.enUS.article.ArticleEnUSGenApiService;
+import org.computate.site.enUS.cluster.ClusterEnUSGenApiService;
 import org.computate.site.enUS.contexte.SiteContexteEnUS;
 import org.computate.site.enUS.cours.CoursEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.C001EnUSGenApiService;
@@ -22,6 +23,8 @@ import org.computate.site.enUS.cours.c001.l005.C001L005InstallerMavenEnUSGenApiS
 import org.computate.site.enUS.cours.c001.l006.C001L006InstallerEclipseEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l007.C001L007InstallerPostgresqlEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l008.C001L008CreerCertificatEnUSGenApiService;
+import org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeperEnUSGenApiService;
+import org.computate.site.enUS.cours.c001.l010.C001L010InstallerSolrEnUSGenApiService;
 import org.computate.site.enUS.page.accueil.PageAccueilEnUSGenApiService;
 import org.computate.site.enUS.page.apropos.PageAProposEnUSGenApiService;
 import org.computate.site.enUS.page.blog.PageBlogEnUSGenApiService;
@@ -29,6 +32,7 @@ import org.computate.site.enUS.page.faq.PageFaqEnUSGenApiService;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.utilisateur.UtilisateurSiteEnUSGenApiService;
 import org.computate.site.frFR.article.ArticleFrFRGenApiService;
+import org.computate.site.frFR.cluster.ClusterFrFRGenApiService;
 import org.computate.site.frFR.config.ConfigSite;
 import org.computate.site.frFR.contexte.SiteContexteFrFR;
 import org.computate.site.frFR.cours.CoursFrFRGenApiService;
@@ -42,6 +46,8 @@ import org.computate.site.frFR.cours.c001.l005.C001L005InstallerMavenFrFRGenApiS
 import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipseFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l007.C001L007InstallerPostgresqlFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificatFrFRGenApiService;
+import org.computate.site.frFR.cours.c001.l009.C001L009InstallerZookeeperFrFRGenApiService;
+import org.computate.site.frFR.cours.c001.l010.C001L010InstallerSolrFrFRGenApiService;
 import org.computate.site.frFR.page.accueil.PageAccueilFrFRGenApiService;
 import org.computate.site.frFR.page.apropos.PageAProposFrFRGenApiService;
 import org.computate.site.frFR.page.blog.PageBlogFrFRGenApiService;
@@ -51,6 +57,7 @@ import org.computate.site.frFR.utilisateur.UtilisateurSiteFrFRGenApiService;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
+import io.vertx.core.WorkerExecutor;
 import io.vertx.core.eventbus.MessageConsumer;
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpMethod;
@@ -125,7 +132,9 @@ public class AppliVertx extends AbstractVerticle {
 			configurerCluster(siteContexteFrFR).compose(b -> 
 				configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
 					configurerControlesSante(siteContexteFrFR, siteContexteEnUS).compose(d -> 
-						demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+						configurerExecuteurTravailleurPartage(siteContexteFrFR, siteContexteEnUS).compose(e -> 
+							demarrerServeur(siteContexteFrFR, siteContexteEnUS)
+						)
 					)
 				)
 			)
@@ -363,6 +372,16 @@ public class AppliVertx extends AbstractVerticle {
 		MessageConsumer<JsonObject> calculInrApiConsumer = serviceBinder.register(c, service);
 	}
 
+	private Future<Void> configurerExecuteurTravailleurPartage(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
+		Future<Void> future = Future.future();
+
+		WorkerExecutor executeurTravailleur = vertx.createSharedWorkerExecutor("WorkerExecutor");
+		siteContexteFrFR.setExecuteurTravailleur(executeurTravailleur);
+		siteContexteEnUS.setExecuteurTravailleur(executeurTravailleur);
+		future.complete();
+		return future;
+	}
+
 	private Future<Void> configurerControlesSante(SiteContexteFrFR siteContexteFrFR, SiteContexteEnUS siteContexteEnUS) {
 		Future<Void> future = Future.future();
 		Router siteRouteur = siteContexteFrFR.getUsineRouteur().getRouter();
@@ -449,6 +468,12 @@ public class AppliVertx extends AbstractVerticle {
 		C001L008CreerCertificatFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001L008CreerCertificatEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
+		C001L009InstallerZookeeperFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001L009InstallerZookeeperEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		C001L010InstallerSolrFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001L010InstallerSolrEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
 		C001LeconFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001LeconEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
@@ -460,6 +485,9 @@ public class AppliVertx extends AbstractVerticle {
 
 		ArticleFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		ArticleEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		ClusterFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		ClusterEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		Router siteRouteur = siteContexteFrFR.getUsineRouteur().getRouter();
 		// siteContexte.setSiteRouteur_(siteRouteur);

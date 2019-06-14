@@ -1,8 +1,8 @@
-package org.computate.site.enUS.cours.c001.l009;
+package org.computate.site.enUS.cours.c001.l010;
 
 import java.util.Objects;
 import io.vertx.core.json.JsonArray;
-import org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloakEnUSGenPage;
+import org.computate.site.enUS.cours.c001.l010.C001L010InstallerSolrEnUSGenPage;
 import org.computate.site.enUS.ecrivain.ToutEcrivain;
 import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
@@ -11,48 +11,48 @@ import org.apache.commons.lang3.StringUtils;
 import org.computate.site.enUS.cluster.Cluster;
 
 /**	
- * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloakEnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
+ * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstClasse_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l010.C001L010InstallerSolrEnUSPage&fq=classeEtendGen_indexed_boolean:true">Trouver la classe  dans Solr</a>
  * <br/>
  **/
-public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009InstallerKeycloakEnUSGenPage {
+public abstract class C001L010InstallerSolrEnUSPageGen<DEV> extends C001L010InstallerSolrEnUSGenPage {
 
 	//////////////
 	// initLoin //
 	//////////////
 
-	protected boolean dejaInitialiseC001L009InstallerKeycloakEnUSPage = false;
+	protected boolean dejaInitialiseC001L010InstallerSolrEnUSPage = false;
 
-	public C001L009InstallerKeycloakEnUSPage initLoinC001L009InstallerKeycloakEnUSPage(RequeteSiteEnUS requeteSite_) {
+	public C001L010InstallerSolrEnUSPage initLoinC001L010InstallerSolrEnUSPage(RequeteSiteEnUS requeteSite_) {
 		setRequeteSite_(requeteSite_);
-		if(!dejaInitialiseC001L009InstallerKeycloakEnUSPage) {
-			dejaInitialiseC001L009InstallerKeycloakEnUSPage = true;
-			initLoinC001L009InstallerKeycloakEnUSPage();
+		if(!dejaInitialiseC001L010InstallerSolrEnUSPage) {
+			dejaInitialiseC001L010InstallerSolrEnUSPage = true;
+			initLoinC001L010InstallerSolrEnUSPage();
 		}
-		return (C001L009InstallerKeycloakEnUSPage)this;
+		return (C001L010InstallerSolrEnUSPage)this;
 	}
 
-	public void initLoinC001L009InstallerKeycloakEnUSPage() {
-		super.initLoinC001L009InstallerKeycloakEnUSGenPage(requeteSite_);
-		initC001L009InstallerKeycloakEnUSPage();
+	public void initLoinC001L010InstallerSolrEnUSPage() {
+		super.initLoinC001L010InstallerSolrEnUSGenPage(requeteSite_);
+		initC001L010InstallerSolrEnUSPage();
 	}
 
-	public void initC001L009InstallerKeycloakEnUSPage() {
+	public void initC001L010InstallerSolrEnUSPage() {
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
-		initLoinC001L009InstallerKeycloakEnUSPage(requeteSite_);
+		initLoinC001L010InstallerSolrEnUSPage(requeteSite_);
 	}
 
 	/////////////////
 	// requeteSite //
 	/////////////////
 
-	public void requeteSiteC001L009InstallerKeycloakEnUSPage(RequeteSiteEnUS requeteSite_) {
-			super.requeteSiteC001L009InstallerKeycloakEnUSGenPage(requeteSite_);
+	public void requeteSiteC001L010InstallerSolrEnUSPage(RequeteSiteEnUS requeteSite_) {
+			super.requeteSiteC001L010InstallerSolrEnUSGenPage(requeteSite_);
 	}
 
 	public void requeteSitePourClasse(RequeteSiteEnUS requeteSite_) {
-		requeteSiteC001L009InstallerKeycloakEnUSPage(requeteSite_);
+		requeteSiteC001L010InstallerSolrEnUSPage(requeteSite_);
 	}
 
 	/////////////
@@ -64,7 +64,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = obtenirC001L009InstallerKeycloakEnUSPage(v);
+				o = obtenirC001L010InstallerSolrEnUSPage(v);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.obtenirPourClasse(v);
@@ -72,11 +72,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		}
 		return o;
 	}
-	public Object obtenirC001L009InstallerKeycloakEnUSPage(String var) {
-		C001L009InstallerKeycloakEnUSPage oC001L009InstallerKeycloakEnUSPage = (C001L009InstallerKeycloakEnUSPage)this;
+	public Object obtenirC001L010InstallerSolrEnUSPage(String var) {
+		C001L010InstallerSolrEnUSPage oC001L010InstallerSolrEnUSPage = (C001L010InstallerSolrEnUSPage)this;
 		switch(var) {
 			default:
-				return super.obtenirC001L009InstallerKeycloakEnUSGenPage(var);
+				return super.obtenirC001L010InstallerSolrEnUSGenPage(var);
 		}
 	}
 
@@ -89,7 +89,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		Object o = null;
 		for(String v : vars) {
 			if(o == null)
-				o = attribuerC001L009InstallerKeycloakEnUSPage(v, val);
+				o = attribuerC001L010InstallerSolrEnUSPage(v, val);
 			else if(o instanceof Cluster) {
 				Cluster cluster = (Cluster)o;
 				o = cluster.attribuerPourClasse(v, val);
@@ -97,11 +97,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		}
 		return o != null;
 	}
-	public Object attribuerC001L009InstallerKeycloakEnUSPage(String var, Object val) {
-		C001L009InstallerKeycloakEnUSPage oC001L009InstallerKeycloakEnUSPage = (C001L009InstallerKeycloakEnUSPage)this;
+	public Object attribuerC001L010InstallerSolrEnUSPage(String var, Object val) {
+		C001L010InstallerSolrEnUSPage oC001L010InstallerSolrEnUSPage = (C001L010InstallerSolrEnUSPage)this;
 		switch(var) {
 			default:
-				return super.attribuerC001L009InstallerKeycloakEnUSGenPage(var, val);
+				return super.attribuerC001L010InstallerSolrEnUSGenPage(var, val);
 		}
 	}
 
@@ -115,7 +115,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		if(val != null) {
 			for(String v : vars) {
 				if(o == null)
-					o = definirC001L009InstallerKeycloakEnUSPage(v, val);
+					o = definirC001L010InstallerSolrEnUSPage(v, val);
 				else if(o instanceof Cluster) {
 					Cluster cluster = (Cluster)o;
 					o = cluster.definirPourClasse(v, val);
@@ -124,10 +124,10 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 		}
 		return o != null;
 	}
-	public Object definirC001L009InstallerKeycloakEnUSPage(String var, String val) {
+	public Object definirC001L010InstallerSolrEnUSPage(String var, String val) {
 		switch(var) {
 			default:
-				return super.definirC001L009InstallerKeycloakEnUSGenPage(var, val);
+				return super.definirC001L010InstallerSolrEnUSGenPage(var, val);
 		}
 	}
 
@@ -136,11 +136,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	/////////////////
 
 	@Override public void htmlScripts() {
-		htmlScriptsC001L009InstallerKeycloakEnUSPage();
+		htmlScriptsC001L010InstallerSolrEnUSPage();
 		super.htmlScripts();
 	}
 
-	public void htmlScriptsC001L009InstallerKeycloakEnUSPage() {
+	public void htmlScriptsC001L010InstallerSolrEnUSPage() {
 	}
 
 	//////////////
@@ -148,11 +148,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	//////////////
 
 	@Override public void htmlBody() {
-		htmlBodyC001L009InstallerKeycloakEnUSPage();
+		htmlBodyC001L010InstallerSolrEnUSPage();
 		super.htmlBody();
 	}
 
-	public void htmlBodyC001L009InstallerKeycloakEnUSPage() {
+	public void htmlBodyC001L010InstallerSolrEnUSPage() {
 	}
 
 	///////////////////
@@ -160,11 +160,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	///////////////////
 
 	@Override public void htmlBodyCourt() {
-		htmlBodyCourtC001L009InstallerKeycloakEnUSPage();
+		htmlBodyCourtC001L010InstallerSolrEnUSPage();
 		super.htmlBodyCourt();
 	}
 
-	public void htmlBodyCourtC001L009InstallerKeycloakEnUSPage() {
+	public void htmlBodyCourtC001L010InstallerSolrEnUSPage() {
 	}
 
 	////////////////
@@ -172,11 +172,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	////////////////
 
 	@Override public void htmlScript() {
-		htmlScriptC001L009InstallerKeycloakEnUSPage();
+		htmlScriptC001L010InstallerSolrEnUSPage();
 		super.htmlScript();
 	}
 
-	public void htmlScriptC001L009InstallerKeycloakEnUSPage() {
+	public void htmlScriptC001L010InstallerSolrEnUSPage() {
 	}
 
 	//////////
@@ -184,11 +184,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	//////////
 
 	@Override public void html() {
-		htmlC001L009InstallerKeycloakEnUSPage();
+		htmlC001L010InstallerSolrEnUSPage();
 		super.html();
 	}
 
-	public void htmlC001L009InstallerKeycloakEnUSPage() {
+	public void htmlC001L010InstallerSolrEnUSPage() {
 	}
 
 	//////////////
@@ -196,11 +196,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	//////////////
 
 	@Override public void htmlMeta() {
-		htmlMetaC001L009InstallerKeycloakEnUSPage();
+		htmlMetaC001L010InstallerSolrEnUSPage();
 		super.htmlMeta();
 	}
 
-	public void htmlMetaC001L009InstallerKeycloakEnUSPage() {
+	public void htmlMetaC001L010InstallerSolrEnUSPage() {
 	}
 
 	////////////////
@@ -208,11 +208,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	////////////////
 
 	@Override public void htmlStyles() {
-		htmlStylesC001L009InstallerKeycloakEnUSPage();
+		htmlStylesC001L010InstallerSolrEnUSPage();
 		super.htmlStyles();
 	}
 
-	public void htmlStylesC001L009InstallerKeycloakEnUSPage() {
+	public void htmlStylesC001L010InstallerSolrEnUSPage() {
 	}
 
 	///////////////
@@ -220,11 +220,11 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	///////////////
 
 	@Override public void htmlStyle() {
-		htmlStyleC001L009InstallerKeycloakEnUSPage();
+		htmlStyleC001L010InstallerSolrEnUSPage();
 		super.htmlStyle();
 	}
 
-	public void htmlStyleC001L009InstallerKeycloakEnUSPage() {
+	public void htmlStyleC001L010InstallerSolrEnUSPage() {
 	}
 
 	//////////////
@@ -242,9 +242,9 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	@Override public boolean equals(Object o) {
 		if(this == o)
 			return true;
-		if(!(o instanceof C001L009InstallerKeycloakEnUSPage))
+		if(!(o instanceof C001L010InstallerSolrEnUSPage))
 			return false;
-		C001L009InstallerKeycloakEnUSPage that = (C001L009InstallerKeycloakEnUSPage)o;
+		C001L010InstallerSolrEnUSPage that = (C001L010InstallerSolrEnUSPage)o;
 		return super.equals(o);
 	}
 
@@ -255,7 +255,7 @@ public abstract class C001L009InstallerKeycloakEnUSPageGen<DEV> extends C001L009
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
-		sb.append("C001L009InstallerKeycloakEnUSPage {");
+		sb.append("C001L010InstallerSolrEnUSPage {");
 		sb.append(" }");
 		return sb.toString();
 	}

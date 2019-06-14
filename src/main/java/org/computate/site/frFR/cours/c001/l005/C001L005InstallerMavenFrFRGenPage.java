@@ -96,7 +96,7 @@ public class C001L005InstallerMavenFrFRGenPage extends C001L005InstallerMavenFrF
 	}
 
 	@Override public void htmlScriptsC001L005InstallerMavenFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L005InstallerMavenFrFRGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L005InstallerMavenFrFRPage.js").f().g("script");
 	}
 
 

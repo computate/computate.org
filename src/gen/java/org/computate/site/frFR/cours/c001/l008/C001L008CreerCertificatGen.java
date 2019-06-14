@@ -33,9 +33,14 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  **/
 public abstract class C001L008CreerCertificatGen<DEV> extends C001Lecon {
 
+	public static final String C001L008CreerCertificat_UnNom = "le leçon";
+	public static final String C001L008CreerCertificat_NomSingulier = "leçon";
+	public static final String C001L008CreerCertificat_NomPluriel = "leçons";
 	public static final String C001L008CreerCertificat_H1 = "Que puis-je faire une fois que j'ai acheté un nom de domaine ? ";
 	public static final String C001L008CreerCertificat_H2 = "Obtenez gratuitement un certificat TLS valide pour des raisons de sécurité et de crédibilité. ";
 	public static final String C001L008CreerCertificat_Titre = "Obtenez gratuitement un certificat TLS valide pour des raisons de sécurité et de crédibilité. ";
+	public static final String C001L008CreerCertificat_LesNoms = "les leçons";
+	public static final String C001L008CreerCertificat_NomVar = "leçon";
 	public static final String C001L008CreerCertificat_Couleur = "green";
 	public static final String C001L008CreerCertificat_IconeGroupe = "regular";
 	public static final String C001L008CreerCertificat_IconeNom = "question";

@@ -98,7 +98,7 @@ public class PageAProposEnUSGenPage extends PageAProposEnUSGenPageGen<ArticleEnU
 	}
 
 	@Override public void htmlScriptsPageAProposEnUSGenPage() {
-		e("script").a("src", "/static/js/PageAProposEnUSGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/PageAProposEnUSPage.js").f().g("script");
 	}
 
 

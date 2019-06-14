@@ -6,6 +6,7 @@ import org.computate.site.frFR.page.parti.PageHtml;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.lang3.StringUtils;
+import java.lang.Integer;
 import java.util.ArrayList;
 import org.computate.site.frFR.cluster.Cluster;
 import javax.imageio.ImageIO;
@@ -104,6 +105,130 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 
 	public String htmZookeeperVersion() {
 		return zookeeperVersion == null ? "" : StringEscapeUtils.escapeHtml4(strZookeeperVersion());
+	}
+
+	////////////////////////
+	// zookeeperPortAdmin //
+	////////////////////////
+
+	/**	L'entité « zookeeperPortAdmin »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected Integer zookeeperPortAdmin;
+	public Couverture<Integer> zookeeperPortAdminCouverture = new Couverture<Integer>().p(this).c(Integer.class).var("zookeeperPortAdmin").o(zookeeperPortAdmin);
+
+	/**	<br/>L'entité « zookeeperPortAdmin »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l009.C001L009InstallerZookeeper&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:zookeeperPortAdmin">Trouver l'entité zookeeperPortAdmin dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _zookeeperPortAdmin(Couverture<Integer> c);
+
+	public Integer getZookeeperPortAdmin() {
+		return zookeeperPortAdmin;
+	}
+
+	public void setZookeeperPortAdmin(Integer zookeeperPortAdmin) {
+		this.zookeeperPortAdmin = zookeeperPortAdmin;
+		this.zookeeperPortAdminCouverture.dejaInitialise = true;
+	}
+	public C001L009InstallerZookeeper setZookeeperPortAdmin(String o) {
+		if(org.apache.commons.lang3.math.NumberUtils.isCreatable(o))
+			this.zookeeperPortAdmin = Integer.parseInt(o);
+		this.zookeeperPortAdminCouverture.dejaInitialise = true;
+		return (C001L009InstallerZookeeper)this;
+	}
+	protected C001L009InstallerZookeeper zookeeperPortAdminInit() {
+		if(!zookeeperPortAdminCouverture.dejaInitialise) {
+			_zookeeperPortAdmin(zookeeperPortAdminCouverture);
+			if(zookeeperPortAdmin == null)
+				setZookeeperPortAdmin(zookeeperPortAdminCouverture.o);
+		}
+		zookeeperPortAdminCouverture.dejaInitialise(true);
+		return (C001L009InstallerZookeeper)this;
+	}
+
+	public Integer solrZookeeperPortAdmin() {
+		return zookeeperPortAdmin;
+	}
+
+	public String strZookeeperPortAdmin() {
+		return zookeeperPortAdmin == null ? "" : zookeeperPortAdmin.toString();
+	}
+
+	public String nomAffichageZookeeperPortAdmin() {
+		return null;
+	}
+
+	public String htmTooltipZookeeperPortAdmin() {
+		return null;
+	}
+
+	public String htmZookeeperPortAdmin() {
+		return zookeeperPortAdmin == null ? "" : StringEscapeUtils.escapeHtml4(strZookeeperPortAdmin());
+	}
+
+	/////////////////////////
+	// zookeeperPortClient //
+	/////////////////////////
+
+	/**	L'entité « zookeeperPortClient »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected Integer zookeeperPortClient;
+	public Couverture<Integer> zookeeperPortClientCouverture = new Couverture<Integer>().p(this).c(Integer.class).var("zookeeperPortClient").o(zookeeperPortClient);
+
+	/**	<br/>L'entité « zookeeperPortClient »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l009.C001L009InstallerZookeeper&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:zookeeperPortClient">Trouver l'entité zookeeperPortClient dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _zookeeperPortClient(Couverture<Integer> c);
+
+	public Integer getZookeeperPortClient() {
+		return zookeeperPortClient;
+	}
+
+	public void setZookeeperPortClient(Integer zookeeperPortClient) {
+		this.zookeeperPortClient = zookeeperPortClient;
+		this.zookeeperPortClientCouverture.dejaInitialise = true;
+	}
+	public C001L009InstallerZookeeper setZookeeperPortClient(String o) {
+		if(org.apache.commons.lang3.math.NumberUtils.isCreatable(o))
+			this.zookeeperPortClient = Integer.parseInt(o);
+		this.zookeeperPortClientCouverture.dejaInitialise = true;
+		return (C001L009InstallerZookeeper)this;
+	}
+	protected C001L009InstallerZookeeper zookeeperPortClientInit() {
+		if(!zookeeperPortClientCouverture.dejaInitialise) {
+			_zookeeperPortClient(zookeeperPortClientCouverture);
+			if(zookeeperPortClient == null)
+				setZookeeperPortClient(zookeeperPortClientCouverture.o);
+		}
+		zookeeperPortClientCouverture.dejaInitialise(true);
+		return (C001L009InstallerZookeeper)this;
+	}
+
+	public Integer solrZookeeperPortClient() {
+		return zookeeperPortClient;
+	}
+
+	public String strZookeeperPortClient() {
+		return zookeeperPortClient == null ? "" : zookeeperPortClient.toString();
+	}
+
+	public String nomAffichageZookeeperPortClient() {
+		return null;
+	}
+
+	public String htmTooltipZookeeperPortClient() {
+		return null;
+	}
+
+	public String htmZookeeperPortClient() {
+		return zookeeperPortClient == null ? "" : StringEscapeUtils.escapeHtml4(strZookeeperPortClient());
 	}
 
 	//////////////////
@@ -288,7 +413,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionDependencesPre1Span3 = questionDependencesPre1Span31;
 	public static final String questionDependencesPre1Span41 = " -y";
 	public static final String questionDependencesPre1Span4 = questionDependencesPre1Span41;
-	public static final String questionDependencesPre1Span51 = " ivy lsof maven ant libtool automake cppunit cppunit-devel python-setuptools";
+	public static final String questionDependencesPre1Span51 = " ivy lsof maven ant git libtool automake cppunit cppunit-devel python-setuptools";
 	public static final String questionDependencesPre1Span5 = questionDependencesPre1Span51;
 	public static final String questionDependencesOl2Li1Dt1 = "sudo";
 	public static final String questionDependencesOl2Li1Dt = questionDependencesOl2Li1Dt1;
@@ -298,7 +423,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionDependencesOl2Li1Dd = questionDependencesOl2Li1Dd1 + questionDependencesOl2Li1Dd2 + questionDependencesOl2Li1Dd3;
 	public static final String questionDependencesOl2Li2Dt1 = "yum";
 	public static final String questionDependencesOl2Li2Dt = questionDependencesOl2Li2Dt1;
-	public static final String questionDependencesOl2Li2Dd1 = "yum Signifie \"Yellowdog Updater Modified\", mais personne ne le connait comme yellowdog, juste yum. ";
+	public static final String questionDependencesOl2Li2Dd1 = "Signifie \"Yellowdog Updater Modified\", mais personne ne le connait comme yellowdog, juste yum. ";
 	public static final String questionDependencesOl2Li2Dd2 = "CentOS gère les paquets de logiciel et les fichiers d'application RPM avec yum. ";
 	public static final String questionDependencesOl2Li2Dd = questionDependencesOl2Li2Dd1 + questionDependencesOl2Li2Dd2;
 	public static final String questionDependencesOl2Li3Dt1 = "install";
@@ -309,7 +434,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionDependencesOl2Li4Dt = questionDependencesOl2Li4Dt1;
 	public static final String questionDependencesOl2Li4Dd1 = " : Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. ";
 	public static final String questionDependencesOl2Li4Dd = questionDependencesOl2Li4Dd1;
-	public static final String questionDependencesOl2Li5Dt1 = "ivy lsof maven ant libtool automake cppunit cppunit-devel python-setuptools";
+	public static final String questionDependencesOl2Li5Dt1 = "ivy lsof maven ant git libtool automake cppunit cppunit-devel python-setuptools";
 	public static final String questionDependencesOl2Li5Dt = questionDependencesOl2Li5Dt1;
 	public static final String questionDependencesOl2Li5Dd1 = " : Les noms de paquets des dépendances pour la construction de Zookeeper à partir du code source. ";
 	public static final String questionDependencesOl2Li5Dd = questionDependencesOl2Li5Dd1;
@@ -611,7 +736,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionClonerSourceOl2Li1 = questionClonerSourceOl2Li11;
 	public static final String questionClonerSourceOl2Li21 = "clone : Cloner un référentiel dans un répertoire. ";
 	public static final String questionClonerSourceOl2Li2 = questionClonerSourceOl2Li21;
-	public static final String questionClonerSourceOl2Li31 = "git://git.zookeeper.org/git/zookeeper.git : URL git vers le référentiel de code source Zookeeper. ";
+	public static final String questionClonerSourceOl2Li31 = "https://github.com/apache/zookeeper.git : URL git vers le référentiel de code source Zookeeper. ";
 	public static final String questionClonerSourceOl2Li3 = questionClonerSourceOl2Li31;
 	public static final String questionClonerSourceOl2Li41 = "/usr/local/src/zookeeper : Répertoire dans lequel le code source Zookeeper sera cloné. ";
 	public static final String questionClonerSourceOl2Li4 = questionClonerSourceOl2Li41;
@@ -1003,9 +1128,9 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionConstruireSourceOl1Li02 = questionConstruireSourceOl1Li021;
 	public static final String questionConstruireSourceOl1Li031 = "&&";
 	public static final String questionConstruireSourceOl1Li03 = questionConstruireSourceOl1Li031;
-	public static final String questionConstruireSourceOl1Li041 = "ant : Un script de configuration C++ pour compiler Zookeeper. ";
+	public static final String questionConstruireSourceOl1Li041 = "ant : Un outil de construction pour les projets Java. ";
 	public static final String questionConstruireSourceOl1Li04 = questionConstruireSourceOl1Li041;
-	public static final String questionConstruireSourceOl1Li051 = "package) : Construisez Zookeeper avec le support OpenSSL pour des connexions TLS sécurisées à la base de données. ";
+	public static final String questionConstruireSourceOl1Li051 = "package) : Construisez Zookeeper à partir du code source. ";
 	public static final String questionConstruireSourceOl1Li05 = questionConstruireSourceOl1Li051;
 
 	/**	L'entité « questionConstruireSource »
@@ -1146,19 +1271,27 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionMkdirServeurPre2Span1 = questionMkdirServeurPre2Span11;
 	public static final String questionMkdirServeurPre2Span21 = " -r";
 	public static final String questionMkdirServeurPre2Span2 = questionMkdirServeurPre2Span21;
-	public static final String questionMkdirServeurPre2Span31 = " /usr/local/src/zookeeper/build/zookeeper-3.5.5-beta/";
-	public static final String questionMkdirServeurPre2Span3 = questionMkdirServeurPre2Span31;
-	public static final String questionMkdirServeurPre2Span41 = " /srv/maven/";
+	public static final String questionMkdirServeurPre2Span3Span11 = " /usr/local/src/zookeeper/build/zookeeper-";
+	public static final String questionMkdirServeurPre2Span3Span1 = questionMkdirServeurPre2Span3Span11;
+	public static final String questionMkdirServeurPre2Span3Span21 = "3.5.5";
+	public static final String questionMkdirServeurPre2Span3Span2 = questionMkdirServeurPre2Span3Span21;
+	public static final String questionMkdirServeurPre2Span3Span31 = "-SNAPSHOT/";
+	public static final String questionMkdirServeurPre2Span3Span3 = questionMkdirServeurPre2Span3Span31;
+	public static final String questionMkdirServeurPre2Span41 = " /srv/zookeeper/";
 	public static final String questionMkdirServeurPre2Span4 = questionMkdirServeurPre2Span41;
 	public static final String questionMkdirServeurOl2Li11 = "rsync: Un outil de copie de fichiers rapide et polyvalent, distant (et local). ";
 	public static final String questionMkdirServeurOl2Li1 = questionMkdirServeurOl2Li11;
 	public static final String questionMkdirServeurOl2Li21 = "-r: Recurse dans des répertoires. ";
 	public static final String questionMkdirServeurOl2Li2 = questionMkdirServeurOl2Li21;
-	public static final String questionMkdirServeurOl2Li31 = "/tmp/maven/ : Le répertoire où l'application maven a été construite. ";
-	public static final String questionMkdirServeurOl2Li32 = "/tmp/maven/ : N'oubliez pas le slash à la fin ou rsync suppose qu'il s'agit d'un fichier dans la destination. ";
-	public static final String questionMkdirServeurOl2Li3 = questionMkdirServeurOl2Li31 + questionMkdirServeurOl2Li32;
-	public static final String questionMkdirServeurOl2Li41 = "/opt/maven/ : Le répertoire où le maven sera installé.";
-	public static final String questionMkdirServeurOl2Li42 = "/opt/maven/ : C'est préférable de toujours écrire des répertoires avec un slash dans rsync pour éviter les surprises. ";
+	public static final String questionMkdirServeurOl2Li3Span11 = "/usr/local/src/zookeeper/build/zookeeper-";
+	public static final String questionMkdirServeurOl2Li3Span1 = questionMkdirServeurOl2Li3Span11;
+	public static final String questionMkdirServeurOl2Li3Span21 = "3.5.5";
+	public static final String questionMkdirServeurOl2Li3Span2 = questionMkdirServeurOl2Li3Span21;
+	public static final String questionMkdirServeurOl2Li3Span31 = "-SNAPSHOT/ : Le répertoire où l'application maven a été construite. ";
+	public static final String questionMkdirServeurOl2Li3Span32 = "N'oubliez pas le slash à la fin ou rsync suppose qu'il s'agit d'un fichier dans la destination. ";
+	public static final String questionMkdirServeurOl2Li3Span3 = questionMkdirServeurOl2Li3Span31 + questionMkdirServeurOl2Li3Span32;
+	public static final String questionMkdirServeurOl2Li41 = "/srv/zookeeper/ : Le répertoire où le serveur sera installé.";
+	public static final String questionMkdirServeurOl2Li42 = "C'est préférable de toujours écrire des répertoires avec un slash dans rsync pour éviter les surprises. ";
 	public static final String questionMkdirServeurOl2Li4 = questionMkdirServeurOl2Li41 + questionMkdirServeurOl2Li42;
 
 	/**	L'entité « questionMkdirServeur »
@@ -1270,7 +1403,15 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 				sx(questionMkdirServeurPre2Span21);
 			} g("span");
 			{ e("span").a("class", " questionMkdirServeurPre2Span3 questionMkdirServeurPre2Span odd ").f();
-				sx(questionMkdirServeurPre2Span31);
+				{ e("span").a("class", " questionMkdirServeurPre2Span3Span1 questionMkdirServeurPre2Span3Span odd ").f();
+					sx(questionMkdirServeurPre2Span3Span11);
+				} g("span");
+				{ e("span").a("class", " questionMkdirServeurPre2Span3Span2 questionMkdirServeurPre2Span3Span even ").f();
+					sx(utilisateurId == null ? questionMkdirServeurPre2Span3Span21 : zookeeperVersion);
+				} g("span");
+				{ e("span").a("class", " questionMkdirServeurPre2Span3Span3 questionMkdirServeurPre2Span3Span odd ").f();
+					sx(questionMkdirServeurPre2Span3Span31);
+				} g("span");
 			} g("span");
 			{ e("span").a("class", " questionMkdirServeurPre2Span4 questionMkdirServeurPre2Span even ").f();
 				sx(questionMkdirServeurPre2Span41);
@@ -1284,8 +1425,16 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 				sx(questionMkdirServeurOl2Li21);
 			} g("li");
 			{ e("li").a("class", " questionMkdirServeurOl2Li3 questionMkdirServeurOl2Li odd ").f();
-				sx(questionMkdirServeurOl2Li31);
-				sx(questionMkdirServeurOl2Li32);
+				{ e("span").a("class", " questionMkdirServeurOl2Li3Span1 questionMkdirServeurOl2Li3Span odd ").f();
+					sx(questionMkdirServeurOl2Li3Span11);
+				} g("span");
+				{ e("span").a("class", " questionMkdirServeurOl2Li3Span2 questionMkdirServeurOl2Li3Span even ").f();
+					sx(utilisateurId == null ? questionMkdirServeurOl2Li3Span21 : zookeeperVersion);
+				} g("span");
+				{ e("span").a("class", " questionMkdirServeurOl2Li3Span3 questionMkdirServeurOl2Li3Span odd ").f();
+					sx(questionMkdirServeurOl2Li3Span31);
+					sx(questionMkdirServeurOl2Li3Span32);
+				} g("span");
 			} g("li");
 			{ e("li").a("class", " questionMkdirServeurOl2Li4 questionMkdirServeurOl2Li even ").f();
 				sx(questionMkdirServeurOl2Li41);
@@ -1299,73 +1448,178 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 		questionMkdirServeur.htmlApres();
 	}
 
-	/////////////////////
-	// questionDonnees //
-	/////////////////////
+	////////////////////////
+	// questionConfigurer //
+	////////////////////////
 
-	public static final String questionDonneesH3I1 = "far fa-database";
-	public static final String questionDonneesH3I = questionDonneesH3I1;
-	public static final String questionDonneesH3Span1 = "Comment créer une nouvelle base de données Zookeeper ? ";
-	public static final String questionDonneesH3Span = questionDonneesH3Span1;
-	public static final String questionDonneesH4I1 = "far fa-table";
-	public static final String questionDonneesH4I = questionDonneesH4I1;
-	public static final String questionDonneesH4Span1 = "Comment initialiser un nouveau serveur Zookeeper. ";
-	public static final String questionDonneesH4Span = questionDonneesH4Span1;
+	public static final String questionConfigurerH3I1 = "far fa-ballot";
+	public static final String questionConfigurerH3I = questionConfigurerH3I1;
+	public static final String questionConfigurerH3Span1 = "Comment puis-je configurer le serveur Zookeeper ? ";
+	public static final String questionConfigurerH3Span = questionConfigurerH3Span1;
+	public static final String questionConfigurerH4I1 = "far fa-file-alt";
+	public static final String questionConfigurerH4I = questionConfigurerH4I1;
+	public static final String questionConfigurerH4Span1 = "Créez un fichier zoo.cfg dans le répertoire conf. ";
+	public static final String questionConfigurerH4Span = questionConfigurerH4Span1;
+	public static final String questionConfigurerPreSpan11 = "echo '";
+	public static final String questionConfigurerPreSpan1 = questionConfigurerPreSpan11;
+	public static final String questionConfigurerPreSpan1Br1 = "tickTime=2000";
+	public static final String questionConfigurerPreSpan1Br = questionConfigurerPreSpan1Br1;
+	public static final String questionConfigurerPreSpan2Br1 = "dataDir=/srv/zookeeper/data";
+	public static final String questionConfigurerPreSpan2Br = questionConfigurerPreSpan2Br1;
+	public static final String questionConfigurerPreSpan3BrSpan11 = "admin.serverPort=";
+	public static final String questionConfigurerPreSpan3BrSpan1 = questionConfigurerPreSpan3BrSpan11;
+	public static final String questionConfigurerPreSpan3Span21 = "10280";
+	public static final String questionConfigurerPreSpan3Span2 = questionConfigurerPreSpan3Span21;
+	public static final String questionConfigurerPreSpan4BrSpan11 = "clientPort=";
+	public static final String questionConfigurerPreSpan4BrSpan1 = questionConfigurerPreSpan4BrSpan11;
+	public static final String questionConfigurerPreSpan4Span21 = "10281";
+	public static final String questionConfigurerPreSpan4Span2 = questionConfigurerPreSpan4Span21;
+	public static final String questionConfigurerPreSpan5Br1 = "' | tee /srv/zookeeper/conf/zoo.cfg";
+	public static final String questionConfigurerPreSpan5Br = questionConfigurerPreSpan5Br1;
+	public static final String questionConfigurerOl2Li011 = "echo '...' : Écrivez une chaîne dans la console. ";
+	public static final String questionConfigurerOl2Li01 = questionConfigurerOl2Li011;
+	public static final String questionConfigurerOl2Li021 = "tickTime=2000 : Longueur recommandée d'un tick, qui est l'unité de temps de base utilisée par ZooKeeper, mesurée en millisecondes. ";
+	public static final String questionConfigurerOl2Li022 = "tickTime=2000 : C'est utilisé pour réguler les battements de coeur et les délais d'attente. ";
+	public static final String questionConfigurerOl2Li02 = questionConfigurerOl2Li021 + questionConfigurerOl2Li022;
+	public static final String questionConfigurerOl2Li031 = "dataDir=/srv/zookeeper/data : ZooKeeper stocke les instantanés de la base de données en mémoire et, sauf indication contraire, le journal des transactions des mises à jour de la base de données. ";
+	public static final String questionConfigurerOl2Li03 = questionConfigurerOl2Li031;
+	public static final String questionConfigurerOl2Li04Span11 = "admin.serverPort=";
+	public static final String questionConfigurerOl2Li04Span12 = "10280";
+	public static final String questionConfigurerOl2Li04Span13 = " : Le port sur lequel le serveur Jetty intégré écoute. ";
+	public static final String questionConfigurerOl2Li04Span1 = questionConfigurerOl2Li04Span11 + questionConfigurerOl2Li04Span12 + questionConfigurerOl2Li04Span13;
+	public static final String questionConfigurerOl2Li05Span11 = "clientPort=";
+	public static final String questionConfigurerOl2Li05Span12 = "10281";
+	public static final String questionConfigurerOl2Li05Span13 = " : Le port qui écoute pour les connexions des clients. ";
+	public static final String questionConfigurerOl2Li05Span1 = questionConfigurerOl2Li05Span11 + questionConfigurerOl2Li05Span12 + questionConfigurerOl2Li05Span13;
+	public static final String questionConfigurerOl2Li061 = "| : Lisez la chaîne dans la commande suivante. ";
+	public static final String questionConfigurerOl2Li06 = questionConfigurerOl2Li061;
+	public static final String questionConfigurerOl2Li071 = "tee : Ecrire une chaîne dans un fichier. ";
+	public static final String questionConfigurerOl2Li07 = questionConfigurerOl2Li071;
+	public static final String questionConfigurerOl2Li081 = "/srv/zookeeper/conf/zoo.cfg : Un nouveau fichier de configuration pour Zookeeper. ";
+	public static final String questionConfigurerOl2Li08 = questionConfigurerOl2Li081;
 
-	/**	L'entité « questionDonnees »
+	/**	L'entité « questionConfigurer »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 */
-	protected PageHtml questionDonnees = new PageHtml();
-	public Couverture<PageHtml> questionDonneesCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionDonnees").o(questionDonnees);
+	protected PageHtml questionConfigurer = new PageHtml();
+	public Couverture<PageHtml> questionConfigurerCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionConfigurer").o(questionConfigurer);
 
-	/**	<br/>L'entité « questionDonnees »
+	/**	<br/>L'entité « questionConfigurer »
 	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l009.C001L009InstallerZookeeper&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionDonnees">Trouver l'entité questionDonnees dans Solr</a>
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.cours.c001.l009.C001L009InstallerZookeeper&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:questionConfigurer">Trouver l'entité questionConfigurer dans Solr</a>
 	 * <br/>
-	 * @param questionDonnees est l'entité déjà construit. 
+	 * @param questionConfigurer est l'entité déjà construit. 
 	 **/
-	protected abstract void _questionDonnees(PageHtml o);
+	protected abstract void _questionConfigurer(PageHtml o);
 
-	public PageHtml getQuestionDonnees() {
-		return questionDonnees;
+	public PageHtml getQuestionConfigurer() {
+		return questionConfigurer;
 	}
 
-	public void setQuestionDonnees(PageHtml questionDonnees) {
-		this.questionDonnees = questionDonnees;
-		this.questionDonneesCouverture.dejaInitialise = true;
+	public void setQuestionConfigurer(PageHtml questionConfigurer) {
+		this.questionConfigurer = questionConfigurer;
+		this.questionConfigurerCouverture.dejaInitialise = true;
 	}
-	protected C001L009InstallerZookeeper questionDonneesInit() {
-		if(questionDonnees != null) {
-			((C001L009InstallerZookeeper)this).avantPagePart(questionDonnees, "questionDonnees");
-			((C001L009InstallerZookeeper)this).avantPagePart(questionDonnees, "questionDonnees");
+	protected C001L009InstallerZookeeper questionConfigurerInit() {
+		if(questionConfigurer != null) {
+			((C001L009InstallerZookeeper)this).avantPagePart(questionConfigurer, "questionConfigurer");
+			((C001L009InstallerZookeeper)this).avantPagePart(questionConfigurer, "questionConfigurer");
 		}
-		if(!questionDonneesCouverture.dejaInitialise) {
-			_questionDonnees(questionDonnees);
+		if(!questionConfigurerCouverture.dejaInitialise) {
+			_questionConfigurer(questionConfigurer);
 		}
-		questionDonnees.initLoinPourClasse(requeteSite_);
-		questionDonneesCouverture.dejaInitialise(true);
+		questionConfigurer.initLoinPourClasse(requeteSite_);
+		questionConfigurerCouverture.dejaInitialise(true);
 		return (C001L009InstallerZookeeper)this;
 	}
-	public void htmlBodyQuestionDonnees(PageHtml o) {
-		{ e("h3").a("class", " questionDonneesH3 ").f();
-			{ e("i").a("class", questionDonneesH3I1, " site-menu-icon questionDonneesH3I ").f();
+	public void htmlBodyQuestionConfigurer(PageHtml o) {
+		{ e("h3").a("class", " questionConfigurerH3 ").f();
+			{ e("i").a("class", questionConfigurerH3I1, " site-menu-icon questionConfigurerH3I ").f();
 			} g("i");
-			{ e("span").a("class", " questionDonneesH3Span ").f();
-				sx(questionDonneesH3Span1);
+			{ e("span").a("class", " questionConfigurerH3Span ").f();
+				sx(questionConfigurerH3Span1);
 			} g("span");
 		} g("h3");
-		{ e("h4").a("class", " questionDonneesH4 ").f();
-			{ e("i").a("class", questionDonneesH4I1, " site-menu-icon questionDonneesH4I ").f();
+		{ e("h4").a("class", " questionConfigurerH4 ").f();
+			{ e("i").a("class", questionConfigurerH4I1, " site-menu-icon questionConfigurerH4I ").f();
 			} g("i");
-			{ e("span").a("class", " questionDonneesH4Span ").f();
-				sx(questionDonneesH4Span1);
+			{ e("span").a("class", " questionConfigurerH4Span ").f();
+				sx(questionConfigurerH4Span1);
 			} g("span");
 		} g("h4");
+		{ e("pre").a("class", " questionConfigurerPre ").f();
+			{ e("span").a("class", " questionConfigurerPreSpan1 questionConfigurerPreSpan odd ").f();
+				sx(questionConfigurerPreSpan11);
+				e("br").fg();
+				sx(questionConfigurerPreSpan1Br1);
+			} g("span");
+			{ e("span").a("class", " questionConfigurerPreSpan2 questionConfigurerPreSpan even ").f();
+				e("br").fg();
+				sx(questionConfigurerPreSpan2Br1);
+			} g("span");
+			{ e("span").a("class", " questionConfigurerPreSpan3 questionConfigurerPreSpan odd ").f();
+				e("br").fg();
+				{ e("span").a("class", " questionConfigurerPreSpan3Br questionConfigurerPreSpan3Br  odd ").f();
+					sx(questionConfigurerPreSpan3BrSpan11);
+				} g("span");
+				{ e("span").a("class", " questionConfigurerPreSpan3Span2 questionConfigurerPreSpan3Span even ").f();
+					sx(utilisateurId == null ? questionConfigurerPreSpan3Span21 : zookeeperPortAdmin);
+				} g("span");
+			} g("span");
+			{ e("span").a("class", " questionConfigurerPreSpan4 questionConfigurerPreSpan even ").f();
+				e("br").fg();
+				{ e("span").a("class", " questionConfigurerPreSpan4Br questionConfigurerPreSpan4Br  odd ").f();
+					sx(questionConfigurerPreSpan4BrSpan11);
+				} g("span");
+				{ e("span").a("class", " questionConfigurerPreSpan4Span2 questionConfigurerPreSpan4Span even ").f();
+					sx(utilisateurId == null ? questionConfigurerPreSpan4Span21 : zookeeperPortClient);
+				} g("span");
+			} g("span");
+			{ e("span").a("class", " questionConfigurerPreSpan5 questionConfigurerPreSpan odd ").f();
+				e("br").fg();
+				sx(questionConfigurerPreSpan5Br1);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionConfigurerOl2 questionConfigurerOl even ").f();
+			{ e("li").a("class", " questionConfigurerOl2Li01 questionConfigurerOl2Li odd ").f();
+				sx(questionConfigurerOl2Li011);
+			} g("li");
+			{ e("li").a("class", " questionConfigurerOl2Li02 questionConfigurerOl2Li even ").f();
+				sx(questionConfigurerOl2Li021);
+				sx(questionConfigurerOl2Li022);
+			} g("li");
+			{ e("li").a("class", " questionConfigurerOl2Li03 questionConfigurerOl2Li odd ").f();
+				sx(questionConfigurerOl2Li031);
+			} g("li");
+			{ e("li").a("class", " questionConfigurerOl2Li04 questionConfigurerOl2Li even ").f();
+				{ e("span").a("class", " questionConfigurerOl2Li04Span1 questionConfigurerOl2Li odd ").f();
+					sx(questionConfigurerOl2Li04Span11);
+					sx(utilisateurId == null ? questionConfigurerOl2Li04Span12 : zookeeperPortAdmin);
+					sx(questionConfigurerOl2Li04Span13);
+				} g("span");
+			} g("li");
+			{ e("li").a("class", " questionConfigurerOl2Li05 questionConfigurerOl2Li odd ").f();
+				{ e("span").a("class", " questionConfigurerOl2Li05Span1 questionConfigurerOl2Li odd ").f();
+					sx(questionConfigurerOl2Li05Span11);
+					sx(utilisateurId == null ? questionConfigurerOl2Li05Span12 : zookeeperPortClient);
+					sx(questionConfigurerOl2Li05Span13);
+				} g("span");
+			} g("li");
+			{ e("li").a("class", " questionConfigurerOl2Li06 questionConfigurerOl2Li even ").f();
+				sx(questionConfigurerOl2Li061);
+			} g("li");
+			{ e("li").a("class", " questionConfigurerOl2Li07 questionConfigurerOl2Li odd ").f();
+				sx(questionConfigurerOl2Li071);
+			} g("li");
+			{ e("li").a("class", " questionConfigurerOl2Li08 questionConfigurerOl2Li even ").f();
+				sx(questionConfigurerOl2Li081);
+			} g("li");
+		} g("ol");
 	}
-	public void htmlBodyQuestionDonnees() {
-		questionDonnees.htmlAvant();
-		htmlBodyQuestionDonnees(questionDonnees);
-		questionDonnees.htmlApres();
+	public void htmlBodyQuestionConfigurer() {
+		questionConfigurer.htmlAvant();
+		htmlBodyQuestionConfigurer(questionConfigurer);
+		questionConfigurer.htmlApres();
 	}
 
 	/////////////////////
@@ -1384,62 +1638,53 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionServicePreSpan1 = questionServicePreSpan11;
 	public static final String questionServicePreSpan1Br1 = "[Unit]";
 	public static final String questionServicePreSpan1Br = questionServicePreSpan1Br1;
-	public static final String questionServicePreSpan2Br1 = "Description=Serveur de base de données Zookeeper. ";
+	public static final String questionServicePreSpan2Br1 = "Description=Un gestionnaire de cluster centralisé open source. ";
 	public static final String questionServicePreSpan2Br = questionServicePreSpan2Br1;
-	public static final String questionServicePreSpan3Br1 = "After=syslog.target network.target";
+	public static final String questionServicePreSpan3Br1 = "After=network.target";
 	public static final String questionServicePreSpan3Br2 = "";
 	public static final String questionServicePreSpan3Br3 = "[Service]";
 	public static final String questionServicePreSpan3Br4 = "Type=forking";
-	public static final String questionServicePreSpan3Br5 = "Environment=PGDATA=/srv/zookeeper PGPORT=5432";
-	public static final String questionServicePreSpan3Br6 = "User='\"$USER\"'";
-	public static final String questionServicePreSpan3Br7 = "Group='\"$USER\"'";
-	public static final String questionServicePreSpan3Br8 = "ExecStart=/opt/zookeeper/bin/pg_ctl start -D ${PGDATA} -s -o \"-p ${PGPORT}\" -w -t 300";
-	public static final String questionServicePreSpan3Br9 = "ExecStop=/opt/zookeeper/bin/pg_ctl stop -D ${PGDATA} -s -m fast";
-	public static final String questionServicePreSpan3Br10 = "ExecReload=/opt/zookeeper/bin/pg_ctl reload -D ${PGDATA} -s";
-	public static final String questionServicePreSpan3Br11 = "TimeoutSec=300";
-	public static final String questionServicePreSpan3Br12 = "";
-	public static final String questionServicePreSpan3Br13 = "[Install]";
-	public static final String questionServicePreSpan3Br14 = "WantedBy=multi-user.target";
-	public static final String questionServicePreSpan3Br15 = "' | sudo tee /usr/lib/systemd/system/zookeeper.service";
-	public static final String questionServicePreSpan3Br = questionServicePreSpan3Br1 + questionServicePreSpan3Br2 + questionServicePreSpan3Br3 + questionServicePreSpan3Br4 + questionServicePreSpan3Br5 + questionServicePreSpan3Br6 + questionServicePreSpan3Br7 + questionServicePreSpan3Br8 + questionServicePreSpan3Br9 + questionServicePreSpan3Br10 + questionServicePreSpan3Br11 + questionServicePreSpan3Br12 + questionServicePreSpan3Br13 + questionServicePreSpan3Br14 + questionServicePreSpan3Br15;
+	public static final String questionServicePreSpan3Br5 = "User='\"$USER\"'";
+	public static final String questionServicePreSpan3Br6 = "Group='\"$USER\"'";
+	public static final String questionServicePreSpan3Br7 = "ExecStart=/srv/zookeeper/bin/zkServer.sh start";
+	public static final String questionServicePreSpan3Br8 = "Restart=on-failure";
+	public static final String questionServicePreSpan3Br9 = "";
+	public static final String questionServicePreSpan3Br10 = "[Install]";
+	public static final String questionServicePreSpan3Br11 = "WantedBy=multi-user.target";
+	public static final String questionServicePreSpan3Br12 = "' | sudo tee /usr/lib/systemd/system/zookeeper.service";
+	public static final String questionServicePreSpan3Br = questionServicePreSpan3Br1 + questionServicePreSpan3Br2 + questionServicePreSpan3Br3 + questionServicePreSpan3Br4 + questionServicePreSpan3Br5 + questionServicePreSpan3Br6 + questionServicePreSpan3Br7 + questionServicePreSpan3Br8 + questionServicePreSpan3Br9 + questionServicePreSpan3Br10 + questionServicePreSpan3Br11 + questionServicePreSpan3Br12;
 	public static final String questionServiceOl2Li011 = "echo '...' : Écrivez une chaîne dans la console. ";
 	public static final String questionServiceOl2Li01 = questionServiceOl2Li011;
 	public static final String questionServiceOl2Li021 = "[Unit] : Un fichier de configuration « Unit » dont le nom se termine par \".service\" code les informations relatives à un processus contrôlé et supervisé par systemd. ";
 	public static final String questionServiceOl2Li02 = questionServiceOl2Li021;
 	public static final String questionServiceOl2Li031 = "Description=... : La description du service. ";
 	public static final String questionServiceOl2Li03 = questionServiceOl2Li031;
-	public static final String questionServiceOl2Li041 = "After=... : Demander un mot de passe pour le nouveau super utilisateur. ";
+	public static final String questionServiceOl2Li041 = "After=... : Le service Zookeeper sera démarré après les dépendances suivantes. ";
 	public static final String questionServiceOl2Li04 = questionServiceOl2Li041;
 	public static final String questionServiceOl2Li051 = "[Service] : Les informations relatives à un service contrôlé et supervisé par systemd. ";
 	public static final String questionServiceOl2Li05 = questionServiceOl2Li051;
 	public static final String questionServiceOl2Li061 = "Type=forking : Parce qu'il est prévu que le processus configuré avec ExecStart= appelle fork() pendant son démarrage. ";
 	public static final String questionServiceOl2Li06 = questionServiceOl2Li061;
-	public static final String questionServiceOl2Li071 = "Environment=PGDATA=/srv/zookeeper PGPORT=5432 : Définir le répertoire de données Zookeeper et le port comme variables d’environnement du système à utiliser plus tard dans des commandes. ";
+	public static final String questionServiceOl2Li071 = "User=... : L'utilisateur en tant que l'utilisateur actuel qui exécutera le service. ";
 	public static final String questionServiceOl2Li07 = questionServiceOl2Li071;
-	public static final String questionServiceOl2Li081 = "User=... : L'utilisateur en tant que l'utilisateur actuel qui exécutera le service. ";
+	public static final String questionServiceOl2Li081 = "Group=... : L'utilisateur de groupe en tant que l'utilisateur actuel qui exécutera le service. ";
 	public static final String questionServiceOl2Li08 = questionServiceOl2Li081;
-	public static final String questionServiceOl2Li091 = "Group=... : L'utilisateur de groupe en tant que l'utilisateur actuel qui exécutera le service. ";
+	public static final String questionServiceOl2Li091 = "ExecStart=... : La commande Zookeeper qui lancera le service. ";
 	public static final String questionServiceOl2Li09 = questionServiceOl2Li091;
-	public static final String questionServiceOl2Li101 = "ExecStart=... : La commande Zookeeper qui lancera le service. ";
+	public static final String questionServiceOl2Li101 = "Restart=on-failure : Redémarrer le service en cas d'échec. ";
 	public static final String questionServiceOl2Li10 = questionServiceOl2Li101;
-	public static final String questionServiceOl2Li111 = "ExecStart=... : La commande Zookeeper qui arrêtera le service. ";
+	public static final String questionServiceOl2Li111 = "[Install] : Cette section est facultative et permet de définir le comportement ou une unité s’il est activé ou désactivé. ";
 	public static final String questionServiceOl2Li11 = questionServiceOl2Li111;
-	public static final String questionServiceOl2Li121 = "ExecReload=... : La commande Zookeeper qui redémarrera le service. ";
+	public static final String questionServiceOl2Li121 = "WantedBy=multi-user.target : Lorsque le service est activé, un répertoire appelé multi-user.target.wants sera créé dans /etc/systemd/system (s'il n'est pas déjà disponible) et un lien symbolique vers l'unité actuelle sera placé dans celui-ci. ";
 	public static final String questionServiceOl2Li12 = questionServiceOl2Li121;
-	public static final String questionServiceOl2Li131 = "TimeoutSec=300 : Le nombre de secondes avant d'abandonner le démarrage du service. ";
+	public static final String questionServiceOl2Li131 = "| : Lisez la chaîne dans la commande suivante. ";
 	public static final String questionServiceOl2Li13 = questionServiceOl2Li131;
-	public static final String questionServiceOl2Li141 = "[Install] : Cette section est facultative et permet de définir le comportement ou une unité s’il est activé ou désactivé. ";
+	public static final String questionServiceOl2Li141 = "sudo";
 	public static final String questionServiceOl2Li14 = questionServiceOl2Li141;
-	public static final String questionServiceOl2Li151 = "WantedBy=multi-user.target : Lorsque le service est activé, un répertoire appelé multi-user.target.wants sera créé dans /etc/systemd/system (s'il n'est pas déjà disponible) et un lien symbolique vers l'unité actuelle sera placé dans celui-ci. ";
+	public static final String questionServiceOl2Li151 = "tee : Ecrire une chaîne dans un fichier. ";
 	public static final String questionServiceOl2Li15 = questionServiceOl2Li151;
-	public static final String questionServiceOl2Li161 = "| : Lisez la chaîne dans la commande suivante. ";
+	public static final String questionServiceOl2Li161 = "/usr/lib/systemd/system/zookeeper.service : Un nouveau fichier de service systemd dans lequel écrire pour Zookeeper. ";
 	public static final String questionServiceOl2Li16 = questionServiceOl2Li161;
-	public static final String questionServiceOl2Li171 = "sudo";
-	public static final String questionServiceOl2Li17 = questionServiceOl2Li171;
-	public static final String questionServiceOl2Li181 = "tee : Ecrire une chaîne dans un fichier. ";
-	public static final String questionServiceOl2Li18 = questionServiceOl2Li181;
-	public static final String questionServiceOl2Li191 = "/usr/lib/systemd/system/zookeeper.service : Un nouveau fichier de service systemd dans lequel écrire pour Zookeeper. ";
-	public static final String questionServiceOl2Li19 = questionServiceOl2Li191;
 
 	/**	L'entité « questionService »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -1525,12 +1770,6 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 				sx(questionServicePreSpan3Br11);
 				e("br").fg();
 				sx(questionServicePreSpan3Br12);
-				e("br").fg();
-				sx(questionServicePreSpan3Br13);
-				e("br").fg();
-				sx(questionServicePreSpan3Br14);
-				e("br").fg();
-				sx(questionServicePreSpan3Br15);
 			} g("span");
 		} g("pre");
 		{ e("ol").a("class", " questionServiceOl2 questionServiceOl even ").f();
@@ -1581,15 +1820,6 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 			} g("li");
 			{ e("li").a("class", " questionServiceOl2Li16 questionServiceOl2Li even ").f();
 				sx(questionServiceOl2Li161);
-			} g("li");
-			{ e("li").a("class", " questionServiceOl2Li17 questionServiceOl2Li odd ").f();
-				sx(questionServiceOl2Li171);
-			} g("li");
-			{ e("li").a("class", " questionServiceOl2Li18 questionServiceOl2Li even ").f();
-				sx(questionServiceOl2Li181);
-			} g("li");
-			{ e("li").a("class", " questionServiceOl2Li19 questionServiceOl2Li odd ").f();
-				sx(questionServiceOl2Li191);
 			} g("li");
 		} g("ol");
 	}
@@ -1956,8 +2186,9 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String questionSystemctlStatusOl2Li3 = questionSystemctlStatusOl2Li31;
 	public static final String questionSystemctlStatusOl2Li41 = "zookeeper : Vérifiez le statut du service Zookeeper. ";
 	public static final String questionSystemctlStatusOl2Li4 = questionSystemctlStatusOl2Li41;
-	public static final String questionSystemctlStatusP21 = "Et voilà, profitez de votre tout nouvel et puissant serveur de base de données open source. ";
-	public static final String questionSystemctlStatusP2 = questionSystemctlStatusP21;
+	public static final String questionSystemctlStatusP21 = "Et comme ça, votre serveur Zookeeper est prêt pour que le client se connecte et commence à mettre en cluster. ";
+	public static final String questionSystemctlStatusP22 = "Dans les leçons suivants, nous allons connecter un moteur de recherche ainsi que vos applications Web à Zookeeper pour leur mettre en cluster. ";
+	public static final String questionSystemctlStatusP2 = questionSystemctlStatusP21 + questionSystemctlStatusP22;
 
 	/**	L'entité « questionSystemctlStatus »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -2038,6 +2269,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 		} g("ol");
 		{ e("p").a("class", " questionSystemctlStatusP2 questionSystemctlStatusP even ").f();
 			sx(questionSystemctlStatusP21);
+			sx(questionSystemctlStatusP22);
 		} g("p");
 	}
 	public void htmlBodyQuestionSystemctlStatus() {
@@ -2102,7 +2334,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	// recapituler2 //
 	//////////////////
 
-	public static final String recapituler2TableTr1Td11 = "Jeudi ";
+	public static final String recapituler2TableTr1Td11 = "Lundi ";
 	public static final String recapituler2TableTr1Td1 = recapituler2TableTr1Td11;
 	public static final String recapituler2TableTr1Td2I1 = "far fa-fast-forward";
 	public static final String recapituler2TableTr1Td2I = recapituler2TableTr1Td2I1;
@@ -2110,9 +2342,9 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String recapituler2TableTr1Td3I = recapituler2TableTr1Td3I1;
 	public static final String recapituler2TableTr1Td4I1 = "far fa-pen-nib";
 	public static final String recapituler2TableTr1Td4I = recapituler2TableTr1Td4I1;
-	public static final String recapituler2TableTr2Td11 = "16 Mai 2019";
+	public static final String recapituler2TableTr2Td11 = "3 Juin 2019";
 	public static final String recapituler2TableTr2Td1 = recapituler2TableTr2Td11;
-	public static final String recapituler2TableTr2Td21 = "Comment installer la dernière version de Zookeeper ? ";
+	public static final String recapituler2TableTr2Td21 = "Comment puis-je tester en développment la configuration en cluster, les demandes, les événements et les sources de données partagées ? ";
 	public static final String recapituler2TableTr2Td2 = recapituler2TableTr2Td21;
 	public static final String recapituler2TableTr2Td31 = "Installer Zookeeper à partir du code source. ";
 	public static final String recapituler2TableTr2Td3 = recapituler2TableTr2Td31;
@@ -2208,7 +2440,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String recapituler3TableTr01Td4 = recapituler3TableTr01Td41;
 	public static final String recapituler3TableTr02Td1I1 = "far fa-conveyor-belt-alt";
 	public static final String recapituler3TableTr02Td1I = recapituler3TableTr02Td1I1;
-	public static final String recapituler3TableTr02Td21 = "Comment installer les dépendences pour certbot ? ";
+	public static final String recapituler3TableTr02Td21 = "Comment installer les dépendences pour Zookeeper ? ";
 	public static final String recapituler3TableTr02Td2 = recapituler3TableTr02Td21;
 	public static final String recapituler3TableTr02Td3Span1I1 = "far fa-cookie";
 	public static final String recapituler3TableTr02Td3Span1I = recapituler3TableTr02Td3Span1I1;
@@ -2216,68 +2448,100 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 	public static final String recapituler3TableTr02Td4 = recapituler3TableTr02Td41;
 	public static final String recapituler3TableTr03Td1I1 = "far fa-files-medical";
 	public static final String recapituler3TableTr03Td1I = recapituler3TableTr03Td1I1;
-	public static final String recapituler3TableTr03Td21 = "Où dois-je placer les certificats, les clés et les magasins de clés pour mon site ? ";
+	public static final String recapituler3TableTr03Td21 = "Où est-ce que je place le code source Zookeeper ? ";
 	public static final String recapituler3TableTr03Td2 = recapituler3TableTr03Td21;
 	public static final String recapituler3TableTr03Td3I1 = "far fa-folder-tree";
 	public static final String recapituler3TableTr03Td3I = recapituler3TableTr03Td3I1;
-	public static final String recapituler3TableTr03Td41 = "Créez un répertoire certbot dans /srv. ";
+	public static final String recapituler3TableTr03Td41 = "Créez un répertoire zookeeper dans /usr/local/src. ";
 	public static final String recapituler3TableTr03Td4 = recapituler3TableTr03Td41;
-	public static final String recapituler3TableTr04Td1I1 = "far fa-file-certificate";
+	public static final String recapituler3TableTr04Td1I1 = "far fa-cloud-download";
 	public static final String recapituler3TableTr04Td1I = recapituler3TableTr04Td1I1;
-	public static final String recapituler3TableTr04Td21 = "Comment puis-je obtenir mon certificat ? ";
+	public static final String recapituler3TableTr04Td21 = "Comment télécharger le code source de Zookeeper ? ";
 	public static final String recapituler3TableTr04Td2 = recapituler3TableTr04Td21;
-	public static final String recapituler3TableTr04Td3Span1I1 = "far fa-stamp";
+	public static final String recapituler3TableTr04Td3Span1I1 = "fab fa-git";
 	public static final String recapituler3TableTr04Td3Span1I = recapituler3TableTr04Td3Span1I1;
-	public static final String recapituler3TableTr04Td41 = "Utilisez la commande certbot. ";
+	public static final String recapituler3TableTr04Td41 = "Cloner le code source avec la commande git. ";
 	public static final String recapituler3TableTr04Td4 = recapituler3TableTr04Td41;
-	public static final String recapituler3TableTr05Td1I1 = "far fa-key";
+	public static final String recapituler3TableTr05Td1I1 = "far fa-code-branch";
 	public static final String recapituler3TableTr05Td1I = recapituler3TableTr05Td1I1;
-	public static final String recapituler3TableTr05Td21 = "Comment utiliser le certificat et la clé générés par certbot ? ";
+	public static final String recapituler3TableTr05Td21 = "Comment choisir une version récente de Zookeeper ? ";
 	public static final String recapituler3TableTr05Td2 = recapituler3TableTr05Td21;
-	public static final String recapituler3TableTr05Td3I1 = "far fa-copy";
+	public static final String recapituler3TableTr05Td3I1 = "far fa-tag";
 	public static final String recapituler3TableTr05Td3I = recapituler3TableTr05Td3I1;
-	public static final String recapituler3TableTr05Td41 = "Copiez les fichiers certbot avec la commande install. ";
+	public static final String recapituler3TableTr05Td41 = "Listez toutes les tags du référentiel git. ";
 	public static final String recapituler3TableTr05Td4 = recapituler3TableTr05Td41;
-	public static final String recapituler3TableTr06Td1I1 = "far fa-users-crown";
+	public static final String recapituler3TableTr06Td1I1 = "far fa-code-merge";
 	public static final String recapituler3TableTr06Td1I = recapituler3TableTr06Td1I1;
-	public static final String recapituler3TableTr06Td21 = "Comment puis-je obtenir les certificats letencrypt racine et CA ? ";
+	public static final String recapituler3TableTr06Td21 = "Comment changer de version du code source de Zookeeper ? ";
 	public static final String recapituler3TableTr06Td2 = recapituler3TableTr06Td21;
-	public static final String recapituler3TableTr06Td3I1 = "far fa-copy";
+	public static final String recapituler3TableTr06Td3I1 = "far fa-code-commit";
 	public static final String recapituler3TableTr06Td3I = recapituler3TableTr06Td3I1;
-	public static final String recapituler3TableTr06Td41 = "Téléchargez les certificats racine et CA avec la commande curl. ";
+	public static final String recapituler3TableTr06Td41 = "Checkout la tag git. ";
 	public static final String recapituler3TableTr06Td4 = recapituler3TableTr06Td41;
-	public static final String recapituler3TableTr07Td1I1 = "far fa-object-group";
+	public static final String recapituler3TableTr07Td1I1 = "far fa-tools";
 	public static final String recapituler3TableTr07Td1I = recapituler3TableTr07Td1I1;
-	public static final String recapituler3TableTr07Td21 = "Comment créer une version fusionnée de certificats de site, de certificats d'autorité et de certificat racine ? ";
+	public static final String recapituler3TableTr07Td21 = "Comment contruire le code source de Zookeeper ? ";
 	public static final String recapituler3TableTr07Td2 = recapituler3TableTr07Td21;
-	public static final String recapituler3TableTr07Td3I1 = "far fa-cat";
+	public static final String recapituler3TableTr07Td3I1 = "far fa-terminal";
 	public static final String recapituler3TableTr07Td3I = recapituler3TableTr07Td3I1;
-	public static final String recapituler3TableTr07Td41 = "Créez un certificat fusionné avec la commande cat. ";
+	public static final String recapituler3TableTr07Td41 = "Construisez Zookeeper avec la commande ant. ";
 	public static final String recapituler3TableTr07Td4 = recapituler3TableTr07Td41;
-	public static final String recapituler3TableTr08Td1I1 = "far fa-file-certificate";
+	public static final String recapituler3TableTr08Td1I1 = "far fa-map-pin";
 	public static final String recapituler3TableTr08Td1I = recapituler3TableTr08Td1I1;
-	public static final String recapituler3TableTr08Td21 = "Comment créer une chaîne de confiance de certificat pkcs12 ? ";
+	public static final String recapituler3TableTr08Td21 = "Après avoir compilé Zookeeper, où puis-je l'installer en tant que serveur? ";
 	public static final String recapituler3TableTr08Td2 = recapituler3TableTr08Td21;
-	public static final String recapituler3TableTr08Td3I1 = "far fa-shield-alt";
+	public static final String recapituler3TableTr08Td3I1 = "far fa-folder-tree";
 	public static final String recapituler3TableTr08Td3I = recapituler3TableTr08Td3I1;
-	public static final String recapituler3TableTr08Td41 = "Utilisez la commande openssl pour créer un fichier .p12. ";
+	public static final String recapituler3TableTr08Td41 = "Créez un répertoire zookeeper dans /srv. ";
 	public static final String recapituler3TableTr08Td4 = recapituler3TableTr08Td41;
-	public static final String recapituler3TableTr09Td1I1 = "far fa-store";
+	public static final String recapituler3TableTr09Td1I1 = "far fa-ballot";
 	public static final String recapituler3TableTr09Td1I = recapituler3TableTr09Td1I1;
-	public static final String recapituler3TableTr09Td21 = "Comment créer un magasin de clés Java pour les chaînes de certificats dans les applications Java? ";
+	public static final String recapituler3TableTr09Td21 = "Comment puis-je configurer le serveur Zookeeper ? ";
 	public static final String recapituler3TableTr09Td2 = recapituler3TableTr09Td21;
-	public static final String recapituler3TableTr09Td3I1 = "far fa-terminal";
+	public static final String recapituler3TableTr09Td3I1 = "far fa-file-alt";
 	public static final String recapituler3TableTr09Td3I = recapituler3TableTr09Td3I1;
-	public static final String recapituler3TableTr09Td41 = "Utilisez la commande keytool pour créer un fichier .jks. ";
+	public static final String recapituler3TableTr09Td41 = "Créez un fichier zoo.cfg dans le répertoire conf. ";
 	public static final String recapituler3TableTr09Td4 = recapituler3TableTr09Td41;
-	public static final String recapituler3TableTr10Td1I1 = "far fa-key";
+	public static final String recapituler3TableTr10Td1I1 = "far fa-alarm-clock";
 	public static final String recapituler3TableTr10Td1I = recapituler3TableTr10Td1I1;
-	public static final String recapituler3TableTr10Td21 = "Comment créer un magasin de clés Java pour mon clé secret dans les applications Java? ";
+	public static final String recapituler3TableTr10Td21 = "Comment puis-je exécuter Zookeeper tout le temps au démarrage de mon ordinateur ? ";
 	public static final String recapituler3TableTr10Td2 = recapituler3TableTr10Td21;
-	public static final String recapituler3TableTr10Td3I1 = "far fa-terminal";
+	public static final String recapituler3TableTr10Td3I1 = "far fa-layer-plus";
 	public static final String recapituler3TableTr10Td3I = recapituler3TableTr10Td3I1;
-	public static final String recapituler3TableTr10Td41 = "Utilisez la commande keytool pour créer un fichier .jceks. ";
+	public static final String recapituler3TableTr10Td41 = "Comment exécuter Zookeeper en tant que service systemd. ";
 	public static final String recapituler3TableTr10Td4 = recapituler3TableTr10Td41;
+	public static final String recapituler3TableTr11Td1I1 = "far fa-search";
+	public static final String recapituler3TableTr11Td1I = recapituler3TableTr11Td1I1;
+	public static final String recapituler3TableTr11Td21 = "Comment le système connaît-il le nouveau service ? ";
+	public static final String recapituler3TableTr11Td2 = recapituler3TableTr11Td21;
+	public static final String recapituler3TableTr11Td3I1 = "far fa-redo-alt";
+	public static final String recapituler3TableTr11Td3I = recapituler3TableTr11Td3I1;
+	public static final String recapituler3TableTr11Td41 = "Rechargez le daemon systemd. ";
+	public static final String recapituler3TableTr11Td4 = recapituler3TableTr11Td41;
+	public static final String recapituler3TableTr12Td1I1 = "far fa-toggle-off";
+	public static final String recapituler3TableTr12Td1I = recapituler3TableTr12Td1I1;
+	public static final String recapituler3TableTr12Td21 = "Comment activer le service Zookeeper? ";
+	public static final String recapituler3TableTr12Td2 = recapituler3TableTr12Td21;
+	public static final String recapituler3TableTr12Td3I1 = "far fa-toggle-on";
+	public static final String recapituler3TableTr12Td3I = recapituler3TableTr12Td3I1;
+	public static final String recapituler3TableTr12Td41 = "Utilisez la commande systemctl enable. ";
+	public static final String recapituler3TableTr12Td4 = recapituler3TableTr12Td41;
+	public static final String recapituler3TableTr13Td1I1 = "far fa-pause-circle";
+	public static final String recapituler3TableTr13Td1I = recapituler3TableTr13Td1I1;
+	public static final String recapituler3TableTr13Td21 = "Comment démarrer le service Zookeeper? ";
+	public static final String recapituler3TableTr13Td2 = recapituler3TableTr13Td21;
+	public static final String recapituler3TableTr13Td3I1 = "far fa-play-circle";
+	public static final String recapituler3TableTr13Td3I = recapituler3TableTr13Td3I1;
+	public static final String recapituler3TableTr13Td41 = "Utilisez la commande systemctl start. ";
+	public static final String recapituler3TableTr13Td4 = recapituler3TableTr13Td41;
+	public static final String recapituler3TableTr14Td1I1 = "far fa-clipboard";
+	public static final String recapituler3TableTr14Td1I = recapituler3TableTr14Td1I1;
+	public static final String recapituler3TableTr14Td21 = "Comment puis-je m'assurer que le service Zookeeper a démarré avec succès ? ";
+	public static final String recapituler3TableTr14Td2 = recapituler3TableTr14Td21;
+	public static final String recapituler3TableTr14Td3I1 = "far fa-clipboard-check";
+	public static final String recapituler3TableTr14Td3I = recapituler3TableTr14Td3I1;
+	public static final String recapituler3TableTr14Td41 = "Utilisez la commande systemctl status. ";
+	public static final String recapituler3TableTr14Td4 = recapituler3TableTr14Td41;
 
 	/**	L'entité « recapituler3 »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -2479,6 +2743,70 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 					sx(recapituler3TableTr10Td41);
 				} g("td");
 			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr11 recapituler3TableTr odd ").f();
+				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td1 recapituler3TableTr11Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr11Td1I1, " site-menu-icon recapituler3TableTr11Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td2 recapituler3TableTr11Td even ").f();
+					sx(recapituler3TableTr11Td21);
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td3 recapituler3TableTr11Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr11Td3I1, " site-menu-icon recapituler3TableTr11Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr11Td4 recapituler3TableTr11Td even ").f();
+					sx(recapituler3TableTr11Td41);
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr12 recapituler3TableTr even ").f();
+				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td1 recapituler3TableTr12Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr12Td1I1, " site-menu-icon recapituler3TableTr12Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td2 recapituler3TableTr12Td even ").f();
+					sx(recapituler3TableTr12Td21);
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td3 recapituler3TableTr12Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr12Td3I1, " site-menu-icon recapituler3TableTr12Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr12Td4 recapituler3TableTr12Td even ").f();
+					sx(recapituler3TableTr12Td41);
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr13 recapituler3TableTr odd ").f();
+				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td1 recapituler3TableTr13Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr13Td1I1, " site-menu-icon recapituler3TableTr13Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td2 recapituler3TableTr13Td even ").f();
+					sx(recapituler3TableTr13Td21);
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td3 recapituler3TableTr13Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr13Td3I1, " site-menu-icon recapituler3TableTr13Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr13Td4 recapituler3TableTr13Td even ").f();
+					sx(recapituler3TableTr13Td41);
+				} g("td");
+			} g("tr");
+			{ e("tr").a("class", " recapituler3TableTr14 recapituler3TableTr even ").f();
+				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td1 recapituler3TableTr14Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr14Td1I1, " site-menu-icon recapituler3TableTr14Td1I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td2 recapituler3TableTr14Td even ").f();
+					sx(recapituler3TableTr14Td21);
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td3 recapituler3TableTr14Td odd ").f();
+					{ e("i").a("class", recapituler3TableTr14Td3I1, " site-menu-icon recapituler3TableTr14Td3I ").f();
+					} g("i");
+				} g("td");
+				{ e("td").a("class", " w3-mobile recapituler3TableTr14Td4 recapituler3TableTr14Td even ").f();
+					sx(recapituler3TableTr14Td41);
+				} g("td");
+			} g("tr");
 		} g("table");
 	}
 	public void htmlBodyRecapituler3() {
@@ -2509,6 +2837,8 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 
 	public void initC001L009InstallerZookeeper() {
 		zookeeperVersionInit();
+		zookeeperPortAdminInit();
+		zookeeperPortClientInit();
 		zookeeperTagInit();
 		moiInit();
 		personnaliserInit();
@@ -2519,7 +2849,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 		questionCheckoutTagInit();
 		questionConstruireSourceInit();
 		questionMkdirServeurInit();
-		questionDonneesInit();
+		questionConfigurerInit();
 		questionServiceInit();
 		questionSystemctlDaemonReloadInit();
 		questionSystemctlEnableInit();
@@ -2558,8 +2888,8 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 			questionConstruireSource.setRequeteSite_(requeteSite_);
 		if(questionMkdirServeur != null)
 			questionMkdirServeur.setRequeteSite_(requeteSite_);
-		if(questionDonnees != null)
-			questionDonnees.setRequeteSite_(requeteSite_);
+		if(questionConfigurer != null)
+			questionConfigurer.setRequeteSite_(requeteSite_);
 		if(questionService != null)
 			questionService.setRequeteSite_(requeteSite_);
 		if(questionSystemctlDaemonReload != null)
@@ -2604,6 +2934,10 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 		switch(var) {
 			case "zookeeperVersion":
 				return oC001L009InstallerZookeeper.zookeeperVersion;
+			case "zookeeperPortAdmin":
+				return oC001L009InstallerZookeeper.zookeeperPortAdmin;
+			case "zookeeperPortClient":
+				return oC001L009InstallerZookeeper.zookeeperPortClient;
 			case "zookeeperTag":
 				return oC001L009InstallerZookeeper.zookeeperTag;
 			case "moi":
@@ -2624,8 +2958,8 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 				return oC001L009InstallerZookeeper.questionConstruireSource;
 			case "questionMkdirServeur":
 				return oC001L009InstallerZookeeper.questionMkdirServeur;
-			case "questionDonnees":
-				return oC001L009InstallerZookeeper.questionDonnees;
+			case "questionConfigurer":
+				return oC001L009InstallerZookeeper.questionConfigurer;
 			case "questionService":
 				return oC001L009InstallerZookeeper.questionService;
 			case "questionSystemctlDaemonReload":
@@ -2851,8 +3185,8 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 			questionConstruireSource.htmlBodyCourt();
 		if(questionMkdirServeur != null)
 			questionMkdirServeur.htmlBodyCourt();
-		if(questionDonnees != null)
-			questionDonnees.htmlBodyCourt();
+		if(questionConfigurer != null)
+			questionConfigurer.htmlBodyCourt();
 		if(questionService != null)
 			questionService.htmlBodyCourt();
 		if(questionSystemctlDaemonReload != null)
@@ -2890,7 +3224,7 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 		((C001L009InstallerZookeeper)this).htmlBodyQuestionCheckoutTag();
 		((C001L009InstallerZookeeper)this).htmlBodyQuestionConstruireSource();
 		((C001L009InstallerZookeeper)this).htmlBodyQuestionMkdirServeur();
-		((C001L009InstallerZookeeper)this).htmlBodyQuestionDonnees();
+		((C001L009InstallerZookeeper)this).htmlBodyQuestionConfigurer();
 		((C001L009InstallerZookeeper)this).htmlBodyQuestionService();
 		((C001L009InstallerZookeeper)this).htmlBodyQuestionSystemctlDaemonReload();
 		((C001L009InstallerZookeeper)this).htmlBodyQuestionSystemctlEnable();
@@ -2934,5 +3268,5 @@ public abstract class C001L009InstallerZookeeperGen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L009InstallerZookeeperVals = new String[] { moiP1, moiP2, moiP3, moiP4, moiP5, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li1Dt1, questionDependencesOl2Li1Dd1, questionDependencesOl2Li1Dd2, questionDependencesOl2Li1Dd3, questionDependencesOl2Li2Dt1, questionDependencesOl2Li2Dd1, questionDependencesOl2Li2Dd2, questionDependencesOl2Li3Dt1, questionDependencesOl2Li3Dd1, questionDependencesOl2Li4Dt1, questionDependencesOl2Li4Dd1, questionDependencesOl2Li5Dt1, questionDependencesOl2Li5Dd1, questionMkdirSrcH3I1, questionMkdirSrcH3Span1, questionMkdirSrcH4I1, questionMkdirSrcH4Span1, questionMkdirSrcPreSpan11, questionMkdirSrcPreSpan21, questionMkdirSrcPreSpan31, questionMkdirSrcPreSpan41, questionMkdirSrcPreSpan51, questionMkdirSrcPreSpan61, questionMkdirSrcPreSpan71, questionMkdirSrcPreSpan81, questionMkdirSrcOl2Li11, questionMkdirSrcOl2Li21, questionMkdirSrcOl2Li31, questionMkdirSrcOl2Li41, questionMkdirSrcOl2Li51, questionMkdirSrcOl2Li61, questionMkdirSrcOl2Li71, questionMkdirSrcOl2Li81, questionMkdirSrcOl2Li82, questionClonerSourceH3I1, questionClonerSourceH3Span1, questionClonerSourceH4I1, questionClonerSourceH4Span1, questionClonerSourcePreSpan11, questionClonerSourcePreSpan21, questionClonerSourcePreSpan31, questionClonerSourcePreSpan41, questionClonerSourceOl2Li11, questionClonerSourceOl2Li21, questionClonerSourceOl2Li31, questionClonerSourceOl2Li41, questionListerTagsH3I1, questionListerTagsH3Span1, questionListerTagsH4I1, questionListerTagsH4Span1, questionListerTagsPreSpan11, questionListerTagsPreSpan21, questionListerTagsPreSpan31, questionListerTagsPreSpan41, questionListerTagsPreSpan51, questionListerTagsOl2Li11, questionListerTagsOl2Li21, questionListerTagsOl2Li31, questionListerTagsOl2Li41, questionListerTagsOl2Li51, questionCheckoutTagH3I1, questionCheckoutTagH3Span1, questionCheckoutTagH4I1, questionCheckoutTagH4Span1, questionCheckoutTagPreSpan11, questionCheckoutTagPreSpan21, questionCheckoutTagPreSpan31, questionCheckoutTagPreSpan41, questionCheckoutTagPreSpan51, questionCheckoutTagPreSpan6Span11, questionCheckoutTagPreSpan6Span21, questionCheckoutTagPreSpan6Span31, questionCheckoutTagOl2Li11, questionCheckoutTagOl2Li21, questionCheckoutTagOl2Li31, questionCheckoutTagOl2Li41, questionCheckoutTagOl2Li51, questionCheckoutTagOl2Li6Span11, questionCheckoutTagOl2Li6Span21, questionConstruireSourceH3I1, questionConstruireSourceH3Span1, questionConstruireSourceH4I1, questionConstruireSourceH4Span1, questionConstruireSourcePre1Span011, questionConstruireSourcePre1Span021, questionConstruireSourcePre1Span031, questionConstruireSourcePre1Span041, questionConstruireSourcePre1Span051, questionConstruireSourceOl1Li011, questionConstruireSourceOl1Li021, questionConstruireSourceOl1Li031, questionConstruireSourceOl1Li041, questionConstruireSourceOl1Li051, questionMkdirServeurH3I1, questionMkdirServeurH3Span1, questionMkdirServeurH4I1, questionMkdirServeurH4Span1, questionMkdirServeurPreSpan11, questionMkdirServeurPreSpan21, questionMkdirServeurPreSpan31, questionMkdirServeurPreSpan41, questionMkdirServeurPreSpan51, questionMkdirServeurPreSpan61, questionMkdirServeurPreSpan71, questionMkdirServeurPreSpan81, questionMkdirServeurOl1Li11, questionMkdirServeurOl1Li21, questionMkdirServeurOl1Li31, questionMkdirServeurOl1Li41, questionMkdirServeurOl1Li51, questionMkdirServeurOl1Li61, questionMkdirServeurOl1Li71, questionMkdirServeurOl1Li81, questionMkdirServeurPre2Span11, questionMkdirServeurPre2Span21, questionMkdirServeurPre2Span31, questionMkdirServeurPre2Span41, questionMkdirServeurOl2Li11, questionMkdirServeurOl2Li21, questionMkdirServeurOl2Li31, questionMkdirServeurOl2Li32, questionMkdirServeurOl2Li41, questionMkdirServeurOl2Li42, questionDonneesH3I1, questionDonneesH3Span1, questionDonneesH4I1, questionDonneesH4Span1, questionServiceH3I1, questionServiceH3Span1, questionServiceH4I1, questionServiceH4Span1, questionServicePreSpan11, questionServicePreSpan1Br1, questionServicePreSpan2Br1, questionServicePreSpan3Br1, questionServicePreSpan3Br2, questionServicePreSpan3Br3, questionServicePreSpan3Br4, questionServicePreSpan3Br5, questionServicePreSpan3Br6, questionServicePreSpan3Br7, questionServicePreSpan3Br8, questionServicePreSpan3Br9, questionServicePreSpan3Br10, questionServicePreSpan3Br11, questionServicePreSpan3Br12, questionServicePreSpan3Br13, questionServicePreSpan3Br14, questionServicePreSpan3Br15, questionServiceOl2Li011, questionServiceOl2Li021, questionServiceOl2Li031, questionServiceOl2Li041, questionServiceOl2Li051, questionServiceOl2Li061, questionServiceOl2Li071, questionServiceOl2Li081, questionServiceOl2Li091, questionServiceOl2Li101, questionServiceOl2Li111, questionServiceOl2Li121, questionServiceOl2Li131, questionServiceOl2Li141, questionServiceOl2Li151, questionServiceOl2Li161, questionServiceOl2Li171, questionServiceOl2Li181, questionServiceOl2Li191, questionSystemctlDaemonReloadH3I1, questionSystemctlDaemonReloadH3Span1, questionSystemctlDaemonReloadH4I1, questionSystemctlDaemonReloadH4Span1, questionSystemctlDaemonReloadPreSpan11, questionSystemctlDaemonReloadPreSpan21, questionSystemctlDaemonReloadPreSpan31, questionSystemctlDaemonReloadOl2Li11, questionSystemctlDaemonReloadOl2Li21, questionSystemctlDaemonReloadOl2Li31, questionSystemctlEnableH3I1, questionSystemctlEnableH3Span1, questionSystemctlEnableH4I1, questionSystemctlEnableH4Span1, questionSystemctlEnablePreSpan11, questionSystemctlEnablePreSpan21, questionSystemctlEnablePreSpan31, questionSystemctlEnablePreSpan41, questionSystemctlEnableOl2Li11, questionSystemctlEnableOl2Li21, questionSystemctlEnableOl2Li31, questionSystemctlEnableOl2Li41, questionSystemctlStartH3I1, questionSystemctlStartH3Span1, questionSystemctlStartH4I1, questionSystemctlStartH4Span1, questionSystemctlStartPreSpan11, questionSystemctlStartPreSpan21, questionSystemctlStartPreSpan31, questionSystemctlStartPreSpan41, questionSystemctlStartOl2Li11, questionSystemctlStartOl2Li21, questionSystemctlStartOl2Li31, questionSystemctlStartOl2Li41, questionSystemctlStatusH3I1, questionSystemctlStatusH3Span1, questionSystemctlStatusH4I1, questionSystemctlStatusH4Span1, questionSystemctlStatusPreSpan11, questionSystemctlStatusPreSpan21, questionSystemctlStatusPreSpan31, questionSystemctlStatusPreSpan41, questionSystemctlStatusOl2Li11, questionSystemctlStatusOl2Li21, questionSystemctlStatusOl2Li31, questionSystemctlStatusOl2Li41, questionSystemctlStatusP21, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41 };
+	public static final String[] C001L009InstallerZookeeperVals = new String[] { moiP1, moiP2, moiP3, moiP4, moiP5, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li1Dt1, questionDependencesOl2Li1Dd1, questionDependencesOl2Li1Dd2, questionDependencesOl2Li1Dd3, questionDependencesOl2Li2Dt1, questionDependencesOl2Li2Dd1, questionDependencesOl2Li2Dd2, questionDependencesOl2Li3Dt1, questionDependencesOl2Li3Dd1, questionDependencesOl2Li4Dt1, questionDependencesOl2Li4Dd1, questionDependencesOl2Li5Dt1, questionDependencesOl2Li5Dd1, questionMkdirSrcH3I1, questionMkdirSrcH3Span1, questionMkdirSrcH4I1, questionMkdirSrcH4Span1, questionMkdirSrcPreSpan11, questionMkdirSrcPreSpan21, questionMkdirSrcPreSpan31, questionMkdirSrcPreSpan41, questionMkdirSrcPreSpan51, questionMkdirSrcPreSpan61, questionMkdirSrcPreSpan71, questionMkdirSrcPreSpan81, questionMkdirSrcOl2Li11, questionMkdirSrcOl2Li21, questionMkdirSrcOl2Li31, questionMkdirSrcOl2Li41, questionMkdirSrcOl2Li51, questionMkdirSrcOl2Li61, questionMkdirSrcOl2Li71, questionMkdirSrcOl2Li81, questionMkdirSrcOl2Li82, questionClonerSourceH3I1, questionClonerSourceH3Span1, questionClonerSourceH4I1, questionClonerSourceH4Span1, questionClonerSourcePreSpan11, questionClonerSourcePreSpan21, questionClonerSourcePreSpan31, questionClonerSourcePreSpan41, questionClonerSourceOl2Li11, questionClonerSourceOl2Li21, questionClonerSourceOl2Li31, questionClonerSourceOl2Li41, questionListerTagsH3I1, questionListerTagsH3Span1, questionListerTagsH4I1, questionListerTagsH4Span1, questionListerTagsPreSpan11, questionListerTagsPreSpan21, questionListerTagsPreSpan31, questionListerTagsPreSpan41, questionListerTagsPreSpan51, questionListerTagsOl2Li11, questionListerTagsOl2Li21, questionListerTagsOl2Li31, questionListerTagsOl2Li41, questionListerTagsOl2Li51, questionCheckoutTagH3I1, questionCheckoutTagH3Span1, questionCheckoutTagH4I1, questionCheckoutTagH4Span1, questionCheckoutTagPreSpan11, questionCheckoutTagPreSpan21, questionCheckoutTagPreSpan31, questionCheckoutTagPreSpan41, questionCheckoutTagPreSpan51, questionCheckoutTagPreSpan6Span11, questionCheckoutTagPreSpan6Span21, questionCheckoutTagPreSpan6Span31, questionCheckoutTagOl2Li11, questionCheckoutTagOl2Li21, questionCheckoutTagOl2Li31, questionCheckoutTagOl2Li41, questionCheckoutTagOl2Li51, questionCheckoutTagOl2Li6Span11, questionCheckoutTagOl2Li6Span21, questionConstruireSourceH3I1, questionConstruireSourceH3Span1, questionConstruireSourceH4I1, questionConstruireSourceH4Span1, questionConstruireSourcePre1Span011, questionConstruireSourcePre1Span021, questionConstruireSourcePre1Span031, questionConstruireSourcePre1Span041, questionConstruireSourcePre1Span051, questionConstruireSourceOl1Li011, questionConstruireSourceOl1Li021, questionConstruireSourceOl1Li031, questionConstruireSourceOl1Li041, questionConstruireSourceOl1Li051, questionMkdirServeurH3I1, questionMkdirServeurH3Span1, questionMkdirServeurH4I1, questionMkdirServeurH4Span1, questionMkdirServeurPreSpan11, questionMkdirServeurPreSpan21, questionMkdirServeurPreSpan31, questionMkdirServeurPreSpan41, questionMkdirServeurPreSpan51, questionMkdirServeurPreSpan61, questionMkdirServeurPreSpan71, questionMkdirServeurPreSpan81, questionMkdirServeurOl1Li11, questionMkdirServeurOl1Li21, questionMkdirServeurOl1Li31, questionMkdirServeurOl1Li41, questionMkdirServeurOl1Li51, questionMkdirServeurOl1Li61, questionMkdirServeurOl1Li71, questionMkdirServeurOl1Li81, questionMkdirServeurPre2Span11, questionMkdirServeurPre2Span21, questionMkdirServeurPre2Span3Span11, questionMkdirServeurPre2Span3Span21, questionMkdirServeurPre2Span3Span31, questionMkdirServeurPre2Span41, questionMkdirServeurOl2Li11, questionMkdirServeurOl2Li21, questionMkdirServeurOl2Li3Span11, questionMkdirServeurOl2Li3Span21, questionMkdirServeurOl2Li3Span31, questionMkdirServeurOl2Li3Span32, questionMkdirServeurOl2Li41, questionMkdirServeurOl2Li42, questionConfigurerH3I1, questionConfigurerH3Span1, questionConfigurerH4I1, questionConfigurerH4Span1, questionConfigurerPreSpan11, questionConfigurerPreSpan1Br1, questionConfigurerPreSpan2Br1, questionConfigurerPreSpan3BrSpan11, questionConfigurerPreSpan3Span21, questionConfigurerPreSpan4BrSpan11, questionConfigurerPreSpan4Span21, questionConfigurerPreSpan5Br1, questionConfigurerOl2Li011, questionConfigurerOl2Li021, questionConfigurerOl2Li022, questionConfigurerOl2Li031, questionConfigurerOl2Li04Span11, questionConfigurerOl2Li04Span12, questionConfigurerOl2Li04Span13, questionConfigurerOl2Li05Span11, questionConfigurerOl2Li05Span12, questionConfigurerOl2Li05Span13, questionConfigurerOl2Li061, questionConfigurerOl2Li071, questionConfigurerOl2Li081, questionServiceH3I1, questionServiceH3Span1, questionServiceH4I1, questionServiceH4Span1, questionServicePreSpan11, questionServicePreSpan1Br1, questionServicePreSpan2Br1, questionServicePreSpan3Br1, questionServicePreSpan3Br2, questionServicePreSpan3Br3, questionServicePreSpan3Br4, questionServicePreSpan3Br5, questionServicePreSpan3Br6, questionServicePreSpan3Br7, questionServicePreSpan3Br8, questionServicePreSpan3Br9, questionServicePreSpan3Br10, questionServicePreSpan3Br11, questionServicePreSpan3Br12, questionServiceOl2Li011, questionServiceOl2Li021, questionServiceOl2Li031, questionServiceOl2Li041, questionServiceOl2Li051, questionServiceOl2Li061, questionServiceOl2Li071, questionServiceOl2Li081, questionServiceOl2Li091, questionServiceOl2Li101, questionServiceOl2Li111, questionServiceOl2Li121, questionServiceOl2Li131, questionServiceOl2Li141, questionServiceOl2Li151, questionServiceOl2Li161, questionSystemctlDaemonReloadH3I1, questionSystemctlDaemonReloadH3Span1, questionSystemctlDaemonReloadH4I1, questionSystemctlDaemonReloadH4Span1, questionSystemctlDaemonReloadPreSpan11, questionSystemctlDaemonReloadPreSpan21, questionSystemctlDaemonReloadPreSpan31, questionSystemctlDaemonReloadOl2Li11, questionSystemctlDaemonReloadOl2Li21, questionSystemctlDaemonReloadOl2Li31, questionSystemctlEnableH3I1, questionSystemctlEnableH3Span1, questionSystemctlEnableH4I1, questionSystemctlEnableH4Span1, questionSystemctlEnablePreSpan11, questionSystemctlEnablePreSpan21, questionSystemctlEnablePreSpan31, questionSystemctlEnablePreSpan41, questionSystemctlEnableOl2Li11, questionSystemctlEnableOl2Li21, questionSystemctlEnableOl2Li31, questionSystemctlEnableOl2Li41, questionSystemctlStartH3I1, questionSystemctlStartH3Span1, questionSystemctlStartH4I1, questionSystemctlStartH4Span1, questionSystemctlStartPreSpan11, questionSystemctlStartPreSpan21, questionSystemctlStartPreSpan31, questionSystemctlStartPreSpan41, questionSystemctlStartOl2Li11, questionSystemctlStartOl2Li21, questionSystemctlStartOl2Li31, questionSystemctlStartOl2Li41, questionSystemctlStatusH3I1, questionSystemctlStatusH3Span1, questionSystemctlStatusH4I1, questionSystemctlStatusH4Span1, questionSystemctlStatusPreSpan11, questionSystemctlStatusPreSpan21, questionSystemctlStatusPreSpan31, questionSystemctlStatusPreSpan41, questionSystemctlStatusOl2Li11, questionSystemctlStatusOl2Li21, questionSystemctlStatusOl2Li31, questionSystemctlStatusOl2Li41, questionSystemctlStatusP21, questionSystemctlStatusP22, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr06Td1I1, recapituler3TableTr06Td21, recapituler3TableTr06Td3I1, recapituler3TableTr06Td41, recapituler3TableTr07Td1I1, recapituler3TableTr07Td21, recapituler3TableTr07Td3I1, recapituler3TableTr07Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41, recapituler3TableTr13Td1I1, recapituler3TableTr13Td21, recapituler3TableTr13Td3I1, recapituler3TableTr13Td41, recapituler3TableTr14Td1I1, recapituler3TableTr14Td21, recapituler3TableTr14Td3I1, recapituler3TableTr14Td41 };
 }

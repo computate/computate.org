@@ -682,7 +682,7 @@ public abstract class PageAccueilGen<DEV> extends Article {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), pageUri_enUS, pageUri_frFR, pageImageUri_enUS, pageImageUri_frFR);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -695,11 +695,7 @@ public abstract class PageAccueilGen<DEV> extends Article {
 		if(!(o instanceof PageAccueil))
 			return false;
 		PageAccueil that = (PageAccueil)o;
-		return super.equals(o)
-				&& Objects.equals( pageUri_enUS, that.pageUri_enUS )
-				&& Objects.equals( pageUri_frFR, that.pageUri_frFR )
-				&& Objects.equals( pageImageUri_enUS, that.pageImageUri_enUS )
-				&& Objects.equals( pageImageUri_frFR, that.pageImageUri_frFR );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -710,10 +706,6 @@ public abstract class PageAccueilGen<DEV> extends Article {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("PageAccueil {");
-		sb.append( "pageUri_enUS: \"" ).append(pageUri_enUS).append( "\"" );
-		sb.append( ", pageUri_frFR: \"" ).append(pageUri_frFR).append( "\"" );
-		sb.append( ", pageImageUri_enUS: \"" ).append(pageImageUri_enUS).append( "\"" );
-		sb.append( ", pageImageUri_frFR: \"" ).append(pageImageUri_frFR).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

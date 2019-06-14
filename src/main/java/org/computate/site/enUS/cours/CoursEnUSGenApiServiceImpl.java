@@ -239,293 +239,6 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 		}
 	}
 
-	// POST //
-
-	@Override
-	public void postCours(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourCours(siteContexte, operationRequete, body);
-			sqlCours(requeteSite, a -> {
-				if(a.succeeded()) {
-					creerPOSTCours(requeteSite, b -> {
-						if(b.succeeded()) {
-							Cours cours = b.result();
-							sqlPOSTCours(cours, c -> {
-								if(c.succeeded()) {
-									definirCours(cours, d -> {
-										if(d.succeeded()) {
-											attribuerCours(cours, e -> {
-												if(e.succeeded()) {
-													indexerCours(cours, f -> {
-														if(f.succeeded()) {
-															reponse200POSTCours(cours, g -> {
-																if(f.succeeded()) {
-																	SQLConnection connexionSql = requeteSite.getConnexionSql();
-																	connexionSql.commit(h -> {
-																		if(a.succeeded()) {
-																			connexionSql.close(i -> {
-																				if(a.succeeded()) {
-																					gestionnaireEvenements.handle(Future.succeededFuture(g.result()));
-																				} else {
-																					erreurCours(requeteSite, gestionnaireEvenements, i);
-																				}
-																			});
-																		} else {
-																			erreurCours(requeteSite, gestionnaireEvenements, h);
-																		}
-																	});
-																} else {
-																	erreurCours(requeteSite, gestionnaireEvenements, g);
-																}
-															});
-														} else {
-															erreurCours(requeteSite, gestionnaireEvenements, f);
-														}
-													});
-												} else {
-													erreurCours(requeteSite, gestionnaireEvenements, e);
-												}
-											});
-										} else {
-											erreurCours(requeteSite, gestionnaireEvenements, d);
-										}
-									});
-								} else {
-									erreurCours(requeteSite, gestionnaireEvenements, c);
-								}
-							});
-						} else {
-							erreurCours(requeteSite, gestionnaireEvenements, b);
-						}
-					});
-				} else {
-					erreurCours(requeteSite, gestionnaireEvenements, a);
-				}
-			});
-		} catch(Exception e) {
-			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
-		}
-	}
-
-	public void creerPOSTCours(RequeteSiteEnUS requeteSite, Handler<AsyncResult<Cours>> gestionnaireEvenements) {
-		try {
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			String utilisateurId = requeteSite.getUtilisateurId();
-
-			connexionSql.queryWithParams(
-					SiteContexteEnUS.SQL_creer
-					, new JsonArray(Arrays.asList(Cours.class.getCanonicalName(), utilisateurId))
-					, creerAsync
-			-> {
-				JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
-				Long pk = creerLigne.getLong(0);
-				Cours o = new Cours();
-				o.setPk(pk);
-				o.initLoinCours(requeteSite);
-				gestionnaireEvenements.handle(Future.succeededFuture(o));
-			});
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public void sqlPOSTCours(Cours o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			Long pk = o.getPk();
-			JsonObject jsonObject = requeteSite.getObjetJson();
-			StringBuilder postSql = new StringBuilder();
-			List<Object> postSqlParams = new ArrayList<Object>();
-
-			if(jsonObject != null) {
-				Set<String> entiteVars = jsonObject.fieldNames();
-				for(String entiteVar : entiteVars) {
-					switch(entiteVar) {
-					}
-				}
-			}
-			connexionSql.queryWithParams(
-					postSql.toString()
-					, new JsonArray(postSqlParams)
-					, postAsync
-			-> {
-				gestionnaireEvenements.handle(Future.succeededFuture());
-			});
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public void reponse200POSTCours(Cours o, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			Buffer buffer = Buffer.buffer();
-			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(o.getRequeteSite_(), buffer);
-			requeteSite.setW(w);
-			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	// PATCH //
-
-	@Override
-	public void patchCours(JsonObject body, OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourCours(siteContexte, operationRequete, body);
-			sqlCours(requeteSite, a -> {
-				if(a.succeeded()) {
-					utilisateurCours(requeteSite, b -> {
-						if(b.succeeded()) {
-							rechercheCours(requeteSite, false, true, null, c -> {
-								if(c.succeeded()) {
-									ListeRecherche<Cours> listeCours = c.result();
-									listePATCHCours(listeCours, d -> {
-										if(d.succeeded()) {
-											SQLConnection connexionSql = requeteSite.getConnexionSql();
-											if(connexionSql == null) {
-												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-											} else {
-												connexionSql.commit(e -> {
-													if(e.succeeded()) {
-														connexionSql.close(f -> {
-															if(f.succeeded()) {
-																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-															} else {
-																erreurCours(requeteSite, gestionnaireEvenements, f);
-															}
-														});
-													} else {
-														erreurCours(requeteSite, gestionnaireEvenements, e);
-													}
-												});
-											}
-										} else {
-											erreurCours(requeteSite, gestionnaireEvenements, d);
-										}
-									});
-								} else {
-									erreurCours(requeteSite, gestionnaireEvenements, c);
-								}
-							});
-						} else {
-							erreurCours(requeteSite, gestionnaireEvenements, b);
-						}
-					});
-				} else {
-					erreurCours(requeteSite, gestionnaireEvenements, a);
-				}
-			});
-		} catch(Exception e) {
-			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
-		}
-	}
-
-	public void listePATCHCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		List<Future> futures = new ArrayList<>();
-		listeCours.getList().forEach(o -> {
-			futures.add(
-				sqlPATCHCours(o).compose(
-					a -> definirPATCHCours(a).compose(
-						b -> indexerPATCHCours(b)
-					)
-				)
-			);
-		});
-		CompositeFuture.all(futures).setHandler( a -> {
-			if(a.succeeded()) {
-				reponse200PATCHCours(listeCours, gestionnaireEvenements);
-			} else {
-				erreurCours(listeCours.getRequeteSite_(), gestionnaireEvenements, a);
-			}
-		});
-	}
-
-	public Future<Cours> sqlPATCHCours(Cours o) {
-		Future<Cours> future = Future.future();
-		try {
-			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			Long pk = o.getPk();
-			JsonObject requeteJson = requeteSite.getObjetJson();
-			StringBuilder patchSql = new StringBuilder();
-			List<Object> patchSqlParams = new ArrayList<Object>();
-			Set<String> methodeNoms = requeteJson.fieldNames();
-			Cours o2 = new Cours();
-
-			patchSql.append(SiteContexteEnUS.SQL_modifier);
-			patchSqlParams.addAll(Arrays.asList(pk, "org.computate.site.enUS.cours.Cours"));
-			for(String methodeNom : methodeNoms) {
-				switch(methodeNom) {
-				}
-			}
-			connexionSql.queryWithParams(
-					patchSql.toString()
-					, new JsonArray(patchSqlParams)
-					, patchAsync
-			-> {
-				o2.setRequeteSite_(o.getRequeteSite_());
-				o2.setPk(pk);
-				future.complete(o2);
-			});
-			return future;
-		} catch(Exception e) {
-			return Future.failedFuture(e);
-		}
-	}
-
-	public Future<Cours> definirPATCHCours(Cours o) {
-		Future<Cours> future = Future.future();
-		try {
-			RequeteSiteEnUS requeteSite = o.getRequeteSite_();
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			Long pk = o.getPk();
-			connexionSql.queryWithParams(
-					SiteContexteEnUS.SQL_definir
-					, new JsonArray(Arrays.asList(pk, pk, pk))
-					, definirAsync
-			-> {
-				if(definirAsync.succeeded()) {
-					for(JsonArray definition : definirAsync.result().getResults()) {
-						o.definirPourClasse(definition.getString(0), definition.getString(1));
-					}
-					future.complete(o);
-				} else {
-			future.fail(definirAsync.cause());
-				}
-			});
-			return future;
-		} catch(Exception e) {
-			return Future.failedFuture(e);
-		}
-	}
-
-	public Future<Void> indexerPATCHCours(Cours o) {
-		Future<Void> future = Future.future();
-		try {
-			o.initLoinPourClasse(o.getRequeteSite_());
-			o.indexerPourClasse();
-				future.complete();
-			return future;
-		} catch(Exception e) {
-			return Future.failedFuture(e);
-		}
-	}
-
-	public void reponse200PATCHCours(ListeRecherche<Cours> listeCours, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			Buffer buffer = Buffer.buffer();
-			RequeteSiteEnUS requeteSite = listeCours.getRequeteSite_();
-			ToutEcrivain w = ToutEcrivain.creer(listeCours.getRequeteSite_(), buffer);
-			requeteSite.setW(w);
-			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
 	// GET //
 
 	@Override
@@ -569,89 +282,6 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 
 				w.l("}");
 			}
-			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	// DELETE //
-
-	@Override
-	public void deleteCours(OperationRequest operationRequete, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			RequeteSiteEnUS requeteSite = genererRequeteSiteEnUSPourCours(siteContexte, operationRequete);
-			sqlCours(requeteSite, a -> {
-				if(a.succeeded()) {
-					rechercheCours(requeteSite, false, true, null, b -> {
-						if(b.succeeded()) {
-							ListeRecherche<Cours> listeCours = b.result();
-							supprimerDELETECours(requeteSite, c -> {
-								if(c.succeeded()) {
-									reponse200DELETECours(requeteSite, d -> {
-										if(d.succeeded()) {
-											SQLConnection connexionSql = requeteSite.getConnexionSql();
-											if(connexionSql == null) {
-												gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-											} else {
-												connexionSql.commit(e -> {
-													if(e.succeeded()) {
-														connexionSql.close(f -> {
-															if(f.succeeded()) {
-																gestionnaireEvenements.handle(Future.succeededFuture(d.result()));
-															} else {
-																erreurCours(requeteSite, gestionnaireEvenements, f);
-															}
-														});
-													} else {
-														erreurCours(requeteSite, gestionnaireEvenements, e);
-													}
-												});
-											}
-										} else {
-											erreurCours(requeteSite, gestionnaireEvenements, d);
-										}
-									});
-								} else {
-									erreurCours(requeteSite, gestionnaireEvenements, c);
-								}
-							});
-						} else {
-							erreurCours(requeteSite, gestionnaireEvenements, b);
-						}
-					});
-				} else {
-					erreurCours(requeteSite, gestionnaireEvenements, a);
-				}
-			});
-		} catch(Exception e) {
-			erreurCours(null, gestionnaireEvenements, Future.failedFuture(e));
-		}
-	}
-
-	public void supprimerDELETECours(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			SQLConnection connexionSql = requeteSite.getConnexionSql();
-			String utilisateurId = requeteSite.getUtilisateurId();
-			Long pk = requeteSite.getRequetePk();
-
-			connexionSql.queryWithParams(
-					SiteContexteEnUS.SQL_supprimer
-					, new JsonArray(Arrays.asList(pk, Cours.class.getCanonicalName(), pk, pk, pk, pk))
-					, supprimerAsync
-			-> {
-				gestionnaireEvenements.handle(Future.succeededFuture());
-			});
-		} catch(Exception e) {
-			gestionnaireEvenements.handle(Future.failedFuture(e));
-		}
-	}
-
-	public void reponse200DELETECours(RequeteSiteEnUS requeteSite, Handler<AsyncResult<OperationResponse>> gestionnaireEvenements) {
-		try {
-			Buffer buffer = Buffer.buffer();
-			ToutEcrivain w = ToutEcrivain.creer(requeteSite, buffer);
-			requeteSite.setW(w);
 			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
 		} catch(Exception e) {
 			gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -840,7 +470,7 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
 									SiteContexteEnUS.SQL_creer
-									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 									, creerAsync
 							-> {
 								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);
@@ -867,6 +497,10 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 											utilisateurSite.initLoinPourClasse(requeteSite);
 											utilisateurSite.indexerPourClasse();
 											requeteSite.setUtilisateurSite(utilisateurSite);
+											requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+											requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+											requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+											requeteSite.setUtilisateurId(principalJson.getString("sub"));
 											gestionnaireEvenements.handle(Future.succeededFuture());
 										} catch(Exception e) {
 											gestionnaireEvenements.handle(Future.failedFuture(e));
@@ -899,6 +533,10 @@ public class CoursEnUSGenApiServiceImpl implements CoursEnUSGenApiService {
 									utilisateurSite.initLoinPourClasse(requeteSite);
 									utilisateurSite.indexerPourClasse();
 									requeteSite.setUtilisateurSite(utilisateurSite);
+									requeteSite.setUtilisateurNom(principalJson.getString("preferred_username"));
+									requeteSite.setUtilisateurPrenom(principalJson.getString("given_name"));
+									requeteSite.setUtilisateurNomFamille(principalJson.getString("family_name"));
+									requeteSite.setUtilisateurId(principalJson.getString("sub"));
 									gestionnaireEvenements.handle(Future.succeededFuture());
 								} else {
 									gestionnaireEvenements.handle(Future.failedFuture(definirAsync.cause()));

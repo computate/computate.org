@@ -8,7 +8,8 @@ import org.computate.site.frFR.cours.c001.l005.C001L005InstallerMaven;
 import org.computate.site.frFR.cours.c001.l006.C001L006InstallerEclipse;
 import org.computate.site.frFR.cours.c001.l007.C001L007InstallerPostgresql;
 import org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificat;
-import org.computate.site.frFR.cours.c001.l009.C001L009InstallerKeycloak;
+import org.computate.site.frFR.cours.c001.l009.C001L009InstallerZookeeper;
+import org.computate.site.frFR.cours.c001.l010.C001L010InstallerSolr;
 import org.computate.site.frFR.page.accueil.PageAccueil;
 import org.computate.site.frFR.page.apropos.PageAPropos;
 import org.computate.site.frFR.page.faq.PageFaq;
@@ -19,6 +20,10 @@ import org.computate.site.frFR.page.faq.PageFaq;
 public class SiteIndexer {
 
 	public static void main(String[] args) {  
+		SiteIndexer.main();
+	}
+
+	public static void main() {  
 		PageAccueil.indexer();
 		PageAPropos.indexer();
 		PageFaq.indexer();
@@ -31,6 +36,7 @@ public class SiteIndexer {
 		C001L006InstallerEclipse.indexer();
 		C001L007InstallerPostgresql.indexer();
 		C001L008CreerCertificat.indexer();
-//		C001L009InstallerKeycloak.indexer();
+		C001L009InstallerZookeeper.indexer();
+		C001L010InstallerSolr.indexer();
 	} 
 }

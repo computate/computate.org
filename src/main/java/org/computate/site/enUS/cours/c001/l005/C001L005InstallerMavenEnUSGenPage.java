@@ -97,7 +97,7 @@ public class C001L005InstallerMavenEnUSGenPage extends C001L005InstallerMavenEnU
 	}
 
 	@Override public void htmlScriptsC001L005InstallerMavenEnUSGenPage() {
-		e("script").a("src", "/static/js/C001L005InstallerMavenEnUSGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L005InstallerMavenEnUSPage.js").f().g("script");
 	}
 
 

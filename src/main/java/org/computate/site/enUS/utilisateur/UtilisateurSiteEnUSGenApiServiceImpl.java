@@ -327,24 +327,62 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 
 	public String varIndexeUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
-			case "supprime":
-				return "supprime_indexed_boolean";
-			case "id":
-				return "id_indexed_string";
 			case "pk":
 				return "pk_indexed_long";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
+			case "id":
+				return "id_indexed_string";
 			case "cree":
 				return "cree_indexed_date";
 			case "modifie":
 				return "modifie_indexed_date";
 			case "archive":
 				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
+			case "estCours":
+				return "estCours_indexed_boolean";
+			case "estLecon":
+				return "estLecon_indexed_boolean";
+			case "estArticle":
+				return "estArticle_indexed_boolean";
+			case "coursNumero":
+				return "coursNumero_indexed_int";
+			case "leconNumero":
+				return "leconNumero_indexed_int";
+			case "articleH1_enUS":
+				return "articleH1_enUS_indexed_string";
+			case "articleH1_frFR":
+				return "articleH1_frFR_indexed_string";
+			case "articleH2_enUS":
+				return "articleH2_enUS_indexed_string";
+			case "articleH2_frFR":
+				return "articleH2_frFR_indexed_string";
+			case "articleCree":
+				return "articleCree_indexed_date";
+			case "pageUri_enUS":
+				return "pageUri_enUS_indexed_string";
+			case "pageUri_frFR":
+				return "pageUri_frFR_indexed_string";
+			case "pageImageUri_enUS":
+				return "pageImageUri_enUS_indexed_string";
+			case "pageImageUri_frFR":
+				return "pageImageUri_frFR_indexed_string";
+			case "pageCree":
+				return "pageCree_indexed_date";
+			case "pageH1":
+				return "pageH1_indexed_string";
+			case "pageH2":
+				return "pageH2_indexed_string";
+			case "pageH3":
+				return "pageH3_indexed_string";
+			case "pageTitre":
+				return "pageTitre_indexed_string";
 			case "utilisateurId":
 				return "utilisateurId_indexed_string";
 			case "calculInrPks":
@@ -369,6 +407,20 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 				return "voirSupprime_indexed_boolean";
 			case "siteNomDomaine":
 				return "siteNomDomaine_indexed_string";
+			case "zookeeperVersion":
+				return "zookeeperVersion_indexed_string";
+			case "zookeeperPortAdmin":
+				return "zookeeperPortAdmin_indexed_int";
+			case "zookeeperPortClient":
+				return "zookeeperPortClient_indexed_int";
+			case "solrVersion":
+				return "solrVersion_indexed_string";
+			case "solrPortClient":
+				return "solrPortClient_indexed_int";
+			case "solrConfigset":
+				return "solrConfigset_indexed_string";
+			case "solrCollection":
+				return "solrCollection_indexed_string";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -376,6 +428,10 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 
 	public String varRechercheUtilisateurSite(String entiteVar) {
 		switch(entiteVar) {
+			case "pageRecherche_enUS":
+				return "pageRecherche_enUS_text_enUS";
+			case "pageRecherche_frFR":
+				return "pageRecherche_frFR_text_frFR";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}
@@ -489,7 +545,7 @@ public class UtilisateurSiteEnUSGenApiServiceImpl implements UtilisateurSiteEnUS
 						if(utilisateurValeurs == null) {
 							connexionSql.queryWithParams(
 									SiteContexteEnUS.SQL_creer
-									, new JsonArray(Arrays.asList(UtilisateurSite.class.getCanonicalName(), utilisateurId))
+									, new JsonArray(Arrays.asList("org.computate.site.frFR.utilisateur.UtilisateurSite", utilisateurId))
 									, creerAsync
 							-> {
 								JsonArray creerLigne = creerAsync.result().getResults().stream().findFirst().orElseGet(() -> null);

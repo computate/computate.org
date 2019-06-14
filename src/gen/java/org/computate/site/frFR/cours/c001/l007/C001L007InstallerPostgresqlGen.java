@@ -1567,7 +1567,7 @@ public abstract class C001L007InstallerPostgresqlGen<DEV> extends C001Lecon {
 	public static final String questionServiceOl2Li02 = questionServiceOl2Li021;
 	public static final String questionServiceOl2Li031 = "Description=... : La description du service. ";
 	public static final String questionServiceOl2Li03 = questionServiceOl2Li031;
-	public static final String questionServiceOl2Li041 = "After=... : Demander un mot de passe pour le nouveau super utilisateur. ";
+	public static final String questionServiceOl2Li041 = "After=... : Le service PostgreSQL sera démarré après les dépendances suivantes. ";
 	public static final String questionServiceOl2Li04 = questionServiceOl2Li041;
 	public static final String questionServiceOl2Li051 = "[Service] : Les informations relatives à un service contrôlé et supervisé par systemd. ";
 	public static final String questionServiceOl2Li05 = questionServiceOl2Li051;
@@ -1581,7 +1581,7 @@ public abstract class C001L007InstallerPostgresqlGen<DEV> extends C001Lecon {
 	public static final String questionServiceOl2Li09 = questionServiceOl2Li091;
 	public static final String questionServiceOl2Li101 = "ExecStart=... : La commande PostgreSQL qui lancera le service. ";
 	public static final String questionServiceOl2Li10 = questionServiceOl2Li101;
-	public static final String questionServiceOl2Li111 = "ExecStart=... : La commande PostgreSQL qui arrêtera le service. ";
+	public static final String questionServiceOl2Li111 = "ExecStop=... : La commande PostgreSQL qui arrêtera le service. ";
 	public static final String questionServiceOl2Li11 = questionServiceOl2Li111;
 	public static final String questionServiceOl2Li121 = "ExecReload=... : La commande PostgreSQL qui redémarrera le service. ";
 	public static final String questionServiceOl2Li12 = questionServiceOl2Li121;

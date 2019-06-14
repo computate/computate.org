@@ -10,26 +10,26 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * Api: true
  * ApiMethode: RechercheFrFRPage
  * ApiMethode: RechercheEnUSPage
- * ApiUriRechercheFrFRPage: /frFR/cours/001/009-comment-installer-la-derniere-version-de-postgresql
- * ApiUriRechercheEnUSPage: /enUS/course/001/009-how-to-install-the-latest-version-of-postgresql
- * PageRechercheFrFRPage: C001L009InstallerKeycloakFrFRPage
- * PageRechercheEnUSPage: C001L009InstallerKeycloakEnUSPage
+ * ApiUriRechercheFrFRPage: /frFR/cours/001/009-comment-installer-la-derniere-version-de-zookeeper
+ * ApiUriRechercheEnUSPage: /enUS/course/001/009-how-to-install-the-latest-version-of-zookeeper
+ * PageRechercheFrFRPage: C001L009InstallerZookeeperFrFRPage
+ * PageRechercheEnUSPage: C001L009InstallerZookeeperEnUSPage
  * PageSuperRechercheFrFRPage: C001LeconFrFRPage
  * PageSuperRechercheEnUSPage: C001LeconEnUSPage
- * UnNomMinuscule.frFR: le leçon
- * UnNomMinuscule.enUS: a lesson
+ * UnNom.frFR: le leçon
+ * UnNom.enUS: a lesson
  * 
- * H1.frFR: Comment installer la dernière version de PostgreSQL ? 
- * H1.enUS: How do I install the latest version of PostgreSQL. 
+ * H1.frFR: Comment puis-je tester en développment la configuration en cluster, les demandes, les événements et les sources de données partagées ? 
+ * H1.enUS: How do I try out clustered configuration, requests, events and shared data sources in development? 
  * 
- * H2.frFR: Installer PostgreSQL à partir du code source. 
- * H2.enUS: Install PostgreSQL from the source code. 
+ * H2.frFR: Installer Zookeeper à partir du code source. 
+ * H2.enUS: Install Zookeeper from the source code. 
  * 
- * Titre.frFR: Comment installer la dernière version de PostgreSQL ? Installer PostgreSQL à partir du code source. 
- * Titre.enUS: How do I install the latest version of PostgreSQL. Install PostgreSQL from the source code. 
+ * Titre.frFR: Comment puis-je tester en développment la configuration en cluster, les demandes, les événements et les sources de données partagées ? Installer Zookeeper à partir du code source. 
+ * Titre.enUS: How do I try out clustered configuration, requests, events and shared data sources in development? 
  * 
- * Description.frFR: Lorsque votre site web utilise une base de données, votre site Web n'est plus uniquement de contenu statique. Vous pouvez créer des utilisateurs avec des rôles pour ajouter du contenu et personnaliser le site. La bonne nouvelle est que la meilleure base de données sur la planète est PostgreSQL, est elle est open source. Je vous aiderai à installer la version la plus récente de PostgreSQL pour développer votre site Web de manière open source. 
- * Description.enUS: When backed by a database, your website does not need to be static content only. You can create users with roles to add content and customize the site. The best part is, the very best database on the planet is PostgreSQL, and it's open source. I will help you install the most recent version of PostgreSQL to develop your website the open source way. 
+ * Description.frFR:Une application Web conçue pour grandir doit être créée à l'aide d'un gestionnaire de cluster centralisé tel que Zookeper. Zookeeper a beaucoup de travail pour résoudre les bugs et les conditions de concurrence inévitables dans les applications distribuées. Vous bénéficierez d'une configuration en cluster, d'un pool de sources de données partagées, de threads de travail en arrière-plan partagés et d'un bus d'événements en cluster pour les demandes misent à l'échelle et d'équilibrage de la charge. Je vous aiderai à installer la version la plus récente de Zookeeper pour mettre à l'échelle votre site Web de manière open source. 
+ * Description.enUS:A web application that is built to scale should be built using a centralized cluster manager like Zookeper. There is a lot of work that has gone into Zookeeper that fix the bugs and race conditions that are inevitable in distributed applications. You will benefit from clustered configuration, shared data source pool, shared background worker threads, and a clustered event bus for scaling and load balancing requests. I will help you install the most recent version of Zookeeper to scale your website the open source way. 
  * 
  * PageSimple: true
  * Couleur: green
@@ -38,11 +38,11 @@ import org.computate.site.frFR.page.parti.PageHtml;
  * Indexe: true
  * Image: true
  * ImageLargeur.frFR: 800
- * ImageHauteur.frFR: 1927
+ * ImageHauteur.frFR: 1523
  * ImageLargeur.enUS: 800
- * ImageHauteur.enUS: 1702
+ * ImageHauteur.enUS: 1981
 */  
-public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001Lecon> {
+public class C001L009InstallerZookeeper extends C001L009InstallerZookeeperGen<C001Lecon> {
 
 	public static void main(String[] args) {  
 		indexer(); 
@@ -54,53 +54,53 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	}
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {
-		l.add(C001L009InstallerKeycloak.class.getCanonicalName());
-		l.add(org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloak.class.getCanonicalName());
+		l.add(C001L009InstallerZookeeper.class.getCanonicalName());
+		l.add(org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeper.class.getCanonicalName());
 		super._classeNomsCanoniques(l);
 	} 
 
 	@Override protected void _articleH1_frFR(Couverture<String> c) {
-		c.o(C001L009InstallerKeycloak_H1);
+		c.o(C001L009InstallerZookeeper_H1);
 	}
 
 	@Override protected void _articleH1_enUS(Couverture<String> c) {
-		c.o(org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloak.C001L009InstallerKeycloak_H1);
+		c.o(org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeper.C001L009InstallerZookeeper_H1);
 	}
 
 	@Override protected void _articleH2_frFR(Couverture<String> c) {
-		c.o(C001L009InstallerKeycloak_H2);
+		c.o(C001L009InstallerZookeeper_H2);
 	}
 
 	@Override protected void _articleH2_enUS(Couverture<String> c) {
-		c.o(org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloak.C001L009InstallerKeycloak_H2);
+		c.o(org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeper.C001L009InstallerZookeeper_H2);
 	}
 
 	@Override protected void _pageUri_enUS(Couverture<String> c) {
-		c.o(C001L009InstallerKeycloakEnUSPage_Uri);
+		c.o(C001L009InstallerZookeeperEnUSPage_Uri);
 	}
 
 	@Override protected void _pageUri_frFR(Couverture<String> c) {
-		c.o(C001L009InstallerKeycloakFrFRPage_Uri);
+		c.o(C001L009InstallerZookeeperFrFRPage_Uri);
 	}
 
 	@Override protected void _pageImageUri_enUS(Couverture<String> c) {
-		c.o(C001L009InstallerKeycloakEnUSPage_ImageUri);
+		c.o(C001L009InstallerZookeeperEnUSPage_ImageUri);
 	}
 
 	@Override protected void _pageImageUri_frFR(Couverture<String> c) {
-		c.o(C001L009InstallerKeycloakFrFRPage_ImageUri);
+		c.o(C001L009InstallerZookeeperFrFRPage_ImageUri);
 	}
 
 	@Override protected void _pageRecherche_enUS(List<String> l) {
-		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloak.C001L009InstallerKeycloak_H1);
-		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloak.C001L009InstallerKeycloak_H2);
-		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l009.C001L009InstallerKeycloak.C001L009InstallerKeycloakVals);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeper.C001L009InstallerZookeeper_H1);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeper.C001L009InstallerZookeeper_H2);
+		addPageRecherche_enUS(org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeper.C001L009InstallerZookeeperVals);
 	}
 
 	@Override protected void _pageRecherche_frFR(List<String> l) {
-		addPageRecherche_frFR(C001L009InstallerKeycloak_H1);
-		addPageRecherche_frFR(C001L009InstallerKeycloak_H2);
-		addPageRecherche_frFR(C001L009InstallerKeycloakVals);
+		addPageRecherche_frFR(C001L009InstallerZookeeper_H1);
+		addPageRecherche_frFR(C001L009InstallerZookeeper_H2);
+		addPageRecherche_frFR(C001L009InstallerZookeeperVals);
 	}
 
 	public void htmlBodyCourt() {
@@ -108,69 +108,154 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 		htmlBodyRecapituler3();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * Val.P.frFR:Bonjour, je m'appelle Christophe Tate. Je suis un consultant pour Red Hat et j'adore les logiciels open source. 
-	 * Val.P.frFR:Lorsque votre site web utilise une base de données, votre site Web n'est plus uniquement de contenu statique. 
-	 * Val.P.frFR:Vous pouvez créer des utilisateurs avec des rôles pour ajouter du contenu et personnaliser le site. 
-	 * Val.P.frFR:La bonne nouvelle est que la meilleure base de données sur la planète est PostgreSQL, est elle est open source. 
-	 * Val.P.frFR:Je vous aiderai à installer la version la plus récente de PostgreSQL pour développer votre site Web de manière open source. 
-	 * Val.P.enUS:Hello, my name is Christopher Tate. I am a Red Hat consultant and I love open source software. 
-	 * Val.P.enUS:When backed by a database, your website does not need to be static content only. 
-	 * Val.P.enUS:You can create users with roles to add content and customize the site. 
-	 * Val.P.enUS:The best part is, the very best database on the planet is PostgreSQL, and it's open source. 
-	 * Val.P.enUS:I will help you install the most recent version of PostgreSQL to develop your website the open source way. 
-	 */    
-	protected void _moi(PageHtml o) {
+	protected void _zookeeperVersion(Couverture<String> c) {
+		if(utilisateurSite == null)
+			c.o("3.5.5");
+		else
+			c.o(utilisateurSite.getZookeeperVersion());
+	}
+
+	protected void _zookeeperPortAdmin(Couverture<Integer> c) {
+		if(utilisateurSite == null)
+			c.o(10280);
+		else
+			c.o(utilisateurSite.getZookeeperPortAdmin());
+	}
+
+	protected void _zookeeperPortClient(Couverture<Integer> c) {
+		if(utilisateurSite == null)
+			c.o(10281);
+		else
+			c.o(utilisateurSite.getZookeeperPortClient());
+	}
+
+	protected void _zookeeperTag(Couverture<String> c) {
+		c.o("release-" + zookeeperVersion);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
+	 * Val.P.frFR:Bonjour, je m'appelle Christophe Tate. Je suis un consultant pour Red Hat et j'adore les logiciels open source. 
+	 * Val.P.frFR:Une application Web conçue pour grandir doit être créée à l'aide d'un gestionnaire de cluster centralisé tel que Zookeper. 
+	 * Val.P.frFR:Zookeeper a beaucoup de travail pour résoudre les bugs et les conditions de concurrence inévitables dans les applications distribuées. 
+	 * Val.P.frFR:Vous bénéficierez d'une configuration en cluster, d'un pool de sources de données partagées, de threads de travail en arrière-plan partagés et d'un bus d'événements en cluster pour les demandes misent à l'échelle et d'équilibrage de la charge. 
+	 * Val.P.frFR:Je vous aiderai à installer la version la plus récente de Zookeeper pour mettre à l'échelle votre site Web de manière open source. 
+	 * Val.P.enUS:Hello, my name is Christopher Tate. I am a Red Hat consultant and I love open source software. 
+	 * Val.P.enUS:A web application that is built to scale should be built using a centralized cluster manager like Zookeper. 
+	 * Val.P.enUS:There is a lot of work that has gone into Zookeeper that fix the bugs and race conditions that are inevitable in distributed applications. 
+	 * Val.P.enUS:You will benefit from clustered configuration, shared data source pool, shared background worker threads, and a clustered event bus for scaling and load balancing requests. 
+	 * Val.P.enUS:I will help you install the most recent version of Zookeeper to scale your website the open source way. 
+	 * 
+	 * r: version de Zookeeper
+	 * r.enUS: Zookeeper version
+	 * r.frFR:port admin de Zookeeper
+	 * r.enUS:Zookeeper admin port
+	 * r.frFR:port client de Zookeeper
+	 * r.enUS:Zookeeper client port
+	 */    
+	protected void _moi(PageHtml o) {
+	}
+
+	protected void _personnaliser(PageHtml o) {
+	}
+	@Override public void htmlBodyPersonnaliser(PageHtml o) {
+		super.htmlBodyPersonnaliser(o);
+		htmlBodyPersonnaliserAvant(o);
+		if(utilisateurSite != null) {
+			{ e("div").a("class", "w3-cell-row ").f();
+				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperVersionForm").a("style", "display: inline-block; ").f();
+						e("label").a("for", "Page_zookeeperVersion").a("class", "").f().sx("version de Zookeeper").g("label");
+		
+						e("input")
+							.a("type", "text")
+							.a("placeholder", "version de Zookeeper")
+							.a("class", "setZookeeperVersion w3-input w3-border ")
+							.a("name", "setZookeeperVersion")
+							.a("id", "Page_zookeeperVersion")
+							.a("onclick", "enleverLueur($(this)); ")
+							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperVersionForm')); ")
+							.a("value", strZookeeperVersion())
+						.fg();
+		
+					} g("form");
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortAdminForm").a("style", "display: inline-block; ").f();
+						e("label").a("for", "Page_zookeeperPortAdmin").a("class", "").f().sx("port admin de Zookeeper").g("label");
+	
+						e("input")
+							.a("type", "text")
+							.a("placeholder", "port admin de Zookeeper")
+							.a("class", "setZookeeperPortAdmin w3-input w3-border ")
+							.a("name", "setZookeeperPortAdmin")
+							.a("id", "Page_zookeeperPortAdmin")
+							.a("onclick", "enleverLueur($(this)); ")
+							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperPortAdminForm')); ")
+							.a("value", strZookeeperPortAdmin())
+						.fg();
+	
+					} g("form");
+					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortClientForm").a("style", "display: inline-block; ").f();
+						e("label").a("for", "Page_zookeeperPortClient").a("class", "").f().sx("port client de Zookeeper").g("label");
+	
+						e("input")
+							.a("type", "text")
+							.a("placeholder", "port client de Zookeeper")
+							.a("class", "setZookeeperPortClient w3-input w3-border ")
+							.a("name", "setZookeeperPortClient")
+							.a("id", "Page_zookeeperPortClient")
+							.a("onclick", "enleverLueur($(this)); ")
+							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperPortClientForm')); ")
+							.a("value", strZookeeperPortClient())
+						.fg();
+	
+					} g("form");
+				} g("div");
+			} g("div");
+		}
+		htmlBodyPersonnaliserApres(o);
+		e("div").a("id", "sitePersonnaliser").f();
+	}
+
+	/**
+	 * {@inheritDoc}
+
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * Val.H3I:far fa-conveyor-belt-alt
-	 * Val.H3Span.frFR:Comment installer les dépendences pour PostgreSQL ? 
-	 * Val.H3Span.enUS:How do I install the dependencies for PostgreSQL? 
+	 * Val.H3Span.frFR:Comment installer les dépendences pour Zookeeper ? 
+	 * Val.H3Span.enUS:How do I install the dependencies for Zookeeper? 
 	 * Val.H4I:far fa-cookie
 	 * Val.H4Span.frFR:Construisez les dépendances avec yum. 
 	 * Val.H4Span.enUS:Build the dependencies with yum. 
 	 * Val.Pre1Span1:sudo
-	 * Val.Pre1Span2: yum-builddep
-	 * Val.Pre1Span3: -y
-	 * Val.Pre1Span4: postgresql
+	 * Val.Pre1Span2: yum
+	 * Val.Pre1Span3: install
+	 * Val.Pre1Span4: -y
+	 * Val.Pre1Span5: ivy lsof maven ant git libtool automake cppunit cppunit-devel python-setuptools
 	 * 
-	 * Val.Ol2Li1.frFR:sudo: La commande pour installer des dépots yum commence par la commande sudo. 
-	 * Val.Ol2Li1.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
-	 * Val.Ol2Li1.frFR:L'installation des dépots yum nécessite toujours les privilèges root. 
-	 * Val.Ol2Li1.enUS:sudo: The command to install yum repositories begins with the command sudo. 
-	 * Val.Ol2Li1.enUS:The "sudo" command allows your current user to have root privileges for a few minutes after entering your password. 
-	 * Val.Ol2Li2.frFR:yum Signifie "Yellowdog Updater Modified", mais personne ne le connait comme yellowdog, juste yum. 
-	 * Val.Ol2Li2.frFR:yum-builddep installe les dépendances manquantes pour la construction d'un paquet RPM. 
-	 * Val.Ol2Li2.enUS:yum Stands for "Yellowdog Updater Modified", but nobody knows it as yellowdog, just yum. 
-	 * Val.Ol2Li2.enUS:yum-builddep installs missing dependencies for building an RPM package. 
-	 * Val.Ol2Li3.frFR:-y: Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
-	 * Val.Ol2Li3.enUS:-y: Suppress messages asking to confirm if you want to install the software. 
-	 * Val.Ol2Li4.frFR:postgresql : Le nom du paquet pour lequel vous vous souhaitez installer les dépendences. 
-	 * Val.Ol2Li4.enUS:postgresql: The package name you wish to install the dependencies for. 
-	 * 
-	 * Val.Pre3Span1:sudo
-	 * Val.Pre3Span2: yum
-	 * Val.Pre3Span3: install
-	 * Val.Pre3Span4: -y
-	 * Val.Pre3Span5: gcc systemd-devel docbook-dtds docbook-simple docbook-slides docbook-stype-dsssl docbook-style-xsl docbook-utils docbook-utils-pdf
-	 * 
-	 * Val.Ol4Li1:sudo
-	 * Val.Ol4Li2:yum
-	 * Val.Ol4Li3.frFR:install : Pour installer des nouveaux paquets yum. 
-	 * Val.Ol4Li3.enUS:install: For installing new yum packages. 
-	 * Val.Ol4Li4:-y
-	 * Val.Ol4Li5.frFR:gcc : Projet GNU Compilateur C et C++. 
-	 * Val.Ol4Li5.enUS:gcc: GNU project C and C++ compiler. 
-	 * Val.Ol4Li6.frFR:systemd-devel : En-têtes de développement et fichiers auxiliaires pour développer des applications pour systemd. 
-	 * Val.Ol4Li6.enUS:systemd-devel: Development headers and auxiliary files for developing applications for systemd. 
-	 * Val.Ol4Li7.frFR:docbook-* : DocBook est une syntaxe des textes de la documentation technique Linux (articles, livres et pages de manuel). 
-	 * Val.Ol4Li7.enUS:docbook-*: DocBook is a syntax of Linux technical documentation texts (articles, books and manual pages). 
-	 * 
+	 * Val.Ol2Li1Dt:sudo
+	 * Val.Ol2Li1Dd.frFR:: La commande pour installer des dépots yum commence par la commande sudo. 
+	 * Val.Ol2Li1Dd.frFR:La commande "sudo" permet à votre utilisateur actuel d'avoir les privilèges root pendant quelques minutes après avoir saisi votre mot de passe. 
+	 * Val.Ol2Li1Dd.frFR:L'installation des dépots yum nécessite toujours les privilèges root. 
+	 * Val.Ol2Li1Dd.enUS:: The command to install yum repositories begins with the command sudo. 
+	 * Val.Ol2Li1Dd.enUS:The "sudo" command allows your current user to have root privileges for a few minutes after entering your password. 
+	 * Val.Ol2Li1Dd.enUS:Installing yum repositories always requires root privileges. 
+	 * Val.Ol2Li2Dt:yum
+	 * Val.Ol2Li2Dd.frFR:Signifie "Yellowdog Updater Modified", mais personne ne le connait comme yellowdog, juste yum. 
+	 * Val.Ol2Li2Dd.frFR:CentOS gère les paquets de logiciel et les fichiers d'application RPM avec yum. 
+	 * Val.Ol2Li2Dd.enUS:Stands for "Yellowdog Updater Modified", but nobody knows it as yellowdog, just yum. 
+	 * Val.Ol2Li2Dd.enUS:CentOS manages software packages and RPM application files with yum. 
+	 * Val.Ol2Li3Dt:install
+	 * Val.Ol2Li3Dd.frFR: : Pour installer des nouveaux paquets yum. 
+	 * Val.Ol2Li3Dd.enUS:: For installing new yum packages. 
+	 * Val.Ol2Li4Dt:-y
+	 * Val.Ol2Li4Dd.frFR: : Réprimer les messages demandant de confirmer si vous souhaitez installer le logiciel. 
+	 * Val.Ol2Li4Dd.enUS:: Suppress messages asking to confirm if you want to install the software. 
+	 * Val.Ol2Li5Dt:ivy lsof maven ant git libtool automake cppunit cppunit-devel python-setuptools
+	 * Val.Ol2Li5Dd.frFR: : Les noms de paquets des dépendances pour la construction de Zookeeper à partir du code source. 
+	 * Val.Ol2Li5Dd.enUS:: The package names of the dependencies for building Zookeeper from the source code. 
 	 */  
 	protected void _questionDependences(PageHtml o) {
 	}
@@ -179,11 +264,11 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-files-medical
-	 * Val.H3Span.frFR:Où est-ce que je place le code source PostgreSQL ? 
-	 * Val.H3Span.enUS:Where do I put the PostgreSQL source code? 
+	 * Val.H3Span.frFR:Où est-ce que je place le code source Zookeeper ? 
+	 * Val.H3Span.enUS:Where do I put the Zookeeper source code? 
 	 * Val.H4I:far fa-folder-tree
-	 * Val.H4Span.frFR:Créez un répertoire pgsql dans /usr/local/src. 
-	 * Val.H4Span.enUS:Create a pgsql directory in /usr/local/src. 
+	 * Val.H4Span.frFR:Créez un répertoire zookeeper dans /usr/local/src. 
+	 * Val.H4Span.enUS:Create a zookeeper directory in /usr/local/src. 
 	 * Val.PreSpan1:sudo
 	 * Val.PreSpan2: install
 	 * Val.PreSpan3: -d
@@ -191,7 +276,7 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.PreSpan5: $USER
 	 * Val.PreSpan6: -g
 	 * Val.PreSpan7: $USER
-	 * Val.PreSpan8: /usr/local/src/pgsql
+	 * Val.PreSpan8: /usr/local/src/zookeeper
 	 * 
 	 * Val.Ol2Li1:sudo
 	 * Val.Ol2Li2.frFR:install : Crée des répertoires et définit des attributs sur le nouveau répertoire. 
@@ -217,56 +302,25 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I:far fa-map-pin
-	 * Val.H3Span.frFR:Où puis-je installer PostgreSQL ? 
-	 * Val.H3Span.enUS:Where do I install PostgreSQL? 
-	 * Val.H4I:far fa-folder-tree
-	 * Val.H4Span.frFR:Créez un répertoire pgsql dans /opt. 
-	 * Val.H4Span.enUS:Create a pgsql directory in /opt. 
-	 * Val.PreSpan1:sudo
-	 * Val.PreSpan2: install
-	 * Val.PreSpan3: -d
-	 * Val.PreSpan4: -o
-	 * Val.PreSpan5: $USER
-	 * Val.PreSpan6: -g
-	 * Val.PreSpan7: $USER
-	 * Val.PreSpan8: /opt/pgsql
-	 * 
-	 * Val.Ol2Li1:sudo
-	 * Val.Ol2Li2:install
-	 * Val.Ol2Li3:-d
-	 * Val.Ol2Li4:-o
-	 * Val.Ol2Li5:$USER
-	 * Val.Ol2Li6:-g
-	 * Val.Ol2Li7:$USER
-	 * Val.Ol2Li8.frFR:/opt est un bon endroit pour installer des applications logicielles open source telles que PostgreSQL. 
-	 * Val.Ol2Li8.enUS:/opt is a good place to install open source software applications like PostgreSQL. 
-	 */  
-	protected void _questionMkdirPostgreSQL(PageHtml o) {
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
 	 * Val.H3I:far fa-cloud-download
-	 * Val.H3Span.frFR:Comment télécharger le code source de PostgreSQL ? 
-	 * Val.H3Span.enUS:How do I download the PostgreSQL source code? 
+	 * Val.H3Span.frFR:Comment télécharger le code source de Zookeeper ? 
+	 * Val.H3Span.enUS:How do I download the Zookeeper source code? 
 	 * Val.H4I:fab fa-git
 	 * Val.H4Span.frFR:Cloner le code source avec la commande git. 
 	 * Val.H4Span.enUS:Clone the source code with the git command. 
 	 * Val.PreSpan1:git
 	 * Val.PreSpan2: clone
-	 * Val.PreSpan3: git://git.postgresql.org/git/postgresql.git
-	 * Val.PreSpan4: /usr/local/src/pgsql
+	 * Val.PreSpan3: https://github.com/apache/zookeeper.git
+	 * Val.PreSpan4: /usr/local/src/zookeeper
 	 * 
 	 * Val.Ol2Li1.frFR:git : Le système de contrôle de révision distribué pour la plupart des logiciels open source. 
 	 * Val.Ol2Li1.enUS:git: The distributed revision control system for most open source software. 
 	 * Val.Ol2Li2.frFR:clone : Cloner un référentiel dans un répertoire. 
 	 * Val.Ol2Li2.enUS:clone: Clone a repository into a directory. 
-	 * Val.Ol2Li3.frFR:git://git.postgresql.org/git/postgresql.git : URL git vers le référentiel de code source PostgreSQL. 
-	 * Val.Ol2Li3.enUS:git://git.postgresql.org/git/postgresql.git: The git URL to the PostgreSQL source code repository. 
-	 * Val.Ol2Li4.frFR:/usr/local/src/pgsql : Répertoire dans lequel le code source PostgreSQL sera cloné. 
-	 * Val.Ol2Li4.enUS:/usr/local/src/pgsql: The directory where the PostgreSQL source code will be cloned. 
+	 * Val.Ol2Li3.frFR:https://github.com/apache/zookeeper.git : URL git vers le référentiel de code source Zookeeper. 
+	 * Val.Ol2Li3.enUS:https://github.com/apache/zookeeper.git: The git URL to the Zookeeper source code repository. 
+	 * Val.Ol2Li4.frFR:/usr/local/src/zookeeper : Répertoire dans lequel le code source Zookeeper sera cloné. 
+	 * Val.Ol2Li4.enUS:/usr/local/src/zookeeper: The directory where the Zookeeper source code will be cloned. 
 	 */  
 	protected void _questionClonerSource(PageHtml o) {
 	}
@@ -275,21 +329,21 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-code-branch
-	 * Val.H3Span.frFR:Comment choisir une version récente de PostgreSQL ? 
-	 * Val.H3Span.enUS:How do I pick a recent version of PostgreSQL? 
+	 * Val.H3Span.frFR:Comment choisir une version récente de Zookeeper ? 
+	 * Val.H3Span.enUS:How do I pick a recent version of Zookeeper? 
 	 * Val.H4I:far fa-tag
 	 * Val.H4Span.frFR:Listez toutes les tags du référentiel git. 
 	 * Val.H4Span.enUS:List all the tags in the git repository. 
 	 * Val.PreSpan1:(cd
-	 * Val.PreSpan2: /usr/local/src/pgsql
+	 * Val.PreSpan2: /usr/local/src/zookeeper
 	 * Val.PreSpan3: &&
 	 * Val.PreSpan4: git
 	 * Val.PreSpan5: tag)
 	 * 
 	 * Val.Ol2Li1.frFR:(cd : Changer de répertoire temporairement avec la parenthèse ouverte. 
 	 * Val.Ol2Li1.enUS:(cd: Change directory temporarily, because of the open parenthesis. 
-	 * Val.Ol2Li2.frFR:/usr/local/src/pgsql : Répertoire dans lequel le code source PostgreSQL a été cloné. 
-	 * Val.Ol2Li2.enUS:/usr/local/src/pgsql: The directory where the PostgreSQL source code was cloned. 
+	 * Val.Ol2Li2.frFR:/usr/local/src/zookeeper : Répertoire dans lequel le code source Zookeeper a été cloné. 
+	 * Val.Ol2Li2.enUS:/usr/local/src/zookeeper: The directory where the Zookeeper source code was cloned. 
 	 * Val.Ol2Li3.frFR:&& : Exécutez la commande cd et git ensemble. 
 	 * Val.Ol2Li3.enUS:&&: Run the cd and git command together. 
 	 * Val.Ol2Li4:git
@@ -303,26 +357,30 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-code-merge
-	 * Val.H3Span.frFR:Comment changer de version du code source de PostgreSQL ? 
-	 * Val.H3Span.enUS:How do I switch versions of the PostgreSQL source code? 
+	 * Val.H3Span.frFR:Comment changer de version du code source de Zookeeper ? 
+	 * Val.H3Span.enUS:How do I switch versions of the Zookeeper source code? 
 	 * Val.H4I:far fa-code-commit
 	 * Val.H4Span.frFR:Checkout la tag git. 
 	 * Val.H4Span.enUS:Checkout the git tag. 
 	 * Val.PreSpan1:(cd
-	 * Val.PreSpan2: /usr/local/src/pgsql
+	 * Val.PreSpan2: /usr/local/src/zookeeper
 	 * Val.PreSpan3: &&
 	 * Val.PreSpan4: git
 	 * Val.PreSpan5: checkout
-	 * Val.PreSpan6: REL_11_3)
+	 * Val.PreSpan6Span1: 
+	 * Val:zookeeperTag:.PreSpan6Span2:release-3.5.5
+	 * Val.PreSpan6Span3:)
 	 * 
 	 * Val.Ol2Li1:(cd
-	 * Val.Ol2Li2:/usr/local/src/pgsql
+	 * Val.Ol2Li2:/usr/local/src/zookeeper
 	 * Val.Ol2Li3:&&
 	 * Val.Ol2Li4:git
 	 * Val.Ol2Li5.frFR:checkout : Checkout une branche dans l’arbre de travail. 
 	 * Val.Ol2Li5.enUS:checkout: Checkout a branch to the working tree. 
-	 * Val.Ol2Li6.frFR:REL_11_3) : La dernière tag pour baser la branche. 
-	 * Val.Ol2Li6.enUS:REL_11_3): The latest tag to base the branch from. 
+	 * Val:zookeeperTag:.Ol2Li6Span1.frFR:release-3.5.5
+	 * Val.Ol2Li6Span2.frFR:) : La dernière tag pour baser la branche. 
+	 * Val:zookeeperTag:.Ol2Li6Span1.enUS:release-3.5.5
+	 * Val.Ol2Li6Span2.enUS:): The latest tag to base the branch from. 
 	 */  
 	protected void _questionCheckoutTag(PageHtml o) {
 	}
@@ -331,73 +389,25 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-tools
-	 * Val.H3Span.frFR:Comment contruire le code source de PostgreSQL ? 
-	 * Val.H3Span.enUS:How do I build the PostgreSQL source code? 
+	 * Val.H3Span.frFR:Comment contruire le code source de Zookeeper ? 
+	 * Val.H3Span.enUS:How do I build the Zookeeper source code? 
 	 * Val.H4I:far fa-terminal
-	 * Val.H4Span.frFR:Construisez PostgreSQL avec la commande configure. 
-	 * Val.H4Span.enUS:Build PostgreSQL with the configure command. 
+	 * Val.H4Span.frFR:Construisez Zookeeper avec la commande configure. 
+	 * Val.H4Span.enUS:Build Zookeeper with the configure command. 
 	 * 
 	 * Val.Pre1Span01:(cd
-	 * Val.Pre1Span02: /usr/local/src/pgsql
+	 * Val.Pre1Span02: /usr/local/src/zookeeper
 	 * Val.Pre1Span03: &&
-	 * Val.Pre1Span04: ./configure
-	 * Val.Pre1Span05: --with-openssl
-	 * Val.Pre1Span06: --with-libxml
-	 * Val.Pre1Span07: --with-libxslt
-	 * Val.Pre1Span08: --with-systemd
-	 * Val.Pre1Span09: --with-selinux
-	 * Val.Pre1Span10: --prefix=/opt/pgsql)
+	 * Val.Pre1Span04: ant
+	 * Val.Pre1Span05: package)
 	 * 
 	 * Val.Ol1Li01:(cd
-	 * Val.Ol1Li02:/usr/local/src/pgsql
+	 * Val.Ol1Li02:/usr/local/src/zookeeper
 	 * Val.Ol1Li03:&&
-	 * Val.Ol1Li04.frFR:./configure : Un script de configuration C++ pour compiler PostgreSQL. 
-	 * Val.Ol1Li04.enUS:./configure: A C++ configure script to compile PostgreSQL. 
-	 * Val.Ol1Li05.frFR:--with-openssl : Construisez PostgreSQL avec le support OpenSSL pour des connexions TLS sécurisées à la base de données. 
-	 * Val.Ol1Li05.enUS:--with-openssl: Build PostgreSQL with OpenSSL support for secure TLS connections to the database. 
-	 * Val.Ol1Li06.frFR:--with-libxml : Construisez PostgreSQL avec le support XML. 
-	 * Val.Ol1Li06.enUS:--with-libxml: Build PostgreSQL with XML support. 
-	 * Val.Ol1Li07.frFR:--with-libxslt : Utilisez le support XSLT lors de la construction de contrib/xml2. 
-	 * Val.Ol1Li07.enUS:--with-libxslt: Use XSLT support when building contrib/xml2. 
-	 * Val.Ol1Li08.frFR:--with-systemd : Construisez PostgreSQL avec le support pour le gestionnaire de services systemd pour Linux. 
-	 * Val.Ol1Li08.enUS:--with-systemd: Build PostgreSQL with support for the systemd service manager for Linux. 
-	 * Val.Ol1Li09.frFR:--with-selinux : Construisez PostgreSQL avec des fonctionnalités Linux supplémentaires améliorant la sécurité pour fournir une couche de sécurité supplémentaire. 
-	 * Val.Ol1Li09.frFR:Chaque accès à une table ou à une fonction initiée par une requête DML sera vérifié par rapport à la stratégie de sécurité du système. 
-	 * Val.Ol1Li09.enUS:--with-selinux: Build PostgreSQL with extra Security-Enhanced Linux features to provide an additional layer of security. 
-	 * Val.Ol1Li09.enUS:Each table or function access initiated by a DML query will be checked against the system security policy. 
-	 * Val.Ol1Li10.frFR:--prefix=/opt/pgsql) : Construire l'application PostgreSQL complète et fermez la parenthèse. 
-	 * Val.Ol1Li10.enUS:--prefix=/opt/pgsql): The prefix is the directory where several other subdirectories will be created with PostgreSQL files. 
-	 * Val.Ol1Li10.enUS:/opt/pgsql/bin will contain PostgreSQL binaries. 
-	 * Val.Ol1Li10.enUS:/opt/pgsql/include will contain PostgreSQL headers. 
-	 * Val.Ol1Li10.enUS:/opt/pgsql/lib will contain PostgreSQL shared libraries. 
-	 * Val.Ol1Li10.enUS:/opt/pgsql/share will contain PostgreSQL documentation and other files. 
-	 * 
-	 * Val.Pre2Span1:(cd
-	 * Val.Pre2Span2: /usr/local/src/pgsql
-	 * Val.Pre2Span3: &&
-	 * Val.Pre2Span4: make
-	 * Val.Pre2Span5: world)
-	 * 
-	 * Val.Ol2Li1:(cd
-	 * Val.Ol2Li2:/usr/local/src/pgsql
-	 * Val.Ol2Li3:&&
-	 * Val.Ol2Li4.frFR:make: Compilez le code source de PostgreSQL. 
-	 * Val.Ol2Li4.enUS:make: Compile the PostgreSQL source code. 
-	 * Val.Ol2Li5.frFR:world): Pour construire tout ce qui peut être construit, y compris la documentation (HTML et pages de manuel), ainsi que les modules supplémentaires (contrib). 
-	 * Val.Ol2Li5.enUS:world): To build everything that can be built, including the documentation (HTML and man pages), and the additional modules (contrib). 
-	 * 
-	 * Val.Pre3Span1:(cd
-	 * Val.Pre3Span2: /usr/local/src/pgsql
-	 * Val.Pre3Span3: &&
-	 * Val.Pre3Span4: make
-	 * Val.Pre3Span5: install-world)
-	 * 
-	 * Val.Ol3Li1:(cd
-	 * Val.Ol3Li2:/usr/local/src/pgsql
-	 * Val.Ol3Li3:&&
-	 * Val.Ol3Li4:make
-	 * Val.Ol3Li5.frFR:install-world): En construisant le monde ci-dessus, cela installe tout, y compris la documentation. 
-	 * Val.Ol3Li5.enUS:install-world): By building the world above, this installs everything, including the documentation. 
+	 * Val.Ol1Li04.frFR:ant : Un outil de construction pour les projets Java. 
+	 * Val.Ol1Li04.enUS:ant:  A platform-independent build tool for Java projects. 
+	 * Val.Ol1Li05.frFR:package) : Construisez Zookeeper à partir du code source. 
+	 * Val.Ol1Li05.enUS:package): Build Solr from the source code. 
 	 */  
 	protected void _questionConstruireSource(PageHtml o) {
 	}
@@ -406,11 +416,11 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-map-pin
-	 * Val.H3Span.frFR:Après avoir installé PostgreSQL, où se trouve mon répertoire de données ? 
-	 * Val.H3Span.enUS:After installing PostgreSQL, where is my data directory? 
+	 * Val.H3Span.frFR:Après avoir compilé Zookeeper, où puis-je l'installer en tant que serveur? 
+	 * Val.H3Span.enUS:After compiling Zookeeper, where do I install it as a server? 
 	 * Val.H4I:far fa-folder-tree
-	 * Val.H4Span.frFR:Créez un répertoire pgsql dans /srv. 
-	 * Val.H4Span.enUS:Create a pgsql directory in /srv. 
+	 * Val.H4Span.frFR:Créez un répertoire zookeeper dans /srv. 
+	 * Val.H4Span.enUS:Create a zookeeper directory in /srv. 
 	 * Val.PreSpan1:sudo
 	 * Val.PreSpan2: install
 	 * Val.PreSpan3: -d
@@ -418,17 +428,41 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.PreSpan5: $USER
 	 * Val.PreSpan6: -g
 	 * Val.PreSpan7: $USER
-	 * Val.PreSpan8: /srv/pgsql
+	 * Val.PreSpan8: /srv/zookeeper
 	 * 
-	 * Val.Ol2Li1:sudo
-	 * Val.Ol2Li2:install
-	 * Val.Ol2Li3:-d
-	 * Val.Ol2Li4:-o
-	 * Val.Ol2Li5:$USER
-	 * Val.Ol2Li6:-g
-	 * Val.Ol2Li7:$USER
-	 * Val.Ol2Li8.frFR:/srv est un bon endroit pour installer des serveurs logicielles open source telles que PostgreSQL qui fonctionnent comme un service. 
-	 * Val.Ol2Li8.enUS:/srv is a good place to install open source software serveurs like PostgreSQL that run as a service. 
+	 * Val.Ol1Li1:sudo
+	 * Val.Ol1Li2:install
+	 * Val.Ol1Li3:-d
+	 * Val.Ol1Li4:-o
+	 * Val.Ol1Li5:$USER
+	 * Val.Ol1Li6:-g
+	 * Val.Ol1Li7:$USER
+	 * Val.Ol1Li8.frFR:/srv est un bon endroit pour installer des serveurs logicielles open source telles que Zookeeper qui fonctionnent comme un service. 
+	 * Val.Ol1Li8.enUS:/srv is a good place to install open source software serveurs like Zookeeper that run as a service. 
+	 * 
+	 * Val.Pre2Span1:rsync
+	 * Val.Pre2Span2: -r
+	 * Val.Pre2Span3Span1: /usr/local/src/zookeeper/build/zookeeper-
+	 * Val:zookeeperVersion:.Pre2Span3Span2:3.5.5
+	 * Val.Pre2Span3Span3:-SNAPSHOT/
+	 * Val.Pre2Span4: /srv/zookeeper/
+	 * 
+	 * Val.Ol2Li1.frFR:rsync: Un outil de copie de fichiers rapide et polyvalent, distant (et local). 
+	 * Val.Ol2Li1.enUS:rsync: a fast, versatile, remote (and local) file-copying tool. 
+	 * Val.Ol2Li2.frFR:-r: Recurse dans des répertoires. 
+	 * Val.Ol2Li2.enUS:-r: Recurse into directories. 
+	 * Val.Ol2Li3Span1.frFR:/usr/local/src/zookeeper/build/zookeeper-
+	 * Val:zookeeperVersion:.Ol2Li3Span2.frFR:3.5.5
+	 * Val.Ol2Li3Span3.frFR:-SNAPSHOT/ : Le répertoire où l'application maven a été construite. 
+	 * Val.Ol2Li3Span3.frFR:N'oubliez pas le slash à la fin ou rsync suppose qu'il s'agit d'un fichier dans la destination. 
+	 * Val.Ol2Li3Span1.enUS:/usr/local/src/zookeeper/build/zookeeper-
+	 * Val:zookeeperVersion:.Ol2Li3Span2.enUS:3.5.5
+	 * Val.Ol2Li3Span3.enUS:-SNAPSHOT/: The directory where the maven application was built. 
+	 * Val.Ol2Li3Span3.enUS:Don't forget the ending slash or rsync assumes it's a file inside the destination. 
+	 * Val.Ol2Li4.frFR:/srv/zookeeper/ : Le répertoire où le serveur sera installé.
+	 * Val.Ol2Li4.frFR:C'est préférable de toujours écrire des répertoires avec un slash dans rsync pour éviter les surprises. 
+	 * Val.Ol2Li4.enUS:/srv/zookeeper/: The directory where the server will be installed. 
+	 * Val.Ol2Li4.enUS:It's best to always write directories with a trailing slash in rsync for fewer surprises. 
 	 */  
 	protected void _questionMkdirServeur(PageHtml o) {
 	}
@@ -436,66 +470,81 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Val.H3I:far fa-database
-	 * Val.H3Span.frFR:Comment créer une nouvelle base de données PostgreSQL ? 
-	 * Val.H3Span.enUS:How do I create a new PostgreSQL database? 
-	 * Val.H4I:far fa-table
-	 * Val.H4Span.frFR:Comment initialiser un nouveau serveur PostgreSQL. 
-	 * Val.H4Span.enUS:How to initialize a new PostgreSQL server. 
+	 * Val.H3I:far fa-ballot
+	 * Val.H3Span.frFR:Comment puis-je configurer le serveur Zookeeper ? 
+	 * Val.H3Span.enUS:How do I configure the Zookeeper server? 
+	 * Val.H4I:far fa-file-alt
+	 * Val.H4Span.frFR:Créez un fichier zoo.cfg dans le répertoire conf. 
+	 * Val.H4Span.enUS:Create a zoo.cfg file in the conf directory. 
 	 * 
-	 * Val.P1.frFR:Même après avoir compilé le code source de PostgreSQL, vous ne possédez pas encore de base de données PostgreSQL. 
-	 * Val.P1.frFR:Vous n'avez que des binaires et des outils PostgreSQL. 
-	 * Val.P1.frFR:Vous devez configurer un serveur de base de données PostgreSQL pour exécuter et stocker les données. 
-	 * Val.P1.enUS:Even after you compiled the PostgreSQL source code, you don't yet have a PostgreSQL database. 
-	 * Val.P1.enUS:You only have PostgreSQL binaries and tools. 
-	 * Val.P1.enUS:You need to setup a PostgreSQL database server to run and store data. 
+	 * Val.PreSpan1:echo '
+	 * Val.PreSpan1Br:tickTime=2000
+	 * Val.PreSpan2Br:dataDir=/srv/zookeeper/data
+	 * Val.PreSpan3BrSpan1:admin.serverPort=
+	 * Val:zookeeperPortAdmin:.PreSpan3Span2:10280
+	 * Val.PreSpan4BrSpan1:clientPort=
+	 * Val:zookeeperPortClient:.PreSpan4Span2:10281
+	 * Val.PreSpan5Br:' | tee /srv/zookeeper/conf/zoo.cfg
 	 * 
-	 * Val.PreSpan1:/opt/pgsql/bin/initdb
-	 * Val.PreSpan2: -D
-	 * Val.PreSpan3: /srv/pgsql
-	 * Val.PreSpan4: -W
-	 * 
-	 * Val.Ol2Li1.frFR:/opt/pgsql/bin/initdb : Initialise un cluster de base de données PostgreSQL. 
-	 * Val.Ol2Li1.enUS:/opt/pgsql/bin/initdb: Initializes a PostgreSQL database cluster. 
-	 * Val.Ol2Li2.frFR:checkout : Choisissez un répertoire pour le nouveau serveur de base de données PostgreSQL. 
-	 * Val.Ol2Li2.enUS:checkout: Choose a directory for the new PostgreSQL database server. 
-	 * Val.Ol2Li3.frFR:/srv/pgsql : Le répertoire du nouveau serveur de base de données PostgreSQL. 
-	 * Val.Ol2Li3.enUS:/srv/pgsql: The directory of the new PostgreSQL database server. 
-	 * Val.Ol2Li4.frFR:-W : Demander un mot de passe pour le nouveau super utilisateur. 
-	 * Val.Ol2Li4.enUS:-W: Prompt for a password for the new superuser. 
+	 * Val.Ol2Li01.frFR:echo '...' : Écrivez une chaîne dans la console. 
+	 * Val.Ol2Li01.enUS:echo '...': Write a string to the console. 
+	 * Val.Ol2Li02.frFR:tickTime=2000 : Longueur recommandée d'un tick, qui est l'unité de temps de base utilisée par ZooKeeper, mesurée en millisecondes. 
+	 * Val.Ol2Li02.frFR:tickTime=2000 : C'est utilisé pour réguler les battements de coeur et les délais d'attente. 
+	 * Val.Ol2Li02.enUS:tickTime=2000: The recommended length of a single tick, which is the basic time unit used by ZooKeeper, as measured in milliseconds. 
+	 * Val.Ol2Li02.enUS:tickTime=2000: It is used to regulate heartbeats, and timeouts. 
+	 * Val.Ol2Li03.frFR:dataDir=/srv/zookeeper/data : ZooKeeper stocke les instantanés de la base de données en mémoire et, sauf indication contraire, le journal des transactions des mises à jour de la base de données. 
+	 * Val.Ol2Li03.enUS:dataDir=/srv/zookeeper/data: The location where ZooKeeper will store the in-memory database snapshots and, unless specified otherwise, the transaction log of updates to the database. 
+	 * Val.Ol2Li04Span1.frFR:admin.serverPort=
+	 * Val:zookeeperPortAdmin:.Ol2Li04Span1.frFR:10280
+	 * Val.Ol2Li04Span1.frFR: : Le port sur lequel le serveur Jetty intégré écoute. 
+	 * Val.Ol2Li04Span1.enUS:admin.serverPort=
+	 * Val:zookeeperPortAdmin:.Ol2Li04Span1.enUS:10280
+	 * Val.Ol2Li04Span1.enUS:: The port the embedded Jetty server listens on. 
+	 * Val.Ol2Li05Span1.frFR:clientPort=
+	 * Val:zookeeperPortClient:.Ol2Li05Span1.frFR:10281
+	 * Val.Ol2Li05Span1.frFR: : Le port qui écoute pour les connexions des clients. 
+	 * Val.Ol2Li05Span1.enUS:clientPort=
+	 * Val:zookeeperPortClient:.Ol2Li05Span1.enUS:10281
+	 * Val.Ol2Li05Span1.enUS:: The port to listen for client connections. 
+	 * Val.Ol2Li06.frFR:| : Lisez la chaîne dans la commande suivante. 
+	 * Val.Ol2Li06.enUS:|: Read the string into the following command. 
+	 * Val.Ol2Li07.frFR:tee : Ecrire une chaîne dans un fichier. 
+	 * Val.Ol2Li07.enUS:tee: Write a string to a file. 
+	 * Val.Ol2Li08.frFR:/srv/zookeeper/conf/zoo.cfg : Un nouveau fichier de configuration pour Zookeeper. 
+	 * Val.Ol2Li08.enUS:/srv/zookeeper/conf/zoo.cfg: A new config file for Zookeeper. 
 	 */  
-	protected void _questionDonnees(PageHtml o) {
+	protected void _questionConfigurer(PageHtml o) {
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-alarm-clock
-	 * Val.H3Span.frFR:Comment puis-je exécuter PostgreSQL tout le temps au démarrage de mon ordinateur ? 
-	 * Val.H3Span.enUS:How do I run PostgreSQL all the time, when my computer starts up? 
+	 * Val.H3Span.frFR:Comment puis-je exécuter Zookeeper tout le temps au démarrage de mon ordinateur ? 
+	 * Val.H3Span.enUS:How do I run Zookeeper all the time, when my computer starts up? 
 	 * Val.H4I:far fa-layer-plus
-	 * Val.H4Span.frFR:Comment exécuter PostgreSQL en tant que service systemd. 
-	 * Val.H4Span.enUS:How to run PostgreSQL as a systemd service. 
+	 * Val.H4Span.frFR:Comment exécuter Zookeeper en tant que service systemd. 
+	 * Val.H4Span.enUS:How to run Zookeeper as a systemd service. 
+	 * 
+ * Description.frFR:Une application Web conçue pour grandir doit être créée à l'aide d'un gestionnaire de cluster centralisé tel que Zookeper. Zookeeper a beaucoup de travail pour résoudre les bugs et les conditions de concurrence inévitables dans les applications distribuées. Vous bénéficierez d'une configuration en cluster, d'un pool de sources de données partagées, de threads de travail en arrière-plan partagés et d'un bus d'événements en cluster pour les demandes misent à l'échelle et d'équilibrage de la charge. Je vous aiderai à installer la version la plus récente de Zookeeper pour mettre à l'échelle votre site Web de manière open source. 
+ * Description.enUS:A web application that is built to scale should be built using a centralized cluster manager like Zookeper. There is a lot of work that has gone into Zookeeper that fix the bugs and race conditions that are inevitable in distributed applications. You will benefit from clustered configuration, shared data source pool, shared background worker threads, and a clustered event bus for scaling and load balancing requests. I will help you install the most recent version of Zookeeper to scale your website the open source way. 
 	 * 
 	 * Val.PreSpan1:echo '
 	 * Val.PreSpan1Br:[Unit]
-	 * Val.PreSpan2Br.frFR:Description=Serveur de base de données PostgreSQL. 
-	 * Val.PreSpan2Br.enUS:Description=PostgreSQL database server.
-	 * Val.PreSpan3Br:After=syslog.target network.target
+	 * Val.PreSpan2Br.frFR:Description=Un gestionnaire de cluster centralisé open source. 
+	 * Val.PreSpan2Br.enUS:Description=An open source centralized cluster manager. 
+	 * Val.PreSpan3Br:After=network.target
 	 * Val.PreSpan3Br:
 	 * Val.PreSpan3Br:[Service]
 	 * Val.PreSpan3Br:Type=forking
-	 * Val.PreSpan3Br:Environment=PGDATA=/srv/pgsql PGPORT=5432
 	 * Val.PreSpan3Br:User='"$USER"'
 	 * Val.PreSpan3Br:Group='"$USER"'
-	 * Val.PreSpan3Br:ExecStart=/opt/pgsql/bin/pg_ctl start -D ${PGDATA} -s -o "-p ${PGPORT}" -w -t 300
-	 * Val.PreSpan3Br:ExecStop=/opt/pgsql/bin/pg_ctl stop -D ${PGDATA} -s -m fast
-	 * Val.PreSpan3Br:ExecReload=/opt/pgsql/bin/pg_ctl reload -D ${PGDATA} -s
-	 * Val.PreSpan3Br:TimeoutSec=300
+	 * Val.PreSpan3Br:ExecStart=/srv/zookeeper/bin/zkServer.sh start
+	 * Val.PreSpan3Br:Restart=on-failure
 	 * Val.PreSpan3Br:
 	 * Val.PreSpan3Br:[Install]
 	 * Val.PreSpan3Br:WantedBy=multi-user.target
-	 * Val.PreSpan3Br:' | sudo tee /usr/lib/systemd/system/pgsql.service
+	 * Val.PreSpan3Br:' | sudo tee /usr/lib/systemd/system/zookeeper.service
 	 * 
 	 * Val.Ol2Li01.frFR:echo '...' : Écrivez une chaîne dans la console. 
 	 * Val.Ol2Li01.enUS:echo '...': Write a string to the console. 
@@ -503,37 +552,31 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.Ol2Li02.enUS:[Unit]: A unit configuration file whose name ends in ".service" encodes information about a process controlled and supervised by systemd. 
 	 * Val.Ol2Li03.frFR:Description=... : La description du service. 
 	 * Val.Ol2Li03.enUS:Description=...: The description of the service. 
-	 * Val.Ol2Li04.frFR:After=... : Demander un mot de passe pour le nouveau super utilisateur. 
-	 * Val.Ol2Li04.enUS:After=...: The PostgreSQL service will be started after the following dependencies. 
+	 * Val.Ol2Li04.frFR:After=... : Le service Zookeeper sera démarré après les dépendances suivantes. 
+	 * Val.Ol2Li04.enUS:After=...: The Zookeeper service will be started after the following dependencies. 
 	 * Val.Ol2Li05.frFR:[Service] : Les informations relatives à un service contrôlé et supervisé par systemd. 
 	 * Val.Ol2Li05.enUS:[Service]: Information about a service controlled and supervised by systemd. 
 	 * Val.Ol2Li06.frFR:Type=forking : Parce qu'il est prévu que le processus configuré avec ExecStart= appelle fork() pendant son démarrage. 
 	 * Val.Ol2Li06.enUS:Type=forking: Because it is expected that the process configured with ExecStart= will call fork() as part of its start-up. 
-	 * Val.Ol2Li07.frFR:Environment=PGDATA=/srv/pgsql PGPORT=5432 : Définir le répertoire de données PostgreSQL et le port comme variables d’environnement du système à utiliser plus tard dans des commandes. 
-	 * Val.Ol2Li07.enUS:Environment=PGDATA=/srv/pgsql PGPORT=5432: To set the PostgreSQL data directory and port as system environment variables to use in later commands. 
-	 * Val.Ol2Li08.frFR:User=... : L'utilisateur en tant que l'utilisateur actuel qui exécutera le service. 
-	 * Val.Ol2Li08.enUS:User=...: The user as the current user that will run the service. 
-	 * Val.Ol2Li09.frFR:Group=... : L'utilisateur de groupe en tant que l'utilisateur actuel qui exécutera le service. 
-	 * Val.Ol2Li09.enUS:Group=...: The group user as the current user that will run the service. 
-	 * Val.Ol2Li10.frFR:ExecStart=... : La commande PostgreSQL qui lancera le service. 
-	 * Val.Ol2Li10.enUS:ExecStart=...: The PostgreSQL command that will start the service. 
-	 * Val.Ol2Li11.frFR:ExecStart=... : La commande PostgreSQL qui arrêtera le service. 
-	 * Val.Ol2Li11.enUS:ExecStart=...: The PostgreSQL command that will stop the service. 
-	 * Val.Ol2Li12.frFR:ExecReload=... : La commande PostgreSQL qui redémarrera le service. 
-	 * Val.Ol2Li12.enUS:ExecReload=...: The PostgreSQL command that will restart the service. 
-	 * Val.Ol2Li13.frFR:TimeoutSec=300 : Le nombre de secondes avant d'abandonner le démarrage du service. 
-	 * Val.Ol2Li13.enUS:TimeoutSec=300: The number of seconds before giving up starting the service. 
-	 * Val.Ol2Li14.frFR:[Install] : Cette section est facultative et permet de définir le comportement ou une unité s’il est activé ou désactivé. 
-	 * Val.Ol2Li14.enUS:[Install]: This section is optional and is used to define the behavior or a unit if it is enabled or disabled. 
-	 * Val.Ol2Li15.frFR:WantedBy=multi-user.target : Lorsque le service est activé, un répertoire appelé multi-user.target.wants sera créé dans /etc/systemd/system (s'il n'est pas déjà disponible) et un lien symbolique vers l'unité actuelle sera placé dans celui-ci. 
-	 * Val.Ol2Li15.enUS:WantedBy=multi-user.target: When the service is enabled, a directory called multi-user.target.wants will be created within /etc/systemd/system (if not already available) and a symbolic link to the current unit will be placed within. 
-	 * Val.Ol2Li16.frFR:| : Lisez la chaîne dans la commande suivante. 
-	 * Val.Ol2Li16.enUS:|: Read the string into the following command. 
-	 * Val.Ol2Li17:sudo
-	 * Val.Ol2Li18.frFR:tee : Ecrire une chaîne dans un fichier. 
-	 * Val.Ol2Li18.enUS:tee: Write a string to a file. 
-	 * Val.Ol2Li19.frFR:/usr/lib/systemd/system/pgsql.service : Un nouveau fichier de service systemd dans lequel écrire pour PostgreSQL. 
-	 * Val.Ol2Li19.enUS:/usr/lib/systemd/system/pgsql.service: A new systemd service file to write to for PostgreSQL. 
+	 * Val.Ol2Li07.frFR:User=... : L'utilisateur en tant que l'utilisateur actuel qui exécutera le service. 
+	 * Val.Ol2Li07.enUS:User=...: The user as the current user that will run the service. 
+	 * Val.Ol2Li08.frFR:Group=... : L'utilisateur de groupe en tant que l'utilisateur actuel qui exécutera le service. 
+	 * Val.Ol2Li08.enUS:Group=...: The group user as the current user that will run the service. 
+	 * Val.Ol2Li09.frFR:ExecStart=... : La commande Zookeeper qui lancera le service. 
+	 * Val.Ol2Li09.enUS:ExecStart=...: The Zookeeper command that will start the service. 
+	 * Val.Ol2Li10.frFR:Restart=on-failure : Redémarrer le service en cas d'échec. 
+	 * Val.Ol2Li10.enUS:Restart=on-failure: Restart the service if it fails. 
+	 * Val.Ol2Li11.frFR:[Install] : Cette section est facultative et permet de définir le comportement ou une unité s’il est activé ou désactivé. 
+	 * Val.Ol2Li11.enUS:[Install]: This section is optional and is used to define the behavior or a unit if it is enabled or disabled. 
+	 * Val.Ol2Li12.frFR:WantedBy=multi-user.target : Lorsque le service est activé, un répertoire appelé multi-user.target.wants sera créé dans /etc/systemd/system (s'il n'est pas déjà disponible) et un lien symbolique vers l'unité actuelle sera placé dans celui-ci. 
+	 * Val.Ol2Li12.enUS:WantedBy=multi-user.target: When the service is enabled, a directory called multi-user.target.wants will be created within /etc/systemd/system (if not already available) and a symbolic link to the current unit will be placed within. 
+	 * Val.Ol2Li13.frFR:| : Lisez la chaîne dans la commande suivante. 
+	 * Val.Ol2Li13.enUS:|: Read the string into the following command. 
+	 * Val.Ol2Li14:sudo
+	 * Val.Ol2Li15.frFR:tee : Ecrire une chaîne dans un fichier. 
+	 * Val.Ol2Li15.enUS:tee: Write a string to a file. 
+	 * Val.Ol2Li16.frFR:/usr/lib/systemd/system/zookeeper.service : Un nouveau fichier de service systemd dans lequel écrire pour Zookeeper. 
+	 * Val.Ol2Li16.enUS:/usr/lib/systemd/system/zookeeper.service: A new systemd service file to write to for Zookeeper. 
 	 */  
 	protected void _questionService(PageHtml o) {
 	}
@@ -565,8 +608,8 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-toggle-off
-	 * Val.H3Span.frFR:Comment activer le service PostgreSQL? 
-	 * Val.H3Span.enUS:How do I enable the PostgreSQL service? 
+	 * Val.H3Span.frFR:Comment activer le service Zookeeper? 
+	 * Val.H3Span.enUS:How do I enable the Zookeeper service? 
 	 * Val.H4I:far fa-toggle-on
 	 * Val.H4Span.frFR:Utilisez la commande systemctl enable. 
 	 * Val.H4Span.enUS:Use the systemctl enable command. 
@@ -574,14 +617,14 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.PreSpan1:sudo
 	 * Val.PreSpan2: systemctl
 	 * Val.PreSpan3: enable
-	 * Val.PreSpan4: pgsql
+	 * Val.PreSpan4: zookeeper
 	 * 
 	 * Val.Ol2Li1:sudo
 	 * Val.Ol2Li2:systemctl
 	 * Val.Ol2Li3.frFR:enable : Activer un ou plusieurs fichiers d'unités ou instances de fichiers d'unités. 
 	 * Val.Ol2Li3.enUS:enable: Enable one or more unit files or unit file instances. 
-	 * Val.Ol2Li4.frFR:pgsql : Activez le service PostgreSQL pour démarrer au démarrage de l'ordinateur. 
-	 * Val.Ol2Li4.enUS:pgsql: Enable the PostgreSQL service to start when the computer starts. 
+	 * Val.Ol2Li4.frFR:zookeeper : Activez le service Zookeeper pour démarrer au démarrage de l'ordinateur. 
+	 * Val.Ol2Li4.enUS:zookeeper: Enable the Zookeeper service to start when the computer starts. 
 	 */  
 	protected void _questionSystemctlEnable(PageHtml o) {
 	}
@@ -590,8 +633,8 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-pause-circle
-	 * Val.H3Span.frFR:Comment démarrer le service PostgreSQL? 
-	 * Val.H3Span.enUS:How do I start the PostgreSQL service? 
+	 * Val.H3Span.frFR:Comment démarrer le service Zookeeper? 
+	 * Val.H3Span.enUS:How do I start the Zookeeper service? 
 	 * Val.H4I:far fa-play-circle
 	 * Val.H4Span.frFR:Utilisez la commande systemctl start. 
 	 * Val.H4Span.enUS:Use the systemctl start command. 
@@ -599,14 +642,14 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.PreSpan1:sudo
 	 * Val.PreSpan2: systemctl
 	 * Val.PreSpan3: start
-	 * Val.PreSpan4: pgsql
+	 * Val.PreSpan4: zookeeper
 	 * 
 	 * Val.Ol2Li1:sudo
 	 * Val.Ol2Li2:systemctl
 	 * Val.Ol2Li3.frFR:start : Activer un ou plusieurs services. 
 	 * Val.Ol2Li3.enUS:start: Start one or more services. 
-	 * Val.Ol2Li4.frFR:pgsql : Démarrez le service PostgreSQL. 
-	 * Val.Ol2Li4.enUS:pgsql: Start the PostgreSQL service. 
+	 * Val.Ol2Li4.frFR:zookeeper : Démarrez le service Zookeeper. 
+	 * Val.Ol2Li4.enUS:zookeeper: Start the Zookeeper service. 
 	 */  
 	protected void _questionSystemctlStart(PageHtml o) {
 	}
@@ -615,8 +658,8 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-clipboard
-	 * Val.H3Span.frFR:Comment puis-je m'assurer que le service PostgreSQL a démarré avec succès ? 
-	 * Val.H3Span.enUS:How do I make sure the PostgreSQL service started successfully? 
+	 * Val.H3Span.frFR:Comment puis-je m'assurer que le service Zookeeper a démarré avec succès ? 
+	 * Val.H3Span.enUS:How do I make sure the Zookeeper service started successfully? 
 	 * Val.H4I:far fa-clipboard-check
 	 * Val.H4Span.frFR:Utilisez la commande systemctl status. 
 	 * Val.H4Span.enUS:Use the systemctl status command. 
@@ -624,17 +667,19 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.PreSpan1:sudo
 	 * Val.PreSpan2: systemctl
 	 * Val.PreSpan3: status
-	 * Val.PreSpan4: pgsql
+	 * Val.PreSpan4: zookeeper
 	 * 
 	 * Val.Ol2Li1:sudo
 	 * Val.Ol2Li2:systemctl
 	 * Val.Ol2Li3.frFR:status : Vérifiez le statut d'un ou plusieurs services. 
 	 * Val.Ol2Li3.enUS:status: Check the status of one or more services. 
-	 * Val.Ol2Li4.frFR:pgsql : Vérifiez le statut du service PostgreSQL. 
-	 * Val.Ol2Li4.enUS:pgsql: Check the status of the PostgreSQL service. 
+	 * Val.Ol2Li4.frFR:zookeeper : Vérifiez le statut du service Zookeeper. 
+	 * Val.Ol2Li4.enUS:zookeeper: Check the status of the Zookeeper service. 
 	 * 
-	 * Val.P2.frFR:Et voilà, profitez de votre tout nouvel et puissant serveur de base de données open source. 
-	 * Val.P2.enUS:Now enjoy that latest and greatest open source database server of yours. 
+	 * Val.P2.frFR:Et comme ça, votre serveur Zookeeper est prêt pour que le client se connecte et commence à mettre en cluster. 
+	 * Val.P2.frFR:Dans les leçons suivants, nous allons connecter un moteur de recherche ainsi que vos applications Web à Zookeeper pour leur mettre en cluster. 
+	 * Val.P2.enUS:And just like that, your Zookeeper server is ready for client to connect and begin clustering. 
+	 * Val.P2.enUS:In future lessons we will connect a search engine, as well as your web applications to Zookeeper to allow them to scale. 
 	 */  
 	protected void _questionSystemctlStatus(PageHtml o) {
 	}
@@ -645,19 +690,23 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 */
 	protected void _recapituler1(PageHtml o) {      
 	}
+	@Override public void htmlBodyRecapituler1(PageHtml o) {
+		g("div");
+		super.htmlBodyRecapituler1(o);
+	}
 
 	/**
-	 * Val.TableTr1Td1.frFR:Jeudi 
-	 * Val.TableTr1Td1.enUS:Thursday 
+	 * Val.TableTr1Td1.frFR:Lundi 
+	 * Val.TableTr1Td1.enUS:Monday 
 	 * Val.TableTr1Td2I:far fa-fast-forward
 	 * Val.TableTr1Td3I:far fa-file-code
 	 * Val.TableTr1Td4I:far fa-pen-nib
-	 * Val.TableTr2Td1.frFR:16 Mai 2019
-	 * Val.TableTr2Td1.enUS:May 16 2019
-	 * Val.TableTr2Td2.frFR:Comment installer la dernière version de PostgreSQL ? 
-	 * Val.TableTr2Td2.enUS:How do I install the latest version of PostgreSQL. 
-	 * Val.TableTr2Td3.frFR:Installer PostgreSQL à partir du code source. 
-	 * Val.TableTr2Td3.enUS:Install PostgreSQL from the source code. 
+	 * Val.TableTr2Td1.frFR:3 Juin 2019
+	 * Val.TableTr2Td1.enUS:June 3 2019
+	 * Val.TableTr2Td2.frFR:Comment puis-je tester en développment la configuration en cluster, les demandes, les événements et les sources de données partagées ? 
+	 * Val.TableTr2Td2.enUS:How do I try out clustered configuration, requests, events and shared data sources in development? 
+	 * Val.TableTr2Td3.frFR:Installer Zookeeper à partir du code source. 
+	 * Val.TableTr2Td3.enUS:Install Zookeeper from the source code. 
 	 * Val.TableTr2Td4.frFR:Par Christophe Tate
 	 * Val.TableTr2Td4.enUS:By Christopher Tate
 	 */  
@@ -674,67 +723,95 @@ public class C001L009InstallerKeycloak extends C001L009InstallerKeycloakGen<C001
 	 * Val.TableTr01Td4.enUS:Answers
 	 * 
 	 * Val.TableTr02Td1I:far fa-conveyor-belt-alt
-	 * Val.TableTr02Td2.frFR:Comment installer les dépendences pour certbot ? 
-	 * Val.TableTr02Td2.enUS:How do I install the dependencies for certbot? 
+	 * Val.TableTr02Td2.frFR:Comment installer les dépendences pour Zookeeper ? 
+	 * Val.TableTr02Td2.enUS:How do I install the dependencies for Zookeeper? 
 	 * Val.TableTr02Td3Span1I:far fa-cookie
 	 * Val.TableTr02Td4.frFR:Construisez les dépendances avec yum. 
 	 * Val.TableTr02Td4.enUS:Build the dependencies with yum. 
 	 * 
 	 * Val.TableTr03Td1I:far fa-files-medical
-	 * Val.TableTr03Td2.frFR:Où dois-je placer les certificats, les clés et les magasins de clés pour mon site ? 
-	 * Val.TableTr03Td2.enUS:Where do I put the certificates, keys and keystores for my site? 
+	 * Val.TableTr03Td2.frFR:Où est-ce que je place le code source Zookeeper ? 
+	 * Val.TableTr03Td2.enUS:Where do I put the Zookeeper source code? 
 	 * Val.TableTr03Td3I:far fa-folder-tree
-	 * Val.TableTr03Td4.frFR:Créez un répertoire certbot dans /srv. 
-	 * Val.TableTr03Td4.enUS:Create a pgsql directory in /srv. 
+	 * Val.TableTr03Td4.frFR:Créez un répertoire zookeeper dans /usr/local/src. 
+	 * Val.TableTr03Td4.enUS:Create a zookeeper directory in /usr/local/src. 
 	 * 
-	 * Val.TableTr04Td1I:far fa-file-certificate
-	 * Val.TableTr04Td2.frFR:Comment puis-je obtenir mon certificat ? 
-	 * Val.TableTr04Td2.enUS:How do I obtain my certificate? 
-	 * Val.TableTr04Td3Span1I:far fa-stamp
-	 * Val.TableTr04Td4.frFR:Utilisez la commande certbot. 
-	 * Val.TableTr04Td4.enUS:Use the certbot command. 
+	 * Val.TableTr04Td1I:far fa-cloud-download
+	 * Val.TableTr04Td2.frFR:Comment télécharger le code source de Zookeeper ? 
+	 * Val.TableTr04Td2.enUS:How do I download the Zookeeper source code? 
+	 * Val.TableTr04Td3Span1I:fab fa-git
+	 * Val.TableTr04Td4.frFR:Cloner le code source avec la commande git. 
+	 * Val.TableTr04Td4.enUS:Clone the source code with the git command. 
 	 * 
-	 * Val.TableTr05Td1I:far fa-key
-	 * Val.TableTr05Td2.frFR:Comment utiliser le certificat et la clé générés par certbot ? 
-	 * Val.TableTr05Td2.enUS:How do I use the certificate and key that certbot generated? 
-	 * Val.TableTr05Td3I:far fa-copy
-	 * Val.TableTr05Td4.frFR:Copiez les fichiers certbot avec la commande install. 
-	 * Val.TableTr05Td4.enUS:Copy the certbot files with the install command. 
+	 * Val.TableTr05Td1I:far fa-code-branch
+	 * Val.TableTr05Td2.frFR:Comment choisir une version récente de Zookeeper ? 
+	 * Val.TableTr05Td2.enUS:How do I pick a recent version of Zookeeper? 
+	 * Val.TableTr05Td3I:far fa-tag
+	 * Val.TableTr05Td4.frFR:Listez toutes les tags du référentiel git. 
+	 * Val.TableTr05Td4.enUS:List all the tags in the git repository. 
 	 * 
-	 * Val.TableTr06Td1I:far fa-users-crown
-	 * Val.TableTr06Td2.frFR:Comment puis-je obtenir les certificats letencrypt racine et CA ? 
-	 * Val.TableTr06Td2.enUS:How do I obtain the letsencrypt root and CA certificates? 
-	 * Val.TableTr06Td3I:far fa-copy
-	 * Val.TableTr06Td4.frFR:Téléchargez les certificats racine et CA avec la commande curl. 
-	 * Val.TableTr06Td4.enUS:Download the root and CA certificates with the curl command. 
+	 * Val.TableTr06Td1I:far fa-code-merge
+	 * Val.TableTr06Td2.frFR:Comment changer de version du code source de Zookeeper ? 
+	 * Val.TableTr06Td2.enUS:How do I switch versions of the Zookeeper source code? 
+	 * Val.TableTr06Td3I:far fa-code-commit
+	 * Val.TableTr06Td4.frFR:Checkout la tag git. 
+	 * Val.TableTr06Td4.enUS:Checkout the git tag. 
 	 * 
-	 * Val.TableTr07Td1I:far fa-object-group
-	 * Val.TableTr07Td2.frFR:Comment créer une version fusionnée de certificats de site, de certificats d'autorité et de certificat racine ? 
-	 * Val.TableTr07Td2.enUS:How do I create a merged version of site certificates, certificate authority and root certificate? 
-	 * Val.TableTr07Td3I:far fa-cat
-	 * Val.TableTr07Td4.frFR:Créez un certificat fusionné avec la commande cat. 
-	 * Val.TableTr07Td4.enUS:Create a merged certificate with the cat command. 
+	 * Val.TableTr07Td1I:far fa-tools
+	 * Val.TableTr07Td2.frFR:Comment contruire le code source de Zookeeper ? 
+	 * Val.TableTr07Td2.enUS:How do I build the Zookeeper source code? 
+	 * Val.TableTr07Td3I:far fa-terminal
+	 * Val.TableTr07Td4.frFR:Construisez Zookeeper avec la commande ant. 
+	 * Val.TableTr07Td4.enUS:Build Zookeeper with the ant command. 
 	 * 
-	 * Val.TableTr08Td1I:far fa-file-certificate
-	 * Val.TableTr08Td2.frFR:Comment créer une chaîne de confiance de certificat pkcs12 ? 
-	 * Val.TableTr08Td2.enUS:How do I create a pkcs12 certificate chain of trust? 
-	 * Val.TableTr08Td3I:far fa-shield-alt
-	 * Val.TableTr08Td4.frFR:Utilisez la commande openssl pour créer un fichier .p12. 
-	 * Val.TableTr08Td4.enUS:Use the openssl command to create a .p12 file. 
+	 * Val.TableTr08Td1I:far fa-map-pin
+	 * Val.TableTr08Td2.frFR:Après avoir compilé Zookeeper, où puis-je l'installer en tant que serveur? 
+	 * Val.TableTr08Td2.enUS:After compiling Zookeeper, where do I install it as a server? 
+	 * Val.TableTr08Td3I:far fa-folder-tree
+	 * Val.TableTr08Td4.frFR:Créez un répertoire zookeeper dans /srv. 
+	 * Val.TableTr08Td4.enUS:Create a zookeeper directory in /srv. 
 	 * 
-	 * Val.TableTr09Td1I:far fa-store
-	 * Val.TableTr09Td2.frFR:Comment créer un magasin de clés Java pour les chaînes de certificats dans les applications Java? 
-	 * Val.TableTr09Td2.enUS:How do I create a Java keystore for certificate chains in Java applications? 
-	 * Val.TableTr09Td3I:far fa-terminal
-	 * Val.TableTr09Td4.frFR:Utilisez la commande keytool pour créer un fichier .jks. 
-	 * Val.TableTr09Td4.enUS:Use the keytool command to create a .jks file. 
+	 * Val.TableTr09Td1I:far fa-ballot
+	 * Val.TableTr09Td2.frFR:Comment puis-je configurer le serveur Zookeeper ? 
+	 * Val.TableTr09Td2.enUS:How do I configure the Zookeeper server? 
+	 * Val.TableTr09Td3I:far fa-file-alt
+	 * Val.TableTr09Td4.frFR:Créez un fichier zoo.cfg dans le répertoire conf. 
+	 * Val.TableTr09Td4.enUS:Create a zoo.cfg file in the conf directory. 
 	 * 
-	 * Val.TableTr10Td1I:far fa-key
-	 * Val.TableTr10Td2.frFR:Comment créer un magasin de clés Java pour mon clé secret dans les applications Java? 
-	 * Val.TableTr10Td2.enUS:How do I create a Java keystore for my secret key in Java applications? 
-	 * Val.TableTr10Td3I:far fa-terminal
-	 * Val.TableTr10Td4.frFR:Utilisez la commande keytool pour créer un fichier .jceks. 
-	 * Val.TableTr10Td4.enUS:Use the keytool command to create a .jceks file. 
+	 * Val.TableTr10Td1I:far fa-alarm-clock
+	 * Val.TableTr10Td2.frFR:Comment puis-je exécuter Zookeeper tout le temps au démarrage de mon ordinateur ? 
+	 * Val.TableTr10Td2.enUS:How do I run Zookeeper all the time, when my computer starts up? 
+	 * Val.TableTr10Td3I:far fa-layer-plus
+	 * Val.TableTr10Td4.frFR:Comment exécuter Zookeeper en tant que service systemd. 
+	 * Val.TableTr10Td4.enUS:How to run Zookeeper as a systemd service. 
+	 * 
+	 * Val.TableTr11Td1I:far fa-search
+	 * Val.TableTr11Td2.frFR:Comment le système connaît-il le nouveau service ? 
+	 * Val.TableTr11Td2.enUS:How does the system know about the new service? 
+	 * Val.TableTr11Td3I:far fa-redo-alt
+	 * Val.TableTr11Td4.frFR:Rechargez le daemon systemd. 
+	 * Val.TableTr11Td4.enUS:Reload the systemd daemon. 
+	 * 
+	 * Val.TableTr12Td1I:far fa-toggle-off
+	 * Val.TableTr12Td2.frFR:Comment activer le service Zookeeper? 
+	 * Val.TableTr12Td2.enUS:How do I enable the Zookeeper service? 
+	 * Val.TableTr12Td3I:far fa-toggle-on
+	 * Val.TableTr12Td4.frFR:Utilisez la commande systemctl enable. 
+	 * Val.TableTr12Td4.enUS:Use the systemctl enable command. 
+	 * 
+	 * Val.TableTr13Td1I:far fa-pause-circle
+	 * Val.TableTr13Td2.frFR:Comment démarrer le service Zookeeper? 
+	 * Val.TableTr13Td2.enUS:How do I start the Zookeeper service? 
+	 * Val.TableTr13Td3I:far fa-play-circle
+	 * Val.TableTr13Td4.frFR:Utilisez la commande systemctl start. 
+	 * Val.TableTr13Td4.enUS:Use the systemctl start command. 
+	 * 
+	 * Val.TableTr14Td1I:far fa-clipboard
+	 * Val.TableTr14Td2.frFR:Comment puis-je m'assurer que le service Zookeeper a démarré avec succès ? 
+	 * Val.TableTr14Td2.enUS:How do I make sure the Zookeeper service started successfully? 
+	 * Val.TableTr14Td3I:far fa-clipboard-check
+	 * Val.TableTr14Td4.frFR:Utilisez la commande systemctl status. 
+	 * Val.TableTr14Td4.enUS:Use the systemctl status command. 
 	 */ 
 	protected void _recapituler3(PageHtml o) {      
 	}

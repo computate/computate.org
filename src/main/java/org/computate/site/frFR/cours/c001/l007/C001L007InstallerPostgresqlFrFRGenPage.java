@@ -96,25 +96,25 @@ public class C001L007InstallerPostgresqlFrFRGenPage extends C001L007InstallerPos
 	}
 
 	@Override public void htmlScriptsC001L007InstallerPostgresqlFrFRGenPage() {
-		e("script").a("src", "/static/js/C001L007InstallerPostgresqlFrFRGenPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/C001L007InstallerPostgresqlFrFRPage.js").f().g("script");
 	}
 
 
 	@Override public void htmlBodyC001L007InstallerPostgresqlFrFRGenPage() {
 
-		if(pageH1 != null) {
+		if(StringUtils.isNotBlank(pageH1)) {
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx(pageH1).g("span");
 			} g("h1");
 		}
-		if(pageH2 != null) {
+		if(StringUtils.isNotBlank(pageH1)) {
 			{ e("h2").f();
 				e("span").a("class", " ").f().sx(pageH2).g("span");
 			} g("h2");
 		}
-		if(pageH3 != null) {
+		if(StringUtils.isNotBlank(pageH3)) {
 			{ e("h3").f();
 				e("span").a("class", " ").f().sx(pageH3).g("span");
 			} g("h3");

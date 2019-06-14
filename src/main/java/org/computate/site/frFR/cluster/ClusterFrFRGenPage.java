@@ -86,7 +86,7 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 	}
 
 	@Override public void htmlScriptsClusterFrFRGenPage() {
-		e("script").a("src", "/static/js/ClusterFrFRPage.js").f().g("script");
+		e("script").a("src", statiqueUrlBase, "/js/ClusterFrFRPage.js").f().g("script");
 	}
 
 	protected void _pageUriCluster(Couverture<String> c) {
@@ -232,7 +232,7 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 		if(listeCluster != null && listeCluster.size() == 1 && params.getJsonObject("query").getString("q").equals("*:*") && params.getJsonObject("query").getJsonArray("fq") == null) {
 			Cluster o = listeCluster.first();
 
-			{ e("div").a("class", "w3-card w3-margin w3-padding w3-margin-top w3-show w3-white ").f();
+			{ e("div").a("class", "").f();
 
 				if(o.getPk() != null) {
 					{ e("form").a("action", "/api/cluster").a("id", "ClusterForm").a("style", "display: inline-block; ").f();
@@ -248,6 +248,10 @@ public class ClusterFrFRGenPage extends ClusterFrFRGenPageGen<MiseEnPage> {
 
 			} g("div");
 		}
+		htmlBodyFormsClusterFrFRGenPage();
+	}
+
+	public void htmlBodyFormsClusterFrFRGenPage() {
 		e("div").f();
 
 
