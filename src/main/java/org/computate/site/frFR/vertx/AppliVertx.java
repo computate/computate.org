@@ -25,6 +25,7 @@ import org.computate.site.enUS.cours.c001.l007.C001L007InstallerPostgresqlEnUSGe
 import org.computate.site.enUS.cours.c001.l008.C001L008CreerCertificatEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l009.C001L009InstallerZookeeperEnUSGenApiService;
 import org.computate.site.enUS.cours.c001.l010.C001L010InstallerSolrEnUSGenApiService;
+import org.computate.site.enUS.cours.c001.l011.C001L011InstallerKeycloakEnUSGenApiService;
 import org.computate.site.enUS.page.accueil.PageAccueilEnUSGenApiService;
 import org.computate.site.enUS.page.apropos.PageAProposEnUSGenApiService;
 import org.computate.site.enUS.page.blog.PageBlogEnUSGenApiService;
@@ -48,6 +49,7 @@ import org.computate.site.frFR.cours.c001.l007.C001L007InstallerPostgresqlFrFRGe
 import org.computate.site.frFR.cours.c001.l008.C001L008CreerCertificatFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l009.C001L009InstallerZookeeperFrFRGenApiService;
 import org.computate.site.frFR.cours.c001.l010.C001L010InstallerSolrFrFRGenApiService;
+import org.computate.site.frFR.cours.c001.l011.C001L011InstallerKeycloakFrFRGenApiService;
 import org.computate.site.frFR.page.accueil.PageAccueilFrFRGenApiService;
 import org.computate.site.frFR.page.apropos.PageAProposFrFRGenApiService;
 import org.computate.site.frFR.page.blog.PageBlogFrFRGenApiService;
@@ -473,6 +475,9 @@ public class AppliVertx extends AbstractVerticle {
 
 		C001L010InstallerSolrFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001L010InstallerSolrEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
+
+		C001L011InstallerKeycloakFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
+		C001L011InstallerKeycloakEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);
 
 		C001LeconFrFRGenApiService.enregistrerService(siteContexteFrFR, vertx);
 		C001LeconEnUSGenApiService.enregistrerService(siteContexteEnUS, vertx);

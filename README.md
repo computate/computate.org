@@ -46,6 +46,8 @@ Now when you use "Add to Project" button in the OpenShift console, you should se
 Other stuff
 
 oc replace --force -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.9/sso/sso72-postgresql-persistent.json
+oc replace --force -f https://raw.githubusercontent.com/jboss-container-images/redhat-sso-7-openshift-image/sso73-dev/templates/sso73-postgresql-persistent.json
+oc new-app --template=sso73-postgresql-persistent
 
 base64 /srv/heytate.com/server.jks | perl -pe'chomp'
 

@@ -5758,6 +5758,230 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/requestBodies/ErrorResponse'
+  /enUS/course/001/010-how-to-install-a-recent-version-of-solr-search-engine:
+    get:
+      operationId: rechercheenuspageC001L010InstallerSolr
+      x-vertx-event-bus: enUSC001L010InstallerSolr
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheEnUSPageC001L010InstallerSolrReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+  /frFR/cours/001/010-comment-installer-une-version-recente-du-moteur-de-recherche-solr:
+    get:
+      operationId: recherchefrfrpageC001L010InstallerSolr
+      x-vertx-event-bus: frFRC001L010InstallerSolr
+      description: >+
+      summary: >+
+      parameters:
+        - in: query
+          name: q
+          description: ''
+          required: false
+          schema:
+            type: string
+            default: '*:*'
+        - in: query
+          name: pageRecapituler
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - in: query
+          name: fq
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: fl
+          description: ''
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sort
+          description: ''
+          required: false
+          schema:
+            type: array
+            items:
+                type: string
+        - in: query
+          name: start
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: rows
+          description: ''
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+      responses:
+        '200':
+          description: >+
+          content:
+            text/html; charset=utf-8:
+              schema:
+                $ref: '#/components/requestBodies/RechercheFrFRPageC001L010InstallerSolrReponse'
+        '400':
+          description: >+
+                <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
+                or invalid Parameters</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '401':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>unAuthorized</td><td>Authorization
+                credentials are missing or invalid</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '403':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>accessNotConfigured</td><td>The
+                request operation is not configured to access this
+                resource</td><td>Channel/Country/Business provided in the request is
+                not supported currently</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '404':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td><td>More
+                Info</td></tr><tr><td>error</td><td>resourceNotFound</td><td>The
+                requested resource was not found</td><td>Empty resource/resource not
+                found</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
+        '500':
+          description: >+
+                <table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>fatal</td><td>serverUnavailable</td><td>The
+                request failed due to an internal error/server
+                unavailability</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/ErrorResponse'
   /enUS/course/001/009-how-to-install-the-latest-version-of-zookeeper:
     get:
       operationId: rechercheenuspageC001L009InstallerZookeeper
@@ -5982,10 +6206,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/requestBodies/ErrorResponse'
-  /enUS/course/001/010-how-to-install-a-recent-version-of-solr-search-engine:
+  /enUS/course/001/011-how-to-install-a-recent-version-of-keycloak:
     get:
-      operationId: rechercheenuspageC001L010InstallerSolr
-      x-vertx-event-bus: enUSC001L010InstallerSolr
+      operationId: rechercheenuspageC001L011InstallerKeycloak
+      x-vertx-event-bus: enUSC001L011InstallerKeycloak
       description: >+
       summary: >+
       parameters:
@@ -6047,7 +6271,7 @@ paths:
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/requestBodies/RechercheEnUSPageC001L010InstallerSolrReponse'
+                $ref: '#/components/requestBodies/RechercheEnUSPageC001L011InstallerKeycloakReponse'
         '400':
           description: >+
                 <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
@@ -6094,10 +6318,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/requestBodies/ErrorResponse'
-  /frFR/cours/001/010-comment-installer-une-version-recente-du-moteur-de-recherche-solr:
+  /frFR/cours/001/011-comment-installer-une-version-recente-de-keycloak:
     get:
-      operationId: recherchefrfrpageC001L010InstallerSolr
-      x-vertx-event-bus: frFRC001L010InstallerSolr
+      operationId: recherchefrfrpageC001L011InstallerKeycloak
+      x-vertx-event-bus: frFRC001L011InstallerKeycloak
       description: >+
       summary: >+
       parameters:
@@ -6159,7 +6383,7 @@ paths:
           content:
             text/html; charset=utf-8:
               schema:
-                $ref: '#/components/requestBodies/RechercheFrFRPageC001L010InstallerSolrReponse'
+                $ref: '#/components/requestBodies/RechercheFrFRPageC001L011InstallerKeycloakReponse'
         '400':
           description: >+
                 <table><table><tr><td>Type</td><td>Code</td><td>Details</td></tr><tr><td>error</td><td>invalidRequest</td><td>Missing
@@ -6502,16 +6726,6 @@ components:
         text/html; charset=utf-8:
           schema:
             $ref: '#/components/schemas/RechercheFrFRPageUtilisateurSiteReponse'
-    RechercheEnUSPageC001L009InstallerZookeeperReponse:
-      content:
-        text/html; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/RechercheEnUSPageC001L009InstallerZookeeperReponse'
-    RechercheFrFRPageC001L009InstallerZookeeperReponse:
-      content:
-        text/html; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/RechercheFrFRPageC001L009InstallerZookeeperReponse'
     RechercheEnUSPageC001L010InstallerSolrReponse:
       content:
         text/html; charset=utf-8:
@@ -6522,6 +6736,26 @@ components:
         text/html; charset=utf-8:
           schema:
             $ref: '#/components/schemas/RechercheFrFRPageC001L010InstallerSolrReponse'
+    RechercheEnUSPageC001L009InstallerZookeeperReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheEnUSPageC001L009InstallerZookeeperReponse'
+    RechercheFrFRPageC001L009InstallerZookeeperReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheFrFRPageC001L009InstallerZookeeperReponse'
+    RechercheEnUSPageC001L011InstallerKeycloakReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheEnUSPageC001L011InstallerKeycloakReponse'
+    RechercheFrFRPageC001L011InstallerKeycloakReponse:
+      content:
+        text/html; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/RechercheFrFRPageC001L011InstallerKeycloakReponse'
   schemas:
     RechercheEnUSPageC001L005InstallerEclipseReponse:
       allOf:
@@ -7137,16 +7371,22 @@ components:
     RechercheFrFRPageUtilisateurSiteReponse:
       allOf:
         - type: string
+    RechercheEnUSPageC001L010InstallerSolrReponse:
+      allOf:
+        - type: string
+    RechercheFrFRPageC001L010InstallerSolrReponse:
+      allOf:
+        - type: string
     RechercheEnUSPageC001L009InstallerZookeeperReponse:
       allOf:
         - type: string
     RechercheFrFRPageC001L009InstallerZookeeperReponse:
       allOf:
         - type: string
-    RechercheEnUSPageC001L010InstallerSolrReponse:
+    RechercheEnUSPageC001L011InstallerKeycloakReponse:
       allOf:
         - type: string
-    RechercheFrFRPageC001L010InstallerSolrReponse:
+    RechercheFrFRPageC001L011InstallerKeycloakReponse:
       allOf:
         - type: string
     ErrorResponse:

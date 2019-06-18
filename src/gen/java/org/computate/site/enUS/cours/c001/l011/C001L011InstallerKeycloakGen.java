@@ -785,14 +785,6 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionClonerSourcePreSpan3 = questionClonerSourcePreSpan31;
 	public static final String questionClonerSourcePreSpan41 = " /usr/local/src/keycloak";
 	public static final String questionClonerSourcePreSpan4 = questionClonerSourcePreSpan41;
-	public static final String questionClonerSourcePreSpan51 = " --single-branch";
-	public static final String questionClonerSourcePreSpan5 = questionClonerSourcePreSpan51;
-	public static final String questionClonerSourcePreSpan61 = " --depth 1";
-	public static final String questionClonerSourcePreSpan6 = questionClonerSourcePreSpan61;
-	public static final String questionClonerSourcePreSpan7Span11 = " --branch ";
-	public static final String questionClonerSourcePreSpan7Span1 = questionClonerSourcePreSpan7Span11;
-	public static final String questionClonerSourcePreSpan7Span21 = "3.3.0.Final";
-	public static final String questionClonerSourcePreSpan7Span2 = questionClonerSourcePreSpan7Span21;
 	public static final String questionClonerSourceOl2Li11 = "git: The distributed revision control system for most open source software. ";
 	public static final String questionClonerSourceOl2Li1 = questionClonerSourceOl2Li11;
 	public static final String questionClonerSourceOl2Li21 = "clone: Clone a repository into a directory. ";
@@ -801,19 +793,6 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionClonerSourceOl2Li3 = questionClonerSourceOl2Li31;
 	public static final String questionClonerSourceOl2Li41 = "/usr/local/src/keycloak: The directory where the Keycloak source code will be cloned. ";
 	public static final String questionClonerSourceOl2Li4 = questionClonerSourceOl2Li41;
-	public static final String questionClonerSourceOl2Li51 = "--single-branch: Clone and checkout only the history leading to the tip of a single branch. ";
-	public static final String questionClonerSourceOl2Li5 = questionClonerSourceOl2Li51;
-	public static final String questionClonerSourceOl2Li61 = "--depth 1: Do not retrieve any history for the branch. ";
-	public static final String questionClonerSourceOl2Li6 = questionClonerSourceOl2Li61;
-	public static final String questionClonerSourceOl2Li7Span11 = "):--branch ";
-	public static final String questionClonerSourceOl2Li7Span1 = questionClonerSourceOl2Li7Span11;
-	public static final String questionClonerSourceOl2Li7Span21 = "3.3.0.Final";
-	public static final String questionClonerSourceOl2Li7Span2 = questionClonerSourceOl2Li7Span21;
-	public static final String questionClonerSourceOl2Li7Span31 = "): A recent tag to base the branch from. ";
-	public static final String questionClonerSourceOl2Li7Span3 = questionClonerSourceOl2Li7Span31;
-	public static final String questionClonerSourceP21 = "Keycloak has a huge git repository with a lot of history and can be slow to clone. ";
-	public static final String questionClonerSourceP22 = "To greatly speed up time, we can clone a single branch at the tip. ";
-	public static final String questionClonerSourceP2 = questionClonerSourceP21 + questionClonerSourceP22;
 
 	/**	L'entité « questionClonerSource »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
@@ -877,20 +856,6 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 			{ e("span").a("class", " questionClonerSourcePreSpan4 questionClonerSourcePreSpan even ").f();
 				sx(questionClonerSourcePreSpan41);
 			} g("span");
-			{ e("span").a("class", " questionClonerSourcePreSpan5 questionClonerSourcePreSpan odd ").f();
-				sx(questionClonerSourcePreSpan51);
-			} g("span");
-			{ e("span").a("class", " questionClonerSourcePreSpan6 questionClonerSourcePreSpan even ").f();
-				sx(questionClonerSourcePreSpan61);
-			} g("span");
-			{ e("span").a("class", " questionClonerSourcePreSpan7 questionClonerSourcePreSpan odd ").f();
-				{ e("span").a("class", " questionClonerSourcePreSpan7Span1 questionClonerSourcePreSpan7Span odd ").f();
-					sx(questionClonerSourcePreSpan7Span11);
-				} g("span");
-				{ e("span").a("class", " questionClonerSourcePreSpan7Span2 questionClonerSourcePreSpan7Span even ").f();
-					sx(utilisateurId == null ? questionClonerSourcePreSpan7Span21 : keycloakTag);
-				} g("span");
-			} g("span");
 		} g("pre");
 		{ e("ol").a("class", " questionClonerSourceOl2 questionClonerSourceOl even ").f();
 			{ e("li").a("class", " questionClonerSourceOl2Li1 questionClonerSourceOl2Li odd ").f();
@@ -905,33 +870,308 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 			{ e("li").a("class", " questionClonerSourceOl2Li4 questionClonerSourceOl2Li even ").f();
 				sx(questionClonerSourceOl2Li41);
 			} g("li");
-			{ e("li").a("class", " questionClonerSourceOl2Li5 questionClonerSourceOl2Li odd ").f();
-				sx(questionClonerSourceOl2Li51);
-			} g("li");
-			{ e("li").a("class", " questionClonerSourceOl2Li6 questionClonerSourceOl2Li even ").f();
-				sx(questionClonerSourceOl2Li61);
-			} g("li");
-			{ e("li").a("class", " questionClonerSourceOl2Li7 questionClonerSourceOl2Li odd ").f();
-				{ e("span").a("class", " questionClonerSourceOl2Li7Span1 questionClonerSourceOl2Li7Span odd ").f();
-					sx(questionClonerSourceOl2Li7Span11);
-				} g("span");
-				{ e("span").a("class", " questionClonerSourceOl2Li7Span2 questionClonerSourceOl2Li7Span even ").f();
-					sx(utilisateurId == null ? questionClonerSourceOl2Li7Span21 : keycloakTag);
-				} g("span");
-				{ e("span").a("class", " questionClonerSourceOl2Li7Span3 questionClonerSourceOl2Li7Span odd ").f();
-					sx(questionClonerSourceOl2Li7Span31);
-				} g("span");
-			} g("li");
 		} g("ol");
-		{ e("p").a("class", " questionClonerSourceP2 questionClonerSourceP even ").f();
-			sx(questionClonerSourceP21);
-			sx(questionClonerSourceP22);
-		} g("p");
 	}
 	public void htmlBodyQuestionClonerSource() {
 		questionClonerSource.htmlAvant();
 		htmlBodyQuestionClonerSource(questionClonerSource);
 		questionClonerSource.htmlApres();
+	}
+
+	////////////////////////
+	// questionListerTags //
+	////////////////////////
+
+	public static final String questionListerTagsH3I1 = "far fa-code-branch";
+	public static final String questionListerTagsH3I = questionListerTagsH3I1;
+	public static final String questionListerTagsH3Span1 = "How do I pick a recent version of Keycloak? ";
+	public static final String questionListerTagsH3Span = questionListerTagsH3Span1;
+	public static final String questionListerTagsH4I1 = "far fa-tag";
+	public static final String questionListerTagsH4I = questionListerTagsH4I1;
+	public static final String questionListerTagsH4Span1 = "List all the tags in the git repository. ";
+	public static final String questionListerTagsH4Span = questionListerTagsH4Span1;
+	public static final String questionListerTagsPreSpan11 = "(cd";
+	public static final String questionListerTagsPreSpan1 = questionListerTagsPreSpan11;
+	public static final String questionListerTagsPreSpan21 = " /usr/local/src/keycloak";
+	public static final String questionListerTagsPreSpan2 = questionListerTagsPreSpan21;
+	public static final String questionListerTagsPreSpan31 = " &&";
+	public static final String questionListerTagsPreSpan3 = questionListerTagsPreSpan31;
+	public static final String questionListerTagsPreSpan41 = " git";
+	public static final String questionListerTagsPreSpan4 = questionListerTagsPreSpan41;
+	public static final String questionListerTagsPreSpan51 = " tag)";
+	public static final String questionListerTagsPreSpan5 = questionListerTagsPreSpan51;
+	public static final String questionListerTagsOl2Li11 = "(cd: Change directory temporarily, because of the open parenthesis. ";
+	public static final String questionListerTagsOl2Li1 = questionListerTagsOl2Li11;
+	public static final String questionListerTagsOl2Li21 = "/usr/local/src/keycloak: The directory where the Keycloak source code was cloned. ";
+	public static final String questionListerTagsOl2Li2 = questionListerTagsOl2Li21;
+	public static final String questionListerTagsOl2Li31 = "&&: Run the cd and git command together. ";
+	public static final String questionListerTagsOl2Li3 = questionListerTagsOl2Li31;
+	public static final String questionListerTagsOl2Li41 = "git";
+	public static final String questionListerTagsOl2Li4 = questionListerTagsOl2Li41;
+	public static final String questionListerTagsOl2Li51 = "tag): Lists the current tags or assigned versions of the code and close the parenthesis. ";
+	public static final String questionListerTagsOl2Li5 = questionListerTagsOl2Li51;
+
+	/**	L'entité « questionListerTags »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionListerTags = new PageHtml();
+	public Couverture<PageHtml> questionListerTagsCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionListerTags").o(questionListerTags);
+
+	/**	<br/>L'entité « questionListerTags »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l011.C001L011InstallerKeycloak&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionListerTags">Trouver l'entité questionListerTags dans Solr</a>
+	 * <br/>
+	 * @param questionListerTags est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionListerTags(PageHtml o);
+
+	public PageHtml getQuestionListerTags() {
+		return questionListerTags;
+	}
+
+	public void setQuestionListerTags(PageHtml questionListerTags) {
+		this.questionListerTags = questionListerTags;
+		this.questionListerTagsCouverture.dejaInitialise = true;
+	}
+	protected C001L011InstallerKeycloak questionListerTagsInit() {
+		if(questionListerTags != null) {
+			((C001L011InstallerKeycloak)this).avantPagePart(questionListerTags, "questionListerTags");
+			((C001L011InstallerKeycloak)this).avantPagePart(questionListerTags, "questionListerTags");
+		}
+		if(!questionListerTagsCouverture.dejaInitialise) {
+			_questionListerTags(questionListerTags);
+		}
+		questionListerTags.initLoinPourClasse(requeteSite_);
+		questionListerTagsCouverture.dejaInitialise(true);
+		return (C001L011InstallerKeycloak)this;
+	}
+	public void htmlBodyQuestionListerTags(PageHtml o) {
+		{ e("h3").a("class", " questionListerTagsH3 ").f();
+			{ e("i").a("class", questionListerTagsH3I1, " site-menu-icon questionListerTagsH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionListerTagsH3Span ").f();
+				sx(questionListerTagsH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionListerTagsH4 ").f();
+			{ e("i").a("class", questionListerTagsH4I1, " site-menu-icon questionListerTagsH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionListerTagsH4Span ").f();
+				sx(questionListerTagsH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionListerTagsPre ").f();
+			{ e("span").a("class", " questionListerTagsPreSpan1 questionListerTagsPreSpan odd ").f();
+				sx(questionListerTagsPreSpan11);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan2 questionListerTagsPreSpan even ").f();
+				sx(questionListerTagsPreSpan21);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan3 questionListerTagsPreSpan odd ").f();
+				sx(questionListerTagsPreSpan31);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan4 questionListerTagsPreSpan even ").f();
+				sx(questionListerTagsPreSpan41);
+			} g("span");
+			{ e("span").a("class", " questionListerTagsPreSpan5 questionListerTagsPreSpan odd ").f();
+				sx(questionListerTagsPreSpan51);
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionListerTagsOl2 questionListerTagsOl even ").f();
+			{ e("li").a("class", " questionListerTagsOl2Li1 questionListerTagsOl2Li odd ").f();
+				sx(questionListerTagsOl2Li11);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li2 questionListerTagsOl2Li even ").f();
+				sx(questionListerTagsOl2Li21);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li3 questionListerTagsOl2Li odd ").f();
+				sx(questionListerTagsOl2Li31);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li4 questionListerTagsOl2Li even ").f();
+				sx(questionListerTagsOl2Li41);
+			} g("li");
+			{ e("li").a("class", " questionListerTagsOl2Li5 questionListerTagsOl2Li odd ").f();
+				sx(questionListerTagsOl2Li51);
+			} g("li");
+		} g("ol");
+	}
+	public void htmlBodyQuestionListerTags() {
+		questionListerTags.htmlAvant();
+		htmlBodyQuestionListerTags(questionListerTags);
+		questionListerTags.htmlApres();
+	}
+
+	/////////////////////////
+	// questionCheckoutTag //
+	/////////////////////////
+
+	public static final String questionCheckoutTagH3I1 = "far fa-code-merge";
+	public static final String questionCheckoutTagH3I = questionCheckoutTagH3I1;
+	public static final String questionCheckoutTagH3Span1 = "How do I switch versions of the Keycloak source code? ";
+	public static final String questionCheckoutTagH3Span = questionCheckoutTagH3Span1;
+	public static final String questionCheckoutTagH4I1 = "far fa-code-commit";
+	public static final String questionCheckoutTagH4I = questionCheckoutTagH4I1;
+	public static final String questionCheckoutTagH4Span1 = "Checkout the git tag. ";
+	public static final String questionCheckoutTagH4Span = questionCheckoutTagH4Span1;
+	public static final String questionCheckoutTagPreSpan11 = "(cd";
+	public static final String questionCheckoutTagPreSpan1 = questionCheckoutTagPreSpan11;
+	public static final String questionCheckoutTagPreSpan21 = " /usr/local/src/keycloak";
+	public static final String questionCheckoutTagPreSpan2 = questionCheckoutTagPreSpan21;
+	public static final String questionCheckoutTagPreSpan31 = " &&";
+	public static final String questionCheckoutTagPreSpan3 = questionCheckoutTagPreSpan31;
+	public static final String questionCheckoutTagPreSpan41 = " git";
+	public static final String questionCheckoutTagPreSpan4 = questionCheckoutTagPreSpan41;
+	public static final String questionCheckoutTagPreSpan51 = " checkout";
+	public static final String questionCheckoutTagPreSpan5 = questionCheckoutTagPreSpan51;
+	public static final String questionCheckoutTagPreSpan6Span11 = " ";
+	public static final String questionCheckoutTagPreSpan6Span1 = questionCheckoutTagPreSpan6Span11;
+	public static final String questionCheckoutTagPreSpan6Span21 = "4.8.3.Final";
+	public static final String questionCheckoutTagPreSpan6Span2 = questionCheckoutTagPreSpan6Span21;
+	public static final String questionCheckoutTagPreSpan6Span31 = ")";
+	public static final String questionCheckoutTagPreSpan6Span3 = questionCheckoutTagPreSpan6Span31;
+	public static final String questionCheckoutTagOl1Li11 = "(cd";
+	public static final String questionCheckoutTagOl1Li1 = questionCheckoutTagOl1Li11;
+	public static final String questionCheckoutTagOl1Li21 = "/usr/local/src/keycloak";
+	public static final String questionCheckoutTagOl1Li2 = questionCheckoutTagOl1Li21;
+	public static final String questionCheckoutTagOl1Li31 = "&&";
+	public static final String questionCheckoutTagOl1Li3 = questionCheckoutTagOl1Li31;
+	public static final String questionCheckoutTagOl1Li41 = "git";
+	public static final String questionCheckoutTagOl1Li4 = questionCheckoutTagOl1Li41;
+	public static final String questionCheckoutTagOl1Li51 = "checkout: Checkout a branch to the working tree. ";
+	public static final String questionCheckoutTagOl1Li5 = questionCheckoutTagOl1Li51;
+	public static final String questionCheckoutTagOl1Li6Span11 = "4.8.3.Final";
+	public static final String questionCheckoutTagOl1Li6Span1 = questionCheckoutTagOl1Li6Span11;
+	public static final String questionCheckoutTagOl1Li6Span21 = "): The latest tag to base the branch from. ";
+	public static final String questionCheckoutTagOl1Li6Span2 = questionCheckoutTagOl1Li6Span21;
+	public static final String questionCheckoutTagP2Span11 = "The enterprise supported version of Keycloak is called Red Hat Single Sign On (Red Hat SSO). ";
+	public static final String questionCheckoutTagP2Span12 = "The latest version of Red Hat SSO is version 7.3 and is based on Keycloak version 4.8. See: ";
+	public static final String questionCheckoutTagP2Span1 = questionCheckoutTagP2Span11 + questionCheckoutTagP2Span12;
+	public static final String questionCheckoutTagP2A11 = "https://access.redhat.com/articles/2342881";
+	public static final String questionCheckoutTagP2A1 = questionCheckoutTagP2A11;
+	public static final String questionCheckoutTagP2Span21 = ". I will use the latest 4.8 tag to give me the latest updates of the most recent, enterprise supported, version of Keycloak. ";
+	public static final String questionCheckoutTagP2Span22 = "That way, when I deploy my application to the cloud in production, I can install the same compatible, enterprise supported, version of Red Hat SSO for user management of my applications. ";
+	public static final String questionCheckoutTagP2Span2 = questionCheckoutTagP2Span21 + questionCheckoutTagP2Span22;
+
+	/**	L'entité « questionCheckoutTag »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 */
+	protected PageHtml questionCheckoutTag = new PageHtml();
+	public Couverture<PageHtml> questionCheckoutTagCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionCheckoutTag").o(questionCheckoutTag);
+
+	/**	<br/>L'entité « questionCheckoutTag »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l011.C001L011InstallerKeycloak&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionCheckoutTag">Trouver l'entité questionCheckoutTag dans Solr</a>
+	 * <br/>
+	 * @param questionCheckoutTag est l'entité déjà construit. 
+	 **/
+	protected abstract void _questionCheckoutTag(PageHtml o);
+
+	public PageHtml getQuestionCheckoutTag() {
+		return questionCheckoutTag;
+	}
+
+	public void setQuestionCheckoutTag(PageHtml questionCheckoutTag) {
+		this.questionCheckoutTag = questionCheckoutTag;
+		this.questionCheckoutTagCouverture.dejaInitialise = true;
+	}
+	protected C001L011InstallerKeycloak questionCheckoutTagInit() {
+		if(questionCheckoutTag != null) {
+			((C001L011InstallerKeycloak)this).avantPagePart(questionCheckoutTag, "questionCheckoutTag");
+			((C001L011InstallerKeycloak)this).avantPagePart(questionCheckoutTag, "questionCheckoutTag");
+		}
+		if(!questionCheckoutTagCouverture.dejaInitialise) {
+			_questionCheckoutTag(questionCheckoutTag);
+		}
+		questionCheckoutTag.initLoinPourClasse(requeteSite_);
+		questionCheckoutTagCouverture.dejaInitialise(true);
+		return (C001L011InstallerKeycloak)this;
+	}
+	public void htmlBodyQuestionCheckoutTag(PageHtml o) {
+		{ e("h3").a("class", " questionCheckoutTagH3 ").f();
+			{ e("i").a("class", questionCheckoutTagH3I1, " site-menu-icon questionCheckoutTagH3I ").f();
+			} g("i");
+			{ e("span").a("class", " questionCheckoutTagH3Span ").f();
+				sx(questionCheckoutTagH3Span1);
+			} g("span");
+		} g("h3");
+		{ e("h4").a("class", " questionCheckoutTagH4 ").f();
+			{ e("i").a("class", questionCheckoutTagH4I1, " site-menu-icon questionCheckoutTagH4I ").f();
+			} g("i");
+			{ e("span").a("class", " questionCheckoutTagH4Span ").f();
+				sx(questionCheckoutTagH4Span1);
+			} g("span");
+		} g("h4");
+		{ e("pre").a("class", " questionCheckoutTagPre ").f();
+			{ e("span").a("class", " questionCheckoutTagPreSpan1 questionCheckoutTagPreSpan odd ").f();
+				sx(questionCheckoutTagPreSpan11);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan2 questionCheckoutTagPreSpan even ").f();
+				sx(questionCheckoutTagPreSpan21);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan3 questionCheckoutTagPreSpan odd ").f();
+				sx(questionCheckoutTagPreSpan31);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan4 questionCheckoutTagPreSpan even ").f();
+				sx(questionCheckoutTagPreSpan41);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan5 questionCheckoutTagPreSpan odd ").f();
+				sx(questionCheckoutTagPreSpan51);
+			} g("span");
+			{ e("span").a("class", " questionCheckoutTagPreSpan6 questionCheckoutTagPreSpan even ").f();
+				{ e("span").a("class", " questionCheckoutTagPreSpan6Span1 questionCheckoutTagPreSpan6Span odd ").f();
+					sx(questionCheckoutTagPreSpan6Span11);
+				} g("span");
+				{ e("span").a("class", " questionCheckoutTagPreSpan6Span2 questionCheckoutTagPreSpan6Span even ").f();
+					sx(utilisateurId == null ? questionCheckoutTagPreSpan6Span21 : keycloakTag);
+				} g("span");
+				{ e("span").a("class", " questionCheckoutTagPreSpan6Span3 questionCheckoutTagPreSpan6Span odd ").f();
+					sx(questionCheckoutTagPreSpan6Span31);
+				} g("span");
+			} g("span");
+		} g("pre");
+		{ e("ol").a("class", " questionCheckoutTagOl1 questionCheckoutTagOl odd ").f();
+			{ e("li").a("class", " questionCheckoutTagOl1Li1 questionCheckoutTagOl1Li odd ").f();
+				sx(questionCheckoutTagOl1Li11);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl1Li2 questionCheckoutTagOl1Li even ").f();
+				sx(questionCheckoutTagOl1Li21);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl1Li3 questionCheckoutTagOl1Li odd ").f();
+				sx(questionCheckoutTagOl1Li31);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl1Li4 questionCheckoutTagOl1Li even ").f();
+				sx(questionCheckoutTagOl1Li41);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl1Li5 questionCheckoutTagOl1Li odd ").f();
+				sx(questionCheckoutTagOl1Li51);
+			} g("li");
+			{ e("li").a("class", " questionCheckoutTagOl1Li6 questionCheckoutTagOl1Li even ").f();
+				{ e("span").a("class", " questionCheckoutTagOl1Li6Span1 questionCheckoutTagOl1Li6Span odd ").f();
+					sx(utilisateurId == null ? questionCheckoutTagOl1Li6Span11 : keycloakTag);
+				} g("span");
+				{ e("span").a("class", " questionCheckoutTagOl1Li6Span2 questionCheckoutTagOl1Li6Span even ").f();
+					sx(questionCheckoutTagOl1Li6Span21);
+				} g("span");
+			} g("li");
+		} g("ol");
+		{ e("p").a("class", " questionCheckoutTagP2 questionCheckoutTagP even ").f();
+			{ e("span").a("class", " questionCheckoutTagP2Span1 questionCheckoutTagP2Span odd ").f();
+				sx(questionCheckoutTagP2Span11);
+				sx(questionCheckoutTagP2Span12);
+			} g("span");
+			{ e("a").a("class", " questionCheckoutTagP2A1 questionCheckoutTagP2A odd ").a("href", questionCheckoutTagP2A11).f();
+				sx(questionCheckoutTagP2A11);
+			} g("a");
+			{ e("span").a("class", " questionCheckoutTagP2Span2 questionCheckoutTagP2Span even ").f();
+				sx(questionCheckoutTagP2Span21);
+				sx(questionCheckoutTagP2Span22);
+			} g("span");
+		} g("p");
+	}
+	public void htmlBodyQuestionCheckoutTag() {
+		questionCheckoutTag.htmlAvant();
+		htmlBodyQuestionCheckoutTag(questionCheckoutTag);
+		questionCheckoutTag.htmlApres();
 	}
 
 	//////////////////////////////
@@ -948,7 +1188,7 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionConstruireSourceH4Span = questionConstruireSourceH4Span1;
 	public static final String questionConstruireSourcePre1Span011 = "(cd";
 	public static final String questionConstruireSourcePre1Span01 = questionConstruireSourcePre1Span011;
-	public static final String questionConstruireSourcePre1Span021 = " /usr/local/src/keycloak/keycloak";
+	public static final String questionConstruireSourcePre1Span021 = " /usr/local/src/keycloak";
 	public static final String questionConstruireSourcePre1Span02 = questionConstruireSourcePre1Span021;
 	public static final String questionConstruireSourcePre1Span031 = " &&";
 	public static final String questionConstruireSourcePre1Span03 = questionConstruireSourcePre1Span031;
@@ -962,7 +1202,7 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionConstruireSourcePre1Span07 = questionConstruireSourcePre1Span071;
 	public static final String questionConstruireSourceOl1Li011 = "(cd";
 	public static final String questionConstruireSourceOl1Li01 = questionConstruireSourceOl1Li011;
-	public static final String questionConstruireSourceOl1Li021 = "/usr/local/src/keycloak/keycloak";
+	public static final String questionConstruireSourceOl1Li021 = "/usr/local/src/keycloak";
 	public static final String questionConstruireSourceOl1Li02 = questionConstruireSourceOl1Li021;
 	public static final String questionConstruireSourceOl1Li031 = "&&";
 	public static final String questionConstruireSourceOl1Li03 = questionConstruireSourceOl1Li031;
@@ -970,8 +1210,8 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionConstruireSourceOl1Li04 = questionConstruireSourceOl1Li041;
 	public static final String questionConstruireSourceOl1Li051 = "install: Compile and install the version of Keycloak in the local Maven repository. ";
 	public static final String questionConstruireSourceOl1Li05 = questionConstruireSourceOl1Li051;
-	public static final String questionConstruireSourceOl1Li071 = "-Pdistribution:  Create the full distribution of the Keycloak application. ";
-	public static final String questionConstruireSourceOl1Li07 = questionConstruireSourceOl1Li071;
+	public static final String questionConstruireSourceOl1Li061 = "-Pdistribution:  Create the full distribution of the Keycloak application. ";
+	public static final String questionConstruireSourceOl1Li06 = questionConstruireSourceOl1Li061;
 	public static final String questionConstruireSourceOl1Li071 = "-DskipTests): Skip tests to speed up the build process. ";
 	public static final String questionConstruireSourceOl1Li07 = questionConstruireSourceOl1Li071;
 
@@ -1063,8 +1303,10 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 			{ e("li").a("class", " questionConstruireSourceOl1Li05 questionConstruireSourceOl1Li odd ").f();
 				sx(questionConstruireSourceOl1Li051);
 			} g("li");
+			{ e("li").a("class", " questionConstruireSourceOl1Li06 questionConstruireSourceOl1Li even ").f();
+				sx(questionConstruireSourceOl1Li061);
+			} g("li");
 			{ e("li").a("class", " questionConstruireSourceOl1Li07 questionConstruireSourceOl1Li odd ").f();
-				sx(questionConstruireSourceOl1Li071);
 				sx(questionConstruireSourceOl1Li071);
 			} g("li");
 		} g("ol");
@@ -1125,7 +1367,7 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionMkdirServeurPre2Span2 = questionMkdirServeurPre2Span21;
 	public static final String questionMkdirServeurPre2Span3Span11 = " /usr/local/src/keycloak/distribution/server-dist/keycloak-";
 	public static final String questionMkdirServeurPre2Span3Span1 = questionMkdirServeurPre2Span3Span11;
-	public static final String questionMkdirServeurPre2Span3Span21 = "3.3.0";
+	public static final String questionMkdirServeurPre2Span3Span21 = "4.8.3";
 	public static final String questionMkdirServeurPre2Span3Span2 = questionMkdirServeurPre2Span3Span21;
 	public static final String questionMkdirServeurPre2Span3Span31 = ".Final/";
 	public static final String questionMkdirServeurPre2Span3Span3 = questionMkdirServeurPre2Span3Span31;
@@ -1137,7 +1379,7 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionMkdirServeurOl2Li2 = questionMkdirServeurOl2Li21;
 	public static final String questionMkdirServeurOl2Li3Span11 = "/usr/local/src/keycloak/distribution/server-dist/keycloak-";
 	public static final String questionMkdirServeurOl2Li3Span1 = questionMkdirServeurOl2Li3Span11;
-	public static final String questionMkdirServeurOl2Li3Span21 = "3.3.0";
+	public static final String questionMkdirServeurOl2Li3Span21 = "4.8.3";
 	public static final String questionMkdirServeurOl2Li3Span2 = questionMkdirServeurOl2Li3Span21;
 	public static final String questionMkdirServeurOl2Li3Span31 = ".Final/: The directory where the maven application was built. ";
 	public static final String questionMkdirServeurOl2Li3Span32 = "Don't forget the ending slash or rsync assumes it's a file inside the destination. ";
@@ -1161,7 +1403,7 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionMkdirServeurPre4Span1 = questionMkdirServeurPre4Span11;
 	public static final String questionMkdirServeurPre4Span21 = " -d";
 	public static final String questionMkdirServeurPre4Span2 = questionMkdirServeurPre4Span21;
-	public static final String questionMkdirServeurPre4Span31 = " /srv/keycloak-3.3.0/modules/system/layers/keycloak/org/postgresql/main";
+	public static final String questionMkdirServeurPre4Span31 = " /srv/keycloak-4.8.3/modules/system/layers/keycloak/org/postgresql/main";
 	public static final String questionMkdirServeurPre4Span3 = questionMkdirServeurPre4Span31;
 	public static final String questionMkdirServeurOl4Li11 = "rm: Remove files and directories. ";
 	public static final String questionMkdirServeurOl4Li1 = questionMkdirServeurOl4Li11;
@@ -1744,194 +1986,148 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 		questionConfigurerConfigset.htmlApres();
 	}
 
-	////////////////////////////////
-	// questionConfigsetZookeeper //
-	////////////////////////////////
+	///////////////////////////////
+	// questionConfigsetKeycloak //
+	///////////////////////////////
 
-	public static final String questionConfigsetZookeeperH3I1 = "far fa-cloud-upload-alt";
-	public static final String questionConfigsetZookeeperH3I = questionConfigsetZookeeperH3I1;
-	public static final String questionConfigsetZookeeperH3Span1 = "How do I upload my Keycloak configset to Zookeeper? ";
-	public static final String questionConfigsetZookeeperH3Span = questionConfigsetZookeeperH3Span1;
-	public static final String questionConfigsetZookeeperH4I1 = "far fa-file-upload";
-	public static final String questionConfigsetZookeeperH4I = questionConfigsetZookeeperH4I1;
-	public static final String questionConfigsetZookeeperH4Span1 = "Use the keycloak zk upconfig command. ";
-	public static final String questionConfigsetZookeeperH4Span = questionConfigsetZookeeperH4Span1;
-	public static final String questionConfigsetZookeeperPre1Span011 = "/srv/keycloak/bin/keycloak";
-	public static final String questionConfigsetZookeeperPre1Span01 = questionConfigsetZookeeperPre1Span011;
-	public static final String questionConfigsetZookeeperPre1Span021 = " zk";
-	public static final String questionConfigsetZookeeperPre1Span02 = questionConfigsetZookeeperPre1Span021;
-	public static final String questionConfigsetZookeeperPre1Span031 = " upconfig";
-	public static final String questionConfigsetZookeeperPre1Span03 = questionConfigsetZookeeperPre1Span031;
-	public static final String questionConfigsetZookeeperPre1Span04Span11 = " -n ";
-	public static final String questionConfigsetZookeeperPre1Span04Span1 = questionConfigsetZookeeperPre1Span04Span11;
-	public static final String questionConfigsetZookeeperPre1Span04Span21 = "computate";
-	public static final String questionConfigsetZookeeperPre1Span04Span2 = questionConfigsetZookeeperPre1Span04Span21;
-	public static final String questionConfigsetZookeeperPre1Span05Span11 = " -d /srv/keycloak/server/keycloak/configsets/";
-	public static final String questionConfigsetZookeeperPre1Span05Span1 = questionConfigsetZookeeperPre1Span05Span11;
-	public static final String questionConfigsetZookeeperPre1Span05Span21 = "computate";
-	public static final String questionConfigsetZookeeperPre1Span05Span2 = questionConfigsetZookeeperPre1Span05Span21;
-	public static final String questionConfigsetZookeeperPre1Span06Span11 = " -z localhost:";
-	public static final String questionConfigsetZookeeperPre1Span06Span1 = questionConfigsetZookeeperPre1Span06Span11;
-	public static final String questionConfigsetZookeeperPre1Span06Span21 = "10281";
-	public static final String questionConfigsetZookeeperPre1Span06Span2 = questionConfigsetZookeeperPre1Span06Span21;
-	public static final String questionConfigsetZookeeperOl1Li011 = "/srv/keycloak/bin/keycloak: The keycloak executable binary. ";
-	public static final String questionConfigsetZookeeperOl1Li01 = questionConfigsetZookeeperOl1Li011;
-	public static final String questionConfigsetZookeeperOl1Li021 = "zk: Perform a zookeeper operation with Keycloak configsets. ";
-	public static final String questionConfigsetZookeeperOl1Li02 = questionConfigsetZookeeperOl1Li021;
-	public static final String questionConfigsetZookeeperOl1Li031 = "upconfig: Upload a Keycloak configset to zookeeper. ";
-	public static final String questionConfigsetZookeeperOl1Li03 = questionConfigsetZookeeperOl1Li031;
-	public static final String questionConfigsetZookeeperOl1Li04Span11 = "-n ";
-	public static final String questionConfigsetZookeeperOl1Li04Span1 = questionConfigsetZookeeperOl1Li04Span11;
-	public static final String questionConfigsetZookeeperOl1Li04Span21 = "computate";
-	public static final String questionConfigsetZookeeperOl1Li04Span2 = questionConfigsetZookeeperOl1Li04Span21;
-	public static final String questionConfigsetZookeeperOl1Li04Span31 = ": The name of the Keycloak configset. ";
-	public static final String questionConfigsetZookeeperOl1Li04Span3 = questionConfigsetZookeeperOl1Li04Span31;
-	public static final String questionConfigsetZookeeperOl1Li05Span11 = "-d /srv/keycloak/server/keycloak/configsets/";
-	public static final String questionConfigsetZookeeperOl1Li05Span1 = questionConfigsetZookeeperOl1Li05Span11;
-	public static final String questionConfigsetZookeeperOl1Li05Span21 = "computate";
-	public static final String questionConfigsetZookeeperOl1Li05Span2 = questionConfigsetZookeeperOl1Li05Span21;
-	public static final String questionConfigsetZookeeperOl1Li05Span31 = ": The path to the Keycloak configset. ";
-	public static final String questionConfigsetZookeeperOl1Li05Span3 = questionConfigsetZookeeperOl1Li05Span31;
-	public static final String questionConfigsetZookeeperOl1Li06Span11 = "-z localhost:";
-	public static final String questionConfigsetZookeeperOl1Li06Span1 = questionConfigsetZookeeperOl1Li06Span11;
-	public static final String questionConfigsetZookeeperOl1Li06Span21 = "10281";
-	public static final String questionConfigsetZookeeperOl1Li06Span2 = questionConfigsetZookeeperOl1Li06Span21;
-	public static final String questionConfigsetZookeeperOl1Li06Span31 = ": The host and port to the Zookeeper server. ";
-	public static final String questionConfigsetZookeeperOl1Li06Span3 = questionConfigsetZookeeperOl1Li06Span31;
+	public static final String questionConfigsetKeycloakH3I1 = "far fa-cloud-upload-alt";
+	public static final String questionConfigsetKeycloakH3I = questionConfigsetKeycloakH3I1;
+	public static final String questionConfigsetKeycloakH3Span1 = "How do I upload my Keycloak configset to Keycloak? ";
+	public static final String questionConfigsetKeycloakH3Span = questionConfigsetKeycloakH3Span1;
+	public static final String questionConfigsetKeycloakH4I1 = "far fa-file-upload";
+	public static final String questionConfigsetKeycloakH4I = questionConfigsetKeycloakH4I1;
+	public static final String questionConfigsetKeycloakH4Span1 = "Use the keycloak zk upconfig command. ";
+	public static final String questionConfigsetKeycloakH4Span = questionConfigsetKeycloakH4Span1;
+	public static final String questionConfigsetKeycloakPre1Span011 = "/srv/keycloak/bin/keycloak";
+	public static final String questionConfigsetKeycloakPre1Span01 = questionConfigsetKeycloakPre1Span011;
+	public static final String questionConfigsetKeycloakPre1Span021 = " zk";
+	public static final String questionConfigsetKeycloakPre1Span02 = questionConfigsetKeycloakPre1Span021;
+	public static final String questionConfigsetKeycloakPre1Span031 = " upconfig";
+	public static final String questionConfigsetKeycloakPre1Span03 = questionConfigsetKeycloakPre1Span031;
+	public static final String questionConfigsetKeycloakPre1Span04Span11 = " -n ";
+	public static final String questionConfigsetKeycloakPre1Span04Span1 = questionConfigsetKeycloakPre1Span04Span11;
+	public static final String questionConfigsetKeycloakPre1Span04Span21 = "computate";
+	public static final String questionConfigsetKeycloakPre1Span04Span2 = questionConfigsetKeycloakPre1Span04Span21;
+	public static final String questionConfigsetKeycloakPre1Span05Span11 = " -d /srv/keycloak/server/keycloak/configsets/";
+	public static final String questionConfigsetKeycloakPre1Span05Span1 = questionConfigsetKeycloakPre1Span05Span11;
+	public static final String questionConfigsetKeycloakPre1Span05Span21 = "computate";
+	public static final String questionConfigsetKeycloakPre1Span05Span2 = questionConfigsetKeycloakPre1Span05Span21;
+	public static final String questionConfigsetKeycloakOl1Li011 = "/srv/keycloak/bin/keycloak: The keycloak executable binary. ";
+	public static final String questionConfigsetKeycloakOl1Li01 = questionConfigsetKeycloakOl1Li011;
+	public static final String questionConfigsetKeycloakOl1Li021 = "zk: Perform a keycloak operation with Keycloak configsets. ";
+	public static final String questionConfigsetKeycloakOl1Li02 = questionConfigsetKeycloakOl1Li021;
+	public static final String questionConfigsetKeycloakOl1Li031 = "upconfig: Upload a Keycloak configset to keycloak. ";
+	public static final String questionConfigsetKeycloakOl1Li03 = questionConfigsetKeycloakOl1Li031;
+	public static final String questionConfigsetKeycloakOl1Li04Span11 = "-n ";
+	public static final String questionConfigsetKeycloakOl1Li04Span1 = questionConfigsetKeycloakOl1Li04Span11;
+	public static final String questionConfigsetKeycloakOl1Li04Span21 = "computate";
+	public static final String questionConfigsetKeycloakOl1Li04Span2 = questionConfigsetKeycloakOl1Li04Span21;
+	public static final String questionConfigsetKeycloakOl1Li04Span31 = ": The name of the Keycloak configset. ";
+	public static final String questionConfigsetKeycloakOl1Li04Span3 = questionConfigsetKeycloakOl1Li04Span31;
 
-	/**	L'entité « questionConfigsetZookeeper »
+	/**	L'entité « questionConfigsetKeycloak »
 	 *	Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
 	 */
-	protected PageHtml questionConfigsetZookeeper = new PageHtml();
-	public Couverture<PageHtml> questionConfigsetZookeeperCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionConfigsetZookeeper").o(questionConfigsetZookeeper);
+	protected PageHtml questionConfigsetKeycloak = new PageHtml();
+	public Couverture<PageHtml> questionConfigsetKeycloakCouverture = new Couverture<PageHtml>().p(this).c(PageHtml.class).var("questionConfigsetKeycloak").o(questionConfigsetKeycloak);
 
-	/**	<br/>L'entité « questionConfigsetZookeeper »
+	/**	<br/>L'entité « questionConfigsetKeycloak »
 	 * Il est construit avant d'être initialisé avec le constructeur par défaut PageHtml(). 
-	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l011.C001L011InstallerKeycloak&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionConfigsetZookeeper">Trouver l'entité questionConfigsetZookeeper dans Solr</a>
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.cours.c001.l011.C001L011InstallerKeycloak&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:questionConfigsetKeycloak">Trouver l'entité questionConfigsetKeycloak dans Solr</a>
 	 * <br/>
-	 * @param questionConfigsetZookeeper est l'entité déjà construit. 
+	 * @param questionConfigsetKeycloak est l'entité déjà construit. 
 	 **/
-	protected abstract void _questionConfigsetZookeeper(PageHtml o);
+	protected abstract void _questionConfigsetKeycloak(PageHtml o);
 
-	public PageHtml getQuestionConfigsetZookeeper() {
-		return questionConfigsetZookeeper;
+	public PageHtml getQuestionConfigsetKeycloak() {
+		return questionConfigsetKeycloak;
 	}
 
-	public void setQuestionConfigsetZookeeper(PageHtml questionConfigsetZookeeper) {
-		this.questionConfigsetZookeeper = questionConfigsetZookeeper;
-		this.questionConfigsetZookeeperCouverture.dejaInitialise = true;
+	public void setQuestionConfigsetKeycloak(PageHtml questionConfigsetKeycloak) {
+		this.questionConfigsetKeycloak = questionConfigsetKeycloak;
+		this.questionConfigsetKeycloakCouverture.dejaInitialise = true;
 	}
-	protected C001L011InstallerKeycloak questionConfigsetZookeeperInit() {
-		if(questionConfigsetZookeeper != null) {
-			((C001L011InstallerKeycloak)this).avantPagePart(questionConfigsetZookeeper, "questionConfigsetZookeeper");
-			((C001L011InstallerKeycloak)this).avantPagePart(questionConfigsetZookeeper, "questionConfigsetZookeeper");
+	protected C001L011InstallerKeycloak questionConfigsetKeycloakInit() {
+		if(questionConfigsetKeycloak != null) {
+			((C001L011InstallerKeycloak)this).avantPagePart(questionConfigsetKeycloak, "questionConfigsetKeycloak");
+			((C001L011InstallerKeycloak)this).avantPagePart(questionConfigsetKeycloak, "questionConfigsetKeycloak");
 		}
-		if(!questionConfigsetZookeeperCouverture.dejaInitialise) {
-			_questionConfigsetZookeeper(questionConfigsetZookeeper);
+		if(!questionConfigsetKeycloakCouverture.dejaInitialise) {
+			_questionConfigsetKeycloak(questionConfigsetKeycloak);
 		}
-		questionConfigsetZookeeper.initLoinPourClasse(requeteSite_);
-		questionConfigsetZookeeperCouverture.dejaInitialise(true);
+		questionConfigsetKeycloak.initLoinPourClasse(requeteSite_);
+		questionConfigsetKeycloakCouverture.dejaInitialise(true);
 		return (C001L011InstallerKeycloak)this;
 	}
-	public void htmlBodyQuestionConfigsetZookeeper(PageHtml o) {
-		{ e("h3").a("class", " questionConfigsetZookeeperH3 ").f();
-			{ e("i").a("class", questionConfigsetZookeeperH3I1, " site-menu-icon questionConfigsetZookeeperH3I ").f();
+	public void htmlBodyQuestionConfigsetKeycloak(PageHtml o) {
+		{ e("h3").a("class", " questionConfigsetKeycloakH3 ").f();
+			{ e("i").a("class", questionConfigsetKeycloakH3I1, " site-menu-icon questionConfigsetKeycloakH3I ").f();
 			} g("i");
-			{ e("span").a("class", " questionConfigsetZookeeperH3Span ").f();
-				sx(questionConfigsetZookeeperH3Span1);
+			{ e("span").a("class", " questionConfigsetKeycloakH3Span ").f();
+				sx(questionConfigsetKeycloakH3Span1);
 			} g("span");
 		} g("h3");
-		{ e("h4").a("class", " questionConfigsetZookeeperH4 ").f();
-			{ e("i").a("class", questionConfigsetZookeeperH4I1, " site-menu-icon questionConfigsetZookeeperH4I ").f();
+		{ e("h4").a("class", " questionConfigsetKeycloakH4 ").f();
+			{ e("i").a("class", questionConfigsetKeycloakH4I1, " site-menu-icon questionConfigsetKeycloakH4I ").f();
 			} g("i");
-			{ e("span").a("class", " questionConfigsetZookeeperH4Span ").f();
-				sx(questionConfigsetZookeeperH4Span1);
+			{ e("span").a("class", " questionConfigsetKeycloakH4Span ").f();
+				sx(questionConfigsetKeycloakH4Span1);
 			} g("span");
 		} g("h4");
-		{ e("pre").a("class", " questionConfigsetZookeeperPre1 questionConfigsetZookeeperPre odd ").f();
-			{ e("span").a("class", " questionConfigsetZookeeperPre1Span01 questionConfigsetZookeeperPre1Span odd ").f();
-				sx(questionConfigsetZookeeperPre1Span011);
+		{ e("pre").a("class", " questionConfigsetKeycloakPre1 questionConfigsetKeycloakPre odd ").f();
+			{ e("span").a("class", " questionConfigsetKeycloakPre1Span01 questionConfigsetKeycloakPre1Span odd ").f();
+				sx(questionConfigsetKeycloakPre1Span011);
 			} g("span");
-			{ e("span").a("class", " questionConfigsetZookeeperPre1Span02 questionConfigsetZookeeperPre1Span even ").f();
-				sx(questionConfigsetZookeeperPre1Span021);
+			{ e("span").a("class", " questionConfigsetKeycloakPre1Span02 questionConfigsetKeycloakPre1Span even ").f();
+				sx(questionConfigsetKeycloakPre1Span021);
 			} g("span");
-			{ e("span").a("class", " questionConfigsetZookeeperPre1Span03 questionConfigsetZookeeperPre1Span odd ").f();
-				sx(questionConfigsetZookeeperPre1Span031);
+			{ e("span").a("class", " questionConfigsetKeycloakPre1Span03 questionConfigsetKeycloakPre1Span odd ").f();
+				sx(questionConfigsetKeycloakPre1Span031);
 			} g("span");
-			{ e("span").a("class", " questionConfigsetZookeeperPre1Span04 questionConfigsetZookeeperPre1Span even ").f();
-				{ e("span").a("class", " questionConfigsetZookeeperPre1Span04Span1 questionConfigsetZookeeperPre1Span odd ").f();
-					sx(questionConfigsetZookeeperPre1Span04Span11);
+			{ e("span").a("class", " questionConfigsetKeycloakPre1Span04 questionConfigsetKeycloakPre1Span even ").f();
+				{ e("span").a("class", " questionConfigsetKeycloakPre1Span04Span1 questionConfigsetKeycloakPre1Span odd ").f();
+					sx(questionConfigsetKeycloakPre1Span04Span11);
 				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperPre1Span04Span2 questionConfigsetZookeeperPre1Span even ").f();
-					sx(utilisateurId == null ? questionConfigsetZookeeperPre1Span04Span21 : keycloakConfigset);
-				} g("span");
-			} g("span");
-			{ e("span").a("class", " questionConfigsetZookeeperPre1Span05 questionConfigsetZookeeperPre1Span odd ").f();
-				{ e("span").a("class", " questionConfigsetZookeeperPre1Span05Span1 questionConfigsetZookeeperPre1Span odd ").f();
-					sx(questionConfigsetZookeeperPre1Span05Span11);
-				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperPre1Span05Span2 questionConfigsetZookeeperPre1Span even ").f();
-					sx(utilisateurId == null ? questionConfigsetZookeeperPre1Span05Span21 : keycloakConfigset);
+				{ e("span").a("class", " questionConfigsetKeycloakPre1Span04Span2 questionConfigsetKeycloakPre1Span even ").f();
+					sx(utilisateurId == null ? questionConfigsetKeycloakPre1Span04Span21 : keycloakConfigset);
 				} g("span");
 			} g("span");
-			{ e("span").a("class", " questionConfigsetZookeeperPre1Span06 questionConfigsetZookeeperPre1Span even ").f();
-				{ e("span").a("class", " questionConfigsetZookeeperPre1Span06Span1 questionConfigsetZookeeperPre1Span odd ").f();
-					sx(questionConfigsetZookeeperPre1Span06Span11);
+			{ e("span").a("class", " questionConfigsetKeycloakPre1Span05 questionConfigsetKeycloakPre1Span odd ").f();
+				{ e("span").a("class", " questionConfigsetKeycloakPre1Span05Span1 questionConfigsetKeycloakPre1Span odd ").f();
+					sx(questionConfigsetKeycloakPre1Span05Span11);
 				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperPre1Span06Span2 questionConfigsetZookeeperPre1Span even ").f();
-					sx(utilisateurId == null ? questionConfigsetZookeeperPre1Span06Span21 : zookeeperPortClient);
+				{ e("span").a("class", " questionConfigsetKeycloakPre1Span05Span2 questionConfigsetKeycloakPre1Span even ").f();
+					sx(utilisateurId == null ? questionConfigsetKeycloakPre1Span05Span21 : keycloakConfigset);
 				} g("span");
 			} g("span");
 		} g("pre");
-		{ e("ol").a("class", " questionConfigsetZookeeperOl1 questionConfigsetZookeeperOl odd ").f();
-			{ e("li").a("class", " questionConfigsetZookeeperOl1Li01 questionConfigsetZookeeperOl1Li odd ").f();
-				sx(questionConfigsetZookeeperOl1Li011);
+		{ e("ol").a("class", " questionConfigsetKeycloakOl1 questionConfigsetKeycloakOl odd ").f();
+			{ e("li").a("class", " questionConfigsetKeycloakOl1Li01 questionConfigsetKeycloakOl1Li odd ").f();
+				sx(questionConfigsetKeycloakOl1Li011);
 			} g("li");
-			{ e("li").a("class", " questionConfigsetZookeeperOl1Li02 questionConfigsetZookeeperOl1Li even ").f();
-				sx(questionConfigsetZookeeperOl1Li021);
+			{ e("li").a("class", " questionConfigsetKeycloakOl1Li02 questionConfigsetKeycloakOl1Li even ").f();
+				sx(questionConfigsetKeycloakOl1Li021);
 			} g("li");
-			{ e("li").a("class", " questionConfigsetZookeeperOl1Li03 questionConfigsetZookeeperOl1Li odd ").f();
-				sx(questionConfigsetZookeeperOl1Li031);
+			{ e("li").a("class", " questionConfigsetKeycloakOl1Li03 questionConfigsetKeycloakOl1Li odd ").f();
+				sx(questionConfigsetKeycloakOl1Li031);
 			} g("li");
-			{ e("li").a("class", " questionConfigsetZookeeperOl1Li04 questionConfigsetZookeeperOl1Li even ").f();
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li04Span1 questionConfigsetZookeeperOl1Li odd ").f();
-					sx(questionConfigsetZookeeperOl1Li04Span11);
+			{ e("li").a("class", " questionConfigsetKeycloakOl1Li04 questionConfigsetKeycloakOl1Li even ").f();
+				{ e("span").a("class", " questionConfigsetKeycloakOl1Li04Span1 questionConfigsetKeycloakOl1Li odd ").f();
+					sx(questionConfigsetKeycloakOl1Li04Span11);
 				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li04Span2 questionConfigsetZookeeperOl1Li even ").f();
-					sx(utilisateurId == null ? questionConfigsetZookeeperOl1Li04Span21 : keycloakConfigset);
+				{ e("span").a("class", " questionConfigsetKeycloakOl1Li04Span2 questionConfigsetKeycloakOl1Li even ").f();
+					sx(utilisateurId == null ? questionConfigsetKeycloakOl1Li04Span21 : keycloakConfigset);
 				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li04Span3 questionConfigsetZookeeperOl1Li odd ").f();
-					sx(questionConfigsetZookeeperOl1Li04Span31);
-				} g("span");
-			} g("li");
-			{ e("li").a("class", " questionConfigsetZookeeperOl1Li05 questionConfigsetZookeeperOl1Li odd ").f();
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li05Span1 questionConfigsetZookeeperOl1Li odd ").f();
-					sx(questionConfigsetZookeeperOl1Li05Span11);
-				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li05Span2 questionConfigsetZookeeperOl1Li even ").f();
-					sx(utilisateurId == null ? questionConfigsetZookeeperOl1Li05Span21 : keycloakConfigset);
-				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li05Span3 questionConfigsetZookeeperOl1Li odd ").f();
-					sx(questionConfigsetZookeeperOl1Li05Span31);
-				} g("span");
-			} g("li");
-			{ e("li").a("class", " questionConfigsetZookeeperOl1Li06 questionConfigsetZookeeperOl1Li even ").f();
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li06Span1 questionConfigsetZookeeperOl1Li odd ").f();
-					sx(questionConfigsetZookeeperOl1Li06Span11);
-				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li06Span2 questionConfigsetZookeeperOl1Li even ").f();
-					sx(utilisateurId == null ? questionConfigsetZookeeperOl1Li06Span21 : zookeeperPortClient);
-				} g("span");
-				{ e("span").a("class", " questionConfigsetZookeeperOl1Li06Span3 questionConfigsetZookeeperOl1Li odd ").f();
-					sx(questionConfigsetZookeeperOl1Li06Span31);
+				{ e("span").a("class", " questionConfigsetKeycloakOl1Li04Span3 questionConfigsetKeycloakOl1Li odd ").f();
+					sx(questionConfigsetKeycloakOl1Li04Span31);
 				} g("span");
 			} g("li");
 		} g("ol");
 	}
-	public void htmlBodyQuestionConfigsetZookeeper() {
-		questionConfigsetZookeeper.htmlAvant();
-		htmlBodyQuestionConfigsetZookeeper(questionConfigsetZookeeper);
-		questionConfigsetZookeeper.htmlApres();
+	public void htmlBodyQuestionConfigsetKeycloak() {
+		questionConfigsetKeycloak.htmlAvant();
+		htmlBodyQuestionConfigsetKeycloak(questionConfigsetKeycloak);
+		questionConfigsetKeycloak.htmlApres();
 	}
 
 	/////////////////////
@@ -1963,10 +2159,6 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String questionServicePreSpan4BrSpan1 = questionServicePreSpan4BrSpan11;
 	public static final String questionServicePreSpan4Span21 = "10380";
 	public static final String questionServicePreSpan4Span2 = questionServicePreSpan4Span21;
-	public static final String questionServicePreSpan4Span31 = " -z localhost:";
-	public static final String questionServicePreSpan4Span3 = questionServicePreSpan4Span31;
-	public static final String questionServicePreSpan4Span41 = "10281";
-	public static final String questionServicePreSpan4Span4 = questionServicePreSpan4Span41;
 	public static final String questionServicePreSpan5Br1 = "Restart=on-failure";
 	public static final String questionServicePreSpan5Br2 = "";
 	public static final String questionServicePreSpan5Br3 = "[Install]";
@@ -2086,12 +2278,6 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 				} g("span");
 				{ e("span").a("class", " questionServicePreSpan4Span2 questionServicePreSpan4Span even ").f();
 					sx(utilisateurId == null ? questionServicePreSpan4Span21 : keycloakPortClient);
-				} g("span");
-				{ e("span").a("class", " questionServicePreSpan4Span3 questionServicePreSpan4Span odd ").f();
-					sx(questionServicePreSpan4Span31);
-				} g("span");
-				{ e("span").a("class", " questionServicePreSpan4Span4 questionServicePreSpan4Span even ").f();
-					sx(utilisateurId == null ? questionServicePreSpan4Span41 : zookeeperPortClient);
 				} g("span");
 			} g("span");
 			{ e("span").a("class", " questionServicePreSpan5 questionServicePreSpan odd ").f();
@@ -3077,7 +3263,7 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 	public static final String recapituler3TableTr10Td4 = recapituler3TableTr10Td41;
 	public static final String recapituler3TableTr11Td1I1 = "far fa-cloud-upload-alt";
 	public static final String recapituler3TableTr11Td1I = recapituler3TableTr11Td1I1;
-	public static final String recapituler3TableTr11Td21 = "How do I upload my Keycloak configset to Zookeeper? ";
+	public static final String recapituler3TableTr11Td21 = "How do I upload my Keycloak configset to Keycloak? ";
 	public static final String recapituler3TableTr11Td2 = recapituler3TableTr11Td21;
 	public static final String recapituler3TableTr11Td3I1 = "far fa-file-upload";
 	public static final String recapituler3TableTr11Td3I = recapituler3TableTr11Td3I1;
@@ -3475,11 +3661,13 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 		questionDependencesInit();
 		questionMkdirSrcInit();
 		questionClonerSourceInit();
+		questionListerTagsInit();
+		questionCheckoutTagInit();
 		questionConstruireSourceInit();
 		questionMkdirServeurInit();
 		questionConfigurerInit();
 		questionConfigurerConfigsetInit();
-		questionConfigsetZookeeperInit();
+		questionConfigsetKeycloakInit();
 		questionServiceInit();
 		questionSystemctlDaemonReloadInit();
 		questionSystemctlEnableInit();
@@ -3512,6 +3700,10 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 			questionMkdirSrc.setRequeteSite_(requeteSite_);
 		if(questionClonerSource != null)
 			questionClonerSource.setRequeteSite_(requeteSite_);
+		if(questionListerTags != null)
+			questionListerTags.setRequeteSite_(requeteSite_);
+		if(questionCheckoutTag != null)
+			questionCheckoutTag.setRequeteSite_(requeteSite_);
 		if(questionConstruireSource != null)
 			questionConstruireSource.setRequeteSite_(requeteSite_);
 		if(questionMkdirServeur != null)
@@ -3520,8 +3712,8 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 			questionConfigurer.setRequeteSite_(requeteSite_);
 		if(questionConfigurerConfigset != null)
 			questionConfigurerConfigset.setRequeteSite_(requeteSite_);
-		if(questionConfigsetZookeeper != null)
-			questionConfigsetZookeeper.setRequeteSite_(requeteSite_);
+		if(questionConfigsetKeycloak != null)
+			questionConfigsetKeycloak.setRequeteSite_(requeteSite_);
 		if(questionService != null)
 			questionService.setRequeteSite_(requeteSite_);
 		if(questionSystemctlDaemonReload != null)
@@ -3588,6 +3780,10 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 				return oC001L011InstallerKeycloak.questionMkdirSrc;
 			case "questionClonerSource":
 				return oC001L011InstallerKeycloak.questionClonerSource;
+			case "questionListerTags":
+				return oC001L011InstallerKeycloak.questionListerTags;
+			case "questionCheckoutTag":
+				return oC001L011InstallerKeycloak.questionCheckoutTag;
 			case "questionConstruireSource":
 				return oC001L011InstallerKeycloak.questionConstruireSource;
 			case "questionMkdirServeur":
@@ -3596,8 +3792,8 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 				return oC001L011InstallerKeycloak.questionConfigurer;
 			case "questionConfigurerConfigset":
 				return oC001L011InstallerKeycloak.questionConfigurerConfigset;
-			case "questionConfigsetZookeeper":
-				return oC001L011InstallerKeycloak.questionConfigsetZookeeper;
+			case "questionConfigsetKeycloak":
+				return oC001L011InstallerKeycloak.questionConfigsetKeycloak;
 			case "questionService":
 				return oC001L011InstallerKeycloak.questionService;
 			case "questionSystemctlDaemonReload":
@@ -3819,6 +4015,10 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 			questionMkdirSrc.htmlBodyCourt();
 		if(questionClonerSource != null)
 			questionClonerSource.htmlBodyCourt();
+		if(questionListerTags != null)
+			questionListerTags.htmlBodyCourt();
+		if(questionCheckoutTag != null)
+			questionCheckoutTag.htmlBodyCourt();
 		if(questionConstruireSource != null)
 			questionConstruireSource.htmlBodyCourt();
 		if(questionMkdirServeur != null)
@@ -3827,8 +4027,8 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 			questionConfigurer.htmlBodyCourt();
 		if(questionConfigurerConfigset != null)
 			questionConfigurerConfigset.htmlBodyCourt();
-		if(questionConfigsetZookeeper != null)
-			questionConfigsetZookeeper.htmlBodyCourt();
+		if(questionConfigsetKeycloak != null)
+			questionConfigsetKeycloak.htmlBodyCourt();
 		if(questionService != null)
 			questionService.htmlBodyCourt();
 		if(questionSystemctlDaemonReload != null)
@@ -3866,11 +4066,13 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionDependences();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionMkdirSrc();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionClonerSource();
+		((C001L011InstallerKeycloak)this).htmlBodyQuestionListerTags();
+		((C001L011InstallerKeycloak)this).htmlBodyQuestionCheckoutTag();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionConstruireSource();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionMkdirServeur();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionConfigurer();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionConfigurerConfigset();
-		((C001L011InstallerKeycloak)this).htmlBodyQuestionConfigsetZookeeper();
+		((C001L011InstallerKeycloak)this).htmlBodyQuestionConfigsetKeycloak();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionService();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionSystemctlDaemonReload();
 		((C001L011InstallerKeycloak)this).htmlBodyQuestionSystemctlEnable();
@@ -3916,5 +4118,5 @@ public abstract class C001L011InstallerKeycloakGen<DEV> extends C001Lecon {
 		return sb.toString();
 	}
 
-	public static final String[] C001L011InstallerKeycloakVals = new String[] { moiP1, moiP2, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li1Dt1, questionDependencesOl2Li1Dd1, questionDependencesOl2Li1Dd2, questionDependencesOl2Li1Dd3, questionDependencesOl2Li2Dt1, questionDependencesOl2Li2Dd1, questionDependencesOl2Li2Dd2, questionDependencesOl2Li3Dt1, questionDependencesOl2Li3Dd1, questionDependencesOl2Li4Dt1, questionDependencesOl2Li4Dd1, questionDependencesOl2Li5Dt1, questionDependencesOl2Li5Dd1, questionMkdirSrcH3I1, questionMkdirSrcH3Span1, questionMkdirSrcH4I1, questionMkdirSrcH4Span1, questionMkdirSrcPreSpan11, questionMkdirSrcPreSpan21, questionMkdirSrcPreSpan31, questionMkdirSrcPreSpan41, questionMkdirSrcPreSpan51, questionMkdirSrcPreSpan61, questionMkdirSrcPreSpan71, questionMkdirSrcPreSpan81, questionMkdirSrcOl2Li11, questionMkdirSrcOl2Li21, questionMkdirSrcOl2Li31, questionMkdirSrcOl2Li41, questionMkdirSrcOl2Li51, questionMkdirSrcOl2Li61, questionMkdirSrcOl2Li71, questionMkdirSrcOl2Li81, questionMkdirSrcOl2Li82, questionClonerSourceH3I1, questionClonerSourceH3Span1, questionClonerSourceH4I1, questionClonerSourceH4Span1, questionClonerSourcePreSpan11, questionClonerSourcePreSpan21, questionClonerSourcePreSpan31, questionClonerSourcePreSpan41, questionClonerSourcePreSpan51, questionClonerSourcePreSpan61, questionClonerSourcePreSpan7Span11, questionClonerSourcePreSpan7Span21, questionClonerSourceOl2Li11, questionClonerSourceOl2Li21, questionClonerSourceOl2Li31, questionClonerSourceOl2Li41, questionClonerSourceOl2Li51, questionClonerSourceOl2Li61, questionClonerSourceOl2Li7Span11, questionClonerSourceOl2Li7Span21, questionClonerSourceOl2Li7Span31, questionClonerSourceP21, questionClonerSourceP22, questionConstruireSourceH3I1, questionConstruireSourceH3Span1, questionConstruireSourceH4I1, questionConstruireSourceH4Span1, questionConstruireSourcePre1Span011, questionConstruireSourcePre1Span021, questionConstruireSourcePre1Span031, questionConstruireSourcePre1Span041, questionConstruireSourcePre1Span051, questionConstruireSourcePre1Span061, questionConstruireSourcePre1Span071, questionConstruireSourceOl1Li011, questionConstruireSourceOl1Li021, questionConstruireSourceOl1Li031, questionConstruireSourceOl1Li041, questionConstruireSourceOl1Li051, questionConstruireSourceOl1Li071, questionConstruireSourceOl1Li071, questionMkdirServeurH3I1, questionMkdirServeurH3Span1, questionMkdirServeurH4I1, questionMkdirServeurH4Span1, questionMkdirServeurPreSpan11, questionMkdirServeurPreSpan21, questionMkdirServeurPreSpan31, questionMkdirServeurPreSpan41, questionMkdirServeurPreSpan51, questionMkdirServeurPreSpan61, questionMkdirServeurPreSpan71, questionMkdirServeurPreSpan81, questionMkdirServeurOl1Li11, questionMkdirServeurOl1Li21, questionMkdirServeurOl1Li31, questionMkdirServeurOl1Li41, questionMkdirServeurOl1Li51, questionMkdirServeurOl1Li61, questionMkdirServeurOl1Li71, questionMkdirServeurOl1Li81, questionMkdirServeurPre2Span11, questionMkdirServeurPre2Span21, questionMkdirServeurPre2Span3Span11, questionMkdirServeurPre2Span3Span21, questionMkdirServeurPre2Span3Span31, questionMkdirServeurPre2Span41, questionMkdirServeurOl2Li11, questionMkdirServeurOl2Li21, questionMkdirServeurOl2Li3Span11, questionMkdirServeurOl2Li3Span21, questionMkdirServeurOl2Li3Span31, questionMkdirServeurOl2Li3Span32, questionMkdirServeurOl2Li41, questionMkdirServeurOl2Li42, questionMkdirServeurPre3Span11, questionMkdirServeurPre3Span21, questionMkdirServeurPre3Span31, questionMkdirServeurOl3Li11, questionMkdirServeurOl3Li21, questionMkdirServeurOl3Li31, questionMkdirServeurPre4Span11, questionMkdirServeurPre4Span21, questionMkdirServeurPre4Span31, questionMkdirServeurOl4Li11, questionMkdirServeurOl4Li21, questionMkdirServeurOl4Li31, questionConfigurerH3I1, questionConfigurerH3Span1, questionConfigurerH4I1, questionConfigurerH4Span1, questionConfigurerPreSpan11, questionConfigurerPreSpan1Br1, questionConfigurerPreSpan1Br2, questionConfigurerPreSpan1Br3, questionConfigurerPreSpan1Br4, questionConfigurerPreSpan1Br5, questionConfigurerPreSpan1Br6, questionConfigurerPreSpan1Br7, questionConfigurerPreSpan1Br8, questionConfigurerPreSpan1Br9, questionConfigurerPreSpan1Br10, questionConfigurerPreSpan1Br11, questionConfigurerPreSpan1Br12, questionConfigurerPreSpan1Br13, questionConfigurerPreSpan1Br14, questionConfigurerPreSpan1Br15, questionConfigurerPreSpan1Br16, questionConfigurerPreSpan1Br17, questionConfigurerPreSpan5Br1, questionConfigurerOl2Li011, questionConfigurerOl2Li061, questionConfigurerOl2Li071, questionConfigurerOl2Li081, questionConfigurerConfigsetH3I1, questionConfigurerConfigsetH3Span1, questionConfigurerConfigsetH4I1, questionConfigurerConfigsetH4Span1, questionConfigurerConfigsetPre1Span011, questionConfigurerConfigsetPre1Span021, questionConfigurerConfigsetPre1Span031, questionConfigurerConfigsetPre1Span04Span11, questionConfigurerConfigsetPre1Span04Span12, questionConfigurerConfigsetOl1Li011, questionConfigurerConfigsetOl1Li021, questionConfigurerConfigsetOl1Li031, questionConfigurerConfigsetOl1Li04Span11, questionConfigurerConfigsetOl1Li04Span21, questionConfigurerConfigsetOl1Li04Span31, questionConfigurerConfigsetPre2Span011, questionConfigurerConfigsetPre2Span021, questionConfigurerConfigsetPre2Span031, questionConfigurerConfigsetPre2Span041, questionConfigurerConfigsetPre2Span051, questionConfigurerConfigsetPre2Span061, questionConfigurerConfigsetPre2Span071, questionConfigurerConfigsetPre2Span081, questionConfigurerConfigsetOl2Li011, questionConfigurerConfigsetOl2Li02Span11, questionConfigurerConfigsetOl2Li02Span21, questionConfigurerConfigsetOl2Li031, questionConfigurerConfigsetOl2Li041, questionConfigurerConfigsetOl2Li051, questionConfigurerConfigsetOl2Li061, questionConfigurerConfigsetOl2Li071, questionConfigurerConfigsetOl2Li081, questionConfigsetZookeeperH3I1, questionConfigsetZookeeperH3Span1, questionConfigsetZookeeperH4I1, questionConfigsetZookeeperH4Span1, questionConfigsetZookeeperPre1Span011, questionConfigsetZookeeperPre1Span021, questionConfigsetZookeeperPre1Span031, questionConfigsetZookeeperPre1Span04Span11, questionConfigsetZookeeperPre1Span04Span21, questionConfigsetZookeeperPre1Span05Span11, questionConfigsetZookeeperPre1Span05Span21, questionConfigsetZookeeperPre1Span06Span11, questionConfigsetZookeeperPre1Span06Span21, questionConfigsetZookeeperOl1Li011, questionConfigsetZookeeperOl1Li021, questionConfigsetZookeeperOl1Li031, questionConfigsetZookeeperOl1Li04Span11, questionConfigsetZookeeperOl1Li04Span21, questionConfigsetZookeeperOl1Li04Span31, questionConfigsetZookeeperOl1Li05Span11, questionConfigsetZookeeperOl1Li05Span21, questionConfigsetZookeeperOl1Li05Span31, questionConfigsetZookeeperOl1Li06Span11, questionConfigsetZookeeperOl1Li06Span21, questionConfigsetZookeeperOl1Li06Span31, questionServiceH3I1, questionServiceH3Span1, questionServiceH4I1, questionServiceH4Span1, questionServicePreSpan11, questionServicePreSpan1Br1, questionServicePreSpan2Br1, questionServicePreSpan3Br1, questionServicePreSpan3Br2, questionServicePreSpan3Br3, questionServicePreSpan3Br4, questionServicePreSpan3Br5, questionServicePreSpan3Br6, questionServicePreSpan4BrSpan11, questionServicePreSpan4Span21, questionServicePreSpan4Span31, questionServicePreSpan4Span41, questionServicePreSpan5Br1, questionServicePreSpan5Br2, questionServicePreSpan5Br3, questionServicePreSpan5Br4, questionServicePreSpan5Br5, questionServiceOl2Li011, questionServiceOl2Li021, questionServiceOl2Li031, questionServiceOl2Li041, questionServiceOl2Li051, questionServiceOl2Li061, questionServiceOl2Li071, questionServiceOl2Li081, questionServiceOl2Li091, questionServiceOl2Li101, questionServiceOl2Li111, questionServiceOl2Li121, questionServiceOl2Li131, questionServiceOl2Li141, questionServiceOl2Li151, questionServiceOl2Li161, questionSystemctlDaemonReloadH3I1, questionSystemctlDaemonReloadH3Span1, questionSystemctlDaemonReloadH4I1, questionSystemctlDaemonReloadH4Span1, questionSystemctlDaemonReloadPreSpan11, questionSystemctlDaemonReloadPreSpan21, questionSystemctlDaemonReloadPreSpan31, questionSystemctlDaemonReloadOl2Li11, questionSystemctlDaemonReloadOl2Li21, questionSystemctlDaemonReloadOl2Li31, questionSystemctlEnableH3I1, questionSystemctlEnableH3Span1, questionSystemctlEnableH4I1, questionSystemctlEnableH4Span1, questionSystemctlEnablePreSpan11, questionSystemctlEnablePreSpan21, questionSystemctlEnablePreSpan31, questionSystemctlEnablePreSpan41, questionSystemctlEnableOl2Li11, questionSystemctlEnableOl2Li21, questionSystemctlEnableOl2Li31, questionSystemctlEnableOl2Li41, questionSystemctlStartH3I1, questionSystemctlStartH3Span1, questionSystemctlStartH4I1, questionSystemctlStartH4Span1, questionSystemctlStartPreSpan11, questionSystemctlStartPreSpan21, questionSystemctlStartPreSpan31, questionSystemctlStartPreSpan41, questionSystemctlStartOl2Li11, questionSystemctlStartOl2Li21, questionSystemctlStartOl2Li31, questionSystemctlStartOl2Li41, questionSystemctlStatusH3I1, questionSystemctlStatusH3Span1, questionSystemctlStatusH4I1, questionSystemctlStatusH4Span1, questionSystemctlStatusPreSpan11, questionSystemctlStatusPreSpan21, questionSystemctlStatusPreSpan31, questionSystemctlStatusPreSpan41, questionSystemctlStatusOl2Li11, questionSystemctlStatusOl2Li21, questionSystemctlStatusOl2Li31, questionSystemctlStatusOl2Li41, questionSystemctlStatusP21, questionSystemctlStatusP22, questionCollectionsKeycloakH3I1, questionCollectionsKeycloakH3Span1, questionCollectionsKeycloakH4I1, questionCollectionsKeycloakH4Span1, questionCollectionsKeycloakPre1Span011, questionCollectionsKeycloakPre1Span021, questionCollectionsKeycloakPre1Span03Span11, questionCollectionsKeycloakPre1Span03Span21, questionCollectionsKeycloakPre1Span04Span11, questionCollectionsKeycloakPre1Span04Span21, questionCollectionsKeycloakOl1Li011, questionCollectionsKeycloakOl1Li021, questionCollectionsKeycloakOl1Li03Span11, questionCollectionsKeycloakOl1Li03Span21, questionCollectionsKeycloakOl1Li03Span31, questionCollectionsKeycloakOl1Li04Span11, questionCollectionsKeycloakOl1Li04Span21, questionCollectionsKeycloakOl1Li04Span31, questionLiensH3I1, questionLiensH3Span1, questionLiensH4I1, questionLiensH4Span1, questionLiensUlLi1A1, questionLiensUlLi1Span1, questionLiensUlLi2A1, questionLiensUlLi2Span1, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41, recapituler3TableTr13Td1I1, recapituler3TableTr13Td21, recapituler3TableTr13Td3I1, recapituler3TableTr13Td41, recapituler3TableTr14Td1I1, recapituler3TableTr14Td21, recapituler3TableTr14Td3I1, recapituler3TableTr14Td41, recapituler3TableTr15Td1I1, recapituler3TableTr15Td21, recapituler3TableTr15Td3I1, recapituler3TableTr15Td41, recapituler3TableTr16Td1I1, recapituler3TableTr16Td21, recapituler3TableTr16Td3I1, recapituler3TableTr16Td41, recapituler3TableTr17Td1I1, recapituler3TableTr17Td21, recapituler3TableTr17Td3I1, recapituler3TableTr17Td41, recapituler3TableTr18Td1I1, recapituler3TableTr18Td21, recapituler3TableTr18Td3I1, recapituler3TableTr18Td41 };
+	public static final String[] C001L011InstallerKeycloakVals = new String[] { moiP1, moiP2, questionDependencesH3I1, questionDependencesH3Span1, questionDependencesH4I1, questionDependencesH4Span1, questionDependencesPre1Span11, questionDependencesPre1Span21, questionDependencesPre1Span31, questionDependencesPre1Span41, questionDependencesPre1Span51, questionDependencesOl2Li1Dt1, questionDependencesOl2Li1Dd1, questionDependencesOl2Li1Dd2, questionDependencesOl2Li1Dd3, questionDependencesOl2Li2Dt1, questionDependencesOl2Li2Dd1, questionDependencesOl2Li2Dd2, questionDependencesOl2Li3Dt1, questionDependencesOl2Li3Dd1, questionDependencesOl2Li4Dt1, questionDependencesOl2Li4Dd1, questionDependencesOl2Li5Dt1, questionDependencesOl2Li5Dd1, questionMkdirSrcH3I1, questionMkdirSrcH3Span1, questionMkdirSrcH4I1, questionMkdirSrcH4Span1, questionMkdirSrcPreSpan11, questionMkdirSrcPreSpan21, questionMkdirSrcPreSpan31, questionMkdirSrcPreSpan41, questionMkdirSrcPreSpan51, questionMkdirSrcPreSpan61, questionMkdirSrcPreSpan71, questionMkdirSrcPreSpan81, questionMkdirSrcOl2Li11, questionMkdirSrcOl2Li21, questionMkdirSrcOl2Li31, questionMkdirSrcOl2Li41, questionMkdirSrcOl2Li51, questionMkdirSrcOl2Li61, questionMkdirSrcOl2Li71, questionMkdirSrcOl2Li81, questionMkdirSrcOl2Li82, questionClonerSourceH3I1, questionClonerSourceH3Span1, questionClonerSourceH4I1, questionClonerSourceH4Span1, questionClonerSourcePreSpan11, questionClonerSourcePreSpan21, questionClonerSourcePreSpan31, questionClonerSourcePreSpan41, questionClonerSourceOl2Li11, questionClonerSourceOl2Li21, questionClonerSourceOl2Li31, questionClonerSourceOl2Li41, questionListerTagsH3I1, questionListerTagsH3Span1, questionListerTagsH4I1, questionListerTagsH4Span1, questionListerTagsPreSpan11, questionListerTagsPreSpan21, questionListerTagsPreSpan31, questionListerTagsPreSpan41, questionListerTagsPreSpan51, questionListerTagsOl2Li11, questionListerTagsOl2Li21, questionListerTagsOl2Li31, questionListerTagsOl2Li41, questionListerTagsOl2Li51, questionCheckoutTagH3I1, questionCheckoutTagH3Span1, questionCheckoutTagH4I1, questionCheckoutTagH4Span1, questionCheckoutTagPreSpan11, questionCheckoutTagPreSpan21, questionCheckoutTagPreSpan31, questionCheckoutTagPreSpan41, questionCheckoutTagPreSpan51, questionCheckoutTagPreSpan6Span11, questionCheckoutTagPreSpan6Span21, questionCheckoutTagPreSpan6Span31, questionCheckoutTagOl1Li11, questionCheckoutTagOl1Li21, questionCheckoutTagOl1Li31, questionCheckoutTagOl1Li41, questionCheckoutTagOl1Li51, questionCheckoutTagOl1Li6Span11, questionCheckoutTagOl1Li6Span21, questionCheckoutTagP2Span11, questionCheckoutTagP2Span12, questionCheckoutTagP2A11, questionCheckoutTagP2Span21, questionCheckoutTagP2Span22, questionConstruireSourceH3I1, questionConstruireSourceH3Span1, questionConstruireSourceH4I1, questionConstruireSourceH4Span1, questionConstruireSourcePre1Span011, questionConstruireSourcePre1Span021, questionConstruireSourcePre1Span031, questionConstruireSourcePre1Span041, questionConstruireSourcePre1Span051, questionConstruireSourcePre1Span061, questionConstruireSourcePre1Span071, questionConstruireSourceOl1Li011, questionConstruireSourceOl1Li021, questionConstruireSourceOl1Li031, questionConstruireSourceOl1Li041, questionConstruireSourceOl1Li051, questionConstruireSourceOl1Li061, questionConstruireSourceOl1Li071, questionMkdirServeurH3I1, questionMkdirServeurH3Span1, questionMkdirServeurH4I1, questionMkdirServeurH4Span1, questionMkdirServeurPreSpan11, questionMkdirServeurPreSpan21, questionMkdirServeurPreSpan31, questionMkdirServeurPreSpan41, questionMkdirServeurPreSpan51, questionMkdirServeurPreSpan61, questionMkdirServeurPreSpan71, questionMkdirServeurPreSpan81, questionMkdirServeurOl1Li11, questionMkdirServeurOl1Li21, questionMkdirServeurOl1Li31, questionMkdirServeurOl1Li41, questionMkdirServeurOl1Li51, questionMkdirServeurOl1Li61, questionMkdirServeurOl1Li71, questionMkdirServeurOl1Li81, questionMkdirServeurPre2Span11, questionMkdirServeurPre2Span21, questionMkdirServeurPre2Span3Span11, questionMkdirServeurPre2Span3Span21, questionMkdirServeurPre2Span3Span31, questionMkdirServeurPre2Span41, questionMkdirServeurOl2Li11, questionMkdirServeurOl2Li21, questionMkdirServeurOl2Li3Span11, questionMkdirServeurOl2Li3Span21, questionMkdirServeurOl2Li3Span31, questionMkdirServeurOl2Li3Span32, questionMkdirServeurOl2Li41, questionMkdirServeurOl2Li42, questionMkdirServeurPre3Span11, questionMkdirServeurPre3Span21, questionMkdirServeurPre3Span31, questionMkdirServeurOl3Li11, questionMkdirServeurOl3Li21, questionMkdirServeurOl3Li31, questionMkdirServeurPre4Span11, questionMkdirServeurPre4Span21, questionMkdirServeurPre4Span31, questionMkdirServeurOl4Li11, questionMkdirServeurOl4Li21, questionMkdirServeurOl4Li31, questionConfigurerH3I1, questionConfigurerH3Span1, questionConfigurerH4I1, questionConfigurerH4Span1, questionConfigurerPreSpan11, questionConfigurerPreSpan1Br1, questionConfigurerPreSpan1Br2, questionConfigurerPreSpan1Br3, questionConfigurerPreSpan1Br4, questionConfigurerPreSpan1Br5, questionConfigurerPreSpan1Br6, questionConfigurerPreSpan1Br7, questionConfigurerPreSpan1Br8, questionConfigurerPreSpan1Br9, questionConfigurerPreSpan1Br10, questionConfigurerPreSpan1Br11, questionConfigurerPreSpan1Br12, questionConfigurerPreSpan1Br13, questionConfigurerPreSpan1Br14, questionConfigurerPreSpan1Br15, questionConfigurerPreSpan1Br16, questionConfigurerPreSpan1Br17, questionConfigurerPreSpan5Br1, questionConfigurerOl2Li011, questionConfigurerOl2Li061, questionConfigurerOl2Li071, questionConfigurerOl2Li081, questionConfigurerConfigsetH3I1, questionConfigurerConfigsetH3Span1, questionConfigurerConfigsetH4I1, questionConfigurerConfigsetH4Span1, questionConfigurerConfigsetPre1Span011, questionConfigurerConfigsetPre1Span021, questionConfigurerConfigsetPre1Span031, questionConfigurerConfigsetPre1Span04Span11, questionConfigurerConfigsetPre1Span04Span12, questionConfigurerConfigsetOl1Li011, questionConfigurerConfigsetOl1Li021, questionConfigurerConfigsetOl1Li031, questionConfigurerConfigsetOl1Li04Span11, questionConfigurerConfigsetOl1Li04Span21, questionConfigurerConfigsetOl1Li04Span31, questionConfigurerConfigsetPre2Span011, questionConfigurerConfigsetPre2Span021, questionConfigurerConfigsetPre2Span031, questionConfigurerConfigsetPre2Span041, questionConfigurerConfigsetPre2Span051, questionConfigurerConfigsetPre2Span061, questionConfigurerConfigsetPre2Span071, questionConfigurerConfigsetPre2Span081, questionConfigurerConfigsetOl2Li011, questionConfigurerConfigsetOl2Li02Span11, questionConfigurerConfigsetOl2Li02Span21, questionConfigurerConfigsetOl2Li031, questionConfigurerConfigsetOl2Li041, questionConfigurerConfigsetOl2Li051, questionConfigurerConfigsetOl2Li061, questionConfigurerConfigsetOl2Li071, questionConfigurerConfigsetOl2Li081, questionConfigsetKeycloakH3I1, questionConfigsetKeycloakH3Span1, questionConfigsetKeycloakH4I1, questionConfigsetKeycloakH4Span1, questionConfigsetKeycloakPre1Span011, questionConfigsetKeycloakPre1Span021, questionConfigsetKeycloakPre1Span031, questionConfigsetKeycloakPre1Span04Span11, questionConfigsetKeycloakPre1Span04Span21, questionConfigsetKeycloakPre1Span05Span11, questionConfigsetKeycloakPre1Span05Span21, questionConfigsetKeycloakOl1Li011, questionConfigsetKeycloakOl1Li021, questionConfigsetKeycloakOl1Li031, questionConfigsetKeycloakOl1Li04Span11, questionConfigsetKeycloakOl1Li04Span21, questionConfigsetKeycloakOl1Li04Span31, questionServiceH3I1, questionServiceH3Span1, questionServiceH4I1, questionServiceH4Span1, questionServicePreSpan11, questionServicePreSpan1Br1, questionServicePreSpan2Br1, questionServicePreSpan3Br1, questionServicePreSpan3Br2, questionServicePreSpan3Br3, questionServicePreSpan3Br4, questionServicePreSpan3Br5, questionServicePreSpan3Br6, questionServicePreSpan4BrSpan11, questionServicePreSpan4Span21, questionServicePreSpan5Br1, questionServicePreSpan5Br2, questionServicePreSpan5Br3, questionServicePreSpan5Br4, questionServicePreSpan5Br5, questionServiceOl2Li011, questionServiceOl2Li021, questionServiceOl2Li031, questionServiceOl2Li041, questionServiceOl2Li051, questionServiceOl2Li061, questionServiceOl2Li071, questionServiceOl2Li081, questionServiceOl2Li091, questionServiceOl2Li101, questionServiceOl2Li111, questionServiceOl2Li121, questionServiceOl2Li131, questionServiceOl2Li141, questionServiceOl2Li151, questionServiceOl2Li161, questionSystemctlDaemonReloadH3I1, questionSystemctlDaemonReloadH3Span1, questionSystemctlDaemonReloadH4I1, questionSystemctlDaemonReloadH4Span1, questionSystemctlDaemonReloadPreSpan11, questionSystemctlDaemonReloadPreSpan21, questionSystemctlDaemonReloadPreSpan31, questionSystemctlDaemonReloadOl2Li11, questionSystemctlDaemonReloadOl2Li21, questionSystemctlDaemonReloadOl2Li31, questionSystemctlEnableH3I1, questionSystemctlEnableH3Span1, questionSystemctlEnableH4I1, questionSystemctlEnableH4Span1, questionSystemctlEnablePreSpan11, questionSystemctlEnablePreSpan21, questionSystemctlEnablePreSpan31, questionSystemctlEnablePreSpan41, questionSystemctlEnableOl2Li11, questionSystemctlEnableOl2Li21, questionSystemctlEnableOl2Li31, questionSystemctlEnableOl2Li41, questionSystemctlStartH3I1, questionSystemctlStartH3Span1, questionSystemctlStartH4I1, questionSystemctlStartH4Span1, questionSystemctlStartPreSpan11, questionSystemctlStartPreSpan21, questionSystemctlStartPreSpan31, questionSystemctlStartPreSpan41, questionSystemctlStartOl2Li11, questionSystemctlStartOl2Li21, questionSystemctlStartOl2Li31, questionSystemctlStartOl2Li41, questionSystemctlStatusH3I1, questionSystemctlStatusH3Span1, questionSystemctlStatusH4I1, questionSystemctlStatusH4Span1, questionSystemctlStatusPreSpan11, questionSystemctlStatusPreSpan21, questionSystemctlStatusPreSpan31, questionSystemctlStatusPreSpan41, questionSystemctlStatusOl2Li11, questionSystemctlStatusOl2Li21, questionSystemctlStatusOl2Li31, questionSystemctlStatusOl2Li41, questionSystemctlStatusP21, questionSystemctlStatusP22, questionCollectionsKeycloakH3I1, questionCollectionsKeycloakH3Span1, questionCollectionsKeycloakH4I1, questionCollectionsKeycloakH4Span1, questionCollectionsKeycloakPre1Span011, questionCollectionsKeycloakPre1Span021, questionCollectionsKeycloakPre1Span03Span11, questionCollectionsKeycloakPre1Span03Span21, questionCollectionsKeycloakPre1Span04Span11, questionCollectionsKeycloakPre1Span04Span21, questionCollectionsKeycloakOl1Li011, questionCollectionsKeycloakOl1Li021, questionCollectionsKeycloakOl1Li03Span11, questionCollectionsKeycloakOl1Li03Span21, questionCollectionsKeycloakOl1Li03Span31, questionCollectionsKeycloakOl1Li04Span11, questionCollectionsKeycloakOl1Li04Span21, questionCollectionsKeycloakOl1Li04Span31, questionLiensH3I1, questionLiensH3Span1, questionLiensH4I1, questionLiensH4Span1, questionLiensUlLi1A1, questionLiensUlLi1Span1, questionLiensUlLi2A1, questionLiensUlLi2Span1, recapituler1H31, recapituler2TableTr1Td11, recapituler2TableTr1Td2I1, recapituler2TableTr1Td3I1, recapituler2TableTr1Td4I1, recapituler2TableTr2Td11, recapituler2TableTr2Td21, recapituler2TableTr2Td31, recapituler2TableTr2Td41, recapituler3TableTr01Td1I1, recapituler3TableTr01Td21, recapituler3TableTr01Td3I1, recapituler3TableTr01Td41, recapituler3TableTr02Td1I1, recapituler3TableTr02Td21, recapituler3TableTr02Td3Span1I1, recapituler3TableTr02Td41, recapituler3TableTr03Td1I1, recapituler3TableTr03Td21, recapituler3TableTr03Td3I1, recapituler3TableTr03Td41, recapituler3TableTr04Td1I1, recapituler3TableTr04Td21, recapituler3TableTr04Td3Span1I1, recapituler3TableTr04Td41, recapituler3TableTr05Td1I1, recapituler3TableTr05Td21, recapituler3TableTr05Td3I1, recapituler3TableTr05Td41, recapituler3TableTr08Td1I1, recapituler3TableTr08Td21, recapituler3TableTr08Td3I1, recapituler3TableTr08Td41, recapituler3TableTr09Td1I1, recapituler3TableTr09Td21, recapituler3TableTr09Td3I1, recapituler3TableTr09Td41, recapituler3TableTr10Td1I1, recapituler3TableTr10Td21, recapituler3TableTr10Td3I1, recapituler3TableTr10Td41, recapituler3TableTr11Td1I1, recapituler3TableTr11Td21, recapituler3TableTr11Td3I1, recapituler3TableTr11Td41, recapituler3TableTr12Td1I1, recapituler3TableTr12Td21, recapituler3TableTr12Td3I1, recapituler3TableTr12Td41, recapituler3TableTr13Td1I1, recapituler3TableTr13Td21, recapituler3TableTr13Td3I1, recapituler3TableTr13Td41, recapituler3TableTr14Td1I1, recapituler3TableTr14Td21, recapituler3TableTr14Td3I1, recapituler3TableTr14Td41, recapituler3TableTr15Td1I1, recapituler3TableTr15Td21, recapituler3TableTr15Td3I1, recapituler3TableTr15Td41, recapituler3TableTr16Td1I1, recapituler3TableTr16Td21, recapituler3TableTr16Td3I1, recapituler3TableTr16Td41, recapituler3TableTr17Td1I1, recapituler3TableTr17Td21, recapituler3TableTr17Td3I1, recapituler3TableTr17Td41, recapituler3TableTr18Td1I1, recapituler3TableTr18Td21, recapituler3TableTr18Td3I1, recapituler3TableTr18Td41 };
 }

@@ -85,16 +85,16 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 
 	protected void _keycloakVersion(Couverture<String> c) {
 		if(utilisateurSite == null)
-			c.o("3.3.0");
-		else
-			c.o(utilisateurSite.getKeycloakVersion());
+			c.o("4.8.3");
+//		else
+//			c.o(utilisateurSite.getKeycloakVersion());
 	}
 
 	protected void _keycloakPortClient(Couverture<Integer> c) {
 		if(utilisateurSite == null)
 			c.o(10380);
-		else
-			c.o(utilisateurSite.getKeycloakPortClient());
+//		else
+//			c.o(utilisateurSite.getKeycloakPortClient());
 	}
 
 	protected void _keycloakTag(Couverture<String> c) {
@@ -104,15 +104,15 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	protected void _keycloakConfigset(Couverture<String> c) {
 		if(utilisateurSite == null)
 			c.o("computate");
-		else
-			c.o(utilisateurSite.getKeycloakConfigset());
+//		else
+//			c.o(utilisateurSite.getKeycloakConfigset());
 	}
 
 	protected void _keycloakCollection(Couverture<String> c) {
 		if(utilisateurSite == null)
 			c.o("site");
-		else
-			c.o(utilisateurSite.getKeycloakCollection());
+//		else
+//			c.o(utilisateurSite.getKeycloakCollection());
 	}
 
 	protected void _moi(PageHtml o) {
@@ -125,99 +125,99 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	public void  htmlBodyPersonnaliser(PageHtml o) {
 		super.htmlBodyPersonnaliser(o);
 		htmlBodyPersonnaliserAvant(o);
-		if(utilisateurSite != null) {
-			{ e("div").a("class", "w3-cell-row ").f();
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortClientForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_zookeeperPortClient").a("class", "").f().sx("port client de Zookeeper").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "port client de Zookeeper")
-							.a("class", "setZookeeperPortClient w3-input w3-border ")
-							.a("name", "setZookeeperPortClient")
-							.a("id", "Page_zookeeperPortClient")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperPortClientForm')); ")
-							.a("value", strZookeeperPortClient())
-						.fg();
-	
-					} g("form");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell-row ").f();
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakVersionForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakVersion").a("class", "").f().sx("version de Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "version de Keycloak")
-							.a("class", "setKeycloakVersion w3-input w3-border ")
-							.a("name", "setKeycloakVersion")
-							.a("id", "Page_keycloakVersion")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakVersionForm')); ")
-							.a("value", strKeycloakVersion())
-						.fg();
-	
-					} g("form");
-				} g("div");
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakPortClientForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakPortClient").a("class", "").f().sx("port client de Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "port client de Keycloak")
-							.a("class", "setKeycloakPortClient w3-input w3-border ")
-							.a("name", "setKeycloakPortClient")
-							.a("id", "Page_keycloakPortClient")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakPortClientForm')); ")
-							.a("value", strKeycloakPortClient())
-						.fg();
-	
-					} g("form");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell-row ").f();
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakConfigsetForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakConfigset").a("class", "").f().sx("Configset Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "Configset Keycloak")
-							.a("class", "setKeycloakConfigset w3-input w3-border ")
-							.a("name", "setKeycloakConfigset")
-							.a("id", "Page_keycloakConfigset")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakConfigsetForm')); ")
-							.a("value", strKeycloakConfigset())
-						.fg();
-	
-					} g("form");
-				} g("div");
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakCollectionForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakCollection").a("class", "").f().sx("Collection Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "Collection Keycloak")
-							.a("class", "setKeycloakCollection w3-input w3-border ")
-							.a("name", "setKeycloakCollection")
-							.a("id", "Page_keycloakCollection")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakCollectionForm')); ")
-							.a("value", strKeycloakCollection())
-						.fg();
-	
-					} g("form");
-				} g("div");
-			} g("div");
-		}
+//		if(utilisateurSite != null) {
+//			{ e("div").a("class", "w3-cell-row ").f();
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakPortClientForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakPortClient").a("class", "").f().sx("port client de Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "port client de Keycloak")
+//							.a("class", "setKeycloakPortClient w3-input w3-border ")
+//							.a("name", "setKeycloakPortClient")
+//							.a("id", "Page_keycloakPortClient")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakPortClientForm')); ")
+//							.a("value", strKeycloakPortClient())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//			} g("div");
+//			{ e("div").a("class", "w3-cell-row ").f();
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakVersionForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakVersion").a("class", "").f().sx("version de Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "version de Keycloak")
+//							.a("class", "setKeycloakVersion w3-input w3-border ")
+//							.a("name", "setKeycloakVersion")
+//							.a("id", "Page_keycloakVersion")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakVersionForm')); ")
+//							.a("value", strKeycloakVersion())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakPortClientForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakPortClient").a("class", "").f().sx("port client de Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "port client de Keycloak")
+//							.a("class", "setKeycloakPortClient w3-input w3-border ")
+//							.a("name", "setKeycloakPortClient")
+//							.a("id", "Page_keycloakPortClient")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakPortClientForm')); ")
+//							.a("value", strKeycloakPortClient())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//			} g("div");
+//			{ e("div").a("class", "w3-cell-row ").f();
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakConfigsetForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakConfigset").a("class", "").f().sx("Configset Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "Configset Keycloak")
+//							.a("class", "setKeycloakConfigset w3-input w3-border ")
+//							.a("name", "setKeycloakConfigset")
+//							.a("id", "Page_keycloakConfigset")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakConfigsetForm')); ")
+//							.a("value", strKeycloakConfigset())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakCollectionForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakCollection").a("class", "").f().sx("Collection Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "Collection Keycloak")
+//							.a("class", "setKeycloakCollection w3-input w3-border ")
+//							.a("name", "setKeycloakCollection")
+//							.a("id", "Page_keycloakCollection")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakCollectionForm')); ")
+//							.a("value", strKeycloakCollection())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//			} g("div");
+//		}
 		htmlBodyPersonnaliserApres(o);
 		e("div").a("id", "sitePersonnaliser").f();
 	}
@@ -229,6 +229,12 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	}
 
 	protected void _questionClonerSource(PageHtml o) {
+	}
+
+	protected void _questionListerTags(PageHtml o) {
+	}
+
+	protected void _questionCheckoutTag(PageHtml o) {
 	}
 
 	protected void _questionConstruireSource(PageHtml o) {
@@ -243,7 +249,7 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	protected void _questionConfigurerConfigset(PageHtml o) {
 	}
 
-	protected void _questionConfigsetZookeeper(PageHtml o) {
+	protected void _questionConfigsetKeycloak(PageHtml o) {
 	}
 
 	protected void _questionService(PageHtml o) {

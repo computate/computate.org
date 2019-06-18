@@ -110,16 +110,16 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 
 	protected void _keycloakVersion(Couverture<String> c) {
 		if(utilisateurSite == null)
-			c.o("3.3.0");
-		else
-			c.o(utilisateurSite.getKeycloakVersion());
+			c.o("4.8.3");
+//		else
+//			c.o(utilisateurSite.getKeycloakVersion());
 	}
 
 	protected void _keycloakPortClient(Couverture<Integer> c) {
 		if(utilisateurSite == null)
 			c.o(10380);
-		else
-			c.o(utilisateurSite.getKeycloakPortClient());
+//		else
+//			c.o(utilisateurSite.getKeycloakPortClient());
 	}
 
 	protected void _keycloakTag(Couverture<String> c) {
@@ -129,15 +129,15 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	protected void _keycloakConfigset(Couverture<String> c) {
 		if(utilisateurSite == null)
 			c.o("computate");
-		else
-			c.o(utilisateurSite.getKeycloakConfigset());
+//		else
+//			c.o(utilisateurSite.getKeycloakConfigset());
 	}
 
 	protected void _keycloakCollection(Couverture<String> c) {
 		if(utilisateurSite == null)
 			c.o("site");
-		else
-			c.o(utilisateurSite.getKeycloakCollection());
+//		else
+//			c.o(utilisateurSite.getKeycloakCollection());
 	}
 
 	/**
@@ -163,99 +163,99 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	@Override public void htmlBodyPersonnaliser(PageHtml o) {
 		super.htmlBodyPersonnaliser(o);
 		htmlBodyPersonnaliserAvant(o);
-		if(utilisateurSite != null) {
-			{ e("div").a("class", "w3-cell-row ").f();
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "zookeeperPortClientForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_zookeeperPortClient").a("class", "").f().sx("port client de Zookeeper").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "port client de Zookeeper")
-							.a("class", "setZookeeperPortClient w3-input w3-border ")
-							.a("name", "setZookeeperPortClient")
-							.a("id", "Page_zookeeperPortClient")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#zookeeperPortClientForm')); ")
-							.a("value", strZookeeperPortClient())
-						.fg();
-	
-					} g("form");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell-row ").f();
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakVersionForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakVersion").a("class", "").f().sx("version de Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "version de Keycloak")
-							.a("class", "setKeycloakVersion w3-input w3-border ")
-							.a("name", "setKeycloakVersion")
-							.a("id", "Page_keycloakVersion")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakVersionForm')); ")
-							.a("value", strKeycloakVersion())
-						.fg();
-	
-					} g("form");
-				} g("div");
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakPortClientForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakPortClient").a("class", "").f().sx("port client de Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "port client de Keycloak")
-							.a("class", "setKeycloakPortClient w3-input w3-border ")
-							.a("name", "setKeycloakPortClient")
-							.a("id", "Page_keycloakPortClient")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakPortClientForm')); ")
-							.a("value", strKeycloakPortClient())
-						.fg();
-	
-					} g("form");
-				} g("div");
-			} g("div");
-			{ e("div").a("class", "w3-cell-row ").f();
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakConfigsetForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakConfigset").a("class", "").f().sx("Configset Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "Configset Keycloak")
-							.a("class", "setKeycloakConfigset w3-input w3-border ")
-							.a("name", "setKeycloakConfigset")
-							.a("id", "Page_keycloakConfigset")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakConfigsetForm')); ")
-							.a("value", strKeycloakConfigset())
-						.fg();
-	
-					} g("form");
-				} g("div");
-				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
-					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakCollectionForm").a("style", "display: inline-block; ").f();
-						e("label").a("for", "Page_keycloakCollection").a("class", "").f().sx("Collection Keycloak").g("label");
-	
-						e("input")
-							.a("type", "text")
-							.a("placeholder", "Collection Keycloak")
-							.a("class", "setKeycloakCollection w3-input w3-border ")
-							.a("name", "setKeycloakCollection")
-							.a("id", "Page_keycloakCollection")
-							.a("onclick", "enleverLueur($(this)); ")
-							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakCollectionForm')); ")
-							.a("value", strKeycloakCollection())
-						.fg();
-	
-					} g("form");
-				} g("div");
-			} g("div");
-		}
+//		if(utilisateurSite != null) {
+//			{ e("div").a("class", "w3-cell-row ").f();
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakPortClientForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakPortClient").a("class", "").f().sx("port client de Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "port client de Keycloak")
+//							.a("class", "setKeycloakPortClient w3-input w3-border ")
+//							.a("name", "setKeycloakPortClient")
+//							.a("id", "Page_keycloakPortClient")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakPortClientForm')); ")
+//							.a("value", strKeycloakPortClient())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//			} g("div");
+//			{ e("div").a("class", "w3-cell-row ").f();
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakVersionForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakVersion").a("class", "").f().sx("version de Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "version de Keycloak")
+//							.a("class", "setKeycloakVersion w3-input w3-border ")
+//							.a("name", "setKeycloakVersion")
+//							.a("id", "Page_keycloakVersion")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakVersionForm')); ")
+//							.a("value", strKeycloakVersion())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakPortClientForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakPortClient").a("class", "").f().sx("port client de Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "port client de Keycloak")
+//							.a("class", "setKeycloakPortClient w3-input w3-border ")
+//							.a("name", "setKeycloakPortClient")
+//							.a("id", "Page_keycloakPortClient")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakPortClientForm')); ")
+//							.a("value", strKeycloakPortClient())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//			} g("div");
+//			{ e("div").a("class", "w3-cell-row ").f();
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakConfigsetForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakConfigset").a("class", "").f().sx("Configset Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "Configset Keycloak")
+//							.a("class", "setKeycloakConfigset w3-input w3-border ")
+//							.a("name", "setKeycloakConfigset")
+//							.a("id", "Page_keycloakConfigset")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakConfigsetForm')); ")
+//							.a("value", strKeycloakConfigset())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//				{ e("div").a("class", "w3-cell w3-cell-middle w3-center w3-mobile ").f();
+//					{ e("form").a("action", "/api/site/utilisateur").a("id", "keycloakCollectionForm").a("style", "display: inline-block; ").f();
+//						e("label").a("for", "Page_keycloakCollection").a("class", "").f().sx("Collection Keycloak").g("label");
+//	
+//						e("input")
+//							.a("type", "text")
+//							.a("placeholder", "Collection Keycloak")
+//							.a("class", "setKeycloakCollection w3-input w3-border ")
+//							.a("name", "setKeycloakCollection")
+//							.a("id", "Page_keycloakCollection")
+//							.a("onclick", "enleverLueur($(this)); ")
+//							.a("onchange", "patchUtilisateurSiteBase($('#UtilisateurSiteForm'), $('#keycloakCollectionForm')); ")
+//							.a("value", strKeycloakCollection())
+//						.fg();
+//	
+//					} g("form");
+//				} g("div");
+//			} g("div");
+//		}
 		htmlBodyPersonnaliserApres(o);
 		e("div").a("id", "sitePersonnaliser").f();
 	}
@@ -352,10 +352,6 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.PreSpan2: clone
 	 * Val.PreSpan3: https://github.com/keycloak/keycloak.git
 	 * Val.PreSpan4: /usr/local/src/keycloak
-	 * Val.PreSpan5: --single-branch
-	 * Val.PreSpan6: --depth 1
-	 * Val.PreSpan7Span1: --branch 
-	 * Val:keycloakTag:.PreSpan7Span2:3.3.0.Final
 	 * 
 	 * Val.Ol2Li1.frFR:git : Le système de contrôle de révision distribué pour la plupart des logiciels open source. 
 	 * Val.Ol2Li1.enUS:git: The distributed revision control system for most open source software. 
@@ -365,23 +361,75 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.Ol2Li3.enUS:https://github.com/keycloak/keycloak.git: The git URL to the Keycloak source code repository. 
 	 * Val.Ol2Li4.frFR:/usr/local/src/keycloak : Répertoire dans lequel le code source Keycloak sera cloné. 
 	 * Val.Ol2Li4.enUS:/usr/local/src/keycloak: The directory where the Keycloak source code will be cloned. 
-	 * Val.Ol2Li5.frFR:--single-branch : Cloner et extraire uniquement l'historique menant au sommet d'une seule branche. 
-	 * Val.Ol2Li5.enUS:--single-branch: Clone and checkout only the history leading to the tip of a single branch. 
-	 * Val.Ol2Li6.frFR:--depth 1 : Ne récupérez aucun historique pour la branche. 
-	 * Val.Ol2Li6.enUS:--depth 1: Do not retrieve any history for the branch. 
-	 * Val.Ol2Li7Span1.frFR:--branch 
-	 * Val:keycloakTag:.Ol2Li7Span2.frFR:3.3.0.Final
-	 * Val.Ol2Li7Span3.frFR: : La tag récente pour baser la branche. 
-	 * Val.Ol2Li7Span1.enUS:):--branch 
-	 * Val:keycloakTag:.Ol2Li7Span2.enUS:3.3.0.Final
-	 * Val.Ol2Li7Span3.enUS:): A recent tag to base the branch from. 
-	 * 
-	 * Val.P2.frFR:Keycloak a un dépôt git énorme avec beaucoup d’histoire et peut être lent à cloner. 
-	 * Val.P2.frFR:Pour accélérer considérablement le temps, nous pouvons cloner une seule branche à la pointe. 
-	 * Val.P2.enUS:Keycloak has a huge git repository with a lot of history and can be slow to clone. 
-	 * Val.P2.enUS:To greatly speed up time, we can clone a single branch at the tip. 
 	 */  
 	protected void _questionClonerSource(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-code-branch
+	 * Val.H3Span.frFR:Comment choisir une version récente de Keycloak ? 
+	 * Val.H3Span.enUS:How do I pick a recent version of Keycloak? 
+	 * Val.H4I:far fa-tag
+	 * Val.H4Span.frFR:Listez toutes les tags du référentiel git. 
+	 * Val.H4Span.enUS:List all the tags in the git repository. 
+	 * Val.PreSpan1:(cd
+	 * Val.PreSpan2: /usr/local/src/keycloak
+	 * Val.PreSpan3: &&
+	 * Val.PreSpan4: git
+	 * Val.PreSpan5: tag)
+	 * 
+	 * Val.Ol2Li1.frFR:(cd : Changer de répertoire temporairement avec la parenthèse ouverte. 
+	 * Val.Ol2Li1.enUS:(cd: Change directory temporarily, because of the open parenthesis. 
+	 * Val.Ol2Li2.frFR:/usr/local/src/keycloak : Répertoire dans lequel le code source Keycloak a été cloné. 
+	 * Val.Ol2Li2.enUS:/usr/local/src/keycloak: The directory where the Keycloak source code was cloned. 
+	 * Val.Ol2Li3.frFR:&& : Exécutez la commande cd et git ensemble. 
+	 * Val.Ol2Li3.enUS:&&: Run the cd and git command together. 
+	 * Val.Ol2Li4:git
+	 * Val.Ol2Li5.frFR:tag) : Répertorie les tags actuelles ou les versions assignées du code et ferme la parenthèse. 
+	 * Val.Ol2Li5.enUS:tag): Lists the current tags or assigned versions of the code and close the parenthesis. 
+	 */  
+	protected void _questionListerTags(PageHtml o) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Val.H3I:far fa-code-merge
+	 * Val.H3Span.frFR:Comment changer de version du code source de Keycloak ? 
+	 * Val.H3Span.enUS:How do I switch versions of the Keycloak source code? 
+	 * Val.H4I:far fa-code-commit
+	 * Val.H4Span.frFR:Checkout la tag git. 
+	 * Val.H4Span.enUS:Checkout the git tag. 
+	 * Val.PreSpan1:(cd
+	 * Val.PreSpan2: /usr/local/src/keycloak
+	 * Val.PreSpan3: &&
+	 * Val.PreSpan4: git
+	 * Val.PreSpan5: checkout
+	 * Val.PreSpan6Span1: 
+	 * Val:keycloakTag:.PreSpan6Span2:4.8.3.Final
+	 * Val.PreSpan6Span3:)
+	 * 
+	 * Val.Ol1Li1:(cd
+	 * Val.Ol1Li2:/usr/local/src/keycloak
+	 * Val.Ol1Li3:&&
+	 * Val.Ol1Li4:git
+	 * Val.Ol1Li5.frFR:checkout : Checkout une branche dans l’arbre de travail. 
+	 * Val.Ol1Li5.enUS:checkout: Checkout a branch to the working tree. 
+	 * Val:keycloakTag:.Ol1Li6Span1.frFR:4.8.3.Final
+	 * Val.Ol1Li6Span2.frFR:) : La dernière tag pour baser la branche. 
+	 * Val:keycloakTag:.Ol1Li6Span1.enUS:4.8.3.Final
+	 * Val.Ol1Li6Span2.enUS:): The latest tag to base the branch from. 
+	 * 
+	 * Val.P2Span1.frFR:
+	 * Val.P2Span1.enUS:The enterprise supported version of Keycloak is called Red Hat Single Sign On (Red Hat SSO). 
+	 * Val.P2Span1.enUS:The latest version of Red Hat SSO is version 7.3 and is based on Keycloak version 4.8. See: 
+	 * Val.P2A1:https://access.redhat.com/articles/2342881
+	 * Val.P2Span2.enUS:. I will use the latest 4.8 tag to give me the latest updates of the most recent, enterprise supported, version of Keycloak. 
+	 * Val.P2Span2.enUS:That way, when I deploy my application to the cloud in production, I can install the same compatible, enterprise supported, version of Red Hat SSO for user management of my applications. 
+	 */  
+	protected void _questionCheckoutTag(PageHtml o) {
 	}
 
 	/**
@@ -395,7 +443,7 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.H4Span.enUS:Build Keycloak with the mvn command. 
 	 * 
 	 * Val.Pre1Span01:(cd
-	 * Val.Pre1Span02: /usr/local/src/keycloak/keycloak
+	 * Val.Pre1Span02: /usr/local/src/keycloak
 	 * Val.Pre1Span03: &&
 	 * Val.Pre1Span04: mvn
 	 * Val.Pre1Span05: install
@@ -403,14 +451,14 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.Pre1Span07: -DskipTests)
 	 * 
 	 * Val.Ol1Li01:(cd
-	 * Val.Ol1Li02:/usr/local/src/keycloak/keycloak
+	 * Val.Ol1Li02:/usr/local/src/keycloak
 	 * Val.Ol1Li03:&&
 	 * Val.Ol1Li04.frFR:mvn : Un outil de construction pour les projets Java. 
 	 * Val.Ol1Li04.enUS:mvn:  A platform-independent build tool for Java projects. 
 	 * Val.Ol1Li05.frFR:install : 
 	 * Val.Ol1Li05.enUS:install: Compile and install the version of Keycloak in the local Maven repository. 
 	 * Val.Ol1Li06.frFR:-Pdistribution : 
-	 * Val.Ol1Li07.enUS:-Pdistribution:  Create the full distribution of the Keycloak application. 
+	 * Val.Ol1Li06.enUS:-Pdistribution:  Create the full distribution of the Keycloak application. 
 	 * Val.Ol1Li07.frFR:-DskipTests) : 
 	 * Val.Ol1Li07.enUS:-DskipTests): Skip tests to speed up the build process. 
 	 */  
@@ -448,7 +496,7 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.Pre2Span1:rsync
 	 * Val.Pre2Span2: -r
 	 * Val.Pre2Span3Span1: /usr/local/src/keycloak/distribution/server-dist/keycloak-
-	 * Val:keycloakVersion:.Pre2Span3Span2:3.3.0
+	 * Val:keycloakVersion:.Pre2Span3Span2:4.8.3
 	 * Val.Pre2Span3Span3:.Final/
 	 * Val.Pre2Span4: /srv/keycloak/
 	 * 
@@ -457,11 +505,11 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.Ol2Li2.frFR:-r: Recurse dans des répertoires. 
 	 * Val.Ol2Li2.enUS:-r: Recurse into directories. 
 	 * Val.Ol2Li3Span1.frFR:/usr/local/src/keycloak/distribution/server-dist/keycloak-
-	 * Val:keycloakVersion:.Ol2Li3Span2.frFR:3.3.0
+	 * Val:keycloakVersion:.Ol2Li3Span2.frFR:4.8.3
 	 * Val.Ol2Li3Span3.frFR:.Final/ : Le répertoire où l'application maven a été construite. 
 	 * Val.Ol2Li3Span3.frFR:N'oubliez pas le slash à la fin ou rsync suppose qu'il s'agit d'un fichier dans la destination. 
 	 * Val.Ol2Li3Span1.enUS:/usr/local/src/keycloak/distribution/server-dist/keycloak-
-	 * Val:keycloakVersion:.Ol2Li3Span2.enUS:3.3.0
+	 * Val:keycloakVersion:.Ol2Li3Span2.enUS:4.8.3
 	 * Val.Ol2Li3Span3.enUS:.Final/: The directory where the maven application was built. 
 	 * Val.Ol2Li3Span3.enUS:Don't forget the ending slash or rsync assumes it's a file inside the destination. 
 	 * Val.Ol2Li4.frFR:/srv/keycloak/ : Le répertoire où le serveur sera installé.
@@ -481,7 +529,7 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * 
 	 * Val.Pre4Span1:install
 	 * Val.Pre4Span2: -d
-	 * Val.Pre4Span3: /srv/keycloak-3.3.0/modules/system/layers/keycloak/org/postgresql/main
+	 * Val.Pre4Span3: /srv/keycloak-4.8.3/modules/system/layers/keycloak/org/postgresql/main
 	 * 
 	 * Val.Ol4Li1.frFR:rm: Supprimer les fichiers et les répertoires. 
 	 * Val.Ol4Li1.enUS:rm: Remove files and directories. 
@@ -597,8 +645,8 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * {@inheritDoc}
 	 * 
 	 * Val.H3I:far fa-cloud-upload-alt
-	 * Val.H3Span.frFR:Comment télécharger mon configset Keycloak sur Zookeeper ? 
-	 * Val.H3Span.enUS:How do I upload my Keycloak configset to Zookeeper? 
+	 * Val.H3Span.frFR:Comment télécharger mon configset Keycloak sur Keycloak ? 
+	 * Val.H3Span.enUS:How do I upload my Keycloak configset to Keycloak? 
 	 * Val.H4I:far fa-file-upload
 	 * Val.H4Span.frFR:Utilisez la commande keycloak zk upconfig. 
 	 * Val.H4Span.enUS:Use the keycloak zk upconfig command. 
@@ -610,35 +658,21 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val:keycloakConfigset:.Pre1Span04Span2:computate
 	 * Val.Pre1Span05Span1: -d /srv/keycloak/server/keycloak/configsets/
 	 * Val:keycloakConfigset:.Pre1Span05Span2:computate
-	 * Val.Pre1Span06Span1: -z localhost:
-	 * Val:zookeeperPortClient:.Pre1Span06Span2:10281
 	 * 
 	 * Val.Ol1Li01.frFR:/srv/keycloak/bin/keycloak : Le binaire exécutable keycloak. 
 	 * Val.Ol1Li01.enUS:/srv/keycloak/bin/keycloak: The keycloak executable binary. 
-	 * Val.Ol1Li02.frFR:zk : Effectuez une opération zookeeper avec les configsets Keycloak. 
-	 * Val.Ol1Li02.enUS:zk: Perform a zookeeper operation with Keycloak configsets. 
-	 * Val.Ol1Li03.frFR:upconfig : Téléchargez un configset Keycloak sur zookeeper. 
-	 * Val.Ol1Li03.enUS:upconfig: Upload a Keycloak configset to zookeeper. 
+	 * Val.Ol1Li02.frFR:zk : Effectuez une opération keycloak avec les configsets Keycloak. 
+	 * Val.Ol1Li02.enUS:zk: Perform a keycloak operation with Keycloak configsets. 
+	 * Val.Ol1Li03.frFR:upconfig : Téléchargez un configset Keycloak sur keycloak. 
+	 * Val.Ol1Li03.enUS:upconfig: Upload a Keycloak configset to keycloak. 
 	 * Val.Ol1Li04Span1.frFR:-n 
 	 * Val:keycloakConfigset:.Ol1Li04Span2.frFR:computate
 	 * Val.Ol1Li04Span3.frFR: : Le nom du configset Keycloak. 
 	 * Val.Ol1Li04Span1.enUS:-n 
 	 * Val:keycloakConfigset:.Ol1Li04Span2.enUS:computate
 	 * Val.Ol1Li04Span3.enUS:: The name of the Keycloak configset. 
-	 * Val.Ol1Li05Span1.frFR:-d /srv/keycloak/server/keycloak/configsets/
-	 * Val:keycloakConfigset:.Ol1Li05Span2.frFR:computate
-	 * Val.Ol1Li05Span3.frFR: : Le chemin vers le configset Keycloak. 
-	 * Val.Ol1Li05Span1.enUS:-d /srv/keycloak/server/keycloak/configsets/
-	 * Val:keycloakConfigset:.Ol1Li05Span2.enUS:computate
-	 * Val.Ol1Li05Span3.enUS:: The path to the Keycloak configset. 
-	 * Val.Ol1Li06Span1.frFR:-z localhost:
-	 * Val:zookeeperPortClient:.Ol1Li06Span2.frFR:10281
-	 * Val.Ol1Li06Span3.frFR: : Le nom d'hôte et le port vers le serveur Zookeeper. 
-	 * Val.Ol1Li06Span1.enUS:-z localhost:
-	 * Val:zookeeperPortClient:.Ol1Li06Span2.enUS:10281
-	 * Val.Ol1Li06Span3.enUS:: The host and port to the Zookeeper server. 
 	 */  
-	protected void _questionConfigsetZookeeper(PageHtml o) {
+	protected void _questionConfigsetKeycloak(PageHtml o) {
 	}
 
 	/**
@@ -666,8 +700,6 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.PreSpan3Br:Group='"$USER"'
 	 * Val.PreSpan4BrSpan1:ExecStart=/srv/keycloak/bin/keycloak -c -s /srv/keycloak -p 
 	 * Val:keycloakPortClient:.PreSpan4Span2:10380
-	 * Val.PreSpan4Span3: -z localhost:
-	 * Val:zookeeperPortClient:.PreSpan4Span4:10281
 	 * Val.PreSpan5Br:Restart=on-failure
 	 * Val.PreSpan5Br:
 	 * Val.PreSpan5Br:[Install]
@@ -833,7 +865,7 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val:keycloakConfigset:.Pre1Span04Span2:computate
 	 * 
 	 * Val.Ol1Li01:/srv/keycloak/bin/keycloak
-	 * Val.Ol1Li02.frFR:create_collection : Effectuez une opération zookeeper avec les configsets Keycloak. 
+	 * Val.Ol1Li02.frFR:create_collection : Effectuez une opération keycloak avec les configsets Keycloak. 
 	 * Val.Ol1Li02.enUS:create_collection: A Keycloak collection
 	 * Val.Ol1Li03Span1.frFR:-c 
 	 * Val.Ol1Li03Span1.enUS:-c 
@@ -994,8 +1026,8 @@ public class C001L011InstallerKeycloak extends C001L011InstallerKeycloakGen<C001
 	 * Val.TableTr10Td4.enUS:Try out my own favorite configset from my opensource project computate. 
 	 * 
 	 * Val.TableTr11Td1I:far fa-cloud-upload-alt
-	 * Val.TableTr11Td2.frFR:Comment télécharger mon configset Keycloak sur Zookeeper ? 
-	 * Val.TableTr11Td2.enUS:How do I upload my Keycloak configset to Zookeeper? 
+	 * Val.TableTr11Td2.frFR:Comment télécharger mon configset Keycloak sur Keycloak ? 
+	 * Val.TableTr11Td2.enUS:How do I upload my Keycloak configset to Keycloak? 
 	 * Val.TableTr11Td3I:far fa-file-upload
 	 * Val.TableTr11Td4.frFR:Utilisez la commande keycloak zk upconfig. 
 	 * Val.TableTr11Td4.enUS:Use the keycloak zk upconfig command. 
