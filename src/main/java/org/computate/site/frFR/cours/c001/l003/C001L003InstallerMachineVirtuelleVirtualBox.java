@@ -1,4 +1,4 @@
-package org.computate.site.frFR.cours.c001.l003; 
+package org.computate.site.frFR.cours.c001.l003;  
 
 import java.util.List;
 
@@ -359,8 +359,8 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * Val.OlLi01.enUS:Open VirtualBox in your installed applications. 
 	 * Val.OlLi02.frFR:Cliquer [ New ]. 
 	 * Val.OlLi02.enUS:Click [ New ]. 
-	 * Val.OlLi03.frFR:Give your virtual machine a name, like "vm1". 
-	 * Val.OlLi03.enUS:Donnez un nom à votre machine virtuelle, comme « mv1 ». 
+	 * Val.OlLi03.frFR:Donnez un nom à votre machine virtuelle, comme « mv1 ». 
+	 * Val.OlLi03.enUS:Give your virtual machine a name, like "vm1". 
 	 * Val.OlLi04.frFR:Type: Linux
 	 * Val.OlLi04.enUS:Type: Linux
 	 * Val.OlLi05.frFR:Version: Other Linux (64-bit)
@@ -399,7 +399,7 @@ public class C001L003InstallerMachineVirtuelleVirtualBox extends C001L003Install
 	 * Val.OlLi15.frFR:L'étape suivante consiste à lui attribuer un ISO comme disque optique. 
 	 * Val.OlLi15.frFR:Cliquez-droit sur la machine virtuelle dans VirtualBox.
 	 * Val.OlLi15.enUS:Now your virtual machine is created! 
-	 * Val.OlLi15.enUS:The next step is to assign and ISO to it as an optical disk drive. 
+	 * Val.OlLi15.enUS:The next step is to assign an ISO to it as an optical disk drive. 
 	 * Val.OlLi15.enUS:Right-click on the virtual machine in VirtualBox. 
 	 * Val.OlLi16.frFR:Cliquer « Settings... ». 
 	 * Val.OlLi16.enUS:Click "Settings..." 

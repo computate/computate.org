@@ -225,6 +225,49 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 					w.s(", ");
 				w.l("{");
 
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
+
+				entiteValeur = o.getSupprime();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
+
+				entiteValeur = o.getClasseNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClasseNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
+
+				{
+					List<String> entiteValeurs = o.getClasseNomsCanoniques();
+					w.t(3, entiteNumero++ == 0 ? "" : ", ");
+					w.s("\"classeNomsCanoniques\": [");
+					for(int k = 0; k < entiteValeurs.size(); k++) {
+						entiteValeur = entiteValeurs.get(k);
+						if(k > 0)
+							w.s(", ");
+						w.s("\"");
+						w.s(((String)entiteValeur));
+						w.s("\"");
+					}
+					w.l("]");
+				}
+
 				entiteValeur = o.getEstCours();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estCours\": ", entiteValeur);
@@ -300,49 +343,6 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 				entiteValeur = o.getPageTitre();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageTitre\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getPk();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getArchive();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
-
-				entiteValeur = o.getSupprime();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
-
-				entiteValeur = o.getClasseNomCanonique();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClasseNomSimple();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
-
-				{
-					List<String> entiteValeurs = o.getClasseNomsCanoniques();
-					w.t(3, entiteNumero++ == 0 ? "" : ", ");
-					w.s("\"classeNomsCanoniques\": [");
-					for(int k = 0; k < entiteValeurs.size(); k++) {
-						entiteValeur = entiteValeurs.get(k);
-						if(k > 0)
-							w.s(", ");
-						w.s("\"");
-						w.s(((String)entiteValeur));
-						w.s("\"");
-					}
-					w.l("]");
-				}
 
 				w.tl(2, "}");
 			}
@@ -398,6 +398,49 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 
 				w.l("{");
 
+				entiteValeur = o.getPk();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
+
+				entiteValeur = o.getCree();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getModifie();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getArchive();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
+
+				entiteValeur = o.getSupprime();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
+
+				entiteValeur = o.getClasseNomCanonique();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
+
+				entiteValeur = o.getClasseNomSimple();
+				if(entiteValeur != null)
+					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
+
+				{
+					List<String> entiteValeurs = o.getClasseNomsCanoniques();
+					w.t(3, entiteNumero++ == 0 ? "" : ", ");
+					w.s("\"classeNomsCanoniques\": [");
+					for(int k = 0; k < entiteValeurs.size(); k++) {
+						entiteValeur = entiteValeurs.get(k);
+						if(k > 0)
+							w.s(", ");
+						w.s("\"");
+						w.s(((String)entiteValeur));
+						w.s("\"");
+					}
+					w.l("]");
+				}
+
 				entiteValeur = o.getEstCours();
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"estCours\": ", entiteValeur);
@@ -474,49 +517,6 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 				if(entiteValeur != null)
 					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pageTitre\": ", w.qjs(entiteValeur));
 
-				entiteValeur = o.getPk();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"pk\": ", entiteValeur);
-
-				entiteValeur = o.getCree();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"cree\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getModifie();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"modifie\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getArchive();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"archive\": ", entiteValeur);
-
-				entiteValeur = o.getSupprime();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"supprime\": ", entiteValeur);
-
-				entiteValeur = o.getClasseNomCanonique();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomCanonique\": ", w.qjs(entiteValeur));
-
-				entiteValeur = o.getClasseNomSimple();
-				if(entiteValeur != null)
-					w.tl(3, entiteNumero++ == 0 ? "" : ", ", "\"classeNomSimple\": ", w.qjs(entiteValeur));
-
-				{
-					List<String> entiteValeurs = o.getClasseNomsCanoniques();
-					w.t(3, entiteNumero++ == 0 ? "" : ", ");
-					w.s("\"classeNomsCanoniques\": [");
-					for(int k = 0; k < entiteValeurs.size(); k++) {
-						entiteValeur = entiteValeurs.get(k);
-						if(k > 0)
-							w.s(", ");
-						w.s("\"");
-						w.s(((String)entiteValeur));
-						w.s("\"");
-					}
-					w.l("]");
-				}
-
 				w.l("}");
 			}
 			gestionnaireEvenements.handle(Future.succeededFuture(OperationResponse.completedWithJson(buffer)));
@@ -527,6 +527,24 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 
 	public String varIndexeCours(String entiteVar) {
 		switch(entiteVar) {
+			case "pk":
+				return "pk_indexed_long";
+			case "id":
+				return "id_indexed_string";
+			case "cree":
+				return "cree_indexed_date";
+			case "modifie":
+				return "modifie_indexed_date";
+			case "archive":
+				return "archive_indexed_boolean";
+			case "supprime":
+				return "supprime_indexed_boolean";
+			case "classeNomCanonique":
+				return "classeNomCanonique_indexed_string";
+			case "classeNomSimple":
+				return "classeNomSimple_indexed_string";
+			case "classeNomsCanoniques":
+				return "classeNomsCanoniques_indexed_strings";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -565,24 +583,6 @@ public class CoursFrFRGenApiServiceImpl implements CoursFrFRGenApiService {
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
-			case "pk":
-				return "pk_indexed_long";
-			case "id":
-				return "id_indexed_string";
-			case "cree":
-				return "cree_indexed_date";
-			case "modifie":
-				return "modifie_indexed_date";
-			case "archive":
-				return "archive_indexed_boolean";
-			case "supprime":
-				return "supprime_indexed_boolean";
-			case "classeNomCanonique":
-				return "classeNomCanonique_indexed_string";
-			case "classeNomSimple":
-				return "classeNomSimple_indexed_string";
-			case "classeNomsCanoniques":
-				return "classeNomsCanoniques_indexed_strings";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

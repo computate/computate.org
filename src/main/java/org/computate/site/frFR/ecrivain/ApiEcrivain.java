@@ -310,19 +310,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 	protected void _classePageNomSimple(Couverture<String> c) {
 		c.o((String)classeDocumentSolr.get("classePageNomSimple" + classeApiMethode + "_stored_string"));
 	}
-//
-//	/**
-//	 * {@inheritDoc}
-//	 **/
-//	protected void _vertxServiceAddresse(Couverture<String> c) {
-//		String o = (String)classeDocumentSolr.get("vertxServiceAddresse_frFR_stored_string");
-//		if(classePageNomSimple != null) {
-//			o = classePageNomSimple;
-//		}
-//		else if(o == null)
-//			o = (String)classeDocumentSolr.get("classeNomSimple_frFR_stored_string");
-//		c.o(o);
-//	}
 
 	/**
 	 * {@inheritDoc}
@@ -581,13 +568,6 @@ public class ApiEcrivain extends ApiEcrivainGen<Object> implements Comparable<Ap
 		ecrireEntiteSchema(nombreTabulations, wRequeteSchema, "requete");
 		ecrireEntiteSchema(nombreTabulations, wReponseSchema, "reponse");
 	}
-//
-//	/**
-//	 * {@inheritDoc}
-//	 **/
-//	protected void _classePageNomCanoniqueMethode(Couverture<String> c) {
-//		c.o((String)classeDocumentSolr.get("classePageNomCanonique" + classeApiMethode + "_frFR_stored_string"));
-//	}
 
 	/**
 	 */

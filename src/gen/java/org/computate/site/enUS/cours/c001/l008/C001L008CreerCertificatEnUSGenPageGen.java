@@ -203,9 +203,8 @@ public abstract class C001L008CreerCertificatEnUSGenPageGen<DEV> extends C001Lec
 	// htmlBodyCourt //
 	///////////////////
 
-	@Override public void htmlBodyCourt() {
+	public void htmlBodyCourt() {
 		htmlBodyCourtC001L008CreerCertificatEnUSGenPage();
-		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L008CreerCertificatEnUSGenPage() {
@@ -223,54 +222,6 @@ public abstract class C001L008CreerCertificatEnUSGenPageGen<DEV> extends C001Lec
 	}
 
 	public void htmlScriptC001L008CreerCertificatEnUSGenPage() {
-	}
-
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L008CreerCertificatEnUSGenPage();
-		super.html();
-	}
-
-	public void htmlC001L008CreerCertificatEnUSGenPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L008CreerCertificatEnUSGenPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L008CreerCertificatEnUSGenPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L008CreerCertificatEnUSGenPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L008CreerCertificatEnUSGenPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L008CreerCertificatEnUSGenPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L008CreerCertificatEnUSGenPage() {
 	}
 
 	//////////////

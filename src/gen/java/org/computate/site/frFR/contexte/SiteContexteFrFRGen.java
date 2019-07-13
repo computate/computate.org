@@ -1,6 +1,7 @@
 package org.computate.site.frFR.contexte;
 
 import org.computate.site.frFR.ecrivain.ToutEcrivain;
+import io.opentracing.Tracer;
 import org.computate.site.frFR.couverture.Couverture;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import io.vertx.core.Vertx;
@@ -13,6 +14,7 @@ import java.util.Objects;
 import io.vertx.core.json.JsonArray;
 import org.computate.site.frFR.cluster.Cluster;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import io.opentracing.contrib.vertx.ext.web.TracingHandler;
 import java.lang.Object;
 import io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory;
 import io.vertx.core.json.JsonObject;
@@ -384,6 +386,114 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 		return (SiteContexteFrFR)this;
 	}
 
+	////////////////
+	// siteTracer //
+	////////////////
+
+	/**	L'entité « siteTracer »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected Tracer siteTracer;
+	public Couverture<Tracer> siteTracerCouverture = new Couverture<Tracer>().p(this).c(Tracer.class).var("siteTracer").o(siteTracer);
+
+	/**	<br/>L'entité « siteTracer »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.contexte.SiteContexteFrFR&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:siteTracer">Trouver l'entité siteTracer dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _siteTracer(Couverture<Tracer> c);
+
+	public Tracer getSiteTracer() {
+		return siteTracer;
+	}
+
+	public void setSiteTracer(Tracer siteTracer) {
+		this.siteTracer = siteTracer;
+		this.siteTracerCouverture.dejaInitialise = true;
+	}
+	protected SiteContexteFrFR siteTracerInit() {
+		if(!siteTracerCouverture.dejaInitialise) {
+			_siteTracer(siteTracerCouverture);
+			if(siteTracer == null)
+				setSiteTracer(siteTracerCouverture.o);
+		}
+		siteTracerCouverture.dejaInitialise(true);
+		return (SiteContexteFrFR)this;
+	}
+
+	////////////////////////
+	// siteTracingHandler //
+	////////////////////////
+
+	/**	L'entité « siteTracingHandler »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected TracingHandler siteTracingHandler;
+	public Couverture<TracingHandler> siteTracingHandlerCouverture = new Couverture<TracingHandler>().p(this).c(TracingHandler.class).var("siteTracingHandler").o(siteTracingHandler);
+
+	/**	<br/>L'entité « siteTracingHandler »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.contexte.SiteContexteFrFR&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:siteTracingHandler">Trouver l'entité siteTracingHandler dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _siteTracingHandler(Couverture<TracingHandler> c);
+
+	public TracingHandler getSiteTracingHandler() {
+		return siteTracingHandler;
+	}
+
+	public void setSiteTracingHandler(TracingHandler siteTracingHandler) {
+		this.siteTracingHandler = siteTracingHandler;
+		this.siteTracingHandlerCouverture.dejaInitialise = true;
+	}
+	protected SiteContexteFrFR siteTracingHandlerInit() {
+		if(!siteTracingHandlerCouverture.dejaInitialise) {
+			_siteTracingHandler(siteTracingHandlerCouverture);
+			if(siteTracingHandler == null)
+				setSiteTracingHandler(siteTracingHandlerCouverture.o);
+		}
+		siteTracingHandlerCouverture.dejaInitialise(true);
+		return (SiteContexteFrFR)this;
+	}
+
+	///////////////////////
+	// clientSolrTracing //
+	///////////////////////
+
+	/**	L'entité « clientSolrTracing »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected HttpSolrClient clientSolrTracing;
+	public Couverture<HttpSolrClient> clientSolrTracingCouverture = new Couverture<HttpSolrClient>().p(this).c(HttpSolrClient.class).var("clientSolrTracing").o(clientSolrTracing);
+
+	/**	<br/>L'entité « clientSolrTracing »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_frFR_indexed_string:org.computate.site.frFR.contexte.SiteContexteFrFR&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_frFR_indexed_string:clientSolrTracing">Trouver l'entité clientSolrTracing dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _clientSolrTracing(Couverture<HttpSolrClient> c);
+
+	public HttpSolrClient getClientSolrTracing() {
+		return clientSolrTracing;
+	}
+
+	public void setClientSolrTracing(HttpSolrClient clientSolrTracing) {
+		this.clientSolrTracing = clientSolrTracing;
+		this.clientSolrTracingCouverture.dejaInitialise = true;
+	}
+	protected SiteContexteFrFR clientSolrTracingInit() {
+		if(!clientSolrTracingCouverture.dejaInitialise) {
+			_clientSolrTracing(clientSolrTracingCouverture);
+			if(clientSolrTracing == null)
+				setClientSolrTracing(clientSolrTracingCouverture.o);
+		}
+		clientSolrTracingCouverture.dejaInitialise(true);
+		return (SiteContexteFrFR)this;
+	}
+
 	/////////////////
 	// selCryptage //
 	/////////////////
@@ -640,6 +750,13 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected SiteContexteFrFR requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (SiteContexteFrFR)this;
+	}
 
 	//////////////
 	// initLoin //
@@ -671,10 +788,14 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 		clientSqlInit();
 		clientSolrInit();
 		clientSolrComputateInit();
+		siteTracerInit();
+		siteTracingHandlerInit();
+		clientSolrTracingInit();
 		selCryptageInit();
 		motDePasseCryptageInit();
 		jetonIdentitePaypalInit();
 		nombreExecuteursInit();
+		requeteSite_Init();
 	}
 
 	public void initLoinPourClasse(RequeteSiteFrFR requeteSite_) {
@@ -734,6 +855,12 @@ public abstract class SiteContexteFrFRGen<DEV> extends Object {
 				return oSiteContexteFrFR.clientSolr;
 			case "clientSolrComputate":
 				return oSiteContexteFrFR.clientSolrComputate;
+			case "siteTracer":
+				return oSiteContexteFrFR.siteTracer;
+			case "siteTracingHandler":
+				return oSiteContexteFrFR.siteTracingHandler;
+			case "clientSolrTracing":
+				return oSiteContexteFrFR.clientSolrTracing;
 			case "selCryptage":
 				return oSiteContexteFrFR.selCryptage;
 			case "motDePasseCryptage":

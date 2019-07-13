@@ -35,7 +35,7 @@ import org.computate.site.frFR.couverture.Couverture;
  * IconeGroupe: regular
  * IconeNom: university
 */ 
-public class C001 extends C001Gen<Cours> {    
+public class C001 extends C001Gen<Cours> {   
 
 	public static void main(String[] args) {  
 		indexer(); 

@@ -103,19 +103,19 @@ public class C001L006InstallerEclipseEnUSGenPage extends C001L006InstallerEclips
 
 	@Override public void htmlBodyC001L006InstallerEclipseEnUSGenPage() {
 
-		if(pageH1 != null) {
+		if(StringUtils.isNotBlank(pageH1)) {
 			{ e("h1").f();
 				if(contexteIconeClassesCss != null)
 					e("i").a("class", contexteIconeClassesCss + " site-menu-icon ").f().g("i");
 				e("span").a("class", " ").f().sx(pageH1).g("span");
 			} g("h1");
 		}
-		if(pageH2 != null) {
+		if(StringUtils.isNotBlank(pageH1)) {
 			{ e("h2").f();
 				e("span").a("class", " ").f().sx(pageH2).g("span");
 			} g("h2");
 		}
-		if(pageH3 != null) {
+		if(StringUtils.isNotBlank(pageH3)) {
 			{ e("h3").f();
 				e("span").a("class", " ").f().sx(pageH3).g("span");
 			} g("h3");

@@ -179,54 +179,6 @@ public abstract class C001L008CreerCertificatEnUSPageGen<DEV> extends C001L008Cr
 	public void htmlScriptC001L008CreerCertificatEnUSPage() {
 	}
 
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L008CreerCertificatEnUSPage();
-		super.html();
-	}
-
-	public void htmlC001L008CreerCertificatEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L008CreerCertificatEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L008CreerCertificatEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L008CreerCertificatEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L008CreerCertificatEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L008CreerCertificatEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L008CreerCertificatEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

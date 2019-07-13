@@ -363,6 +363,16 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 		c.o(o);
 	}
 
+	/**	L'URL vers le moteur de recherche SOLR pour OpenTracing. **/
+	protected void _solrTracingUrl(Couverture<String> c) {
+		String o;
+		if(config == null)
+			o = System.getenv(c.var);
+		else
+			o = config.getString(prefixeEchappe + c.var);
+		c.o(o);
+	}
+
 	/**	L'URL vers le moteur de recherche SOLR. **/
 	protected void _solrUrlComputate(Couverture<String> c) {
 		String o;

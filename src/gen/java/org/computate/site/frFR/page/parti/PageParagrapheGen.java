@@ -9,7 +9,6 @@ import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.computate.site.frFR.chaine.Chaine;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.frFR.page.parti.PagePart;
-import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 
 /**	
@@ -58,26 +57,6 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 		return (PageParagraphe)this;
 	}
 
-	public String solrTexte() {
-		return texte == null ? null : texte.toString();
-	}
-
-	public String strTexte() {
-		return texte == null ? "" : texte.toString();
-	}
-
-	public String nomAffichageTexte() {
-		return null;
-	}
-
-	public String htmTooltipTexte() {
-		return null;
-	}
-
-	public String htmTexte() {
-		return texte == null ? "" : StringEscapeUtils.escapeHtml4(strTexte());
-	}
-
 	////////////////
 	// texteCourt //
 	////////////////
@@ -116,26 +95,6 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 		texteCourt.initLoinPourClasse(requeteSite_);
 		texteCourtCouverture.dejaInitialise(true);
 		return (PageParagraphe)this;
-	}
-
-	public String solrTexteCourt() {
-		return texteCourt == null ? null : texteCourt.toString();
-	}
-
-	public String strTexteCourt() {
-		return texteCourt == null ? "" : texteCourt.toString();
-	}
-
-	public String nomAffichageTexteCourt() {
-		return null;
-	}
-
-	public String htmTooltipTexteCourt() {
-		return null;
-	}
-
-	public String htmTexteCourt() {
-		return texteCourt == null ? "" : StringEscapeUtils.escapeHtml4(strTexteCourt());
 	}
 
 	//////////////
@@ -292,7 +251,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), texte, texteCourt);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -305,9 +264,7 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 		if(!(o instanceof PageParagraphe))
 			return false;
 		PageParagraphe that = (PageParagraphe)o;
-		return super.equals(o)
-				&& Objects.equals( texte, that.texte )
-				&& Objects.equals( texteCourt, that.texteCourt );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -318,8 +275,6 @@ public abstract class PageParagrapheGen<DEV> extends PagePart {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("PageParagraphe {");
-		sb.append( "texte: " ).append(texte);
-		sb.append( ", texteCourt: " ).append(texteCourt);
 		sb.append(" }");
 		return sb.toString();
 	}

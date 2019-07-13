@@ -33,7 +33,7 @@ import org.computate.site.frFR.utilisateur.UtilisateurSite;
  * IconeGroupe: regular
  * IconeNom: university
 */   
-public class Article extends ArticleGen<Cluster> { 
+public class Article extends ArticleGen<Cluster> {  
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {
 		l.add(Article.class.getCanonicalName());

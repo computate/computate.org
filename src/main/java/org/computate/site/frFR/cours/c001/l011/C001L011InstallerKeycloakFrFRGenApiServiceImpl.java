@@ -185,8 +185,6 @@ public class C001L011InstallerKeycloakFrFRGenApiServiceImpl implements C001L011I
 				return "classeNomSimple_indexed_string";
 			case "classeNomsCanoniques":
 				return "classeNomsCanoniques_indexed_strings";
-			case "leconCree":
-				return "leconCree_indexed_date";
 			case "estCours":
 				return "estCours_indexed_boolean";
 			case "estLecon":
@@ -225,6 +223,8 @@ public class C001L011InstallerKeycloakFrFRGenApiServiceImpl implements C001L011I
 				return "pageH3_indexed_string";
 			case "pageTitre":
 				return "pageTitre_indexed_string";
+			case "leconCree":
+				return "leconCree_indexed_date";
 			default:
 				throw new RuntimeException(String.format("\"%s\" n'est pas une entité indexé. ", entiteVar));
 		}

@@ -167,66 +167,6 @@ public abstract class PageBlogEnUSPageGen<DEV> extends PageBlogEnUSGenPage {
 	public void htmlBodyCourtPageBlogEnUSPage() {
 	}
 
-	////////////////
-	// htmlScript //
-	////////////////
-
-	@Override public void htmlScript() {
-		htmlScriptPageBlogEnUSPage();
-		super.htmlScript();
-	}
-
-	public void htmlScriptPageBlogEnUSPage() {
-	}
-
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlPageBlogEnUSPage();
-		super.html();
-	}
-
-	public void htmlPageBlogEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaPageBlogEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaPageBlogEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesPageBlogEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesPageBlogEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStylePageBlogEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStylePageBlogEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

@@ -83,6 +83,15 @@ public abstract class ListeRechercheGen<DEV> {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected ListeRecherche requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (ListeRecherche)this;
+	}
 
 	/////////////
 	// stocker //
@@ -378,6 +387,7 @@ public abstract class ListeRechercheGen<DEV> {
 
 	public void initListeRecherche() {
 		cInit();
+		requeteSite_Init();
 		stockerInit();
 		peuplerInit();
 		solrQueryInit();
@@ -498,7 +508,7 @@ public abstract class ListeRechercheGen<DEV> {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(stocker, peupler);
+		return Objects.hash();
 	}
 
 	////////////
@@ -511,8 +521,7 @@ public abstract class ListeRechercheGen<DEV> {
 		if(!(o instanceof ListeRecherche))
 			return false;
 		ListeRecherche that = (ListeRecherche)o;
-		return Objects.equals( stocker, that.stocker )
-				&& Objects.equals( peupler, that.peupler );
+		return true;
 	}
 
 	//////////////
@@ -522,8 +531,6 @@ public abstract class ListeRechercheGen<DEV> {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ListeRecherche {");
-		sb.append( "stocker: " ).append(stocker);
-		sb.append( ", peupler: " ).append(peupler);
 		sb.append(" }");
 		return sb.toString();
 	}

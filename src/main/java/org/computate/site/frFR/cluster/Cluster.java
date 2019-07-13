@@ -35,7 +35,7 @@ import org.computate.site.frFR.xml.OutilXml;
  * MotCle: classeNomSimpleCluster
  * Modele: true
  */ 
-public class Cluster extends ClusterGen<Object> { 
+public class Cluster extends ClusterGen<Object> {  
 
 	public static DateTimeFormatter FORMAT_dateMedicalCourt = DateTimeFormatter.ofPattern("M/d/yyyy", Locale.FRANCE);
 

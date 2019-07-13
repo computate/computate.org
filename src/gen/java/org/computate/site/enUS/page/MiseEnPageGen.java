@@ -102,6 +102,15 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected MiseEnPage requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (MiseEnPage)this;
+	}
 
 	/////////////////////
 	// statiqueUrlBase //
@@ -2448,6 +2457,7 @@ public abstract class MiseEnPageGen<DEV> extends Object {
 
 	public void initMiseEnPage() {
 		pagePartsInit();
+		requeteSite_Init();
 		statiqueUrlBaseInit();
 		pageDocumentSolrInit();
 		wInit();

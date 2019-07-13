@@ -46,6 +46,15 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected OpenshiftTemplate requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (OpenshiftTemplate)this;
+	}
 
 	//////////////////
 	// siteContexte //
@@ -326,6 +335,7 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 	}
 
 	public void initOpenshiftTemplate() {
+		requeteSite_Init();
 		siteContexteInit();
 		configSiteInit();
 		appliCheminInit();
@@ -450,7 +460,7 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(appliChemin, openApiYamlChemin);
+		return Objects.hash();
 	}
 
 	////////////
@@ -463,8 +473,7 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 		if(!(o instanceof OpenshiftTemplate))
 			return false;
 		OpenshiftTemplate that = (OpenshiftTemplate)o;
-		return Objects.equals( appliChemin, that.appliChemin )
-				&& Objects.equals( openApiYamlChemin, that.openApiYamlChemin );
+		return true;
 	}
 
 	//////////////
@@ -474,8 +483,6 @@ public abstract class OpenshiftTemplateGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("OpenshiftTemplate {");
-		sb.append( "appliChemin: \"" ).append(appliChemin).append( "\"" );
-		sb.append( ", openApiYamlChemin: \"" ).append(openApiYamlChemin).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

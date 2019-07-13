@@ -167,66 +167,6 @@ public abstract class UtilisateurSiteEnUSPageGen<DEV> extends UtilisateurSiteEnU
 	public void htmlBodyUtilisateurSiteEnUSPage() {
 	}
 
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlUtilisateurSiteEnUSPage();
-		super.html();
-	}
-
-	public void htmlUtilisateurSiteEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaUtilisateurSiteEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaUtilisateurSiteEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesUtilisateurSiteEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesUtilisateurSiteEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleUtilisateurSiteEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleUtilisateurSiteEnUSPage() {
-	}
-
-	///////////////////
-	// htmlBodyCourt //
-	///////////////////
-
-	@Override public void htmlBodyCourt() {
-		htmlBodyCourtUtilisateurSiteEnUSPage();
-		super.htmlBodyCourt();
-	}
-
-	public void htmlBodyCourtUtilisateurSiteEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

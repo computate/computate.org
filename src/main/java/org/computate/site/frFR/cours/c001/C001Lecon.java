@@ -28,7 +28,7 @@ import io.vertx.ext.web.api.OperationRequest;
  * IconeGroupe: regular
  * IconeNom: book
 */   
-public class C001Lecon extends C001LeconGen<C001> {   
+public class C001Lecon extends C001LeconGen<C001> {  
 
 	@Override
 	protected void _classeNomsCanoniques(List<String> l) {

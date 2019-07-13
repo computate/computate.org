@@ -97,10 +97,6 @@ public class RequeteSiteEnUS extends RequeteSiteEnUSGen<Object> implements Seria
 	}
 
 	protected void _principalJson(Couverture<JsonObject> c) {
-//		if(jetonAcces != null) {
-//			JsonObject o = jetonAcces.principal();
-//			c.o(o);
-//		}
 		if(utilisateurVertx != null) {
 			JsonObject o = KeycloakHelper.parseToken(utilisateurVertx.getString("access_token"));
 			c.o(o);
@@ -159,6 +155,17 @@ public class RequeteSiteEnUS extends RequeteSiteEnUSGen<Object> implements Seria
 			String o = principalJson.getString("name");
 //			String o = KeycloakHelper.name(principalJson);
 			c.o(o);
+		}
+	}
+
+	protected void _utilisateurRolesRoyaume(List<String> o) {
+		if(configSite_ != null && principalJson != null) {
+			JsonArray roles = principalJson.getJsonObject("realm_access").getJsonArray("roles");
+			if(roles != null) {
+				roles.stream().forEach(r -> {
+					addUtilisateurRolesRoyaume((String)r);
+				});
+			}
 		}
 	}
 

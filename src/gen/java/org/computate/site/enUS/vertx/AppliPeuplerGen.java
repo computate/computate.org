@@ -45,6 +45,15 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected AppliPeupler requeteSite_Init() throws Exception {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (AppliPeupler)this;
+	}
 
 	//////////////////
 	// siteContexte //
@@ -139,6 +148,7 @@ public abstract class AppliPeuplerGen<DEV> extends Object {
 	}
 
 	public void initAppliPeupler() throws Exception {
+		requeteSite_Init();
 		siteContexteInit();
 		configSiteInit();
 	}

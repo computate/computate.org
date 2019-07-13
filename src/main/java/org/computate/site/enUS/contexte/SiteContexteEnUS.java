@@ -7,11 +7,13 @@ import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import io.opentracing.Tracer;
+import io.opentracing.contrib.solr.TracingHttpSolrClientBuilder;
+import io.opentracing.contrib.vertx.ext.web.TracingHandler;
 import io.vertx.core.Vertx;
 import io.vertx.core.WorkerExecutor;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.oauth2.OAuth2Auth;
-import io.vertx.ext.jdbc.JDBCClient;
 import io.vertx.ext.sql.SQLClient;
 import io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory;
 import io.vertx.ext.web.handler.OAuth2AuthHandler;
@@ -95,10 +97,6 @@ public class SiteContexteEnUS extends SiteContexteEnUSGen<Object> {
 	}
 
 	protected void _clientSql(Couverture<SQLClient> c) {
-//		if(vertx != null) {
-//			SQLClient o = JDBCClient.createShared(vertx, jdbcConfig);
-//			c.o(o);
-//		}
 	}
 
 	protected void _clientSolr(Couverture<HttpSolrClient> c) {
@@ -112,6 +110,23 @@ public class SiteContexteEnUS extends SiteContexteEnUSGen<Object> {
 			HttpSolrClient o = new HttpSolrClient.Builder(solrUrlComputate).build();
 			c.o(o);
 		}
+	}
+
+	protected void _siteTracer(Couverture<Tracer> c) {
+//		TracerSolr o = new TracerSolr();
+//		o.initLoinTracerSolr(requeteSite_);
+//		GlobalTracer.registerIfAbsent(o);
+//		c.o(o);
+	}
+
+	protected void _siteTracingHandler(Couverture<TracingHandler> c) {
+		TracingHandler o = new TracingHandler(siteTracer);
+		c.o(o);
+	}
+
+	protected void _clientSolrTracing(Couverture<HttpSolrClient> c) {
+		HttpSolrClient o = new TracingHttpSolrClientBuilder(configSite.getSolrUrl(), siteTracer).build();
+		c.o(o);
 	}
 
 	protected void _selCryptage(Couverture<String> c) {

@@ -1,4 +1,4 @@
-package org.computate.site.frFR.requete;   
+package org.computate.site.frFR.requete;  
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -42,7 +42,7 @@ import io.vertx.ext.web.api.OperationRequest;
 /**
  * MotCle: classeNomSimpleRequeteSite
  * NomCanonique.enUS: org.computate.site.enUS.requete.RequeteSiteEnUS
- */
+ */  
 public class RequeteSiteFrFR extends RequeteSiteFrFRGen<Object> implements Serializable {   
 	private static final long serialVersionUID = -6737494107881513257L;
 
@@ -124,10 +124,6 @@ public class RequeteSiteFrFR extends RequeteSiteFrFRGen<Object> implements Seria
 	}
 
 	protected void _principalJson(Couverture<JsonObject> c) {
-//		if(jetonAcces != null) {
-//			JsonObject o = jetonAcces.principal();
-//			c.o(o);
-//		}
 		if(utilisateurVertx != null) {
 			JsonObject o = KeycloakHelper.parseToken(utilisateurVertx.getString("access_token"));
 			c.o(o);
@@ -194,21 +190,18 @@ public class RequeteSiteFrFR extends RequeteSiteFrFRGen<Object> implements Seria
 			c.o(o);
 		}
 	}
-//
-//	/**	Les rôles du royaume de l'utilisateur. **/ 
-//	protected void _utilisateurRolesRoyaume(HashSet<String> o) {  
-//		if(jetonAcces != null) {
-//			Set<String> s = jetonAcces.getRealmAccess().getRoles();
-//			o.addAll(s);
-//		}
-//	}
-//	public boolean utilisateurRolesRoyaumeContient(String role) {
-//		boolean o = false;
-//		if(utilisateurRolesRoyaume != null) { 
-//			o = utilisateurRolesRoyaume.contains(role);
-//		}
-//		return o;
-//	}
+
+	/**	Les rôles de la ressource de l'utilisateur. **/
+	protected void _utilisateurRolesRoyaume(List<String> o) {
+		if(configSite_ != null && principalJson != null) {
+			JsonArray roles = principalJson.getJsonObject("realm_access").getJsonArray("roles");
+			if(roles != null) {
+				roles.stream().forEach(r -> {
+					addUtilisateurRolesRoyaume((String)r);
+				});
+			}
+		}
+	}
 
 	/**	Les rôles de la ressource de l'utilisateur. **/
 	protected void _utilisateurRessource(Couverture<JsonObject> c) {
@@ -229,21 +222,6 @@ public class RequeteSiteFrFR extends RequeteSiteFrFRGen<Object> implements Seria
 			}
 		}
 	}
-//	public boolean utilisateurRolesRessourceContient(String role) {
-//		boolean o = false;
-//		if(utilisateurRolesRessource != null) {
-//			o = utilisateurRolesRessource.contains(role);
-//		}
-//		return o;
-//	}
-//
-//	public boolean utilisateurRolesContient(String role) {
-//		boolean o = 
-//			utilisateurRolesRoyaume != null && utilisateurRolesRoyaume.contains(role)
-//			|| utilisateurRolesRessource != null && utilisateurRolesRessource.contains(role)
-//		;
-//		return o;
-//	}
 
 	/**	L'utilisateur de la requête. **/
 	protected void _utilisateurSite(Couverture<UtilisateurSite> c) { 

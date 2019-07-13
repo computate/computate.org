@@ -203,9 +203,8 @@ public abstract class C001L011InstallerKeycloakEnUSGenPageGen<DEV> extends C001L
 	// htmlBodyCourt //
 	///////////////////
 
-	@Override public void htmlBodyCourt() {
+	public void htmlBodyCourt() {
 		htmlBodyCourtC001L011InstallerKeycloakEnUSGenPage();
-		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L011InstallerKeycloakEnUSGenPage() {
@@ -223,54 +222,6 @@ public abstract class C001L011InstallerKeycloakEnUSGenPageGen<DEV> extends C001L
 	}
 
 	public void htmlScriptC001L011InstallerKeycloakEnUSGenPage() {
-	}
-
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L011InstallerKeycloakEnUSGenPage();
-		super.html();
-	}
-
-	public void htmlC001L011InstallerKeycloakEnUSGenPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L011InstallerKeycloakEnUSGenPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L011InstallerKeycloakEnUSGenPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L011InstallerKeycloakEnUSGenPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L011InstallerKeycloakEnUSGenPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L011InstallerKeycloakEnUSGenPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L011InstallerKeycloakEnUSGenPage() {
 	}
 
 	//////////////

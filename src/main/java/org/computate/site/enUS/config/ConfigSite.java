@@ -332,6 +332,15 @@ public class ConfigSite extends ConfigSiteGen<Object> implements Serializable {
 		c.o(o);
 	}
 
+	protected void _solrTracingUrl(Couverture<String> c) {
+		String o;
+		if(config == null)
+			o = System.getenv(c.var);
+		else
+			o = config.getString(prefixeEchappe + c.var);
+		c.o(o);
+	}
+
 	protected void _solrUrlComputate(Couverture<String> c) {
 		String o;
 		if(config == null)

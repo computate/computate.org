@@ -203,9 +203,8 @@ public abstract class C001L007InstallerPostgresqlEnUSGenPageGen<DEV> extends C00
 	// htmlBodyCourt //
 	///////////////////
 
-	@Override public void htmlBodyCourt() {
+	public void htmlBodyCourt() {
 		htmlBodyCourtC001L007InstallerPostgresqlEnUSGenPage();
-		super.htmlBodyCourt();
 	}
 
 	public void htmlBodyCourtC001L007InstallerPostgresqlEnUSGenPage() {
@@ -223,54 +222,6 @@ public abstract class C001L007InstallerPostgresqlEnUSGenPageGen<DEV> extends C00
 	}
 
 	public void htmlScriptC001L007InstallerPostgresqlEnUSGenPage() {
-	}
-
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L007InstallerPostgresqlEnUSGenPage();
-		super.html();
-	}
-
-	public void htmlC001L007InstallerPostgresqlEnUSGenPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L007InstallerPostgresqlEnUSGenPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L007InstallerPostgresqlEnUSGenPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L007InstallerPostgresqlEnUSGenPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L007InstallerPostgresqlEnUSGenPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L007InstallerPostgresqlEnUSGenPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L007InstallerPostgresqlEnUSGenPage() {
 	}
 
 	//////////////

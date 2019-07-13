@@ -94,26 +94,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	protected void _w(Couverture<ToutEcrivain> c) {
 		c.o(requeteSite_.getW());
 	}
-//
-//	/**
-//	 * frFR: Le nom canonique de cette classe Java pour la page. 
-//	 * frFR: Le servlet va rechercher l'URL et construire une nouvelle page de ce type. 
-//	 * Indexe: true
-//	 * Stocke: true
-//	 */
-//	protected void _pageNomCanonique(Couverture<String> c)  {
-//		c.o(getClass().getCanonicalName());
-//	}
-//
-//	/**
-//	 * frFR: Le nom simple de cette classe Java pour la page. 
-//	 * frFR: Le servlet va rechercher l'URL et construire une nouvelle page de ce type. 
-//	 * Indexe: true
-//	 * Stocke: true
-//	 */
-//	protected void _pageNomSimple(Couverture<String> c)  {
-//		c.o(getClass().getSimpleName());
-//	}
 
 	/**
 	 */
@@ -209,15 +189,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	 */
 	protected void _pageUriEnUS(Couverture<String> c) {
 	}
-//
-//	/**
-//	 * frFR: la version plus courte de l'URL en français qui commence avec « / » 
-//	 * ClePrimaire: true
-//	 * PageCanonicalName
-//	 */
-//	protected void _cle(Couverture<String> c)  {
-//		c.o(pageNomCanonique);
-//	}
 
 	/**	Tous les URIs ensemble pour toutes les langues dans cette liste. 
 	 * Indexe: true
@@ -312,21 +283,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 	protected void _pageImageTypeContenu(Couverture<String> c)  {
 		c.o(StringUtils.defaultIfBlank((String)pageDocumentSolr.get(c.var + "_stored_string"), null));
 	}
-//
-//	/**
-//	 */
-//	protected void _pageAdmin(Couverture<Boolean> c)  {  
-//		requeteSite_.getUtilisateurVertx().isAuthorized(requeteSite_.getConfigSite_().getRoleAdmin(), res -> {
-//			if (res.succeeded() && res.result()) {
-//				c.o(true);
-//				requeteSite_.setPageAdmin(true);
-//			}
-//			else {
-//				c.o(true);
-//				requeteSite_.setPageAdmin(true);
-//			}
-//		});
-//	}
 
 	/**
 	 * frFR: Le type de contenu de la page. 
@@ -343,18 +299,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 //		else
 			c.o("text/html;charset=UTF-8");
 	}
-//
-//	/**
-//	 * frFR: l'ID unique pour SOLR. 
-//	 */
-//	protected void _id(Couverture<String> c)  {
-//		c.o(pageUri.toString());
-//	}
-//
-//	protected void _pageCreeCours(Couverture<LocalDateTime> c)  {   
-//		LocalDateTime o = LocalDateTime.now();
-//		c.o(o);
-//	}
 
 	/**
 	 * Indexe: true
@@ -377,22 +321,6 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 		else
 			c.o(pageCree);
 	}
-//
-//	/**
-//	 * incremente: true
-//	 */
-//	protected void _pageAime(Couverture<Long> c)  {}
-//
-//	protected void _pageAimee(Couverture<Boolean> c)  {
-//		if(requeteSite_.requete != null) {
-//			HttpSession session = requeteSite_.requete.getSession();
-//			if(session != null) {
-//				String attribut = "aime_" + getClass().getCanonicalName();
-//				Object valeurSession = session.getAttribute(attribut);
-//				c.o(valeurSession != null);
-//			}
-//		}
-//	}
 
 	/**
 	 * Indexe: true

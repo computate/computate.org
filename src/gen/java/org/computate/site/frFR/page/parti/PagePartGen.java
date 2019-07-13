@@ -43,6 +43,15 @@ public abstract class PagePartGen<DEV> extends Cluster {
 		this.page_ = page_;
 		this.page_Couverture.dejaInitialise = true;
 	}
+	protected PagePart page_Init() {
+		if(!page_Couverture.dejaInitialise) {
+			_page_(page_Couverture);
+			if(page_ == null)
+				setPage_(page_Couverture.o);
+		}
+		page_Couverture.dejaInitialise(true);
+		return (PagePart)this;
+	}
 
 	//////////////
 	// partiVar //
@@ -121,6 +130,7 @@ public abstract class PagePartGen<DEV> extends Cluster {
 	}
 
 	public void initPagePart() {
+		page_Init();
 		partiVarInit();
 	}
 
@@ -247,7 +257,7 @@ public abstract class PagePartGen<DEV> extends Cluster {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), partiVar);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -260,8 +270,7 @@ public abstract class PagePartGen<DEV> extends Cluster {
 		if(!(o instanceof PagePart))
 			return false;
 		PagePart that = (PagePart)o;
-		return super.equals(o)
-				&& Objects.equals( partiVar, that.partiVar );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -272,7 +281,6 @@ public abstract class PagePartGen<DEV> extends Cluster {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("PagePart {");
-		sb.append( "partiVar: \"" ).append(partiVar).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

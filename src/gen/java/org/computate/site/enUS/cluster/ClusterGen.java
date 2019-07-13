@@ -76,6 +76,15 @@ public abstract class ClusterGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected Cluster requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (Cluster)this;
+	}
 
 	///////////////
 	// pageParts //
@@ -114,7 +123,6 @@ public abstract class ClusterGen<DEV> extends Object {
 			this.pageParts.add(o);
 		return (Cluster)this;
 	}
-	public abstract void avantPagePart(PagePart o, String entiteVar);
 	protected Cluster pagePartsInit() {
 		if(!pagePartsCouverture.dejaInitialise) {
 			_pageParts(pageParts);
@@ -1081,6 +1089,7 @@ public abstract class ClusterGen<DEV> extends Object {
 	}
 
 	public void initCluster() {
+		requeteSite_Init();
 		pagePartsInit();
 		pkInit();
 		idInit();

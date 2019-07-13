@@ -47,6 +47,15 @@ public abstract class ChaineGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected Chaine requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (Chaine)this;
+	}
 
 	////////////
 	// police //
@@ -690,6 +699,7 @@ public abstract class ChaineGen<DEV> extends Object {
 	}
 
 	public void initChaine() {
+		requeteSite_Init();
 		policeInit();
 		alignerCentreInit();
 		alignerGaucheInit();
@@ -823,7 +833,7 @@ public abstract class ChaineGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(police, alignerCentre, alignerGauche, alignerDroit, xDecalage, yDecalage, hLigne, hEspace);
+		return Objects.hash();
 	}
 
 	////////////
@@ -836,14 +846,7 @@ public abstract class ChaineGen<DEV> extends Object {
 		if(!(o instanceof Chaine))
 			return false;
 		Chaine that = (Chaine)o;
-		return Objects.equals( police, that.police )
-				&& Objects.equals( alignerCentre, that.alignerCentre )
-				&& Objects.equals( alignerGauche, that.alignerGauche )
-				&& Objects.equals( alignerDroit, that.alignerDroit )
-				&& Objects.equals( xDecalage, that.xDecalage )
-				&& Objects.equals( yDecalage, that.yDecalage )
-				&& Objects.equals( hLigne, that.hLigne )
-				&& Objects.equals( hEspace, that.hEspace );
+		return true;
 	}
 
 	//////////////
@@ -853,14 +856,6 @@ public abstract class ChaineGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Chaine {");
-		sb.append( "police: \"" ).append(police).append( "\"" );
-		sb.append( ", alignerCentre: " ).append(alignerCentre);
-		sb.append( ", alignerGauche: " ).append(alignerGauche);
-		sb.append( ", alignerDroit: " ).append(alignerDroit);
-		sb.append( ", xDecalage: " ).append(xDecalage);
-		sb.append( ", yDecalage: " ).append(yDecalage);
-		sb.append( ", hLigne: " ).append(hLigne);
-		sb.append( ", hEspace: " ).append(hEspace);
 		sb.append(" }");
 		return sb.toString();
 	}

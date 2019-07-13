@@ -45,6 +45,15 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected ResultatRecherche requeteSite_Init() throws Exception {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (ResultatRecherche)this;
+	}
 
 	//////////////////
 	// documentSolr //
@@ -164,6 +173,7 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 	}
 
 	public void initResultatRecherche() throws Exception {
+		requeteSite_Init();
 		documentSolrInit();
 		resultatIndiceInit();
 	}
@@ -270,7 +280,7 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(resultatIndice);
+		return Objects.hash();
 	}
 
 	////////////
@@ -283,7 +293,7 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 		if(!(o instanceof ResultatRecherche))
 			return false;
 		ResultatRecherche that = (ResultatRecherche)o;
-		return Objects.equals( resultatIndice, that.resultatIndice );
+		return true;
 	}
 
 	//////////////
@@ -293,7 +303,6 @@ public abstract class ResultatRechercheGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ResultatRecherche {");
-		sb.append( "resultatIndice: " ).append(resultatIndice);
 		sb.append(" }");
 		return sb.toString();
 	}

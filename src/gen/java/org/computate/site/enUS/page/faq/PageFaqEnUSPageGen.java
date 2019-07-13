@@ -167,66 +167,6 @@ public abstract class PageFaqEnUSPageGen<DEV> extends PageFaqEnUSGenPage {
 	public void htmlBodyCourtPageFaqEnUSPage() {
 	}
 
-	////////////////
-	// htmlScript //
-	////////////////
-
-	@Override public void htmlScript() {
-		htmlScriptPageFaqEnUSPage();
-		super.htmlScript();
-	}
-
-	public void htmlScriptPageFaqEnUSPage() {
-	}
-
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlPageFaqEnUSPage();
-		super.html();
-	}
-
-	public void htmlPageFaqEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaPageFaqEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaPageFaqEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesPageFaqEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesPageFaqEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStylePageFaqEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStylePageFaqEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

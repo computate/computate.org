@@ -47,6 +47,15 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected AppliSwagger2 requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (AppliSwagger2)this;
+	}
 
 	//////////////////
 	// siteContexte //
@@ -677,6 +686,7 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 	}
 
 	public void initAppliSwagger2() {
+		requeteSite_Init();
 		siteContexteInit();
 		configSiteInit();
 		appliCheminInit();
@@ -828,7 +838,7 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(appliChemin, openApiVersion, openApiVersionNumero, tabsSchema, apiVersion, openApiYamlChemin);
+		return Objects.hash();
 	}
 
 	////////////
@@ -841,12 +851,7 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 		if(!(o instanceof AppliSwagger2))
 			return false;
 		AppliSwagger2 that = (AppliSwagger2)o;
-		return Objects.equals( appliChemin, that.appliChemin )
-				&& Objects.equals( openApiVersion, that.openApiVersion )
-				&& Objects.equals( openApiVersionNumero, that.openApiVersionNumero )
-				&& Objects.equals( tabsSchema, that.tabsSchema )
-				&& Objects.equals( apiVersion, that.apiVersion )
-				&& Objects.equals( openApiYamlChemin, that.openApiYamlChemin );
+		return true;
 	}
 
 	//////////////
@@ -856,12 +861,6 @@ public abstract class AppliSwagger2Gen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("AppliSwagger2 {");
-		sb.append( "appliChemin: \"" ).append(appliChemin).append( "\"" );
-		sb.append( ", openApiVersion: \"" ).append(openApiVersion).append( "\"" );
-		sb.append( ", openApiVersionNumero: " ).append(openApiVersionNumero);
-		sb.append( ", tabsSchema: " ).append(tabsSchema);
-		sb.append( ", apiVersion: \"" ).append(apiVersion).append( "\"" );
-		sb.append( ", openApiYamlChemin: \"" ).append(openApiYamlChemin).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

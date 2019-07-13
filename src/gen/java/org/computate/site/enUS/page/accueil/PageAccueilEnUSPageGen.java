@@ -167,66 +167,6 @@ public abstract class PageAccueilEnUSPageGen<DEV> extends PageAccueilEnUSGenPage
 	public void htmlBodyCourtPageAccueilEnUSPage() {
 	}
 
-	////////////////
-	// htmlScript //
-	////////////////
-
-	@Override public void htmlScript() {
-		htmlScriptPageAccueilEnUSPage();
-		super.htmlScript();
-	}
-
-	public void htmlScriptPageAccueilEnUSPage() {
-	}
-
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlPageAccueilEnUSPage();
-		super.html();
-	}
-
-	public void htmlPageAccueilEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaPageAccueilEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaPageAccueilEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesPageAccueilEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesPageAccueilEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStylePageAccueilEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStylePageAccueilEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

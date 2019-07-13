@@ -31,7 +31,7 @@ import org.computate.site.frFR.utilisateur.UtilisateurSite;
  * IconeGroupe: regular
  * IconeNom: university
 */               
-public class Cours extends CoursGen<Article> {          
+public class Cours extends CoursGen<Article> {         
 
 	@Override protected void _classeNomsCanoniques(List<String> l) {
 		l.add(Cours.class.getCanonicalName());

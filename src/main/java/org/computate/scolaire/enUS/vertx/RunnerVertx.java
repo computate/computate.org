@@ -1,7 +1,6 @@
-package org.computate.site.frFR.vertx;  
+package org.computate.scolaire.enUS.vertx;
 
 import java.util.function.Consumer;
-
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
@@ -11,12 +10,9 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.spi.cluster.ClusterManager;
 import io.vertx.spi.cluster.zookeeper.ZookeeperClusterManager;
 
-/**
- * NomCanonique.enUS: org.computate.scolaire.enUS.vertx.RunnerVertx
- */
-public class CoureurVertx {
+public class RunnerVertx {
 
-	public static void run(Class<?> c) {
+	public static void  run(Class<?> c) {
 		JsonObject zkConfig = new JsonObject();
 		String zookeeperHosts = System.getenv("zookeeperNomHote") + ":" + System.getenv("zookeeperPort");
 		zkConfig.put("zookeeperHosts", zookeeperHosts);
@@ -42,7 +38,7 @@ public class CoureurVertx {
 		run(c, optionsVertx, null);
 	}
 
-	public static void run(Class<?> c, VertxOptions options, DeploymentOptions deploymentOptions) {
+	public static void  run(Class<?> c, VertxOptions options, DeploymentOptions deploymentOptions) {
 		String verticleID = c.getName();
 
 		System.setProperty("vertx.cwd", "/");

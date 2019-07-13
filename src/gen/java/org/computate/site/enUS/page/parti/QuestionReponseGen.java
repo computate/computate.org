@@ -282,26 +282,6 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		return (QuestionReponse)this;
 	}
 
-	public String solrQuestion() {
-		return question == null ? null : question.toString();
-	}
-
-	public String strQuestion() {
-		return question == null ? "" : question.toString();
-	}
-
-	public String nomAffichageQuestion() {
-		return null;
-	}
-
-	public String htmTooltipQuestion() {
-		return null;
-	}
-
-	public String htmQuestion() {
-		return question == null ? "" : StringEscapeUtils.escapeHtml4(strQuestion());
-	}
-
 	///////////////////
 	// questionCourt //
 	///////////////////
@@ -340,26 +320,6 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		questionCourt.initLoinPourClasse(requeteSite_);
 		questionCourtCouverture.dejaInitialise(true);
 		return (QuestionReponse)this;
-	}
-
-	public String solrQuestionCourt() {
-		return questionCourt == null ? null : questionCourt.toString();
-	}
-
-	public String strQuestionCourt() {
-		return questionCourt == null ? "" : questionCourt.toString();
-	}
-
-	public String nomAffichageQuestionCourt() {
-		return null;
-	}
-
-	public String htmTooltipQuestionCourt() {
-		return null;
-	}
-
-	public String htmQuestionCourt() {
-		return questionCourt == null ? "" : StringEscapeUtils.escapeHtml4(strQuestionCourt());
 	}
 
 	/////////////
@@ -402,26 +362,6 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		return (QuestionReponse)this;
 	}
 
-	public String solrReponse() {
-		return reponse == null ? null : reponse.toString();
-	}
-
-	public String strReponse() {
-		return reponse == null ? "" : reponse.toString();
-	}
-
-	public String nomAffichageReponse() {
-		return null;
-	}
-
-	public String htmTooltipReponse() {
-		return null;
-	}
-
-	public String htmReponse() {
-		return reponse == null ? "" : StringEscapeUtils.escapeHtml4(strReponse());
-	}
-
 	//////////////////
 	// reponseCourt //
 	//////////////////
@@ -460,26 +400,6 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		reponseCourt.initLoinPourClasse(requeteSite_);
 		reponseCourtCouverture.dejaInitialise(true);
 		return (QuestionReponse)this;
-	}
-
-	public String solrReponseCourt() {
-		return reponseCourt == null ? null : reponseCourt.toString();
-	}
-
-	public String strReponseCourt() {
-		return reponseCourt == null ? "" : reponseCourt.toString();
-	}
-
-	public String nomAffichageReponseCourt() {
-		return null;
-	}
-
-	public String htmTooltipReponseCourt() {
-		return null;
-	}
-
-	public String htmReponseCourt() {
-		return reponseCourt == null ? "" : StringEscapeUtils.escapeHtml4(strReponseCourt());
 	}
 
 	//////////////
@@ -658,7 +578,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), questionIconeType, questionIconeNom, reponseIconeType, reponseIconeNom, question, questionCourt, reponse, reponseCourt);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -671,15 +591,7 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		if(!(o instanceof QuestionReponse))
 			return false;
 		QuestionReponse that = (QuestionReponse)o;
-		return super.equals(o)
-				&& Objects.equals( questionIconeType, that.questionIconeType )
-				&& Objects.equals( questionIconeNom, that.questionIconeNom )
-				&& Objects.equals( reponseIconeType, that.reponseIconeType )
-				&& Objects.equals( reponseIconeNom, that.reponseIconeNom )
-				&& Objects.equals( question, that.question )
-				&& Objects.equals( questionCourt, that.questionCourt )
-				&& Objects.equals( reponse, that.reponse )
-				&& Objects.equals( reponseCourt, that.reponseCourt );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -690,14 +602,6 @@ public abstract class QuestionReponseGen<DEV> extends PagePart {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("QuestionReponse {");
-		sb.append( "questionIconeType: \"" ).append(questionIconeType).append( "\"" );
-		sb.append( ", questionIconeNom: \"" ).append(questionIconeNom).append( "\"" );
-		sb.append( ", reponseIconeType: \"" ).append(reponseIconeType).append( "\"" );
-		sb.append( ", reponseIconeNom: \"" ).append(reponseIconeNom).append( "\"" );
-		sb.append( ", question: " ).append(question);
-		sb.append( ", questionCourt: " ).append(questionCourt);
-		sb.append( ", reponse: " ).append(reponse);
-		sb.append( ", reponseCourt: " ).append(reponseCourt);
 		sb.append(" }");
 		return sb.toString();
 	}

@@ -51,6 +51,15 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected ApiEcrivain requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (ApiEcrivain)this;
+	}
 
 	////////////////////////
 	// classeDocumentSolr //
@@ -2227,6 +2236,7 @@ public abstract class ApiEcrivainGen<DEV> extends Object {
 	}
 
 	public void initApiEcrivain() {
+		requeteSite_Init();
 		classeDocumentSolrInit();
 		classeApiMethodeInit();
 		openApiVersionInit();

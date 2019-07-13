@@ -47,6 +47,13 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected ConfigSite requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (ConfigSite)this;
+	}
 
 	///////////////////
 	// siteContexte_ //
@@ -73,6 +80,15 @@ public abstract class ConfigSiteGen<DEV> extends Object {
 	public void setSiteContexte_(SiteContexteEnUS siteContexte_) {
 		this.siteContexte_ = siteContexte_;
 		this.siteContexte_Couverture.dejaInitialise = true;
+	}
+	protected ConfigSite siteContexte_Init() {
+		if(!siteContexte_Couverture.dejaInitialise) {
+			_siteContexte_(siteContexte_Couverture);
+			if(siteContexte_ == null)
+				setSiteContexte_(siteContexte_Couverture.o);
+		}
+		siteContexte_Couverture.dejaInitialise(true);
+		return (ConfigSite)this;
 	}
 
 	//////////////////
@@ -2009,6 +2025,62 @@ The INI Configuration Object for the config file.
 		return solrUrl == null ? "" : StringEscapeUtils.escapeHtml4(strSolrUrl());
 	}
 
+	////////////////////
+	// solrTracingUrl //
+	////////////////////
+
+	/**	L'entité « solrTracingUrl »
+	 *	 is defined as null before being initialized. 
+	 */
+	protected String solrTracingUrl;
+	public Couverture<String> solrTracingUrlCouverture = new Couverture<String>().p(this).c(String.class).var("solrTracingUrl").o(solrTracingUrl);
+
+	/**	<br/>L'entité « solrTracingUrl »
+	 *  est défini comme null avant d'être initialisé. 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.config.ConfigSite&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:solrTracingUrl">Trouver l'entité solrTracingUrl dans Solr</a>
+	 * <br/>
+	 * @param c est pour envelopper une valeur à assigner à cette entité lors de l'initialisation. 
+	 **/
+	protected abstract void _solrTracingUrl(Couverture<String> c);
+
+	public String getSolrTracingUrl() {
+		return solrTracingUrl;
+	}
+
+	public void setSolrTracingUrl(String solrTracingUrl) {
+		this.solrTracingUrl = solrTracingUrl;
+		this.solrTracingUrlCouverture.dejaInitialise = true;
+	}
+	protected ConfigSite solrTracingUrlInit() {
+		if(!solrTracingUrlCouverture.dejaInitialise) {
+			_solrTracingUrl(solrTracingUrlCouverture);
+			if(solrTracingUrl == null)
+				setSolrTracingUrl(solrTracingUrlCouverture.o);
+		}
+		solrTracingUrlCouverture.dejaInitialise(true);
+		return (ConfigSite)this;
+	}
+
+	public String solrSolrTracingUrl() {
+		return solrTracingUrl;
+	}
+
+	public String strSolrTracingUrl() {
+		return solrTracingUrl == null ? "" : solrTracingUrl;
+	}
+
+	public String nomAffichageSolrTracingUrl() {
+		return null;
+	}
+
+	public String htmTooltipSolrTracingUrl() {
+		return null;
+	}
+
+	public String htmSolrTracingUrl() {
+		return solrTracingUrl == null ? "" : StringEscapeUtils.escapeHtml4(strSolrTracingUrl());
+	}
+
 	//////////////////////
 	// solrUrlComputate //
 	//////////////////////
@@ -3491,6 +3563,8 @@ The INI Configuration Object for the config file.
 	}
 
 	public void initConfigSite() {
+		requeteSite_Init();
+		siteContexte_Init();
 		configCheminInit();
 		configInit();
 		identifiantSiteInit();
@@ -3525,6 +3599,7 @@ The INI Configuration Object for the config file.
 		jdbcTempsInactiviteMaxInit();
 		jdbcUrlInit();
 		solrUrlInit();
+		solrTracingUrlInit();
 		solrUrlComputateInit();
 		jetonIdentitePaypalInit();
 		compteFacebookInit();
@@ -3660,6 +3735,8 @@ The INI Configuration Object for the config file.
 				return oConfigSite.jdbcUrl;
 			case "solrUrl":
 				return oConfigSite.solrUrl;
+			case "solrTracingUrl":
+				return oConfigSite.solrTracingUrl;
 			case "solrUrlComputate":
 				return oConfigSite.solrUrlComputate;
 			case "jetonIdentitePaypal":
@@ -3773,7 +3850,7 @@ The INI Configuration Object for the config file.
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(configChemin, identifiantSite, prefixeEchappe, appliChemin, racineDocument, nomEntreprise, nomDomaine, zookeeperNomHote, zookeeperPort, siteNomHote, sitePort, authRoyaume, authRessource, authSecret, authSslRequis, sslJksChemin, sslJksMotDePasse, authUrl, selCryptage, motDePasseCryptage, siteUrlBase, siteNomAffichage, jdbcClassePilote, jdbcUtilisateur, jdbcMotDePasse, jdbcTailleMaxPiscine, jdbcTailleInitialePiscine, jdbcTailleMinPiscine, jdbcMaxDeclarations, jdbcMaxDeclarationsParConnexion, jdbcTempsInactiviteMax, jdbcUrl, solrUrl, solrUrlComputate, jetonIdentitePaypal, compteFacebook, compteTwitter, compteGooglePlus, compteInstagram, compteYoutube, identifiantCanalYoutube, comptePinterest, compteOpenclipart, compteMail, roleAdmin, mailAdmin, nombreExecuteurs, openApiVersion, apiDescription, apiTitre, apiTermsService, apiVersion, apiContactMail, apiLicenceNom, apiLicenceUrl, apiNomHote, apiCheminBase, vertxServiceAddresse, statiqueUrlBase);
+		return Objects.hash();
 	}
 
 	////////////
@@ -3786,65 +3863,7 @@ The INI Configuration Object for the config file.
 		if(!(o instanceof ConfigSite))
 			return false;
 		ConfigSite that = (ConfigSite)o;
-		return Objects.equals( configChemin, that.configChemin )
-				&& Objects.equals( identifiantSite, that.identifiantSite )
-				&& Objects.equals( prefixeEchappe, that.prefixeEchappe )
-				&& Objects.equals( appliChemin, that.appliChemin )
-				&& Objects.equals( racineDocument, that.racineDocument )
-				&& Objects.equals( nomEntreprise, that.nomEntreprise )
-				&& Objects.equals( nomDomaine, that.nomDomaine )
-				&& Objects.equals( zookeeperNomHote, that.zookeeperNomHote )
-				&& Objects.equals( zookeeperPort, that.zookeeperPort )
-				&& Objects.equals( siteNomHote, that.siteNomHote )
-				&& Objects.equals( sitePort, that.sitePort )
-				&& Objects.equals( authRoyaume, that.authRoyaume )
-				&& Objects.equals( authRessource, that.authRessource )
-				&& Objects.equals( authSecret, that.authSecret )
-				&& Objects.equals( authSslRequis, that.authSslRequis )
-				&& Objects.equals( sslJksChemin, that.sslJksChemin )
-				&& Objects.equals( sslJksMotDePasse, that.sslJksMotDePasse )
-				&& Objects.equals( authUrl, that.authUrl )
-				&& Objects.equals( selCryptage, that.selCryptage )
-				&& Objects.equals( motDePasseCryptage, that.motDePasseCryptage )
-				&& Objects.equals( siteUrlBase, that.siteUrlBase )
-				&& Objects.equals( siteNomAffichage, that.siteNomAffichage )
-				&& Objects.equals( jdbcClassePilote, that.jdbcClassePilote )
-				&& Objects.equals( jdbcUtilisateur, that.jdbcUtilisateur )
-				&& Objects.equals( jdbcMotDePasse, that.jdbcMotDePasse )
-				&& Objects.equals( jdbcTailleMaxPiscine, that.jdbcTailleMaxPiscine )
-				&& Objects.equals( jdbcTailleInitialePiscine, that.jdbcTailleInitialePiscine )
-				&& Objects.equals( jdbcTailleMinPiscine, that.jdbcTailleMinPiscine )
-				&& Objects.equals( jdbcMaxDeclarations, that.jdbcMaxDeclarations )
-				&& Objects.equals( jdbcMaxDeclarationsParConnexion, that.jdbcMaxDeclarationsParConnexion )
-				&& Objects.equals( jdbcTempsInactiviteMax, that.jdbcTempsInactiviteMax )
-				&& Objects.equals( jdbcUrl, that.jdbcUrl )
-				&& Objects.equals( solrUrl, that.solrUrl )
-				&& Objects.equals( solrUrlComputate, that.solrUrlComputate )
-				&& Objects.equals( jetonIdentitePaypal, that.jetonIdentitePaypal )
-				&& Objects.equals( compteFacebook, that.compteFacebook )
-				&& Objects.equals( compteTwitter, that.compteTwitter )
-				&& Objects.equals( compteGooglePlus, that.compteGooglePlus )
-				&& Objects.equals( compteInstagram, that.compteInstagram )
-				&& Objects.equals( compteYoutube, that.compteYoutube )
-				&& Objects.equals( identifiantCanalYoutube, that.identifiantCanalYoutube )
-				&& Objects.equals( comptePinterest, that.comptePinterest )
-				&& Objects.equals( compteOpenclipart, that.compteOpenclipart )
-				&& Objects.equals( compteMail, that.compteMail )
-				&& Objects.equals( roleAdmin, that.roleAdmin )
-				&& Objects.equals( mailAdmin, that.mailAdmin )
-				&& Objects.equals( nombreExecuteurs, that.nombreExecuteurs )
-				&& Objects.equals( openApiVersion, that.openApiVersion )
-				&& Objects.equals( apiDescription, that.apiDescription )
-				&& Objects.equals( apiTitre, that.apiTitre )
-				&& Objects.equals( apiTermsService, that.apiTermsService )
-				&& Objects.equals( apiVersion, that.apiVersion )
-				&& Objects.equals( apiContactMail, that.apiContactMail )
-				&& Objects.equals( apiLicenceNom, that.apiLicenceNom )
-				&& Objects.equals( apiLicenceUrl, that.apiLicenceUrl )
-				&& Objects.equals( apiNomHote, that.apiNomHote )
-				&& Objects.equals( apiCheminBase, that.apiCheminBase )
-				&& Objects.equals( vertxServiceAddresse, that.vertxServiceAddresse )
-				&& Objects.equals( statiqueUrlBase, that.statiqueUrlBase );
+		return true;
 	}
 
 	//////////////
@@ -3854,65 +3873,6 @@ The INI Configuration Object for the config file.
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ConfigSite {");
-		sb.append( "configChemin: \"" ).append(configChemin).append( "\"" );
-		sb.append( ", identifiantSite: \"" ).append(identifiantSite).append( "\"" );
-		sb.append( ", prefixeEchappe: \"" ).append(prefixeEchappe).append( "\"" );
-		sb.append( ", appliChemin: \"" ).append(appliChemin).append( "\"" );
-		sb.append( ", racineDocument: \"" ).append(racineDocument).append( "\"" );
-		sb.append( ", nomEntreprise: \"" ).append(nomEntreprise).append( "\"" );
-		sb.append( ", nomDomaine: \"" ).append(nomDomaine).append( "\"" );
-		sb.append( ", zookeeperNomHote: \"" ).append(zookeeperNomHote).append( "\"" );
-		sb.append( ", zookeeperPort: " ).append(zookeeperPort);
-		sb.append( ", siteNomHote: \"" ).append(siteNomHote).append( "\"" );
-		sb.append( ", sitePort: " ).append(sitePort);
-		sb.append( ", authRoyaume: \"" ).append(authRoyaume).append( "\"" );
-		sb.append( ", authRessource: \"" ).append(authRessource).append( "\"" );
-		sb.append( ", authSecret: \"" ).append(authSecret).append( "\"" );
-		sb.append( ", authSslRequis: \"" ).append(authSslRequis).append( "\"" );
-		sb.append( ", sslJksChemin: \"" ).append(sslJksChemin).append( "\"" );
-		sb.append( ", sslJksMotDePasse: \"" ).append(sslJksMotDePasse).append( "\"" );
-		sb.append( ", authUrl: \"" ).append(authUrl).append( "\"" );
-		sb.append( ", selCryptage: \"" ).append(selCryptage).append( "\"" );
-		sb.append( ", motDePasseCryptage: \"" ).append(motDePasseCryptage).append( "\"" );
-		sb.append( ", siteUrlBase: \"" ).append(siteUrlBase).append( "\"" );
-		sb.append( ", siteNomAffichage: \"" ).append(siteNomAffichage).append( "\"" );
-		sb.append( ", jdbcClassePilote: \"" ).append(jdbcClassePilote).append( "\"" );
-		sb.append( ", jdbcUtilisateur: \"" ).append(jdbcUtilisateur).append( "\"" );
-		sb.append( ", jdbcMotDePasse: \"" ).append(jdbcMotDePasse).append( "\"" );
-		sb.append( ", jdbcTailleMaxPiscine: " ).append(jdbcTailleMaxPiscine);
-		sb.append( ", jdbcTailleInitialePiscine: " ).append(jdbcTailleInitialePiscine);
-		sb.append( ", jdbcTailleMinPiscine: " ).append(jdbcTailleMinPiscine);
-		sb.append( ", jdbcMaxDeclarations: " ).append(jdbcMaxDeclarations);
-		sb.append( ", jdbcMaxDeclarationsParConnexion: " ).append(jdbcMaxDeclarationsParConnexion);
-		sb.append( ", jdbcTempsInactiviteMax: " ).append(jdbcTempsInactiviteMax);
-		sb.append( ", jdbcUrl: \"" ).append(jdbcUrl).append( "\"" );
-		sb.append( ", solrUrl: \"" ).append(solrUrl).append( "\"" );
-		sb.append( ", solrUrlComputate: \"" ).append(solrUrlComputate).append( "\"" );
-		sb.append( ", jetonIdentitePaypal: \"" ).append(jetonIdentitePaypal).append( "\"" );
-		sb.append( ", compteFacebook: \"" ).append(compteFacebook).append( "\"" );
-		sb.append( ", compteTwitter: \"" ).append(compteTwitter).append( "\"" );
-		sb.append( ", compteGooglePlus: \"" ).append(compteGooglePlus).append( "\"" );
-		sb.append( ", compteInstagram: \"" ).append(compteInstagram).append( "\"" );
-		sb.append( ", compteYoutube: \"" ).append(compteYoutube).append( "\"" );
-		sb.append( ", identifiantCanalYoutube: \"" ).append(identifiantCanalYoutube).append( "\"" );
-		sb.append( ", comptePinterest: \"" ).append(comptePinterest).append( "\"" );
-		sb.append( ", compteOpenclipart: \"" ).append(compteOpenclipart).append( "\"" );
-		sb.append( ", compteMail: \"" ).append(compteMail).append( "\"" );
-		sb.append( ", roleAdmin: \"" ).append(roleAdmin).append( "\"" );
-		sb.append( ", mailAdmin: \"" ).append(mailAdmin).append( "\"" );
-		sb.append( ", nombreExecuteurs: " ).append(nombreExecuteurs);
-		sb.append( ", openApiVersion: \"" ).append(openApiVersion).append( "\"" );
-		sb.append( ", apiDescription: \"" ).append(apiDescription).append( "\"" );
-		sb.append( ", apiTitre: \"" ).append(apiTitre).append( "\"" );
-		sb.append( ", apiTermsService: \"" ).append(apiTermsService).append( "\"" );
-		sb.append( ", apiVersion: \"" ).append(apiVersion).append( "\"" );
-		sb.append( ", apiContactMail: \"" ).append(apiContactMail).append( "\"" );
-		sb.append( ", apiLicenceNom: \"" ).append(apiLicenceNom).append( "\"" );
-		sb.append( ", apiLicenceUrl: \"" ).append(apiLicenceUrl).append( "\"" );
-		sb.append( ", apiNomHote: \"" ).append(apiNomHote).append( "\"" );
-		sb.append( ", apiCheminBase: \"" ).append(apiCheminBase).append( "\"" );
-		sb.append( ", vertxServiceAddresse: \"" ).append(vertxServiceAddresse).append( "\"" );
-		sb.append( ", statiqueUrlBase: \"" ).append(statiqueUrlBase).append( "\"" );
 		sb.append(" }");
 		return sb.toString();
 	}

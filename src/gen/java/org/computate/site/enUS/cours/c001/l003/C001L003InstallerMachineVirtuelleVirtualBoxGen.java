@@ -1060,7 +1060,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	public static final String creerMachineVirtuelleOlLi01 = creerMachineVirtuelleOlLi011;
 	public static final String creerMachineVirtuelleOlLi021 = "Click [ New ]. ";
 	public static final String creerMachineVirtuelleOlLi02 = creerMachineVirtuelleOlLi021;
-	public static final String creerMachineVirtuelleOlLi031 = "Donnez un nom à votre machine virtuelle, comme « mv1 ». ";
+	public static final String creerMachineVirtuelleOlLi031 = "Give your virtual machine a name, like \"vm1\". ";
 	public static final String creerMachineVirtuelleOlLi03 = creerMachineVirtuelleOlLi031;
 	public static final String creerMachineVirtuelleOlLi041 = "Type: Linux";
 	public static final String creerMachineVirtuelleOlLi04 = creerMachineVirtuelleOlLi041;
@@ -1091,7 +1091,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	public static final String creerMachineVirtuelleOlLi141 = "Click [ Create ]. ";
 	public static final String creerMachineVirtuelleOlLi14 = creerMachineVirtuelleOlLi141;
 	public static final String creerMachineVirtuelleOlLi151 = "Now your virtual machine is created! ";
-	public static final String creerMachineVirtuelleOlLi152 = "The next step is to assign and ISO to it as an optical disk drive. ";
+	public static final String creerMachineVirtuelleOlLi152 = "The next step is to assign an ISO to it as an optical disk drive. ";
 	public static final String creerMachineVirtuelleOlLi153 = "Right-click on the virtual machine in VirtualBox. ";
 	public static final String creerMachineVirtuelleOlLi15 = creerMachineVirtuelleOlLi151 + creerMachineVirtuelleOlLi152 + creerMachineVirtuelleOlLi153;
 	public static final String creerMachineVirtuelleOlLi161 = "Click \"Settings...\" ";

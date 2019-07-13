@@ -179,54 +179,6 @@ public abstract class C001L010InstallerSolrEnUSPageGen<DEV> extends C001L010Inst
 	public void htmlScriptC001L010InstallerSolrEnUSPage() {
 	}
 
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L010InstallerSolrEnUSPage();
-		super.html();
-	}
-
-	public void htmlC001L010InstallerSolrEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L010InstallerSolrEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L010InstallerSolrEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L010InstallerSolrEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L010InstallerSolrEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L010InstallerSolrEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L010InstallerSolrEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

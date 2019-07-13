@@ -9,7 +9,6 @@ import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.chaine.Chaine;
 import org.apache.commons.text.StringEscapeUtils;
 import org.computate.site.enUS.page.parti.PagePart;
-import java.lang.String;
 import org.computate.site.enUS.page.MiseEnPage;
 import org.apache.commons.lang3.StringUtils;
 
@@ -59,26 +58,6 @@ public abstract class IconeGen<DEV> extends PagePart {
 		return (Icone)this;
 	}
 
-	public String solrType() {
-		return type == null ? null : type.toString();
-	}
-
-	public String strType() {
-		return type == null ? "" : type.toString();
-	}
-
-	public String nomAffichageType() {
-		return null;
-	}
-
-	public String htmTooltipType() {
-		return null;
-	}
-
-	public String htmType() {
-		return type == null ? "" : StringEscapeUtils.escapeHtml4(strType());
-	}
-
 	/////////
 	// nom //
 	/////////
@@ -119,26 +98,6 @@ public abstract class IconeGen<DEV> extends PagePart {
 		return (Icone)this;
 	}
 
-	public String solrNom() {
-		return nom == null ? null : nom.toString();
-	}
-
-	public String strNom() {
-		return nom == null ? "" : nom.toString();
-	}
-
-	public String nomAffichageNom() {
-		return null;
-	}
-
-	public String htmTooltipNom() {
-		return null;
-	}
-
-	public String htmNom() {
-		return nom == null ? "" : StringEscapeUtils.escapeHtml4(strNom());
-	}
-
 	///////////
 	// page_ //
 	///////////
@@ -165,6 +124,15 @@ public abstract class IconeGen<DEV> extends PagePart {
 		this.page_ = page_;
 		this.page_Couverture.dejaInitialise = true;
 	}
+	protected Icone page_Init() {
+		if(!page_Couverture.dejaInitialise) {
+			_page_(page_Couverture);
+			if(page_ == null)
+				setPage_(page_Couverture.o);
+		}
+		page_Couverture.dejaInitialise(true);
+		return (Icone)this;
+	}
 
 	//////////////
 	// initLoin //
@@ -189,6 +157,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	public void initIcone() {
 		typeInit();
 		nomInit();
+		page_Init();
 	}
 
 	@Override public void initLoinPourClasse(RequeteSiteEnUS requeteSite_) {
@@ -322,7 +291,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), type, nom);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -335,9 +304,7 @@ public abstract class IconeGen<DEV> extends PagePart {
 		if(!(o instanceof Icone))
 			return false;
 		Icone that = (Icone)o;
-		return super.equals(o)
-				&& Objects.equals( type, that.type )
-				&& Objects.equals( nom, that.nom );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -348,8 +315,6 @@ public abstract class IconeGen<DEV> extends PagePart {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("Icone {");
-		sb.append( "type: " ).append(type);
-		sb.append( ", nom: " ).append(nom);
 		sb.append(" }");
 		return sb.toString();
 	}

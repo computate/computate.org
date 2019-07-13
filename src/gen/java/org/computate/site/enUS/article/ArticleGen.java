@@ -2354,6 +2354,7 @@ public abstract class ArticleGen<DEV> extends Cluster {
 			this.pageParts.add(o);
 		return (Article)this;
 	}
+	public abstract void avantPagePart(PagePart o, String entiteVar);
 	protected Article pagePartsInit() {
 		if(!pagePartsCouverture.dejaInitialise) {
 			_pageParts(pageParts);

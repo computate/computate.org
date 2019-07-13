@@ -179,54 +179,6 @@ public abstract class C001L004InstallerCentos7EnUSPageGen<DEV> extends C001L004I
 	public void htmlScriptC001L004InstallerCentos7EnUSPage() {
 	}
 
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L004InstallerCentos7EnUSPage();
-		super.html();
-	}
-
-	public void htmlC001L004InstallerCentos7EnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L004InstallerCentos7EnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L004InstallerCentos7EnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L004InstallerCentos7EnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L004InstallerCentos7EnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L004InstallerCentos7EnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L004InstallerCentos7EnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

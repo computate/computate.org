@@ -1051,7 +1051,7 @@ public abstract class C001L003InstallerMachineVirtuelleVirtualBoxGen<DEV> extend
 	public static final String creerMachineVirtuelleOlLi01 = creerMachineVirtuelleOlLi011;
 	public static final String creerMachineVirtuelleOlLi021 = "Cliquer [ New ]. ";
 	public static final String creerMachineVirtuelleOlLi02 = creerMachineVirtuelleOlLi021;
-	public static final String creerMachineVirtuelleOlLi031 = "Give your virtual machine a name, like \"vm1\". ";
+	public static final String creerMachineVirtuelleOlLi031 = "Donnez un nom à votre machine virtuelle, comme « mv1 ». ";
 	public static final String creerMachineVirtuelleOlLi03 = creerMachineVirtuelleOlLi031;
 	public static final String creerMachineVirtuelleOlLi041 = "Type: Linux";
 	public static final String creerMachineVirtuelleOlLi04 = creerMachineVirtuelleOlLi041;

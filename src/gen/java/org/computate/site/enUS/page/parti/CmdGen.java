@@ -9,7 +9,6 @@ import org.computate.site.enUS.couverture.Couverture;
 import org.computate.site.enUS.requete.RequeteSiteEnUS;
 import org.computate.site.enUS.chaine.Chaine;
 import org.apache.commons.text.StringEscapeUtils;
-import java.lang.String;
 import org.apache.commons.lang3.StringUtils;
 
 /**	
@@ -56,26 +55,6 @@ public abstract class CmdGen<DEV> extends QuestionReponse {
 		cmd.initLoinPourClasse(requeteSite_);
 		cmdCouverture.dejaInitialise(true);
 		return (Cmd)this;
-	}
-
-	public String solrCmd() {
-		return cmd == null ? null : cmd.toString();
-	}
-
-	public String strCmd() {
-		return cmd == null ? "" : cmd.toString();
-	}
-
-	public String nomAffichageCmd() {
-		return null;
-	}
-
-	public String htmTooltipCmd() {
-		return null;
-	}
-
-	public String htmCmd() {
-		return cmd == null ? "" : StringEscapeUtils.escapeHtml4(strCmd());
 	}
 
 	//////////////
@@ -227,7 +206,7 @@ public abstract class CmdGen<DEV> extends QuestionReponse {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(super.hashCode(), cmd);
+		return Objects.hash(super.hashCode());
 	}
 
 	////////////
@@ -240,8 +219,7 @@ public abstract class CmdGen<DEV> extends QuestionReponse {
 		if(!(o instanceof Cmd))
 			return false;
 		Cmd that = (Cmd)o;
-		return super.equals(o)
-				&& Objects.equals( cmd, that.cmd );
+		return super.equals(o);
 	}
 
 	//////////////
@@ -252,7 +230,6 @@ public abstract class CmdGen<DEV> extends QuestionReponse {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString() + "\n");
 		sb.append("Cmd {");
-		sb.append( "cmd: " ).append(cmd);
 		sb.append(" }");
 		return sb.toString();
 	}

@@ -62,6 +62,15 @@ public abstract class RequeteSiteEnUSGen<DEV> extends Object {
 		this.siteContexte_ = siteContexte_;
 		this.siteContexte_Couverture.dejaInitialise = true;
 	}
+	protected RequeteSiteEnUS siteContexte_Init() {
+		if(!siteContexte_Couverture.dejaInitialise) {
+			_siteContexte_(siteContexte_Couverture);
+			if(siteContexte_ == null)
+				setSiteContexte_(siteContexte_Couverture.o);
+		}
+		siteContexte_Couverture.dejaInitialise(true);
+		return (RequeteSiteEnUS)this;
+	}
 
 	/////////////////
 	// configSite_ //
@@ -89,6 +98,15 @@ public abstract class RequeteSiteEnUSGen<DEV> extends Object {
 		this.configSite_ = configSite_;
 		this.configSite_Couverture.dejaInitialise = true;
 	}
+	protected RequeteSiteEnUS configSite_Init() {
+		if(!configSite_Couverture.dejaInitialise) {
+			_configSite_(configSite_Couverture);
+			if(configSite_ == null)
+				setConfigSite_(configSite_Couverture.o);
+		}
+		configSite_Couverture.dejaInitialise(true);
+		return (RequeteSiteEnUS)this;
+	}
 
 	//////////////////
 	// requeteSite_ //
@@ -115,6 +133,15 @@ public abstract class RequeteSiteEnUSGen<DEV> extends Object {
 	public void setRequeteSite_(RequeteSiteEnUS requeteSite_) {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
+	}
+	protected RequeteSiteEnUS requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (RequeteSiteEnUS)this;
 	}
 
 	///////////
@@ -833,6 +860,79 @@ public abstract class RequeteSiteEnUSGen<DEV> extends Object {
 
 	public String htmUtilisateurNomComplet() {
 		return utilisateurNomComplet == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurNomComplet());
+	}
+
+	/////////////////////////////
+	// utilisateurRolesRoyaume //
+	/////////////////////////////
+
+	/**	L'entité « utilisateurRolesRoyaume »
+	 *	Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 */
+	protected List<String> utilisateurRolesRoyaume = new java.util.ArrayList<java.lang.String>();
+	public Couverture<List<String>> utilisateurRolesRoyaumeCouverture = new Couverture<List<String>>().p(this).c(List.class).var("utilisateurRolesRoyaume").o(utilisateurRolesRoyaume);
+
+	/**	<br/>L'entité « utilisateurRolesRoyaume »
+	 * Il est construit avant d'être initialisé avec le constructeur par défaut List<String>(). 
+	 * <br/><a href="http://localhost:10383/solr/computate/select?q=*:*&fq=partEstEntite_indexed_boolean:true&fq=classeNomCanonique_enUS_indexed_string:org.computate.site.enUS.requete.RequeteSiteEnUS&fq=classeEtendGen_indexed_boolean:true&fq=entiteVar_enUS_indexed_string:utilisateurRolesRoyaume">Trouver l'entité utilisateurRolesRoyaume dans Solr</a>
+	 * <br/>
+	 * @param utilisateurRolesRoyaume est l'entité déjà construit. 
+	 **/
+	protected abstract void _utilisateurRolesRoyaume(List<String> o);
+
+	public List<String> getUtilisateurRolesRoyaume() {
+		return utilisateurRolesRoyaume;
+	}
+
+	public void setUtilisateurRolesRoyaume(List<String> utilisateurRolesRoyaume) {
+		this.utilisateurRolesRoyaume = utilisateurRolesRoyaume;
+		this.utilisateurRolesRoyaumeCouverture.dejaInitialise = true;
+	}
+	public RequeteSiteEnUS addUtilisateurRolesRoyaume(String...objets) {
+		for(String o : objets) {
+			addUtilisateurRolesRoyaume(o);
+		}
+		return (RequeteSiteEnUS)this;
+	}
+	public RequeteSiteEnUS addUtilisateurRolesRoyaume(String o) {
+		if(o != null && !utilisateurRolesRoyaume.contains(o))
+			this.utilisateurRolesRoyaume.add(o);
+		return (RequeteSiteEnUS)this;
+	}
+	public RequeteSiteEnUS setUtilisateurRolesRoyaume(JsonArray objets) {
+		utilisateurRolesRoyaume.clear();
+		for(int i = 0; i < objets.size(); i++) {
+			String o = objets.getString(i);
+			addUtilisateurRolesRoyaume(o);
+		}
+		return (RequeteSiteEnUS)this;
+	}
+	protected RequeteSiteEnUS utilisateurRolesRoyaumeInit() {
+		if(!utilisateurRolesRoyaumeCouverture.dejaInitialise) {
+			_utilisateurRolesRoyaume(utilisateurRolesRoyaume);
+		}
+		utilisateurRolesRoyaumeCouverture.dejaInitialise(true);
+		return (RequeteSiteEnUS)this;
+	}
+
+	public List<String> solrUtilisateurRolesRoyaume() {
+		return utilisateurRolesRoyaume;
+	}
+
+	public String strUtilisateurRolesRoyaume() {
+		return utilisateurRolesRoyaume == null ? "" : utilisateurRolesRoyaume.toString();
+	}
+
+	public String nomAffichageUtilisateurRolesRoyaume() {
+		return null;
+	}
+
+	public String htmTooltipUtilisateurRolesRoyaume() {
+		return null;
+	}
+
+	public String htmUtilisateurRolesRoyaume() {
+		return utilisateurRolesRoyaume == null ? "" : StringEscapeUtils.escapeHtml4(strUtilisateurRolesRoyaume());
 	}
 
 	//////////////////////////
@@ -1618,6 +1718,9 @@ public abstract class RequeteSiteEnUSGen<DEV> extends Object {
 	}
 
 	public void initRequeteSiteEnUS() {
+		siteContexte_Init();
+		configSite_Init();
+		requeteSite_Init();
 		vertxInit();
 		objetJsonInit();
 		rechercheSolrInit();
@@ -1634,6 +1737,7 @@ public abstract class RequeteSiteEnUSGen<DEV> extends Object {
 		utilisateurNomFamilleInit();
 		utilisateurPrenomInit();
 		utilisateurNomCompletInit();
+		utilisateurRolesRoyaumeInit();
 		utilisateurRessourceInit();
 		utilisateurRolesRessourceInit();
 		utilisateurSiteInit();
@@ -1730,6 +1834,8 @@ public abstract class RequeteSiteEnUSGen<DEV> extends Object {
 				return oRequeteSiteEnUS.utilisateurPrenom;
 			case "utilisateurNomComplet":
 				return oRequeteSiteEnUS.utilisateurNomComplet;
+			case "utilisateurRolesRoyaume":
+				return oRequeteSiteEnUS.utilisateurRolesRoyaume;
 			case "utilisateurRessource":
 				return oRequeteSiteEnUS.utilisateurRessource;
 			case "utilisateurRolesRessource":

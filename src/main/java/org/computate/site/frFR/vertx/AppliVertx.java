@@ -8,6 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.impl.CloudSolrClient;
+import org.apache.solr.client.solrj.impl.HttpClientUtil;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.computate.site.enUS.article.ArticleEnUSGenApiService;
 import org.computate.site.enUS.cluster.ClusterEnUSGenApiService;
@@ -57,6 +60,14 @@ import org.computate.site.frFR.page.faq.PageFaqFrFRGenApiService;
 import org.computate.site.frFR.requete.RequeteSiteFrFR;
 import org.computate.site.frFR.utilisateur.UtilisateurSiteFrFRGenApiService;
 
+import io.opentracing.Span;
+import io.opentracing.SpanContext;
+import io.opentracing.Tracer;
+import io.opentracing.Tracer.SpanBuilder;
+import io.opentracing.contrib.solr.TracingHttpClient;
+import io.opentracing.contrib.solr.TracingHttpSolrClientBuilder;
+import io.opentracing.contrib.vertx.ext.web.TracingHandler;
+import io.opentracing.util.GlobalTracer;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.WorkerExecutor;
@@ -118,16 +129,10 @@ public class AppliVertx extends AbstractVerticle {
 
 		SiteContexteFrFR siteContexteFrFR = new SiteContexteFrFR();
 		siteContexteFrFR.setVertx(vertx);
-		RequeteSiteFrFR requeteSiteFrFR = new RequeteSiteFrFR();
-		requeteSiteFrFR.setSiteContexte_(siteContexteFrFR);
-		requeteSiteFrFR.initLoinRequeteSiteFrFR();
 		siteContexteFrFR.initLoinSiteContexteFrFR();
 
 		SiteContexteEnUS siteContexteEnUS = new SiteContexteEnUS();
 		siteContexteEnUS.setVertx(vertx);
-		RequeteSiteEnUS requeteSiteEnUS = new RequeteSiteEnUS();
-		requeteSiteEnUS.setSiteContexte_(siteContexteEnUS);
-		requeteSiteEnUS.initLoinRequeteSiteEnUS();
 		siteContexteEnUS.initLoinSiteContexteEnUS();
 
 		Future<Void> etapesFutures = preparerDonnees(siteContexteFrFR, siteContexteEnUS).compose(a -> 
@@ -141,11 +146,6 @@ public class AppliVertx extends AbstractVerticle {
 				)
 			)
 		);
-//		Future<Void> etapesFutures = configurerCluster(siteContexteFrFR).compose(b -> 
-//			configurerOpenApi(siteContexteFrFR, siteContexteEnUS).compose(c -> 
-//				demarrerServeur(siteContexteFrFR, siteContexteEnUS)
-//			)
-//		);
 		etapesFutures.setHandler(demarrerFuture.completer());
 	}
 
@@ -496,6 +496,9 @@ public class AppliVertx extends AbstractVerticle {
 
 		Router siteRouteur = siteContexteFrFR.getUsineRouteur().getRouter();
 		// siteContexte.setSiteRouteur_(siteRouteur);
+
+
+//		siteRouteur.route().order(-2).handler(siteContexteFrFR.getSiteTracingHandler()).failureHandler(siteContexteFrFR.getSiteTracingHandler());
 
 		StaticHandler staticHandler = StaticHandler.create().setCachingEnabled(false).setFilesReadOnly(true);
 		if("site.computate.org".equals(configSite.getSiteNomHote())) {

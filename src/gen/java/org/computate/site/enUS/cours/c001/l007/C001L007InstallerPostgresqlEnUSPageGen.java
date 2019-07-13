@@ -179,54 +179,6 @@ public abstract class C001L007InstallerPostgresqlEnUSPageGen<DEV> extends C001L0
 	public void htmlScriptC001L007InstallerPostgresqlEnUSPage() {
 	}
 
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L007InstallerPostgresqlEnUSPage();
-		super.html();
-	}
-
-	public void htmlC001L007InstallerPostgresqlEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L007InstallerPostgresqlEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L007InstallerPostgresqlEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L007InstallerPostgresqlEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L007InstallerPostgresqlEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L007InstallerPostgresqlEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L007InstallerPostgresqlEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

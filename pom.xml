@@ -217,6 +217,23 @@
 			<artifactId>vertx-health-check</artifactId>
 			<version>${vertx.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-vertx-web</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-solr-client</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>4.12</version>
+		</dependency>
+
 
 		<!-- <dependency> <groupId>com.github.phiz71</groupId> <artifactId>vertx-swagger-parent</artifactId> 
 			<version>1.6.0</version> <type>pom</type> </dependency> <dependency> <groupId>com.github.phiz71</groupId> 
@@ -294,11 +311,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-			<!-- <plugin> <groupId>io.fabric8</groupId> <artifactId>fabric8-maven-plugin</artifactId> 
-				<version>${fabric8-maven-plugin.version}</version> <executions> <execution> 
-				<goals> <goal>resource</goal> <goal>build</goal> </goals> </execution> </executions> 
-				</plugin> -->
 		</plugins>
 	</build>
 	<profiles>

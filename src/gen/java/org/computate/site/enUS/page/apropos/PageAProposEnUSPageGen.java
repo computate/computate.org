@@ -167,66 +167,6 @@ public abstract class PageAProposEnUSPageGen<DEV> extends PageAProposEnUSGenPage
 	public void htmlBodyCourtPageAProposEnUSPage() {
 	}
 
-	////////////////
-	// htmlScript //
-	////////////////
-
-	@Override public void htmlScript() {
-		htmlScriptPageAProposEnUSPage();
-		super.htmlScript();
-	}
-
-	public void htmlScriptPageAProposEnUSPage() {
-	}
-
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlPageAProposEnUSPage();
-		super.html();
-	}
-
-	public void htmlPageAProposEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaPageAProposEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaPageAProposEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesPageAProposEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesPageAProposEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStylePageAProposEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStylePageAProposEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

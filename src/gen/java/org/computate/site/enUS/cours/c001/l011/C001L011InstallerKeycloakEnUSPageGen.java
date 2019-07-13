@@ -179,54 +179,6 @@ public abstract class C001L011InstallerKeycloakEnUSPageGen<DEV> extends C001L011
 	public void htmlScriptC001L011InstallerKeycloakEnUSPage() {
 	}
 
-	//////////
-	// html //
-	//////////
-
-	@Override public void html() {
-		htmlC001L011InstallerKeycloakEnUSPage();
-		super.html();
-	}
-
-	public void htmlC001L011InstallerKeycloakEnUSPage() {
-	}
-
-	//////////////
-	// htmlMeta //
-	//////////////
-
-	@Override public void htmlMeta() {
-		htmlMetaC001L011InstallerKeycloakEnUSPage();
-		super.htmlMeta();
-	}
-
-	public void htmlMetaC001L011InstallerKeycloakEnUSPage() {
-	}
-
-	////////////////
-	// htmlStyles //
-	////////////////
-
-	@Override public void htmlStyles() {
-		htmlStylesC001L011InstallerKeycloakEnUSPage();
-		super.htmlStyles();
-	}
-
-	public void htmlStylesC001L011InstallerKeycloakEnUSPage() {
-	}
-
-	///////////////
-	// htmlStyle //
-	///////////////
-
-	@Override public void htmlStyle() {
-		htmlStyleC001L011InstallerKeycloakEnUSPage();
-		super.htmlStyle();
-	}
-
-	public void htmlStyleC001L011InstallerKeycloakEnUSPage() {
-	}
-
 	//////////////
 	// hashCode //
 	//////////////

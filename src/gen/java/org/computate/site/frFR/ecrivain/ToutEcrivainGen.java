@@ -48,6 +48,15 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 		this.requeteSite_ = requeteSite_;
 		this.requeteSite_Couverture.dejaInitialise = true;
 	}
+	protected ToutEcrivain requeteSite_Init() {
+		if(!requeteSite_Couverture.dejaInitialise) {
+			_requeteSite_(requeteSite_Couverture);
+			if(requeteSite_ == null)
+				setRequeteSite_(requeteSite_Couverture.o);
+		}
+		requeteSite_Couverture.dejaInitialise(true);
+		return (ToutEcrivain)this;
+	}
 
 	////////////
 	// tabStr //
@@ -330,6 +339,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 	}
 
 	public void initToutEcrivain() {
+		requeteSite_Init();
 		tabStrInit();
 		fichierInit();
 		ecrivainStringInit();
@@ -448,7 +458,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 	//////////////
 
 	@Override public int hashCode() {
-		return Objects.hash(tabStr, vide);
+		return Objects.hash();
 	}
 
 	////////////
@@ -461,8 +471,7 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 		if(!(o instanceof ToutEcrivain))
 			return false;
 		ToutEcrivain that = (ToutEcrivain)o;
-		return Objects.equals( tabStr, that.tabStr )
-				&& Objects.equals( vide, that.vide );
+		return true;
 	}
 
 	//////////////
@@ -472,8 +481,6 @@ public abstract class ToutEcrivainGen<DEV> extends Object {
 	@Override public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ToutEcrivain {");
-		sb.append( "tabStr: \"" ).append(tabStr).append( "\"" );
-		sb.append( ", vide: " ).append(vide);
 		sb.append(" }");
 		return sb.toString();
 	}
