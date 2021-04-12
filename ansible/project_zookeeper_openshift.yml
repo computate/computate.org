@@ -1,0 +1,8 @@
+---
+- name: Install zookeeper on OpenShift
+  hosts: localhost
+  connection: local
+  vars_files:
+    - "{{ PROJECT_ANSIBLE_INVENTORY }}/vaults/{{ VAULT_ID }}/vault"
+  roles:
+    - project_zookeeper_openshift
