@@ -5,4 +5,5 @@
 # Milestone: Automate Search Engine Deployment
 # Column: Automate Search Engine Deployment
 
+PROJECT_ANSIBLE_INVENTORY: /usr/local/src/computate.org-ansible
 REDHAT_OPENSHIFT_STORAGE_CLASS_NAME: gp2
