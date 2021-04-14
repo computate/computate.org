@@ -37,7 +37,7 @@ ZOOKEEPER_NAMESPACE: "{{REDHAT_OPENSHIFT_NAMESPACE}}"
 # The Zookeeper volume size for Zookeeper files.
 ZOOKEEPER_VOLUME_SIZE: 1Gi
 # The default hostname for the Zookeeper cluster manager.
-ZOOKEEPER_HOST_NAME: "computate-zookeeper.{{ZOOKEEPER_NAMESPACE}}.svc"
+ZOOKEEPER_HOST_NAME: "zookeeper.{{ZOOKEEPER_NAMESPACE}}.svc"
 
 #################
 # Solr defaults #
@@ -54,7 +54,7 @@ SOLR_NAMESPACE: "{{REDHAT_OPENSHIFT_NAMESPACE}}"
 # The Solr volume size for Solr files.
 SOLR_VOLUME_SIZE: 2Gi
 # The default hostname for the Solr search engine.
-SOLR_HOST_NAME: "computate-solr.{{SOLR_NAMESPACE}}.svc"
+SOLR_HOST_NAME: "solr.{{SOLR_NAMESPACE}}.svc"
 
 #######################
 # PostgreSQL defaults #

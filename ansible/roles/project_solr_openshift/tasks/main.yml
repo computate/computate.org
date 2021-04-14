@@ -5,42 +5,76 @@
 # Milestone: Automate Search Engine Deployment
 # Column: Automate Search Engine Deployment
 
-- name: Install computate-solr image stream on OpenShift
+- name: Install solr configset configmap
+  k8s:
+    state: present
+    name: solr-configset
+    host: "{{ZOOKEEPER_HOST}}"
+    api_key: "{{ZOOKEEPER_TOKEN}}"
+    namespace: "{{ZOOKEEPER_NAMESPACE}}"
+    definition: "{{ lookup('template', 'project_solr_configset_configmap.yml') }}"
+    validate_certs: false
+
+- name: Install solr keystore
+  k8s:
+    state: present
+    name: solr-keystore
+    host: "{{ZOOKEEPER_HOST}}"
+    api_key: "{{ZOOKEEPER_TOKEN}}"
+    namespace: "{{ZOOKEEPER_NAMESPACE}}"
+    definition: "{{ lookup('template', 'project_solr_keystore.yml') }}"
+    validate_certs: false
+
+- name: Install solr ssl secret
+  k8s:
+    state: present
+    name: solr-bin-secret
+    host: "{{ZOOKEEPER_HOST}}"
+    api_key: "{{ZOOKEEPER_TOKEN}}"
+    namespace: "{{ZOOKEEPER_NAMESPACE}}"
+    definition: "{{ lookup('template', 'project_solr_bin_secret.yml') }}"
+    validate_certs: false
+
+- name: Install solr image stream on OpenShift
   k8s: 
     state: present
-    name: computate-solr-image-stream
+    name: solr-image-stream
     host: "{{SOLR_HOST}}"
     api_key: "{{SOLR_TOKEN}}"
     namespace: "{{SOLR_NAMESPACE}}"
     definition: "{{ lookup('template', 'project_solr_image_stream.yml') }}"
     validate_certs: false
 
-- name: Install computate-solr persistent volume claim on OpenShift
+- name: Install solr persistent volume claim on OpenShift
   k8s: 
     state: present
-    name: computate-solr-persistent-volume-claim
+    name: solr-persistent-volume-claim
     host: "{{SOLR_HOST}}"
     api_key: "{{SOLR_TOKEN}}"
     namespace: "{{SOLR_NAMESPACE}}"
     definition: "{{ lookup('template', 'project_solr_persistent_volume_claim.yml') }}"
     validate_certs: false
 
-- name: Install computate-solr deployment config on OpenShift
+- name: Install solr deployment config on OpenShift
   k8s: 
     state: present
-    name: computate-solr
+    name: solr
     host: "{{SOLR_HOST}}"
     api_key: "{{SOLR_TOKEN}}"
     namespace: "{{SOLR_NAMESPACE}}"
     definition: "{{ lookup('template', 'project_solr_deployment_config.yml') }}"
     validate_certs: false
 
-- name: Install computate-solr service on OpenShift
+- name: Install solr service on OpenShift
   k8s: 
     state: present
-    name: computate-solr
+    name: solr
     host: "{{SOLR_HOST}}"
     api_key: "{{SOLR_TOKEN}}"
     namespace: "{{SOLR_NAMESPACE}}"
     definition: "{{ lookup('template', 'project_solr_service.yml') }}"
     validate_certs: false
+
+- name: Upload security configuration to zookeeper
+  shell: "oc login {{SOLR_HOST}} --token={{SOLR_TOKEN}} && oc exec $(oc get pod -l app=solr -o jsonpath='{.items[0].metadata.name}') -n {{SOLR_NAMESPACE}} -- {{SOLR_OPT}}/bin/solr auth enable -credentials '{{ SOLR_USER }}:{{ SOLR_PASSWORD }}' -blockUnknown true"
+  ignore_errors: true

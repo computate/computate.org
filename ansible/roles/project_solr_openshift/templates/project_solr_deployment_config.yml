@@ -11,9 +11,9 @@ spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
-    app: computate-solr
-    deploymentConfig: computate-solr
-    deploymentconfig: computate-solr
+    app: solr
+    deploymentConfig: solr
+    deploymentconfig: solr
   strategy:
     activeDeadlineSeconds: 21600
     recreateParams:
@@ -32,18 +32,20 @@ spec:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        app: computate-solr
-        application: computate-solr
-        deploymentConfig: computate-solr
-        deploymentconfig: computate-solr
-      name: computate-solr
+        app: solr
+        application: solr
+        deploymentConfig: solr
+        deploymentconfig: solr
+      name: solr
     spec:
       containers:
         - env:
-            - name: ZK_HOSTNAME
+            - name: ZK_HOST
               value: {{ZOOKEEPER_HOST_NAME}}
+            - name: SOLR_INCLUDE
+              value: /usr/share/solr/solr.in.sh
           imagePullPolicy: Always
-          name: computate-solr
+          name: solr
           ports:
             - containerPort: {{SOLR_PORT}}
               name: solr-port
@@ -56,26 +58,44 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-            - mountPath: /opt/solr/data
-              name: computate-solr-data-volume
+            - mountPath: /var/solr
+              name: solr-data-volume
+            - mountPath: "{{SOLR_OPT}}/server/solr/configsets/computate/conf"
+              name: solr-configset
+            - mountPath: "{{SOLR_OPT}}/keystore"
+              name: solr-keystore
+            - mountPath: "/usr/share/solr"
+              name: solr-bin-secret
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
       volumes:
-        - name: computate-solr-data-volume
+        - name: solr-data-volume
           persistentVolumeClaim:
-            claimName: computate-solr-persistent-volume-claim
+            claimName: solr-persistent-volume-claim
+        - name: solr-configset
+          configMap:
+            defaultMode: 440
+            name: solr-configset
+        - name: solr-keystore
+          secret:
+            defaultMode: 440
+            secretName: solr-keystore
+        - name: solr-bin-secret
+          secret:
+            defaultMode: 0777
+            secretName: solr-bin-secret
   test: false
   triggers:
     - imageChangeParams:
         automatic: true
         containerNames:
-          - computate-solr
+          - solr
         from:
           kind: ImageStreamTag
-          name: 'computate-solr-image-stream:latest'
+          name: 'solr-image-stream:{{ SOLR_VERSION }}'
           namespace: {{SOLR_NAMESPACE}}
       type: ImageChange
     - type: ConfigChange

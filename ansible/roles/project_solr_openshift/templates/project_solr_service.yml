@@ -14,7 +14,7 @@ spec:
       protocol: TCP
       targetPort: 8983
   selector:
-    app: computate-solr
-    deploymentconfig: computate-solr
+    app: solr
+    deploymentconfig: solr
   sessionAffinity: None
   type: ClusterIP

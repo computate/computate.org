@@ -14,9 +14,9 @@ spec:
     - annotations: null
       from:
         kind: DockerImage
-        name: quay.io/computate/computate-solr
+        name: solr
       generation: 1
       importPolicy: {}
-      name: latest
+      name: {{ SOLR_VERSION }}
       referencePolicy:
         type: Source

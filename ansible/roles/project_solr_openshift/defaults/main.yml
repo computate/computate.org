@@ -5,5 +5,12 @@
 # Milestone: Automate Search Engine Deployment
 # Column: Automate Search Engine Deployment
 
+SOLR_VERSION: 8.8.1
+SSL_KEYSTORE_PATH: /opt/keystore
+SSL_JKS_FILENAME: "{{ SSL_ALIAS }}.jks"
+SSL_JKS_PATH: "{{ SSL_KEYSTORE_PATH }}/{{ SSL_JKS_FILENAME }}"
+SSL_JKS_PASSWORD: "..."
+SSL_JKS_BASE64: "{{ lookup('file', '{{ SSL_JKS_PATH }}') | b64encode }}"
+SOLR_OPT: /opt/solr
 PROJECT_ANSIBLE_INVENTORY: /usr/local/src/computate.org-ansible
 REDHAT_OPENSHIFT_STORAGE_CLASS_NAME: gp2
