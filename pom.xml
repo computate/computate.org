@@ -272,7 +272,7 @@
 						</goals>
 						<configuration>
 							<files>
-								<file>/usr/local/src/computate.org/config/keystore.properties</file>
+								<file>/opt/keystore/computate.org-keystore.properties</file>
 							</files>
 						</configuration>
 					</execution>
