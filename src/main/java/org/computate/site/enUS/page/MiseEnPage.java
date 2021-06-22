@@ -572,6 +572,14 @@ public class MiseEnPage extends MiseEnPageGen<Object> {
 					g("a");
 				g("div");
 			}
+			e("div").a("class", "site-bar-item w3-bar-item ").f();
+				e("br").fg();
+				e("form").a("action", "https://www.paypal.com/donate").a("method", "post").a("target", "_top").f(); 
+					e("input").a("type", "hidden").a("name", "hosted_button_id").a("value", "62M7FM26P22K6").fg();
+					e("input").a("type", "image").a("src", "https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif").a("border", "0").a("name", "submit").a("title", "PayPal - The safer, easier way to pay online!").a("alt", "Donate with PayPal button").fg();
+					e("img").a("alt", "").a("border", "0").a("src", "https://www.paypal.com/en_US/i/scr/pixel.gif").a("width", "1").a("height", "1").fg();
+				g("form");
+			g("div");
 		g("div");
 	}
 
