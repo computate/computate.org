@@ -24,6 +24,7 @@
     namespace: "{{ZOOKEEPER_NAMESPACE}}"
     definition: "{{ lookup('template', 'project_solr_keystore.yml') }}"
     validate_certs: false
+  when: ENABLE_SOLR_SSL
 
 - name: Install solr ssl secret
   k8s:
@@ -34,6 +35,7 @@
     namespace: "{{ZOOKEEPER_NAMESPACE}}"
     definition: "{{ lookup('template', 'project_solr_bin_secret.yml') }}"
     validate_certs: false
+  when: ENABLE_SOLR_SSL
 
 - name: Install solr image stream on OpenShift
   k8s: 
@@ -78,3 +80,9 @@
 - name: Upload security configuration to zookeeper
   shell: "oc login {{SOLR_HOST}} --token={{SOLR_TOKEN}} && oc exec $(oc get pod -l app=solr -o jsonpath='{.items[0].metadata.name}') -n {{SOLR_NAMESPACE}} -- {{SOLR_OPT}}/bin/solr auth enable -credentials '{{ SOLR_USER }}:{{ SOLR_PASSWORD }}' -blockUnknown true"
   ignore_errors: true
+  when: ENABLE_SOLR_BASIC_AUTH
+
+- name: Register https property to zookeeper
+  shell: "oc login {{SOLR_HOST}} --token={{SOLR_TOKEN}} && oc exec $(oc get pod -l app=solr -o jsonpath='{.items[0].metadata.name}') -n {{SOLR_NAMESPACE}} -- {{SOLR_OPT}}/server/scripts/cloud-scripts/zkcli.sh -zkhost {{ ZOOKEEPER_HOST_NAME }}:{{ ZOOKEEPER_PORT }} -cmd clusterprop -name urlScheme -val https"
+  ignore_errors: true
+  when: ENABLE_SOLR_SSL

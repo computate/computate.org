@@ -44,6 +44,8 @@ spec:
               value: {{ZOOKEEPER_HOST_NAME}}
             - name: SOLR_INCLUDE
               value: /usr/share/solr/solr.in.sh
+            - name: SOLR_HOST
+              value: {{ SOLR_HOST_NAME }}
           imagePullPolicy: Always
           name: solr
           ports:
